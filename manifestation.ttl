@@ -1,0 +1,154 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix cimanif: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie-ine.ch/ontology/event#>.
+@prefix human: <http://www.nie-ine.ch/ontology/human#>.
+@prefix image: <http://www.nie-ine.ch/ontology/image#>.
+@prefix text: <http://www.nie-ine.ch/ontology/text#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix manif: <http://www.nie-ine.ch/ontology/manifestation#>.
+
+<http://www.nie-ine.ch/ontology/manifestation>
+	a owl:Ontology;
+	dct:title "An ontology about document"@en;
+	dct:description """Formal description of a document in broadest sense, general subclasses, related classes, and properties."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en.
+
+# general:
+	# DB: mapping to mysql elements
+		# KR: Kuno Raeber
+		# PL: Petrus Lombardus
+	# TBS: to be specified
+
+#
+# CLASSES
+#
+
+manif:Convolute
+	a rdfs:Class;
+	rdfs:label "convolute"@en, "Konvolut"@de;
+	rdfs:comment """Text expressions, e.g. notes, manuscripts, typoscripts or prints, physically gathered as one."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
+
+# manif:Book
+# 	a owl:Class;
+# 	rdfs:subClassOf kb:Resource, [ # fabio:Book
+# 		a owl:Restriction; owl:onProperty krd:createdBy; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+
+manif:Notebook # DB KR: jsmwh_k2_categories - parent
+	a rdfs:Class;
+	rdfs:label "notebook"@en,"Notizbuch"@de;
+	rdfs:comment """Book wherein notes are written."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource, [ # restrictions to be KBO compatible # fabio:Notebook
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories- name
+		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - description
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # 1. DB KR: jsmwh_k2_categories - image
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentationLinkValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # triple reification
+		a owl:Restriction; owl:onProperty image:hasImage; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # 2. DB KR: jsmwh_k2_categories - image # outside KS
+
+manif:Manuscript # DB KR: jsmwh_k2_categories - parent # DB PL: RCS_MANIFEST - TYPE
+	a rdfs:Class;
+	rdfs:label "manuscript"@en, "Manuskript"@de;
+	rdfs:comment """Handwritten document."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
+#		[a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# check bibo:Manuscript
+
+manif:Typescript # DB KR: jsmwh_k2_categories - parent
+	a rdfs:Class;
+	rdfs:label "typescript"@en, "Typoskript"@de;
+	rdfs:comment """Document containing text written with a typewriter."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
+
+manif:Print # DB KR: jsmwh_k2_categories - parent
+	a rdfs:Class;
+	rdfs:label "print"@en, "Druck"@de;
+	rdfs:comment """Document containing printed text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F5_Item, kb:Resource.
+
+
+# cardinality: cf. http://wiki.nie-ine.ch/doku.php?id=kuno_raebers_lyrisches_werk_-_historisch-kritische_online-edition#vorbereitung_fuer_das_scrum-planungs-meeting_am_26_april_2017
+#							    Notizbuch 	Manuskript 	Typoskript 	Druck
+# Bild							ja 			ja 			ja 			nein
+# konstituierter Text			ja 			ja 			ja 			ja
+# Diplomatische Umschrift 		ja 			ja 			nein 		nein 
+		
+
+# kb:DocumentRepresentation
+
+manif:Letter
+	a rdfs:Class;
+	rdfs:label "letter"@en;
+	rdfs:comment """Written text intended to be send to one or more persons or an organization."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf F4_Manifestation_Singleton, kb:Resource, [
+		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty manif:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty manif:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# manif:Sender
+# manif:Receiver
+
+# manif:hasSender
+# manif:hasReceiver
+
+#
+# PROPERTIES
+#
+
+manif:hasDocumentRepresentation
+	a owl:ObjectProperty;
+	rdfs:label "has document representation"@en;
+	rdfs:comment """Relating a person in author role to a text the person authored."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subPropertyOf skos:definition;
+#	owl:propertyChainAxiom (agent-actsIn-authoring-/hasOutput-[hasObject-poem]/hasOutputObject-poem);
+	rdfs:domain [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+	rdfs:range text:Expression;
+	kb:subjectClassConstraint manif:Document; # e.g. :Notebook a manifestation
+	kb:objectClassConstraint kb:DocumentRepresentation.
+
+# kb:hasDocumentFileValue
+
+# kb:DocumentFileValue
+
+manif:hasPage
+	a owl:ObjectProperty;
+	rdfs:label "has page"@en;
+	rdfs:comment """Relating a ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:domain manif:Book;
+	rdfs:range manif:Page;
+	kb:subjectClassConstraint manif:Book;
+	kb:objectClassConstraint manif:Page.
+
+manif:hasPublicationDate
+	a owl:DatatypeProperty, owl:FunctionalProperty;
+	rdfs:label "has publication date"@en;
+	rdfs:comment """Relates a resource to a date on which it is published."@en;
+	skos:note """The date can be expressed in three formats:
+	- yyyy-mm-dd (i.e., xsd:date)
+	- yyyy-mm (i.e., xsd:gYearMonth)
+	- yyyy (i.e., xsd:gYear)"""@en;
+    rdfs:domain : ;
+    rdfs:range [a rdfs:Datatype; owl:unionOf ( xsd:date xsd:gYear xsd:gYearMonth )];
+    rdfs:subPropertyOf : .
+
+# disclosureDate
+
+
+
+

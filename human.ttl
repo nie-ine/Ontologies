@@ -116,232 +116,6 @@ human:BiologicalGender
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	owl:oneOf (human:FemaleGender human:IntersexualGender human:MaleGender).
 
-human:FemaleGender
-	a rdfs:Class, human:BiologicalGender;
-	rdfs:label "humanly female"@en;
-	rdfs:comment """Being of a human female gender."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:IntersexualGender
-	a rdfs:Class, human:BiologicalGender;
-	rdfs:label """humanly intersexual"""@en;
-	rdfs:comment """Being of a gender that is neither male or female, with biological characteristics of both."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:MaleGender
-	a rdfs:Class, human:BiologicalGender;
-	rdfs:label "humanly male"@en;
-	rdfs:comment """Being of a human male gender."""@en;
-#	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:Female
-	a rdfs:Class;
-	rdfs:label "human female"@en;
-	rdfs:comment """Human of a female biological gender."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Human, [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:allValuesFrom human:FemaleGender].
-
-human:Intersexual
-	a rdfs:Class;
-	rdfs:label "human intersexual"@en;
-	rdfs:comment """Human of the intersexual biological gender."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Human, [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:allValuesFrom human:IntersexualGender].
-
-human:Male
-	a rdfs:Class;
-	rdfs:label "human male"@en;
-	rdfs:comment """Human of the male biological gender."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Human, [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:allValuesFrom human:MaleGender].
-
-human:ImmatureHuman
-	a rdfs:Class;
-	rdfs:label """immature human"""@en;
-	rdfs:comment """Biologically not full-grown person."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Person. # organism:ImmatureOrganism
-
-human:BiologicalAdult
-	a rdfs:Class;
-	rdfs:label "biologically adult human"@en;
-	rdfs:comment """Person having attained reproductive ability or evidencing secondary sex characteristics."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Person. # , [ # organism:MatureOrganism
-#		a owl:Restriction; owl:onProperty organism:hasChild; owl:allValuesFrom human:Person].
-
-human:LegalAdult
-	a rdfs:Class;
-	rdfs:label "legally adult human"@en;
-	rdfs:comment """Person being adult as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en;
-	rdfs:subClassOf human:Person.
-
-human:Woman
-	a rdfs:Class;
-	rdfs:label "woman"@en;
-	rdfs:comment """Adult human female."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Female, human:BiologicalAdult.
-
-human:Women
-	a rdfs:Class;
-	rdfs:label "women"@en;
-	rdfs:comment """Group of which a member is a woman."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	owl:disjointWith human:Men;
-	rdfs:subClassOf foaf:Group, [
-		a owl:Restriction; owl:onProperty foaf:member; owl:someValuesFrom human:Woman].
-	
-human:PregnantWoman
-	a rdfs:Class;
-	rdfs:label "pregnant woman"@en;
-	rdfs:comment """Woman with offspring developing in her body."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Woman. # organism:PregnantOrganism.
-
-human:Man
-	a rdfs:Class;
-	rdfs:label "man"@en;
-	rdfs:comment """Adult human male."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:Male, human:BiologicalAdult.
-
-human:Men
-	a rdfs:Class;
-	rdfs:label "men"@en;
-	rdfs:comment """Group of which a member is a man."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf foaf:Group, [
-		a owl:Restriction; owl:onProperty foaf:member; owl:someValuesFrom human:Man].
-
-human:BiologicalParent
-	a rdfs:Class;
-	rdfs:label "biological human parent"@en;
-	rdfs:comment """First grade living ascendant of a human."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:BiologicalAdult. # organism:Parent.
-
-human:BiologicalMother
-	a rdfs:Class;
-	rdfs:label "biological mother"@en;
-	rdfs:comment """Female biological parent of a human."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:BiologicalParent, human:Woman.
-
-human:BiologicalFather
-	a rdfs:Class;
-	rdfs:label "biological father"@en;
-	rdfs:comment """Male biological parent of a human."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:BiologicalParent, human:Man.
-
-human:LegalParent
-	a rdfs:Class;
-	rdfs:label "legal human parent"@en;
-	rdfs:comment """Parent of a human as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en.
-
-human:LegalMother
-	a rdfs:Class;
-	rdfs:label "legal mother"@en;
-	rdfs:comment """Female parent of a human as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en;
-	rdfs:subClassOf human:Woman.
-
-human:LegalFather
-	a rdfs:Class;
-	rdfs:label "legal father"@en;
-	rdfs:comment """Male parent of a human as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en;
-	rdfs:subClassOf human:Man.
-
-human:Wife
-	a rdfs:Class;
-	rdfs:label "wife"@en;
-	rdfs:comment """Female partner in a marriage as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en;
-	rdfs:subClassOf human:Woman.
-
-human:Husband
-	a rdfs:Class;
-	rdfs:label "husband"@en;
-	rdfs:comment """Male partner in a marriage as stated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en;
-	rdfs:subClassOf human:Man.
-
-human:Partner
-	a rdfs:Class;
-	rdfs:label "partner"@en;
-	rdfs:comment """Partner in a relationship."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-# human:BiologicalBrother
-
-# human:LegalBrother
-
-# human:BiologicalSister
-
-# human:LegalSister
-
-# human:BiologicalCousin
-
-# human:LegalCousin
-
-human:BiologicalChild
-	a rdfs:Class;
-	rdfs:label "biological child"@en;
-	skos:definition """First grade living descendant of a human."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:BiologicalChildren
-	a rdfs:Class;
-	rdfs:label "biological children"@en;
-	skos:definition """Children of the same biological parent(s)."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:Offspring
-	a rdfs:Class;
-	rdfs:label "biological offspring"@en;
-	skos:definition """Descendant(s) of the same biological parent(s)."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-# human:LegalChild
-
-# human:BiologicalSon
-
-# human:LegalSon
-
-# human:BiologicalDaughter
-
-# human:LegalDaughter
-
-# human:BiologicalGrandson
-
-# human:LegalGrandson
-
-# human:BiologicalGranddaughter
-
-# human:LegalGranddaughter
-
-# human:BiologicalNephew
-
-# human:LegalNephew
-
-# human:BiologicalNiece
-
-# human:LegalNiece
-
 human:Role
 	a rdfs:Class;
 	rdfs:label "person role"@en;
@@ -362,39 +136,6 @@ human:OccupationalRole
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:subClassOf human:Role.
-
-human:OccupationalState
-	a rdfs:Class;
-	rdfs:label "occupational state"@en;
-	rdfs:comment """State of a person concerning an occupation."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf event:State;
-	owl:oneOf (human:Working human:Retired human:OnSickLeave human:Unemployed).
-
-human:Working
-	a rdfs:Class, human:OccupationalState;
-	rdfs:label "working"@en;
-	rdfs:comment """Occupational state of having an occupation."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:Retired
-	a rdfs:Class, human:OccupationalState;
-	rdfs:label "retired"@en;
-	rdfs:comment """Occupational state of having stopped working at a certain age as regulated by law."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	skos:note """Further restriction given along specific law."""@en.
-
-human:OnSickLeave
-	a rdfs:Class, human:OccupationalState;
-	rdfs:label """on sick leave"""@en;
-	rdfs:comment """Occupational state of having stopped working due to a health disorder."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
-
-human:Unemployed
-	a rdfs:Class, human:OccupationalState;
-	rdfs:label "unemployed"@en;
-	rdfs:comment """Occupational state of not having an occupation."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
 
 human:Floruit # to move to agent:
 	a rdfs:Class;
@@ -457,17 +198,11 @@ human:hasBiologicalGender
 	kb:subjectClassConstraint human:Human; # Knora requirement
 	kb:objectClassConstraint human:BiologicalGender. # Knora requirement
 
-# human:begins
-
-# human:beginDate
-
 human:hasBirthDateTime
 	a owl:DatatypeProperty, owl:FunctionalProperty;
 	rdfs:label "has birth date time"@en;
 	rdfs:comment """Relating a human to a snapshot event's date and time of birth."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-#	owl:propertyChainAxiom (organism:lives organism:begins);
-#	rdfs:subPropertyOf event:hasOriginationDateTime;
 	rdfs:domain human:Human;
 	rdfs:range xsd:dateTime;
 	kb:subjectClassConstraint human:Human; # Knora requirement
@@ -478,26 +213,16 @@ human:hasBirthDate
 	rdfs:label "has birth date"@en;
 	rdfs:comment """Relating a human to a date of birth."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-#	owl:propertyChainAxiom (organism:lives organism:beginDate);
-#	rdfs:subPropertyOf event:hasOriginationDate;
 	rdfs:domain human:Human;
 	rdfs:range xsd:date;
 	kb:subjectClassConstraint human:Human; # Knora requirement
 	kb:objectDatatypeConstraint xsd:date. # Knora requirement
-
-# human:hasBirthTime
-
-# human:ends
-
-# human:endDate
 
 human:hasDeathDateTime
 	a owl:DatatypeProperty, owl:FunctionalProperty;
 	rdfs:label "has death date time"@en;
 	rdfs:comment """Specifying a snapshot event's date and time an organism died on."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-#	owl:propertyChainAxiom (organism:lives organism:ends);
-#	rdfs:subPropertyOf event:hasVanishingDateTime;
 	rdfs:domain human:Human;
 	rdfs:range xsd:dateTime;
 	kb:subjectClassConstraint human:Human; # Knora requirement
@@ -508,13 +233,10 @@ human:hasDeathDate
 	rdfs:label "has death date"@en;
 	rdfs:comment """Specifying a snapshot event's date an organism died on."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-#	owl:propertyChainAxiom (organism:lives organism:endDate);
 	rdfs:domain human:Human;
 	rdfs:range xsd:date;
 	kb:subjectClassConstraint human:Human; # Knora requirement
 	kb:objectDatatypeConstraint xsd:date. # Knora requirement
-
-# human:hasDeathTime
 
 human:hasNameObject
 	a owl:ObjectProperty;
@@ -586,76 +308,6 @@ human:hasDescriptionObject
 	kb:subjectClassConstraint human:Person; # Knora requirement
 	kb:objectClassConstraint human:DescriptionObject. # Knora requirement
 
-human:hasBiologicalParent
-	a owl:ObjectProperty;
-	rdfs:label "has biological parent"@en;
-	rdfs:comment """Relating a human to a biological parent."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human; # [owl:unionOf(human:Child human:Children)];
-	rdfs:range human:Parent.
-	
-human:hasBiologicalMother
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:label "has biological mother"@en;
-	rdfs:comment """Relating a human to the biological mother."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human; # human:Child;
-	rdfs:range human:Mother.
-	
-human:hasBiologicalFather
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:label """has biological father"""@en;
-	rdfs:comment """Relating a human to the biological father."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human; # human:Child;
-	rdfs:range human:Father.
-
-# human:hasBiologicalBrother
-
-# human:hasLegalBrother
-
-# human:hasBiologicalSister
-
-# human:hasLegalSister
-
-# human:hasBiologicalCousin
-
-# human:hasLegalCousin
-
-human:hasBiologicalChild
-	a owl:ObjectProperty;
-	rdfs:label "has biological child"@en;
-	rdfs:comment """Relating a human to a biological child."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human; # [owl:unionOf(human:Parent human:Parents)];
-	rdfs:range human:Child.
-
-# human:hasLegalChild
-
-# human:hasBiologicalSon
-
-# human:hasLegalSon
-
-# human:hasBiologicalDaughter
-
-# human:hasLegalDaughter
-
-# human:hasBiologicalGrandson
-
-# human:hasLegalGrandson
-
-# human:hasBiologicalGranddaughter
-
-# human:hasLegalGranddaughter
-
-# human:hasBiologicalNephew
-
-# human:hasLegalNephew
-
-# human:hasBiologicalNiece
-
-# human:hasLegalNiece
-
 human:hasOccupationalRole
 	a owl:ObjectProperty;
 	rdfs:label "has occupational role"@en;
@@ -665,14 +317,6 @@ human:hasOccupationalRole
 	rdfs:range human:OccupationalRole;
 	kb:subjectClassConstraint human:Person; # Knora requirement
 	kb:objectClassConstraint human:OccupationalRole. # Knora requirement
-
-human:hasOccupationalState
-	a owl:ObjectProperty;
-	rdfs:label "has occupational state"@en;
-	rdfs:comment """Relating a person to an occupational state."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Person;
-	rdfs:range human:OccupationalState.
 
 human:hasFloruit
 	a owl:ObjectProperty;

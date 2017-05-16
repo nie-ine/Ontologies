@@ -1,0 +1,230 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix human: <http://www.nie-ine.ch/ontology/human#>.
+@prefix text: <http://www.nie-ine.ch/ontology/text#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix lombard: <http://www.nie-ine.ch/ontology/petrus-lombardus#>.
+
+<http://www.nie-ine.ch/ontology/petrus-lombardus>
+	a owl:Ontology;
+	dct:title "An ontology about Petrus Lombardus"@en;
+	dct:description """Formal description of elements in scientific study of Petrus Lombardus."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en;
+	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>.
+
+# general:
+	# DB PL: mysql elements of Petrus Lombardus project
+	# TBS: to be specified
+	# SCO: rdfs:subClassOf
+	# SPO: rdfs:subPropertyOf
+
+#
+# CLASSES
+#
+
+lombard:Person # DB PL: RCS_AUTHORS
+	a rdfs:Class;
+	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
+	rdfs:comment """Person as in scientific study of Petrus Lombardus."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf human:Person, kb:Resource, [ # Knora requirement
+			a owl:Restriction; owl:onProperty lombard:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+lombard:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
+	a rdfs:Class;
+	rdfs:label "Stegmüller's person description object"@en;
+	rdfs:comment """Stegmüller's person description as abstract object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+
+lombard:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II # Knora requirement
+	a rdfs:Class;
+	rdfs:label "Stegmüller's expression description object"@en;
+	rdfs:comment """Stegmüller's expression description as abstract object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+
+lombard:Reportator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "Reportator"@la, "reportator"@en, "Reportator"@de;
+	rdfs:comment """Role of a student registering the content of a lesson."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf human:Role, kb:Resource. # Knora requirement
+
+lombard:Glossator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "Glossator"@la, "glossator"@en, "Glossator"@de;
+	rdfs:comment """Role of a person adding a layer to a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf human:Role, kb:Resource. # Knora requirement
+
+lombard:Commentary # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "commentarium"@la, "commentary"@en, "Erläuterung"@de;
+	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Commentary.
+
+lombard:Lectura # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "lectura"@la, "?"@en, "?"@de;
+	rdfs:comment """Lectura commentary on Petrus Lombardus' Sentences."""@en; # Lectura
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf lombard:Commentary.
+
+lombard:LecturaRevisa # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "lectura revisa"@la, "?"@en, "?"@de;
+	rdfs:comment """Lectura revisa commentary on Petrus Lombardus' Sentences."""@en; # Lectura revisa
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf lombard:Commentary.
+
+lombard:Reportatio # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "reportatio"@la, "?"@en, "?"@de;
+	rdfs:comment """Reportatio commentary on Petrus Lombardus' Sentences."""@en; # Reportatio
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf lombard:Commentary.
+
+lombard:ReportatioApprobata # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "reportatio approbata"@la, "?"@en, "?"@de;
+	rdfs:comment """Reportatio approbata commentary on Petrus Lombardus' Sentences."""@en; # Reportatio approbata
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf lombard:Commentary.
+
+lombard:Ordinatio # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "ordinatio"@la, "?"@en, "?"@de;
+	rdfs:comment """Ordinatio commentary on Petrus Lombardus' Sentences."""@en; # ? regulation
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf lombard:Commentary.
+
+# Made all English, noun, singular
+# Latin needed ?
+# Here because all "Commentary on Petrus Lombardus' Sentences added in the form of a ..." ?
+# OR put in text: ? See e.g. text:Abbreviation
+
+lombard:Gloss # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "?"@la, "gloss"@en, "Glosse"@de;
+	rdfs:comment """Added text to a text."""@en; # to clarify meaning ?
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression. # OR lombard:Commentary ?
+
+lombard:LiteralExposition # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "?"@la, "literal exposition"@en, "?"@de;
+	rdfs:comment """?."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Question # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "quaestio"@la, "question"@en, "Frage"@de;
+	rdfs:comment """Question added to a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Abbreviation # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "abbreviatio"@la, "abbreviation"@en, "Abkürzung"@de;
+	rdfs:comment """Shortened version of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Paraphrase # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "paraphrasis"@la, "paraphrase"@en, "Paraphrase"@de;
+	rdfs:comment """Restatement of a text to clarify meaning."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Table # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "tabula"@la, "table"@en, "Tabelle"@de;
+	rdfs:comment """Information in a table added to a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Metric # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "?"@la, "metric"@en, "?"@de;
+	rdfs:comment """?."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Syllogism # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "syllogismus"@la, "syllogism"@en, "Syllogismus"@de;
+	rdfs:comment """Commentary on Petrus Lombardus' Sentences added in the form of a syllogism."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+lombard:Conclusion # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "conclusio"@la, "conclusion"@en, "Schlussfolgerung"@de;
+	rdfs:comment """Commentary on Petrus Lombardus' Sentences added in the form of a conclusion."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subClassOf text:Expression.
+
+#
+# PROPERTIES
+#
+
+lombard:hasStegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM
+	a owl:ObjectProperty;
+	rdfs:label "has Stegmüller's person description object"@en;
+	rdfs:comment """Relating a person to a Stegmüller's description object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject SPO text:hasTextObject SPO kb:hasValue
+	rdfs:domain human:Person;
+	rdfs:range lombard:StegmuellerPersonDescriptionObject;
+	kb:subjectClassConstraint human:Person;  # Knora requirement
+	kb:objectClassConstraint lombard:StegmuellerPersonDescriptionObject. # Knora requirement
+
+lombard:hasStegmuellerPersonDescription # DB PL: RCS_AUTHORS - STGM
+	a owl:DatatypeProperty;
+	rdfs:label "has Stegmüller's person description"@en;
+	rdfs:comment """Relating a person to a Stegmüller's description."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subPropertyOf text:hasDescription; # rdfs:comment, dct:description
+	owl:propertyChainAxiom (lombard:hasStegmuellerPersonDescriptionObject kb:valueHasString);
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal. # NOT xsd:string
+
+lombard:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II
+	a owl:ObjectProperty;
+	rdfs:label "has Stegmüller's expression description object"@en;
+	rdfs:comment """Relating an expression to a Stegmüller's description object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject rdfs:subPropertyOf text:hasTextObject rdfs:subPropertyOf kb:hasValue
+	rdfs:domain text:Expression;
+	rdfs:range lombard:StegmuellerExpressionDescriptionObject;
+	kb:subjectClassConstraint text:Expression; # Knora requirement
+	kb:objectClassConstraint lombard:StegmuellerExpressionDescriptionObject. # Knora requirement
+
+lombard:hasStegmuellerExpressionDescription # DB PL: RCS_XPRESSIONS - STGM I/STGM II
+	a owl:DatatypeProperty;
+	rdfs:label "has Stegmüller's expression description"@en;
+	rdfs:comment """Relating an expression to a Stegmüller's description."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:subPropertyOf text:hasDescription; # rdfs:comment, dct:description
+	owl:propertyChainAxiom (lombard:hasStegmuellerExpressionDescriptionObject kb:valueHasString);
+	rdfs:domain text:Expression;
+	rdfs:range rdfs:Literal. # NOT xsd:string
+
+lombard:hasStegmuellerCode
+	a owl:DatatypeProperty;
+	rdfs:label "has Stegmüller's code"@en;
+	rdfs:comment """Relating an expression to a Stegmüller's code."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/petrus-lombardus#>;
+	rdfs:domain text:Expression;
+	rdfs:range rdfs:Literal. # NOT xsd:string

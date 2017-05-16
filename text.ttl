@@ -1,0 +1,434 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie-ine.ch/ontology/event#>.
+@prefix human: <http://www.nie-ine.ch/ontology/human#>.
+@prefix image: <http://www.nie-ine.ch/ontology/image#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix text: <http://www.nie-ine.ch/ontology/text#>.
+
+<http://www.nie-ine.ch/ontology/text>
+	a owl:Ontology;
+	dct:title "An ontology about text"@en;
+	dct:description """Formal description of text in broadest sense, general subclasses, related classes e.g. carrier, and properties."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+#	owl:versionInfo "Version x - yyyy-mm-dd"@en;	# OR other format, datatype
+	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en;
+	skos:note """Representation of an otherwise literal data element as object (objectivation) enables relating it to metadata"""@en.
+
+# general:
+	# DB: mapping to mysql elements
+		# KR: Kuno Raeber
+		# PL: Petrus Lombardus
+	# TBS: to be specified
+	# SCO: rdfs:subClassOf
+	# SPO: rdfs:subPropertyOf
+
+#
+# CLASSES
+#
+
+# cidoc:E73_Information_Object # physical carrier, e.g. human memory, on one or more carriers simultaneously
+# cidoc:E33_Linguistic_Object rdfs:subClassOf cidoc:E73_Information_Object
+# cidoc:E35_Title rdfs:subClassOf cidoc:E33_Linguistic_Object
+# frbroo:F2_Expression rdfs:subClassOf cidoc:E73_Information_Object
+
+text:TextObject # DB PL: RCS_XPRESSIONS - EXPLICIT
+	a rdfs:Class;
+	rdfs:label "text object"@en;
+	rdfs:comment """Writable coherent set of signs representing semantics in a language, as an object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf kb:TextValue, [ # Knora requirement
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:NameObject
+	a rdfs:Class;
+	rdfs:label "name object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:TitleObject # DB PL: RCS_XPRESSIONS - TITLE
+ 	a rdfs:Class;
+ 	rdfs:label "title object"@en, "Titel-Objekt"@de, "titre objet"@fr, "titolo oggetto"@it;
+ 	rdfs:comment """Text... ."""@en;
+ 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+ 	rdfs:subClassOf text:TextObject, [
+ 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:CommentObject # DB PL: RCS_XPRESSIONS - NOTES (are comments)
+	a rdfs:Class;
+	rdfs:label "comment object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:DescriptionObject # DB PL: RCS_XPRESSIONS - DESCRIPTION
+	a rdfs:Class;
+	rdfs:label "description object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:DefinitionObject
+	a rdfs:Class;
+	rdfs:label "definition object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:NoteObject
+	a rdfs:Class;
+	rdfs:label "note object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject,  [
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:Expression # DB PL: RCS_XPRESSIONS
+	a rdfs:Class;
+	rdfs:label "text expression"@en;
+	rdfs:comment """Text as a human luinguistic expression."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf frbroo:F2_Expression, cidoc:E33_Linguistic_Object, kb:Resource, [ # Knora requirement
+		a owl:Restriction; owl:onProperty text:hasTitleObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # OR text:hasNameObject
+		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasIncipitObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasTextObject; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # OR text:hasExplicitObject
+
+# F22_Self-Contained_Expression: only needed as subclass frbroo:F24_Publication_Expression ?
+
+text:EditedText # DB KR: jsmwh_k2_items - introtext
+	a rdfs:Class;
+	rdfs:label "edited text"@en;
+	rdfs:comment """Text after editing."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource.
+#		relate to editing
+#		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation.                                                                                         
+
+text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext
+	a rdfs:Class;
+	rdfs:label "diplomatic transcription"@en;
+	rdfs:comment """Text after diplomatic transcribing."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource.
+#		relate to diplomatic transcribing
+#		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation.  
+
+# diplomatic transcription: a rendering in machine-produced form (typing or typeset) of the entire content of a manuscript, marked proof, or annotated text, including cancellations and additions. One can think of a diplomatic transcription as a genetic text limited to the record of composition available in the document being transcribed. There are many conventions for producing diplomatic transcriptions (Shillingsburg 1986, 170)
+
+text:IncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT
+	a rdfs:Class;
+	rdfs:label "incipit object"@en;
+	rdfs:comment """Begin part of a text, as an object, especially when used in place of a title to identify an untitled text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [ # SCO kb:TextValue
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+# add as resource with text and imgage repr. and value
+
+text:ExplicitObject # DB PL: RCS_XPRESSIONS - EXPLICIT # needed ? Maybe text:TextObject suffices. # Knora requirement
+	a rdfs:Class;
+	rdfs:label "explicit text object"@en;
+	rdfs:comment """Text, as an object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:TextObject, [ # SCO kb:TextValue
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
+text:Commentary # ?= exegesis: Critical explanation or analysis, especially of a text
+	a rdfs:Class;
+	rdfs:label "commento"@la, "commentary"@en, "Erläuterung"@de;
+	rdfs:comment """Explanation or interpretation in the form of a series of comments."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression.
+
+
+# MM sprint 20170426
+# KR:
+# text:
+# - image of a poem text
+# - dipl. transcript
+# - final = as print:
+# 	- name: seperate from text
+# 	- page number, order # DB KR: k2_extra_fields
+# 		- > 1 page: seperate, e.g. "Seite 003 (1)"
+# 	- standoff:
+# 		- line nr: in front, red
+# 		- page break, Seitenwechsel: at back, red: e.g. "//004"
+
+
+# text genesis: no 1-1 between N-M-T-P
+
+# to change
+text:Note # e.g. text of a poem as an expression # change to "draft" ?
+	a rdfs:Class;
+	rdfs:label "note"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource, [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Manuscript
+	a rdfs:Class;
+	rdfs:label "manuscript"@en, "Manuskript"@de;
+	rdfs:comment """Handwritten text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource, [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	# bibo:Manuscript
+
+text:Transcript # always about text? # distinguish transcript of transcript? # need for handwritten only?
+	a rdfs:Class;
+	rdfs:label "transcript"@en, "Transkript"@de; # OR "Umschrift"@de;
+	rdfs:comment """Reproduced text."""@en;
+	skos:note """Can be done by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource, [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# text:ManualTranscript # needed ?
+# 	a rdfs:Class;
+# 	rdfs:label "manual transcript"@en, "manuelle Abschrift"@de;
+# 	rdfs:comment """Handwritten transcript."""@en;
+# 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+# 	rdfs:subClassOf text:Transcript, kb:Resource, [
+# 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Typescript
+	a rdfs:Class;
+	rdfs:label "typescript"@en, "Typoskript"@de;
+	rdfs:comment """Text written with a typewriter."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:Expression, kb:Resource.
+	# bibo ?
+
+text:Print
+	a rdfs:Class;
+	rdfs:label "printed text"@en, "Textdruck"@de;
+	rdfs:comment """Text printed with any method, e.g. manually, or with an analogue or digital machine."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf frbroo:F24_Publication_Expression, kb:Resource.
+
+text:Author # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "author"@en, "Autor"@de;
+	rdfs:comment """Role of a person being responsibility for a text."""@en; # more general: for a content of a document -> more the editor
+	skos:note """Often an author is also a creator of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf human:Role, kb:Resource. #, [a owl:Restriction; owl:onProperty agent:rolePlayedIn; owl:someValuesFrom text:Authoring].
+
+text:Authoring
+	a rdfs:Class;
+	rdfs:label "authoring"@en;
+	rdfs:comment """Taking responsibility for a text."""@en;
+	skos:note """Often combined with creating a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf event:Action. #, [a owl:Restriction; owl:onProperty event:hasOutputObject; owl:someValuesFrom text:TextObject].
+
+text:Abbreviator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "abbreviator"@la, "abbreviator"@en, "Abkürzer"@de;
+	rdfs:comment """Role of a person being responsible for a shortened version of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf human:Role, kb:Resource.
+
+text:Abbreviating
+	a rdfs:Class;
+	rdfs:label "abbreviating"@en;
+	rdfs:comment """Taking responsibility for shortening a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf event:Action. #, [a owl:Restriction; owl:onProperty event:hasOutputObject; owl:someValuesFrom text:Abbreviation]. # If there is an output of an abbreviating, it has to be an abbreviation OR all outputs of an abbreviating are abbreviations, but an output is not necessary.
+
+text:Abbreviation 
+	a rdfs:Class;
+	rdfs:label "abbreviation"@en, "Abkürzung"@de;
+	skos:definition """Shortened version of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf [
+		a owl:Restriction; owl:onProperty event:outputOf; owl:someValuesFrom text:Abbreviating]. # If there is an abbreviating with an output, it has to be an abbreviation OR if there is an abbreviation, it has to be an output of at least one abbreviating.
+
+text:Revisor # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "revisor"@la, "revisor"@en, "Revisor"@de;
+	rdfs:comment """Role of a person checking on certain aspects of a text."""@en; # content of a document
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf human:Role, kb:Resource.
+
+text:Redactor # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
+	rdfs:comment """Role of a person changing a text."""@en; # content of a document
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf human:Role, kb:Resource.
+
+#
+# PROPERTIES
+#
+
+text:hasTextObject  # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has text object"@en;
+	rdfs:comment """Relating a resource to a text object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf kb:hasValue;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:TextObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:TextObject.
+
+text:hasText
+	a owl:DatatypeProperty;
+	rdfs:label "has text"@en;
+	rdfs:comment """Relating a resource to a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	owl:propertyChainAxiom (text:hasTextObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasNameObject  # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has name object"@en;
+	rdfs:comment """Relating a resource to a name object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:NameObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:NameObject.
+
+text:hasName # DB KR: jsmwh_k2_categories/name, jsmwh_k2_extra_fields/name, jsmwh_k2_tags/name
+	a owl:DatatypeProperty;
+	rdfs:label "has name"@en;
+	rdfs:comment """Relating a resource to a name."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf foaf:name;
+	owl:propertyChainAxiom (text:hasNameObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasTitleObject # DB PL: RCS_XPRESSIONS - TITLE # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has title object"@en;
+	rdfs:comment """Relating a resource to a title object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:TitleObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:TitleObject.
+
+text:hasTitle # DB: jsmwh_k2_categories/name, jsmwh_k2_extra_fields/name, jsmwh_k2_tags/name # DB PL: RCS_XPRESSIONS - TITLE
+	a owl:DatatypeProperty;
+	rdfs:label "has name"@en;
+	rdfs:comment """Relating a resource to a name."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf foaf:name;
+	owl:propertyChainAxiom (text:hasNameObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasCommentObject # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has comment object"@en;
+	rdfs:comment """Relating a resource to a comment object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:CommentObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:CommentObject.
+
+text:hasComment
+	a owl:DatatypeProperty;
+	rdfs:label "has comment"@en;
+	rdfs:comment """Relating a resource to a comment."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	owl:propertyChainAxiom (text:hasCommentObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasDescriptionObject # DB PL: RCS_XPRESSIONS - DESCRIPTION # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has description object"@en;
+	rdfs:comment """Relating a resource to a description object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:DescriptionObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:DescriptionObject.
+
+text:hasDescription
+	a owl:DatatypeProperty;
+	rdfs:label "has description"@en;
+	rdfs:comment """Relating a resource to a description."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf rdfs:comment, dct:description;
+	owl:propertyChainAxiom (text:hasDescriptionObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasDefinitionObject # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has definition object"@en;
+	rdfs:comment """Relating a resource to a definition object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:DefinitionObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:DefinitionObject.
+
+text:hasDefinition
+	a owl:DatatypeProperty;
+	rdfs:label "has definition"@en;
+	rdfs:comment """Relating a resource to a definition."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf skos:definition;	# a owl:AnnotationProperty, BUT in OWL Full something can be both a DatatypeProperty and AnnotationProperty
+	owl:propertyChainAxiom (text:hasDefinitionObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasIncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has incipit object"@en;
+	rdfs:comment """Relating a text to its beginning part, as an object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain text:Expression;
+	rdfs:range text:IncipitObject;
+	kb:subjectClassConstraint text:Expression;
+	kb:objectClassConstraint text:IncipitObject.
+
+text:hasExplicitObject # DB PL: RCS_XPRESSIONS - EXPLICIT # Knora requirement # needed besides text:hasTextObject ?
+	a owl:ObjectProperty;
+	rdfs:label "has explicit object"@en;
+	rdfs:comment """Relating a text to its explicit part."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:domain text:Expression;
+	rdfs:range text:ExplicitObject;
+	kb:subjectClassConstraint text:Expression;
+	kb:objectClassConstraint text:ExplicitObject.
+
+text:isAuthorOf
+	a owl:ObjectProperty;
+	rdfs:label "is author of"@en;
+	rdfs:comment """Relating a person in author role to a text the person authored."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+#	owl:propertyChainAxiom (agent-actsIn-authoring-/hasOutput-[hasObject-poem]/hasOutputObject-poem);
+	rdfs:domain [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+	rdfs:range text:Expression;
+	kb:subjectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+	kb:objectClassConstraint text:Expression.

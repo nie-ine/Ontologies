@@ -7,7 +7,6 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix unicore: <http://purl.uniprot.org/core/>.
-# @prefix agent: <http://eulersharp.sourceforge.net/2003/03swap/agent#>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.nie-ine.ch/ontology/event#>.
 @prefix text: <http://www.nie-ine.ch/ontology/text#>.
@@ -20,17 +19,8 @@
 	dct:title "An ontology about human"@en;
 	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-#	owl:versionInfo "Version x - yyyy-mm-dd"@en;	# OR other format, datatype
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
 	dct:conformsTo "OWL Full"@en.
-
-# general:
-	# DB: mysql elements
-		# KR: Raeber
-		# PL: Lombardus
-	# TBS: to be specified
-	# SCO: rdfs:subClassOf
-	# SPO: rdfs:subPropertyOf
 
 #
 # CLASSES

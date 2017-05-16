@@ -1,0 +1,116 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie-ine.ch/event#>.
+@prefix standard: <http://www.nie-ine.ch/standards#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix lang: <http://www.nie-ine.ch/ontology/language#>.
+
+<http://www.nie-ine.ch/ontology/language>
+	a owl:Ontology;
+	dct:title "An ontology about language"@en;
+	dct:description """Formal description of language, general subclasses, related classes and properties."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+#	owl:versionInfo "Version x - yyyy-mm-dd"@en;	# OR other format, datatype
+	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en.
+
+
+# general:
+	# DB: mysql elements
+		# krd: Raeber
+		# PL: Lombardus
+	# TBS: to be specified
+
+
+#
+# CLASSES
+#
+
+lang:Language
+	a rdfs:Class;
+	rdfs:label "language"@en, "Sprache"@de;
+	rdfs:comment """A dynamic set of sensory signs, including sounds and gestures, of communication and the semantic, pragmatic, and grammar elements or rules to manipulate them."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subClassOf dct:LinguisticSystem, kb:Resource, [
+		a owl:Restriction; owl:onProperty lang:hasLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+lang:LanguageCodeObject
+	a rdfs:Class;
+	rdfs:label "language code object"@en, "Sprache-Kode-Objekt"@de;
+	rdfs:comment """A abstract element representing an objectivation of a standard language code, e.g. ISO 639."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subClassOf kb:Value, [
+		a owl:Restriction; owl:onProperty lang:hasCode; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+
+# lang:Expressing
+# 	a rdfs:Class;
+# 	rdfs:label """language expressing"""@en;
+# 	skos:definition """Expressing a language."""@en;
+# 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+# 	rdfs:subClassOf event:Action.
+
+# lang:Expression
+# 	a rdfs:Class;
+# 	rdfs:label """language expression"""@en;
+# 	skos:definition """Expression in a language."""@en;
+# 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+# 	rdfs:subClassOf [a owl:Restriction; owl:onProperty event:outputOf; owl:someValuesFrom lang:Expressing].
+
+#
+# PROPERTIES
+#
+
+lang:hasLanguage # relating something to a language as a resource, not as a kb:Value
+	a owl:ObjectProperty;
+	rdfs:label "has language"@en, "hat Sprache"@de;
+	rdfs:comment """Relating a resource to a language e.g. in which an information resource is expressed."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subPropertyOf dct:language, kb:hasLinkTo;
+	rdfs:domain rdfs:Resource;
+	rdfs:range lang:Language;
+	kb:subjectClassConstraint kb:Resource; # Knora requirement
+	kb:objectClassConstraint lang:Language. # Knora requirement
+
+lang:hasLanguageStatement # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has language statement"@en, "hat Sprache-Aussage"@de;
+	rdfs:comment """Relating a resource to a language statement as reification of the relation between the resource and the language as a resource."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subPropertyOf kb:hasLinkToValue;
+	kb:subjectClassConstraint kb:Resource; # Knora requirement
+	kb:objectClassConstraint kb:LinkValue. # Knora requirement
+
+lang:hasLanguageCodeObject
+	a owl:ObjectProperty;
+	rdfs:label "has language code object"@en, "hat Sprache-Kode-Objekt"@de;
+	rdfs:comment """Relating a resource to a language code object representing a language e.g. in which an information resource is expressed."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subPropertyOf kb:hasValue;
+	rdfs:domain rdfs:Resource;
+	rdfs:range lang:LanguageCodeObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint lang:LanguageCodeObject.
+
+lang:hasCode
+	a owl:DatatypeProperty;
+	rdfs:label "has code"@en, "hat Kode"@de;
+	rdfs:comment """Relating a language code object to a standard language code, e.g. of ISO 639."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	rdfs:subPropertyOf kb:valueHas;
+	kb:subjectClassConstraint lang:LanguageCodeObject;
+	kb:objectDatatypeConstraint [a rdfs:Datatype; owl:oneOf(standard:iso639-1Datatype standard:iso639-2Datatype standard:iso639-3Datatype)]. # instead of xsd:string
+
+lang:hasLanguageCode # DB: jsmwh_k2_categories/language, jsmwh_k2_items/language
+	a owl:DatatypeProperty;
+	rdfs:label "has language code"@en;
+	rdfs:comment """Relating a resource to a language code."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/language#>;
+	owl:propertyChainAxiom (lang:hasLanguageCodeObject lang:hasCode);
+	rdfs:domain rdfs:Resource;
+	rdfs:range [a rdfs:Datatype; owl:oneOf(standard:iso639-1Datatype standard:iso639-2Datatype standard:iso639-3Datatype)]. # instead of xsd:string

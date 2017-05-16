@@ -6,7 +6,6 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-# @prefix agent: <http://www.nie-ine.ch/agent#>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix kb: <http://www.knora.org/ontology/knora-base#>.
 @prefix event: <http://www.nie-ine.ch/ontology/event#>.
@@ -17,58 +16,19 @@
 	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/event#>;
 	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change, act, in a certain way."""@en;
-#	owl:versionInfo "Version x - yyyy-mm-dd"@en;	# OR other format, datatype # version info NOT in IRI, cf. https://www.w3.org/2001/tag/doc/metaDataInURI-31-20061204.html
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
-#	dct:contributor " "@en;
-#	dct:publisher " "@en;
-#	dct:issued "2017-00-00";	# create own property with dateTime range?
-#	dct:modified "";	# create own property with dateTime range?
 	dct:conformsTo "OWL Full"@en.
-
-# general:
-	# DB: mysql elements
-		# krd: Raeber
-		# PL: Lombardus
-	# TBS: to be specified
 
 #
 # CLASSES
 #
-
-
-# time:
-# xsd:gYear
 
 event:Event
 	a rdfs:Class;
 	rdfs:label "event"@en;
 	rdfs:comment """A space-time thing."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/event#>;
-	rdfs:subClassOf kb:Resource, [
-		a owl:Restriction; owl:onProperty time:hasBeginning; owl:cardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty time:hasEnd; owl:cardinality "0"^^xsd:nonNegativeInteger].
-
-event:Beginning
-	a rdfs:Class;
-	rdfs:label "beginning"@en;
-	rdfs:comment """Something coming into being."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/event#>;
-	rdfs:subClassOf event:Event, kb:DateValue, [
-		a owl:Restriction; owl:onProperty time:hasBeginningDate; owl:cardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty time:hasEndDate; owl:cardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty time:hasBeginningDateTime; owl:cardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty time:hasEndDateTime; owl:cardinality "0"^^xsd:nonNegativeInteger].
-
-time:hasBeginningDate
-	a owl:DatatypeProperty, owl:InverseFunctionalProperty;
-	rdfs:label "has beginning date"@en;
-	rdfs:comment """Relating ."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/time#>;
-	rdfs:domain event:Event;
-	rdfs:range time:BeginningDate;
-	kb:subjectClassConstraint human:Human;
-	kb:objectDatatypeConstraint xsd:dateTime.
-
+	rdfs:subClassOf kb:Resource.
 	
 event:Process
 	a rdfs:Class;

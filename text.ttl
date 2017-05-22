@@ -116,9 +116,13 @@ text:EditedText # DB KR: jsmwh_k2_items - introtext
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:Expression, kb:Resource.
 #		relate to editing
-#		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation.                                                                                         
+#		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation. 
 
-text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext
+
+critical edited text : new, interpreted e.g. corrected
+
+
+text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext -> manifestation
 	a rdfs:Class;
 	rdfs:label "diplomatic transcription"@en;
 	rdfs:comment """Text after diplomatic transcribing."""@en;
@@ -128,6 +132,8 @@ text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext
 #		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation.  
 
 # diplomatic transcription: a rendering in machine-produced form (typing or typeset) of the entire content of a manuscript, marked proof, or annotated text, including cancellations and additions. One can think of a diplomatic transcription as a genetic text limited to the record of composition available in the document being transcribed. There are many conventions for producing diplomatic transcriptions (Shillingsburg 1986, 170)
+dif from crit ed: non interpreted, reproduction
+
 
 text:IncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT
 	a rdfs:Class;
@@ -179,7 +185,7 @@ text:Note # e.g. text of a poem as an expression # change to "draft" ?
 	rdfs:subClassOf text:Expression, kb:Resource, [
 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text:Manuscript
+text:Manuscript # NOT needed ? -> manifestation
 	a rdfs:Class;
 	rdfs:label "manuscript"@en, "Manuskript"@de;
 	rdfs:comment """Handwritten text."""@en;
@@ -188,7 +194,7 @@ text:Manuscript
 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 	# bibo:Manuscript
 
-text:Transcript # always about text? # distinguish transcript of transcript? # need for handwritten only?
+text:Transcript # always about text? # distinguish transcript of transcript? # need for handwritten only? # manifestation
 	a rdfs:Class;
 	rdfs:label "transcript"@en, "Transkript"@de; # OR "Umschrift"@de;
 	rdfs:comment """Reproduced text."""@en;
@@ -213,7 +219,7 @@ text:Typescript
 	rdfs:subClassOf text:Expression, kb:Resource.
 	# bibo ?
 
-text:Print
+text:Print # manifestation
 	a rdfs:Class;
 	rdfs:label "printed text"@en, "Textdruck"@de;
 	rdfs:comment """Text printed with any method, e.g. manually, or with an analogue or digital machine."""@en;

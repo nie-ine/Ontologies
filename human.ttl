@@ -39,7 +39,7 @@ human:Human
 human:Person # DB PL: RCS_AUTHORS
 	a rdfs:Class;
 	rdfs:label "person"@en;
-	rdfs:comment """A real living born human."""@en;
+	rdfs:comment """A real born living human."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property, very unlike a real person."""@en;
 	rdfs:subClassOf human:Human, foaf:Person, frbroo:F10_Person, kb:Resource, [
@@ -303,6 +303,7 @@ human:hasOccupationalRole
 	rdfs:label "has occupational role"@en;
 	rdfs:comment """Relating a person to an actual occupational role."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
+	rdfs:subPropertyOf human:hasRole;
 	rdfs:domain human:Person;
 	rdfs:range human:OccupationalRole;
 	kb:subjectClassConstraint human:Person; # Knora requirement

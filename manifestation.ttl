@@ -43,6 +43,18 @@ manif:Convolute
 # 	rdfs:subClassOf kb:Resource, [ # fabio:Book
 # 		a owl:Restriction; owl:onProperty krd:createdBy; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
+manif:Manifestation # DB KR: jsmwh_k2_categories - parent
+	a rdfs:Class;
+	rdfs:label "notebook"@en,"Notizbuch"@de;
+	rdfs:comment """Book wherein notes are written."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource, [ # restrictions to be KBO compatible # fabio:Notebook
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories- name
+		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - description
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # 1. DB KR: jsmwh_k2_categories - image
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentationLinkValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # triple reification
+		a owl:Restriction; owl:onProperty image:hasImage; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # 2. DB KR: jsmwh_k2_categories - image # outside KS
+
 manif:Notebook # DB KR: jsmwh_k2_categories - parent
 	a rdfs:Class;
 	rdfs:label "notebook"@en,"Notizbuch"@de;

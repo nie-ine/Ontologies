@@ -1,6 +1,10 @@
 # Ontologies
-Developed in the realm of the [NIE-INE](http://www.fee.unibas.ch/nie_ine.html) project.
-For different scientific edition projects in the Humanities at the Basel University a series of extra- and interdependent vocabularies or ontologies are created, to express data and metadata in a formal machine-readable way. Formal here means adhering to the [model theory of W3C RDF, RDFS](https://www.w3.org/TR/2002/WD-rdf-mt-20020429/), and [OWL Full](https://www.w3.org/TR/owl-semantics/).
+In the [NIE-INE](http://www.fee.unibas.ch/nie_ine.html) project an infrastructure is developed to ensure long-term storage of data of scientific edition projects in the Humanities at the University of Basel.  
+For this purpose the existing platform [Knora-SALSAH](https://github.com/dhlab-basel/Knora) of the [Digital Humanities Lab](https://github.com/dhlab-basel) is used.  
+The essence of the infrastructure is that data, stored in e.g. a MySQL relational database, are converted to a different machine-readable format, i.e. one that makes the semantics of the data explicit.
+
+
+a series of extra- and interdependent vocabularies or ontologies are created, to express data and metadata in a formal machine-readable way. Formal here means adhering to the [model theory of W3C RDF, RDFS](https://www.w3.org/TR/2002/WD-rdf-mt-20020429/), and [OWL Full](https://www.w3.org/TR/owl-semantics/).
 The ontologies are declared in [Turtle syntax](https://www.w3.org/TR/turtle/).
 All the referenced ontologies are prefixed in a header.  
 An introduction to [Semantic Web technology](https://github.com/nie-ine/Ontologies/wiki/Introduction-to-Semantic-Web-technology) is on the wiki.

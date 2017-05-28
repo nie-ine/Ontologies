@@ -1,0 +1,178 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix human: <http://www.nie-ine.ch/ontology/human#>.
+@prefix text: <http://www.nie-ine.ch/ontology/text#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix schola: <http://www.nie-ine.ch/ontology/scholasticism#>.
+
+<http://www.nie-ine.ch/ontology/scholasticism>
+	a owl:Ontology;
+	dct:title "An ontology about Scholasticism"@en;
+	dct:description """Formal description of elements in Scholasticism as the method of critical thought dominating teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	dct:creator "Hans Cools, software developer, NIE, University of Basel, Switzerland"@en;
+	dct:contibutor "Prof. Dr. Ueli Zahnd, History of Philosophy in the Middle Ages, University of Basel, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en.
+
+# Note: DB PL: mapped mysql elements of Petrus Lombardus project
+
+#
+# CLASSES
+#
+
+schola:Role # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "scholastic role"@en;
+	rdfs:comment """A role a scholastic or adherent of Scholasticism has."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
+	rdfs:subClassOf human:Role;
+	owl:unionOf (text:Author schola:Reportator schola:Glossator schola:Abbreviator schola:Revisor schola:Redactor).
+
+schola:Reportator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
+	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Role.
+
+schola:Glossator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
+	rdfs:comment """Role of a scholastic adding texts to a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Role.
+
+schola:Abbreviator # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "abbreviator"@la, "abbreviator"@en, "Abkürzer"@de;
+	rdfs:comment """Role of a scholastic being responsible for a shortened version of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Role.
+
+schola:Revisor # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "revisor"@la, "revisor"@en, "Revisor"@de;
+	rdfs:comment """Role of a scholastic checking on certain aspects of a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Role.
+
+schola:Redactor # DB PL: RCS_REL_AID_XID - FUNCTION
+	a rdfs:Class;
+	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
+	rdfs:comment """Role of a scholastic changing a text."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Role.
+
+schola:Commentary # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "commentarium scholasticum"@la, "scholastic commentary"@en, "scholastische Erläuterung"@de;
+	rdfs:comment """Commentary made by a scholastic."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf text:Commentary.
+
+schola:Lectura # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "lectura"@la;
+	rdfs:comment """Scholastic commentary on a text with a lectura method."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:LecturaRevisa # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "lectura revisa"@la;
+	rdfs:comment """Scholastic commentary on a text with a lectura revisa method."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Reportatio # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "reportatio"@la;
+	rdfs:comment """Scholastic commentary on a text with a reportatio method."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:ReportatioApprobata # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "reportatio approbata"@la;
+	rdfs:comment """Scholastic commentary on a text with a reportatio approbata method."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Ordinatio # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "ordinatio"@la;
+	rdfs:comment """Scholastic commentary on a text with an ordinatio method."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Glosses # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "glosses"@en, "Glossen"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of added texts."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:LiteralExposition # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "literal exposition"@en, "wörtliche Exposition"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of literal exposition."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Questions # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "questions"@en, "Fragen"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of questions."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Abbreviation # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "abbreviation"@en, "Abkürzung"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of a shortened version."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Paraphrase # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "paraphrase"@en, "Paraphrase"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of a restatement of a text to clarify meaning."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Table # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "table"@en, "Tabelle"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of added information in a table."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Metric # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "metric"@en, "Metrik"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of added metric information."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Syllogisms # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "syllogisms"@en, "Syllogismen"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of syllogisms."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Conclusion # DB PL: RCS_XPRESSIONS - GENRES
+	a rdfs:Class;
+	rdfs:label "conclusions"@en, "Schlussfolgerungen"@de;
+	rdfs:comment """Scholastic commentary on a text in the form of conclusions."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf schola:Commentary.
+
+#
+# PROPERTIES
+#
+
+# schola:hasRole

@@ -34,7 +34,7 @@ orcs:Person # DB PL: RCS_AUTHORS
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
 	rdfs:subClassOf human:Person, kb:Resource, [ # Knora requirement
 		a owl:Restriction; owl:onProperty orcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isAuthorOf; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # needed ?
+		a owl:Restriction; owl:onProperty schola:Role; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 orcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a rdfs:Class;

@@ -11,7 +11,7 @@
 <http://www.nie-ine.ch/ontology/orcs>
 	a owl:Ontology;
 	dct:title "An ontology for the Online Repertory of Commentaries on Peter Lombard’s Sentences"@en;
-	dct:description """Formal description of elements in scientific study of Petrus Lombardus."""@en;
+	dct:description """Formal description of elements in the scientific study of Petrus Lombardus as in the Online Repertory of Commentaries on Peter Lombard’s Sentences (ORCS)."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
 	dct:conformsTo "OWL Full"@en;
@@ -34,7 +34,7 @@ orcs:Person # DB PL: RCS_AUTHORS
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
 	rdfs:subClassOf human:Person, kb:Resource, [ # Knora requirement
 		a owl:Restriction; owl:onProperty orcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isAuthorOf; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text:isAuthorOf; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # needed ?
 
 orcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a rdfs:Class;
@@ -52,129 +52,12 @@ orcs:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STG
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-orcs:Reportator # DB PL: RCS_REL_AID_XID - FUNCTION
-	a rdfs:Class;
-	rdfs:label "Reportator"@la, "reportator"@en, "Reportator"@de;
-	rdfs:comment """Role of a student registering the content of a lesson."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf human:Role, kb:Resource. # Knora requirement
-
-orcs:Glossator # DB PL: RCS_REL_AID_XID - FUNCTION
-	a rdfs:Class;
-	rdfs:label "Glossator"@la, "glossator"@en, "Glossator"@de;
-	rdfs:comment """Role of a person adding a layer to a text."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf human:Role, kb:Resource. # Knora requirement
-
 orcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
 	a rdfs:Class;
 	rdfs:label "commentarium"@la, "commentary"@en, "Erläuterung"@de;
 	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Commentary.
-
-orcs:Lectura # DB PL: RCS_XPRESSIONS - TYPE
-	a rdfs:Class;
-	rdfs:label "lectura"@la, "?"@en, "?"@de;
-	rdfs:comment """Lectura commentary on Petrus Lombardus' Sentences."""@en; # Lectura
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf orcs:Commentary.
-
-orcs:LecturaRevisa # DB PL: RCS_XPRESSIONS - TYPE
-	a rdfs:Class;
-	rdfs:label "lectura revisa"@la, "?"@en, "?"@de;
-	rdfs:comment """Lectura revisa commentary on Petrus Lombardus' Sentences."""@en; # Lectura revisa
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf orcs:Commentary.
-
-orcs:Reportatio # DB PL: RCS_XPRESSIONS - TYPE
-	a rdfs:Class;
-	rdfs:label "reportatio"@la, "?"@en, "?"@de;
-	rdfs:comment """Reportatio commentary on Petrus Lombardus' Sentences."""@en; # Reportatio
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf orcs:Commentary.
-
-orcs:ReportatioApprobata # DB PL: RCS_XPRESSIONS - TYPE
-	a rdfs:Class;
-	rdfs:label "reportatio approbata"@la, "?"@en, "?"@de;
-	rdfs:comment """Reportatio approbata commentary on Petrus Lombardus' Sentences."""@en; # Reportatio approbata
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf orcs:Commentary.
-
-orcs:Ordinatio # DB PL: RCS_XPRESSIONS - TYPE
-	a rdfs:Class;
-	rdfs:label "ordinatio"@la, "?"@en, "?"@de;
-	rdfs:comment """Ordinatio commentary on Petrus Lombardus' Sentences."""@en; # ? regulation
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf orcs:Commentary.
-
-# Made all English, noun, singular
-# Latin needed ?
-# Here because all "Commentary on Petrus Lombardus' Sentences added in the form of a ..." ?
-# OR put in text: ? See e.g. text:Abbreviation
-
-orcs:Gloss # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "?"@la, "gloss"@en, "Glosse"@de;
-	rdfs:comment """Added text to a text."""@en; # to clarify meaning ?
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression. # OR orcs:Commentary ?
-
-orcs:LiteralExposition # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "?"@la, "literal exposition"@en, "?"@de;
-	rdfs:comment """?."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Question # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "quaestio"@la, "question"@en, "Frage"@de;
-	rdfs:comment """Question added to a text."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Abbreviation # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "abbreviatio"@la, "abbreviation"@en, "Abkürzung"@de;
-	rdfs:comment """Shortened version of a text."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Paraphrase # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "paraphrasis"@la, "paraphrase"@en, "Paraphrase"@de;
-	rdfs:comment """Restatement of a text to clarify meaning."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Table # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "tabula"@la, "table"@en, "Tabelle"@de;
-	rdfs:comment """Information in a table added to a text."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Metric # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "?"@la, "metric"@en, "?"@de;
-	rdfs:comment """?."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Syllogism # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "syllogismus"@la, "syllogism"@en, "Syllogismus"@de;
-	rdfs:comment """Commentary on Petrus Lombardus' Sentences added in the form of a syllogism."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
-
-orcs:Conclusion # DB PL: RCS_XPRESSIONS - GENRES
-	a rdfs:Class;
-	rdfs:label "conclusio"@la, "conclusion"@en, "Schlussfolgerung"@de;
-	rdfs:comment """Commentary on Petrus Lombardus' Sentences added in the form of a conclusion."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subClassOf text:Expression.
+	rdfs:subClassOf schola:Commentary.
 
 #
 # PROPERTIES

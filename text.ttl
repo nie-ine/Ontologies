@@ -109,7 +109,7 @@ text:EditedText # DB KR: jsmwh_k2_items - introtext
 	rdfs:label "edited text"@en;
 	rdfs:comment """Text after editing."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:Expression, kb:Resource.
+	rdfs:subClassOf text:Expression.
 #		relate to editing
 #		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation. 
 
@@ -119,7 +119,7 @@ text:EditedText # DB KR: jsmwh_k2_items - introtext
 
 text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext -> manifestation
 	a rdfs:Class;
-	rdfs:label "diplomatic transcription"@en;
+	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
 	rdfs:comment """Text after diplomatic transcribing."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:Expression, kb:Resource.
@@ -127,7 +127,8 @@ text:DiplomaticTranscription # DB KR: jsmwh_k2_items - fulltext -> manifestation
 #		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation.  
 
 # diplomatic transcription: a rendering in machine-produced form (typing or typeset) of the entire content of a manuscript, marked proof, or annotated text, including cancellations and additions. One can think of a diplomatic transcription as a genetic text limited to the record of composition available in the document being transcribed. There are many conventions for producing diplomatic transcriptions (Shillingsburg 1986, 170)
-dif from crit ed: non interpreted, reproduction
+
+# dif from crit ed: non interpreted, reproduction
 
 
 text:IncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT # Knora requirement

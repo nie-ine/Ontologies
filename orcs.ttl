@@ -5,6 +5,7 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.nie-ine.ch/ontology/human#>.
 @prefix text: <http://www.nie-ine.ch/ontology/text#>.
+@prefix schola: <http://www.nie-ine.ch/ontology/scholasticism#>.
 @prefix kb: <http://www.knora.org/ontology/knora-base#>.
 @prefix orcs: <http://www.nie-ine.ch/ontology/orcs#>.
 
@@ -14,12 +15,12 @@
 	dct:description """Formal description of elements in the scientific study of Petrus Lombardus as in the Online Repertory of Commentaries on Peter Lombard’s Sentences (ORCS)."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:contibutor "Prof. Dr. Ueli Zahnd, History of Philosophy in the Middle Ages, University of Basel, Switzerland"@en;
 	dct:conformsTo "OWL Full"@en;
 	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>.
 
 # general:
 	# DB PL: mysql elements of Petrus Lombardus project
-	# TBS: to be specified
 	# SCO: rdfs:subClassOf
 	# SPO: rdfs:subPropertyOf
 
@@ -89,7 +90,7 @@ orcs:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/
 	rdfs:label "has Stegmüller's expression description object"@en;
 	rdfs:comment """Relating an expression to a Stegmüller's description object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
-	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject rdfs:subPropertyOf text:hasTextObject rdfs:subPropertyOf kb:hasValue
+	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject SPO text:hasTextObject SPO kb:hasValue
 	rdfs:domain text:Expression;
 	rdfs:range orcs:StegmuellerExpressionDescriptionObject;
 	kb:subjectClassConstraint text:Expression; # Knora requirement

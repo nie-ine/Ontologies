@@ -1,0 +1,83 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix text: <http://www.nie-ine.ch/text#>.
+@prefix kb: <http://www.knora.org/ontology/knora-base#>.
+@prefix ka: <http://www.knora.org/ontology/knora-admin#>.
+@prefix work: <http://www.nie-ine.ch/ontology/work#>.
+
+# @prefix bibo: <http://purl.org/ontology/bibo/>. # dereferences via http://bibliographic-ontology.org/bibo/bibo.php to rdf-xml file
+# proposed not to use it, cf. NIE_ontology_evaluation_bibo.txt
+# @prefix biblio: <http://www.knora.org/ontology/biblio#> . # not yet in production; uses bibo
+
+@prefix krd: <http://www.nie-ine.ch/kunoRaeber-data#>.	# mock-up
+
+<http://www.nie-ine.ch/ontology/work>
+	a owl:Ontology;
+	dct:title "An ontology about work"@en;
+	dct:description """Formal description of work as  in broadest sense, and general subclasses, related classes and properties."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/work#>;
+	owl:versionInfo "Version x - yyyy-mm-dd"@en;	# OR other format, datatype
+	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
+	dct:conformsTo "OWL Full"@en.
+
+# general:
+	# DB: mysql elements
+		# krd: Raeber
+		# PL: Lombardus
+	# TBS: to be specified
+
+#
+# CLASSES
+#
+
+# frbroo:F14_Individual_Work
+# frbroo:R3_is_realised_in
+# frbroo:F22_Self-Contained_Expression
+
+work:Work # DB KR: Synopse where ?: cf. itemlist/tag
+	a rdfs:Class;
+	rdfs:label "work"@en, "Werk"@de;
+	rdfs:comment """See http://iflastandards.info/ns/fr/frbr/frbroo/F14_Individual_Work."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/work#>;
+	rdfs:subClassOf frbroo:F14_Individual_Work, kb:Resource, [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# e.g. on page http://www.kunoraeber.ch/feetest/index.php/notizbuecher/notizbuch-1979-1982
+# 'Synopse: Museggeromgang' = link:
+# http://www.kunoraeber.ch/feetest/index.php/notizbuecher/notizbuch-1979-1982/itemlist/tag/Museggeromgang
+# to page with in upper left corner 'Synopse: Museggeromgang (6)'
+
+
+
+# published -> creation, made public in DB online
+
+#	rdfs:subClassOf kb:TextRepresentation. # OR kb:DocumentRepresentation?
+#	kb:hasTextFileValue krd:IntrotextFileValue: needed? ~ cardinality  
+
+
+# krd:_	kb:hasTextFileValue kb:TextFileValue; :valueHasString
+
+
+# krd:creatorOf foaf:Agent
+# krd:createdBy
+
+
+# frbroo:
+
+work:hasManifestation
+	a owl:ObjectProperty;
+	rdfs:label "has manifestation"@en;
+	rdfs:comment "A property linking a particular work to its manifestations. This property is additional to the relationships between FRBR endeavours present in the classical FRBR data model."@en;
+	rdfs:domain work:Work;
+	rdfs:range work:Manifestation;
+	owl:propertyChainAxiom (work:hasRealization work:hasEmbodiment).
+
+
+	

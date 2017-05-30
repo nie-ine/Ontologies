@@ -33,14 +33,13 @@ drcs:Person # DB PL: RCS_AUTHORS
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """Person as in scientific study of Petrus Lombardus."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
-	rdfs:subClassOf human:Person, kb:Resource, [ # Knora requirement
-		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:Role; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf schola:Scholastic, kb:Resource, [ # Knora requirement
+		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 drcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a rdfs:Class;
 	rdfs:label "Stegmüller's person description object"@en;
-	rdfs:comment """Stegmüller's person description as abstract object."""@en;
+	rdfs:comment """Stegmüller's person description as object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
@@ -48,7 +47,7 @@ drcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requ
 drcs:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II # Knora requirement
 	a rdfs:Class;
 	rdfs:label "Stegmüller's expression description object"@en;
-	rdfs:comment """Stegmüller's expression description as abstract object."""@en;
+	rdfs:comment """Stegmüller's expression description as object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
@@ -64,7 +63,7 @@ drcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
 # PROPERTIES
 #
 
-drcs:hasStegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM
+drcs:hasStegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's person description object"@en;
 	rdfs:comment """Relating a person to a Stegmüller's description object."""@en;
@@ -85,7 +84,7 @@ drcs:hasStegmuellerPersonDescription # DB PL: RCS_AUTHORS - STGM
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal. # NOT xsd:string
 
-drcs:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II
+drcs:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II # Knora requirement
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's expression description object"@en;
 	rdfs:comment """Relating an expression to a Stegmüller's description object."""@en;
@@ -105,6 +104,8 @@ drcs:hasStegmuellerExpressionDescription # DB PL: RCS_XPRESSIONS - STGM I/STGM I
 	owl:propertyChainAxiom (drcs:hasStegmuellerExpressionDescriptionObject kb:valueHasString);
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal. # NOT xsd:string
+
+# drcs:hasStegmuellerCodeObject # Knora requirement
 
 drcs:hasStegmuellerCode # DB PL: RCS_XPRESSIONS - RSCODES
 	a owl:DatatypeProperty;

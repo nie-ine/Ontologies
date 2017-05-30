@@ -48,6 +48,21 @@ image:StillImageRepresentationLinkValue
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/image#>;
 	rdfs:subClassOf kb:LinkValue.
 
+
+# krd:Video
+# krd:Gallery
+# krd:hasCreationDateTime
+# krd:createdBy
+# krd:hasModificationDateTime
+# krd:modifiedBy
+# krd:trashed
+# krd:hasImageCaption
+# krd:hasImageCredits
+# krd:hasVideoCaption
+# krd:hasVideoCredits
+# krd:hasLanguage
+
+
 #
 # PROPERTIES
 #

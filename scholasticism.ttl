@@ -23,13 +23,25 @@
 # CLASSES
 #
 
+schola:Scholastic
+	a rdfs:Class;
+	rdfs:label "scholastic"@en, "ScholastikerIn"@de;
+	rdfs:comment """An adherent of Scholasticism."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subClassOf human:Person, [
+		a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Role], [
+		a owl:Restriction; owl:onProperty schola:hasRole; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty schola:hasRoleStatement; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+
 schola:Role # DB PL: RCS_REL_AID_XID - FUNCTION
 	a rdfs:Class;
 	rdfs:label "scholastic role"@en;
-	rdfs:comment """A role a scholastic or adherent of Scholasticism has."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
+	rdfs:comment """A role a scholastic has."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
 	rdfs:subClassOf human:Role;
 	owl:unionOf (text:Author schola:Reportator schola:Glossator schola:Abbreviator schola:Revisor schola:Redactor).
+
+# seperate roles linked to expression and manifestation
 
 schola:Reportator # DB PL: RCS_REL_AID_XID - FUNCTION
 	a rdfs:Class;
@@ -175,4 +187,22 @@ schola:Conclusion # DB PL: RCS_XPRESSIONS - GENRES
 # PROPERTIES
 #
 
-# schola:hasRole
+schola:hasRole
+	a owl:ObjectProperty;
+	rdfs:label "scholastic has role"@en;
+	rdfs:comment """Relating a scholastic to a role."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subPropertyOf kb:hasLinkTo;
+	rdfs:domain schola:Scholastic;
+	rdfs:range schola:Role;
+	kb:subjectClassConstraint schola:Scholastic; # Knora requirement
+	kb:objectClassConstraint schola:Role. # Knora requirement
+
+schola:hasRoleStatement # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has role statement"@en, "hat Rolle-Aussage"@de;
+	rdfs:comment """Relating a scholastic to a role statement as reification of the relation between the scholastic and the role."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/scholasticism#>;
+	rdfs:subPropertyOf kb:hasLinkToValue;
+	kb:subjectClassConstraint schola:Scholastic; # Knora requirement
+	kb:objectClassConstraint kb:LinkValue. # Knora requirement

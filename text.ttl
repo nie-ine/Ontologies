@@ -49,7 +49,14 @@ text:NameObject
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
-text:AliasObject 
+text:PreferredNameObject
+	a rdfs:Class;
+	rdfs:label "preferred name object"@en;
+	rdfs:comment """Text... ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subClassOf text:NameObject.
+
+text:AliasObject
 	a rdfs:Class;
 	rdfs:label "alias object"@en;
 	rdfs:comment """Alternative name of something, as an object."""@en;
@@ -290,7 +297,7 @@ text:hasText
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
 
-text:hasNameObject  # Knora requirement
+text:hasNameObject # Knora requirement
 	a owl:ObjectProperty;
 	rdfs:label "has name object"@en;
 	rdfs:comment """Relating a resource to a name object."""@en;
@@ -309,7 +316,49 @@ text:hasName # DB KR: jsmwh_k2_categories/name, jsmwh_k2_extra_fields/name, jsmw
 	rdfs:subPropertyOf foaf:name;
 	owl:propertyChainAxiom (text:hasNameObject kb:valueHasString);
 	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+	rdfs:range rdfs:Literal. # NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasPreferredNameObject # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has preferred name object"@en;
+	rdfs:comment """Relating a resource to a preferred name object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasNameObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:PreferredNameObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:PreferredNameObject.
+
+text:hasPreferredName
+	a owl:DatatypeProperty;
+	rdfs:label "has preferred name"@en;
+	rdfs:comment """Relating a resource to a preferred name."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasName;
+	owl:propertyChainAxiom (text:hasPreferredNameObject kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. # NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasAliasObject # Knora requirement
+	a owl:ObjectProperty;
+	rdfs:label "has alias object"@en;
+	rdfs:comment """Relating a resource to an alias object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasNameObject;
+	rdfs:domain rdfs:Resource;
+	rdfs:range text:AliasObject;
+	kb:subjectClassConstraint kb:Resource;
+	kb:objectClassConstraint text:AliasObject.
+
+text:hasAlias
+	a owl:DatatypeProperty;
+	rdfs:label "has alias"@en;
+	rdfs:comment """Relating a resource to an alias."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasName;
+	owl:propertyChainAxiom (text:hasAlias kb:valueHasString);
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal. # NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
 
 text:hasTitleObject # DB PL: RCS_XPRESSIONS - TITLE # Knora requirement
 	a owl:ObjectProperty;
@@ -394,10 +443,10 @@ text:hasDefinition
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
 
-text:hasIncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT # Knora requirement
+text:hasIncipitObject # Knora requirement
 	a owl:ObjectProperty;
 	rdfs:label "has incipit object"@en;
-	rdfs:comment """Relating a text to its beginning part, as an object."""@en;
+	rdfs:comment """Relating a text expression to a beginning part thereof, as an object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subPropertyOf text:hasTextObject;
 	rdfs:domain text:Expression;
@@ -405,16 +454,36 @@ text:hasIncipitObject # DB PL: RCS_XPRESSIONS - INCIPIT # Knora requirement
 	kb:subjectClassConstraint text:Expression;
 	kb:objectClassConstraint text:IncipitObject.
 
-text:hasExplicitObject # DB PL: RCS_XPRESSIONS - EXPLICIT # Knora requirement
+text:hasIncipit # DB PL: RCS_XPRESSIONS - INCIPIT
+	a owl:DatatypeProperty;
+	rdfs:label "has incipit"@en;
+	rdfs:comment """Relating a text expression to an incipit thereof."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasText;
+	owl:propertyChainAxiom (text:hasIncipitObject kb:valueHasString);
+	rdfs:domain text:Expression;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
+
+text:hasExplicitObject # Knora requirement
 	a owl:ObjectProperty;
 	rdfs:label "has explicit object"@en;
-	rdfs:comment """Relating a text to its ending part."""@en;
+	rdfs:comment """Relating a text expression to an ending part thereof, as an object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subPropertyOf text:hasTextObject;
 	rdfs:domain text:Expression;
 	rdfs:range text:ExplicitObject;
 	kb:subjectClassConstraint text:Expression;
 	kb:objectClassConstraint text:ExplicitObject.
+
+text:hasExplicit # DB PL: RCS_XPRESSIONS - EXPLICIT
+	a owl:DatatypeProperty;
+	rdfs:label "has explicit"@en;
+	rdfs:comment """Relating a text expression to an ending part thereof."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:subPropertyOf text:hasText;
+	owl:propertyChainAxiom (text:hasExplicitObject kb:valueHasString);
+	rdfs:domain text:Expression;
+	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
 
 text:isAuthorOf
 	a owl:ObjectProperty;
@@ -426,3 +495,24 @@ text:isAuthorOf
 	rdfs:range text:Expression;
 	kb:subjectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
 	kb:objectClassConstraint text:Expression.
+
+text:hasAuthor
+	a owl:ObjectProperty;
+	rdfs:label "has author"@en;
+	rdfs:comment """Relating a text to a person who authored it."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+#	owl:propertyChainAxiom (agent-actsIn-authoring-/hasOutput-[hasObject-poem]/hasOutputObject-poem);
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+	kb:subjectClassConstraint text:Expression;
+	kb:objectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]].
+
+text:hasManifestation
+	a owl:ObjectProperty;
+	rdfs:label "has manifestation"@en;
+	rdfs:comment """Relating a text expression to a manifestation."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+	rdfs:domain text:Expression;
+	rdfs:range manif:Manifestation;
+	kb:subjectClassConstraint text:Expression;
+	kb:objectClassConstraint manif:Manifestation.

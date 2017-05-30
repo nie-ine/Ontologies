@@ -9,6 +9,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.nie-ine.ch/ontology/event#>.
 @prefix human: <http://www.nie-ine.ch/ontology/human#>.
+@prefix manif: <http://www.nie-ine.ch/ontology/manifestation#>.
 @prefix image: <http://www.nie-ine.ch/ontology/image#>.
 @prefix kb: <http://www.knora.org/ontology/knora-base#>.
 @prefix text: <http://www.nie-ine.ch/ontology/text#>.
@@ -49,14 +50,14 @@ text:NameObject
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
-text:PreferredNameObject
+text:PreferredNameObject # DB PL: RCS_AUTHORS - NAME
 	a rdfs:Class;
 	rdfs:label "preferred name object"@en;
 	rdfs:comment """Text... ."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:NameObject.
 
-text:AliasObject
+text:AliasObject # DB PL: RCS_AUTHORS - AKA
 	a rdfs:Class;
 	rdfs:label "alias object"@en;
 	rdfs:comment """Alternative name of something, as an object."""@en;
@@ -329,7 +330,7 @@ text:hasPreferredNameObject # Knora requirement
 	kb:subjectClassConstraint kb:Resource;
 	kb:objectClassConstraint text:PreferredNameObject.
 
-text:hasPreferredName
+text:hasPreferredName # DB PL: RCS_AUTHORS - NAME
 	a owl:DatatypeProperty;
 	rdfs:label "has preferred name"@en;
 	rdfs:comment """Relating a resource to a preferred name."""@en;
@@ -350,7 +351,7 @@ text:hasAliasObject # Knora requirement
 	kb:subjectClassConstraint kb:Resource;
 	kb:objectClassConstraint text:AliasObject.
 
-text:hasAlias
+text:hasAlias # DB PL: RCS_AUTHORS - AKA
 	a owl:DatatypeProperty;
 	rdfs:label "has alias"@en;
 	rdfs:comment """Relating a resource to an alias."""@en;

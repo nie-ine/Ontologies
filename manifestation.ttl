@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix cimanif: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.nie-ine.ch/ontology/event#>.
 @prefix human: <http://www.nie-ine.ch/ontology/human#>.
@@ -15,81 +15,82 @@
 
 <http://www.nie-ine.ch/ontology/manifestation>
 	a owl:Ontology;
-	dct:title "An ontology about document"@en;
-	dct:description """Formal description of a document in broadest sense, general subclasses, related classes, and properties."""@en;
+	dct:title "An ontology about manifestations"@en;
+	dct:description """Formal description of a manifestation in broadest sense, general subclasses, related classes, and properties."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
-	dct:conformsTo "OWL Full"@en.
+	dct:conformsTo "OWL Full"@en
 
 # general:
 	# DB: mapping to mysql elements
 		# KR: Kuno Raeber
 		# PL: Petrus Lombardus
 	# TBS: to be specified
+	# SCO: rdfs:subClassOf
+	# SPO: rdfs:subPropertyOf
 
 #
 # CLASSES
 #
 
-manif:Convolute
+manif:Manifestation # DB KR: jsmwh_k2_categories - parent
+ 	a rdfs:Class;
+ 	rdfs:label "manifestation"@en,"Manifestation"@de;
+ 	rdfs:comment """Carrier of an expression."""@en;
+	skos:note """Both the manifestation singleton and item as declared in FRBROO."""@en;
+ 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+	rdfs:subClassOf cidoc:E84_Information_Carrier, kb:Resource, [ # Knora requirement
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories- name # Knora requirement
+		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - description # Knora requirement
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - image # Knora requirement
+		a owl:Restriction; owl:onProperty image:hasStillImageRepresentationLinkValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # triple reification # Knora requirement
+		a owl:Restriction; owl:onProperty image:hasImage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - image # outside KS
+		a owl:Restriction; owl:onProperty manif:carries; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+# 
+
+manif:Convolute # only text ?
 	a rdfs:Class;
 	rdfs:label "convolute"@en, "Konvolut"@de;
 	rdfs:comment """Text expressions, e.g. notes, manuscripts, typoscripts or prints, physically gathered as one."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
+	rdfs:subClassOf manif:Manifestation, frbroo:F4_Manifestation_Singleton, kb:Resource.
 
 # manif:Book
 # 	a owl:Class;
 # 	rdfs:subClassOf kb:Resource, [ # fabio:Book
 # 		a owl:Restriction; owl:onProperty krd:createdBy; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-manif:Manifestation # DB KR: jsmwh_k2_categories - parent
-	a rdfs:Class;
-	rdfs:label "notebook"@en,"Notizbuch"@de;
-	rdfs:comment """Book wherein notes are written."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource, [ # restrictions to be KBO compatible # fabio:Notebook
-		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories- name
-		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - description
-		a owl:Restriction; owl:onProperty image:hasStillImageRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # 1. DB KR: jsmwh_k2_categories - image
-		a owl:Restriction; owl:onProperty image:hasStillImageRepresentationLinkValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # triple reification
-		a owl:Restriction; owl:onProperty image:hasImage; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # 2. DB KR: jsmwh_k2_categories - image # outside KS
-
 manif:Notebook # DB KR: jsmwh_k2_categories - parent
 	a rdfs:Class;
 	rdfs:label "notebook"@en,"Notizbuch"@de;
-	rdfs:comment """Book wherein notes are written."""@en;
+	rdfs:comment """Book wherein notes are written, e.g. a first registration of thoughts."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource, [ # restrictions to be KBO compatible # fabio:Notebook
-		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories- name
-		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # DB KR: jsmwh_k2_categories - description
-		a owl:Restriction; owl:onProperty image:hasStillImageRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # 1. DB KR: jsmwh_k2_categories - image
-		a owl:Restriction; owl:onProperty image:hasStillImageRepresentationLinkValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # triple reification
-		a owl:Restriction; owl:onProperty image:hasImage; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # 2. DB KR: jsmwh_k2_categories - image # outside KS
+	rdfs:subClassOf manif:Manifestation, frbroo:F4_Manifestation_Singleton, kb:Resource. # requirement
 
-manif:Manuscript # DB KR: jsmwh_k2_categories - parent # DB PL: RCS_MANIFEST - TYPE
+# check fabio:Notebook
+
+manif:Manuscript # DB KR: jsmwh_k2_categories - parent # DB PL: RCS_MANIFESTATIONS - TYPE
 	a rdfs:Class;
 	rdfs:label "manuscript"@en, "Manuskript"@de;
-	rdfs:comment """Handwritten document."""@en;
+	rdfs:comment """Handwritten manifestation."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
-#		[a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf manif:Manifestation, frbroo:F4_Manifestation_Singleton, kb:Resource.
 
 # check bibo:Manuscript
 
 manif:Typescript # DB KR: jsmwh_k2_categories - parent
 	a rdfs:Class;
 	rdfs:label "typescript"@en, "Typoskript"@de;
-	rdfs:comment """Document containing text written with a typewriter."""@en;
+	rdfs:comment """Typewritten manifestation."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F4_Manifestation_Singleton, kb:Resource.
+	rdfs:subClassOf manif:Manifestation, frbroo:F4_Manifestation_Singleton, kb:Resource.
 
 manif:Print # DB KR: jsmwh_k2_categories - parent
 	a rdfs:Class;
 	rdfs:label "print"@en, "Druck"@de;
-	rdfs:comment """Document containing printed text."""@en;
+	rdfs:comment """Information carrier with printed text."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
-	rdfs:subClassOf frbroo:F5_Item, kb:Resource.
+	rdfs:subClassOf manif:Manifestation, frbroo:F5_Item, kb:Resource.
 
 
 # cardinality: cf. http://wiki.nie-ine.ch/doku.php?id=kuno_raebers_lyrisches_werk_-_historisch-kritische_online-edition#vorbereitung_fuer_das_scrum-planungs-meeting_am_26_april_2017
@@ -121,7 +122,18 @@ manif:Letter
 # PROPERTIES
 #
 
-manif:hasDocumentRepresentation
+manif:carries
+	a owl:ObjectProperty;
+	rdfs:label "carries"@en;
+	rdfs:comment """Relating a manifestation to an ."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/manifestation#>;
+#	rdfs:subPropertyOf ?
+	rdfs:domain cidoc:E84_Information_Carrier;
+	rdfs:range cidoc:E73_Information_Object;
+	kb:subjectClassConstraint cidoc:E84_Information_Carrier;
+	kb:objectClassConstraint :E73_Information_Object.
+
+		manif:hasDocumentRepresentation
 	a owl:ObjectProperty;
 	rdfs:label "has document representation"@en;
 	rdfs:comment """Relating a person in author role to a text the person authored."""@en;

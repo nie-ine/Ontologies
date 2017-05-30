@@ -7,13 +7,13 @@
 @prefix text: <http://www.nie-ine.ch/ontology/text#>.
 @prefix schola: <http://www.nie-ine.ch/ontology/scholasticism#>.
 @prefix kb: <http://www.knora.org/ontology/knora-base#>.
-@prefix orcs: <http://www.nie-ine.ch/ontology/orcs#>.
+@prefix drcs: <http://www.nie-ine.ch/ontology/drcs#>.
 
-<http://www.nie-ine.ch/ontology/orcs>
+<http://www.nie-ine.ch/ontology/drcs>
 	a owl:Ontology;
-	dct:title "An ontology for the Online Repertory of Commentaries on Peter Lombard’s Sentences"@en;
-	dct:description """Formal description of elements in the scientific study of Petrus Lombardus as in the Online Repertory of Commentaries on Peter Lombard’s Sentences (ORCS)."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	dct:title "An ontology for the Digital Repertory of Commentaries on Peter Lombard’s Sentences"@en;
+	dct:description """Formal description of elements in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	dct:creator "Hans Cools, software developer, NIE, Basel University, Switzerland"@en;
 	dct:contibutor "Prof. Dr. Ueli Zahnd, History of Philosophy in the Middle Ages, University of Basel, Switzerland"@en;
 	dct:conformsTo "OWL Full"@en;
@@ -28,88 +28,88 @@
 # CLASSES
 #
 
-orcs:Person # DB PL: RCS_AUTHORS
+drcs:Person # DB PL: RCS_AUTHORS
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """Person as in scientific study of Petrus Lombardus."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf human:Person, kb:Resource, [ # Knora requirement
-		a owl:Restriction; owl:onProperty orcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:Role; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-orcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
+drcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a rdfs:Class;
 	rdfs:label "Stegmüller's person description object"@en;
 	rdfs:comment """Stegmüller's person description as abstract object."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-orcs:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II # Knora requirement
+drcs:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II # Knora requirement
 	a rdfs:Class;
 	rdfs:label "Stegmüller's expression description object"@en;
 	rdfs:comment """Stegmüller's expression description as abstract object."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-orcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
+drcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
 	a rdfs:Class;
 	rdfs:label "commentarium"@la, "commentary"@en, "Erläuterung"@de;
 	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subClassOf schola:Commentary.
 
 #
 # PROPERTIES
 #
 
-orcs:hasStegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM
+drcs:hasStegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's person description object"@en;
 	rdfs:comment """Relating a person to a Stegmüller's description object."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject SPO text:hasTextObject SPO kb:hasValue
 	rdfs:domain human:Person;
-	rdfs:range orcs:StegmuellerPersonDescriptionObject;
+	rdfs:range drcs:StegmuellerPersonDescriptionObject;
 	kb:subjectClassConstraint human:Person;  # Knora requirement
-	kb:objectClassConstraint orcs:StegmuellerPersonDescriptionObject. # Knora requirement
+	kb:objectClassConstraint drcs:StegmuellerPersonDescriptionObject. # Knora requirement
 
-orcs:hasStegmuellerPersonDescription # DB PL: RCS_AUTHORS - STGM
+drcs:hasStegmuellerPersonDescription # DB PL: RCS_AUTHORS - STGM
 	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's person description"@en;
 	rdfs:comment """Relating a person to a Stegmüller's description."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subPropertyOf text:hasDescription; # rdfs:comment, dct:description
-	owl:propertyChainAxiom (orcs:hasStegmuellerPersonDescriptionObject kb:valueHasString);
+	owl:propertyChainAxiom (drcs:hasStegmuellerPersonDescriptionObject kb:valueHasString);
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal. # NOT xsd:string
 
-orcs:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II
+drcs:hasStegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STGM II
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's expression description object"@en;
 	rdfs:comment """Relating an expression to a Stegmüller's description object."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subPropertyOf kb:hasValue; # text:hasDescriptionObject SPO text:hasTextObject SPO kb:hasValue
 	rdfs:domain text:Expression;
-	rdfs:range orcs:StegmuellerExpressionDescriptionObject;
+	rdfs:range drcs:StegmuellerExpressionDescriptionObject;
 	kb:subjectClassConstraint text:Expression; # Knora requirement
-	kb:objectClassConstraint orcs:StegmuellerExpressionDescriptionObject. # Knora requirement
+	kb:objectClassConstraint drcs:StegmuellerExpressionDescriptionObject. # Knora requirement
 
-orcs:hasStegmuellerExpressionDescription # DB PL: RCS_XPRESSIONS - STGM I/STGM II
+drcs:hasStegmuellerExpressionDescription # DB PL: RCS_XPRESSIONS - STGM I/STGM II
 	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's expression description"@en;
 	rdfs:comment """Relating an expression to a Stegmüller's description."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:subPropertyOf text:hasDescription; # rdfs:comment, dct:description
-	owl:propertyChainAxiom (orcs:hasStegmuellerExpressionDescriptionObject kb:valueHasString);
+	owl:propertyChainAxiom (drcs:hasStegmuellerExpressionDescriptionObject kb:valueHasString);
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal. # NOT xsd:string
 
-orcs:hasStegmuellerCode
+drcs:hasStegmuellerCode # DB PL: RCS_XPRESSIONS - RSCODES
 	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's code"@en;
 	rdfs:comment """Relating an expression to a Stegmüller's code."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/orcs#>;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal. # NOT xsd:string

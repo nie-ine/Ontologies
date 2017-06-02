@@ -36,6 +36,15 @@ drcs:Person # DB PL: RCS_AUTHORS
 	rdfs:subClassOf schola:Scholastic, kb:Resource, [ # Knora requirement
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+drcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
+	a rdfs:Class;
+	rdfs:label "commentarium"@la, "commentary"@en, "Erläuterung"@de;
+	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
+	rdfs:subClassOf schola:Commentary, [ # schola:Commentary SCO text:Commentary SCO text:Expression SCO knora-base:Resource
+		a owl:Restriction; owl:onProperty drcs:hasStegmuellerExpressionDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCodeObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 drcs:StegmuellerPersonDescriptionObject # DB PL: RCS_AUTHORS - STGM # Knora requirement
 	a rdfs:Class;
 	rdfs:label "Stegmüller's person description object"@en;
@@ -52,12 +61,13 @@ drcs:StegmuellerExpressionDescriptionObject # DB PL: RCS_XPRESSIONS - STGM I/STG
 	rdfs:subClassOf text:DescriptionObject, [ # SCO text:TextObject SCO kb:TextValue
 		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-drcs:Commentary # DB PL: RCS_XPRESSIONS - TYPE
+drcs:StegmuellerCodeObject # DB PL: RCS_XPRESSIONS - RSCODES # Knora requirement
 	a rdfs:Class;
-	rdfs:label "commentarium"@la, "commentary"@en, "Erläuterung"@de;
-	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
+	rdfs:label "Stegmüller's code object"@en;
+	rdfs:comment """Stegmüller's code as object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
-	rdfs:subClassOf schola:Commentary.
+	rdfs:subClassOf text:TextObject, [ # SCO kb:TextValue
+		a owl:Restriction; owl:onProperty kb:valueHasString; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -105,7 +115,15 @@ drcs:hasStegmuellerExpressionDescription # DB PL: RCS_XPRESSIONS - STGM I/STGM I
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal. # NOT xsd:string
 
-# drcs:hasStegmuellerCodeObject # Knora requirement
+drcs:hasStegmuellerCodeObject
+	a owl:ObjectProperty;
+	rdfs:label "has Stegmüller's code object"@en;
+	rdfs:comment """Relating an expression to a Stegmüller's code object."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/drcs#>;
+	rdfs:domain text:Expression;
+	rdfs:range drcs:StegmuellerCodeObject;
+	kb:subjectClassConstraint text:Expression; # Knora requirement
+	kb:objectClassConstraint drcs:StegmuellerCodeObject. # Knora requirement
 
 drcs:hasStegmuellerCode # DB PL: RCS_XPRESSIONS - RSCODES
 	a owl:DatatypeProperty;

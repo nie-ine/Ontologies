@@ -35,7 +35,7 @@
 # CLASSES
 #
 
-text:TextObject # DB PL: RCS_XPRESSIONS - EXPLICIT
+text:TextObject
 	a rdfs:Class;
 	rdfs:label "text object"@en;
 	rdfs:comment """Writable coherent set of signs representing semantics in a language, as an object."""@en;
@@ -46,14 +46,14 @@ text:TextObject # DB PL: RCS_XPRESSIONS - EXPLICIT
 text:NameObject
 	a rdfs:Class;
 	rdfs:label "name object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Textual identifier of something, as an object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
 text:PreferredNameObject # DB PL: RCS_AUTHORS - NAME
 	a rdfs:Class;
 	rdfs:label "preferred name object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Name of preference, as an object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:NameObject.
 
@@ -67,35 +67,35 @@ text:AliasObject # DB PL: RCS_AUTHORS - AKA
 text:TitleObject # DB PL: RCS_XPRESSIONS - TITLE
  	a rdfs:Class;
  	rdfs:label "title object"@en, "Titel-Objekt"@de, "titre objet"@fr, "titolo oggetto"@it;
- 	rdfs:comment """Text... ."""@en;
+ 	rdfs:comment """Textual identifier of an expression, as an object."""@en;
  	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
  	rdfs:subClassOf text:TextObject, cidoc:E35_Title.
 
 text:CommentObject # DB PL: RCS_XPRESSIONS - NOTES (are comments)
 	a rdfs:Class;
 	rdfs:label "comment object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Textual statement about an expression, as an object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
 text:DescriptionObject # DB PL: RCS_XPRESSIONS - DESCRIPTION
 	a rdfs:Class;
 	rdfs:label "description object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Textual statement about the features of something."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
 text:DefinitionObject
 	a rdfs:Class;
 	rdfs:label "definition object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Textual statement about the essential features of something."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:TextObject.
+	rdfs:subClassOf text:DescriptionObject.
 
 text:NoteObject
 	a rdfs:Class;
 	rdfs:label "note object"@en;
-	rdfs:comment """Text... ."""@en;
+	rdfs:comment """Textual statement for future processing of any kind."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:TextObject.
 
@@ -105,12 +105,15 @@ text:Expression # DB PL: RCS_XPRESSIONS
 	rdfs:comment """Text as a human luinguistic expression."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf frbroo:F2_Expression, cidoc:E33_Linguistic_Object, kb:Resource, [ # Knora requirement
-		a owl:Restriction; owl:onProperty text:hasTitleObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # OR text:hasNameObject # Knora requirement
+		a owl:Restriction; owl:onProperty text:hasTitleObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty text:hasDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty text:hasIncipitObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
-		a owl:Restriction; owl:onProperty text:hasTextObject; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # OR text:hasExplicitObject # Knora requirement
+		a owl:Restriction; owl:onProperty text:hasExplicitObject; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # Knora requirement
 
-# F22_Self-Contained_Expression: only needed as subclass, frbroo:F24_Publication_Expression ?
+
+# F22_Self-Contained_Expression
+#	frbroo:F24_Publication_Expression
+
 
 text:EditedText # DB KR: jsmwh_k2_items - introtext
 	a rdfs:Class;
@@ -119,7 +122,9 @@ text:EditedText # DB KR: jsmwh_k2_items - introtext
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:Expression.
 #		relate to editing
-#		kb:hasRepresentation kb:TextRepresentation, kb:StillImageRepresentation. 
+
+
+#	-> manifestation knora-base:hasRepresentation knora-base:TextRepresentation, knora-base:StillImageRepresentation. 
 
 
 # critical edited text : new, interpreted e.g. corrected
@@ -159,14 +164,11 @@ text:ExplicitObject # DB PL: RCS_XPRESSIONS - EXPLICIT # Knora requirement
 text:Commentary # ?= exegesis: Critical explanation or analysis, especially of a text
 	a rdfs:Class;
 	rdfs:label "commento"@la, "commentary"@en, "Erläuterung"@de;
-	rdfs:comment """Explanation or interpretation in the form of a series of comments."""@en;
+	rdfs:comment """Textual expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf text:Expression.
 
 
-# MM sprint 20170426
-# KR:
-# text:
 # - image of a poem text
 # - dipl. transcript
 # - final = as print:
@@ -177,8 +179,8 @@ text:Commentary # ?= exegesis: Critical explanation or analysis, especially of a
 # 		- line nr: in front, red
 # 		- page break, Seitenwechsel: at back, red: e.g. "//004"
 
-
 # text genesis: no 1-1 between N-M-T-P
+
 
 # to change
 text:Note # e.g. text of a poem as an expression # change to "draft" ?
@@ -186,17 +188,20 @@ text:Note # e.g. text of a poem as an expression # change to "draft" ?
 	rdfs:label "note"@en;
 	rdfs:comment """Text... ."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:Expression, kb:Resource, [
-		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Manuscript # NOT needed ? -> manifestation
 	a rdfs:Class;
 	rdfs:label "manuscript"@en, "Manuskript"@de;
 	rdfs:comment """Handwritten text."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:Expression, kb:Resource, [
-		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-	# bibo:Manuscript
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+
+# cf. bibo:Manuscript
+
 
 text:Transcript # always about text? # distinguish transcript of transcript? # need for handwritten only? # manifestation
 	a rdfs:Class;
@@ -204,31 +209,30 @@ text:Transcript # always about text? # distinguish transcript of transcript? # n
 	rdfs:comment """Reproduced text."""@en;
 	skos:note """Can be done by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:Expression, kb:Resource, [
-		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# text:ManualTranscript # needed ?
-# 	a rdfs:Class;
-# 	rdfs:label "manual transcript"@en, "manuelle Abschrift"@de;
-# 	rdfs:comment """Handwritten transcript."""@en;
-# 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-# 	rdfs:subClassOf text:Transcript, kb:Resource, [
-# 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+text:ManualTranscript
+ 	a rdfs:Class;
+ 	rdfs:label "manual transcript"@en, "manuelle Abschrift"@de;
+ 	rdfs:comment """Handwritten transcript."""@en;
+ 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+ 	rdfs:subClassOf text:Transcript, [
+ 		a owl:Restriction; owl:onProperty text:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Typescript
 	a rdfs:Class;
 	rdfs:label "typescript"@en, "Typoskript"@de;
 	rdfs:comment """Text written with a typewriter."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf text:Expression, kb:Resource.
-	# bibo ?
+	rdfs:subClassOf text:Expression.
 
 text:Print
 	a rdfs:Class;
 	rdfs:label "printed text"@en, "Textdruck"@de;
-	rdfs:comment """Text printed with any method, e.g. manually, or with an analogue or digital machine."""@en;
+	rdfs:comment """Text printed with any method, e.g. manually, with an analogue or digital machine."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf frbroo:F24_Publication_Expression, kb:Resource.
+	rdfs:subClassOf text:Expression, frbroo:F24_Publication_Expression.
 
 text:Author # DB PL: RCS_REL_AID_XID - FUNCTION
 	a rdfs:Class;
@@ -260,19 +264,19 @@ text:Abbreviation
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 	rdfs:subClassOf [a owl:Restriction; owl:onProperty event:outputOf; owl:someValuesFrom text:Abbreviating].
 
-text:Revisor # DB PL: RCS_REL_AID_XID - FUNCTION
+text:Revisor # DB PL: RCS_REL_AID_XID - FUNCTION  # schol. revisor + lat. "revisor"@la, 
 	a rdfs:Class;
-	rdfs:label "revisor"@la, "revisor"@en, "Revisor"@de;
+	rdfs:label "revisor"@en, "Revisor"@de;
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en; # content of a document
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf human:Role, kb:Resource.
+	rdfs:subClassOf human:Role.
 
-text:Redactor # DB PL: RCS_REL_AID_XID - FUNCTION
+text:Editor # DB PL: RCS_REL_AID_XID - FUNCTION # schol. redactor + lat.
 	a rdfs:Class;
-	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
+	rdfs:label "editor"@en, "Editor"@de;
 	rdfs:comment """Role of a person changing a text."""@en; # content of a document
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subClassOf human:Role, kb:Resource.
+	rdfs:subClassOf human:Role.
 
 #
 # PROPERTIES
@@ -428,7 +432,7 @@ text:hasDefinitionObject # Knora requirement
 	rdfs:label "has definition object"@en;
 	rdfs:comment """Relating a resource to a definition object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subPropertyOf text:hasTextObject;
+	rdfs:subPropertyOf text:hasDescriptionObject;
 	rdfs:domain rdfs:Resource;
 	rdfs:range text:DefinitionObject;
 	kb:subjectClassConstraint kb:Resource;
@@ -439,7 +443,7 @@ text:hasDefinition
 	rdfs:label "has definition"@en;
 	rdfs:comment """Relating a resource to a definition."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
-	rdfs:subPropertyOf skos:definition;	# a owl:AnnotationProperty, BUT in OWL Full something can be both a DatatypeProperty and AnnotationProperty
+	rdfs:subPropertyOf skos:definition, text:hasDescription; # a owl:AnnotationProperty, BUT in OWL Full something can be both a DatatypeProperty and AnnotationProperty
 	owl:propertyChainAxiom (text:hasDefinitionObject kb:valueHasString);
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
@@ -486,7 +490,7 @@ text:hasExplicit # DB PL: RCS_XPRESSIONS - EXPLICIT
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal. #	NOT xsd:string, because it does not permit the usage of a language tag, rdfs:Literal does; AND/OR use the intermediary object to link to a language?
 
-text:isAuthorOf
+text:authorOf
 	a owl:ObjectProperty;
 	rdfs:label "is author of"@en;
 	rdfs:comment """Relating a person in author role to a text the person authored."""@en;
@@ -497,16 +501,16 @@ text:isAuthorOf
 	kb:subjectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
 	kb:objectClassConstraint text:Expression.
 
-text:hasAuthor
-	a owl:ObjectProperty;
-	rdfs:label "has author"@en;
-	rdfs:comment """Relating a text to a person who authored it."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
+# text:hasAuthor
+#	a owl:ObjectProperty;
+#	rdfs:label "has author"@en;
+#	rdfs:comment """Relating a text to a person who authored it."""@en;
+#	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/text#>;
 #	owl:propertyChainAxiom (agent-actsIn-authoring-/hasOutput-[hasObject-poem]/hasOutputObject-poem);
-	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
-	kb:subjectClassConstraint text:Expression;
-	kb:objectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]].
+#	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+#	kb:subjectClassConstraint text:Expression;
+#	kb:objectClassConstraint [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]].
 
 text:hasManifestation
 	a owl:ObjectProperty;

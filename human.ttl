@@ -36,7 +36,7 @@ human:Human
 	unicore:rank unicore:Subspecies;
 	rdfs:subClassOf foaf:Agent, kb:Resource, <http://purl.uniprot.org/taxonomy/9606>. # species Homo sapiens; agent:Agent
 
-human:Person # DB PL: RCS_AUTHORS
+human:Person
 	a rdfs:Class;
 	rdfs:label "person"@en;
 	rdfs:comment """A real born living human."""@en;
@@ -44,22 +44,33 @@ human:Person # DB PL: RCS_AUTHORS
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property, very unlike a real person."""@en;
 	rdfs:subClassOf human:Human, foaf:Person, frbroo:F10_Person, kb:Resource, [
 		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:someValuesFrom human:BiologicalGender], [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:cardinality "1"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:maxCardinality "1"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasBiologicalGenderStatement; owl:maxCardinality "1"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty human:hasNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty human:hasFamilyNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty human:hasGivenNameObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty human:hasDescriptionObject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
 		a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom human:Role], [
-		a owl:Restriction; owl:onProperty human:hasRole; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # Knora requirement, but should be "0"
-		a owl:Restriction; owl:onProperty human:hasRoleStatement; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasRoleStatement; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasFloruit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # Knora requirement
+		a owl:Restriction; owl:onProperty human:hasFloruitStatement; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # Knora requirement
+
+# human:PersonLike # can also be human:Fantasy
+#	a rdfs:Class;
+#	rdfs:label "person like resource"@en;
+#	rdfs:comment """Person like resource having additional non-human features."""@en;
+#	skos:note """E.g. Jesus is for a believer a person having also non-human features, i.e. he is in the intersection of human:Person and human:PersonLike."""@en;
+#	OR has this kind of stuff be left out of modeling altogether?
+#	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
 
 human:NameObject # part of DB PL: RCS_AUTHORS - NAME
 	a rdfs:Class;
-	rdfs:label "person name object";
+	rdfs:label "name object";
 	rdfs:comment "Name of a person, as an object.";
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	skos:note """Enabling speaking about a name as object, not as literal."""@en;
-	skos:note """Further restriction given along specific law; e.g. can be changed."""@en;
+	skos:note """Further restriction given along specific law; e.g. a person can have name legally changed, thus can have only 1 simultaneously."""@en;
 	rdfs:subClassOf text:NameObject. # SCO text:TextObject SCO kb:TextValue
 
 human:FamilyNameObject
@@ -68,19 +79,19 @@ human:FamilyNameObject
 	rdfs:comment "Name of a person, as an object, from one or both parents.";
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	skos:note """Enabling speaking about a family name as object, not as literal."""@en;
-	skos:note """Further restriction given along specific law; e.g. can be changed."""@en;
-	rdfs:subClassOf text:NameObject. # SCO text:TextObject SCO kb:TextValue
+	skos:note """Further restriction given along specific law; e.g. a person can have name legally changed, thus can have only 1 simultaneously."""@en;
+	rdfs:subClassOf human:NameObject. # SCO text:TextObject SCO kb:TextValue
 
-human:GivenNameObject # enables speaking about a given name as object, not as literal
+human:GivenNameObject
 	a rdfs:Class;
 	rdfs:label "given name object";
 	rdfs:comment "Name, as an object, given to a person, usually by one or both parents.";
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	skos:note """Enabling speaking about a given name as object, not as literal."""@en;
-	skos:note """Further restriction given along specific law; e.g. can be changed."""@en;
-	rdfs:subClassOf text:NameObject. # SCO text:TextObject SCO kb:TextValue
+	skos:note """Further restriction given along specific law; e.g. a person can have name legally changed, thus can have only 1 simultaneously."""@en;
+	rdfs:subClassOf human:NameObject. # SCO text:TextObject SCO kb:TextValue
 
-human:DescriptionObject # part of DB PL: RCS_AUTHORS - NOTES 
+human:DescriptionObject 
 	a rdfs:Class;
 	rdfs:label "person description object";
 	rdfs:comment "Description of a person, as an object.";
@@ -90,27 +101,45 @@ human:DescriptionObject # part of DB PL: RCS_AUTHORS - NOTES
 
 human:Life
 	a rdfs:Class;
-	rdfs:label "human life"@en;
+	rdfs:label "person's life"@en;
 	rdfs:comment """Life of a human from birth until death."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	skos:note """Considered as an action wherein a person is an agent."""@en;
 #	skos:note """No satisfying biological description of onset of a human life."""@en;
-	rdfs:subClassOf event:Action, event:Existence, [
-			a owl:Restriction; owl:onProperty human:hasAgent; owl:someValuesFrom human:Person], [ # to change to agent:hasAgent
-			a owl:Restriction; owl:onProperty human:hasAgent; owl:cardinality "1"^^xsd:nonNegativeInteger]. # Knora requirement
+	rdfs:subClassOf event:Action, event:Existence.
 
 human:BiologicalGender
 	a rdfs:Class;
 	rdfs:label "human biological gender"@en;
 	rdfs:comment """Biological gender of a human."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	owl:oneOf (human:FemaleGender human:IntersexualGender human:MaleGender).
+	owl:disjointUnionOf (human:FemaleGender human:MaleGender human:IntersexualGender).
+
+human:FemaleGender
+	a rdfs:Class, human:BiologicalGender;
+	rdfs:label "humanly female"@en;
+	rdfs:comment """Being of a human female gender."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
+
+human:MaleGender
+	a rdfs:Class, human:BiologicalGender;
+	rdfs:label "humanly male"@en;
+	rdfs:comment """Being of a human male gender."""@en;
+#	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
+
+human:IntersexualGender
+	a rdfs:Class, human:BiologicalGender;
+	rdfs:label """humanly intersexual"""@en;
+	rdfs:comment """Being of a gender that is neither male or female, with biological characteristics of both."""@en;
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
 
 human:Role
 	a rdfs:Class;
 	rdfs:label "person role"@en;
 	rdfs:comment """A role a person has as a social entity."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>.
+	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
+	rdfs:subClassOf kb:Resource. # Knora requirement
 #	rdfs:subClassOf [a owl:Restriction; owl:onProperty agent:roleOf; owl:allValuesFrom human:Person].
 
 human:Occupation
@@ -127,36 +156,39 @@ human:OccupationalRole
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:subClassOf human:Role.
 
-human:Floruit # to move to agent:
+human:Floruit # move to agent:
 	a rdfs:Class;
 	rdfs:label "floruit"@en;
 	rdfs:comment """Period during which a person lived or a school or movement was most active or flourishing."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:subClassOf event:Action.
 
+human:Action
+	a rdfs:Class;
+	rdfs:label "human action"@en;
+	rdfs:subClassOf event:Action.
+
 #
 # PROPERTIES
 #
 
-human:hasAgent # to be changed to agent:hasAgent
+human:actsIn
 	a owl:ObjectProperty;
-	rdfs:label "has person agent"@en;
-	rdfs:comment """Relating an action to a person."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Action; # to be changed to agent:Action
-	rdfs:range human:Person;
-	kb:subjectClassConstraint human:Action; # Knora requirement
-	kb:objectClassConstraint human:Person. # Knora requirement
+	rdfs:label "person acts in"@en;
+	rdfs:comment """Relating a person to an action s/he is in."""@en;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+#	rdfs:subPropertyOf agent:actsIn;
+	rdfs:domain human:Person;
+	rdfs:range human:Action.
 
-human:hasAgentStatement # Knora requirement
+human:hasLife
 	a owl:ObjectProperty;
-	rdfs:label "has person agent statement"@en;
-	rdfs:comment """Relating an action to a person statement as reification of the relation between the person and the role."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Action; # to be changed to agent:Action
-	rdfs:range human:Person;
-	kb:subjectClassConstraint human:Action; # Knora requirement
-	kb:objectClassConstraint human:Person. # Knora requirement
+	rdfs:label "person has life"@en;
+	rdfs:comment """Relating a person to her/his life."""@en;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+	rdfs:subPropertyOf human:actsIn;
+	rdfs:domain human:Person;
+	rdfs:range human:Life.
 
 human:hasRole
 	a owl:ObjectProperty;
@@ -165,18 +197,7 @@ human:hasRole
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:subPropertyOf kb:hasLinkTo;
 	rdfs:domain human:Person;
-	rdfs:range human:Role;
-	kb:subjectClassConstraint human:Person; # Knora requirement
-	kb:objectClassConstraint human:Role. # Knora requirement
-
-human:hasRoleStatement # Knora requirement
-	a owl:ObjectProperty;
-	rdfs:label "has role statement"@en, "hat Rolle-Aussage"@de;
-	rdfs:comment """Relating a person to a role statement as reification of the relation between the person and the role."""@en;
-	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subPropertyOf kb:hasLinkToValue;
-	kb:subjectClassConstraint human:Person; # Knora requirement
-	kb:objectClassConstraint kb:LinkValue. # Knora requirement
+	rdfs:range human:Role.
 
 human:hasBiologicalGender
 	a owl:ObjectProperty;
@@ -184,60 +205,50 @@ human:hasBiologicalGender
 	rdfs:comment """Relating a human to a biological gender."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:domain human:Human;
-	rdfs:range human:BiologicalGender;
-	kb:subjectClassConstraint human:Human; # Knora requirement
-	kb:objectClassConstraint human:BiologicalGender. # Knora requirement
+	rdfs:range human:BiologicalGender.
 
 human:hasBirthDateTime
 	a owl:DatatypeProperty, owl:FunctionalProperty;
 	rdfs:label "has birth date time"@en;
-	rdfs:comment """Relating a human to a snapshot event's date and time of birth."""@en;
+	rdfs:comment """Relating a human to her/his snapshot event's date and time of birth."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human;
-	rdfs:range xsd:dateTime;
-	kb:subjectClassConstraint human:Human; # Knora requirement
-	kb:objectDatatypeConstraint xsd:dateTime. # Knora requirement
+	rdfs:domain human:Person;
+	rdfs:range xsd:dateTime.
 
 human:hasBirthDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has birth date"@en;
-	rdfs:comment """Relating a human to a date of birth."""@en;
+	rdfs:comment """Relating a person to her/his date of birth."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human;
-	rdfs:range xsd:date;
-	kb:subjectClassConstraint human:Human; # Knora requirement
-	kb:objectDatatypeConstraint xsd:date. # Knora requirement
+	rdfs:domain human:Person;
+	rdfs:range xsd:date.
 
 human:hasDeathDateTime
 	a owl:DatatypeProperty, owl:FunctionalProperty;
 	rdfs:label "has death date time"@en;
-	rdfs:comment """Specifying a snapshot event's date and time an organism died on."""@en;
+	rdfs:comment """Relating a person to her/his snapshot event's date and time of death."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human;
-	rdfs:range xsd:dateTime;
-	kb:subjectClassConstraint human:Human; # Knora requirement
-	kb:objectDatatypeConstraint xsd:dateTime. # Knora requirement
+	rdfs:domain human:Person;
+	rdfs:range xsd:dateTime.
 
 human:hasDeathDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has death date"@en;
-	rdfs:comment """Specifying a snapshot event's date an organism died on."""@en;
+	rdfs:comment """Relating a person to her/his date of death."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:domain human:Human;
-	rdfs:range xsd:date;
-	kb:subjectClassConstraint human:Human; # Knora requirement
-	kb:objectDatatypeConstraint xsd:date. # Knora requirement
+	rdfs:domain human:Person;
+	rdfs:range xsd:date.
 
-human:hasNameObject
+human:hasNameObject # DB PL: RCS_AUTHORS - NAME
 	a owl:ObjectProperty;
 	rdfs:label "has person name object";
 	rdfs:comment """Relating a person to a name object."""@en;
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:subPropertyOf text:hasNameObject;
 	rdfs:domain human:Person;
-	rdfs:range human:NameObject;
+	rdfs:range human:NameObject; # OR kb:TextValue
 	kb:subjectClassConstraint human:Person; # Knora requirement
-	kb:objectClassConstraint human:NameObject. # Knora requirement
+	kb:objectClassConstraint human:NameObject. # Knora requirement  # OR kb:TextValue
 #	sg:guiOrder "1"^^xsd:integer; # Knora requirement
 #	sg:guiElement sg:SimpleText; # Knora requirement
 #	sg:guiAttribute "size=32", "maxlength=32". # Knora requirement
@@ -316,3 +327,5 @@ human:hasFloruit
 	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
 	rdfs:domain human:Person;
 	rdfs:range human:Floruit.
+
+# prosopography

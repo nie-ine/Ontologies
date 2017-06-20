@@ -6,3 +6,42 @@ To enable data expression in this new format a series of vocabularies or ontolog
 Whenever possible existing ontologies are used to base on. NIE-ontologies are interdependent.  
 All the used or referenced ontologies are prefixed in a header in the Turtle files.  
 An introduction to [Semantic Web technology](https://github.com/nie-ine/Ontologies/wiki/Introduction-to-Semantic-Web-technology) is on the wiki.
+
+## Introducing an ontology in Knora, currently as 'project':
+
+1. install Docker, managed e.g. in WebStorm
+
+2. check Docker in CL, e.g.:
+	docker images
+
+3. extract compressed installation script InstallKnoraSalsahSipi.zip in the desired folder
+
+4. install Knora, SALSAH, Sipi in desired folder, in CL:
+	chmod 755 SetUpKnoraSalsahSipi.sh
+	. SetUpKnoraSalsahSipi.sh
+
+5. outcomment the 3 lines for (lengthy) cloning at beginning in SetUpKnoraSalsahSipi.sh
+
+6. create new project in ../Knora/webapi/_test_data/all_data/admin-data.ttl by copy-pasting previous one and adapt data accordingly
+
+7. restart Knora and Salsah to reload the test data:
+	. DualRestartKnoraSalsah.sh
+
+8. in ../Knora/webapi/scripts/fuseki-load-test-data.sh create link between working ontology and the 'project' ontology as declared in ../admin-data.ttl, by copy-pasting previous one and adapt data accordingly
+
+9. restart Knora and Salsah to reload the test data:
+	. DualRestartKnoraSalsah.sh
+
+10. set permissions in ../Knora/webapi/_test_data/all_data/permissions-data.ttl by copy-pasting previous one and adapt data accordingly
+
+11. restart Knora and Salsah to reload the test data:
+	. DualRestartKnoraSalsah.sh
+
+12. put Knora-compliant ontologies as Turtle file in ../Knora/webapi/_test_data/ontologies
+
+13. restart Knora and Salsah to reload the test data:
+	. DualRestartKnoraSalsah.sh
+
+14. check import in http://localhost:4200 in Salsah 2.0: information under ontology (project) name, 'Team' and 'Ressources' should be visible
+
+15. update changes from/to Knora on GitHUb

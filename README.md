@@ -11,20 +11,20 @@ An introduction to [Semantic Web technology](https://github.com/nie-ine/Ontologi
 
 1. install Docker, managed e.g. in WebStorm
 
-2. check Docker in CL, e.g.:
+2. check Docker in command line, e.g.:
 	docker images
 
 3. extract compressed installation script InstallKnoraSalsahSipi.zip in the desired folder
 
-4. install Knora, SALSAH, Sipi in desired folder, in CL:
+4. install Knora, SALSAH, Sipi in the desired folder, in command line:
 	chmod 755 SetUpKnoraSalsahSipi.sh
 	. SetUpKnoraSalsahSipi.sh
 
 5. outcomment the 3 lines for (lengthy) cloning at beginning in SetUpKnoraSalsahSipi.sh
 
-6. create new project in ../Knora/webapi/_test_data/all_data/admin-data.ttl by copy-pasting previous one and adapt data accordingly
+6. create a new project in ../Knora/webapi/_test_data/all_data/admin-data.ttl by copy-pasting previous one and adapt data accordingly
 
-7. restart Knora and Salsah to reload the test data:
+7. restart Knora and Salsah to reload the test data in command line:
 	. DualRestartKnoraSalsah.sh
 
 8. in ../Knora/webapi/scripts/fuseki-load-test-data.sh create link between working ontology and the 'project' ontology as declared in ../admin-data.ttl, by copy-pasting previous one and adapt data accordingly

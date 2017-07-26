@@ -23,7 +23,7 @@ An introduction to [Semantic Web technology](https://github.com/nie-ine/Ontologi
 
 5. outcomment the 3 lines for (lengthy) cloning at beginning in SetUpKnoraSalsahSipi.sh
 
-6. create a new project in ../Knora/webapi/_test_data/all_data/admin-data.ttl by copy-pasting a previous one and adapt data accordingly
+6. create a new project in ../Knora/webapi/_test_data/all_data/admin-data.ttl by copy-pasting a previous one and adapt data accordingly  
 Note: a project short name cannot contain white space, since it used as part of a generated IRI in Knora.
 
 7. restart Knora and Salsah to reload the test data in command line:

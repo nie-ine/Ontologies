@@ -10,7 +10,7 @@ All the used or referenced ontologies are prefixed in a header in the Turtle fil
 The [ontologies developed in NIE-INE](https://github.com/nie-ine/Knora/tree/develop/webapi/_test_data/ontologies), with 'ontology-knora.ttl' in the name', are currently in Knora defined as projects.  
 An introduction to [Semantic Web technology](https://github.com/nie-ine/Ontologies/wiki/Introduction-to-Semantic-Web-technology) is on the wiki.
 
-## Creating an ontology in Knora directly, currently as 'project', cutting short SALSAH2:
+## Creating an ontology directly in Knora, currently as 'project', cutting short SALSAH2:
 
 1. install Docker, managed e.g. in WebStorm
 

@@ -8,6 +8,7 @@ To enable data expression in this new format a series of vocabularies or ontolog
 Whenever possible ontologies developed by others are used to base on.  
 Local copies of others' ontologies when not available in Turtle or RDF-XML:
 - [WGS84 Geo Positioning: an RDF vocabulary](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl)  
+
 NIE-ontologies are interdependent.  
 All the used or referenced ontologies are prefixed in a header in the Turtle files.  
 The [ontologies developed in NIE-INE](https://github.com/nie-ine/Knora/tree/develop/webapi/_test_data/ontologies), with 'ontology-knora.ttl' in the name', are currently in Knora defined as projects.  

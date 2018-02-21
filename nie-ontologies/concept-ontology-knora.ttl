@@ -97,6 +97,8 @@ concept:Expression
 	rdfs:subClassOf concept:Information, frbroo:F22_Self-Contained_Expression, [ # rdfs:subClassOf frbroo:F2_Expression
 		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasContentSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasContentSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isPartOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -125,19 +127,21 @@ concept:Cycle
 	a owl:Class;
 	rdfs:label "cycle"@en, "Zyklus"@de;
 	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
-	rdfs:subClassOf knora-base:Resource. #* to do
+	rdfs:subClassOf concept:Information. #* to do
 
 concept:Fiction
 	a owl:Class;
 	rdfs:label "fiction"@en, "Fiktion"@de;
-	rdfs:comment """Expression having content derived from imagination."""@en;
-	rdfs:subClassOf concept:Expression.
+	rdfs:comment """Concept derived from imagination."""@en;
+	rdfs:subClassOf concept:Concept.
 
 concept:NonFiction
 	a owl:Class;
 	rdfs:label "non-fiction"@en, "sachliche Expression"@de;
-	rdfs:comment """Expression having content based on fact."""@en;
-	rdfs:subClassOf concept:Expression.
+	rdfs:comment """Concept based on fact."""@en;
+	rdfs:subClassOf concept:Concept.
+
+# public - private
 
 # concept:Religion rdfs:subClassOf
 
@@ -178,6 +182,22 @@ concept:isExpressedInValue
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 # frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
+
+concept:hasContentSubject
+	a owl:ObjectProperty;
+	rdfs:label "has content subject"@en, "hat inhaltliches Thema"@de;
+	rdfs:comment """Relating an expression to a content subject thereof."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint concept:Expression;
+	knora-base:objectClassConstraint knora-base:Resource.
+
+concept:hasContentSubjectValue
+	a owl:ObjectProperty;
+	rdfs:label "has content subject - statement"@en, "hat inhaltliches Thema - Festlegung"@de;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a content subject thereof."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint concept:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 concept:isPartOfCycle
 	a owl:ObjectProperty;

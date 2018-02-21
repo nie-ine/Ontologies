@@ -166,31 +166,17 @@ human:PhysicalCreation
 	rdfs:comment """Person's creation as physical resource."""@en;
 	rdfs:subClassOf human:Creation, physical:Matter. # rdfs:subClassOf cidoc:E24_Physical_Man-Made_Thing rdfs:subClassOf cidoc:E72_Legal_Object: legal aspect TBD
 
-human:Device
-	a owl:Class;
-	rdfs:label "device"@en, "Gerät"@de;
-	rdfs:comment """Physical creation serving a particular purpose."""@en;
-	rdfs:subClassOf human:PhysicalCreation.
-
 #human:Product
 #	a owl:Class;
 #	rdfs:label "product"@en;
 #	rdfs:comment """Physical creation as result of producing."""@en;
 #	rdfs:subClassOf physical:Product.
 
-human:Machine
-	a owl:Class;
-	rdfs:label "machine"@en, "Maschine"@de;
-	rdfs:comment """Device having more than one part, each with a function, and transmitting a force or directing its application to perform a task."""@en;
-	rdfs:subClassOf human:Device.
-
-# human:Computer
-
 human:CreationVersion
 	a owl:Class;
 	rdfs:label "creation version"@en, "Version einer Kreation"@de;
 	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
-	rdfs:subClassOf human:Creation.
+	rdfs:subClassOf human:Creation. 
 
 # version: considering:
 # time: first, final, earlier, later
@@ -219,7 +205,8 @@ human:CreationDerivative
 	a owl:Class;
 	rdfs:label "creation derivative"@en, "Derivat einer Kreation"@de;
 	rdfs:comment """Derivative of a person's creation, e.g. a translation."""@en;
-	rdfs:subClassOf human:Creation.
+	rdfs:subClassOf human:Creation;
+	owl:disjointWith human:CreationVersion.
 
 human:Occupation
 	a owl:Class;
@@ -309,21 +296,21 @@ human:actsInValue
 	knora-base:subjectClassConstraint human:Human;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasPersonLife
+human:personHasLife
 	a owl:ObjectProperty;
 	rdfs:label "has person life"@en, "hat Person-Leben"@de;
 	rdfs:comment """Relating a person to the person's life."""@en;
-	rdfs:subPropertyOf human:actsIn;
+	rdfs:subPropertyOf event:hasExistence; #, human:actsIn;
 	rdfs:domain human:Person;
 	rdfs:range human:PersonLife;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:PersonLife.
 
-human:hasPersonLifeValue
+human:personHasLifeValue
 	a owl:ObjectProperty;
 	rdfs:label "has person life - statement"@en, "hat Person-Leben - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and the person's life."""@en;
-	rdfs:subPropertyOf human:actsInValue;
+	rdfs:subPropertyOf event:hasExistenceValue; #, human:actsInValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

@@ -32,25 +32,8 @@
 litera:Literature
 	a owl:Class;
 	rdfs:label "literature"@en, "Literatur"@de;
-	rdfs:comment """Written text expression as art."""@en;
-	rdfs:subClassOf text:Expression, text:WrittenText.
-
-litera:Lyric
-	a owl:Class;
-	rdfs:label "lyric"@en, "Lyrik"@de; # synonyms: poetry - Poetik, Poesie, Dichtung
-	rdfs:comment """Literature in vers"""@en;
-	rdfs:subClassOf litera:Literature, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-litera:Epic
-	a owl:Class;
-	rdfs:label "epic"@en, "Epik"@de;  # synonyms: prose - Prosa
-	rdfs:comment """Narrative literature without metrical structure."""@en;
-	rdfs:subClassOf litera:Literature.
-
-# litera:Drama - Dramatik
+	rdfs:comment """Written text as art."""@en;
+	rdfs:subClassOf text:WrittenText. #* NOT an expression
 
 litera:Fiction
 	a owl:Class;
@@ -64,17 +47,59 @@ litera:NonFiction
 	rdfs:comment """Literature having content based on fact."""@en;
 	rdfs:subClassOf litera:Literature, concept:NonFiction.
 
+litera:Lyric #* # poetry - Poetik, Poesie, Dichtung => lyric poetry = pleonasm ?
+	a owl:Class;
+	rdfs:label "lyric"@en, "Lyrik"@de;
+	rdfs:comment """Literature expressing emotion and imagination directly in text structure with e.g. prosody, besides content."""@en;
+	rdfs:subClassOf litera:Literature.
+
+litera:Epic
+	a owl:Class;
+	rdfs:label "epic"@en, "Epik"@de; # synonyms: prose - Prosa, different from the structural prose text:Prose
+	rdfs:comment """Narrative literature."""@en; # storytelling
+	rdfs:subClassOf litera:Literature.
+
+# litera:Drama - Dramatik # performing
+
 litera:Poem
 	a owl:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
-	rdfs:comment """Lyric expression."""@en, """lyrische Expression."""@de; #*
-	rdfs:subClassOf litera:Lyric.
+	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de; #* lyric expression
+	rdfs:subClassOf text:Expression, litera:Lyric.
+
+litera:VersePoem #* lyric poetry ?
+	a owl:Class;
+	rdfs:label "verse poem"@en, "Versgedicht"@de;
+	rdfs:comment """Poem expressed in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
+	rdfs:subClassOf litera:Poem, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+litera:Hymn
+	a owl:Class;
+	rdfs:label "hymn"@en, "Hymne"@de, "Hymnus"@la;
+	rdfs:comment """Poetic expression of adoration for a deity or prominent person."""@en;
+	rdfs:subClassOf litera:VersePoem. #* OR song
+
+# litera:Hymnal # OR hymn book # collection of hymns
+
+# narrative poetry
+
+litera:ProsePoem #* prose poetry -> hybrid, neither poem nor prose ?
+	a owl:Class;
+	rdfs:label "prose poem"@en, "Prosagedicht"@de;
+	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;
+	rdfs:subClassOf litera:Poem, litera:Epic, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:Prose], [ # OR text:RhythmicProse
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:VerseNovel
 	a owl:Class;
-	rdfs:label "verse novel"@en, "Versroman"@de;
-	rdfs:comment """Epic in verse and with novel-length."""@en;
-	rdfs:subClassOf litera:Epic, litera:Fiction, [
+	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
+	rdfs:comment """Epic fiction expression in verse and with novel-length."""@en;
+	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
 		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
 		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -82,11 +107,18 @@ litera:VerseNovel
 litera:Novel
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
-	rdfs:comment """Fiction epic in prose."""@en;
-	rdfs:subClassOf litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Prose], [
+	rdfs:comment """Epic fiction expression."""@en;
+	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:Prose], [
 		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# WM 20180206
+# Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature
+# Sachbezogene Texte (Essays, Rezensionen, Einleitungen, Biographien etc. ) - mix
+# Persönliche / Situative Texte (Tagebuch, Autobiographie, Briefe? ...)
+# editorischen Metatexte: Erläuterungen, Kommentare, Übersichten ...
+# fictional biography, diary
 
 litera:Poet
 	a owl:Class;

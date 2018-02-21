@@ -183,7 +183,7 @@ kuno-raeber:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Letter expression written by Kuno Raeber."""@en;
-	rdfs:subClassOf text:LetterExpression, kuno-raeber:Text, text:WrittenText, [
+	rdfs:subClassOf text:LetterExpression, text:WrittenText, kuno-raeber:Text, [
 #		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

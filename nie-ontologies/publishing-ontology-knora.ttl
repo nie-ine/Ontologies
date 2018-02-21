@@ -61,7 +61,7 @@ publish:Redactor
 	a owl:Class;
 	rdfs:label "redactor"@en, "Redaktor"@de;
 	rdfs:comment """Role of a person editing *text* for publication."""@en;	# -> expression
-	rdfs:subClassOf human:Creator.
+	rdfs:subClassOf human:Creator. #* textedit:Editor
 
 publish:Publisher
 	a owl:Class;
@@ -141,13 +141,13 @@ publish:NachlassPublication
 	a owl:Class;
 	rdfs:label "nachlass publication"@en, "Nachlassausgabe"@de;
 	rdfs:comment """Publication of a nachlass."""@en;
-	rdfs:subClassOf publish:Publication, infocar:NachlassElement.
+	rdfs:subClassOf publish:Publication, infocar:NachlassElement. #*
 
-#publish:UnauthorizedPublication
-#	a owl:Class;
-#	rdfs:label "unauthorized publication"@en, "nicht-autorisierte Ausgabe"@de;
-#	rdfs:comment """Publication without the author's authorization."""@en;
-#	rdfs:subClassOf publish:Publication.
+publish:UnauthorizedPublication
+	a owl:Class;
+	rdfs:label "unauthorized publication"@en, "nicht-autorisierte Ausgabe"@de;
+	rdfs:comment """Publication without the author's authorization."""@en;
+	rdfs:subClassOf publish:Publication.
 
 #
 # PROPERTIES

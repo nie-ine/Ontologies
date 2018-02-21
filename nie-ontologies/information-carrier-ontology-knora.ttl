@@ -11,6 +11,7 @@
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
+@prefix device: <http://www.knora.org/ontology/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
@@ -39,6 +40,8 @@ infocar:Carrier
 #		a owl:Restriction; owl:onProperty image:hasPhotoRepresentationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
+#* infocar:Text OR physical as on carrier
+
 infocar:Leaf
 	a owl:Class;
 	rdfs:label "leaf"@en, "Blatt"@de;
@@ -52,10 +55,10 @@ infocar:Page
 	rdfs:label "page"@en, "Seite"@de;
 	rdfs:comment """One of the 2 surfaces of a leaf, e.g. a manuscript, or of a leaf of a book."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty infocar:isPageOf; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isPageOfValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isPageOfBook; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isPageOfBookValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfBookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:pageHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Book
@@ -79,10 +82,22 @@ infocar:Volume
 	rdfs:subClassOf infocar:Book, [
 		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+infocar:ElectronicBook
+	a owl:Class;
+	rdfs:label "electronic book"@en, "elektronisches Buch"@de;
+	rdfs:comment """Electronic information carrier representing text as in a book."""@en;
+	rdfs:subClassOf infocar:ElectronicCarrier.
+
 infocar:Print
 	a owl:Class;
 	rdfs:label "print"@en, "Druck"@de;
 	rdfs:comment """An expression printed on a carrier."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+infocar:FirstPrint
+	a owl:Class;
+	rdfs:label "first print"@en, "Erstdruck"@de;
+	rdfs:comment """Earliest print of a tex expression."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
 infocar:Printer
@@ -110,7 +125,7 @@ infocar:Nachlass
 	a owl:Class;
 	rdfs:label "nachlass"@en, "Nachlass"@de;
 	rdfs:comment """Collection of materialized expressions of a person as existing after the person's death."""@en;
-	rdfs:subClassOf human:Creation, cidoc:E78_Collection.
+	rdfs:subClassOf human:PhysicalCreation, cidoc:E78_Collection.
 
 infocar:NachlassElement
 	a owl:Class;
@@ -223,6 +238,26 @@ infocar:Convolute
 		a owl:Restriction; owl:onProperty infocar:hasConvoluteOriginDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasCarrierCollectionDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ElectronicCarrier #* data or information storage device
+	a owl:Class;
+	rdfs:label "electronic information carrier"@en,"elektronischer Informationsträger"@de;
+	rdfs:comment """Electronic device carrying information."""@en;
+	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
+
+infocar:ElectronicDocument
+	a owl:Class;
+	rdfs:label "electronic document"@en,"elektronisches Dokument"@de;
+	rdfs:comment """Document stored as electronic information."""@en;
+	rdfs:subClassOf infocar:ElectronicData.
+
+infocar:ElectronicBook
+	a owl:Class;
+	rdfs:label "electronic book"@en,"elektronisches Buch"@de;
+	rdfs:comment """Electronic document with a text structure as in a book."""@en;
+	rdfs:subClassOf infocar:ElectronicDocument.
+
+# OR electronic/digital document does not exist without a computer
 
 #
 # PROPERTIES

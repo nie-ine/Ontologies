@@ -88,17 +88,6 @@ org:MasonicLodge
 	rdfs:comment """Organisational unit of Freemasonry."""@en; #*
 	rdfs:subClassOf org:Organisation.
 
-org:Salon # to be transferred
-	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
-	rdfs:label "salon"@en, "literarischer Salon"@de;
-	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
-	rdfs:subClassOf event:Action, [ #* to be specified
-		a owl:Restriction; owl:onProperty event:hasExistence; owl:allValuesFrom [
-			event:hasStartDate "1601-01-01"^^xsd:date;
-			event:hasEndDate "1949-12-31"^^xsd:date]], [
-		a owl:Restriction; owl:onProperty event:hasExistence; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
 #
 # PROPERTIES
 #

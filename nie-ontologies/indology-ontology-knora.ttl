@@ -28,7 +28,7 @@
 indo:hasIndologicComment
 	a owl:ObjectProperty;
 	rdfs:label "has Indological comment"@en, "hat indologischer Kommentar"@de;
-	rdfs:comment """Relating something to an Indological comment (as object) as a textual statement about the language expression."""@en;
+	rdfs:comment """Relating something to an Indological comment (as object) as a textual statement about that something."""@en;
 	rdfs:subPropertyOf text:hasComment;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;

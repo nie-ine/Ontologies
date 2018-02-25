@@ -176,10 +176,11 @@ human:CreationVersion
 	a owl:Class;
 	rdfs:label "creation version"@en, "Version einer Kreation"@de;
 	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
+	skos:note """A version is created by the same person or group of persons."""@en;
 	rdfs:subClassOf human:Creation. 
 
 # version: considering:
-# time: first, final, earlier, later
+# time: earlier, later -> infer with rule
 # extent: standard, reduced, extended
 # etc.
 

@@ -8,6 +8,7 @@
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
+@prefix textedit: <http://www.knora.org/ontology/text-editing#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix image: <http://www.knora.org/ontology/image#>.
 @prefix litera: <http://www.knora.org/ontology/literature#>.
@@ -79,7 +80,7 @@ kuno-raeber:Edition
 	a owl:Class;
 	rdfs:label "edited text"@en, "edierte Text"@de;
 	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;
-	rdfs:subClassOf text:Edition, [
+	rdfs:subClassOf textedit:Edition, [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
@@ -89,13 +90,13 @@ kuno-raeber:DiplomaticTranscription
 	a owl:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
 	rdfs:comment """Diplomatic transcription of a text authored by Kuno Raeber."""@en, """Diplomatische Umschrift eines von Kuno Raeber verfassten Texts."""@de;
-	rdfs:subClassOf text:DiplomaticTranscription, [
+	rdfs:subClassOf textedit:DiplomaticTranscription, [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPage; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPageValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPage; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPageValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:HandwrittenPoem
 	a owl:Class;
@@ -417,7 +418,7 @@ kuno-raeber:hasEdition
 	a owl:ObjectProperty;
 	rdfs:label "has edition"@en, "hat Edition"@de;
 	rdfs:comment """Relating a text by Kuno Raeber to an edition thereof."""@en;
-	rdfs:subPropertyOf text:hasEdition;
+	rdfs:subPropertyOf textedit:hasEdition;
 	knora-base:subjectClassConstraint kuno-raeber:Text;
 	knora-base:objectClassConstraint kuno-raeber:Edition.
 
@@ -425,7 +426,7 @@ kuno-raeber:hasEditionValue
 	a owl:ObjectProperty;
 	rdfs:label "has edition - statement"@en, "hat Edition - Festlegung"@de;
 	rdfs:comment """Relating a text by Kuno Raeber to a reification statement of the relation between the text and an edition thereof."""@en;
-	rdfs:subPropertyOf text:hasEditionValue;
+	rdfs:subPropertyOf textedit:hasEditionValue;
 	knora-base:subjectClassConstraint kuno-raeber:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -433,7 +434,7 @@ kuno-raeber:hasDiplomaticTranscription
 	a owl:ObjectProperty;
 	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de;
 	rdfs:comment "Relating a handwritten poem by Kuno Raeber to a diplomatic transcription thereof."@en;
-	rdfs:subPropertyOf text:hasDiplomaticTranscription;
+	rdfs:subPropertyOf textedit:hasDiplomaticTranscription;
 	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
 	knora-base:objectClassConstraint kuno-raeber:DiplomaticTranscription.
 
@@ -441,7 +442,7 @@ kuno-raeber:hasDiplomaticTranscriptionValue
 	a owl:ObjectProperty;
 	rdfs:label "has diplomatic transcription - statement"@en, "hat diplomatische Umschrift - Festlegung"@de;
 	rdfs:comment "Relating a poem by Kuno Raeber to a reification statement of the relation between the poem and a diplomatic transcription thereof."@en;
-	rdfs:subPropertyOf text:hasDiplomaticTranscriptionValue;
+	rdfs:subPropertyOf textedit:hasDiplomaticTranscriptionValue;
 	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

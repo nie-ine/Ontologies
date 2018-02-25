@@ -81,7 +81,10 @@ textedit:CriticalEdition
 	a owl:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en; #*
-	rdfs:subClassOf textedit:Edition. # argumentation and discussing other edition
+	rdfs:subClassOf textedit:Edition, [ #* + argumentation and discussing other edition
+		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:someValuesFrom textedit:CriticalApparatus], [
+		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasApparatusValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
 	a owl:Class;
@@ -89,7 +92,10 @@ textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
 	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en;
 	rdfs:subClassOf text:NoteStructure, [ #* ?
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:NoteStructure], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # textedit:Variorum subClassOf CriticalEdition
 
@@ -245,6 +251,24 @@ textedit:hasCriticalEditionValue
 	rdfs:comment "Relating a text expression to a reification statement of the relation between the text and a critical edition thereof."@en;
 	rdfs:subPropertyOf textedit:hasEditionValue;
 	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasApparatus
+	a owl:ObjectProperty;
+	rdfs:label "has apparatus of"@en, "hat Apparat"@de;
+	rdfs:comment """Relating a critical edition to its apparatus."""@en;
+	rdfs:domain textedit:CriticalEdition;
+	rdfs:range textedit:CriticalApparatus;
+	rdfs:subPropertyOf concept:hasPartOf; #* possibly text:hasNote
+	knora-base:subjectClassConstraint textedit:CriticalEdition;
+	knora-base:objectClassConstraint textedit:CriticalApparatus.
+
+textedit:hasApparatusValue
+	a owl:ObjectProperty;
+	rdfs:label "has apparatus - statement"@en, "hat Apparat - Festlegung"@de;
+	rdfs:comment """Relating a critical edition to a reification statement of the relation between the edition and its apparatus."""@en;
+	rdfs:subPropertyOf concept:hasPartValue; #* possibly text:hasNoteValue
+	knora-base:subjectClassConstraint textedit:CriticalApparatus;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:isApparatusOf

@@ -1,0 +1,35 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix ns0: <http://www.geonames.org/ontology#> .
+
+<http://sws.geonames.org/2658434/>
+  a <http://www.geonames.org/ontology#Feature> ;
+  rdfs:isDefinedBy <http://sws.geonames.org/2658434/about.rdf> ;
+  ns0:name "Switzerland" ;
+  ns0:alternateName "スイス"@ja, "스위스"@ko, "ស្វីស"@km, "ስዊዘርላንድ"@am, "ສະວິດເຊີແລນ"@lo, "สวิตเซอร์แลนด์"@th, "An Eilvéis"@ga, "Confederatio Helvetica", "Confédération Suisse"@fr, "Confederazione Svizzera"@it, "Helvetia", "İsviçre"@tr, "Schweiz"@da, "Schweiz"@sv, "Schweiz", "Schweizerische Eidgenossenschaft"@de, "Schweizerische Eidgenossenschaft", "Schwiz", "Suíça"@pt, "Suïssa"@ca, "Suisse", "Suitza"@eu, "Svájc"@hu, "Švajčiarsko"@sk, "Šveicarija"@lt, "Šveice"@lv, "Sveis"@fo, "Sveits"@nb, "Sveits"@nn, "Šveits"@et, "Sveitsi"@fi, "Švica"@sl, "Švicarska"@hr, "Sviss"@is, "Svisujo"@eo, "Svizzera"@mt, "Svizzera", "Švýcarsko"@cs, "Swiiserlaand"@so, "Swiss"@id, "Swiss Confederation", "Switserland"@af, "Switzerland"@ms, "Switzerland", "Szwajcaria"@pl, "Thụy Sĩ"@vi, "Uswisi"@sw, "Y Swistir"@cy, "Zvicër"@sq, "Zwitserland"@nl, "سویس"@ps, "سوئیس"@fa, "سويسرا"@ar, "שווייץ"@he, "Швајцарија"@mk, "Швајцарска"@sr, "Швейцария"@bg, "Швейцария"@ru, "Швейцарія"@uk, "སུའིཊ་ཛར་ལེན"@dz, "Շվեյցարիա"@hy, "შვეიცარია"@ka, "स्विस"@hi, "ஸ்விட்சர்லாந்து"@ta, "সুইজর্লণ্ড"@bn, "瑞士"@zh ;
+  ns0:officialName "ስዊዘርላንድ"@ti, "ସ୍ବିଜରଲ୍ୟାଣ୍ଡ"@or, "Confoederatio Helvetica"@la, "Elveția"@ro, "isveçriya"@az, "i-Switzerland"@zu, "Ĩveits"@et, "Orílẹ́ède switiṣilandi"@yo, "Schweiz"@de, "Schweizi"@kl, "Soisa"@mg, "Soïssa"@oc, "Suis"@br, "Sûîsi"@sg, "Suisilani"@to, "Suissa"@ia, "Suisse"@fr, "Suiza"@es, "Suíza"@gl, "Suwiis"@ff, "Suwisi"@bm, "Suwizalan"@ha, "Švajcarska"@bs, "Šveica"@se, "Svizra"@rm, "Svizzera"@it, "Swetzaland"@ak, "Swise"@lu, "Swisɛ"@ln, "Switizirandi"@lg, "Switzerland"@en, "Switzerland"@nd, "Switzerland"@sn, "Switzerland nutome"@ee, "Ubusuwisi"@rn, "Uswisi"@ki, "سویسرا"@ku, "سوئٹزر لینڈ"@ur, "שוויץ"@he, "Ελβετία"@el, "Швейцария"@kk, "Швейцарыя"@be, "ཧྲུད་ཧྲི།"@bo, "स्विजरल्याण्ड"@ne, "स्विटज़रलैंड"@hi, "स्वित्झर्लंड"@mr, "સ્વિટ્ઝર્લૅન્ડ"@gu, "స్విట్జర్లేండ్"@te, "ಸ್ವಿಡ್ಜರ್‌ಲ್ಯಾಂಡ್"@kn, "സ്വിറ്റ്സര്‍ലാന്‍ഡ്"@ml, "সুইজারল্যান্ড"@bn, "ဆွစ်ဇလန်"@my, "ස්විස්ටර්ලන්තය"@si, "スイス連邦"@ja ;
+  ns0:featureClass ns0:A ;
+  ns0:featureCode ns0:A.PCLI ;
+  ns0:countryCode "CH" ;
+  ns0:population "7581000" ;
+  geo:lat "47.00016" ;
+  geo:long "8.01427" ;
+  ns0:parentFeature <http://sws.geonames.org/6255148/> ;
+  ns0:childrenFeatures <http://sws.geonames.org/2658434/contains.rdf> ;
+  ns0:neighbouringFeatures <http://sws.geonames.org/2658434/neighbours.rdf> ;
+  ns0:locationMap <http://www.geonames.org/2658434/switzerland.html> ;
+  ns0:wikipediaArticle <http://en.wikipedia.org/wiki/Switzerland> ;
+  rdfs:seeAlso <http://dbpedia.org/resource/Switzerland> .
+
+<http://sws.geonames.org/2658434/about.rdf>
+  a foaf:Document ;
+  foaf:primaryTopic <http://sws.geonames.org/2658434/> ;
+  cc:license <http://creativecommons.org/licenses/by/3.0/> ;
+  cc:attributionURL <http://sws.geonames.org/2658434/> ;
+  cc:attributionName "GeoNames"^^xsd:string ;
+  dc:created "2006-01-15"^^xsd:date ;
+  dc:modified "2017-03-02"^^xsd:date .

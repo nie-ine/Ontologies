@@ -72,8 +72,6 @@ text:Expression
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#* text:Text not necessarily an FRBR expression, but still a HNL expression
-
 text:Author
 	a owl:Class;
 	rdfs:label "author"@en, "Autor"@de;

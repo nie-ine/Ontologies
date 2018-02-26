@@ -11,6 +11,7 @@
 @prefix lang: <http://www.knora.org/ontology/language#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -72,9 +73,9 @@ litera:VersePoem #* lyric poetry ?
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
 	rdfs:comment """Poem expressed in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
 	rdfs:subClassOf litera:Poem, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:Hymn
 	a owl:Class;
@@ -91,27 +92,27 @@ litera:ProsePoem #* prose poetry -> hybrid, neither poem nor prose ?
 	rdfs:label "prose poem"@en, "Prosagedicht"@de;
 	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;
 	rdfs:subClassOf litera:Poem, litera:Epic, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:Prose], [ # OR text:RhythmicProse
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Prose], [ # OR text:RhythmicProse
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:VerseNovel
 	a owl:Class;
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
 	rdfs:comment """Epic fiction expression in verse and with novel-length."""@en;
 	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:Novel
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Epic fiction expression."""@en;
 	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:Prose], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Prose], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # WM 20180206
 # Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature

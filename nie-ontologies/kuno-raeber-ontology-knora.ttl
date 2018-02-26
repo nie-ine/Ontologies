@@ -8,6 +8,7 @@
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
 @prefix textedit: <http://www.knora.org/ontology/text-editing#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix image: <http://www.knora.org/ontology/image#>.
@@ -83,7 +84,7 @@ kuno-raeber:Edition
 	rdfs:subClassOf textedit:Edition, [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+#		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
 kuno-raeber:DiplomaticTranscription
@@ -92,7 +93,7 @@ kuno-raeber:DiplomaticTranscription
 	rdfs:comment """Diplomatic transcription of a text authored by Kuno Raeber."""@en, """Diplomatische Umschrift eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:DiplomaticTranscription, [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPage; owl:cardinality "1"^^xsd:nonNegativeInteger], [
@@ -174,8 +175,8 @@ kuno-raeber:DiaryEntry
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiary; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiaryValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiaryConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiaryConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger].
@@ -190,8 +191,8 @@ kuno-raeber:LetterExpression
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWithValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].

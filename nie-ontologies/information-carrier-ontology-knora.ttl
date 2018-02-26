@@ -82,12 +82,6 @@ infocar:Volume
 	rdfs:subClassOf infocar:Book, [
 		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-infocar:ElectronicBook
-	a owl:Class;
-	rdfs:label "electronic book"@en, "elektronisches Buch"@de;
-	rdfs:comment """Electronic information carrier representing text as in a book."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier.
-
 infocar:Print
 	a owl:Class;
 	rdfs:label "print"@en, "Druck"@de;

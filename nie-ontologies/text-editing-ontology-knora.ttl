@@ -11,6 +11,7 @@
 @prefix lang: <http://www.knora.org/ontology/language#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix litera: <http://www.knora.org/ontology/literature#>.
@@ -90,12 +91,12 @@ textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "kritischer Apparat"@de, "apparatus criticus"@la;
 	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en;
-	rdfs:subClassOf text:NoteStructure, [ #* ?
+	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:allValuesFrom text:NoteStructure], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # textedit:Variorum subClassOf CriticalEdition
 

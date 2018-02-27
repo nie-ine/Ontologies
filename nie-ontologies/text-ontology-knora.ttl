@@ -99,10 +99,10 @@ text:Abbreviator #* -> scholastic?
 	rdfs:comment """Role of a person being responsible for a shortened version of a text."""@en; #*
 	rdfs:subClassOf human:Creator.
 
-text:Copyist #* -> scholastic? ~ handwriting
+text:Copyist
 	a owl:Class;
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text by writing."""@en;
+	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
 
 text:Translator #* -> scholastic? ~ handwriting
@@ -372,9 +372,9 @@ text:hasAuthor #*
 	a owl:ObjectProperty;
 	rdfs:label "has author"@en, "hat Autor"@de;
 	rdfs:comment """Relating a text to a person who authored it."""@en; # OR an Organisation that authored it -> foaf:Agent
-#	skos:note """A text can have more than one author."""@en;
-#	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
+	skos:note """A text can have more than one author."""@en;
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Author]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -398,8 +398,8 @@ text:hasRevisor
 	a owl:ObjectProperty;
 	rdfs:label "has revisor"@en, "hat Revisor"@de;
 	rdfs:comment """Relating a text to a person who revised it."""@en;
-#	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Revisor]];
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Revisor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -416,8 +416,8 @@ text:hasGlossator
 	a owl:ObjectProperty;
 	rdfs:label "has glossator"@en, "hat Glossator"@de;
 	rdfs:comment """Relating a text to a person who glossed it."""@en;
-#	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Glossator]];
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Glossator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -434,8 +434,8 @@ text:hasAbbreviator
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
 	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
-#	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Abbreviator]];
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Abbreviator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -452,8 +452,8 @@ text:hasCopyist
 	a owl:ObjectProperty;
 	rdfs:label "has copyist"@en, "hat Kopist"@de;
 	rdfs:comment """Relating a text to a person who copied it by handwriting."""@en;
-#	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Copyist]];
+	rdfs:domain text:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom text:Copyist]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.

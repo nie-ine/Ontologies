@@ -46,8 +46,8 @@ human:Person
 	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person, [ # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
 		a owl:Restriction; owl:onProperty human:hasBirthDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDeathDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasPersonLife; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasPersonLifeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:personHasLife; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:personHasLifeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty human:hasBiologicalSexValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -299,7 +299,7 @@ human:actsInValue
 
 human:personHasLife
 	a owl:ObjectProperty;
-	rdfs:label "has person life"@en, "hat Person-Leben"@de;
+	rdfs:label "person has life"@en, "Person hat Leben"@de;
 	rdfs:comment """Relating a person to the person's life."""@en;
 	rdfs:subPropertyOf event:hasExistence; #, human:actsIn;
 	rdfs:domain human:Person;
@@ -309,7 +309,7 @@ human:personHasLife
 
 human:personHasLifeValue
 	a owl:ObjectProperty;
-	rdfs:label "has person life - statement"@en, "hat Person-Leben - Festlegung"@de;
+	rdfs:label "person has life - statement"@en, "Person hat Leben - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and the person's life."""@en;
 	rdfs:subPropertyOf event:hasExistenceValue; #, human:actsInValue;
 	knora-base:subjectClassConstraint human:Person;

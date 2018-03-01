@@ -79,7 +79,7 @@ publish:Publication
 	a owl:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
 	rdfs:comment """An expression published on a carrier."""@en;
-	rdfs:subClassOf infocar:InformationCarrier, frbroo:F5_Item, [
+	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
 		a owl:Restriction; owl:onProperty publish:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

@@ -79,7 +79,7 @@ litera:VersePoem #* lyric poetry ?
 
 litera:Hymn
 	a owl:Class;
-	rdfs:label "hymn"@en, "Hymne"@de, "Hymnus"@la;
+	rdfs:label "hymn"@en, "Hymne"@de, "hymnus"@la;
 	rdfs:comment """Poetic expression of adoration for a deity or prominent person."""@en;
 	rdfs:subClassOf litera:VersePoem. #* OR song
 

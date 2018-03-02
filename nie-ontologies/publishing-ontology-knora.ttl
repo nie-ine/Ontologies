@@ -60,7 +60,7 @@ publish:Publishing
 publish:Redactor
 	a owl:Class;
 	rdfs:label "redactor"@en, "Redaktor"@de;
-	rdfs:comment """Role of a person editing *text* for publication."""@en;	# -> expression
+	rdfs:comment """Role of a person editing *text* for publication."""@en;	#* -> expression
 	rdfs:subClassOf human:Creator. #* textedit:Editor
 
 publish:Publisher

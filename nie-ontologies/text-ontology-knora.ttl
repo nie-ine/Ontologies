@@ -51,9 +51,6 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -145,14 +142,14 @@ text:DiaryEntry
 		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text:LetterExpression #*
+text:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:LetterStructure], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:LetterStructure], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
@@ -181,8 +178,8 @@ text:Development
 		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasStageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# extrinsic feature: carrier, typescript, system of signs diacritical eg. &
-# intrinsic: formal content
+#* extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
+#* intrinsic: formal content
 
 #
 # PROPERTIES
@@ -289,22 +286,6 @@ text:hasSpecialDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-text:hasStructure
-	a owl:ObjectProperty;
-	rdfs:label "has structure"@en, "hat Struktur"@de;
-	rdfs:comment """Relating a text expression to its structure."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text:Structure.
-
-text:hasStructureValue
-	a owl:ObjectProperty;
-	rdfs:label "has structure - statement"@en, "hat Struktur - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text expression and its structure."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
 text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
@@ -329,33 +310,6 @@ text:hasContent
 	rdfs:comment """Relating a text expression to its content (as object)."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
-
-text:hasPageIndicator
-	a owl:ObjectProperty;
-	rdfs:label "has page indicator"@en, "hat Seite-Indikator"@de;
-	rdfs:comment """Relating a text expression to a diacritical sign (as object) that indicates where a new page starts."""@en;
-	rdfs:subPropertyOf text:hasDiacriticalSign;
-	knora-base:subjectClassConstraint text:Derivative;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
-
-text:hasPageNumberIndicator
-	a owl:ObjectProperty;
-	rdfs:label "has page number indicator"@en, "hat Seitennummer-Indikator"@de;
-	rdfs:comment """Relating a text expression to a diacritical sign (as object) that indicates the number of a new page."""@en;
-	rdfs:subPropertyOf text:hasDiacriticalSign;
-	knora-base:subjectClassConstraint text:Derivative;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
-
-text:hasColumnIndicator
-	a owl:ObjectProperty;
-	rdfs:label "has column indicator"@en, "hat Spalte-Indikator"@de;
-	rdfs:comment """Relating a text expression to a diacritical sign (as object) that indicates where on a page a new column starts."""@en;
-	rdfs:subPropertyOf text:hasDiacriticalSign;
-	knora-base:subjectClassConstraint text:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 

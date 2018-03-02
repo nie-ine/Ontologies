@@ -83,7 +83,7 @@ kuno-raeber:Edition
 	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:Edition, [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger]#, [
-#		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
@@ -235,8 +235,8 @@ kuno-raeber:PoemNotebook
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemManuscript
 	a owl:Class;

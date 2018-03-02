@@ -220,18 +220,18 @@ infocar:Convolute
 	rdfs:label "convolute"@en, "Konvolut"@de;
 	rdfs:comment """information carriers, e.g. of drafts, manuscripts, typoscripts or prints, gathered as one."""@en;
 	rdfs:subClassOf human:Creation, cidoc:E78_Collection, [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
+		a owl:Restriction; owl:onProperty infocar:convoluteHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasOriginDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsLaterStagesOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsLaterStagesOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasConvoluteOriginDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasCarrierCollectionDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:hasCarrierCollectionDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:ElectronicCarrier #* data or information storage device
 	a owl:Class;
@@ -573,15 +573,6 @@ infocar:convoluteHasOriginDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-infocar:hasCarrierCollectionDescription
-	a owl:ObjectProperty;
-	rdfs:label "has information carrier collection description"@en, "hat Textträgersammlung-Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description (as object) of an information carrier collection it contains."""@en;
-	rdfs:subPropertyOf text:hasDescription;
-	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
-
 infocar:convoluteHasContentRepresentation
 	a owl:ObjectProperty;
 	rdfs:label "convolute has content representation"@en, "Konvolut hat Inhaltrepräsentation"@de;
@@ -638,6 +629,15 @@ infocar:containsLaterStagesOfValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:hasCarrierCollectionDescription
+	a owl:ObjectProperty;
+	rdfs:label "has information carrier collection description"@en, "hat Textträgersammlung-Beschreibung"@de;
+	rdfs:comment """Relating a convolute to a description (as object) of an information carrier collection it contains."""@en;
+	rdfs:subPropertyOf text:hasDescription;
+	knora-base:subjectClassConstraint infocar:Convolute;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 physical:isPartOfArchive
 	a owl:ObjectProperty;

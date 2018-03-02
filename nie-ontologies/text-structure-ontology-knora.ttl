@@ -35,7 +35,7 @@
 text-structure:Structure
 	a owl:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
-	rdfs:comment """Human natural language expression as structure, e.g. a sentence, text line, paragraph, verse, strophe."""@en;
+	rdfs:comment """Human natural language expression as structure, e.g. a word, sentence, text line, paragraph, verse, strophe."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty text-structure:structureHasUnit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -58,6 +58,13 @@ text-structure:ProsodicStructure
 	rdfs:label "prosodic text structure"@en, "prosodische Textstruktur"@de;
 	rdfs:comment """Text structure depending on prosody, i.e. metre as basic rhythmic structure, rhyme and syllable."""@en;
 	rdfs:subClassOf text-structure:Structure.
+
+text-structure:Word
+	a owl:Class;
+	rdfs:label "word"@en, "Wort"@de;
+	rdfs:comment """Smallest independent syntactic and semantic unit."""@en;
+	skos:note """A morpheme is not independent."""@en;
+	rdfs:subClassOf text-structure:SyntacticStructure.
 
 text-structure:Sentence
 	a owl:Class;
@@ -116,8 +123,10 @@ text-structure:Verse
 	rdfs:label "verse"@en, "Vers"@de;
 	rdfs:comment """Text line with prosody."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
-		a owl:Restriction; owl:onProperty text-structure:isVerseOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isVerseOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #* Place an ancient verse without line structure in a place-time
 
@@ -169,6 +178,22 @@ text-structure:LetterStructure #*
 # PROPERTIES
 #
 
+text-structure:hasStructure
+	a owl:ObjectProperty;
+	rdfs:label "has structure"@en, "hat Struktur"@de;
+	rdfs:comment """Relating a text expression to its structure."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkTo; # hasHNLE
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint text-structure:Structure.
+
+text-structure:hasStructureValue
+	a owl:ObjectProperty;
+	rdfs:label "has structure - statement"@en, "hat Struktur - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text expression and its structure."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:structureHasUnit
 	a owl:ObjectProperty;
 	rdfs:label "text structure has unit"@en, "Textstruktur hat Einheit"@de;
@@ -215,17 +240,43 @@ text-structure:hasLineNumber
 text-structure:isVerseOf
 	a owl:ObjectProperty;
 	rdfs:label "is verse of"@en, "ist Vers von"@de;
-#*	rdfs:comment """Relating a verse to a poem it is part of."""@en;
+	rdfs:comment """Relating a verse to a verse poem or verse novel it is part of."""@en;
 	rdfs:domain text-structure:Verse;
-#*	rdfs:range [owl:disjointUnionOf (litera:VersePoem litera:VerseNovel)];
-	rdfs:subPropertyOf text-structure:isLineOf;
-	knora-base:subjectClassConstraint text-structure:Verse;
-	knora-base:objectClassConstraint litera:Poem. #*
+	rdfs:range [owl:disjointUnionOf (litera:VersePoem litera:VerseNovel)];
+	rdfs:subPropertyOf text-structure:isLineOf.
 
-text-structure:isVerseOfValue
+text-structure:isVerseOfPoem
 	a owl:ObjectProperty;
-	rdfs:label "is verse of - statement"@en, "ist Vers von - Festlegung"@de;
-#*	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a poem it is part of."""@en;
+	rdfs:label "is verse of poem"@en, "ist Vers eines Gedichts"@de;
+	rdfs:comment """Relating a verse to a verse poem it is part of."""@en;
+	rdfs:domain text-structure:Verse;
+	rdfs:range litera:VersePoem;
+	rdfs:subPropertyOf text-structure:isVerseOf, text-structure:isLineOf;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint litera:VersePoem.
+
+text-structure:isVerseOfPoemValue
+	a owl:ObjectProperty;
+	rdfs:label "is verse of poem - statement"@en, "ist Vers eines Gedichts - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a verse poem it is part of."""@en;
+	rdfs:subPropertyOf text-structure:isLineOfValue;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isVerseOfNovel
+	a owl:ObjectProperty;
+	rdfs:label "is verse of novel"@en, "ist Vers eines Romans"@de;
+	rdfs:comment """Relating a verse to a verse novel it is part of."""@en;
+	rdfs:domain text-structure:Verse;
+	rdfs:range litera:VerseNovel;
+	rdfs:subPropertyOf text-structure:isVerseOf, text-structure:isLineOf;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint litera:VerseNovel.
+
+text-structure:isVerseOfNovelValue
+	a owl:ObjectProperty;
+	rdfs:label "is verse of novel - statement"@en, "ist Vers eines Romans - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a verse novel it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isLineOfValue;
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.

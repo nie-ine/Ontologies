@@ -32,7 +32,10 @@ textedit:Derivative
 	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
 	rdfs:comment """Text expression derived from another text expression."""@en;
 	rdfs:subClassOf text:Expression, human:CreationDerivative, [
-		a owl:Restriction; owl:onProperty textedit:hasDiacriticalSign; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty textedit:hasDiacriticalSign; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 textedit:Edition # can be on >= 1 carrier
 	a owl:Class;
@@ -209,15 +212,6 @@ textedit:hasDiplomaticTranscriptionValue
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-textedit:hasDiacriticalSign
-	a owl:ObjectProperty;
-	rdfs:label "has diacritical sign"@en, "hat diakritisches Zeichen"@de;
-	rdfs:comment """Relating a derived text expression to a sign (as object) indicating a textual aspect of the original text."""@en;
-	rdfs:subPropertyOf text:hasContent;
-	knora-base:subjectClassConstraint textedit:Derivative;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
-
 textedit:isDiplomaticTranscriptionOfTextOnPage
 	a owl:ObjectProperty;
 	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Umschrift des Textes auf Seite"@de;
@@ -253,6 +247,42 @@ textedit:hasCriticalEditionValue
 	rdfs:subPropertyOf textedit:hasEditionValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasDiacriticalSign
+	a owl:ObjectProperty;
+	rdfs:label "has diacritical sign"@en, "hat diakritisches Zeichen"@de;
+	rdfs:comment """Relating a derived text expression to a sign (as object) indicating a textual aspect of the original text."""@en;
+	rdfs:subPropertyOf text:hasContent;
+	knora-base:subjectClassConstraint textedit:Derivative;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+textedit:hasPageIndicator
+	a owl:ObjectProperty;
+	rdfs:label "has page indicator"@en, "hat Seite-Indikator"@de;
+	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates where a page starts."""@en;
+	rdfs:subPropertyOf textedit:hasDiacriticalSign;
+	knora-base:subjectClassConstraint textedit:Derivative;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+textedit:hasPageNumberIndicator
+	a owl:ObjectProperty;
+	rdfs:label "has page number indicator"@en, "hat Seitennummer-Indikator"@de;
+	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates the number of a page."""@en;
+	rdfs:subPropertyOf textedit:hasDiacriticalSign;
+	knora-base:subjectClassConstraint textedit:Derivative;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+textedit:hasColumnIndicator
+	a owl:ObjectProperty;
+	rdfs:label "has column indicator"@en, "hat Spalte-Indikator"@de;
+	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates where on a page a column starts."""@en;
+	rdfs:subPropertyOf textedit:hasDiacriticalSign;
+	knora-base:subjectClassConstraint textedit:Derivative;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 textedit:hasApparatus
 	a owl:ObjectProperty;

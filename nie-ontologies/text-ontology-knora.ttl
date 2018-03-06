@@ -147,9 +147,9 @@ text:LetterExpression
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:LetterStructure], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:LetterStructure], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
@@ -164,8 +164,6 @@ text:Draft
 	rdfs:label "draft"@en, "Entwurf"@de;
 	rdfs:comment """Developmental text expression."""@en;
 	rdfs:subClassOf human:CreationVersion.
-
-# genetic eiditon: description of ed of another
 
 # Transcription: 1-1 copy of written text, OCR
 # info: reader able to judge choices

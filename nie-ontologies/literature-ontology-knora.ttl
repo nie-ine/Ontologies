@@ -68,7 +68,7 @@ litera:Poem
 	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de; #* lyric expression
 	rdfs:subClassOf text:Expression, litera:Lyric.
 
-litera:VersePoem #* lyric poetry ?
+litera:VersePoem
 	a owl:Class;
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
 	rdfs:comment """Poem expressed in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
@@ -87,7 +87,7 @@ litera:Hymn
 
 # narrative poetry
 
-litera:ProsePoem #* prose poetry -> hybrid, neither poem nor prose ?
+litera:ProsePoem
 	a owl:Class;
 	rdfs:label "prose poem"@en, "Prosagedicht"@de;
 	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;

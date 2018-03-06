@@ -56,7 +56,6 @@ textedit:Redactor #* -> scholastic?
 	rdfs:subClassOf human:Creator.
 
 # genetic edition: description of edition of another
-# info: reader able to judge choices
 
 textedit:DiplomaticTranscription
 	a owl:Class;

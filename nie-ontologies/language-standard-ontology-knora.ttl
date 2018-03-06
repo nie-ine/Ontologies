@@ -90,7 +90,7 @@ langstan:iso639-3Datatype
 # INSTANCES
 #
 
-language:English
+langstan:English
 	a owl:Class;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>;
 	language:hasCode [skos:inScheme langstan:iso639-1Scheme; knora-base:valueHasString "en"^^langstan:iso639-1Datatype]; # a skos:Concept # skos:notation

@@ -211,20 +211,32 @@ human:CreationDerivative
 
 human:Occupation
 	a owl:Class;
-	rdfs:label "occupation"@en, "Tätigkeit"@de;
+	rdfs:label "occupation"@en, "Beruf"@de; #* Tätigkeit
 	rdfs:comment """Action serving as a person's regular source of livelihood."""@en;
 	rdfs:subClassOf event:Action.
 
 human:OccupationalRole
 	a owl:Class;
-	rdfs:label "occupational role"@en, "Tätigkeitsrolle"@de;
+	rdfs:label "occupational role"@en, "Berufsrolle"@de; #* Tätigkeitsrolle
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:subClassOf human:Role.
+
+human:Politician
+	a owl:Class;
+	rdfs:label "politician role"@en, "Politiker"@de;
+	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
+	rdfs:subClassOf human:OccupationalRole.
 
 human:Owner #*
 	a owl:Class;
 	rdfs:label "owner"@en, "Besitzer"@de;
 	rdfs:comment """Role of a person having a property."""@en;
+	rdfs:subClassOf human:Role.
+
+human:Giver
+	a owl:Class;
+	rdfs:label "giver"@en, "Geber"@de;
+	rdfs:comment """Role of a person transferring the possession of something to someone."""@en;
 	rdfs:subClassOf human:Role.
 
 human:Floruit #* on which level: agent, body of thought

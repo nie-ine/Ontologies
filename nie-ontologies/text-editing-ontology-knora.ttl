@@ -110,6 +110,65 @@ textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
 # source
 # list of other versions + source: frequently cited abbreviated with a siglum
 
+
+# Proposition partly based on : https://digitallatin.github.io/guidelines/LDLT-Guidelines.html
+textedit:Reading # lectio
+	a owl:Class;
+	rdfs:label "reading"@en, "lezione"@it;
+	rdfs:comment """Reading of the text in one given witness."""@en;
+
+textedit:Lemma # pl. lemmata
+	a owl:Class;
+	rdfs:label "lemma"@en, "lemma"@it;
+	rdfs:comment """A word or phrase (or the absence thereof) judged by the editor to be authentic, accurate, and/or authoritative."""@en;
+	rdfs:subClassOf textedit:Reading;
+# The text printed in the main portion (i.e., edition text) of a critical edition is made up of lemmata.
+
+textedit:Variant
+	a owl:Class;
+	rdfs:label "variant"@en, "variante"@it;
+	rdfs:comment """A word or phrase (or absence thereof) judged by the editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text."""@en;
+	rdfs:subClassOf textedit:Reading;
+# This type of reading is a “variant” insofar as it varies from what the editor has judged to be the lemma.
+	  
+textedit:Emendation
+	a owl:Class;
+	rdfs:label "emendation"@en, "emendazione"@it;
+	rdfs:comment """A reading expressly proposed by some person (possibly the editor) and accepted by the editor into the main text of an edition."""@en;
+	rdfs:subClassOf textedit:Reading;
+	# OR
+	# rdfs:comment """A reading based on a conjecture and that is used to correct the text of an edition."""@en;
+	# then: rdfs:subClassOf textedit:Conjecture + restriction: is integrated in the main text of an edition.
+	# see:
+	# This distinction between "emendation” and "conjecture" supports the goal of these guidelines of drawing attention to editions as arguments. 
+	# The terms are used subjectively, with regard to a particular edition. Readers of an edition may agree or disagree about whether a particular reading emends the text, 
+	# but the editor's argument is that a reading either emends the text, in which case it is an emendation, or does not in which case it is a conjecture.
+
+textedit:Conjecture
+	a owl:Class;
+	rdfs:label "emendation"@en, "emendazione"@it;
+	rdfs:comment """A reading expressly proposed by some person (possibly the editor) and determined by an editor to be of interest in establishing the text, but not to be printed in the main text of the edition."""@en;
+	# rdfs:comment """A reading choosed by an editor after some reasoning or deduction, but which isn't attested in any of the manuscripts."""@en;
+	rdfs:subClassOf textedit:Reading;
+
+textedit:ApparatusFontium 
+	a owl:Class;
+	rdfs:label "apparatus fontium"@en, "apparatus fontium"@de, "apparatus fontium"@la;
+	rdfs:comment """Apparatus that collects references to texts quoted or cited by the author(s) in the text of the edition."""@en;
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:GeneticEdition
+	a owl:rdfs:Class;
+	rdfs:label "genetic edition"@en, "édition génétique"@fr, "edizione genetica"@it;
+	rdfs:comment """Critical edition that accounts for the modifications done by the author."""@en;
+	rdfs:subClassOf textedit:CriticalEdition;
+	# restrictions ?
+
 # textedit:
 
 #

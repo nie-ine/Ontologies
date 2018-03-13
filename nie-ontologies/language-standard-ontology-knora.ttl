@@ -50,7 +50,7 @@ langstan:iso639-1Datatype
 	rdfs:label "ISO 639-1 datatype"@en;
 	rdfs:comment """Datatype to type an ISO 639-1 alpha-2 code."""@en;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>.
-#	rdfs:subClassOf xsd:string.
+#	rdfs:subClassOf xsd:string. # cf. 
 
 langstan:iso639-2Scheme
 	a skos:ConceptScheme;

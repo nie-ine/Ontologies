@@ -52,15 +52,16 @@ language:HumanNaturalLanguage #* Is a human natural language a human creation?
 language:English
 	a owl:Class;
 	rdfs:label "English"@en, "Englisch"@de;
-	rdfs:comment """."""@en;
+	rdfs:comment """The language of England, widely used in many varieties throughout the world."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:HumanNaturalLanguageExpression
 	a owl:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
-	rdfs:comment """Expression in a human natural language."""@en;
+	rdfs:comment """Expression in a human natural language, being text in most abstract sense, as writable."""@en;
 	skos:note """Different from the FRBROO based concept:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
+		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:expressedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -123,6 +124,17 @@ language:hasCode
 	rdfs:subPropertyOf skos:exactMatch, knora-base:hasValue;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguage;
 	knora-base:objectClassConstraint language:Code.
+
+language:hasContent
+	a owl:ObjectProperty;
+	rdfs:label "has content"@en, "hat Inhalt"@de;
+	rdfs:comment """Relating a human natural language expression to its content (as object)."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range knora-base:TextValue;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 language:expressedInNaturalLanguage
 	a owl:ObjectProperty;
@@ -202,7 +214,7 @@ language:hasPersonTranslator
 	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
 	rdfs:subPropertyOf language:hasTranslator;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
+	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:PersonTranslator]];
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint human:Person.
 

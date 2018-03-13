@@ -7,6 +7,7 @@
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
+@prefix language: <http://www.knora.org/ontology/language#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
 @prefix textedit: <http://www.knora.org/ontology/text-editing#>.
@@ -82,7 +83,7 @@ kuno-raeber:Edition
 	rdfs:label "edited text"@en, "edierte Text"@de;
 	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:Edition, [
-		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger]#, [
+		a owl:Restriction; owl:onProperty language:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
@@ -92,7 +93,7 @@ kuno-raeber:DiplomaticTranscription
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
 	rdfs:comment """Diplomatic transcription of a text authored by Kuno Raeber."""@en, """Diplomatische Umschrift eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:DiplomaticTranscription, [
-		a owl:Restriction; owl:onProperty text:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [

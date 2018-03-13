@@ -28,7 +28,7 @@
 concept:Concept
 	a owl:Class;
 	rdfs:label "concept"@en, "Konzept"@de;
-	rdfs:comment """Abstract idea created by a person."""@en;
+	rdfs:comment """Abstract idea created by a person, as product of mental activity."""@en;
 	rdfs:subClassOf human:Creation, frbroo:F6_Concept. # rdfs:subClassOf cidoc:E28_Conceptual_Object
 
 concept:SymbolicConcept
@@ -42,20 +42,20 @@ concept:SymbolicConcept
 concept:PropositionalConcept
 	a owl:Class;
 	rdfs:label "propositional concept"@en, "propositionales Konzept"@de;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """Concept represented by a statement bearing a truth value, e.g. a judgement or opinion."""@en; #*
 	skos:note """Different from a linguisitc proposition."""@en;
 	rdfs:subClassOf concept:Concept, cidoc:E89_Propositional_Object.
 
-concept:ThoughtBody #* OR belief system OR school of thought OR theory
+concept:ThoughtBody #* related to belief system related to school of thought related to theory
 	a owl:Class;
 	rdfs:label "body of thought"@en, "Gedankengut"@de;
-	rdfs:comment """."""@en;
+	rdfs:comment """Coherent group of propositional concepts."""@en; #*
 	rdfs:subClassOf concept:PropositionalConcept.
 
 concept:Work
 	a owl:Class;
 	rdfs:label "work"@en, "Werk"@de;
-	rdfs:comment """Intellectual product as concept."""@en; 
+	rdfs:comment """Intellectual product as concept."""@en; #* 
 	rdfs:subClassOf concept:PropositionalConcept, frbroo:F1_Work, [
 		a owl:Restriction; owl:onProperty concept:isExpressedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isExpressedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -70,7 +70,10 @@ concept:Information
 	a owl:Class;
 	rdfs:label "information"@en, "Information"@de;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object.
+	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object. #, [
+#		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# DHL's Knora does not permit to instantiate knora-base:Value, only its subclasses; information can have any value type (and more); content does not only refers to a file.
 
 concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
 	a owl:Class;
@@ -186,6 +189,15 @@ concept:isExpressedInValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint concept:Work;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+#concept:hasContent
+#	a owl:ObjectProperty;
+#	rdfs:label "has content"@en, "hat Inhalt"@de;
+#	rdfs:comment """Relating information to its content (as object)."""@en;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint concept:Information;
+#	knora-base:objectClassConstraint knora-base:Value. # BUT not allowed in Knora
+
 
 # frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
 

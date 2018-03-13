@@ -123,8 +123,8 @@ text-structure:Paragraph
 text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;
-	rdfs:comment """Text line with prosody."""@en;
-	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
+	rdfs:comment """One Text line with prosody."""@en;
+	rdfs:subClassOf text-structure:ProsodicStructure, [ # text-structure:Line
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -234,7 +234,7 @@ text-structure:hasLineNumber
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
 	rdfs:comment """Relating a text expression to the number (as object) of a line thereof."""@en;
-	rdfs:subPropertyOf text:hasContent;
+	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.

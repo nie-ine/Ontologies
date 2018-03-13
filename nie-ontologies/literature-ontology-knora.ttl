@@ -73,7 +73,7 @@ litera:VersePoem
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
 	rdfs:comment """Poem expressed in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
 	rdfs:subClassOf litera:Poem, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Verse], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -101,7 +101,7 @@ litera:VerseNovel
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
 	rdfs:comment """Epic fiction expression in verse and with novel-length."""@en;
 	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Verse], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -143,8 +143,8 @@ litera:hasPoet
 	a owl:ObjectProperty;
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
-#	rdfs:domain litera:Poem;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom litera:Poet]];
+	rdfs:domain litera:Poem;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:allValuesFrom litera:Poet]];
 	rdfs:subPropertyOf text:hasAuthor;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint human:Person.

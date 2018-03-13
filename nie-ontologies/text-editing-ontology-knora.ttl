@@ -8,7 +8,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
-@prefix lang: <http://www.knora.org/ontology/language#>.
+@prefix language: <http://www.knora.org/ontology/language#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
@@ -121,7 +121,7 @@ textedit:hasEditor
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
 	rdfs:domain textedit:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom textedit:Editor]];
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -139,7 +139,7 @@ textedit:hasRedactor
 	rdfs:label "has redactor"@en, "hat Redaktor"@de;
 	rdfs:comment """Relating a text to a person who redacted it."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom textedit:Redactor]];
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -174,7 +174,7 @@ textedit:hasEditionValue
 #	a owl:ObjectProperty;
 #	rdfs:label "has edited content"@en;
 #	rdfs:comment """Relating an edition to its content (as object)."""@en;
-#	rdfs:subPropertyOf text:hasContent;
+#	rdfs:subPropertyOf language:hasContent;
 #	knora-base:subjectClassConstraint textedit:Edition;
 #	knora-base:objectClassConstraint knora-base:TextValue;
 #	salsah-gui:guiElement salsah-gui:Richtext.
@@ -251,7 +251,7 @@ textedit:hasDiacriticalSign
 	a owl:ObjectProperty;
 	rdfs:label "has diacritical sign"@en, "hat diakritisches Zeichen"@de;
 	rdfs:comment """Relating a derived text expression to a sign (as object) indicating a textual aspect of the original text."""@en;
-	rdfs:subPropertyOf text:hasContent;
+	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint textedit:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.

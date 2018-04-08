@@ -144,9 +144,9 @@ concept:Fiction
 	rdfs:comment """Concept derived from imagination."""@en;
 	rdfs:subClassOf concept:Concept.
 
-concept:NonFiction
+concept:Nonfiction
 	a owl:Class;
-	rdfs:label "non-fiction"@en, "sachliche Expression"@de;
+	rdfs:label "nonfiction"@en, "sachliche Expression"@de;
 	rdfs:comment """Concept based on fact."""@en;
 	rdfs:subClassOf concept:Concept.
 

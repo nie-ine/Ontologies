@@ -88,6 +88,14 @@ org:MasonicLodge
 	rdfs:comment """Organisational unit of Freemasonry."""@en; #*
 	rdfs:subClassOf org:Organisation.
 
+# preserving place, sc museum, library
+
+org:Museum # humans + equipment: computers + meters + moist regulators etc.
+	a owl:Class;
+	rdfs:label "museum"@en, "Museum"@de;
+	rdfs:comment """Organisation preserving and exhibiting objects of historical, scientific, artistic, or cultural interest in a special building also called museum."""@en;
+	rdfs:subClassOf org:Organisation. # hasRole Preservator, Exhibitioner
+
 #
 # PROPERTIES
 #

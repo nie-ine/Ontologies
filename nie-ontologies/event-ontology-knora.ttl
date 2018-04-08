@@ -116,14 +116,6 @@ event:Creating
 	rdfs:comment """Bringing into existence."""@en;
 	rdfs:subClassOf event:Action.
 
-event:Salon
-	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/event#>;
-	rdfs:label "salon"@en, "literarischer Salon"@de;
-	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
-	skos:note """Existed from the seventeenth century AD until 1950."""@en;
-	rdfs:subClassOf event:Action. #* to be specified
-
 #
 # PROPERTIES
 #

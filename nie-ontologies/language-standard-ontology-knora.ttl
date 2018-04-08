@@ -52,7 +52,7 @@ langstan:iso639-1Datatype
 	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>.
 #	rdfs:subClassOf xsd:string. # cf. 
 
-langstan:iso639-2Scheme
+langstan:iso639-2Scheme # B and T codes for 20 languages, T codes favoured
 	a skos:ConceptScheme;
 	rdfs:label "ISO 639-2"@en;
 	rdfs:comment """ISO 639 part 2: alpha-3 (three-letter) codes."""@en;
@@ -95,4 +95,25 @@ langstan:English
 	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>;
 	language:hasCode [skos:inScheme langstan:iso639-1Scheme; knora-base:valueHasString "en"^^langstan:iso639-1Datatype]; # a skos:Concept # skos:notation
 	language:hasCode [skos:inScheme langstan:iso639-2Scheme; knora-base:valueHasString "eng"^^langstan:iso639-2Datatype];
-	text:name """English"""@en.
+	text:name "English"@en, "Englisch"@de, "anglais"@fr, "inglese"@it.
+
+langstan:French
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>;
+	language:hasCode [skos:inScheme langstan:iso639-1Scheme; knora-base:valueHasString "fr"^^langstan:iso639-1Datatype]; # a skos:Concept # skos:notation
+	language:hasCode [skos:inScheme langstan:iso639-2Scheme; knora-base:valueHasString "fre"^^langstan:iso639-2Datatype, "fra"^^langstan:iso639-2Datatype];
+	text:name "French"@en, "Französisch"@de, "français"@fr, "francese"@it.
+
+langstan:German
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>;
+	language:hasCode [skos:inScheme langstan:iso639-1Scheme; knora-base:valueHasString "de"^^langstan:iso639-1Datatype]; # a skos:Concept # skos:notation
+	language:hasCode [skos:inScheme langstan:iso639-2Scheme; knora-base:valueHasString "ger"^^langstan:iso639-2Datatype, "deu"^^langstan:iso639-2Datatype];
+	text:name "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it.
+
+langstan:Italian
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/language-standard#>;
+	language:hasCode [skos:inScheme langstan:iso639-1Scheme; knora-base:valueHasString "it"^^langstan:iso639-1Datatype]; # a skos:Concept # skos:notation
+	language:hasCode [skos:inScheme langstan:iso639-2Scheme; knora-base:valueHasString "ita"^^langstan:iso639-2Datatype];
+	text:name "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it.

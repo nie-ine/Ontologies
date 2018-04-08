@@ -1,19 +1,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
-@prefix lang: <http://www.knora.org/ontology/language#>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 @prefix litera: <http://www.knora.org/ontology/literature#>.
@@ -34,7 +26,7 @@ litera:Literature
 	a owl:Class;
 	rdfs:label "literature"@en, "Literatur"@de;
 	rdfs:comment """Written text as art."""@en;
-	rdfs:subClassOf text:WrittenText. #* NOT an expression
+	rdfs:subClassOf text:WrittenText. #* NOT an expression -> features: art: distinctively written
 
 litera:Fiction
 	a owl:Class;
@@ -42,38 +34,91 @@ litera:Fiction
 	rdfs:comment """Literature having content derived from imagination."""@en;
 	rdfs:subClassOf litera:Literature, concept:Fiction.
 
-litera:NonFiction
+litera:Nonfiction
 	a owl:Class;
-	rdfs:label "literary non-fiction"@en, "sachliche Literatur"@de;
+	rdfs:label "literary Nonfiction"@en, "sachliche Literatur"@de;
 	rdfs:comment """Literature having content based on fact."""@en;
-	rdfs:subClassOf litera:Literature, concept:NonFiction.
+	rdfs:subClassOf litera:Literature, concept:Nonfiction.
 
-litera:Lyric #* # poetry - Poetik, Poesie, Dichtung => lyric poetry = pleonasm ?
+litera:Narrative
 	a owl:Class;
-	rdfs:label "lyric"@en, "Lyrik"@de;
-	rdfs:comment """Literature expressing emotion and imagination directly in text structure with e.g. prosody, besides content."""@en;
+	rdfs:label "literary narrative"@en, "literarische Narration"@de; # synonym: prose - Prosa, different from the structural prose text:Prose
+	rdfs:comment """Storytelling literature."""@en;
 	rdfs:subClassOf litera:Literature.
 
-litera:Epic
+litera:EpicNarrative
 	a owl:Class;
-	rdfs:label "epic"@en, "Epik"@de; # synonyms: prose - Prosa, different from the structural prose text:Prose
-	rdfs:comment """Narrative literature."""@en; # storytelling
+	rdfs:label "epic narrative"@en, "epische Narration"@de;
+	rdfs:comment """Narrative about heroism."""@en;
+	rdfs:subClassOf litera:Narrative.
+
+litera:Poetry
+	a owl:Class;
+	rdfs:label "poetry"@en, "Poetik"@de;
+	rdfs:comment """Literature expressing imagination in text structure through prosody, besides content."""@en;
 	rdfs:subClassOf litera:Literature.
 
-# litera:Drama - Dramatik # performing
+litera:LyricPoetry
+	a owl:Class;
+	rdfs:label "lyric poetry"@en, "lyrische Poetik"@de;
+	rdfs:comment """Poetry expressing emotion."""@en;
+	rdfs:subClassOf litera:Poetry.
+
+litera:NarrativePoetry
+	a owl:Class;
+	rdfs:label "narrative poetry"@en, "narrative Poetik"@de;
+	rdfs:comment """Poetry expressed in a narrative."""@en;
+	rdfs:subClassOf litera:Poetry, litera:Narrative.
+
+litera:EpicPoetry
+	a owl:Class;
+	rdfs:label "epic poetry"@en, "epische Poetik"@de;
+	rdfs:comment """Poetry expressed in an epic narrative."""@en;
+	rdfs:subClassOf litera:NarrativePoetry, litera:EpicNarrative.
+
+litera:DescriptivePoetry
+	a owl:Class;
+	rdfs:label "descriptive poetry"@en, "deskriptive Poetik"@de;
+	rdfs:comment """Poetry expressed in a didactic or demonstrative description."""@en;
+	rdfs:subClassOf litera:Poetry, litera:Nonfiction.
+
+litera:ScientificPoetry
+	a owl:Class;
+	rdfs:label "scientific poetry"@en, "wissenschaftliche Poetik"@de;
+	rdfs:comment """Poetry expressed in a scientific description."""@en;
+	rdfs:subClassOf litera:DescriptivePoetry.
+
+#* poésie fugitive
+
+litera:Drama
+	a owl:Class;
+	rdfs:label "drama"@en, "Dramatik"@de;
+	rdfs:comment """Literature for oral performance."""@en; #* spoken OR sung # dialogical sequences
+	rdfs:subClassOf litera:Literature.
+
+litera:Expression
+	a owl:Class;
+	rdfs:label "literary expression"@en, "literarische Expression"@de;
+	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:Poem
 	a owl:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
-	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de; #* lyric expression
-	rdfs:subClassOf text:Expression, litera:Lyric.
+	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de;
+	rdfs:subClassOf litera:Expression, [
+		a owl:Restriction; owl:onProperty litera:hasGenre; owl:allValuesFrom litera:Poetry], [
+		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasPoetryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:VersePoem
 	a owl:Class;
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
-	rdfs:comment """Poem expressed in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
+	rdfs:comment """Poem written in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
 	rdfs:subClassOf litera:Poem, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:Verse], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -85,41 +130,70 @@ litera:Hymn
 
 # litera:Hymnal # OR hymn book # collection of hymns
 
-# narrative poetry
-
 litera:ProsePoem
 	a owl:Class;
 	rdfs:label "prose poem"@en, "Prosagedicht"@de;
 	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;
-	rdfs:subClassOf litera:Poem, litera:Epic, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Prose], [ # OR text:RhythmicProse
+	rdfs:subClassOf litera:Poem, [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:Prose], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+#litera:EpicPoem
+#	a owl:Class;
+#	rdfs:label "epic poem"@en, "Heldengedicht"@de;
+#	rdfs:comment """Poem with novel-length written in an epic narrative fiction in verse."""@en;
+#	rdfs:subClassOf litera:VerseNovel.
+
 
 litera:VerseNovel
 	a owl:Class;
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
-	rdfs:comment """Epic fiction expression in verse and with novel-length."""@en;
-	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Verse], [
+	rdfs:comment """Narrative fiction expression in verse and with novel-length."""@en;
+	rdfs:subClassOf litera:Expression, [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:Verse], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
+#		a owl:Restriction; owl:onProperty litera:hasGenre; owl:someValuesFrom litera:Narrative], [
+#		a owl:Restriction; owl:onProperty litera:hasGenre; owl:someValuesFrom litera:Fiction], [
+#		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "2"^^xsd:nonNegativeInteger];
+#		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "2"^^xsd:nonNegativeInteger]
+		.
 
 litera:Novel
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
-	rdfs:comment """Epic fiction expression."""@en;
-	rdfs:subClassOf text:Expression, litera:Epic, litera:Fiction, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:Prose], [
+	rdfs:comment """Narrative fiction expression in prose."""@en;
+	rdfs:subClassOf litera:Expression, litera:Narrative, litera:Fiction, [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:Prose], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+litera:NonfictionNovel #* hasGenre
+	a owl:Class;
+	rdfs:label "nonfiction novel"@en, "sachliche Roman"@de;
+	rdfs:comment """Narrative nonfiction expression in prose."""@en;
+	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
+	rdfs:subClassOf litera:Expression, litera:Narrative, litera:Nonfiction, [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:Prose], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # WM 20180206
-# Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature
+#* Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature
 # Sachbezogene Texte (Essays, Rezensionen, Einleitungen, Biographien etc. ) - mix
 # Persönliche / Situative Texte (Tagebuch, Autobiographie, Briefe? ...)
 # editorischen Metatexte: Erläuterungen, Kommentare, Übersichten ...
 # fictional biography, diary
+#* para-text - Delille
 
 litera:Poet
 	a owl:Class;
@@ -139,6 +213,60 @@ litera:Novelist
 # PROPERTIES
 #
 
+litera:hasGenre
+	a owl:ObjectProperty;
+	rdfs:label "has literary genre"@en, "hat literarische Gattung"@de;
+	rdfs:comment """Relating a literary expression to a genre it has."""@en;
+	rdfs:domain litera:Expression;
+	rdfs:range litera:Literature;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint litera:Literature.
+
+litera:hasGenreValue
+	a owl:ObjectProperty;
+	rdfs:label "has literary genre - statement"@en, "hat literarische Gattung - Festlegung"@de;
+	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and a genre it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:hasNarrative
+	a owl:ObjectProperty;
+	rdfs:label "has literary narrative"@en, "hat literarische Narration"@de;
+	rdfs:comment """Relating a literary expression to a narrative it has."""@en;
+	rdfs:domain litera:Expression;
+	rdfs:range litera:Narrative;
+	rdfs:subPropertyOf litera:hasGenre;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint litera:Narrative.
+
+litera:hasNarrativeValue
+	a owl:ObjectProperty;
+	rdfs:label "has literary narrative - statement"@en, "hat literarische Narration - Festlegung"@de;
+	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and a narrative it has."""@en;
+	rdfs:subPropertyOf litera:hasGenreValue;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:hasFiction
+	a owl:ObjectProperty;
+	rdfs:label "has literary fiction"@en, "hat literarische Fiction"@de;
+	rdfs:comment """Relating a literary expression to a fiction it has."""@en;
+	rdfs:domain litera:Expression;
+	rdfs:range litera:Fiction;
+	rdfs:subPropertyOf litera:hasGenre;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint litera:Fiction.
+
+litera:hasFictionValue
+	a owl:ObjectProperty;
+	rdfs:label "has literary fiction - statement"@en, "hat literarische Fiction - Festlegung"@de;
+	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and a fiction it has."""@en;
+	rdfs:subPropertyOf litera:hasGenreValue;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 litera:hasPoet
 	a owl:ObjectProperty;
 	rdfs:label "has poet"@en, "hat Dichter"@de;
@@ -156,3 +284,5 @@ litera:hasPoetValue
 	rdfs:subPropertyOf text:hasAuthorValue;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+#* litera:hasNovelist

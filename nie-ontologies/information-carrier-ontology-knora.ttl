@@ -86,7 +86,16 @@ infocar:Print
 	a owl:Class;
 	rdfs:label "print"@en, "Druck"@de;
 	rdfs:comment """An expression printed on a carrier."""@en;
-	rdfs:subClassOf infocar:Carrier.
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isPartOfPrintRun; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPartOfPrintRunValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:PrintRun
+	a owl:Class;
+	rdfs:label "print run"@en, "Druckauflage"@de, "Tirage"@fr, "Tiratura"@it;
+	rdfs:comment """Collection of prints of the same expression, created at one time."""@en;
+	skos:note """When applicable, all the prints have the same ISBN, but a different bar code."""@en;
+	rdfs:subClassOf human:PhysicalCreation.
 
 infocar:FirstPrint
 	a owl:Class;
@@ -111,8 +120,8 @@ infocar:ArchiveElement
 	rdfs:label "archive element"@en, "Archiv-Element"@de;
 	rdfs:comment """Element of an archive, which can be a single file or a file group."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty physical:isPartOfArchive; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:isPartOfArchiveValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPartOfArchive; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPartOfArchiveValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Nachlass
@@ -126,8 +135,8 @@ infocar:NachlassElement
 	rdfs:label "nachlass element"@en, "Nachlass-Element"@de;
 	rdfs:comment """Element of a nachlass."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty physical:isPartOfNachlass; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:isPartOfNachlassValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isPartOfNachlass; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPartOfNachlassValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:WritingUtensil
 	a owl:Class;
@@ -183,11 +192,17 @@ infocar:Typescript
 	rdfs:comment """Carrier of a typewritten text expression."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Transcript #*
+infocar:Transcription # homonym: from dif. manifestation. - eg. spoken - to written
 	a owl:Class;
-	rdfs:label "transcript"@en, "Abschrift"@de;
-	rdfs:comment """Carrier of a reproduced text by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+	rdfs:label "transcription"@en, "Abschrift"@de;
+	rdfs:comment """Carrier with a text copied by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
+	rdfs:subClassOf human:Copy, infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+infocar:ManuelTranscription
+	a owl:Class;
+	rdfs:label "manuel transcription"@en, "manuelle Abschrift"@de;
+	rdfs:comment """Carrier with a handwritten copy of a text."""@en;
+	rdfs:subClassOf infocar:Transcription.
 
 infocar:Diary
 	a owl:Class;
@@ -203,17 +218,25 @@ infocar:Letter
 		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Postcard
 	a owl:Class;
 	rdfs:label "postcard"@en, "Postkarte"@de;
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
-	rdfs:subClassOf human:Creation, frbroo:F4_Manifestation_Singleton, [
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
 		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Convolute
 	a owl:Class;
@@ -537,6 +560,42 @@ infocar:hasReceiverValue
 	knora-base:subjectClassConstraint knora-base:Resource; #*
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+infocar:hasSendingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has sending location"@en, "hat Absendeort"@de;
+	rdfs:comment """Relating something to a location it was sent from."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation;
+	knora-base:subjectClassConstraint knora-base:Resource; #*
+	knora-base:objectClassConstraint physical:Place.
+
+infocar:hasSendingLocationValue
+	a owl:ObjectProperty;
+	rdfs:label "has sending location - statement"@en, "hat Absendeort - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a location it was sent from."""@en;
+	rdfs:subPropertyOf physical:hasLocationValue;
+	knora-base:subjectClassConstraint knora-base:Resource; #*
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:hasReceivingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has receiving location"@en, "hat Empfangort"@de; #*
+	rdfs:comment """Relating something to a location it was sent to."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation;
+	knora-base:subjectClassConstraint knora-base:Resource; #*
+	knora-base:objectClassConstraint physical:Place.
+
+infocar:hasReceivingLocationValue
+	a owl:ObjectProperty;
+	rdfs:label "has receiving location - statement"@en, "hat Empfangort - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a location it was sent to."""@en;
+	rdfs:subPropertyOf physical:hasLocationValue;
+	knora-base:subjectClassConstraint knora-base:Resource; #*
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 infocar:convoluteHasTitle
 	a owl:ObjectProperty;
 	rdfs:label "convolute has title"@en, "Konvolut hat Titel"@de;
@@ -639,7 +698,23 @@ infocar:hasCarrierCollectionDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-physical:isPartOfArchive
+infocar:isPartOfPrintRun
+	a owl:ObjectProperty;
+	rdfs:label "is part of print run"@en, "ist Teil einer Druckauflage"@de;
+	rdfs:comment """Relating a print to the run it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOf;
+	knora-base:subjectClassConstraint infocar:Print;
+	knora-base:objectClassConstraint infocar:PrintRun.
+
+infocar:isPartOfPrintRunValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of print run - statement"@en, "ist Teil einer Druckauflage - Festlegung"@de;
+	rdfs:comment """Relating a print to a reification statement of the relation between the print and the run it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOfValue;
+	knora-base:subjectClassConstraint infocar:Print;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isPartOfArchive
 	a owl:ObjectProperty;
 	rdfs:label "is part of archive"@en, "ist Teil eines Archivs"@de;
 	rdfs:comment """Relating an element of an archive to the archive."""@en;
@@ -647,9 +722,9 @@ physical:isPartOfArchive
 	knora-base:subjectClassConstraint infocar:ArchiveElement;
 	knora-base:objectClassConstraint infocar:Archive.
 
-physical:isPartOfArchiveValue
+infocar:isPartOfArchiveValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of an archive - statement"@en, "ist Teil eines Archivs - Festlegung"@de;
+	rdfs:label "is part of archive - statement"@en, "ist Teil eines Archivs - Festlegung"@de;
 	rdfs:comment """Relating an element of an archive to a reification statement of the relation between the element and the archive."""@en;
 	rdfs:subPropertyOf physical:isPartOfValue;
 	knora-base:subjectClassConstraint infocar:ArchiveElement;
@@ -663,7 +738,7 @@ infocar:hasArchiveSignature
 	knora-base:subjectClassConstraint infocar:ArchiveElement;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-physical:isPartOfNachlass
+infocar:isPartOfNachlass
 	a owl:ObjectProperty;
 	rdfs:label "is part of a nachlass"@en, "ist Teil eines Nachlasses"@de;
 	rdfs:comment """Relating an element of a nachlass to the nachlass."""@en;
@@ -671,7 +746,7 @@ physical:isPartOfNachlass
 	knora-base:subjectClassConstraint infocar:NachlassElement;
 	knora-base:objectClassConstraint infocar:Nachlass.
 
-physical:isPartOfNachlassValue
+infocar:isPartOfNachlassValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of a nachlass - statement"@en, "ist Teil eines Nachlasses - Festlegung"@de;
 	rdfs:comment """Relating an element of a nachlass to a reification statement of the relation between the element and the nachlass."""@en;

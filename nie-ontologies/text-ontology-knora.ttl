@@ -76,11 +76,13 @@ text:Author
 	skos:note """Often an author is also the creator of a text."""@en;
 	rdfs:subClassOf human:Role.
 
-text:Revisor #* SCO editor
+text:Revisor #* SCO editor? -> revise without change
 	a owl:Class;
 	rdfs:label "revisor"@en, "Revisor"@de;
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
 	rdfs:subClassOf human:Role.
+
+#* curator: keeper of a cultural heritage institution?
 
 text:Glossator #* -> scholastic? Unlikely to be used in modern times?
 	a owl:Class;
@@ -134,6 +136,16 @@ text:TypewrittenText
 
 # text:Print: printed text abstracted from its carrier
 
+text:Marginalia
+	a owl:Class;
+	rdfs:label "marginalia"@en, "Marginalien"@de;
+	rdfs:comment """Notes written in the margin of a text."""@en;
+	rdfs:subClassOf text:WrittenText, [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure]
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+		.
+
 text:DiaryEntry
 	a owl:Class;
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de;
@@ -148,7 +160,7 @@ text:LetterExpression
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text:LetterStructure], [
+		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:LetterStructure], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
@@ -166,8 +178,11 @@ text:Draft
 	rdfs:comment """Developmental text expression."""@en;
 	rdfs:subClassOf human:CreationVersion.
 
-# Transcription: 1-1 copy of written text, OCR
-# info: reader able to judge choices
+#text:Transcription # homonym: from dif. expr. - eg. spoken - to written
+#	a owl:Class;
+#	rdfs:label "transcription"@en, "Transkription"@de;
+#	rdfs:comment """Text expr copied by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
+#	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 text:Development
 	a owl:Class;
@@ -179,6 +194,12 @@ text:Development
 
 #* extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
 #* intrinsic: formal content
+
+#*text:Witness
+#	a owl:Class;
+#	rdfs:label "witness"@en, "Textzeuge"@de;
+#	rdfs:comment """Copy of an original text."""@en; #* enabling its reconstruction
+#	rdfs:subClassOf text:Transcription.
 
 #
 # PROPERTIES
@@ -222,11 +243,11 @@ text:hasAlias
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-text:hasIdentifier
+text:hasIdentifier # unique in context
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;
 	rdfs:comment """Relating a resource to an identifier (as object) as a unique textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
-	rdfs:subPropertyOf text:hasText; # cidoc:E42_Identifier, cf. dcterms:identifier
+	rdfs:subPropertyOf text:hasText; #* P1_is_identified_by, domain: E1_CRM_Entity, range: E41_Appellation; cf. dcterms:identifier
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.

@@ -25,7 +25,8 @@
 	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Basel University, Switzerland"@en;
+	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>.
 
 textedit:Derivative
 	a owl:Class;
@@ -40,7 +41,7 @@ textedit:Derivative
 textedit:Edition # can be on >= 1 carrier
 	a owl:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de; # Lesetext subClassOf
-	rdfs:comment """Changed form of a text expression as a result of editing."""@en;
+	rdfs:comment """Changed form of a text expression as a result of editing."""@en; #* drop expression?
 	rdfs:subClassOf textedit:Derivative.
 
 textedit:Editor
@@ -69,30 +70,25 @@ textedit:DiplomaticTranscription
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:cardinality "1"^^xsd:nonNegativeInteger]
 		.
 
-# textedit:Diplomatic-InterpretativeTranscription
-# expanded abbreviation
-
-#* textual criticism: to understand the creation and historical transmission of a text
-#* critical text analysis
-# outcome/product: critical text editing/edition
-# document transcription history
-# recension: intermediate version
-# methodology: eclecticism, stemmatics, copy-text editing, quantitative to determine the relationship between witnesses to a text
-# higher criticism: to establish the authorship, date, and place of composition of the original text
-
 textedit:CriticalEdition
 	a owl:Class;
-	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
+	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en; #*
 	rdfs:subClassOf textedit:Edition, [ #* + argumentation and discussing other edition
 		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:someValuesFrom textedit:CriticalApparatus], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatusValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
+textedit:GeneticEdition
 	a owl:Class;
-	rdfs:label "critical apparatus"@en, "kritischer Apparat"@de, "apparatus criticus"@la;
-	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en;
+	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
+	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
+	rdfs:subClassOf textedit:CriticalEdition.
+
+textedit:CriticalApparatus
+	a owl:Class;
+	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparatus criticus"@la;
+	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en; #* more than note
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -100,42 +96,48 @@ textedit:CriticalApparatus # cf. digital standard of Text Encoding Initiative
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# textedit:Variorum subClassOf CriticalEdition
-
 # apparatus has format:
 # eg.
 # location of version in text
 # lemma: part of text in CA
 # symbol
 # source
-# list of other versions + source: frequently cited abbreviated with a siglum
+# list of variants + source: if frequently cited: abbreviated with a siglum
 
-
-# Proposition partly based on : https://digitallatin.github.io/guidelines/LDLT-Guidelines.html
-textedit:Reading # lectio
+textedit:ApparatusFontium
 	a owl:Class;
-	rdfs:label "reading"@en, "lezione"@it;
-	rdfs:comment """Reading of the text in one given witness."""@en;
+	rdfs:label "apparatus fontium"@en, "apparatus fontium"@de, "apparatus fontium"@la;
+	rdfs:comment """Critical apparatus containing references to texts quoted or cited [?dif] by the author [of the original?] in the text of the cr. edition."""@en;
+	rdfs:subClassOf textedit:CriticalApparatus.
 
-textedit:Lemma # pl. lemmata
+textedit:Reading #* bound to certain period?
 	a owl:Class;
-	rdfs:label "lemma"@en, "lemma"@it;
-	rdfs:comment """A word or phrase (or the absence thereof) judged by the editor to be authentic, accurate, and/or authoritative."""@en;
-	rdfs:subClassOf textedit:Reading;
-# The text printed in the main portion (i.e., edition text) of a critical edition is made up of lemmata.
+	rdfs:label "reading"@en, "Textinterpretation"@de, "lezione"@it, "lectio"@la; #*
+	rdfs:comment """Reading of the text in one given witness."""@en. #* text? # spezifische Interpretation eines Textes
+
+textedit:Lemma #* structure, but specific for editing?
+	a owl:Class;
+	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@it;
+	rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
+	rdfs:subClassOf textedit:Reading. #* -> part of OR unit of CA
+
+#* (oder Stichwort) ist in der Editionswissenschaft das Wort im Haupttext, auf welches sich die Anmerkung oder der textkritische Apparat eines Kommentars bezieht
+
+#* linguistics: morphology and lexicography, a lemma (plural lemmas or lemmata) is the canonical form
+#* morphology: study of words, how they are formed, and their relationship to other words in the same language
+#* lexikographisch: grundform eines Wortes
 
 textedit:Variant
 	a owl:Class;
-	rdfs:label "variant"@en, "variante"@it;
-	rdfs:comment """A word or phrase (or absence thereof) judged by the editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text."""@en;
-	rdfs:subClassOf textedit:Reading;
-# This type of reading is a “variant” insofar as it varies from what the editor has judged to be the lemma.
+	rdfs:label "variant"@en, "Variant"@de, "variante"@it;
+	rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text; varying from what the editor has judged to be the lemma."""@en;
+	rdfs:subClassOf textedit:Reading. #* -> part of OR unit of CA
 	  
 textedit:Emendation
 	a owl:Class;
 	rdfs:label "emendation"@en, "emendazione"@it;
 	rdfs:comment """A reading expressly proposed by some person (possibly the editor) and accepted by the editor into the main text of an edition."""@en;
-	rdfs:subClassOf textedit:Reading;
+	rdfs:subClassOf textedit:Reading.
 	# OR
 	# rdfs:comment """A reading based on a conjecture and that is used to correct the text of an edition."""@en;
 	# then: rdfs:subClassOf textedit:Conjecture + restriction: is integrated in the main text of an edition.
@@ -144,32 +146,14 @@ textedit:Emendation
 	# The terms are used subjectively, with regard to a particular edition. Readers of an edition may agree or disagree about whether a particular reading emends the text, 
 	# but the editor's argument is that a reading either emends the text, in which case it is an emendation, or does not in which case it is a conjecture.
 
-textedit:Conjecture
+textedit:Conjecture #* conjectural emendation
 	a owl:Class;
-	rdfs:label "emendation"@en, "emendazione"@it;
-	rdfs:comment """A reading expressly proposed by some person (possibly the editor) and determined by an editor to be of interest in establishing the text, but not to be printed in the main text of the edition."""@en;
+	rdfs:label "conjecture"@en, "Konjektur"@de, "?"@it;
+	rdfs:comment """A reading expressly proposed  - possibly the editor [?] - *and determined by* an editor to be of interest in establishing the text, but not to be printed in the main text of the edition."""@en;
 	# rdfs:comment """A reading choosed by an editor after some reasoning or deduction, but which isn't attested in any of the manuscripts."""@en;
-	rdfs:subClassOf textedit:Reading;
+	rdfs:subClassOf textedit:Reading.
 
-textedit:ApparatusFontium 
-	a owl:Class;
-	rdfs:label "apparatus fontium"@en, "apparatus fontium"@de, "apparatus fontium"@la;
-	rdfs:comment """Apparatus that collects references to texts quoted or cited by the author(s) in the text of the edition."""@en;
-	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-textedit:GeneticEdition
-	a owl:rdfs:Class;
-	rdfs:label "genetic edition"@en, "édition génétique"@fr, "edizione genetica"@it;
-	rdfs:comment """Critical edition that accounts for the modifications done by the author."""@en;
-	rdfs:subClassOf textedit:CriticalEdition;
-	# restrictions ?
-
-# textedit:
+# OD: suggestion of a reading of a text not present in the original source
 
 #
 # PROPERTIES

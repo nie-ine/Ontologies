@@ -164,17 +164,19 @@ text-structure:RhythmicProse #*
 	skos:note """Structure of a prose poem."""@en; #*
 	rdfs:subClassOf text-structure:Prose.
 
-text-structure:NoteStructure #* persönlich-situative Notate (Mischkategorie): Motivnotizen (listen), Tagebucheintragungen (notizen), Titellisten, Vorbemerkungen, Nachworte
+# dialogical: direct speech
+
+text-structure:NoteStructure
 	a owl:Class;
 	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
-	rdfs:comment """Text with note structure, not having a unit such as a sentence."""@en; #* , or being grammatically correct ?
+	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being grammatically correct."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
 text-structure:LetterStructure #*
 	a owl:Class;
 	rdfs:label "letter structure"@en, "Brief-Struktur"@de;
 	rdfs:comment """Text with letter structure."""@en;
-	rdfs:subClassOf text-structure:Structure. #* format
+	rdfs:subClassOf text-structure:Structure.
 
 #
 # PROPERTIES

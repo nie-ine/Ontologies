@@ -11,6 +11,7 @@
 @prefix physical: <http://www.knora.org/ontology/physical-resource#>.
 @prefix agent: <http://www.knora.org/ontology/agent#>.
 @prefix org: <http://www.knora.org/ontology/organisation#>.
+@prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
@@ -65,7 +66,9 @@ human:Person
 		a owl:Restriction; owl:onProperty human:isMemberOfGroup; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:isMemberOfGroupValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:isMemberOfOrganisation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:isMemberOfOrganisationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty org:isMemberOfOrganisationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasDedicatedTo; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasDedicatedToValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:PersonLike
 	a owl:Class;
@@ -90,8 +93,8 @@ human:PersonLife
 	a owl:Class;
 	rdfs:label "person's life"@en, "Leben einer Person"@de;
 	rdfs:comment """Life of a human from birth until death."""@en;
-#	skos:note """Considered as an action wherein a person is an agent."""@en;
-#	skos:note """No satisfying biological description of onset of a human life."""@en;
+	skos:note """Considered as an action wherein a person is an agent."""@en;
+	skos:note """No satisfying biological description of onset of a human life."""@en;
 	rdfs:subClassOf event:Action, event:Existence.
 
 human:BiologicalSex # :subClassOf :Trait
@@ -172,6 +175,12 @@ human:PhysicalCreation
 #	rdfs:comment """Physical creation as result of producing."""@en;
 #	rdfs:subClassOf physical:Product.
 
+human:Copy
+	a owl:Class;
+	rdfs:label "copy"@en, "Kopie"@de;
+	rdfs:comment """Reproduction of a person's creation."""@en;
+	rdfs:subClassOf human:PhysicalCreation.
+
 human:CreationVersion
 	a owl:Class;
 	rdfs:label "creation version"@en, "Version einer Kreation"@de;
@@ -239,7 +248,7 @@ human:Floruit #* on which level: agent, body of thought
 	rdfs:comment """Period during which a person or an Organisation was most active or flourishing."""@en;
 	rdfs:subClassOf event:Action, knora-base:Resource. # , [
 #		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+#		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Mathematician
 	a owl:Class;
@@ -252,6 +261,40 @@ human:Politician
 	rdfs:label "politician role"@en, "Politiker"@de;
 	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
 	rdfs:subClassOf human:OccupationalRole.
+
+human:Building
+	a owl:Class;
+	rdfs:label "building"@en, "Gebäude"@de;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf human:PhysicalCreation. #, [ # in a physical:Place
+#		a owl:Restriction; owl:onProperty human:hasUse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty human:hasUseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+human:Use
+	a owl:Class;
+	rdfs:label "use"@en, "Verwendungszweck"@de;
+	rdfs:comment """Purpose for or way in which something is used."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+human:Museum
+	a owl:Class;
+	rdfs:label "museum"@en, "Museum"@de;
+	rdfs:comment """Specially equipped building where objects of historical, scientific, artistic, or cultural interest are preserved and exhibited by an organization also called museum."""@en;
+	rdfs:subClassOf human:Use.
+
+human:Relic
+	a owl:Class;
+	rdfs:label "relic"@en, "Relikt"@de;
+	rdfs:comment """Preserved remaining of interest of a person or of a person's belongings."""@en;
+	rdfs:subClassOf human:PhysicalCreation.
+
+human:Salon
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/event#>;
+	rdfs:label "salon"@en, "literarischer Salon"@de; #* that specific in German?
+	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
+	skos:note """Exists from the seventeenth century AD until today."""@en;
+	rdfs:subClassOf event:Action. #* to be specified as cultural act.
 
 #
 # PROPERTIES
@@ -514,3 +557,21 @@ human:hasModificationDate
 	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint knora-base:DateValue;
 	salsah-gui:guiElement salsah-gui:Date.
+
+human:hasUse
+	a owl:ObjectProperty;
+	rdfs:label "has use"@en, "hat Verwendungszweck"@de;
+	rdfs:comment """Relating a physical thing to a use of it."""@en;
+	rdfs:domain physical:Resource; # OR rdfs:Resource?
+	rdfs:range human:Use;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Resource; # OR knora-base:Resource?
+	knora-base:objectClassConstraint human:Use.
+
+human:hasUseValue
+	a owl:ObjectProperty;
+	rdfs:label "has use - statement"@en, "hat Verwendungszweck - Festlegung"@de;
+	rdfs:comment "Relating a physical thing to a reification statement of the relation between that thing and a use of it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Resource; # OR rdfs:Resource?
+	knora-base:objectClassConstraint knora-base:LinkValue.

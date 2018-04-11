@@ -11,3 +11,5 @@ All the used ontologies are referenced in a prefix header in the Turtle files.
 This figure shows as example a graphical representation of triples from different ontologies concerning 'literature', created with [EasyRDF ](http://www.easyrdf.org/converter) in GraphViz DOT language. Also two external ontologies [CIDOC](http://www.cidoc-crm.org/) and [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/) are mentioned.  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_literature_basis.svg)
+
+![figure](https://github.com/nie-ine/Ontologies/blob/master/literature_graphic)

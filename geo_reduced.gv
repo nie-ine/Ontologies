@@ -1,0 +1,31 @@
+digraph {
+  charset="utf-8";
+
+  // Edges
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" -> "Rhttp://www.w3.org/2000/01/rdf-schema#Resource" [label="rdfs:subClassOf",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#Point" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:subClassOf",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:domain",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat" -> "Rhttp://www.w3.org/2001/XMLSchema#decimal" [label="rdfs:range",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location" -> "Rhttp://www.w3.org/2000/01/rdf-schema#Resource" [label="rdfs:domain",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:range",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location" -> "Rhttp://xmlns.com/foaf/0.1/based_near" [label="rdfs:subPropertyOf",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:domain",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long" -> "Rhttp://www.w3.org/2001/XMLSchema#decimal" [label="rdfs:range",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:domain",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt" -> "Rhttp://www.w3.org/2001/XMLSchema#decimal" [label="rdfs:range",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long" -> "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [label="rdfs:domain",shape=arrow,color=darkgreen];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long" -> "Rhttp://www.w3.org/2000/01/rdf-schema#Literal" [label="rdfs:range",shape=arrow,color=darkgreen];
+
+  // Nodes
+  "Rhttp://www.w3.org/2000/01/rdf-schema#Literal" [URL="http://www.w3.org/2000/01/rdf-schema#Literal",label="rdfs:Literal",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2000/01/rdf-schema#Resource" [URL="http://www.w3.org/2000/01/rdf-schema#Resource",label="rdfs:Resource",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2001/XMLSchema#decimal" [URL="http://www.w3.org/2001/XMLSchema#decimal",label="xsd:decimal",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#Point" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#Point",label="geo:Point",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",label="geo:SpatialThing",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#alt",label="geo:alt",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#lat",label="geo:lat",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#lat_long",label="geo:lat_long",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#location",label="geo:location",shape=ellipse,color=blue];
+  "Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long" [URL="http://www.w3.org/2003/01/geo/wgs84_pos#long",label="geo:long",shape=ellipse,color=blue];
+  "Rhttp://xmlns.com/foaf/0.1/based_near" [URL="http://xmlns.com/foaf/0.1/based_near",label="foaf:based_near",shape=ellipse,color=blue];
+}

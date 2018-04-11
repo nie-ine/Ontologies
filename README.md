@@ -8,9 +8,14 @@ Whenever possible [ontologies developed by others (external)](https://github.com
 NIE-ontologies are highly interdependent and represent a network-like collection of namespaces, rather than a strongly hierarchical pyramidal structure. The granularity and specificity of the formalized terminology differs strongly among the vocabularies. A basic approach is to create a namespace that can be extended easily. Rarely ontological elements will be deprecated.  
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 
-This figure shows as example a graphical representation of triples from different ontologies concerning 'literature', created with [EasyRDF ](http://www.easyrdf.org/converter) in GraphViz DOT language. Also two external ontologies [CIDOC](http://www.cidoc-crm.org/) and [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/) are mentioned.  
+Figure 1 shows a graphical representation of triples from different ontologies concerning 'literature', created with [EasyRDF ](http://www.easyrdf.org/converter) in GraphViz DOT language. Also two external ontologies [CIDOC](http://www.cidoc-crm.org/) and [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/) are mentioned.  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_literature_basis.svg)
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/geo_reduced.gv)
+Figure 1: Graphic representing classes and properties from different ontologies concerning 'literature'
 
+Figure 2 shows a graphical representation of the classes and properties from the ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).
+
+![figure](https://github.com/nie-ine/Ontologies/blob/master/geo_reduced.svg)
+
+Figure 2: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology

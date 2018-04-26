@@ -12,10 +12,10 @@ Figure 1 shows a graphical representation of triples from different ontologies c
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_literature_basis.svg)
 
-#####		Figure 1: Graphic representing classes and properties from different ontologies concerning 'literature'
+##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'literature'
 
-Figure 2 shows a reduced graphical representation of the classes and properties from the ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).
+Figure 2 shows a reduced graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/geo_reduced.svg)
 
-#####		Figure 2: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
+##### Figure 2: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology

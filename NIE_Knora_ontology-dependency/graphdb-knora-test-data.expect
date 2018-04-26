@@ -23,84 +23,90 @@ expect $prompt
 send "load ../_test_data/all_data/system-data.ttl into http://www.knora.org/data/FFFF/SystemProject .\r"
 expect $prompt
 send "load ../_test_data/ontologies/incunabula-onto.ttl into http://www.knora.org/ontology/incunabula .\r"
-expect $prompt
-send "load ../_test_data/all_data/incunabula-data.ttl into http://www.knora.org/data/incunabula .\r"
+#expect $prompt
+#send "load ../_test_data/all_data/incunabula-data.ttl into http://www.knora.org/data/incunabula .\r"
 expect $prompt
 send "load ../_test_data/ontologies/dokubib-onto.ttl into http://www.knora.org/ontology/00FE/dokubib .\r"
 expect $prompt
 send "load ../_test_data/ontologies/images-onto.ttl into http://www.knora.org/ontology/00FF/images .\r"
-expect $prompt
-send "load ../_test_data/demo_data/images-demo-data.ttl into http://www.knora.org/data/00FF/images .\r"
+#expect $prompt
+#send "load ../_test_data/demo_data/images-demo-data.ttl into http://www.knora.org/data/00FF/images .\r"
 expect $prompt
 send "load ../_test_data/ontologies/anything-onto.ttl into http://www.knora.org/ontology/anything .\r"
 expect $prompt
 send "load ../_test_data/all_data/anything-data.ttl into http://www.knora.org/data/anything .\r"
 expect $prompt
-send "load ../_test_data/ontologies/beol-onto.ttl into http://www.knora.org/ontology/beol .\r"
+send "load ../_test_data/ontologies/something-onto.ttl into http://www.knora.org/ontology/something .\r"
 expect $prompt
-send "load ../_test_data/all_data/beol-data.ttl into http://www.knora.org/data/beol .\r"
+send "load ../_test_data/ontologies/beol-onto.ttl into http://www.knora.org/ontology/0801/beol .\r"
 expect $prompt
 send "load ../_test_data/ontologies/biblio-onto.ttl into http://www.knora.org/ontology/biblio .\r"
-expect $prompt
-send "load ../_test_data/all_data/biblio-data.ttl into http://www.knora.org/data/biblio .\r"
+#expect $prompt
+#send "load ../_test_data/all_data/biblio-data.ttl into http://www.knora.org/data/biblio .\r"
+#expect $prompt
+#send "load ../_test_data/all_data/beol-data.ttl into http://www.knora.org/data/0801/beol .\r"
 expect $prompt
 send "load ../_test_data/ontologies/webern-onto.ttl into http://www.knora.org/ontology/08AE/webern .\r"
 expect $prompt
 send "load ../_test_data/all_data/webern-data.ttl into http://www.knora.org/data/08AE/webern .\r"
 expect $prompt
-send "load ../_test_data/ontologies/event-ontology-knora.ttl into http://www.knora.org/ontology/event .\r"
-expect $prompt
 send "load ../_test_data/ontologies/agent-ontology-knora.ttl into http://www.knora.org/ontology/agent .\r"
-expect $prompt
-send "load ../_test_data/ontologies/information-carrier-ontology-knora.ttl into http://www.knora.org/ontology/information-carrier .\r"
-expect $prompt
-send "load ../_test_data/ontologies/kuno-raeber-ontology-knora.ttl into http://www.knora.org/ontology/kuno-raeber .\r"
-expect $prompt
-send "load ../_test_data/ontologies/image-ontology-knora.ttl into http://www.knora.org/ontology/image .\r"
-expect $prompt
-send "load ../_test_data/ontologies/catholic-organisation-ontology-knora.ttl into http://www.knora.org/ontology/catholic-organisation .\r"
-expect $prompt
-send "load ../_test_data/ontologies/philosophy-ontology-knora.ttl into http://www.knora.org/ontology/philosophy .\r"
-expect $prompt
-send "load ../_test_data/ontologies/physical-resource-ontology-knora.ttl into http://www.knora.org/ontology/physical-resource .\r"
-expect $prompt
-send "load ../_test_data/ontologies/text-ontology-knora.ttl into http://www.knora.org/ontology/text .\r"
-expect $prompt
-send "load ../_test_data/ontologies/concept-ontology-knora.ttl into http://www.knora.org/ontology/concept .\r"
-expect $prompt
-send "load ../_test_data/ontologies/publishing-ontology-knora.ttl into http://www.knora.org/ontology/publishing .\r"
-expect $prompt
-send "load ../_test_data/ontologies/kuno-raeber-gui-ontology-knora.ttl into http://www.knora.org/ontology/kuno-raeber-gui .\r"
-expect $prompt
-send "load ../_test_data/ontologies/scholasticism-ontology-knora.ttl into http://www.knora.org/ontology/scholasticism .\r"
-expect $prompt
-send "load ../_test_data/ontologies/human-ontology-knora.ttl into http://www.knora.org/ontology/human .\r"
-expect $prompt
-send "load ../_test_data/ontologies/drcs-ontology-knora.ttl into http://www.knora.org/ontology/drcs .\r"
-expect $prompt
-send "load ../_test_data/ontologies/philosophies-ontology-knora.ttl into http://www.knora.org/ontology/philosophies .\r"
-expect $prompt
-send "load ../_test_data/ontologies/language-ontology-knora.ttl into http://www.knora.org/ontology/language .\r"
-expect $prompt
-send "load ../_test_data/ontologies/catholic-orders-ontology-knora.ttl into http://www.knora.org/ontology/catholic-orders .\r"
-expect $prompt
-send "load ../_test_data/ontologies/organisation-ontology-knora.ttl into http://www.knora.org/ontology/organisation .\r"
-expect $prompt
-send "load ../_test_data/ontologies/literature-ontology-knora.ttl into http://www.knora.org/ontology/literature .\r"
-expect $prompt
-send "load ../_test_data/ontologies/teaching-ontology-knora.ttl into http://www.knora.org/ontology/teaching .\r"
-expect $prompt
-send "load ../_test_data/ontologies/political-geography-ontology-knora.ttl into http://www.knora.org/ontology/political-geography .\r"
-expect $prompt
-send "load ../_test_data/ontologies/text-editing-ontology-knora.ttl into http://www.knora.org/ontology/text-editing .\r"
 expect $prompt
 send "load ../_test_data/ontologies/atharvaveda-ontology-knora.ttl into http://www.knora.org/ontology/atharvaveda .\r"
 expect $prompt
+send "load ../_test_data/ontologies/catholic-orders-ontology-knora.ttl into http://www.knora.org/ontology/catholic-orders .\r"
+expect $prompt
+send "load ../_test_data/ontologies/catholic-organisation-ontology-knora.ttl into http://www.knora.org/ontology/catholic-organisation .\r"
+expect $prompt
+send "load ../_test_data/ontologies/concept-ontology-knora.ttl into http://www.knora.org/ontology/concept .\r"
+expect $prompt
 send "load ../_test_data/ontologies/device-ontology-knora.ttl into http://www.knora.org/ontology/device .\r"
+expect $prompt
+send "load ../_test_data/ontologies/drcs-ontology-knora.ttl into http://www.knora.org/ontology/drcs .\r"
+expect $prompt
+send "load ../_test_data/ontologies/event-ontology-knora.ttl into http://www.knora.org/ontology/event .\r"
+expect $prompt
+send "load ../_test_data/ontologies/human-geography-ontology-knora.ttl into http://www.knora.org/ontology/human-geography .\r"
+expect $prompt
+send "load ../_test_data/ontologies/human-ontology-knora.ttl into http://www.knora.org/ontology/human .\r"
+expect $prompt
+send "load ../_test_data/ontologies/image-ontology-knora.ttl into http://www.knora.org/ontology/image .\r"
 expect $prompt
 send "load ../_test_data/ontologies/indology-ontology-knora.ttl into http://www.knora.org/ontology/indology .\r"
 expect $prompt
+send "load ../_test_data/ontologies/information-carrier-ontology-knora.ttl into http://www.knora.org/ontology/information-carrier .\r"
+expect $prompt
+send "load ../_test_data/ontologies/kuno-raeber-gui-ontology-knora.ttl into http://www.knora.org/ontology/kuno-raeber-gui .\r"
+expect $prompt
+send "load ../_test_data/ontologies/kuno-raeber-ontology-knora.ttl into http://www.knora.org/ontology/kuno-raeber .\r"
+expect $prompt
+send "load ../_test_data/ontologies/language-ontology-knora.ttl into http://www.knora.org/ontology/language .\r"
+expect $prompt
+send "load ../_test_data/ontologies/literature-ontology-knora.ttl into http://www.knora.org/ontology/literature .\r"
+expect $prompt
+send "load ../_test_data/ontologies/organisation-ontology-knora.ttl into http://www.knora.org/ontology/organisation .\r"
+expect $prompt
+send "load ../_test_data/ontologies/philosophies-ontology-knora.ttl into http://www.knora.org/ontology/philosophies .\r"
+expect $prompt
+send "load ../_test_data/ontologies/philosophy-ontology-knora.ttl into http://www.knora.org/ontology/philosophy .\r"
+expect $prompt
+send "load ../_test_data/ontologies/physical-geography-ontology-knora.ttl into http://www.knora.org/ontology/physical-geography .\r"
+expect $prompt
+send "load ../_test_data/ontologies/physical-resource-ontology-knora.ttl into http://www.knora.org/ontology/physical-resource .\r"
+expect $prompt
+send "load ../_test_data/ontologies/publishing-ontology-knora.ttl into http://www.knora.org/ontology/publishing .\r"
+expect $prompt
+send "load ../_test_data/ontologies/scholasticism-ontology-knora.ttl into http://www.knora.org/ontology/scholasticism .\r"
+expect $prompt
+send "load ../_test_data/ontologies/teaching-ontology-knora.ttl into http://www.knora.org/ontology/teaching .\r"
+expect $prompt
+send "load ../_test_data/ontologies/text-editing-ontology-knora.ttl into http://www.knora.org/ontology/text-editing .\r"
+expect $prompt
+send "load ../_test_data/ontologies/text-ontology-knora.ttl into http://www.knora.org/ontology/text .\r"
+expect $prompt
 send "load ../_test_data/ontologies/text-structure-ontology-knora.ttl into http://www.knora.org/ontology/text-structure .\r"
+expect $prompt
+send "load ../_test_data/ontologies/test-ontology-knora.ttl into http://www.knora.org/ontology/test .\r"
 expect $prompt
 send "close .\r"
 expect $prompt

@@ -112,8 +112,6 @@
 
                                 knora-base:belongsToInstitution <http://rdfh.ch/institutions/dhlab-basel> ;
 
-                                knora-base:projectOntology <http://www.knora.org/ontology/00FF/images> ;
-
                                 knora-base:status "true"^^xsd:boolean ;
 
                                 knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
@@ -241,8 +239,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
                                                                     "Basel"^^xsd:string,
                                                                     "Contectualisation of images"^^xsd:string ;
 
-                                          knora-base:projectOntology <http://www.knora.org/ontology/incunabula> ;
-
                                           knora-base:projectLogo "incunabula_logo.png"^^xsd:string ;
 
                                           knora-base:status "true"^^xsd:boolean ;
@@ -363,7 +359,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "anything"^^xsd:string ;
   knora-base:projectLongname "Anything Project"^^xsd:string ;
   knora-base:projectDescription "Anything Project"^^xsd:string ;
-  knora-base:projectOntology <http://www.knora.org/ontology/anything> ;
   knora-base:status "true"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
@@ -410,7 +405,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortcode "00FE"^^xsd:string ;
   knora-base:projectLongname "Dokubib"^^xsd:string ;
   knora-base:projectDescription "Dokubib"^^xsd:string ;
-  knora-base:projectOntology <http://www.knora.org/ontology/00FE/dokubib> ;
   knora-base:status "false"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
@@ -419,11 +413,11 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 # BEOL                            #
 ###################################
 
-<http://rdfh.ch/projects/yTerZGyxjZVqFMNNKXCDPF> a knora-base:knoraProject ;
+<http://rdfh.ch/projects/0801> a knora-base:knoraProject ;
   knora-base:projectShortname "beol"^^xsd:string ;
+  knora-base:projectShortcode "0801"^^xsd:string ;
   knora-base:projectLongname "Bernoulli-Euler Online"^^xsd:string ;
   knora-base:projectDescription "Bernoulli-Euler Online"^^xsd:string ;
-  knora-base:projectOntology <http://www.knora.org/ontology/beol> ;
   knora-base:status "true"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
@@ -435,7 +429,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:email "t.schweizer@unibas.ch"^^xsd:string ;
   knora-base:preferredLanguage "de"^^xsd:string ;
   knora-base:status "true"^^xsd:boolean ;
-  knora-base:isInProject <http://rdfh.ch/projects/yTerZGyxjZVqFMNNKXCDPF> ;
+  knora-base:isInProject <http://rdfh.ch/projects/0801> ;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean .
 
 <http://rdfh.ch/users/PSGbemdjZi4kQ6GHJVkLGE> a knora-base:User ;
@@ -446,9 +440,9 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:email "beol@example.com"^^xsd:string ;
   knora-base:preferredLanguage "de"^^xsd:string ;
   knora-base:status "true"^^xsd:boolean ;
-  knora-base:isInProject <http://rdfh.ch/projects/yTerZGyxjZVqFMNNKXCDPF> ;
+  knora-base:isInProject <http://rdfh.ch/projects/0801> ;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean ;
-  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/yTerZGyxjZVqFMNNKXCDPF> .
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0801> .
 
 
 ###################################
@@ -459,7 +453,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "biblio"^^xsd:string ;
   knora-base:projectLongname "Bibliography"^^xsd:string ;
   knora-base:projectDescription "Bibliography"^^xsd:string ;
-  knora-base:projectOntology <http://www.knora.org/ontology/biblio> ;
   knora-base:status "true"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
@@ -486,7 +479,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortcode "08AE"^^xsd:string ;
   knora-base:projectLongname "Anton Webern Gesamtausgabe"^^xsd:string ;
   knora-base:projectDescription "Historisch-kritische Edition des Gesamtschaffens von Anton Webern."^^xsd:string ;
-  knora-base:projectOntology <http://www.knora.org/ontology/08AE/webern> ;
   knora-base:status "true"^^xsd:boolean ;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean .
 
@@ -522,9 +514,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/drcs> a knora-base:knoraProject;
 	knora-base:projectShortname "drcs"^^xsd:string;
+    	knora-base:projectShortcode "drcs"^^xsd:string;
 	knora-base:projectLongname "Digital Repertory of Commentaries on Peter Lombard’s Sentences"^^xsd:string;
 	knora-base:projectDescription "Formal description of specific concepts in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/drcs>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/drcs>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -547,8 +540,9 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 <http://rdfh.ch/projects/text> a knora-base:knoraProject;
 	knora-base:projectShortname "text"^^xsd:string;
 	knora-base:projectLongname "An ontology about text"^^xsd:string;
+   	knora-base:projectShortcode "text"^^xsd:string;
 	knora-base:projectDescription "Formal description of text in broadest sense, its general subclasses, related classes, and properties"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/text>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/text>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -570,9 +564,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/human> a knora-base:knoraProject;
 	knora-base:projectShortname "human"^^xsd:string;
+    knora-base:projectShortcode "human"^^xsd:string;
 	knora-base:projectLongname "An ontology about human"^^xsd:string;
 	knora-base:projectDescription "Formal description of a human, general subclasses, related classes and properties"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/human>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/human>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -594,9 +589,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/image> a knora-base:knoraProject;
 	knora-base:projectShortname "image"^^xsd:string;
+    knora-base:projectShortcode "image"^^xsd:string;
 	knora-base:projectLongname "An ontology about image"^^xsd:string;
 	knora-base:projectDescription "Formal description of image as a visual resource in the broadest sense, its general subclasses, related classes, and properties"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/image>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/image>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -618,9 +614,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/concept> a knora-base:knoraProject;
 	knora-base:projectShortname "concept"^^xsd:string;
+    knora-base:projectShortcode "concept"^^xsd:string;
 	knora-base:projectLongname "An ontology about concept"^^xsd:string;
 	knora-base:projectDescription "Formal description of concept, its general subclasses, e.g. information, related classes and properties"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/concept>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/concept>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -642,9 +639,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/publishing> a knora-base:knoraProject;
 	knora-base:projectShortname "Publishing"^^xsd:string;
+    knora-base:projectShortcode "publishing"^^xsd:string;
 	knora-base:projectLongname "An ontology about publishing"^^xsd:string;
 	knora-base:projectDescription "Formal description of Publishing, its general subclasses, related classes and properties"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/publishing>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/publishing>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -666,9 +664,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/scholasticism> a knora-base:knoraProject;
 	knora-base:projectShortname "scholasticism"^^xsd:string;
+    knora-base:projectShortcode "scholasticism"^^xsd:string;
 	knora-base:projectLongname "An ontology about Scholasticism"^^xsd:string;
 	knora-base:projectDescription "Formal description of elements in Scholasticism as the method of critical thought dominating teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/scholasticism>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/scholasticism>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -690,9 +689,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/kuno-raeber> a knora-base:knoraProject;
 	knora-base:projectShortname "kuno-raeber"^^xsd:string;
+    knora-base:projectShortcode "kuno-raeber"^^xsd:string;
 	knora-base:projectLongname "An ontology about the lyric of Kuno Raeber"^^xsd:string;
 	knora-base:projectDescription "Formal description of elements in the historical-critical online publication of the lyric work of the Swiss author Kuno Raeber"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/kuno-raeber>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/kuno-raeber>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -726,9 +726,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/event> a knora-base:knoraProject;
 	knora-base:projectShortname "event"^^xsd:string;
+    knora-base:projectShortcode "event"^^xsd:string;
 	knora-base:projectLongname "An ontology about event"^^xsd:string;
 	knora-base:projectDescription "Formal description of event, general subclasses such as action, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/event>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/event>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -750,9 +751,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/kuno-raeber-gui> a knora-base:knoraProject;
 	knora-base:projectShortname "kuno-raeber-gui"^^xsd:string;
+    knora-base:projectShortcode "kuno-raeber-gui"^^xsd:string;
 	knora-base:projectLongname "An ontology about the kuno raeber gui"^^xsd:string;
 	knora-base:projectDescription "An ontology about the Kuno Raeber site gui."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/kuno-raeber-gui>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/kuno-raeber-gui>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -774,9 +776,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/agent> a knora-base:knoraProject;
 	knora-base:projectShortname "agent"^^xsd:string;
+    knora-base:projectShortcode "agent"^^xsd:string;
 	knora-base:projectLongname "An ontology about agent"^^xsd:string;
 	knora-base:projectDescription "Formal description of an agent, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/agent>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/agent>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -797,7 +800,8 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/information-carrier> a knora-base:knoraProject;
-	knora-base:projectShortname "information carrier"^^xsd:string;
+	knora-base:projectShortname "information-carrier"^^xsd:string;
+    knora-base:projectShortcode "information-carrier"^^xsd:string;
 	knora-base:projectLongname "An ontology about information carrier"^^xsd:string;
 	knora-base:projectDescription "Formal description of information carrier, general subclasses, related classes and properties."^^xsd:string;
 	knora-base:projectOntology <http://www.knora.org/ontology/information-carrier>;
@@ -821,10 +825,11 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/catholic-organisation> a knora-base:knoraProject;
-	knora-base:projectShortname "catholic organisation"^^xsd:string;
+	knora-base:projectShortname "catholic-organisation"^^xsd:string;
+    knora-base:projectShortcode "catholic-organisation"^^xsd:string;
 	knora-base:projectLongname "An ontology about catholic organisation"^^xsd:string;
 	knora-base:projectDescription "Formal description of catholic organisation, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/catholic-organisation>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/catholic-organisation>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -846,9 +851,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/philosophy> a knora-base:knoraProject;
 	knora-base:projectShortname "philosophy"^^xsd:string;
+    knora-base:projectShortcode "philosophy"^^xsd:string;
 	knora-base:projectLongname "An ontology about philosophy"^^xsd:string;
 	knora-base:projectDescription "Formal description of philosophy, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/philosophy>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/philosophy>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -870,9 +876,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/language> a knora-base:knoraProject;
 	knora-base:projectShortname "language"^^xsd:string;
+    knora-base:projectShortcode "language"^^xsd:string;
 	knora-base:projectLongname "An ontology about language"^^xsd:string;
 	knora-base:projectDescription "Formal description of language, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/language>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/language>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -894,9 +901,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/philosophies> a knora-base:knoraProject;
 	knora-base:projectShortname "philosophies"^^xsd:string;
+    knora-base:projectShortcode "philosophies"^^xsd:string;
 	knora-base:projectLongname "An ontology about philosophies"^^xsd:string;
 	knora-base:projectDescription "Formal description of philosophies, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/philosophies>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/philosophies>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -917,10 +925,11 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/physical-resource> a knora-base:knoraProject;
-	knora-base:projectShortname "physical resource"^^xsd:string;
+	knora-base:projectShortname "physical-resource"^^xsd:string;
+    knora-base:projectShortcode "physical-resource"^^xsd:string;
 	knora-base:projectLongname "An ontology about physical resource"^^xsd:string;
 	knora-base:projectDescription "Formal description of physical resource, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/physical-resource>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/physical-resource>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -941,10 +950,11 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/catholic-orders> a knora-base:knoraProject;
-	knora-base:projectShortname "catholic orders"^^xsd:string;
+	knora-base:projectShortname "catholic-orders"^^xsd:string;
+    knora-base:projectShortcode "catholic-orders"^^xsd:string;
 	knora-base:projectLongname "An ontology about catholic orders"^^xsd:string;
 	knora-base:projectDescription "Formal description of catholic orders, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/catholic-orders>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/catholic-orders>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -966,9 +976,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/literature> a knora-base:knoraProject;
 	knora-base:projectShortname "literature"^^xsd:string;
+    knora-base:projectShortcode "literature"^^xsd:string;
 	knora-base:projectLongname "An ontology about literature"^^xsd:string;
 	knora-base:projectDescription "Formal description of literature, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/literature>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/literature>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -990,9 +1001,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/organisation> a knora-base:knoraProject;
 	knora-base:projectShortname "organisation"^^xsd:string;
+    knora-base:projectShortcode "organisation"^^xsd:string;
 	knora-base:projectLongname "An ontology about organisation"^^xsd:string;
 	knora-base:projectDescription "Formal description of organisation involving humans, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/organisation>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/organisation>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1014,9 +1026,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/teaching> a knora-base:knoraProject;
 	knora-base:projectShortname "teaching"^^xsd:string;
+    knora-base:projectShortcode "teaching"^^xsd:string;
 	knora-base:projectLongname "An ontology about teaching"^^xsd:string;
 	knora-base:projectDescription "Formal description of teaching, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/teaching>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/teaching>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1038,9 +1051,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/atharvaveda> a knora-base:knoraProject;
 	knora-base:projectShortname "Atharvaveda"^^xsd:string;
+    knora-base:projectShortcode "atharvaveda"^^xsd:string;
 	knora-base:projectLongname "An ontology about Atharvaveda"^^xsd:string;
 	knora-base:projectDescription "Formal description of Atharvaveda, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/atharvaveda>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/atharvaveda>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1057,14 +1071,15 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/atharvaveda>.
 
 #
-# Political Geography
+# Physical Geography
 #
 
-<http://rdfh.ch/projects/political-geography> a knora-base:knoraProject;
-	knora-base:projectShortname "political geography"^^xsd:string;
-	knora-base:projectLongname "An ontology about political geography"^^xsd:string;
-	knora-base:projectDescription "Formal description of political geography, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/political-geography>;
+<http://rdfh.ch/projects/physical-geography> a knora-base:knoraProject;
+	knora-base:projectShortname "physical geography"^^xsd:string;
+    knora-base:projectShortcode "physical-geography"^^xsd:string;
+	knora-base:projectLongname "An ontology about physical geography"^^xsd:string;
+	knora-base:projectDescription "Formal description of physical geography, general subclasses, related classes and properties."^^xsd:string;
+	#knora-base:projectOntology <http://www.knora.org/ontology/physical-geography>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1076,9 +1091,34 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
 	knora-base:preferredLanguage "de"^^xsd:string;
 	knora-base:status "true"^^xsd:boolean;
-	knora-base:isInProject <http://rdfh.ch/projects/political-geography>;
+	knora-base:isInProject <http://rdfh.ch/projects/physical-geography>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
-	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/political-geography>.
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/physical-geography>.
+
+#
+# Human Geography
+#
+
+<http://rdfh.ch/projects/human-geography> a knora-base:knoraProject;
+	knora-base:projectShortname "human geography"^^xsd:string;
+    knora-base:projectShortcode "human-geography"^^xsd:string;
+	knora-base:projectLongname "An ontology about human geography"^^xsd:string;
+	knora-base:projectDescription "Formal description of human geography, general subclasses, related classes and properties."^^xsd:string;
+	#knora-base:projectOntology <http://www.knora.org/ontology/human-geography>;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://rdfh.ch/projects/human-geography>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/human-geography>.
 
 #
 # Device
@@ -1086,9 +1126,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/device> a knora-base:knoraProject;
 	knora-base:projectShortname "Device"^^xsd:string;
+    knora-base:projectShortcode "device"^^xsd:string;
 	knora-base:projectLongname "An ontology about device"^^xsd:string;
 	knora-base:projectDescription "Formal description of device, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/device>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/device>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1110,9 +1151,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/text-editing> a knora-base:knoraProject;
 	knora-base:projectShortname "Text Editing"^^xsd:string;
+    knora-base:projectShortcode "text-editing"^^xsd:string;
 	knora-base:projectLongname "An ontology about text editing"^^xsd:string;
 	knora-base:projectDescription "Formal description of text editing, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/text-editing>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/text-editing>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1134,9 +1176,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/indology> a knora-base:knoraProject;
 	knora-base:projectShortname "Indology"^^xsd:string;
+    knora-base:projectShortcode "indology"^^xsd:string;
 	knora-base:projectLongname "An ontology about Indology"^^xsd:string;
 	knora-base:projectDescription "Formal description of Indology, general subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/indology>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/indology>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1158,9 +1201,10 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/text-structure> a knora-base:knoraProject;
 	knora-base:projectShortname "Text Structure"^^xsd:string;
+    knora-base:projectShortcode "text-structure"^^xsd:string;
 	knora-base:projectLongname "An ontology about text structure"^^xsd:string;
 	knora-base:projectDescription "Formal description of text structure, subclasses, related classes and properties."^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/text-structure>;
+	#knora-base:projectOntology <http://www.knora.org/ontology/text-structure>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1175,3 +1219,28 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProject <http://rdfh.ch/projects/text-structure>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/text-structure>.
+
+#
+# Test
+#
+
+<http://rdfh.ch/projects/test> a knora-base:knoraProject;
+	knora-base:projectShortname "Test"^^xsd:string;
+    knora-base:projectShortcode "test"^^xsd:string;
+	knora-base:projectLongname "An ontology about test"^^xsd:string;
+	knora-base:projectDescription "...."^^xsd:string;
+	#knora-base:projectOntology <http://www.knora.org/ontology/text-structure>;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://rdfh.ch/projects/test>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/test>.

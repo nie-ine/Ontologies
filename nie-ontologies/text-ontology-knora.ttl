@@ -17,6 +17,8 @@
 @prefix litera: <http://www.knora.org/ontology/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+@base <http://www.knora.org/ontology/text>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 
 <http://www.knora.org/ontology/text>
@@ -24,10 +26,11 @@
 	dct:title "An ontology about text"@en;
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
 	skos:note """Text editing is described in a seperate ontology"""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Basel University, Switzerland"@en;
 #	skos:note """Representation of an otherwise literal data element as object ('objectivation') enabling relating it to metadata"""@en.
+	knora-base:attachedToProject <http://rdfh.ch/projects/text>.
 
 #
 # CLASSES
@@ -55,7 +58,23 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasWord; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasWordValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSentence; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSentenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasParagraph; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasParagraphValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasChapter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasChapterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasLine; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasLineValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -122,17 +141,17 @@ text:HandwrittenText
 	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de;
 	rdfs:comment """Text written by hand."""@en;
 	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:TypewrittenText
 	a owl:Class;
 	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de;
 	rdfs:comment """Text written with a typewriter."""@en;
 	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
+		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
+#		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
 
 # text:Print: printed text abstracted from its carrier
 
@@ -140,11 +159,10 @@ text:Marginalia
 	a owl:Class;
 	rdfs:label "marginalia"@en, "Marginalien"@de;
 	rdfs:comment """Notes written in the margin of a text."""@en;
-	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure]
+	rdfs:subClassOf text:WrittenText. #, [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure]
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
-		.
+#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:DiaryEntry
 	a owl:Class;
@@ -160,11 +178,11 @@ text:LetterExpression
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:LetterStructure], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:LetterStructure], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Commentary
 	a owl:Class;
@@ -198,7 +216,7 @@ text:Development
 #*text:Witness
 #	a owl:Class;
 #	rdfs:label "witness"@en, "Textzeuge"@de;
-#	rdfs:comment """Copy of an original text."""@en; #* enabling its reconstruction
+#	rdfs:comment """Copy of an original text ."""@en; #* note: enabling its reconstruction, -> looking for features of originality
 #	rdfs:subClassOf text:Transcription.
 
 #
@@ -209,6 +227,8 @@ text:hasText
 	a owl:ObjectProperty;
 	rdfs:label "has text"@en, "hat Text"@de;
 	rdfs:comment """Relating a resource to a text (as object) as a writable coherent set of signs representing semantics in a language."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -218,8 +238,6 @@ text:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a resource to a name (as object) as a textual identifier of the resource."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText; # rdfs:label, foaf:name
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -255,7 +273,7 @@ text:hasIdentifier # unique in context
 text:hasTitle
 	a owl:ObjectProperty;
 	rdfs:label "has title"@en, "hat Titel"@de;
-	rdfs:comment """Relating a resource to a title (as object) as a textual identifier of the resource."""@en;
+	rdfs:comment """Relating a resource to a title as a textual identifier (as object) of the resource."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -339,7 +357,7 @@ text:hasAuthor #*
 	rdfs:comment """Relating a text to a person who authored it."""@en; # OR an Organisation that authored it -> foaf:Agent
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -364,7 +382,7 @@ text:hasRevisor
 	rdfs:label "has revisor"@en, "hat Revisor"@de;
 	rdfs:comment """Relating a text to a person who revised it."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Revisor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Revisor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -382,7 +400,7 @@ text:hasGlossator
 	rdfs:label "has glossator"@en, "hat Glossator"@de;
 	rdfs:comment """Relating a text to a person who glossed it."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -400,7 +418,7 @@ text:hasAbbreviator
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
 	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -418,7 +436,7 @@ text:hasCopyist
 	rdfs:label "has copyist"@en, "hat Kopist"@de;
 	rdfs:comment """Relating a text to a person who copied it by handwriting."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Copyist]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Copyist]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.

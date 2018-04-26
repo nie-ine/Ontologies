@@ -11,6 +11,8 @@
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+@base <http://www.knora.org/ontology/event>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 
 <http://www.knora.org/ontology/event>
@@ -18,8 +20,10 @@
 	dct:title "An ontology about event"@en;
 	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;
 	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change and/or act, in a certain way."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/event>.
 
 #
 # CLASSES
@@ -51,8 +55,8 @@ event:Input
 	rdfs:label "input"@en, "Input"@de;
 	rdfs:comment """Precondition to a change in a process."""@en;
 	rdfs:subClassOf knora-base:Resource, [
-		a owl:Restriction; owl:onProperty event:event:isInputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty event:event:isInputOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty event:isInputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty event:isInputOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 event:Output
 	a owl:Class;

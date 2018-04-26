@@ -17,16 +17,20 @@
 @prefix litera: <http://www.knora.org/ontology/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+@base <http://www.knora.org/ontology/text-editing>.
 @prefix textedit: <http://www.knora.org/ontology/text-editing#>.
 
 <http://www.knora.org/ontology/text-editing>
 	a owl:Ontology;
 	dct:title "An ontology about text editing"@en;
 	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
-	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>.
+#	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/text-editing>.
 
 textedit:Derivative
 	a owl:Class;
@@ -75,7 +79,7 @@ textedit:CriticalEdition
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en; #*
 	rdfs:subClassOf textedit:Edition, [ #* + argumentation and discussing other edition
-		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:someValuesFrom textedit:CriticalApparatus], [
+#		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:someValuesFrom textedit:CriticalApparatus], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatusValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
@@ -92,7 +96,7 @@ textedit:CriticalApparatus
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -113,7 +117,8 @@ textedit:ApparatusFontium
 textedit:Reading #* bound to certain period?
 	a owl:Class;
 	rdfs:label "reading"@en, "Textinterpretation"@de, "lezione"@it, "lectio"@la; #*
-	rdfs:comment """Reading of the text in one given witness."""@en. #* text? # spezifische Interpretation eines Textes
+	rdfs:comment """Reading of the text in one given witness."""@en; #* text? # spezifische Interpretation eines Textes
+	rdfs:subClassOf text:Expression. #*
 
 textedit:Lemma #* structure, but specific for editing?
 	a owl:Class;
@@ -164,7 +169,7 @@ textedit:hasEditor
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
 	rdfs:domain textedit:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -182,7 +187,7 @@ textedit:hasRedactor
 	rdfs:label "has redactor"@en, "hat Redaktor"@de;
 	rdfs:comment """Relating a text to a person who redacted it."""@en;
 	rdfs:domain text:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.

@@ -9,17 +9,22 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
+@prefix text: <http://www.knora.org/ontology/text#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+
+@base <http://www.knora.org/ontology/concept>.
 @prefix concept: <http://www.knora.org/ontology/concept#>.
 
 <http://www.knora.org/ontology/concept>
 	a owl:Ontology;
 	dct:title "An ontology about concept"@en;
 	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/concept>.
 
 #
 # CLASSES
@@ -30,6 +35,24 @@ concept:Concept
 	rdfs:label "concept"@en, "Konzept"@de;
 	rdfs:comment """Abstract idea created by a person, as product of mental activity."""@en;
 	rdfs:subClassOf human:Creation, frbroo:F6_Concept. # rdfs:subClassOf cidoc:E28_Conceptual_Object
+
+concept:Fiction
+	a owl:Class;
+	rdfs:label "fiction"@en, "Fiktion"@de;
+	rdfs:comment """Concept derived from imagination."""@en;
+	rdfs:subClassOf concept:Concept.
+
+concept:Nonfiction
+	a owl:Class;
+	rdfs:label "nonfiction"@en, "sachliche Expression"@de;
+	rdfs:comment """Concept based on fact."""@en;
+	rdfs:subClassOf concept:Concept.
+
+concept:Commonplace # related: truism, cliché
+	a owl:Class;
+	rdfs:label "commonplace"@en, "Gemeinplatz"@de, "lieu commun"@fr;
+	rdfs:comment """Concept generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
+	rdfs:subClassOf concept:Concept.
 
 concept:SymbolicConcept
 	a owl:Class;
@@ -55,8 +78,9 @@ concept:ThoughtBody #* related to belief system related to school of thought rel
 concept:Work
 	a owl:Class;
 	rdfs:label "work"@en, "Werk"@de;
-	rdfs:comment """Intellectual product as concept."""@en; #* 
+	rdfs:comment """Intellectual product as concept."""@en; #*
 	rdfs:subClassOf concept:PropositionalConcept, frbroo:F1_Work, [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isExpressedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isExpressedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -73,7 +97,17 @@ concept:Information
 	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object. #, [
 #		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# DHL's Knora does not permit to instantiate knora-base:Value, only its subclasses; information can have any value type (and more); content does not only refers to a file.
+concept:Set
+	a owl:Class;
+	rdfs:label "set"@en, "Sammlung"@de;
+	rdfs:comment """Set of expressions."""@en;
+	rdfs:subClassOf concept:Information.
+
+concept:Cycle
+	a owl:Class;
+	rdfs:label "cycle"@en, "Zyklus"@de;
+	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
+	rdfs:subClassOf concept:Set.
 
 concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
 	a owl:Class;
@@ -98,8 +132,12 @@ concept:Expression
 	rdfs:label "expression"@en, "Expression"@de;
 	rdfs:comment """Identifiable immaterial realisation of an individual work, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf concept:Information, frbroo:F22_Self-Contained_Expression, [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:hasContentSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:hasContentSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -108,6 +146,7 @@ concept:Expression
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasLastPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasLastPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -118,41 +157,19 @@ concept:Expression
 		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:isPublishedOnline; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:isPublishedOnlineValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty publish:hasMonoAuthorPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty publish:hasMonoAuthorPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# publish:hasMonoAuthorPublication
 
 # to do: concept:PolyAuthorExpression
 
-concept:Set
-	a owl:Class;
-	rdfs:label "set"@en, "Sammlung"@de;
-	rdfs:comment """Set of expressions."""@en;
-	rdfs:subClassOf concept:Information.
-
-concept:Cycle
-	a owl:Class;
-	rdfs:label "cycle"@en, "Zyklus"@de;
-	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
-	rdfs:subClassOf concept:Set.
-
-concept:Fiction
-	a owl:Class;
-	rdfs:label "fiction"@en, "Fiktion"@de;
-	rdfs:comment """Concept derived from imagination."""@en;
-	rdfs:subClassOf concept:Concept.
-
-concept:Nonfiction
-	a owl:Class;
-	rdfs:label "nonfiction"@en, "sachliche Expression"@de;
-	rdfs:comment """Concept based on fact."""@en;
-	rdfs:subClassOf concept:Concept.
-
 # public - private
 
-# concept:Religion rdfs:subClassOf
+# concept:Religion
 
 #
 # PROPERTIES
@@ -246,7 +263,7 @@ concept:hasDedicatedTo
 concept:hasDedicatedToValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of cycle - statement"@en, "ist Teil eines Zyklus - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and another person whereto the former has dedicated something."""@en;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and another person to whom the former has dedicated something."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.

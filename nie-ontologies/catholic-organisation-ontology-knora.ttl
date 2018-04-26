@@ -7,38 +7,48 @@
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix org: <http://www.knora.org/ontology/organisation#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+
+@base <http://www.knora.org/ontology/catholic-organisation>.
 @prefix cathorg: <http://www.knora.org/ontology/catholic-organisation#>.
 
 <http://www.knora.org/ontology/catholic-organisation>
 	a owl:Ontology;
 	dct:title "An ontology about catholic organisation"@en;
 	dct:description """Formal description of catholic organisation, general subclasses, related classes, properties, and instances."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en.
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/catholic-organisation>.
 
 #
 # CLASSES
 #
 
-#* Is the catholic community as a whole an organisation?
-
 cathorg:Organisation
 	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "catholic organisation"@en;
-	rdfs:comment """Organisation following a catholic belief."""@en;
+	rdfs:comment """Organisation representing a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousOrganisation.
+
+cathorg:Person
+	a owl:Class;
+	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr; # "persona"@it;
+	rdfs:comment """Person having a catholic belief."""@en;
+	rdfs:subClassOf org:ReligiousPerson, [
+		a owl:Restriction; owl:onProperty cathorg:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty cathorg:isMemberOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 cathorg:Order #* ? all Roman Catholic Church
 	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
 	rdfs:comment """Catholic organisation whose member is male and celibatarian, founded by... ."""@en; #*
 	rdfs:subClassOf cathorg:Organisation.
 
 cathorg:SecularClergy
 	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "secular clergy"@en;
 	rdfs:comment """Catholic organisation whose member does not belong to a catholic order."""@en;
 	rdfs:subClassOf cathorg:Organisation.
@@ -46,3 +56,21 @@ cathorg:SecularClergy
 #
 # PROPERTIES
 #
+
+cathorg:isMemberOf
+	a owl:ObjectProperty;
+	rdfs:label "is member of catholic organisation"@en, "ist Mitglied einer katholischen Organisation"@de;
+	rdfs:comment """Relating a person to a catholic organisation the person is a member of."""@en;
+	rdfs:domain cathorg:Person;
+	rdfs:range cathorg:Organisation;
+	rdfs:subPropertyOf org:isMemberOfReligiousOrganisation;
+	knora-base:subjectClassConstraint cathorg:Person;
+	knora-base:objectClassConstraint cathorg:Organisation.
+
+cathorg:isMemberOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is member of catholic order - statement"@en, "ist Mitglied einem katholischen Orden - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a catholic order the person is a member of."""@en;
+	rdfs:subPropertyOf org:isMemberOfReligiousOrganisationValue;
+	knora-base:subjectClassConstraint cathorg:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.

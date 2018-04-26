@@ -14,14 +14,18 @@
 @prefix device: <http://www.knora.org/ontology/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+@base <http://www.knora.org/ontology/information-carrier>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 
 <http://www.knora.org/ontology/information-carrier>
 	a owl:Ontology;
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/information-carrier>.
 
 #
 # CLASSES
@@ -171,7 +175,7 @@ infocar:Typewriter
 infocar:Manuscript
 	a owl:Class;
 	rdfs:label "manuscript"@en, "Manuskript"@de;
-	rdfs:comment """Carrier of a handwritten text expression."""@en;
+	rdfs:comment """Carrier with a handwritten text."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:NoteCarrier
@@ -189,14 +193,16 @@ infocar:Notebook
 infocar:Typescript
 	a owl:Class;
 	rdfs:label "typescript"@en, "Typoskript"@de;
-	rdfs:comment """Carrier of a typewritten text expression."""@en;
+	rdfs:comment """Carrier with a typewritten text."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Transcription # homonym: from dif. manifestation. - eg. spoken - to written
+infocar:Transcription
 	a owl:Class;
 	rdfs:label "transcription"@en, "Abschrift"@de;
 	rdfs:comment """Carrier with a text copied by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
 	rdfs:subClassOf human:Copy, infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+ # homonym: transcription: conversion from different manifestation, eg. from spoken or recorded sound to written
 
 infocar:ManuelTranscription
 	a owl:Class;
@@ -213,7 +219,7 @@ infocar:Diary
 infocar:Letter
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
-	rdfs:comment """Written text on a leaf intended to be sent from (a) person(s) or (an) Organisation(s) to another one, e.g. through a postal system."""@en;
+	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organisation(s) to another one, e.g. through a postal system."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
 		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -529,7 +535,7 @@ infocar:hasSender
 	rdfs:label "has sender"@en, "hat Absender"@de;
 	rdfs:comment """Relating something to a person who sent it."""@en; #* or an Organisation -> foaf:Agent
 	rdfs:domain knora-base:Resource; #*
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Sender]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Sender]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint knora-base:Resource; #*
 	knora-base:objectClassConstraint human:Person.
@@ -547,7 +553,7 @@ infocar:hasReceiver
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
 	rdfs:comment """Relating something to a person who received it."""@en; #* or an Organisation -> foaf:Agent
 	rdfs:domain knora-base:Resource; #*
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Receiver]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Receiver]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint knora-base:Resource; #*
 	knora-base:objectClassConstraint human:Person.

@@ -390,7 +390,7 @@ infocar:pageHasNumber
 	rdfs:comment """Relating a page to the number (as object) it has."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Page;
-	knora-base:objectClassConstraint knora-base:TextValue;  #* -> int
+	knora-base:objectClassConstraint knora-base:IntValue;  #* -> int
 	salsah-gui:guiElement salsah-gui:Richtext.
 
 infocar:isLeafOf

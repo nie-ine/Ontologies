@@ -95,10 +95,11 @@ textedit:CriticalApparatus
 	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en; #* more than note
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+		.
 
 # apparatus has format:
 # eg.
@@ -349,20 +350,20 @@ textedit:hasApparatusValue
 	knora-base:subjectClassConstraint textedit:CriticalApparatus;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-textedit:isApparatusOf
-	a owl:ObjectProperty;
-	rdfs:label "is apparatus of"@en, "ist Apparat von"@de;
-	rdfs:comment """Relating a critical apparatus to its critical edition."""@en;
-	rdfs:domain textedit:CriticalApparatus;
-	rdfs:range textedit:CriticalEdition;
-	rdfs:subPropertyOf concept:isPartOf; #* possibly text:isNoteOf
-	knora-base:subjectClassConstraint textedit:CriticalApparatus;
-	knora-base:objectClassConstraint textedit:CriticalEdition.
+#textedit:isApparatusOf
+#	a owl:ObjectProperty;
+#	rdfs:label "is apparatus of"@en, "ist Apparat von"@de;
+#	rdfs:comment """Relating a critical apparatus to its critical edition."""@en;
+#	rdfs:domain textedit:CriticalApparatus;
+#	rdfs:range textedit:CriticalEdition;
+#	rdfs:subPropertyOf concept:isPartOf; #* possibly text:isNoteOf
+#	knora-base:subjectClassConstraint textedit:CriticalApparatus;
+#	knora-base:objectClassConstraint textedit:CriticalEdition.
 
-textedit:isApparatusOfValue
-	a owl:ObjectProperty;
-	rdfs:label "is apparatus of - statement"@en, "ist Apparat von - Festlegung"@de;
-	rdfs:comment """Relating a critical apparatus to a reification statement of the relation between the apparatus and its critical edition."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue; #* possibly text:isNoteOfValue
-	knora-base:subjectClassConstraint textedit:CriticalApparatus;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+#textedit:isApparatusOfValue
+#	a owl:ObjectProperty;
+#	rdfs:label "is apparatus of - statement"@en, "ist Apparat von - Festlegung"@de;
+#	rdfs:comment """Relating a critical apparatus to a reification statement of the relation between the apparatus and its critical edition."""@en;
+#	rdfs:subPropertyOf concept:isPartOfValue; #* possibly text:isNoteOfValue
+#	knora-base:subjectClassConstraint textedit:CriticalApparatus;
+#	knora-base:objectClassConstraint knora-base:LinkValue.

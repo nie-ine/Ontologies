@@ -97,7 +97,7 @@ schola:CommentaryMethod #* stage?, RP
 schola:Lectura
 	a owl:Class;
 	rdfs:label "lectura"@la;
-	rdfs:comment """Scholastic commentary on a text as presented by its author in an actual lecture."""@en;
+	rdfs:comment """Scholastic commentary on a text as presented by its author in a lecture."""@en;
 	rdfs:subClassOf schola:CommentaryMethod.
 
 schola:LecturaRevisa #* = Ordinatio ?, RP
@@ -124,49 +124,49 @@ schola:Ordinatio
 	rdfs:comment """Scholastic commentary on a text as composed for publication."""@en;
 	rdfs:subClassOf schola:CommentaryMethod.
 
-schola:CommentaryForm #* more general InformationForm ?
+schola:CommentaryForm
 	a owl:Class;
 	rdfs:label "scholastic commentary form"@en, "scholastische Kommentarform"@de;
 	rdfs:comment """Form to represent a scholastic commentary."""@en;
 	rdfs:subClassOf concept:Information.
 
-schola:CommentaryGlosses
+schola:CommentaryGlosses # note structure
 	a owl:Class;
 	rdfs:label "glosses"@en, "Glossen"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of added texts or glosses."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryLiteralExposition
+schola:CommentaryLiteralExposition # ?
 	a owl:Class;
 	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of a literal exposition."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryQuestions
+schola:CommentaryQuestions # speech act
 	a owl:Class;
 	rdfs:label "questions"@en, "Fragen"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of questions."""@en;	# not linked to content ?
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryAbbreviation
+schola:CommentaryAbbreviation # edition
 	a owl:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of a shortened version."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryParaphrase
+schola:CommentaryParaphrase # edition
 	a owl:Class;
 	rdfs:label "paraphrase"@en, "Paraphrase"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of a restatement of a text to clarify meaning."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryTable
+schola:CommentaryTable # structure
 	a owl:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
 	rdfs:comment """Scholastic commentary on a text in the form of condensed information in a table."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
-schola:CommentaryVerse
+schola:CommentaryVerse # structure
 	a owl:Class;
 	rdfs:label "metric"@en, "Versform"@de; #*
 	rdfs:comment """Scholastic commentary on a text in the form of condensing information in verse form."""@en;
@@ -255,3 +255,5 @@ schola:hasCommentaryFormValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+# schola:commentaryHasTable etc.

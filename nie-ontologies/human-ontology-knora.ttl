@@ -42,9 +42,7 @@ human:Human
 	unicore:rank unicore:Subspecies;
 	rdfs:subClassOf human:Agent, unitax:9606, [ # rdfs:subClassOf species Homo sapiens
 		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # -> maxCardinality 1
-		a owl:Restriction; owl:onProperty human:hasBiologicalSexValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty human:hasBiologicalSexValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Person
 	a owl:Class;
@@ -88,9 +86,9 @@ human:PersonLike
 
 human:Agent
 	a owl:Class;
-	rdfs:label "agent"@en, "Agent"@de;
-	rdfs:comment """Agent concerning a human."""@en, """Agent eines Menschen betreffend"""@de; #*
-	skos:note """Can be an individual or group"""@en;
+	rdfs:label "human agent"@en, "menschliche Agent"@de;
+	rdfs:comment """Agent concerning one or more persons, """@en, """Agent eines oder mehrerer Personen betreffend"""@de; #*
+	skos:note """Can be a person or group"""@en;
 	rdfs:subClassOf agent:Agent, [ #* cidoc
 		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -342,7 +340,7 @@ human:actsIn
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
 	rdfs:label "acts in"@en, "agiert in"@de;
-	rdfs:comment """Relating a human agent to an action the agent acts in. The agent can also be a group, e.g. an organisation"""@en;
+	rdfs:comment """Relating an agent to an action it acts in. The agent can also be a group, e.g. an organisation"""@en;
 	rdfs:domain human:Agent;
 	rdfs:range human:Action;
 	rdfs:subPropertyOf agent:actsIn;

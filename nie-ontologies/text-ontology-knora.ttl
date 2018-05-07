@@ -30,6 +30,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 #	skos:note """Representation of an otherwise literal data element as object ('objectivation') enabling relating it to metadata"""@en.
+
 	knora-base:attachedToProject <http://rdfh.ch/projects/text>.
 
 #
@@ -154,15 +155,6 @@ text:TypewrittenText
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
 
 # text:Print: printed text abstracted from its carrier
-
-text:Marginalia
-	a owl:Class;
-	rdfs:label "marginalia"@en, "Marginalien"@de;
-	rdfs:comment """Notes written in the margin of a text."""@en;
-	rdfs:subClassOf text:WrittenText. #, [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure]
-#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:DiaryEntry
 	a owl:Class;
@@ -354,7 +346,7 @@ text:hasVersionIndicator
 text:hasAuthor #*
 	a owl:ObjectProperty;
 	rdfs:label "has author"@en, "hat Autor"@de;
-	rdfs:comment """Relating a text to a person who authored it."""@en; # OR an Organisation that authored it -> foaf:Agent
+	rdfs:comment """Relating a text to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];

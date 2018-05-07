@@ -106,18 +106,18 @@ org:Museum # humans + equipment: computers + meters + moist regulators etc.
 org:actsIn
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
-	rdfs:label "organisation acts in"@en, "agiert in"@de;
-	rdfs:comment """Relating a person organisation to an action it is acting in."""@en;
+	rdfs:label "organisation acts in"@en, "Organisation agiert in"@de;
+	rdfs:comment """Relating an organisation of persons to an action it is acting in."""@en;
 	rdfs:domain org:Organisation;
-	rdfs:range event:Action;
+	rdfs:range human:Action;
 	rdfs:subPropertyOf human:actsIn;
 	knora-base:subjectClassConstraint org:Organisation;
-	knora-base:objectClassConstraint event:Action.
+	knora-base:objectClassConstraint human:Action.
 
 org:actsInValue
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
-	rdfs:label "acts in - statement"@en, "agiert in - Festlegung"@de;
+	rdfs:label "organisation acts in - statement"@en, "Organisation agiert in - Festlegung"@de;
 	rdfs:comment """Relating person organisation to a reification statement of the relation between the organisation and an action it is acting in."""@en;
 	rdfs:subPropertyOf human:actsInValue;
 	knora-base:subjectClassConstraint org:Organisation;
@@ -162,6 +162,8 @@ org:isMemberOfValue
 	rdfs:subPropertyOf human:isMemberOfValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+# org:organisationIsMemberOf
 
 org:isMemberOfReligiousOrganisation
 	a owl:ObjectProperty;

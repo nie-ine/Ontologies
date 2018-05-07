@@ -130,7 +130,7 @@ concept:ThoughtMethod #* part/SC of philosophy ?
 concept:Expression
 	a owl:Class;
 	rdfs:label "expression"@en, "Expression"@de;
-	rdfs:comment """Identifiable immaterial realisation of an individual work, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
+	rdfs:comment """Identifiable immaterial symbolic realisation of an individual work, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf concept:Information, frbroo:F22_Self-Contained_Expression, [
 		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -176,9 +176,11 @@ concept:Expression
 #
 
 concept:isPartOf
-	a owl:ObjectProperty;
+	a owl:ObjectProperty; #, owl:TransitiveProperty;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a symbolic concept to another one it is part of."@en;
+	rdfs:domain concept:SymbolicConcept;
+	rdfs:range concept:SymbolicConcept;
 	rdfs:subPropertyOf cidoc:P106i_forms_part_of, knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:SymbolicConcept;
 	knora-base:objectClassConstraint concept:SymbolicConcept.
@@ -195,6 +197,8 @@ concept:isExpressedIn
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
 	rdfs:comment "Relating a work to an expression thereof."@en;
+	rdfs:domain concept:Work;
+	rdfs:range concept:Expression;
 	rdfs:subPropertyOf frbroo:R9_is_realised_in, knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:Work;
 	knora-base:objectClassConstraint concept:Expression.
@@ -222,6 +226,8 @@ concept:hasContentSubject
 	a owl:ObjectProperty;
 	rdfs:label "has content subject"@en, "hat inhaltliches Thema"@de;
 	rdfs:comment """Relating an expression to a content subject thereof."""@en;
+	rdfs:domain concept:Expression;
+	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:Expression;
 	knora-base:objectClassConstraint knora-base:Resource.
@@ -238,6 +244,8 @@ concept:isPartOfCycle
 	a owl:ObjectProperty;
 	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
 	rdfs:comment """Relating an expression to a cycle it is part of."""@en;
+	rdfs:domain concept:Expression;
+	rdfs:range concept:Cycle;
 	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint concept:Expression;
 	knora-base:objectClassConstraint concept:Cycle.
@@ -250,10 +258,10 @@ concept:isPartOfCycleValue
 	knora-base:subjectClassConstraint concept:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-concept:hasDedicatedTo
+concept:hasDedicatedTo #*
 	a owl:ObjectProperty;
 	rdfs:label "has dedicated to"@en, "hat gewidmet"@de;
-	rdfs:comment """Relating a person to another person whereto the former has dedicated something."""@en;
+	rdfs:comment """Relating a person to another person to whom the former has dedicated something."""@en;
 	rdfs:domain human:Person;
 	rdfs:range human:Person;
 	rdfs:subPropertyOf knora-base:hasLinkTo;

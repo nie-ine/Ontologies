@@ -34,7 +34,7 @@
 <!-- Rhttp://iflastandards.info/ns/fr/frbr/frbroo/F6_Concept -->
 <g id="node3" class="node"><title>Rhttp://iflastandards.info/ns/fr/frbr/frbroo/F6_Concept</title>
 <g id="a_node3"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#frbroo:F6_Concept" xlink:title="frbroo:F6_Concept">
-<ellipse fill="none" stroke="blue" cx="455.893" cy="-18" rx="120.479" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="455.893" cy="-18" rx="120.479" ry="18"/>
 <text text-anchor="middle" x="455.893" y="-14.3" font-family="Times,serif" font-size="14.00">frbroo:F6_Concept</text>
 </a>
 </g>
@@ -62,7 +62,7 @@
 <!-- Rhttp://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object -->
 <g id="node5" class="node"><title>Rhttp://www.cidoc-crm.org/cidoc-crm/E89_Propositional_Object</title>
 <g id="a_node5"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#cidoc:E89_Propositional_Object" xlink:title="cidoc:E89_Propositional_Object">
-<ellipse fill="none" stroke="blue" cx="736.893" cy="-105" rx="180.868" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="736.893" cy="-105" rx="180.868" ry="18"/>
 <text text-anchor="middle" x="736.893" y="-101.3" font-family="Times,serif" font-size="14.00">cidoc:E89_Propositional_Object</text>
 </a>
 </g>
@@ -89,14 +89,14 @@
 </g>
 <!-- Rhttp://www.knora.org/ontology/concept#SymbolicConcept&#45;&gt;Rhttp://www.knora.org/ontology/concept#SymbolicConcept -->
 <g id="edge7" class="edge"><title>Rhttp://www.knora.org/ontology/concept#SymbolicConcept&#45;&gt;Rhttp://www.knora.org/ontology/concept#SymbolicConcept</title>
-<path fill="none" stroke="green" d="M1186.33,-199.047C1203.22,-197.897 1214.53,-195.548 1214.53,-192 1214.53,-189.228 1207.63,-187.188 1196.55,-185.88"/>
-<polygon fill="green" stroke="green" points="1196.6,-182.37 1186.33,-184.953 1195.97,-189.341 1196.6,-182.37"/>
+<path fill="none" stroke="red" d="M1186.33,-199.047C1203.22,-197.897 1214.53,-195.548 1214.53,-192 1214.53,-189.228 1207.63,-187.188 1196.55,-185.88"/>
+<polygon fill="red" stroke="red" points="1196.6,-182.37 1186.33,-184.953 1195.97,-189.341 1196.6,-182.37"/>
 <text text-anchor="middle" x="1273.53" y="-188.3" font-family="Times,serif" font-size="14.00">concept:isPartOf</text>
 </g>
 <!-- Rhttp://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object -->
 <g id="node7" class="node"><title>Rhttp://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object</title>
 <g id="a_node7"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#cidoc:E90_Symbolic_Object" xlink:title="cidoc:E90_Symbolic_Object">
-<ellipse fill="none" stroke="blue" cx="1096.89" cy="-105" rx="161.372" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="1096.89" cy="-105" rx="161.372" ry="18"/>
 <text text-anchor="middle" x="1096.89" y="-101.3" font-family="Times,serif" font-size="14.00">cidoc:E90_Symbolic_Object</text>
 </a>
 </g>
@@ -130,7 +130,7 @@
 <!-- Rhttp://www.cidoc-crm.org/cidoc-crm/E73_Information_Object -->
 <g id="node9" class="node"><title>Rhttp://www.cidoc-crm.org/cidoc-crm/E73_Information_Object</title>
 <g id="a_node9"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#cidoc:E73_Information_Object" xlink:title="cidoc:E73_Information_Object">
-<ellipse fill="none" stroke="blue" cx="425.893" cy="-192" rx="174.369" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="425.893" cy="-192" rx="174.369" ry="18"/>
 <text text-anchor="middle" x="425.893" y="-188.3" font-family="Times,serif" font-size="14.00">cidoc:E73_Information_Object</text>
 </a>
 </g>
@@ -158,7 +158,7 @@
 <!-- Rhttp://iflastandards.info/ns/fr/frbr/frbroo/F22_Self&#45;Contained_Expression -->
 <g id="node11" class="node"><title>Rhttp://iflastandards.info/ns/fr/frbr/frbroo/F22_Self&#45;Contained_Expression</title>
 <g id="a_node11"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#frbroo:F22_Self-Contained_Expression" xlink:title="frbroo:F22_Self&#45;Contained_Expression">
-<ellipse fill="none" stroke="blue" cx="1144.89" cy="-279" rx="211.463" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="1144.89" cy="-279" rx="211.463" ry="18"/>
 <text text-anchor="middle" x="1144.89" y="-275.3" font-family="Times,serif" font-size="14.00">frbroo:F22_Self&#45;Contained_Expression</text>
 </a>
 </g>
@@ -186,7 +186,7 @@
 <!-- Rhttp://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object -->
 <g id="node13" class="node"><title>Rhttp://www.cidoc-crm.org/cidoc-crm/E33_Linguistic_Object</title>
 <g id="a_node13"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#cidoc:E33_Linguistic_Object" xlink:title="cidoc:E33_Linguistic_Object">
-<ellipse fill="none" stroke="blue" cx="522.893" cy="-279" rx="165.971" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="522.893" cy="-279" rx="165.971" ry="18"/>
 <text text-anchor="middle" x="522.893" y="-275.3" font-family="Times,serif" font-size="14.00">cidoc:E33_Linguistic_Object</text>
 </a>
 </g>
@@ -329,8 +329,8 @@
 </g>
 <!-- Rhttp://www.knora.org/ontology/literature#Expression&#45;&gt;Rhttp://www.knora.org/ontology/literature#Literature -->
 <g id="edge26" class="edge"><title>Rhttp://www.knora.org/ontology/literature#Expression&#45;&gt;Rhttp://www.knora.org/ontology/literature#Literature</title>
-<path fill="none" stroke="green" d="M625.746,-651.462C618.129,-645.692 609.585,-639.127 601.893,-633 591.097,-624.401 579.4,-614.736 569.226,-606.211"/>
-<polygon fill="green" stroke="green" points="571.345,-603.42 561.439,-599.661 566.839,-608.777 571.345,-603.42"/>
+<path fill="none" stroke="red" d="M625.746,-651.462C618.129,-645.692 609.585,-639.127 601.893,-633 591.097,-624.401 579.4,-614.736 569.226,-606.211"/>
+<polygon fill="red" stroke="red" points="571.345,-603.42 561.439,-599.661 566.839,-608.777 571.345,-603.42"/>
 <text text-anchor="middle" x="660.893" y="-621.8" font-family="Times,serif" font-size="14.00">literature:hasGenre</text>
 </g>
 </g>

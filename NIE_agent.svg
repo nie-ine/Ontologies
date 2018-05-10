@@ -48,7 +48,7 @@
 <!-- Rhttp://xmlns.com/foaf/0.1/Person -->
 <g id="node4" class="node"><title>Rhttp://xmlns.com/foaf/0.1/Person</title>
 <g id="a_node4"><a xlink:href="http://xmlns.com/foaf/0.1/Person" xlink:title="foaf:Person">
-<ellipse fill="none" stroke="blue" cx="63.0444" cy="-192" rx="63.0888" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="63.0444" cy="-192" rx="63.0888" ry="18"/>
 <text text-anchor="middle" x="63.0444" y="-188.3" font-family="Times,serif" font-size="14.00">foaf:Person</text>
 </a>
 </g>
@@ -89,8 +89,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#event:Action -->
 <g id="edge6" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#event:Action</title>
-<path fill="none" stroke="red" d="M855.564,-90.8371C876.925,-85.0411 901.442,-77.5874 923.044,-69 936.529,-63.6396 939.039,-60.4365 952.044,-54 961.991,-49.0771 972.756,-43.9007 982.914,-39.0836"/>
-<polygon fill="red" stroke="red" points="984.483,-42.2133 992.03,-34.7782 981.493,-35.8836 984.483,-42.2133"/>
+<path fill="none" stroke="blue" d="M855.564,-90.8371C876.925,-85.0411 901.442,-77.5874 923.044,-69 936.529,-63.6396 939.039,-60.4365 952.044,-54 961.991,-49.0771 972.756,-43.9007 982.914,-39.0836"/>
+<polygon fill="blue" stroke="blue" points="984.483,-42.2133 992.03,-34.7782 981.493,-35.8836 984.483,-42.2133"/>
 <text text-anchor="middle" x="1012.04" y="-57.8" font-family="Times,serif" font-size="14.00">agent:actsIn</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Role -->
@@ -103,8 +103,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Role -->
 <g id="edge7" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Role</title>
-<path fill="none" stroke="red" d="M796.118,-87.0088C792.543,-76.704 786.94,-63.7141 779.044,-54 775.285,-49.3747 770.769,-45.0736 766.021,-41.1817"/>
-<polygon fill="red" stroke="red" points="767.988,-38.2807 757.903,-35.0332 763.761,-43.8609 767.988,-38.2807"/>
+<path fill="none" stroke="blue" d="M796.118,-87.0088C792.543,-76.704 786.94,-63.7141 779.044,-54 775.285,-49.3747 770.769,-45.0736 766.021,-41.1817"/>
+<polygon fill="blue" stroke="blue" points="767.988,-38.2807 757.903,-35.0332 763.761,-43.8609 767.988,-38.2807"/>
 <text text-anchor="middle" x="853.544" y="-57.8" font-family="Times,serif" font-size="14.00">agent:hasRole</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Group -->
@@ -117,14 +117,14 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Group -->
 <g id="edge8" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Group</title>
-<path fill="none" stroke="red" d="M720.392,-111.863C678.809,-116.727 634.109,-125.469 621.044,-141 615.778,-147.26 614.253,-155.685 614.428,-163.833"/>
-<polygon fill="red" stroke="red" points="610.949,-164.211 615.406,-173.823 617.915,-163.529 610.949,-164.211"/>
+<path fill="none" stroke="blue" d="M720.392,-111.863C678.809,-116.727 634.109,-125.469 621.044,-141 615.778,-147.26 614.253,-155.685 614.428,-163.833"/>
+<polygon fill="blue" stroke="blue" points="610.949,-164.211 615.406,-173.823 617.915,-163.529 610.949,-164.211"/>
 <text text-anchor="middle" x="703.044" y="-144.8" font-family="Times,serif" font-size="14.00">agent:isMemberOf</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Role&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent -->
 <g id="edge9" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#agent:Role&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent</title>
-<path fill="none" stroke="red" d="M683.435,-32.8138C662.58,-41.4329 645.083,-53.7831 657.044,-69 665.399,-79.6286 691.162,-87.4292 718.633,-92.9324"/>
-<polygon fill="red" stroke="red" points="718.325,-96.4362 728.802,-94.8569 719.627,-89.5583 718.325,-96.4362"/>
+<path fill="none" stroke="brown" d="M683.435,-32.8138C662.58,-41.4329 645.083,-53.7831 657.044,-69 665.399,-79.6286 691.162,-87.4292 718.633,-92.9324"/>
+<polygon fill="brown" stroke="brown" points="718.325,-96.4362 728.802,-94.8569 719.627,-89.5583 718.325,-96.4362"/>
 <text text-anchor="middle" x="716.044" y="-57.8" font-family="Times,serif" font-size="14.00">owl:disjointWith</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#agent:Group&#45;&gt;Rhttp://xmlns.com/foaf/0.1/Group -->
@@ -183,8 +183,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Action -->
 <g id="edge15" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Action</title>
-<path fill="none" stroke="red" d="M1082.44,-173.723C1081.94,-164.02 1081.98,-151.74 1084.04,-141 1084.57,-138.263 1085.31,-135.467 1086.18,-132.709"/>
-<polygon fill="red" stroke="red" points="1089.56,-133.645 1089.72,-123.052 1082.99,-131.235 1089.56,-133.645"/>
+<path fill="none" stroke="blue" d="M1082.44,-173.723C1081.94,-164.02 1081.98,-151.74 1084.04,-141 1084.57,-138.263 1085.31,-135.467 1086.18,-132.709"/>
+<polygon fill="blue" stroke="blue" points="1089.56,-133.645 1089.72,-123.052 1082.99,-131.235 1089.56,-133.645"/>
 <text text-anchor="middle" x="1148.04" y="-144.8" font-family="Times,serif" font-size="14.00">human:actsIn</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Group -->
@@ -265,8 +265,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Group -->
 <g id="edge24" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Group</title>
-<path fill="none" stroke="red" d="M890.779,-481.262C860.3,-471.552 826.314,-454.746 808.044,-426 799.462,-412.496 799.126,-403.284 808.044,-390 819.821,-372.458 839.07,-388.676 852.044,-372 861.547,-359.787 864.179,-342.693 864.372,-328.338"/>
-<polygon fill="red" stroke="red" points="867.863,-327.932 864.117,-318.021 860.865,-328.105 867.863,-327.932"/>
+<path fill="none" stroke="blue" d="M890.779,-481.262C860.3,-471.552 826.314,-454.746 808.044,-426 799.462,-412.496 799.126,-403.284 808.044,-390 819.821,-372.458 839.07,-388.676 852.044,-372 861.547,-359.787 864.179,-342.693 864.372,-328.338"/>
+<polygon fill="blue" stroke="blue" points="867.863,-327.932 864.117,-318.021 860.865,-328.105 867.863,-327.932"/>
 <text text-anchor="middle" x="894.044" y="-404.3" font-family="Times,serif" font-size="14.00">human:isMemberOf</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Human -->
@@ -299,8 +299,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#org:Organisation -->
 <g id="edge25" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#org:Organisation</title>
-<path fill="none" stroke="red" d="M857.85,-492.245C778.559,-489.202 673.009,-480.994 637.044,-459 627.956,-453.442 620.858,-444.328 615.612,-435.393"/>
-<polygon fill="red" stroke="red" points="618.576,-433.51 610.81,-426.303 612.387,-436.78 618.576,-433.51"/>
+<path fill="none" stroke="blue" d="M857.85,-492.245C778.559,-489.202 673.009,-480.994 637.044,-459 627.956,-453.442 620.858,-444.328 615.612,-435.393"/>
+<polygon fill="blue" stroke="blue" points="618.576,-433.51 610.81,-426.303 612.387,-436.78 618.576,-433.51"/>
 <text text-anchor="middle" x="711.044" y="-447.8" font-family="Times,serif" font-size="14.00">org:isMemberOf</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Role -->
@@ -313,8 +313,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Role -->
 <g id="edge26" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Person&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Role</title>
-<path fill="none" stroke="red" d="M1036.95,-486.162C1111.7,-477.097 1212.51,-458.998 1234.04,-426 1242.79,-412.6 1244.38,-402.216 1234.04,-390 1218.47,-371.59 1150.78,-376.262 1127.04,-372 1121.19,-370.949 1115.13,-369.838 1109.04,-368.707"/>
-<polygon fill="red" stroke="red" points="1109.29,-365.192 1098.81,-366.793 1108,-372.072 1109.29,-365.192"/>
+<path fill="none" stroke="blue" d="M1036.95,-486.162C1111.7,-477.097 1212.51,-458.998 1234.04,-426 1242.79,-412.6 1244.38,-402.216 1234.04,-390 1218.47,-371.59 1150.78,-376.262 1127.04,-372 1121.19,-370.949 1115.13,-369.838 1109.04,-368.707"/>
+<polygon fill="blue" stroke="blue" points="1109.29,-365.192 1098.81,-366.793 1108,-372.072 1109.29,-365.192"/>
 <text text-anchor="middle" x="1280.54" y="-447.8" font-family="Times,serif" font-size="14.00">human:hasRole</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://xmlns.com/foaf/0.1/Organisation -->
@@ -331,8 +331,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Action -->
 <g id="edge31" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Action</title>
-<path fill="none" stroke="red" d="M697.135,-398.639C743.053,-393.256 798.976,-384.807 848.044,-372 856.111,-369.895 1121,-268.451 1128.04,-264 1157.55,-245.367 1164.26,-238.031 1185.04,-210 1204.66,-183.548 1231.62,-167.483 1212.04,-141 1205.1,-131.599 1195.67,-124.643 1185.19,-119.51"/>
-<polygon fill="red" stroke="red" points="1186.32,-116.185 1175.75,-115.452 1183.56,-122.616 1186.32,-116.185"/>
+<path fill="none" stroke="blue" d="M697.135,-398.639C743.053,-393.256 798.976,-384.807 848.044,-372 856.111,-369.895 1121,-268.451 1128.04,-264 1157.55,-245.367 1164.26,-238.031 1185.04,-210 1204.66,-183.548 1231.62,-167.483 1212.04,-141 1205.1,-131.599 1195.67,-124.643 1185.19,-119.51"/>
+<polygon fill="blue" stroke="blue" points="1186.32,-116.185 1175.75,-115.452 1183.56,-122.616 1186.32,-116.185"/>
 <text text-anchor="middle" x="1222.54" y="-242.3" font-family="Times,serif" font-size="14.00">org:actsIn</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Group -->
@@ -351,8 +351,8 @@
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#org:Role -->
 <g id="edge32" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#org:Organisation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#org:Role</title>
-<path fill="none" stroke="red" d="M530.44,-394.642C505.893,-388.973 482.798,-381.397 475.044,-372 452.606,-344.807 456.203,-301.864 461.844,-274.064"/>
-<polygon fill="red" stroke="red" points="465.28,-274.739 464.057,-264.215 458.45,-273.205 465.28,-274.739"/>
+<path fill="none" stroke="blue" d="M530.44,-394.642C505.893,-388.973 482.798,-381.397 475.044,-372 452.606,-344.807 456.203,-301.864 461.844,-274.064"/>
+<polygon fill="blue" stroke="blue" points="465.28,-274.739 464.057,-264.215 458.45,-273.205 465.28,-274.739"/>
 <text text-anchor="middle" x="532.544" y="-350.3" font-family="Times,serif" font-size="14.00">org:hasRole</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#human:Role&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Role -->

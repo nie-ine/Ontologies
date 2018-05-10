@@ -11,11 +11,9 @@ All the used ontologies are referenced in a prefix header in the Turtle files.
 # Graphics
 These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
-NIE classes are represented by blue ellipses.  
-External ontology classes are represented by purple ellipses.  
-Subclass and subproperty relations are represented by green arrows.  
-Other RDF/S and OWL properties are represented by brown arrows.  
-NIE properties are represented by red arrows.  
+RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty relations, which are represented by green arrows.  
+External ontology classes and properties are represented by purple ellipses and arrows resp.
+NIE classes and properties are represented by blue ellipses and arrows resp.  
 
 Following external ontologies are used:  
 [CIDOC](http://www.cidoc-crm.org/)  
@@ -26,7 +24,7 @@ Figure 1 shows a graphical representation of triples from different ontologies c
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_agent.svg)
 
-##### Figure 2: Graphic representing classes and properties from different ontologies concerning 'agent'
+##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'agent'
 
 Figure 2 shows a graphical representation of triples from different ontologies providing a conceptual basis for 'literature', related classes and properties.  
 

@@ -12,7 +12,7 @@
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="node1" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
 <g id="a_node1"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" xlink:title="geo:SpatialThing">
-<ellipse fill="none" stroke="blue" cx="705.037" cy="-105" rx="89.0842" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="705.037" cy="-105" rx="89.0842" ry="18"/>
 <text text-anchor="middle" x="705.037" y="-101.3" font-family="Times,serif" font-size="14.00">geo:SpatialThing</text>
 </a>
 </g>
@@ -20,7 +20,7 @@
 <!-- Rhttp://www.w3.org/2000/01/rdf&#45;schema#Resource -->
 <g id="node2" class="node"><title>Rhttp://www.w3.org/2000/01/rdf&#45;schema#Resource</title>
 <g id="a_node2"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#Resource" xlink:title="rdfs:Resource">
-<ellipse fill="none" stroke="blue" cx="183.037" cy="-18" rx="75.2868" ry="18"/>
+<ellipse fill="none" stroke="brown" cx="183.037" cy="-18" rx="75.2868" ry="18"/>
 <text text-anchor="middle" x="183.037" y="-14.3" font-family="Times,serif" font-size="14.00">rdfs:Resource</text>
 </a>
 </g>
@@ -34,7 +34,7 @@
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#Point -->
 <g id="node3" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#Point</title>
 <g id="a_node3"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#Point" xlink:title="geo:Point">
-<ellipse fill="none" stroke="blue" cx="1021.04" cy="-192" rx="53.8905" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="1021.04" cy="-192" rx="53.8905" ry="18"/>
 <text text-anchor="middle" x="1021.04" y="-188.3" font-family="Times,serif" font-size="14.00">geo:Point</text>
 </a>
 </g>
@@ -48,55 +48,55 @@
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat -->
 <g id="node4" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat</title>
 <g id="a_node4"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#lat" xlink:title="geo:lat">
-<ellipse fill="none" stroke="blue" cx="596.037" cy="-192" rx="42.4939" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="596.037" cy="-192" rx="42.4939" ry="18"/>
 <text text-anchor="middle" x="596.037" y="-188.3" font-family="Times,serif" font-size="14.00">geo:lat</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="edge3" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
-<path fill="none" stroke="green" d="M633.028,-182.97C650.005,-177.701 669.354,-169.252 683.037,-156 689.598,-149.646 694.336,-140.995 697.695,-132.676"/>
-<polygon fill="green" stroke="green" points="701.004,-133.815 701.029,-123.22 694.403,-131.486 701.004,-133.815"/>
+<path fill="none" stroke="brown" d="M633.028,-182.97C650.005,-177.701 669.354,-169.252 683.037,-156 689.598,-149.646 694.336,-140.995 697.695,-132.676"/>
+<polygon fill="brown" stroke="brown" points="701.004,-133.815 701.029,-123.22 694.403,-131.486 701.004,-133.815"/>
 <text text-anchor="middle" x="737.037" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:domain</text>
 </g>
 <!-- Rhttp://www.w3.org/2001/XMLSchema#decimal -->
 <g id="node5" class="node"><title>Rhttp://www.w3.org/2001/XMLSchema#decimal</title>
 <g id="a_node5"><a xlink:href="http://www.w3.org/2001/XMLSchema#decimal" xlink:title="xsd:decimal">
-<ellipse fill="none" stroke="blue" cx="400.037" cy="-105" rx="66.0889" ry="18"/>
+<ellipse fill="none" stroke="brown" cx="400.037" cy="-105" rx="66.0889" ry="18"/>
 <text text-anchor="middle" x="400.037" y="-101.3" font-family="Times,serif" font-size="14.00">xsd:decimal</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal -->
 <g id="edge4" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal</title>
-<path fill="none" stroke="green" d="M555.528,-186.474C501.367,-180.015 410.974,-167.641 401.037,-156 395.726,-149.778 394.189,-141.363 394.367,-133.213"/>
-<polygon fill="green" stroke="green" points="397.854,-133.51 395.355,-123.215 390.888,-132.822 397.854,-133.51"/>
+<path fill="none" stroke="brown" d="M555.528,-186.474C501.367,-180.015 410.974,-167.641 401.037,-156 395.726,-149.778 394.189,-141.363 394.367,-133.213"/>
+<polygon fill="brown" stroke="brown" points="397.854,-133.51 395.355,-123.215 390.888,-132.822 397.854,-133.51"/>
 <text text-anchor="middle" x="438.537" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:range</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location -->
 <g id="node6" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location</title>
 <g id="a_node6"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#location" xlink:title="geo:location">
-<ellipse fill="none" stroke="blue" cx="140.037" cy="-192" rx="67.6881" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="140.037" cy="-192" rx="67.6881" ry="18"/>
 <text text-anchor="middle" x="140.037" y="-188.3" font-family="Times,serif" font-size="14.00">geo:location</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="edge6" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
-<path fill="none" stroke="green" d="M203.003,-185.352C296.797,-176.809 463.591,-161.058 476.037,-156 486.004,-151.949 485.199,-145.355 495.037,-141 530.719,-125.206 572.686,-116.486 609.685,-111.692"/>
-<polygon fill="green" stroke="green" points="610.475,-115.122 619.98,-110.441 609.631,-108.173 610.475,-115.122"/>
+<path fill="none" stroke="brown" d="M203.003,-185.352C296.797,-176.809 463.591,-161.058 476.037,-156 486.004,-151.949 485.199,-145.355 495.037,-141 530.719,-125.206 572.686,-116.486 609.685,-111.692"/>
+<polygon fill="brown" stroke="brown" points="610.475,-115.122 619.98,-110.441 609.631,-108.173 610.475,-115.122"/>
 <text text-anchor="middle" x="532.537" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:range</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location&#45;&gt;Rhttp://www.w3.org/2000/01/rdf&#45;schema#Resource -->
 <g id="edge5" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#location&#45;&gt;Rhttp://www.w3.org/2000/01/rdf&#45;schema#Resource</title>
-<path fill="none" stroke="green" d="M96.8394,-178.038C47.9599,-161.044 -21.3909,-128.459 7.03682,-87 29.3029,-54.527 69.4603,-37.5569 105.799,-28.6905"/>
-<polygon fill="green" stroke="green" points="106.948,-32.0191 115.929,-26.3985 105.404,-25.1917 106.948,-32.0191"/>
+<path fill="none" stroke="brown" d="M96.8394,-178.038C47.9599,-161.044 -21.3909,-128.459 7.03682,-87 29.3029,-54.527 69.4603,-37.5569 105.799,-28.6905"/>
+<polygon fill="brown" stroke="brown" points="106.948,-32.0191 115.929,-26.3985 105.404,-25.1917 106.948,-32.0191"/>
 <text text-anchor="middle" x="50.0368" y="-101.3" font-family="Times,serif" font-size="14.00">rdfs:domain</text>
 </g>
 <!-- Rhttp://xmlns.com/foaf/0.1/based_near -->
 <g id="node7" class="node"><title>Rhttp://xmlns.com/foaf/0.1/based_near</title>
 <g id="a_node7"><a xlink:href="http://xmlns.com/foaf/0.1/based_near" xlink:title="foaf:based_near">
-<ellipse fill="none" stroke="blue" cx="186.037" cy="-105" rx="84.485" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="186.037" cy="-105" rx="84.485" ry="18"/>
 <text text-anchor="middle" x="186.037" y="-101.3" font-family="Times,serif" font-size="14.00">foaf:based_near</text>
 </a>
 </g>
@@ -110,69 +110,69 @@
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long -->
 <g id="node8" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long</title>
 <g id="a_node8"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#long" xlink:title="geo:long">
-<ellipse fill="none" stroke="blue" cx="856.037" cy="-192" rx="50.0912" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="856.037" cy="-192" rx="50.0912" ry="18"/>
 <text text-anchor="middle" x="856.037" y="-188.3" font-family="Times,serif" font-size="14.00">geo:long</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="edge8" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
-<path fill="none" stroke="green" d="M877.449,-175.587C888.98,-165.418 899.145,-151.993 890.037,-141 877.804,-126.236 837.936,-117.654 798.328,-112.688"/>
-<polygon fill="green" stroke="green" points="798.622,-109.198 788.281,-111.502 797.802,-116.15 798.622,-109.198"/>
+<path fill="none" stroke="brown" d="M877.449,-175.587C888.98,-165.418 899.145,-151.993 890.037,-141 877.804,-126.236 837.936,-117.654 798.328,-112.688"/>
+<polygon fill="brown" stroke="brown" points="798.622,-109.198 788.281,-111.502 797.802,-116.15 798.622,-109.198"/>
 <text text-anchor="middle" x="937.037" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:domain</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal -->
 <g id="edge9" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#long&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal</title>
-<path fill="none" stroke="green" d="M836.099,-175.421C818.867,-162.287 795.049,-145.006 784.037,-141 776.802,-138.368 581.58,-121.437 472.349,-112.123"/>
-<polygon fill="green" stroke="green" points="472.64,-108.635 462.379,-111.273 472.045,-115.61 472.64,-108.635"/>
+<path fill="none" stroke="brown" d="M836.099,-175.421C818.867,-162.287 795.049,-145.006 784.037,-141 776.802,-138.368 581.58,-121.437 472.349,-112.123"/>
+<polygon fill="brown" stroke="brown" points="472.64,-108.635 462.379,-111.273 472.045,-115.61 472.64,-108.635"/>
 <text text-anchor="middle" x="845.537" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:range</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt -->
 <g id="node9" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt</title>
 <g id="a_node9"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#alt" xlink:title="geo:alt">
-<ellipse fill="none" stroke="blue" cx="398.037" cy="-192" rx="42.4939" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="398.037" cy="-192" rx="42.4939" ry="18"/>
 <text text-anchor="middle" x="398.037" y="-188.3" font-family="Times,serif" font-size="14.00">geo:alt</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="edge10" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
-<path fill="none" stroke="green" d="M439.565,-188.26C476.344,-184.571 530.756,-175.97 574.037,-156 583.806,-151.493 583.522,-146.021 593.037,-141 607.509,-133.362 623.927,-127.072 639.644,-122.035"/>
-<polygon fill="green" stroke="green" points="640.787,-125.345 649.316,-119.06 638.729,-118.655 640.787,-125.345"/>
+<path fill="none" stroke="brown" d="M439.565,-188.26C476.344,-184.571 530.756,-175.97 574.037,-156 583.806,-151.493 583.522,-146.021 593.037,-141 607.509,-133.362 623.927,-127.072 639.644,-122.035"/>
+<polygon fill="brown" stroke="brown" points="640.787,-125.345 649.316,-119.06 638.729,-118.655 640.787,-125.345"/>
 <text text-anchor="middle" x="636.037" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:domain</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal -->
 <g id="edge11" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#alt&#45;&gt;Rhttp://www.w3.org/2001/XMLSchema#decimal</title>
-<path fill="none" stroke="green" d="M358.858,-185.094C325.761,-178.327 286.22,-164.946 303.037,-141 310.425,-130.48 321.3,-123.108 333.124,-117.945"/>
-<polygon fill="green" stroke="green" points="334.671,-121.101 342.762,-114.261 332.172,-114.562 334.671,-121.101"/>
+<path fill="none" stroke="brown" d="M358.858,-185.094C325.761,-178.327 286.22,-164.946 303.037,-141 310.425,-130.48 321.3,-123.108 333.124,-117.945"/>
+<polygon fill="brown" stroke="brown" points="334.671,-121.101 342.762,-114.261 332.172,-114.562 334.671,-121.101"/>
 <text text-anchor="middle" x="340.537" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:range</text>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long -->
 <g id="node10" class="node"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long</title>
 <g id="a_node10"><a xlink:href="http://www.w3.org/2003/01/geo/wgs84_pos#lat_long" xlink:title="geo:lat_long">
-<ellipse fill="none" stroke="blue" cx="1214.04" cy="-192" rx="67.6881" ry="18"/>
+<ellipse fill="none" stroke="purple" cx="1214.04" cy="-192" rx="67.6881" ry="18"/>
 <text text-anchor="middle" x="1214.04" y="-188.3" font-family="Times,serif" font-size="14.00">geo:lat_long</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
 <g id="edge12" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long&#45;&gt;Rhttp://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</title>
-<path fill="none" stroke="green" d="M1187.22,-175.172C1164.53,-162.075 1133.6,-144.996 1120.04,-141 1062.56,-124.068 905.574,-114.391 802.008,-109.671"/>
-<polygon fill="green" stroke="green" points="801.991,-106.167 791.845,-109.216 801.678,-113.16 801.991,-106.167"/>
+<path fill="none" stroke="brown" d="M1187.22,-175.172C1164.53,-162.075 1133.6,-144.996 1120.04,-141 1062.56,-124.068 905.574,-114.391 802.008,-109.671"/>
+<polygon fill="brown" stroke="brown" points="801.991,-106.167 791.845,-109.216 801.678,-113.16 801.991,-106.167"/>
 <text text-anchor="middle" x="1194.04" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:domain</text>
 </g>
 <!-- Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal -->
 <g id="node11" class="node"><title>Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal</title>
 <g id="a_node11"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#Literal" xlink:title="rdfs:Literal">
-<ellipse fill="none" stroke="blue" cx="1268.04" cy="-105" rx="63.8893" ry="18"/>
+<ellipse fill="none" stroke="brown" cx="1268.04" cy="-105" rx="63.8893" ry="18"/>
 <text text-anchor="middle" x="1268.04" y="-101.3" font-family="Times,serif" font-size="14.00">rdfs:Literal</text>
 </a>
 </g>
 </g>
 <!-- Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long&#45;&gt;Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal -->
 <g id="edge13" class="edge"><title>Rhttp://www.w3.org/2003/01/geo/wgs84_pos#lat_long&#45;&gt;Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal</title>
-<path fill="none" stroke="green" d="M1231.19,-174.481C1236.37,-168.925 1241.81,-162.484 1246.04,-156 1250.7,-148.849 1254.8,-140.547 1258.16,-132.786"/>
-<polygon fill="green" stroke="green" points="1261.46,-133.953 1262.01,-123.373 1254.98,-131.305 1261.46,-133.953"/>
+<path fill="none" stroke="brown" d="M1231.19,-174.481C1236.37,-168.925 1241.81,-162.484 1246.04,-156 1250.7,-148.849 1254.8,-140.547 1258.16,-132.786"/>
+<polygon fill="brown" stroke="brown" points="1261.46,-133.953 1262.01,-123.373 1254.98,-131.305 1261.46,-133.953"/>
 <text text-anchor="middle" x="1292.54" y="-144.8" font-family="Times,serif" font-size="14.00">rdfs:range</text>
 </g>
 </g>

@@ -8,7 +8,7 @@ Whenever possible [ontologies developed by others (external)](https://github.com
 NIE-ontologies are highly interdependent and represent a network-like collection of namespaces, rather than a strongly hierarchical pyramidal structure. The granularity and specificity of the formalized terminology differs strongly among the vocabularies. A basic approach is to create a namespace that can be extended easily. Rarely ontological elements will be deprecated.  
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 
-# Graphics:
+# Graphics
 These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
 NIE classes are represented by blue ellipses.  
@@ -23,6 +23,10 @@ Following external ontologies are used:
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
 
 Figure 1 shows a graphical representation of triples from different ontologies concerning 'agent', related classes and properties.  
+
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_agent.svg)
+
+##### Figure 2: Graphic representing classes and properties from different ontologies concerning 'agent'
 
 Figure 2 shows a graphical representation of triples from different ontologies providing a conceptual basis for 'literature', related classes and properties.  
 

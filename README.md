@@ -17,6 +17,7 @@ NIE classes and properties are represented by blue ellipses and arrows resp.
 
 Following external ontologies are used:  
 [CIDOC](http://www.cidoc-crm.org/)  
+[Dublin Core Terms](http://purl.org/dc/terms/)  
 [FOAF](http://xmlns.com/foaf/0.1/)  
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
 

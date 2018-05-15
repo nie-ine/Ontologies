@@ -6,22 +6,22 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix language: <http://www.knora.org/ontology/language#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
-@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
-@prefix litera: <http://www.knora.org/ontology/literature#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/text-editing>.
-@prefix textedit: <http://www.knora.org/ontology/text-editing#>.
+@base <http://www.knora.org/ontology/005A/text-editing>.
+@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 
-<http://www.knora.org/ontology/text-editing>
+<http://www.knora.org/ontology/005A/text-editing>
 	a owl:Ontology;
 	dct:title "An ontology about text editing"@en;
 	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
@@ -30,9 +30,9 @@
 	dct:publisher "Basel University, Switzerland"@en;
 #	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/text-editing>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/005A>.
 
-textedit:Derivative
+textedit:Derivative #*
 	a owl:Class;
 	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
 	rdfs:comment """Text expression derived from another text expression."""@en;
@@ -57,8 +57,20 @@ textedit:Editor
 textedit:Redactor #* -> scholastic?
 	a owl:Class;
 	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
-	rdfs:comment """Role of a person assembling (pieces of) texts to a new coherent text."""@en;
-	rdfs:subClassOf human:Creator.
+	rdfs:comment """Editor assembling parts of texts to a new coherent text."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Glossator #* -> scholastic?
+	a owl:Class;
+	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
+	rdfs:comment """Editor adding glosses to a text."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Abbreviator #* -> scholastic?
+	a owl:Class;
+	rdfs:label "abbreviator"@la, "abbreviator"@en, "Abkürzer"@de;
+	rdfs:comment """Editor shortening a text."""@en;
+	rdfs:subClassOf textedit:Editor.
 
 # genetic edition: description of edition of another
 
@@ -93,9 +105,9 @@ textedit:CriticalApparatus
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparatus criticus"@la;
 	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en; #* more than note
-	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
+	rdfs:subClassOf text:Expression #, [
+#		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
@@ -168,8 +180,8 @@ textedit:Conjecture #* conjectural emendation
 textedit:hasEditor
 	a owl:ObjectProperty;
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
-	rdfs:comment """Relating a text to a person who edited it."""@en;
-	rdfs:domain textedit:Expression;
+	rdfs:comment """Relating a text expression to a person who edited it."""@en;
+	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
@@ -178,7 +190,7 @@ textedit:hasEditor
 textedit:hasEditorValue
 	a owl:ObjectProperty;
 	rdfs:label "has editor - statement"@en, "hat Text-Redakteur - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who edited it."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who edited it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -186,7 +198,7 @@ textedit:hasEditorValue
 textedit:hasRedactor
 	a owl:ObjectProperty;
 	rdfs:label "has redactor"@en, "hat Redaktor"@de;
-	rdfs:comment """Relating a text to a person who redacted it."""@en;
+	rdfs:comment """Relating a text expression to a person who redacted it."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -196,7 +208,43 @@ textedit:hasRedactor
 textedit:hasRedactorValue
 	a owl:ObjectProperty;
 	rdfs:label "has redactor - statement"@en, "hat Redaktor - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who redacted it."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who redacted it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasGlossator
+	a owl:ObjectProperty;
+	rdfs:label "has glossator"@en, "hat Glossator"@de;
+	rdfs:comment """Relating a text expression to a person who glossed it."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+textedit:hasGlossatorValue
+	a owl:ObjectProperty;
+	rdfs:label "has glossator - statement"@en, "hat Glossator - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who glossed it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasAbbreviator
+	a owl:ObjectProperty;
+	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
+	rdfs:comment """Relating a text expression to a person who abbreviated it."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+textedit:hasAbbreviatorValue
+	a owl:ObjectProperty;
+	rdfs:label "has abbreviator - statement"@en, "hat Abkurzer - Festlegung"@de;
+	rdfs:comment """Relating a text to expression a reification statement of the relation between the text and a person who abbreviated it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -338,7 +386,7 @@ textedit:hasApparatus
 	rdfs:comment """Relating a critical edition to its apparatus."""@en;
 	rdfs:domain textedit:CriticalEdition;
 	rdfs:range textedit:CriticalApparatus;
-	rdfs:subPropertyOf concept:hasPartOf; #* possibly text:hasNote
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint textedit:CriticalApparatus.
 
@@ -346,8 +394,8 @@ textedit:hasApparatusValue
 	a owl:ObjectProperty;
 	rdfs:label "has apparatus - statement"@en, "hat Apparat - Festlegung"@de;
 	rdfs:comment """Relating a critical edition to a reification statement of the relation between the edition and its apparatus."""@en;
-	rdfs:subPropertyOf concept:hasPartValue; #* possibly text:hasNoteValue
-	knora-base:subjectClassConstraint textedit:CriticalApparatus;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 #textedit:isApparatusOf
@@ -356,7 +404,7 @@ textedit:hasApparatusValue
 #	rdfs:comment """Relating a critical apparatus to its critical edition."""@en;
 #	rdfs:domain textedit:CriticalApparatus;
 #	rdfs:range textedit:CriticalEdition;
-#	rdfs:subPropertyOf concept:isPartOf; #* possibly text:isNoteOf
+#	rdfs:subPropertyOf concept:isPartOf;
 #	knora-base:subjectClassConstraint textedit:CriticalApparatus;
 #	knora-base:objectClassConstraint textedit:CriticalEdition.
 
@@ -364,6 +412,6 @@ textedit:hasApparatusValue
 #	a owl:ObjectProperty;
 #	rdfs:label "is apparatus of - statement"@en, "ist Apparat von - Festlegung"@de;
 #	rdfs:comment """Relating a critical apparatus to a reification statement of the relation between the apparatus and its critical edition."""@en;
-#	rdfs:subPropertyOf concept:isPartOfValue; #* possibly text:isNoteOfValue
+#	rdfs:subPropertyOf concept:isPartOfValue;
 #	knora-base:subjectClassConstraint textedit:CriticalApparatus;
 #	knora-base:objectClassConstraint knora-base:LinkValue.

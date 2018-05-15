@@ -7,24 +7,24 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/concept>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
+@base <http://www.knora.org/ontology/0044/concept>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 
-<http://www.knora.org/ontology/concept>
+<http://www.knora.org/ontology/0044/concept>
 	a owl:Ontology;
 	dct:title "An ontology about concept"@en;
 	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/concept>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0044>.
 
 #
 # CLASSES
@@ -93,8 +93,10 @@ concept:IndividualWork
 concept:Information
 	a owl:Class;
 	rdfs:label "information"@en, "Information"@de;
-	rdfs:comment """."""@en; #*
-	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object. #, [
+	rdfs:comment """Symbolic propositional concept resolving uncertainty."""@en;
+	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object, [
+		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Set

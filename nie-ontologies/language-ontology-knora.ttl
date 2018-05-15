@@ -7,25 +7,26 @@
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix agent: <http://www.knora.org/ontology/agent#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix device: <http://www.knora.org/ontology/0045/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/language>.
-@prefix language: <http://www.knora.org/ontology/language#>.
+@base <http://www.knora.org/ontology/004F/language>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
 
-<http://www.knora.org/ontology/language>
+<http://www.knora.org/ontology/004F/language>
 	a owl:Ontology;
 	dct:title "An ontology about language"@en;
 	dct:description """Formal description of language, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/language>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/004F>.
 
 #
 # CLASSES
@@ -44,7 +45,7 @@ language:HumanLanguage
 	rdfs:comment """Language of a human."""@en;
 	rdfs:subClassOf language:Language. #*, human:Ability.
 
-language:HumanNaturalLanguage #* Is a human natural language a human creation?
+language:HumanNaturalLanguage
 	a owl:Class;
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
@@ -72,18 +73,12 @@ language:HumanNaturalLanguageExpression
 		a owl:Restriction; owl:onProperty language:expressedInDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:hasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:hasTranslatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		language:hasMachineTranslator
+#		language:hasMachineTranslatorValue
 		a owl:Restriction; owl:onProperty language:translatedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-language:Code
-	a owl:Class;
-	rdfs:label "code"@en, "Kode"@de;
-	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:TextValue, [ #*
-		a owl:Restriction; owl:onProperty knora-base:valueHasStandoff; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty knora-base:valueHasMapping; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
 
 language:Dialect
 	a owl:Class;
@@ -101,25 +96,25 @@ language:PersonTranslator
 	a owl:Class;
 	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
 	rdfs:comment """Role of a person as translator."""@en;
-	rdfs:subClassOf human:Translator.
+	rdfs:subClassOf language:Translator, human:Creator.
 
 language:Translation #* OR result of translating with translated text as its object 
 	a owl:Class;
 	rdfs:label "translation"@en, "Übersetzung"@de;
 	rdfs:comment """Human natural language expression transferred in another natural language."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguageExpression, event:Output.
+	rdfs:subClassOf language:HumanNaturalLanguageExpression. #, event:Output.
 
 language:PersonTranslation
 	a owl:Class;
 	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
 	rdfs:comment """Translation done by a person."""@en;
-	rdfs:subClassOf human:CreationDerivative.
+	rdfs:subClassOf language:Translation, human:CreationDerivative.
 
 language:MachineTranslation
 	a owl:Class;
 	rdfs:label "machine translation"@en, "maschinelle Übersetzung"@de;
-	rdfs:comment """Translation done by a computer."""@en;
-	rdfs:subClassOf event:Output.
+	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
+	rdfs:subClassOf language:Translation.
 
 #
 # PROPERTIES
@@ -129,11 +124,11 @@ language:hasCode
 	a owl:ObjectProperty;
 	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
 	rdfs:comment """Relating a language to a code (object) representing that language."""@en;
-	rdfs:domain language:HumanNaturalLanguage;
-	rdfs:range language:Code;
-	rdfs:subPropertyOf skos:exactMatch, knora-base:hasValue;
+#	rdfs:domain language:HumanNaturalLanguage;
+#	rdfs:range skos:Concept;
+	rdfs:subPropertyOf knora-base:hasValue; # skos:exactMatch
 	knora-base:subjectClassConstraint language:HumanNaturalLanguage;
-	knora-base:objectClassConstraint language:Code. 
+	knora-base:objectClassConstraint knora-base:TextValue. 
 
 language:hasContent
 	a owl:ObjectProperty;
@@ -141,7 +136,7 @@ language:hasContent
 	rdfs:comment """Relating a human natural language expression to its content (as object)."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range knora-base:TextValue;
-	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:subPropertyOf knora-base:hasValue; #* concept:hasContent
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
@@ -222,9 +217,9 @@ language:hasPersonTranslator
 	a owl:ObjectProperty;
 	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
-	rdfs:subPropertyOf language:hasTranslator;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:PersonTranslator]];
+	rdfs:subPropertyOf language:hasTranslator;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint human:Person.
 
@@ -240,11 +235,11 @@ language:hasMachineTranslator
 	a owl:ObjectProperty;
 	rdfs:label "has machine-translator"@en, "hat Maschine-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
-	rdfs:subPropertyOf language:hasTranslator;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range agent:Machine; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:Translator]];
+	rdfs:range device:DigitalElectronicComputer; # [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:Translator]];
+	rdfs:subPropertyOf language:hasTranslator;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
-	knora-base:objectClassConstraint agent:Computer.
+	knora-base:objectClassConstraint device:DigitalElectronicComputer.
 
 language:hasMachineTranslatorValue
 	a owl:ObjectProperty;

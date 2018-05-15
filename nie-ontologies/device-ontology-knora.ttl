@@ -7,25 +7,25 @@
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix physical: <http://www.knora.org/ontology/physical-resource#>.
-@prefix agent: <http://www.knora.org/ontology/agent#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/device>.
-@prefix device: <http://www.knora.org/ontology/device#>.
+@base <http://www.knora.org/ontology/0045/device>.
+@prefix device: <http://www.knora.org/ontology/0045/device#>.
 
-<http://www.knora.org/ontology/device>
+<http://www.knora.org/ontology/0045/device>
 	a owl:Ontology;
 	dct:title "An ontology about device"@en;
 	dct:description """Formal description of a device, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/device>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0045>.
 
 #
 # CLASSES
@@ -41,7 +41,7 @@ device:Machine
 	a owl:Class;
 	rdfs:label "machine"@en, "Maschine"@de;
 	rdfs:comment """Device having more than one part, each with a function, and transmitting a force or directing its application to perform a task."""@en;
-	rdfs:subClassOf device:Device.
+	rdfs:subClassOf device:Device, agent:Agent.
 
 device:MechanicalMachine
 	a owl:Class;
@@ -73,8 +73,20 @@ device:Computer
 	rdfs:comment """Machine using programmed instructions to perform arithmetic and logic operations automatically, to perform a task."""@en;
 	rdfs:subClassOf device:Machine.
 
-device:DigitalComputer
+device:ElectronicComputer
+	a owl:Class;
+	rdfs:label "electronic computer"@en, "elektronische Rechner"@de;
+	rdfs:comment """Computer also being an electronic machine."""@en;
+	rdfs:subClassOf device:Computer, device:ElectronicMachine.
+
+device:DigitalComputer #*
 	a owl:Class;
 	rdfs:label "digital computer"@en, "digitale Rechner"@de;
+	rdfs:comment """Computer ...."""@en; #*
+	rdfs:subClassOf device:Computer.
+
+device:DigitalElectronicComputer
+	a owl:Class;
+	rdfs:label "digital electronic computer"@en, "digitale elektronische Rechner"@de;
 	rdfs:comment """Electronic computer using digital software and data to perform a task."""@en;
-	rdfs:subClassOf device:Computer, device:ElectronicMachine, infocar:DigitalCarrier.
+	rdfs:subClassOf device:DigitalComputer, device:ElectronicComputer, infocar:ElectronicCarrier.

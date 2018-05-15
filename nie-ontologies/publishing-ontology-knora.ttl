@@ -4,25 +4,26 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix agent: <http://www.knora.org/ontology/agent#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/publishing>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
+@base <http://www.knora.org/ontology/0056/publishing>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
 
-<http://www.knora.org/ontology/publishing>
+<http://www.knora.org/ontology/0056/publishing>
 	a owl:Ontology;
 	dct:title "An ontology about publishing"@en;
 	dct:description """Formal description of publishing, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist and software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
-	knora-base:attachedToProject <http://rdfh.ch/projects/publishing>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0056>.
 
 #
 # CLASSES
@@ -63,14 +64,14 @@ publish:Publishing
 publish:Redactor
 	a owl:Class;
 	rdfs:label "redactor"@en, "Redaktor"@de;
-	rdfs:comment """Role of a person editing text for publication."""@en;	#* -> expression
-	rdfs:subClassOf human:Creator. #* textedit:Editor
+	rdfs:comment """Editor preparing text for publication."""@en; #* NOT ONLY text -> expression
+	rdfs:subClassOf textedit:Editor.
 
 publish:Publisher
 	a owl:Class;
 	rdfs:label "publisher"@en, "Herausgeber"@de;
-	rdfs:comment """Role of an agent as publisher."""@en;
-	rdfs:subClassOf agent:Role.
+	rdfs:comment """Role of an agent - person or organization - publishing."""@en;
+	rdfs:subClassOf human:AgentRole.
 
 publish:NewspaperPublisher
 	a owl:Class;
@@ -81,7 +82,7 @@ publish:NewspaperPublisher
 publish:Publication
 	a owl:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
-	rdfs:comment """An expression published on a carrier."""@en;
+	rdfs:comment """An expression published on a carrier."""@en; # output of publishing
 	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
 		a owl:Restriction; owl:onProperty publish:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -286,7 +287,7 @@ publish:isPublishedOnlineValue
 #publish:hasMonoAuthorPublication
 #	a owl:ObjectProperty;
 #	rdfs:label "has mono-author publication"@en, "hat Publikation eines einzelnen Autors"@de;
-#	rdfs:comment "Relating an expression to a publication thereof of one author."@en;
+#	rdfs:comment "Relating an expression to its publication of one author."@en;
 #	rdfs:subPropertyOf publish:hasPublication;
 #	knora-base:subjectClassConstraint concept:Expression;
 #	knora-base:objectClassConstraint publish:Publication.
@@ -294,7 +295,7 @@ publish:isPublishedOnlineValue
 #publish:hasMonoAuthorPublicationValue
 #	a owl:ObjectProperty;
 #	rdfs:label "has mono-author publication - statement"@en, "hat Publikation eines einzelnen Autors - Festlegung"@de;
-#	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publication thereof of one 
+#	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its publication of one 
 #	author."@en;
 #	rdfs:subPropertyOf publish:hasPublicationValue;
 #	knora-base:subjectClassConstraint concept:Expression;

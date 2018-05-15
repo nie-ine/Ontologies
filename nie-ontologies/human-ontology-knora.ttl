@@ -8,26 +8,26 @@
 @prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix physical: <http://www.knora.org/ontology/physical-resource#>.
-@prefix agent: <http://www.knora.org/ontology/agent#>.
-@prefix org: <http://www.knora.org/ontology/organisation#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix org: <http://www.knora.org/ontology/0051/organization#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/human>.
-@prefix human: <http://www.knora.org/ontology/human#>.
+@base <http://www.knora.org/ontology/0048/human>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
 
-<http://www.knora.org/ontology/human>
+<http://www.knora.org/ontology/0048/human>
 	a owl:Ontology;
 	dct:title "An ontology about human"@en;
 	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/human>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0048>.
 
 #
 # CLASSES
@@ -87,17 +87,22 @@ human:PersonLike
 human:Agent
 	a owl:Class;
 	rdfs:label "human agent"@en, "menschliche Agent"@de;
-	rdfs:comment """Agent concerning one or more persons, """@en, """Agent eines oder mehrerer Personen betreffend"""@de; #*
-	skos:note """Can be a person or group"""@en;
+	rdfs:comment """Agent being one or more persons"""@en, """Agent einer oder mehrerer Personen betreffend."""@de;
 	rdfs:subClassOf agent:Agent, [ #* cidoc
 		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:agentHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:agentHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Group
 	a owl:Class;
 	rdfs:label "group of persons"@en, "Personengruppe"@de;
 	rdfs:comment """Group of persons."""@en;
-	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group. # cidoc:E74_Group rdfs:subClassOf cidoc:E39_Actor
+	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group, [ # rdfs:subClassOf cidoc:E39_Actor
+		a owl:Restriction; owl:onProperty human:groupHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:groupHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:groupIsMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:groupIsMemberOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Action
 	a owl:Class;
@@ -145,11 +150,23 @@ human:Ability
 	rdfs:comment """Possibility of a person to do something."""@en;
 	rdfs:subClassOf knora-base:Resource.
 
+human:AgentRole
+	a owl:Class;
+	rdfs:label "human agent role"@en, "Rolle eines menschlichen Agenten"@de;
+	rdfs:comment """Role a human agent - person or group - has."""@en;
+	rdfs:subClassOf agent:Role.
+
 human:Role
 	a owl:Class;
 	rdfs:label "person role"@en, "Rolle einer Person"@de;
-	rdfs:comment """A role a person has as a social entity."""@en;
-	rdfs:subClassOf agent:Role.
+	rdfs:comment """Role a person has as a social entity."""@en;
+	rdfs:subClassOf human:AgentRole.
+
+human:GroupRole
+	a owl:Class;
+	rdfs:label "human group role"@en, "Rolle einer menschlichen Gruppe"@de;
+	rdfs:comment """Role a group of persons has."""@en;
+	rdfs:subClassOf human:AgentRole.
 
 human:Use
 	a owl:Class;
@@ -159,7 +176,7 @@ human:Use
 
 human:User
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
 	rdfs:label "user"@en;
 	rdfs:comment """Role of a person taking something into service or applying for a purpose."""@en;
 	rdfs:subClassOf human:Role, agent:User.
@@ -185,7 +202,7 @@ human:Creating
 human:Creation
 	a owl:Class;
 	rdfs:label "person's creation"@en, "Kreation einer Person"@de;
-	rdfs:comment """Something created by a person."""@en;
+	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -196,8 +213,10 @@ human:Creation
 		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty agent:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:PhysicalCreation
 	a owl:Class;
@@ -262,11 +281,19 @@ human:Owner
 	rdfs:comment """Role of a person having a property."""@en;
 	rdfs:subClassOf human:Role.
 
+human:Property # check cidoc
+	a owl:Class;
+	rdfs:label "property"@en, "Besitz"@de;
+	rdfs:comment """Something physical or non-physical belonging to someone."""@en;
+	rdfs:subClassOf knora-base:Resource.
+
 human:CulturalAction
 	a owl:Class;
 	rdfs:label "cultural action"@en, "kulturelle Aktion"@de;
 	rdfs:comment """Action having a cultural purpose."""@en; #*
 	rdfs:subClassOf human:Action.
+
+#* curator: keeper of a cultural heritage institution
 
 human:Occupation
 	a owl:Class;
@@ -283,20 +310,14 @@ human:OccupationalRole
 human:Floruit #* on which level: agent, body of thought?
 	a owl:Class;
 	rdfs:label "person's floruit"@en, "Floruit einer Person"@de;
-	rdfs:comment """Period during which a person or an organisation was most active or flourishing."""@en;
-	rdfs:subClassOf event:Action.
+	rdfs:comment """Period during which a person or an organization was most active or flourishing."""@en;
+	rdfs:subClassOf human:Action.
 
 human:Mathematician
 	a owl:Class;
 	rdfs:label "mathematician"@en, "Mathematiker"@de;
 	rdfs:comment """Role of a person educated in mathematics."""@en;
 	rdfs:subClassOf human:Role.
-
-human:Politician
-	a owl:Class;
-	rdfs:label "politician role"@en, "Politiker"@de;
-	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
-	rdfs:subClassOf human:OccupationalRole.
 
 human:Building
 	a owl:Class;
@@ -326,7 +347,7 @@ human:Relic
 
 human:Salon
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
 	rdfs:label "salon"@en, "literarischer Salon"@de;
 	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
 	skos:note """Exists from the seventeenth century AD until today."""@en;
@@ -338,9 +359,9 @@ human:Salon
 
 human:actsIn
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
 	rdfs:label "acts in"@en, "agiert in"@de;
-	rdfs:comment """Relating an agent to an action it acts in. The agent can also be a group, e.g. an organisation"""@en;
+	rdfs:comment """Relating a human agent - a person or a group - to an action the agent acts in."""@en;
 	rdfs:domain human:Agent;
 	rdfs:range human:Action;
 	rdfs:subPropertyOf agent:actsIn;
@@ -349,11 +370,65 @@ human:actsIn
 
 human:actsInValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/human#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
 	rdfs:label "acts in - statement"@en, "agiert in - Festlegung"@de;
-	rdfs:comment """Relating a human agent to a reification statement of the relation between the agent and an action the agent acts in."""@en;
+	rdfs:comment """Relating a human agent - a person or a group - to a reification statement of the relation between the agent and an action the agent acts in."""@en;
 	rdfs:subPropertyOf agent:actsInValue;
 	knora-base:subjectClassConstraint human:Agent;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:agentHasRole
+	a owl:ObjectProperty;
+	rdfs:label "agent has role"@en, "Agent hat Rolle"@de;
+	rdfs:comment """Relating a human agent - a person or a group - to a role the agent has."""@en;
+	rdfs:domain human:Agent;
+	rdfs:range human:AgentRole;
+	rdfs:subPropertyOf agent:hasRole;
+	knora-base:subjectClassConstraint human:Agent;
+	knora-base:objectClassConstraint human:AgentRole.
+
+human:agentHasRoleValue
+	a owl:ObjectProperty;
+	rdfs:label "agent has role - statement"@en, "Agent hat Rolle - Festlegung"@de;
+	rdfs:comment """Relating a human agent - a person or a group - to a reification statement of the relation between the agent and a role the agent has."""@en;
+	rdfs:subPropertyOf agent:hasRoleValue;
+	knora-base:subjectClassConstraint human:Agent;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:groupHasRole
+	a owl:ObjectProperty;
+	rdfs:label "group has role"@en, "Gruppe hat Rolle"@de;
+	rdfs:comment """Relating a group to a role it has."""@en;
+	rdfs:domain human:Group;
+	rdfs:range human:GroupRole;
+	rdfs:subPropertyOf human:agentHasRole;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint human:GroupRole.
+
+human:groupHasRoleValue
+	a owl:ObjectProperty;
+	rdfs:label "group has role - statement"@en, "Gruppe hat Rolle - Festlegung"@de;
+	rdfs:comment """Relating a group to a reification statement of the relation between the group and a role it has."""@en;
+	rdfs:subPropertyOf human:agentHasRoleValue;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:groupIsMemberOf
+	a owl:ObjectProperty;
+	rdfs:label "group is member of"@en, "Gruppe ist Mitglied"@de;
+	rdfs:comment """Relating a group to another group it is member of."""@en;
+	rdfs:domain human:Group;
+	rdfs:range human:Group;
+	rdfs:subPropertyOf agent:isMemberOf;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint human:Group.
+
+human:groupIsMemberOfValue
+	a owl:ObjectProperty;
+	rdfs:label "group is member of - statement"@en, "Gruppe ist Mitglied - Festlegung"@de;
+	rdfs:comment """Relating a group to a reification statement of the relation between the group and another group it is member of."""@en;
+	rdfs:subPropertyOf agent:isMemberOfValue;
+	knora-base:subjectClassConstraint human:Group;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasBirthDate
@@ -478,7 +553,7 @@ human:hasRole
 	rdfs:comment """Relating a person to a role the person has."""@en;
 	rdfs:domain human:Person;
 	rdfs:range human:Role;
-	rdfs:subPropertyOf agent:hasRole;
+	rdfs:subPropertyOf human:agentHasRole;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:Role.
 
@@ -486,7 +561,7 @@ human:hasRoleValue
 	a owl:ObjectProperty;
 	rdfs:label "has role - statement"@en, "hat Rolle - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and a role the person has."""@en;
-	rdfs:subPropertyOf agent:hasRoleValue;
+	rdfs:subPropertyOf human:agentHasRoleValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -526,7 +601,7 @@ human:adheringToThoughtValue
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasFloruit 
+human:hasFloruit
 	a owl:ObjectProperty;
 	rdfs:label "has floruit"@en, "hat Floruit"@de;
 	rdfs:comment """Relating a person to a floruit the person has."""@en;
@@ -623,17 +698,17 @@ human:hasUseValue
 human:hasUser
 	a owl:ObjectProperty;
 	rdfs:label "has user"@en, "hat Benutzerin"@de;
-	rdfs:comment """Relating something to a user using it."""@en;
+	rdfs:comment """Relating something to an agent - a person or a group - using it."""@en;
 	rdfs:domain rdfs:Resource;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom human:User]]; # human:Agent.
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf agent:hasUser;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint human:Agent.
 
 human:hasUserValue
 	a owl:ObjectProperty;
 	rdfs:label "has user - statement"@en, "hat Benutzerin - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a user using it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and an agent - a person or a group - using it."""@en;
+	rdfs:subPropertyOf agent:hasUserValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.

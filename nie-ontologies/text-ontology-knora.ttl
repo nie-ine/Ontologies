@@ -6,22 +6,22 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix language: <http://www.knora.org/ontology/language#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
-@prefix textedit: <http://www.knora.org/ontology/text-editing#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
-@prefix litera: <http://www.knora.org/ontology/literature#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/text>.
-@prefix text: <http://www.knora.org/ontology/text#>.
+@base <http://www.knora.org/ontology/0059/text>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 
-<http://www.knora.org/ontology/text>
+<http://www.knora.org/ontology/0059/text>
 	a owl:Ontology;
 	dct:title "An ontology about text"@en;
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
@@ -31,7 +31,7 @@
 	dct:publisher "Basel University, Switzerland"@en;
 #	skos:note """Representation of an otherwise literal data element as object ('objectivation') enabling relating it to metadata"""@en.
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/text>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0059>.
 
 #
 # CLASSES
@@ -46,10 +46,6 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRevisorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAbbreviatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCopyist; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCopyistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -65,8 +61,8 @@ text:Expression
 		a owl:Restriction; owl:onProperty text-structure:hasSentenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasParagraph; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasParagraphValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasChapter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasChapterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLine; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -78,6 +74,10 @@ text:Expression
 		a owl:Restriction; owl:onProperty text-structure:hasPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasAbbreviatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -96,38 +96,23 @@ text:Author
 	skos:note """Often an author is also the creator of a text."""@en;
 	rdfs:subClassOf human:Role.
 
-text:Revisor #* SCO editor? -> revise without change
+text:Revisor
 	a owl:Class;
 	rdfs:label "revisor"@en, "Revisor"@de;
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
 	rdfs:subClassOf human:Role.
 
-#* curator: keeper of a cultural heritage institution?
-
-text:Glossator #* -> scholastic? Unlikely to be used in modern times?
-	a owl:Class;
-	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
-	rdfs:comment """Role of a person adding texts or glosses to a text."""@en;
-# 	substantial OR marginal texts e.g. in the margin or between lines
-	rdfs:subClassOf human:Creator.
-
-text:Abbreviator #* -> scholastic?
-	a owl:Class;
-	rdfs:label "abbreviator"@la, "abbreviator"@en, "Abkürzer"@de;
-	rdfs:comment """Role of a person being responsible for a shortened version of a text."""@en; #*
-	rdfs:subClassOf human:Creator.
-
-text:Copyist
+text:Copyist #* -> scholastic?
 	a owl:Class;
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de; # "scribe"@en, "Schreiber"@de;
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
 
-text:Translator #* -> scholastic? ~ handwriting
+text:Translator #* SC in scholastic: handwriting?
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
 	rdfs:comment """Role of a person translating text by writing."""@en;
-	rdfs:subClassOf language:Translator, human:Creator.
+	rdfs:subClassOf language:PersonTranslator, human:Creator.
 
 text:WrittenText
 	a owl:Class;
@@ -346,7 +331,7 @@ text:hasVersionIndicator
 text:hasAuthor #*
 	a owl:ObjectProperty;
 	rdfs:label "has author"@en, "hat Autor"@de;
-	rdfs:comment """Relating a text to a person who authored it."""@en;
+	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
@@ -357,7 +342,7 @@ text:hasAuthor #*
 text:hasAuthorValue
 	a owl:ObjectProperty;
 	rdfs:label "has author - statement"@en, "hat Autor - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who authored it."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who authored it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -372,7 +357,7 @@ text:hasAuthorValue
 text:hasRevisor
 	a owl:ObjectProperty;
 	rdfs:label "has revisor"@en, "hat Revisor"@de;
-	rdfs:comment """Relating a text to a person who revised it."""@en;
+	rdfs:comment """Relating a text expression to a person who revised it."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Revisor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -382,43 +367,7 @@ text:hasRevisor
 text:hasRevisorValue
 	a owl:ObjectProperty;
 	rdfs:label "has revisor - statement"@en, "hat Revisor - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who revised it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:hasGlossator
-	a owl:ObjectProperty;
-	rdfs:label "has glossator"@en, "hat Glossator"@de;
-	rdfs:comment """Relating a text to a person who glossed it."""@en;
-	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint human:Person.
-
-text:hasGlossatorValue
-	a owl:ObjectProperty;
-	rdfs:label "has glossator - statement"@en, "hat Glossator - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who glossed it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:hasAbbreviator
-	a owl:ObjectProperty;
-	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
-	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
-	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint human:Person.
-
-text:hasAbbreviatorValue
-	a owl:ObjectProperty;
-	rdfs:label "has abbreviator - statement"@en, "hat Abkurzer - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who abbreviated it."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who revised it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.

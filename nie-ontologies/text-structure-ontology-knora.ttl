@@ -6,22 +6,22 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix language: <http://www.knora.org/ontology/language#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
-@prefix textedit: <http://www.knora.org/ontology/text-editing#>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/publishing#>.
-@prefix litera: <http://www.knora.org/ontology/literature#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/text-structure>.
-@prefix text-structure: <http://www.knora.org/ontology/text-structure#>.
+@base <http://www.knora.org/ontology/005B/text-structure>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 
-<http://www.knora.org/ontology/text-structure>
+<http://www.knora.org/ontology/005B/text-structure>
 	a owl:Ontology;
 	dct:title "An ontology about text structure"@en;
 	dct:description """Formal description of text structure, subclasses, related classes, and properties."""@en;
@@ -30,7 +30,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/text-structure>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/005B>.
 
 #
 # CLASSES
@@ -63,7 +63,7 @@ text-structure:ContentStructure
 	rdfs:comment """Compositional text structure depending on text content, e.g. a header, paragraph, Section."""@en;
 	rdfs:subClassOf text-structure:CompositionalStructure.
 
-text-structure:ReadabilityStructureProse
+text-structure:ReadabilityStructure
 	a owl:Class;
 	rdfs:label "text readability structure"@en, "Textlesbarkeitstruktur"@de;
 	rdfs:comment """Compositional text structure depending on text readability, e.g. a line, column, page."""@en;
@@ -108,14 +108,26 @@ text-structure:Sentence
 text-structure:Note
 	a owl:Class;
 	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
-	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being syntactically correct; e.g. a first quick registration of thoughts."""@en;
+	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being syntactically correct; e.g. a first quick registration of thought."""@en;
 	rdfs:subClassOf text-structure:SyntacticStructure.
 
-text-structure:Marginalia
+text-structure:Marginalia #* SCO concept:Marginalia
 	a owl:Class;
 	rdfs:label "marginalia"@en, "Marginalien"@de;
 	rdfs:comment """Notes written besides a text in the margin of a carrier."""@en;
-	rdfs:subClassOf text:WrittenText, text-structure:Note, text-structure:ContentStructure.
+	rdfs:subClassOf text:WrittenText, text-structure:Note.
+
+text-structure:InterlinearNote
+	a owl:Class;
+	rdfs:label "interlinear note"@en, "interlineare Notiz"@de;
+	rdfs:comment """Note written between text lines."""@en;
+	rdfs:subClassOf text:WrittenText, text-structure:Note.
+
+text-structure:Gloss
+	a owl:Class;
+	rdfs:label "gloss"@en, "Glosse"@de;
+	rdfs:comment """Explanatory interlinear or marginal note."""@en;
+	rdfs:subClassOf text-structure:Marginalia, text-structure:InterlinearNote.
 
 text-structure:Prose
 	a owl:Class;
@@ -530,8 +542,8 @@ text-structure:proseIsPartOfTextValue
 
 text-structure:isPartOfSection
 	a owl:ObjectProperty;
-	rdfs:label "is part of Section"@en, "ist Teil eines Textabschnitts"@de;
-	rdfs:comment """Relating a paragraph to a Section it is part of."""@en;
+	rdfs:label "is part of section"@en, "ist Teil eines Textabschnittes"@de;
+	rdfs:comment """Relating a paragraph to a section it is part of."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range text-structure:Section;
 	rdfs:subPropertyOf text-structure:IsPartOfText;
@@ -540,8 +552,8 @@ text-structure:isPartOfSection
 
 text-structure:isPartOfSectionValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of Section - statement"@en, "ist Teil eines Textabschnitts - Festlegung"@de;
-	rdfs:comment """Relating a paragraph to a reification statement of the relation between the paragraph and a Section it is part of."""@en;
+	rdfs:label "is part of section - statement"@en, "ist Teil eines Textabschnittes - Festlegung"@de;
+	rdfs:comment """Relating a paragraph to a reification statement of the relation between the paragraph and a section it is part of."""@en;
 	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -581,13 +593,13 @@ text-structure:sectionHasNumber
 	rdfs:comment """Relating a section to its number (as object)."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf language:hasContent;
+	rdfs:subPropertyOf knora-base:hasValue; #language:hasContent;
 	knora-base:subjectClassConstraint text-structure:Section;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
 text-structure:isPartOfColumn
 	a owl:ObjectProperty;
-	rdfs:label "is part of column"@en, "ist Teil eines Spaltes"@de;
+	rdfs:label "is part of column"@en, "ist Teil einer Spalte"@de;
 	rdfs:comment """Relating a text line to a column it is part of."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range text-structure:Column;

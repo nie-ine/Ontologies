@@ -4,15 +4,15 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/scholasticism>.
-@prefix schola: <http://www.knora.org/ontology/scholasticism#>.
+@base <http://www.knora.org/ontology/0057/scholasticism>.
+@prefix schola: <http://www.knora.org/ontology/0057/scholasticism#>.
 
-<http://www.knora.org/ontology/scholasticism>
+<http://www.knora.org/ontology/0057/scholasticism>
 	a owl:Ontology;
 	dct:title "An ontology about Scholasticism"@en;
 	dct:description """Formal description of elements in Scholasticism."""@en;
@@ -20,7 +20,7 @@
 	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/scholasticism>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0057>.
 
 #
 # CLASSES
@@ -30,7 +30,7 @@ schola:Scholasticism
 	a owl:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
-	rdfs:subClassOf concept:CriticalThoughtMethod. #*
+	rdfs:subClassOf concept:ThoughtMethod. #*
 
 schola:Scholastic
 	a owl:Class;
@@ -45,10 +45,12 @@ schola:Scholastic
 #		a owl:Restriction; owl:onProperty schola:hasReportatorRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
+#* schola:Lecture
+
 schola:Role
 	a owl:Class;
 	rdfs:label "scholastic role"@en;
-	rdfs:comment """A role a scholastic has."""@en;
+	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:Role.
 
 schola:Reportator
@@ -65,9 +67,9 @@ schola:Commentary
 		a owl:Restriction; owl:onProperty schola:hasCommentaryMethod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:hasCommentaryMethodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:hasCommentaryForm; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasCommentaryFormValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasReportator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasReportatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
+		a owl:Restriction; owl:onProperty schola:hasCommentaryFormValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
+#		a owl:Restriction; owl:onProperty schola:hasReportator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty schola:hasReportatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [				#* + rest
 #		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -77,16 +79,18 @@ schola:Commentary
 #		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text:hasRevisorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasAbbreviatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+#		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasAbbreviatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty textedit:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 #		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		.
+#		.
 
 schola:CommentaryMethod #* stage?, RP
 	a owl:Class;
@@ -133,7 +137,7 @@ schola:CommentaryForm
 schola:CommentaryGlosses # note structure
 	a owl:Class;
 	rdfs:label "glosses"@en, "Glossen"@de;
-	rdfs:comment """Scholastic commentary on a text in the form of added texts or glosses."""@en;
+	rdfs:comment """Scholastic commentary on a text in the form of an added text or gloss."""@en;
 	rdfs:subClassOf schola:CommentaryForm.
 
 schola:CommentaryLiteralExposition # ?
@@ -222,6 +226,24 @@ schola:hasRoleValue
 #	rdfs:comment """Relating a scholastic to a statement as reification of the relation between the scholastic and a reportator role he has."""@en;
 #	rdfs:subPropertyOf schola:hasRoleValue;
 #	knora-base:subjectClassConstraint schola:Scholastic;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
+
+#schola:hasReportator
+#	a owl:ObjectProperty;
+#	rdfs:label "has reportator"@en, "hat Reportator"@de;
+#	rdfs:comment """Relating a scholastic lecture to a scholastic who reported it."""@en;
+#	rdfs:domain schola:Lecture;
+#	rdfs:range schola:Scholastic;  
+#	rdfs:subPropertyOf knora-base:hasLinkTo;
+#	knora-base:subjectClassConstraint schola:Lecture;
+#	knora-base:objectClassConstraint schola:Scholastic.
+
+#schola:hasReportatorValue
+#	a owl:ObjectProperty;
+#	rdfs:label "has reportator - statement"@en, "hat Reportator - Festlegung"@de;
+#	rdfs:comment """Relating a scholastic lecture to a statement as reification of the relation between the lecture and a scholastic who reported it."""@en;
+#	rdfs:subPropertyOf knora-base:hasLinkToValue;
+#	knora-base:subjectClassConstraint schola:Lecture;
 #	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:hasCommentaryMethod

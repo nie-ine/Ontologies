@@ -3,12 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/kuno-raeber-gui>.
-@prefix kuno-raeber-gui: <http://www.knora.org/ontology/kuno-raeber-gui#>.
+@base <http://www.knora.org/ontology/004E/kuno-raeber-gui>.
+@prefix kuno-raeber-gui: <http://www.knora.org/ontology/004E/kuno-raeber-gui#>.
 
-<http://www.knora.org/ontology/kuno-raeber-gui> a owl:Ontology;
+<http://www.knora.org/ontology/004E/kuno-raeber-gui> a owl:Ontology;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/kuno-raeber-gui>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/004E>.
 
 # Just needed for search due to limits of the implementation of Semantic Web technology (SPARQL) in Knora1(?)
 

@@ -6,26 +6,26 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://www.knora.org/ontology/physical-resource#>.
-@prefix event: <http://www.knora.org/ontology/event#>.
-@prefix human: <http://www.knora.org/ontology/human#>.
-@prefix concept: <http://www.knora.org/ontology/concept#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
-@prefix device: <http://www.knora.org/ontology/device#>.
+@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix device: <http://www.knora.org/ontology/0045/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/information-carrier>.
-@prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
+@base <http://www.knora.org/ontology/004C/information-carrier>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 
-<http://www.knora.org/ontology/information-carrier>
+<http://www.knora.org/ontology/004C/information-carrier>
 	a owl:Ontology;
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/information-carrier>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/004C>.
 
 #
 # CLASSES
@@ -86,6 +86,18 @@ infocar:Volume
 	rdfs:subClassOf infocar:Book, [
 		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+infocar:Printing
+	a owl:Class;
+	rdfs:label "printing"@en, "Drucken"@de;
+	rdfs:comment """Action of putting an expression on a carrier, e.g. with ink on paper."""@en;
+	rdfs:subClassOf human:Action, frbroo:F32_Carrier_Production_Event.
+
+infocar:Printer
+	a owl:Class;
+	rdfs:label "printer"@en, "Drucker"@de;
+	rdfs:comment """Role of an agent - person or organization - printing an expression."""@en;
+	rdfs:subClassOf human:AgentRole.
+
 infocar:Print
 	a owl:Class;
 	rdfs:label "print"@en, "Druck"@de;
@@ -106,12 +118,6 @@ infocar:FirstPrint
 	rdfs:label "first print"@en, "Erstdruck"@de;
 	rdfs:comment """Earliest print of a tex expression."""@en;
 	rdfs:subClassOf infocar:Carrier.
-
-infocar:Printer
-	a owl:Class;
-	rdfs:label "printer"@en, "Drucker"@de;
-	rdfs:comment """Role of a person printing a text."""@en;
-	rdfs:subClassOf human:Role.
 
 infocar:Archive
 	a owl:Class;
@@ -216,10 +222,22 @@ infocar:Diary
 	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
+infocar:Sender
+	a owl:Class;
+	rdfs:label "sender"@en, "Sender"@de;
+	rdfs:comment """Role of a person sending information on a a carrier."""@en;
+	rdfs:subClassOf human:Role.
+
+infocar:Receiver
+	a owl:Class;
+	rdfs:label "receiver"@en, "Empfänger"@de;
+	rdfs:comment """Role of a person receiving information on a a carrier."""@en;
+	rdfs:subClassOf human:Role.
+
 infocar:Letter
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
-	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organisation(s) to another one, e.g. through a postal system."""@en;
+	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
 		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -248,7 +266,7 @@ infocar:Convolute
 	a owl:Class;
 	rdfs:label "convolute"@en, "Konvolut"@de;
 	rdfs:comment """information carriers, e.g. of drafts, manuscripts, typoscripts or prints, gathered as one."""@en;
-	rdfs:subClassOf human:Creation, cidoc:E78_Collection, [
+	rdfs:subClassOf human:PhysicalCreation, cidoc:E78_Collection, [
 		a owl:Restriction; owl:onProperty infocar:convoluteHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:convoluteHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -265,14 +283,14 @@ infocar:Convolute
 infocar:ElectronicCarrier #* data or information storage device
 	a owl:Class;
 	rdfs:label "electronic information carrier"@en,"elektronischer Informationsträger"@de;
-	rdfs:comment """Electronic device carrying information."""@en;
+	rdfs:comment """Electronic machine carrying electronic information."""@en;
 	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
 
 infocar:ElectronicDocument
 	a owl:Class;
 	rdfs:label "electronic document"@en,"elektronisches Dokument"@de;
 	rdfs:comment """Document stored as electronic information."""@en;
-	rdfs:subClassOf infocar:ElectronicData.
+	rdfs:subClassOf knora-base:Resource. # infocar:ElectronicData.
 
 infocar:ElectronicBook
 	a owl:Class;
@@ -295,20 +313,20 @@ infocar:carrierHasDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-infocar:isOnCarrier #*
+infocar:isOnCarrier
 	a owl:ObjectProperty;
 	rdfs:label "is on carrier"@en, "ist auf Träger"@de;
-	rdfs:comment "Relating an expression to an information carrier it is on."@en;
+	rdfs:comment "Relating information to a carrier it is on."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint concept:Expression; #* -> information
+	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint infocar:Carrier.
 
 infocar:isOnCarrierValue
 	a owl:ObjectProperty;
 	rdfs:label "is on carrier - statement"@en, "ist auf Träger - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and an information carrier it is on."@en;
+	rdfs:comment "Relating information to a reification statement of the relation between the information and a carrier it is on."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint concept:Expression;
+	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:isWrittenWith
@@ -533,7 +551,7 @@ infocar:isInLetterValue
 infocar:hasSender
 	a owl:ObjectProperty;
 	rdfs:label "has sender"@en, "hat Absender"@de;
-	rdfs:comment """Relating something to a person who sent it."""@en; #* or an Organisation -> foaf:Agent
+	rdfs:comment """Relating something to a person who sent it."""@en; #* or an Organization -> foaf:Agent
 	rdfs:domain knora-base:Resource; #*
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Sender]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -551,7 +569,7 @@ infocar:hasSenderValue
 infocar:hasReceiver
 	a owl:ObjectProperty;
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
-	rdfs:comment """Relating something to a person who received it."""@en; #* or an Organisation -> foaf:Agent
+	rdfs:comment """Relating something to a person who received it."""@en; #* or an Organization -> foaf:Agent
 	rdfs:domain knora-base:Resource; #*
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Receiver]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;

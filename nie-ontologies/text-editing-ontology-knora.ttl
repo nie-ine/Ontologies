@@ -42,10 +42,10 @@ textedit:Derivative #*
 		a owl:Restriction; owl:onProperty textedit:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:Edition # can be on >= 1 carrier
+textedit:Edition
 	a owl:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de; # Lesetext subClassOf
-	rdfs:comment """Changed form of a text expression as a result of editing."""@en; #* drop expression?
+	rdfs:comment """Changed text expression as a result of editing."""@en; #* drop expression?
 	rdfs:subClassOf textedit:Derivative.
 
 textedit:Editor
@@ -68,11 +68,27 @@ textedit:Glossator #* -> scholastic?
 
 textedit:Abbreviator #* -> scholastic?
 	a owl:Class;
-	rdfs:label "abbreviator"@la, "abbreviator"@en, "Abkürzer"@de;
+	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la;
 	rdfs:comment """Editor shortening a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
-# genetic edition: description of edition of another
+textedit:Abbreviation
+	a owl:Class;
+	rdfs:label "abbreviation"@en, "Kurzfassung"@de, "abbreviatio"@la;
+	rdfs:comment """Shortened edition."""@en;
+	rdfs:subClassOf textedit:Edition.
+
+textedit:Paraphrase
+	a owl:Class;
+	rdfs:label "paraphrase"@en, "Paraphrase"@de;
+	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
+	rdfs:subClassOf textedit:Edition.
+
+textedit:LiteralExposition
+	a owl:Class;
+	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de;
+	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
+	rdfs:subClassOf textedit:Edition.
 
 textedit:DiplomaticTranscription
 	a owl:Class;
@@ -98,20 +114,31 @@ textedit:CriticalEdition
 textedit:GeneticEdition
 	a owl:Class;
 	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
-	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
+	rdfs:comment """Critical edition accounting for the modifications by the author."""@en; #*
 	rdfs:subClassOf textedit:CriticalEdition.
 
 textedit:CriticalApparatus
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparatus criticus"@la;
-	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en; #* more than note
-	rdfs:subClassOf text:Expression #, [
+	rdfs:comment """Note to a critical text edition providing information of a textual version."""@en;
+	rdfs:subClassOf text-structure:ContentStructure #, [
 #		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:NoteStructure], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+#*		a owl:Restriction; owl:onProperty text-structure:hasLemma; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#*		a owl:Restriction; owl:onProperty text-structure:hasLemmaValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
+
+#*textedit:Lemma #* structure, but specific for scientific editing?
+#	a owl:Class;
+#	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@it;
+#*	rdfs:comment """Part of a critical text edition to which a note applies Note to a critical text edition providing information of a textual version."""@en;
+#	rdfs:subClassOf text-structure:ContentStructure. # textedit:Reading ?
+#	partOfCriticalApparatus
+
+#* RLP: rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
 
 # apparatus has format:
 # eg.
@@ -132,12 +159,6 @@ textedit:Reading #* bound to certain period?
 	rdfs:label "reading"@en, "Textinterpretation"@de, "lezione"@it, "lectio"@la; #*
 	rdfs:comment """Reading of the text in one given witness."""@en; #* text? # spezifische Interpretation eines Textes
 	rdfs:subClassOf text:Expression. #*
-
-textedit:Lemma #* structure, but specific for editing?
-	a owl:Class;
-	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@it;
-	rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
-	rdfs:subClassOf textedit:Reading. #* -> part of OR unit of CA
 
 #* (oder Stichwort) ist in der Editionswissenschaft das Wort im Haupttext, auf welches sich die Anmerkung oder der textkritische Apparat eines Kommentars bezieht
 
@@ -386,7 +407,7 @@ textedit:hasApparatus
 	rdfs:comment """Relating a critical edition to its apparatus."""@en;
 	rdfs:domain textedit:CriticalEdition;
 	rdfs:range textedit:CriticalApparatus;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf text-structure:hasStructure; #*
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint textedit:CriticalApparatus.
 
@@ -394,7 +415,7 @@ textedit:hasApparatusValue
 	a owl:ObjectProperty;
 	rdfs:label "has apparatus - statement"@en, "hat Apparat - Festlegung"@de;
 	rdfs:comment """Relating a critical edition to a reification statement of the relation between the edition and its apparatus."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf text-structure:hasStructureValue; #*
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

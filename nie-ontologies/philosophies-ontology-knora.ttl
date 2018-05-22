@@ -27,7 +27,7 @@ philos:Albertism
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0052/philosophies#>;
 	rdfs:label "Albertism"@en;
 	rdfs:comment """Theological ideas of Albertus Magnus, 13th-century German Scholastic philosopher."""@en; #*
-	rdfs:subClassOf philo:Philosophy.
+	rdfs:subClassOf philo:Philosophy. # :Theology
 
 philos:Humanism
 	a owl:Class;
@@ -54,8 +54,8 @@ philos:Thomism
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0052/philosophies#>;
 	rdfs:label "Thomism"@en;
-	rdfs:comment """."""@en; #*
-	rdfs:subClassOf philo:Philosophy.
+	rdfs:comment """Phylosophy base on the work of Thomas Aquinas (1225 - 1274-O3-O7)."""@en;
+	rdfs:subClassOf philo:Philosophy. # :Theology
 
 #* Averroes?
 #* Augustinus? - Augustinianism - Augustine of Hippo

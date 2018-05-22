@@ -106,6 +106,12 @@ send "load ../_test_data/ontologies/text-editing-ontology-knora.ttl into http://
 expect $prompt
 send "load ../_test_data/ontologies/text-structure-ontology-knora.ttl into http://www.knora.org/ontology/005B/text-structure .\r"
 expect $prompt
+send "load ../_test_data/ontologies/document-ontology-knora.ttl into http://www.knora.org/ontology/005C/document .\r"
+expect $prompt
+send "load ../_test_data/ontologies/linguistics-ontology-knora.ttl into http://www.knora.org/ontology/005D/linguistics .\r"
+expect $prompt
+send "load ../_test_data/ontologies/logic-ontology-knora.ttl into http://www.knora.org/ontology/005E/logic .\r"
+expect $prompt
 send "load ../_test_data/ontologies/test-ontology-knora.ttl into http://www.knora.org/ontology/005F/test .\r"
 expect $prompt
 send "close .\r"

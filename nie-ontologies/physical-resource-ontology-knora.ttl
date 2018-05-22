@@ -106,11 +106,12 @@ physical:Matter
 	rdfs:label "matter"@en, "Materie"@de;
 	rdfs:comment """Physical resource having mass and volume."""@en;
 	skos:note """As in classical physics observed in everyday life."""@en;
-	rdfs:subClassOf physical:Space, dct:PhysicalResource, [
-		a owl:Restriction; owl:onProperty physical:hasSize; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasSizeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLength; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLengthValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Space, dct:PhysicalResource #, [
+#		a owl:Restriction; owl:onProperty physical:hasSize; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasSizeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasLength; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasLengthValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+		.
 
 physical:Compound
 	a owl:Class;

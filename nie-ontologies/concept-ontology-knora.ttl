@@ -66,7 +66,7 @@ concept:PropositionalConcept
 	a owl:Class;
 	rdfs:label "propositional concept"@en, "propositionales Konzept"@de;
 	rdfs:comment """Concept represented by a statement bearing a truth value, e.g. a judgement or opinion."""@en; #*
-	skos:note """Different from a linguisitc proposition."""@en;
+	skos:note """Different from a linguistic proposition."""@en;
 	rdfs:subClassOf concept:Concept, cidoc:E89_Propositional_Object.
 
 concept:ThoughtBody #* related to belief system related to school of thought related to theory
@@ -178,7 +178,7 @@ concept:Expression
 #
 
 concept:isPartOf
-	a owl:ObjectProperty; #, owl:TransitiveProperty;
+	a owl:ObjectProperty, owl:TransitiveProperty;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a symbolic concept to another one it is part of."@en;
 	rdfs:domain concept:SymbolicConcept;

@@ -72,13 +72,13 @@ text-structure:ReadabilityStructure
 text-structure:ProsodicStructure
 	a owl:Class;
 	rdfs:label "prosodic text structure"@en, "prosodische Textstruktur"@de;
-	rdfs:comment """Text structure depending on prosody, i.e. metre as basic rhythmic structure, rhyme and syllable."""@en;
-	rdfs:subClassOf text-structure:Structure.
+	rdfs:comment """Text structure depending on prosody, i.e. metre as basic rhythmic structure, syllable, and possibly rhyme."""@en;
+	rdfs:subClassOf text-structure:ContentStructure.
 
 text-structure:Word
 	a owl:Class;
 	rdfs:label "word"@en, "Wort"@de;
-	rdfs:comment """Smallest independent syntactic and semantic unit."""@en;
+	rdfs:comment """Smallest independent syntactic and semantic unit composed of symbols."""@en;
 	skos:note """A morpheme is not independent."""@en;
 	rdfs:subClassOf text-structure:SyntacticStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isPartOfSentence; owl:allValuesFrom text-structure:Sentence], [
@@ -105,30 +105,6 @@ text-structure:Sentence
 
 # text-structure:WrittenSentence: orthographic element: one or more words starting with a capital letter and ending in a full stop or period, question mark, or exclamation mark
 
-text-structure:Note
-	a owl:Class;
-	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
-	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being syntactically correct; e.g. a first quick registration of thought."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure.
-
-text-structure:Marginalia #* SCO concept:Marginalia
-	a owl:Class;
-	rdfs:label "marginalia"@en, "Marginalien"@de;
-	rdfs:comment """Notes written besides a text in the margin of a carrier."""@en;
-	rdfs:subClassOf text:WrittenText, text-structure:Note.
-
-text-structure:InterlinearNote
-	a owl:Class;
-	rdfs:label "interlinear note"@en, "interlineare Notiz"@de;
-	rdfs:comment """Note written between text lines."""@en;
-	rdfs:subClassOf text:WrittenText, text-structure:Note.
-
-text-structure:Gloss
-	a owl:Class;
-	rdfs:label "gloss"@en, "Glosse"@de;
-	rdfs:comment """Explanatory interlinear or marginal note."""@en;
-	rdfs:subClassOf text-structure:Marginalia, text-structure:InterlinearNote.
-
 text-structure:Prose
 	a owl:Class;
 	rdfs:label "prose"@en, "Prosa"@de;
@@ -141,7 +117,7 @@ text-structure:Prose
 text-structure:Paragraph
 	a owl:Class;
 	rdfs:label "paragraph"@en, "Paragraf"@de;
-	rdfs:comment """Group of sentences ending with a line break."""@en;
+	rdfs:comment """Group of sentences ending with a line break."""@en; #*
 	rdfs:subClassOf text-structure:ContentStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isPartOfSection; owl:allValuesFrom text:Section], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -152,13 +128,13 @@ text-structure:Section
 	rdfs:label "section"@en, "Textabschnitt"@de;
 	rdfs:comment """Part of a text, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:ContentStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isPartOfText; owl:allValuesFrom text:Section], [
+#		a owl:Restriction; owl:onProperty text-structure:sectionIsPartOfText; owl:allValuesFrom text:Section], [
 		a owl:Restriction; owl:onProperty text-structure:sectionIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:sectionIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:sectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:sectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text-structure:Table # tableHasTitle, tableHasField, tableHasRow, tableHasColumn
+text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn # NOT ONLY text?
 	a owl:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields being part of a vertical column and a horizontal row, both with own identifier."""@en;
@@ -207,7 +183,7 @@ text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;
 	rdfs:comment """Text line with prosody."""@en;
-	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, text-structure:ContentStructure, [
+	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
 #		a owl:Restriction; owl:onProperty text-structure:isPartOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
 		a owl:Restriction; owl:onProperty text-structure:isPartOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -219,7 +195,7 @@ text-structure:Strophe # OR stanza OR verse - Vers
 	rdfs:label "strophe"@en, "Strophe"@de;
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
-	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:ContentStructure, [
+	rdfs:subClassOf text-structure:ProsodicStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
 		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -227,7 +203,7 @@ text-structure:Strophe # OR stanza OR verse - Vers
 text-structure:Hemistich
 	a owl:Class;
 	rdfs:label "hemistich"@en, "Hemistich"@de;
-	rdfs:comment """Half of a strophe."""@en;
+	rdfs:comment """Half a strophe."""@en;
 	rdfs:subClassOf text-structure:Strophe.
 
 text-structure:FreeVerse
@@ -236,7 +212,8 @@ text-structure:FreeVerse
 	rdfs:comment """Verse without a fixed prosody."""@en; #*
 	rdfs:subClassOf text-structure:Verse.
 
-#* text-structure:FixedVerse
+#* text-structure:FixedVerse and SC
+# different meters
 
 text-structure:RhymingVerse
 	a owl:Class;
@@ -248,10 +225,46 @@ text-structure:RhythmicProse
 	a owl:Class;
 	rdfs:label "rhythmic prose"@en, "rhythmische Prosa"@de;
 	rdfs:comment """Prose structure with a meter."""@en; #*
-#	skos:note """Structure of a prose poem."""@en; #*
 	rdfs:subClassOf text-structure:Prose.
 
 # dialogical/theater: direct speech, captions?
+
+text-structure:Note
+	a owl:Class;
+	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
+	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being syntactically correct; e.g. a first quick registration of thought."""@en;
+	rdfs:subClassOf text-structure:ContentStructure.
+
+text-structure:Marginalia #* SCO document:Marginalia
+	a owl:Class;
+	rdfs:label "marginalia"@en, "Marginalien"@de;
+	rdfs:comment """Notes written besides a text in the margin of a carrier."""@en;
+	rdfs:subClassOf text:WrittenText, text-structure:Note.
+
+text-structure:InterlinearNote
+	a owl:Class;
+	rdfs:label "interlinear note"@en, "interlineare Notiz"@de;
+	rdfs:comment """Note written between text lines."""@en;
+	rdfs:subClassOf text:WrittenText, text-structure:Note.
+
+text-structure:Gloss
+	a owl:Class;
+	rdfs:label "gloss"@en, "Glosse"@de;
+	rdfs:comment """Explanatory interlinear or marginal note."""@en;
+	rdfs:subClassOf text:WrittenText, text-structure:Note.
+#	owl:disjointUnionOf (text-structure:Marginalia, text-structure:InterlinearNote).
+
+text-structure:MarginalGloss
+	a owl:Class;
+	rdfs:label "marginal gloss"@en, "marginale Glosse"@de;
+	rdfs:comment """Gloss as a marginal note."""@en;
+	rdfs:subClassOf text-structure:Gloss, text-structure:Marginalia.
+
+text-structure:InterlinearGloss
+	a owl:Class;
+	rdfs:label "interlinear gloss"@en, "interlineare Glosse"@de;
+	rdfs:comment """Gloss as an interlinear note."""@en;
+	rdfs:subClassOf text-structure:Gloss, text-structure:InterlinearNote.
 
 text-structure:Letter
 	a owl:Class;
@@ -315,78 +328,6 @@ text-structure:hasWordValue
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text-structure:hasSentence
-	a owl:ObjectProperty;
-	rdfs:label "has sentence"@en, "hat Satz"@de;
-	rdfs:comment """Relating a text expression to a sentence it contains."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Sentence;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Sentence.
-
-text-structure:hasSentenceValue
-	a owl:ObjectProperty;
-	rdfs:label "has sentence - statement"@en, "hat Satz - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a sentence it contains."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text-structure:hasParagraph
-	a owl:ObjectProperty;
-	rdfs:label "has paragraph"@en, "hat Paragraf"@de;
-	rdfs:comment """Relating a text expression to a paragraph it contains."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Paragraph;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Paragraph.
-
-text-structure:hasParagraphValue
-	a owl:ObjectProperty;
-	rdfs:label "has paragraph - statement"@en, "hat Paragraf - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a paragraph it contains."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text-structure:hasSection
-	a owl:ObjectProperty;
-	rdfs:label "has section"@en, "hat Textabschnitt"@de;
-	rdfs:comment """Relating a text expression to a section it contains."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Section;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Section.
-
-text-structure:hasSectionValue
-	a owl:ObjectProperty;
-	rdfs:label "has section - statement"@en, "hat Textabschnitt - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a section it contains."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text-structure:hasProse
-	a owl:ObjectProperty;
-	rdfs:label "has prose"@en, "hat Prosa"@de;
-	rdfs:comment """Relating a text expression to prose it contains."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Prose;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Prose.
-
-text-structure:hasProseValue
-	a owl:ObjectProperty;
-	rdfs:label "has prose - statement"@en, "hat Prosa - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and prose it contains."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
 text-structure:hasLine
 	a owl:ObjectProperty;
 	rdfs:label "has line"@en, "hat Zeile"@de;
@@ -417,7 +358,7 @@ text-structure:hasLineNumber
 text-structure:hasColumn
 	a owl:ObjectProperty;
 	rdfs:label "has column"@en, "hat Spalte"@de;
-	rdfs:comment """Relating a text expression to a column it contains."""@en;
+	rdfs:comment """Relating a text expression to a column it has."""@en;
 	rdfs:domain text:Expression;
 	rdfs:range text-structure:Column;
 	rdfs:subPropertyOf text-structure:hasStructure;
@@ -427,7 +368,7 @@ text-structure:hasColumn
 text-structure:hasColumnValue
 	a owl:ObjectProperty;
 	rdfs:label "has column - statement"@en, "hat Spalte - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a column it contains."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a column it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -435,7 +376,7 @@ text-structure:hasColumnValue
 text-structure:hasPage
 	a owl:ObjectProperty;
 	rdfs:label "has page structure"@en, "hat Seitestruktur"@de;
-	rdfs:comment """Relating a text expression to a page structure it contains."""@en;
+	rdfs:comment """Relating a text expression to a page structure it has."""@en;
 	rdfs:domain text:Expression;
 	rdfs:range text-structure:Page;
 	rdfs:subPropertyOf text-structure:hasStructure;
@@ -445,12 +386,102 @@ text-structure:hasPage
 text-structure:hasPageValue
 	a owl:ObjectProperty;
 	rdfs:label "has page - statement"@en, "hat Seite - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a page structure it contains."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a page structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text-structure:IsPartOfText
+text-structure:hasTable
+	a owl:ObjectProperty;
+	rdfs:label "has table structure"@en, "hat Tabellestruktur"@de;
+	rdfs:comment """Relating a text expression to a table structure it has."""@en;
+	rdfs:domain text:Expression;
+	rdfs:range text-structure:Table;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint text-structure:Table.
+
+text-structure:hasTableValue
+	a owl:ObjectProperty;
+	rdfs:label "has table structure - statement"@en, "hat Tabellestruktur - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a table structure it has."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasSentence
+	a owl:ObjectProperty;
+	rdfs:label "has sentence"@en, "hat Satz"@de;
+	rdfs:comment """Relating a sentence expression to a sentence it contains."""@en;
+	rdfs:domain text:SentenceExpression;
+	rdfs:range text-structure:Sentence;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint text-structure:Sentence.
+
+text-structure:hasSentenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has sentence - statement"@en, "hat Satz - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a sentence it contains."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasParagraph
+	a owl:ObjectProperty;
+	rdfs:label "has paragraph"@en, "hat Paragraf"@de;
+	rdfs:comment """Relating a text expression to a paragraph it contains."""@en;
+	rdfs:domain text:SentenceExpression;
+	rdfs:range text-structure:Paragraph;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint text-structure:Paragraph.
+
+text-structure:hasParagraphValue
+	a owl:ObjectProperty;
+	rdfs:label "has paragraph - statement"@en, "hat Paragraf - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a paragraph it contains."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasSection
+	a owl:ObjectProperty;
+	rdfs:label "has section"@en, "hat Textabschnitt"@de;
+	rdfs:comment """Relating a text expression to a section it contains."""@en;
+	rdfs:domain text:SentenceExpression;
+	rdfs:range text-structure:Section;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint text-structure:Section.
+
+text-structure:hasSectionValue
+	a owl:ObjectProperty;
+	rdfs:label "has section - statement"@en, "hat Textabschnitt - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a section it contains."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasProse
+	a owl:ObjectProperty;
+	rdfs:label "has prose"@en, "hat Prosa"@de;
+	rdfs:comment """Relating a text expression to prose it contains."""@en;
+	rdfs:domain text:SentenceExpression;
+	rdfs:range text-structure:Prose;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint text-structure:Prose.
+
+text-structure:hasProseValue
+	a owl:ObjectProperty;
+	rdfs:label "has prose - statement"@en, "hat Prosa - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and prose it contains."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:SentenceExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isPartOfText
 	a owl:ObjectProperty;
 	rdfs:label "is part of text"@en, "ist Teil eines Textes"@de;
 	rdfs:comment """Relating a text structure to a text it is part of."""@en;
@@ -460,7 +491,7 @@ text-structure:IsPartOfText
 	knora-base:subjectClassConstraint text-structure:Structure;
 	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
-text-structure:IsPartOfTextValue
+text-structure:isPartOfTextValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of text - statement"@en, "ist Teil eines Textes - Festlegung"@de;
 	rdfs:comment """Relating a text structure to a reification statement of the relation between the text structure and a text it is part of."""@en;
@@ -474,7 +505,7 @@ text-structure:isPartOfSentence
 	rdfs:comment """Relating a word to a sentence it is part of."""@en;
 	rdfs:domain text-structure:Word;
 	rdfs:range text-structure:Sentence;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint text-structure:Sentence.
 
@@ -482,7 +513,7 @@ text-structure:isPartOfSentenceValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of sentence - statement"@en, "ist Teil eines Satzes - Festlegung"@de;
 	rdfs:comment """Relating a word to a reification statement of the relation between the word and a sentence it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -492,7 +523,7 @@ text-structure:isPartOfParagraph
 	rdfs:comment """Relating a sentence to a paragraph it is part of."""@en;
 	rdfs:domain text-structure:Sentence;
 	rdfs:range text-structure:Paragraph;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Sentence;
 	knora-base:objectClassConstraint text-structure:Paragraph.
 
@@ -500,7 +531,7 @@ text-structure:isPartOfParagraphValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of paragraph - statement"@en, "ist Teil eines Paragrafen - Festlegung"@de;
 	rdfs:comment """Relating a sentence to a reification statement of the relation between the sentence and a paragraph it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Sentence;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -510,7 +541,7 @@ text-structure:isPartOfProse
 	rdfs:comment """Relating a sentence to a prose it is part of."""@en;
 	rdfs:domain text-structure:Sentence;
 	rdfs:range text-structure:Prose;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Sentence;
 	knora-base:objectClassConstraint text-structure:Prose.
 
@@ -518,7 +549,7 @@ text-structure:isPartOfProseValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of prose - statement"@en, "ist Teil einer Prosa - Festlegung"@de;
 	rdfs:comment """Relating a sentence to a reification statement of the relation between the sentence and a prose it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Sentence;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -528,7 +559,7 @@ text-structure:proseIsPartOfText
 	rdfs:comment """Relating a prose to a text it is part of."""@en;
 	rdfs:domain text-structure:Prose;
 	rdfs:range language:HumanNaturalLanguageExpression;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Prose;
 	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
@@ -536,7 +567,7 @@ text-structure:proseIsPartOfTextValue
 	a owl:ObjectProperty;
 	rdfs:label "prose is part of text - statement"@en, "Prosa ist Teil eines Textes - Festlegung"@de;
 	rdfs:comment """Relating a prose to a reification statement of the relation between the prose and a text it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Prose;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -546,7 +577,7 @@ text-structure:isPartOfSection
 	rdfs:comment """Relating a paragraph to a section it is part of."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range text-structure:Section;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint text-structure:Section.
 
@@ -554,7 +585,7 @@ text-structure:isPartOfSectionValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of section - statement"@en, "ist Teil eines Textabschnittes - Festlegung"@de;
 	rdfs:comment """Relating a paragraph to a reification statement of the relation between the paragraph and a section it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -564,7 +595,7 @@ text-structure:sectionIsPartOfText
 	rdfs:comment """Relating a section to a text it is part of."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range language:HumanNaturalLanguageExpression;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Section;
 	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
@@ -572,7 +603,7 @@ text-structure:sectionIsPartOfTextValue
 	a owl:ObjectProperty;
 	rdfs:label "section is part of text - statement"@en, "Textabschnitt ist Teil eines Textes - Festlegung"@de;
 	rdfs:comment """Relating a section to a reification statement of the relation between the section and a text it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Section;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -603,7 +634,7 @@ text-structure:isPartOfColumn
 	rdfs:comment """Relating a text line to a column it is part of."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range text-structure:Column;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Line;
 	knora-base:objectClassConstraint text-structure:Column.
 
@@ -611,7 +642,7 @@ text-structure:isPartOfColumnValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of column - statement"@en, "ist Teil einer Spalte - Festlegung"@de;
 	rdfs:comment """Relating a text line to a reification statement of the relation between the line and a column it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Line;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -621,7 +652,7 @@ text-structure:isPartOfPage
 	rdfs:comment """Relating a text column to a page it is part of."""@en;
 	rdfs:domain text-structure:Column;
 	rdfs:range text-structure:Page;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Column;
 	knora-base:objectClassConstraint text-structure:Page.
 
@@ -629,7 +660,7 @@ text-structure:isPartOfPageValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of page - statement"@en, "ist Teil einer Seite - Festlegung"@de;
 	rdfs:comment """Relating a text column to a reification statement of the relation between the column and a page it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Column;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -639,7 +670,7 @@ text-structure:pageIsPartOfText
 	rdfs:comment """Relating a text page to a text it is part of."""@en;
 	rdfs:domain text-structure:Page;
 	rdfs:range language:HumanNaturalLanguageExpression;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Page;
 	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
@@ -647,7 +678,7 @@ text-structure:pageIsPartOfTextValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of text - statement"@en, "ist Teil eines Textes - Festlegung"@de;
 	rdfs:comment """Relating a text page to a reification statement of the relation between the page and a text it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -657,7 +688,7 @@ text-structure:isPartOfLine
 	rdfs:comment """Relating a word to a line it is part of."""@en;
 	rdfs:domain text-structure:Word;
 	rdfs:range text-structure:Line;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint text-structure:Line.
 
@@ -665,7 +696,7 @@ text-structure:isPartOfLineValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of line - statement"@en, "ist Teil einer Zeile - Festlegung"@de;
 	rdfs:comment """Relating a word to a reification statement of the relation between the word and a line it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -693,7 +724,7 @@ text-structure:isPartOfStrophe
 	rdfs:comment """Relating a verse to a strophe it is part of."""@en;
 	rdfs:domain text-structure:Verse;
 	rdfs:range text-structure:Strophe;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint text-structure:Strophe.
 
@@ -701,7 +732,7 @@ text-structure:isPartOfStropheValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of strophe - statement"@en, "ist Teil einer Strophe - Festlegung"@de;
 	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a strophe it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -711,7 +742,7 @@ text-structure:stropheIsPartOfText
 	rdfs:comment """Relating a strophe to a text it is part of."""@en;
 	rdfs:domain text-structure:Strophe;
 	rdfs:range language:HumanNaturalLanguageExpression;
-	rdfs:subPropertyOf text-structure:IsPartOfText;
+	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
@@ -719,7 +750,7 @@ text-structure:stropheIsPartOfTextValue
 	a owl:ObjectProperty;
 	rdfs:label "strophe is part of text - statement"@en, "Strophe ist Teil eines Textes - Festlegung"@de;
 	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a text it is part of."""@en;
-	rdfs:subPropertyOf text-structure:IsPartOfTextValue;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -738,6 +769,24 @@ text-structure:hasNoteStructureValue
 	rdfs:label "has note structure - statement"@en, "hat Notizstruktur - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a note structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasGloss
+	a owl:ObjectProperty;
+	rdfs:label "has gloss"@en, "hat Glosse"@de;
+	rdfs:comment """Relating a text expression to a gloss it has."""@en;
+	rdfs:domain text:Expression;
+	rdfs:range text-structure:Gloss;
+	rdfs:subPropertyOf text-structure:hasNoteStructure;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint text-structure:Gloss.
+
+text-structure:hasGlossValue
+	a owl:ObjectProperty;
+	rdfs:label "has gloss - statement"@en, "hat Glosse - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text expression and a gloss it has."""@en;
+	rdfs:subPropertyOf text-structure:hasNoteStructureValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

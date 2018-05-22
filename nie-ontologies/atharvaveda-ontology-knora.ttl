@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
@@ -23,3 +24,15 @@
 # CLASSES
 #
 
+# apparatus has format:
+# location of version in text
+# lemma: part of text
+# symbol
+# source
+# list of variants + source: if frequently cited: abbreviated with a siglum
+
+athar:CriticalApparatus
+	a owl:Class;
+	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
+	rdfs:comment """Critical apparatus used in the Atharvaveda project at the Zürich University 2018."""@en;
+	rdfs:subClassOf textedit:CriticalApparatus.

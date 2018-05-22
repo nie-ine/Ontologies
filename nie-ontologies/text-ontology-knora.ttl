@@ -37,6 +37,33 @@
 # CLASSES
 #
 
+text:WrittenText
+	a owl:Class;
+	rdfs:label "written text"@en, "geschriebener Text"@de;
+	rdfs:comment """Text written by any method, e.g. manually, with an analogue or digital typewriter, or on a computer, abstracted from its carrier."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
+		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isWrittenWithValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:HandwrittenText
+	a owl:Class;
+	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de;
+	rdfs:comment """Text written by hand."""@en;
+	rdfs:subClassOf text:WrittenText, [
+		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:TypewrittenText
+	a owl:Class;
+	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de;
+	rdfs:comment """Text written with a typewriter."""@en;
+	rdfs:subClassOf text:WrittenText, [
+		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
+#		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
+
+# text:Print: printed text abstracted from its carrier
+
 text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de;
@@ -57,21 +84,20 @@ text:Expression
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasWord; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasWordValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasSentence; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasSentenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasParagraph; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasParagraphValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLine; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLineValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # -> concept
 		a owl:Restriction; owl:onProperty text-structure:hasColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [  # -> concept
 		a owl:Restriction; owl:onProperty text-structure:hasPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasTable; owl:minCardinality "0"^^xsd:nonNegativeInteger], [  # -> concept
+		a owl:Restriction; owl:onProperty text-structure:hasTableValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasNoteStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasNoteStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasGloss; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasGlossValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		#*
 		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -108,38 +134,25 @@ text:Copyist #* -> scholastic?
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
 
-text:Translator #* SC in scholastic: handwriting?
+text:Translator
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
-	rdfs:comment """Role of a person translating text by writing."""@en;
+	rdfs:comment """Role of a person translating text by writing or printing."""@en;
 	rdfs:subClassOf language:PersonTranslator, human:Creator.
 
-text:WrittenText
+text:SentenceExpression
 	a owl:Class;
-	rdfs:label "written text"@en, "geschriebener Text"@de;
-	rdfs:comment """Text written by any method, e.g. manually, with an analogue or digital typewriter, or on a computer, abstracted from its carrier."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
-		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isWrittenWithValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:HandwrittenText
-	a owl:Class;
-	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de;
-	rdfs:comment """Text written by hand."""@en;
-	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:TypewrittenText
-	a owl:Class;
-	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de;
-	rdfs:comment """Text written with a typewriter."""@en;
-	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
-#		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
-
-# text:Print: printed text abstracted from its carrier
+	rdfs:label "sentence expression"@en, "Satz-Expression"@de;
+	rdfs:comment """Text expression with sentence structure."""@en;
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty text-structure:hasSentence; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSentenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasParagraph; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasParagraphValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:DiaryEntry
 	a owl:Class;

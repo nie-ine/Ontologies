@@ -1,0 +1,109 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+@base <http://www.knora.org/ontology/005D/linguistics>.
+@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
+
+<http://www.knora.org/ontology/005D/linguistics>
+	a owl:Ontology;
+	dct:title "An ontology about language"@en;
+	dct:description """Formal description of linguistics, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/005D>.
+
+
+# EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements
+
+
+#
+# CLASSES
+#
+
+# speech act: see J. L. Austin
+	# speaker: locutionary, illocutionary: utterance
+	# listener: perlocutionary
+
+# ~ sentence
+
+# locutionary act: utterance - with phonetic, phatic, rhetic acts - in sentence with syntax, semantics
+# phonetic: production of sounds
+# phatic: language used for general purposes of social interaction, grammatically arranged words
+# rhetic: having the semantic properties of sense and reference
+
+# illocutionary act: promising/promise, commanding/command
+
+ling:Statement
+	a owl:Class;
+	rdfs:label "statement"@en, "Aussage"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+# ling:Description
+
+# ling:Classification
+
+# ling:Explanation
+
+# ling:Declaration
+
+# commanding
+
+ling:Command
+	a owl:Class;
+	rdfs:label "command"@en, "Befehl"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+#	:hasSpeechAct
+
+# ordering: Directing or commissioning to make, provide, or furnish something
+# order: Direction or commission to make, provide, or furnish something, as output of ordering
+
+ling:Promise
+	a owl:Class;
+	rdfs:label "promise"@en, "Versprechen"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+ling:Question
+	a owl:Class;
+	rdfs:label "question"@en, "Frage"@de;
+	rdfs:comment """Sentence eliciting information."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+# requesting: Asking for an action to be performed
+# request: question for an action to be performed, as output of requesting
+
+# evaluating: Examining with judging
+
+ling:Evaluation
+	a owl:Class;
+	rdfs:label "evaluation"@en, "Evaluation"@de;
+	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+# Word:
+# Genus
+# Comparison
+
+#
+# PROPERTIES
+#
+
+

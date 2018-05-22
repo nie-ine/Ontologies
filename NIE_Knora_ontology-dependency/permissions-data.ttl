@@ -381,7 +381,6 @@
                       knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser|V knora-base:UnknownUser" .
 
 
-
 #
 # Agent
 #
@@ -394,7 +393,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0040/009-a2>
@@ -402,7 +400,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0040>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -424,7 +421,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0041/010-a2>
@@ -432,7 +428,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0041>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -454,7 +449,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0042/011-a2>
@@ -462,7 +456,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0042>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -484,7 +477,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0043/012-a2>
@@ -492,7 +484,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0043>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -514,7 +505,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0044/013-a2>
@@ -522,7 +512,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0044>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -544,7 +533,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0045/014-a2>
@@ -552,7 +540,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0045>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -574,7 +561,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0046/015-a2>
@@ -582,7 +568,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0046>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -604,7 +589,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0047/016-a2>
@@ -612,7 +596,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0047>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -634,7 +617,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0048/017-a2>
@@ -642,7 +624,6 @@
 	knora-base:forProject <http://rdfh.ch/projects/0048>;
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -664,7 +645,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0049/018-a2>
@@ -672,7 +652,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0049>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -694,7 +673,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004A/019-a2>
@@ -702,7 +680,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004A>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -724,7 +701,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004B/020-a2>
@@ -732,7 +708,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004B>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -754,7 +729,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004C/021-a2>
@@ -762,7 +736,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004C>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -784,7 +757,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004D/022-a2>
@@ -792,7 +764,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004D>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -814,7 +785,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004E/023-a2>
@@ -822,7 +792,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004E>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -844,7 +813,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/004F/0024-a2>
@@ -852,7 +820,6 @@
   knora-base:forProject <http://rdfh.ch/projects/004F>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -874,7 +841,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0050/0025-a2>
@@ -882,7 +848,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0050>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -904,7 +869,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0051/0026-a2>
@@ -912,7 +876,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0051>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -934,7 +897,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0052/027-a2>
@@ -942,7 +904,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0052>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -964,7 +925,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0053/028-a2>
@@ -972,7 +932,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0053>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -994,7 +953,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0054/029-a2>
@@ -1002,7 +960,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0054>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1024,7 +981,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0055/030-a2>
@@ -1032,7 +988,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0055>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1054,7 +1009,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0056/031-a2>
@@ -1062,7 +1016,6 @@
 	knora-base:forProject <http://rdfh.ch/projects/0056>;
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1084,7 +1037,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0057/032-a2>
@@ -1092,7 +1044,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0057>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1114,7 +1065,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0058/033-a2>
@@ -1122,7 +1072,6 @@
 	knora-base:forProject <http://rdfh.ch/projects/0058>;
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1144,7 +1093,6 @@
   knora-base:forGroup knora-base:ProjectMember;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/0059/034-a2>
@@ -1152,7 +1100,6 @@
   knora-base:forProject <http://rdfh.ch/projects/0059>;
   knora-base:forGroup knora-base:ProjectAdmin;
   knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1174,7 +1121,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/005A/035-a2>
@@ -1182,7 +1128,6 @@
 	knora-base:forProject <http://rdfh.ch/projects/005A>;
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 
@@ -1204,7 +1149,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/005B/036-a2>
@@ -1213,12 +1157,96 @@
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
 
-
 ## Default object access permissions on project member group
 
 <http://rdfh.ch/permissions/005B/036-d1>
 	rdf:type knora-base:DefaultObjectAccessPermission;
 	knora-base:forProject <http://rdfh.ch/projects/005B>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
+
+#
+# Document
+#
+
+## Administrative permissions on project member
+
+<http://rdfh.ch/permissions/005C/037-a1>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005C>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+
+## Administrative permissions on project admin
+
+<http://rdfh.ch/permissions/005C/037-a2>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005C>;
+	knora-base:forGroup knora-base:ProjectAdmin;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+
+## Default object access permissions on project member group
+
+<http://rdfh.ch/permissions/005C/037-d1>
+	rdf:type knora-base:DefaultObjectAccessPermission;
+	knora-base:forProject <http://rdfh.ch/projects/005C>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
+
+
+#
+# Linguistics
+#
+
+## Administrative permissions on project member
+
+<http://rdfh.ch/permissions/005D/038-a1>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005D>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+
+## Administrative permissions on project admin
+
+<http://rdfh.ch/permissions/005D/038-a2>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005D>;
+	knora-base:forGroup knora-base:ProjectAdmin;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+
+## Default object access permissions on project member group
+
+<http://rdfh.ch/permissions/005D/038-d1>
+	rdf:type knora-base:DefaultObjectAccessPermission;
+	knora-base:forProject <http://rdfh.ch/projects/005D>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
+
+#
+# Logic
+#
+
+## Administrative permissions on project member
+
+<http://rdfh.ch/permissions/005E/039-a1>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005E>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+
+## Administrative permissions on project admin
+
+<http://rdfh.ch/permissions/005E/039-a2>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/005E>;
+	knora-base:forGroup knora-base:ProjectAdmin;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+
+## Default object access permissions on project member group
+
+<http://rdfh.ch/permissions/005E/039-d1>
+	rdf:type knora-base:DefaultObjectAccessPermission;
+	knora-base:forProject <http://rdfh.ch/projects/005E>;
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
 
@@ -1234,7 +1262,6 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
-
 ## Administrative permissions on project admin
 
 <http://rdfh.ch/permissions/005F/040-a2>
@@ -1242,7 +1269,6 @@
 	knora-base:forProject <http://rdfh.ch/projects/005F>;
 	knora-base:forGroup knora-base:ProjectAdmin;
 	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
-
 
 ## Default object access permissions on project member group
 

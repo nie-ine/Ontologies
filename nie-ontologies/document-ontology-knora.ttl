@@ -1,0 +1,72 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+
+@base <http://www.knora.org/ontology/005C/document>.
+@prefix document: <http://www.knora.org/ontology/005C/document#>.
+
+<http://www.knora.org/ontology/005C/document>
+	a owl:Ontology;
+	dct:title "An ontology about document"@en;
+	dct:description """Formal description of document, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/005C>.
+
+
+# EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements
+
+
+#
+# CLASSES
+#
+
+document:Document
+	a owl:Class;
+	rdfs:label "document"@en, "Dokument"@de;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf concept:Information, cidoc:E31_Document.
+
+# document:Structure
+
+document:Layout
+	a owl:Class;
+	rdfs:label "layout"@en, "Aufmachung"@de;
+	rdfs:comment """Way in which the content of a page is set out."""@en;
+	rdfs:subClassOf knora-base:Resource. #* concept:Layout
+
+# document:Marginalia
+
+# Format
+# Size
+# structure
+# Shape
+# color
+
+#
+# PROPERTIES
+#
+
+# document:isLayoutOf
+#	a owl:ObjectProperty;
+#	rdfs:label "is layout of"@en, "ist Aufmachung von"@de;
+#	rdfs:comment "Relating a layout to a document."@en;
+#	rdfs:domain layout:Layout;
+#	rdfs:range document:Document;
+#	rdfs:subPropertyOf knora-base:hasLinkTo;
+#	knora-base:subjectClassConstraint layout:Layout;
+#	knora-base:objectClassConstraint document:Document.

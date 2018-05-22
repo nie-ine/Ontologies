@@ -636,7 +636,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/0045> a knora-base:knoraProject;
-  knora-base:projectShortname "Device"^^xsd:string;
+  knora-base:projectShortname "device"^^xsd:string;
   knora-base:projectShortcode "0045"^^xsd:string;
   knora-base:projectLongname "An ontology about device"^^xsd:string;
   knora-base:projectDescription "Formal description of device, general subclasses, related classes and properties."@en;
@@ -660,7 +660,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/0046> a knora-base:knoraProject;
-  knora-base:projectShortname "drcs"^^xsd:string;
+  knora-base:projectShortname "DRCS"^^xsd:string;
   knora-base:projectShortcode "0046"^^xsd:string;
   knora-base:projectLongname "Digital Repertory of Commentaries on Peter Lombard’s Sentences"^^xsd:string;
   knora-base:projectDescription "Formal description of specific concepts in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)"@en;
@@ -732,7 +732,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/0049> a knora-base:knoraProject;
-  knora-base:projectShortname "human geography"^^xsd:string;
+  knora-base:projectShortname "human-geography"^^xsd:string;
   knora-base:projectShortcode "0049"^^xsd:string;
   knora-base:projectLongname "An ontology about human geography"^^xsd:string;
   knora-base:projectDescription "Formal description of human geography, general subclasses, related classes and properties."@en;
@@ -828,7 +828,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/004D> a knora-base:knoraProject;
-  knora-base:projectShortname "kuno-raeber"^^xsd:string;
+  knora-base:projectShortname "Kuno-Raeber"^^xsd:string;
   knora-base:projectShortcode "004D"^^xsd:string;
   knora-base:projectLongname "An ontology about the lyric of Kuno Raeber"^^xsd:string;
   knora-base:projectDescription "Formal description of elements in the historical-critical online publication of the lyric work of the Swiss author Kuno Raeber"@en;
@@ -864,7 +864,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/004E> a knora-base:knoraProject;
-  knora-base:projectShortname "kuno-raeber-gui"^^xsd:string;
+  knora-base:projectShortname "Kuno-Raeber-gui"^^xsd:string;
   knora-base:projectShortcode "004E"^^xsd:string;
   knora-base:projectLongname "An ontology about the kuno raeber gui"^^xsd:string;
   knora-base:projectDescription "An ontology about the Kuno Raeber site gui."@en;
@@ -1009,7 +1009,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/0054> a knora-base:knoraProject;
-  knora-base:projectShortname "physical geography"^^xsd:string;
+  knora-base:projectShortname "physical-geography"^^xsd:string;
   knora-base:projectShortcode "0054"^^xsd:string;
   knora-base:projectLongname "An ontology about physical geography"^^xsd:string;
   knora-base:projectDescription "Formal description of physical geography, general subclasses, related classes and properties."@en;
@@ -1057,7 +1057,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/0056> a knora-base:knoraProject;
-  knora-base:projectShortname "Publishing"^^xsd:string;
+  knora-base:projectShortname "publishing"^^xsd:string;
   knora-base:projectShortcode "0056"^^xsd:string;
   knora-base:projectLongname "An ontology about publishing"^^xsd:string;
   knora-base:projectDescription "Formal description of Publishing, its general subclasses, related classes and properties"@en;
@@ -1153,7 +1153,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005A> a knora-base:knoraProject;
-  knora-base:projectShortname "Text Editing"^^xsd:string;
+  knora-base:projectShortname "text-editing"^^xsd:string;
   knora-base:projectShortcode "005A"^^xsd:string;
   knora-base:projectLongname "An ontology about text editing"^^xsd:string;
   knora-base:projectDescription "Formal description of text editing, general subclasses, related classes and properties."@en;
@@ -1177,7 +1177,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005B> a knora-base:knoraProject;
-  knora-base:projectShortname "Text Structure"^^xsd:string;
+  knora-base:projectShortname "text-structure"^^xsd:string;
   knora-base:projectShortcode "005B"^^xsd:string;
   knora-base:projectLongname "An ontology about text structure"^^xsd:string;
   knora-base:projectDescription "Formal description of text structure, subclasses, related classes and properties."@en;
@@ -1201,7 +1201,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005C> a knora-base:knoraProject;
-  knora-base:projectShortname "Document"^^xsd:string;
+  knora-base:projectShortname "document"^^xsd:string;
   knora-base:projectShortcode "005C"^^xsd:string;
   knora-base:projectLongname "An ontology about document"^^xsd:string;
   knora-base:projectDescription "Formal description of document, general subclasses, related classes and properties."@en;
@@ -1225,7 +1225,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005D> a knora-base:knoraProject;
-  knora-base:projectShortname "Linguistics"^^xsd:string;
+  knora-base:projectShortname "linguistics"^^xsd:string;
   knora-base:projectShortcode "005D"^^xsd:string;
   knora-base:projectLongname "An ontology about linguistics"^^xsd:string;
   knora-base:projectDescription "Formal description of linguistics, general subclasses, related classes and properties."@en;
@@ -1249,7 +1249,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005E> a knora-base:knoraProject;
-  knora-base:projectShortname "Logic"^^xsd:string;
+  knora-base:projectShortname "logic"^^xsd:string;
   knora-base:projectShortcode "005E"^^xsd:string;
   knora-base:projectLongname "An ontology about logic"^^xsd:string;
   knora-base:projectDescription "Formal description of logic, general subclasses, related classes and properties."@en;
@@ -1273,7 +1273,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 #
 
 <http://rdfh.ch/projects/005F> a knora-base:knoraProject;
-  knora-base:projectShortname "Test"^^xsd:string;
+  knora-base:projectShortname "test"^^xsd:string;
   knora-base:projectShortcode "005F"^^xsd:string;
   knora-base:projectLongname "An ontology about test"@en;
   knora-base:projectDescription "Testing"^^xsd:string;

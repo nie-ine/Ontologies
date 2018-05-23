@@ -58,6 +58,12 @@ schola:Role
 	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:Role.
 
+schola:Copyist
+	a owl:Class;
+	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copista"@it; # "scribe"@en, "Schreiber"@de;
+	rdfs:comment """Role of a person copying text by handwriting."""@en; #* ONLY text?
+	rdfs:subClassOf schola:Creator.
+
 schola:Reportator
 	a owl:Class;
 	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;

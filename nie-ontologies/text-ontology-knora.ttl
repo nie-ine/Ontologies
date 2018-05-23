@@ -128,17 +128,11 @@ text:Revisor
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
 	rdfs:subClassOf human:Role.
 
-text:Copyist #* -> scholastic?
-	a owl:Class;
-	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text by handwriting."""@en;
-	rdfs:subClassOf human:Creator.
-
 text:Translator
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
 	rdfs:comment """Role of a person translating text by writing or printing."""@en;
-	rdfs:subClassOf language:PersonTranslator, human:Creator.
+	rdfs:subClassOf language:PersonTranslator.
 
 text:SentenceExpression
 	a owl:Class;

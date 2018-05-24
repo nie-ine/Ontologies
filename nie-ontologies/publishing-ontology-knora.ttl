@@ -35,7 +35,9 @@ publish:Expression
 	rdfs:comment """See http://iflastandards.info/ns/fr/frbr/frbroo/F24_Publication_Expression."""@en;
 	rdfs:subClassOf concept:Expression, frbroo:F24_Publication_Expression, [
 		a owl:Restriction; owl:onProperty publish:isPublishedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPublishedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty publish:isPublishedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 publish:PublishingState
 	a owl:Class;
@@ -95,7 +97,8 @@ publish:PrintedPublication
 	a owl:Class;
 	rdfs:label "printed publication"@en, "gedruckte Publikation"@de;
 	rdfs:comment """Publication as print."""@en;
-	rdfs:subClassOf infocar:Print, publish:Publication.
+	rdfs:subClassOf infocar:Print, publish:Publication, [
+		a owl:Restriction; owl:onProperty publish:hasPrinterDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 publish:ElectronicPublication
 	a owl:Class;
@@ -115,7 +118,7 @@ publish:PolyAuthorPublication
 #	rdfs:comment """Expression published together with other expressions from other authors."""@en;
 #	rdfs:subClassOf publish:Publication.
 
-text:FirstPublication
+publish:FirstPublication
 	a owl:Class;
 	rdfs:label "first publication"@en, "Erstausgabe"@de; # first edition ?
 	rdfs:comment """Earliest publication of a tex expression."""@en;
@@ -370,6 +373,24 @@ publish:isPublishedInValue
 	rdfs:label "is published in - statement"@en, "ist publiziert in - Festlegung"@de;
 	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a publication thereof."@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint publish:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+publish:hasRedactor
+	a owl:ObjectProperty;
+	rdfs:label "has redactor"@en, "hat  Redakteur"@de;
+	rdfs:comment "Relating a publication expression to a redactor thereof."@en;
+	rdfs:domain publish:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom publish:Redactor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint publish:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+publish:hasRedactorValue
+	a owl:ObjectProperty;
+	rdfs:label "has redactor - statement"@en, "hat  Redakteur - Festlegung"@de;
+	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a redactor thereof."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint publish:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

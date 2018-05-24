@@ -62,7 +62,7 @@ schola:Copyist
 	a owl:Class;
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copista"@it; # "scribe"@en, "Schreiber"@de;
 	rdfs:comment """Role of a person copying text by handwriting."""@en; #* ONLY text?
-	rdfs:subClassOf schola:Creator.
+	rdfs:subClassOf human:Creator.
 
 schola:Reportator
 	a owl:Class;

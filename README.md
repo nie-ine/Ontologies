@@ -21,19 +21,17 @@ Following external ontologies are used:
 [FOAF](http://xmlns.com/foaf/0.1/)  
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
 
-Following figures show a graphical representation of triples from different ontologies concerning indicated domains with related classes and properties.  
+Following figures show graphical representations of triples from different ontologies concerning indicated domains with related classes and properties.  
 
+<center>![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)</center>
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
-
-##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'
-
-
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_agent.svg)
-
-##### Figure 2: Graphic representing classes and properties from different ontologies concerning 'agent'
-
-
+<center>##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'</center>
+</br>
+</br>
+<center>![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_agent.svg)</center>
+##### <center>Figure 2: Graphic representing classes and properties from different ontologies concerning 'agent'</center>
+</br>
+</br>
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_creation.svg)
 
 ##### Figure 3: Graphic representing classes and properties from different ontologies concerning 'creation'

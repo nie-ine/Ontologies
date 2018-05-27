@@ -24,22 +24,31 @@ Following external ontologies are used:
 Following figures show graphical representations of triples from different ontologies concerning indicated domains with related classes and properties.  
 
 <center>
+
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
+
 </center>
 
 <center>
+
 ##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'
+
 </center>
-</br>
-</br>
+&nbsp;  
+&nbsp;
 <center>
+
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_agent.svg)
+
 </center>
+
 <center>
+
 ##### Figure 2: Graphic representing classes and properties from different ontologies concerning 'agent'
+
 </center>
-</br>
-</br>
+&nbsp;  
+&nbsp;
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_creation.svg)
 
 ##### Figure 3: Graphic representing classes and properties from different ontologies concerning 'creation'

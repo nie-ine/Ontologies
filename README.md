@@ -24,7 +24,8 @@ Following external ontologies are used:
 Following figures show graphical representations of triples from different ontologies concerning indicated domains with related classes and properties.  
 &nbsp;  
 &nbsp;  
-<center>
+
+\begin{center}
 
 ![Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
 
@@ -100,7 +101,7 @@ Following figures show graphical representations of triples from different ontol
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_publication.svg)
 
 ##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'publication'
-
+\end{center}
 
 Figure 16 shows a graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
 

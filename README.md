@@ -25,9 +25,9 @@ Following figures show graphical representations of triples from different ontol
 &nbsp;  
 &nbsp;  
 
-\begin{center}
+<center>
 
-[Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
+![Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
 
 </center>
 &nbsp;  

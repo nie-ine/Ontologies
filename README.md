@@ -25,6 +25,7 @@ Following figures show graphical representations of triples from different ontol
 &nbsp;  
 &nbsp;  
 <div align="center">
+
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
 
 ##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'
@@ -102,6 +103,7 @@ Following figures show graphical representations of triples from different ontol
 
 Figure 16 shows a graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
 <div align="center">
+
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
 
 ##### Figure 16: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology

@@ -24,6 +24,7 @@ Following external ontologies are used:
 Following figures show graphical representations of triples from different ontologies concerning indicated concepts with related classes and properties.  
 &nbsp;  
 &nbsp;  
+
 <div align="center">
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
@@ -102,6 +103,7 @@ Following figures show graphical representations of triples from different ontol
 </div>
 
 Figure 16 shows a graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
+
 <div align="center">
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)

@@ -20,7 +20,7 @@
 <!-- Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal -->
 <g id="node2" class="node"><title>Rhttp://www.w3.org/2000/01/rdf&#45;schema#Literal</title>
 <g id="a_node2"><a xlink:href="http://www.w3.org/2000/01/rdf-schema#Literal" xlink:title="rdfs:Literal">
-<ellipse fill="none" stroke="blue" cx="2628" cy="-105" rx="63.8893" ry="18"/>
+<ellipse fill="none" stroke="brown" cx="2628" cy="-105" rx="63.8893" ry="18"/>
 <text text-anchor="middle" x="2628" y="-101.3" font-family="Times,serif" font-size="14.00">rdfs:Literal</text>
 </a>
 </g>
@@ -237,16 +237,16 @@
 <polygon fill="blue" stroke="blue" points="1490.5,-133.175 1487,-123.175 1483.5,-133.175 1490.5,-133.175"/>
 <text text-anchor="middle" x="1559.5" y="-144.8" font-family="Times,serif" font-size="14.00">publish:hasDate</text>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent -->
-<g id="node14" class="node"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent</title>
-<g id="a_node14"><a xlink:href="http://www.w3.org/2002/07/owl#agent:Agent" xlink:title="agent:Agent">
+<!-- Rhttp://www.w3.org/2002/07/owl#human:Agent -->
+<g id="node14" class="node"><title>Rhttp://www.w3.org/2002/07/owl#human:Agent</title>
+<g id="a_node14"><a xlink:href="http://www.w3.org/2002/07/owl#human:Agent" xlink:title="human:Agent">
 <ellipse fill="none" stroke="blue" cx="1655" cy="-105" rx="87.1846" ry="18"/>
-<text text-anchor="middle" x="1655" y="-101.3" font-family="Times,serif" font-size="14.00">agent:Agent</text>
+<text text-anchor="middle" x="1655" y="-101.3" font-family="Times,serif" font-size="14.00">human:Agent</text>
 </a>
 </g>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#publish:Publication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent -->
-<g id="edge23" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#publish:Publication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent</title>
+<!-- Rhttp://www.w3.org/2002/07/owl#publish:Publication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Agent -->
+<g id="edge23" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#publish:Publication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#human:Agent</title>
 <path fill="none" stroke="blue" d="M1583.28,-181.168C1601.24,-175.837 1618.8,-167.862 1633,-156 1640.12,-150.058 1645,-141.364 1648.33,-132.885"/>
 <polygon fill="blue" stroke="blue" points="1651.71,-133.803 1651.56,-123.21 1645.07,-131.59 1651.71,-133.803"/>
 <text text-anchor="middle" x="1734" y="-144.8" font-family="Times,serif" font-size="14.00">publish:hasPublisher</text>
@@ -313,11 +313,11 @@
 </a>
 </g>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publisher -->
-<g id="edge25" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publisher</title>
+<!-- Rhttp://www.w3.org/2002/07/owl#human:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publisher -->
+<g id="edge25" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Agent&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publisher</title>
 <path fill="none" stroke="blue" d="M1655,-86.799C1655,-75.1626 1655,-59.5479 1655,-46.2368"/>
 <polygon fill="blue" stroke="blue" points="1658.5,-46.1754 1655,-36.1754 1651.5,-46.1755 1658.5,-46.1754"/>
-<text text-anchor="middle" x="1720.5" y="-57.8" font-family="Times,serif" font-size="14.00">agent:hasRole</text>
+<text text-anchor="middle" x="1720.5" y="-57.8" font-family="Times,serif" font-size="14.00">human:agentHasRole</text>
 </g>
 <!-- Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publication -->
 <g id="edge28" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Publication</title>

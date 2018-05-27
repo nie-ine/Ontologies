@@ -131,16 +131,16 @@
 <polygon fill="blue" stroke="blue" points="976.441,-306.007 981.139,-296.511 971.545,-301.005 976.441,-306.007"/>
 <text text-anchor="middle" x="1059.89" y="-318.8" font-family="Times,serif" font-size="14.00">physical:hasLocation</text>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#agent:User -->
-<g id="node8" class="node"><title>Rhttp://www.w3.org/2002/07/owl#agent:User</title>
-<g id="a_node8"><a xlink:href="http://www.w3.org/2002/07/owl#agent:User" xlink:title="agent:User">
+<!-- Rhttp://www.w3.org/2002/07/owl#agent:Agent -->
+<g id="node8" class="node"><title>Rhttp://www.w3.org/2002/07/owl#agent:Agent</title>
+<g id="a_node8"><a xlink:href="http://www.w3.org/2002/07/owl#agent:Agent" xlink:title="agent:Agent">
 <ellipse fill="none" stroke="blue" cx="1367.39" cy="-279" rx="81.4863" ry="18"/>
-<text text-anchor="middle" x="1367.39" y="-275.3" font-family="Times,serif" font-size="14.00">agent:User</text>
+<text text-anchor="middle" x="1367.39" y="-275.3" font-family="Times,serif" font-size="14.00">agent:Agent</text>
 </a>
 </g>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#human:Creation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:User -->
-<g id="edge12" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Creation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:User</title>
+<!-- Rhttp://www.w3.org/2002/07/owl#human:Creation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent -->
+<g id="edge12" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#human:Creation&#45;&gt;Rhttp://www.w3.org/2002/07/owl#agent:Agent</title>
 <path fill="none" stroke="blue" d="M1839.14,-359.258C1766.71,-353.915 1674.52,-344.557 1639.39,-330 1629.45,-325.882 1630.34,-319.082 1620.39,-315 1552.95,-287.348 1529.47,-307.772 1457.39,-297 1450.25,-295.934 1442.82,-294.711 1435.42,-293.422"/>
 <polygon fill="blue" stroke="blue" points="1435.83,-289.941 1425.38,-291.63 1434.61,-296.832 1435.83,-289.941"/>
 <text text-anchor="middle" x="1705.89" y="-318.8" font-family="Times,serif" font-size="14.00">agent:hasUser</text>

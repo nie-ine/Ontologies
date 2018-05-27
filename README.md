@@ -21,12 +21,10 @@ Following external ontologies are used:
 [FOAF](http://xmlns.com/foaf/0.1/)  
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
 
-Following figures show graphical representations of triples from different ontologies concerning indicated domains with related classes and properties.  
+Following figures show graphical representations of triples from different ontologies concerning indicated concepts with related classes and properties.  
 &nbsp;  
 &nbsp;  
-
 <div align="center">
-
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_event.svg)
 
 ##### Figure 1: Graphic representing classes and properties from different ontologies concerning 'event'
@@ -40,70 +38,71 @@ Following figures show graphical representations of triples from different ontol
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_creation.svg)
 
 ##### Figure 3: Graphic representing classes and properties from different ontologies concerning 'creation'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_language.svg)
 
 ##### Figure 4: Graphic representing classes and properties from different ontologies concerning 'language'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_expression.svg)
 
 ##### Figure 5: Graphic representing classes and properties from different ontologies concerning 'expression'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text.svg)
 
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'text'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure.svg)
 
 ##### Figure 7: Graphic representing classes and properties from different ontologies concerning 'text structure'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_information-carrier.svg)
 
 ##### Figure 8: Graphic representing classes and properties from different ontologies concerning 'information carrier'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_print.svg)
 
 ##### Figure 9: Graphic representing classes and properties from different ontologies concerning 'print'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter_DUO.svg)
 
 ##### Figure 10: Graphic representing classes and properties from different ontologies concerning 'letter'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
 
 ##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'edition'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature_basis.svg)
 
 ##### Figure 12: Graphic representing classes and properties from different ontologies providing a conceptual basis for 'literature'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature.svg)
 
 ##### Figure 13: Graphic representing classes and properties from different ontologies concerning 'literature'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure_poem.svg)
 
 ##### Figure 14: Graphic representing classes and properties from different ontologies concerning 'text-structure' and 'poem'
-
-
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_publication.svg)
 
 ##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'publication'
 </div>
 
 Figure 16 shows a graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
+<div align="center">
+![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
 
-![figure](https://github.com/nie-ine/Ontologies/tree/master/other-ontologies/geo_reduced.svg)
-
-##### Figure 3: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
+##### Figure 16: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
+</div>

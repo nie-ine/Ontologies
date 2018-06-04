@@ -45,7 +45,7 @@ kuno-raeber:Work
 kuno-raeber:Text
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de;
-	rdfs:comment """Text authored by Kuno Raeber."""@en;
+	rdfs:comment """Text expression authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
@@ -82,7 +82,7 @@ kuno-raeber:Poem
 #		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		.
 
-kuno-raeber:Edition
+kuno-raeber:Edition # -> textedit:EclecticEdition
 	a owl:Class;
 	rdfs:label "edited text"@en, "edierte Text"@de;
 	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;

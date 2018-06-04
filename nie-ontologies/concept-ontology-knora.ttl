@@ -102,7 +102,7 @@ concept:Information
 concept:Set
 	a owl:Class;
 	rdfs:label "set"@en, "Sammlung"@de;
-	rdfs:comment """Set of expressions."""@en;
+	rdfs:comment """Set of expressions."""@en; #*
 	rdfs:subClassOf concept:Information.
 
 concept:Cycle

@@ -11,6 +11,7 @@
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -39,6 +40,8 @@
 # speech act: see J. L. Austin
 	# speaker: locutionary, illocutionary: utterance
 	# listener: perlocutionary
+
+# lido.linguistic
 
 # ~ sentence
 
@@ -106,4 +109,13 @@ ling:Evaluation
 # PROPERTIES
 #
 
-
+ling:hasComment
+	a owl:ObjectProperty;
+	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
+	rdfs:comment """Relating a human natural language expression to a linguistic comment (as object) as a textual statement about the expression."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasComment;
+	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.

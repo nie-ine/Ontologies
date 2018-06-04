@@ -41,9 +41,7 @@ text-structure:Structure
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Human natural language expression as structure, e.g. a word, sentence, text line, paragraph, verse, strophe."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguageExpression. #, [
-#		a owl:Restriction; owl:onProperty text-structure:hasUnit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:hasUnitValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 text-structure:SyntacticStructure
 	a owl:Class;
@@ -109,7 +107,7 @@ text-structure:Prose
 	a owl:Class;
 	rdfs:label "prose"@en, "Prosa"@de;
 	rdfs:comment """Syntactic structure with a sentence as unit, in a natural flow of speech."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure, [
+	rdfs:subClassOf text-structure:SyntacticStructure, [ #* -> :ContentStructure
 #		a owl:Restriction; owl:onProperty text-structure:proseIsPartOfText; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
 		a owl:Restriction; owl:onProperty text-structure:proseIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:proseIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -121,7 +119,9 @@ text-structure:Paragraph
 	rdfs:subClassOf text-structure:ContentStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isPartOfSection; owl:allValuesFrom text:Section], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isPartOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isPartOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:paragraphHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:paragraphHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Section
 	a owl:Class;
@@ -350,6 +350,8 @@ text-structure:hasLineNumber
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
 	rdfs:comment """Relating a text expression to the number (as object) of a line thereof."""@en;
+	rdfs:domain text:Expression;
+	rdfs:range rdfs:Literal;	
 	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -588,6 +590,27 @@ text-structure:isPartOfSectionValue
 	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:paragraphHasTitle
+	a owl:ObjectProperty;
+	rdfs:label "paragraph has title"@en, "Paragraf hat Titel"@de;
+	rdfs:comment """Relating a paragraph to its title (as object)."""@en;
+	rdfs:domain text-structure:Paragraph;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasTitle, language:hasContent;
+	knora-base:subjectClassConstraint text-structure:Paragraph;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+text-structure:paragraphHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "paragraph has number"@en, "Paragraf hat Nummer"@de;
+	rdfs:comment """Relating a paragraph to its number (as object)."""@en;
+	rdfs:domain text-structure:Paragraph;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf knora-base:hasValue; #, language:hasContent;
+	knora-base:subjectClassConstraint text-structure:Paragraph;
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 text-structure:sectionIsPartOfText
 	a owl:ObjectProperty;

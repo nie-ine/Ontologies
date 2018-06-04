@@ -101,7 +101,8 @@ Following figures show graphical representations of triples from different ontol
 
 ##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'publication'
 </div>
-
+&nbsp;  
+&nbsp;  
 Figure 16 shows a graphical representation of the classes and properties from the external ['WGS84 Geo Positioning' ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
 
 <div align="center">

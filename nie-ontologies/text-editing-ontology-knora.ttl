@@ -32,7 +32,11 @@
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/005A>.
 
-textedit:Derivative #*
+#
+# CLASSES
+#
+
+textedit:Derivative #* -> Edition SCO human:CreationDerivative
 	a owl:Class;
 	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
 	rdfs:comment """Text expression derived from another text expression."""@en;
@@ -44,8 +48,8 @@ textedit:Derivative #*
 
 textedit:Edition
 	a owl:Class;
-	rdfs:label "text edition"@en, "Text-Edition"@de; # Lesetext subClassOf
-	rdfs:comment """Changed text expression as a result of editing."""@en; #* drop expression?
+	rdfs:label "text edition"@en, "Text-Edition"@de;
+	rdfs:comment """Changed text expression as a result of editing."""@en;
 	rdfs:subClassOf textedit:Derivative.
 
 textedit:Editor
@@ -54,19 +58,19 @@ textedit:Editor
 	rdfs:comment """Role of a person changing a text."""@en;
 	rdfs:subClassOf human:Creator.
 
-textedit:Redactor #* -> scholastic?
+textedit:Redactor
 	a owl:Class;
 	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
 	rdfs:comment """Editor assembling parts of texts to a new coherent text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
-textedit:Glossator #* -> scholastic?
+textedit:Glossator
 	a owl:Class;
 	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
 	rdfs:comment """Editor adding glosses to a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
-textedit:Abbreviator #* -> scholastic?
+textedit:Abbreviator
 	a owl:Class;
 	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la;
 	rdfs:comment """Editor shortening a text."""@en;
@@ -94,13 +98,18 @@ textedit:DiplomaticTranscription
 	a owl:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
 	rdfs:comment """Transcription of a text with diacritical signs indicating visual textual properties to describe the textual state."""@en;
-#	skos:note """only autographs or jurudical; without interpretation""";
+#	skos:note """only autographs or jurudical; without interpretation"""; # Lesehilfe
 	rdfs:subClassOf textedit:Derivative, [
 		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
+		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:cardinality "1"^^xsd:nonNegativeInteger]
-		.
+
+textedit:EclecticEdition #* Lesetext subClassOf
+	a owl:Class;
+	rdfs:label "eclectic edition"@en, "konstituierter Text"@de;
+	rdfs:comment """Plain text expression as endresult of a production by the author or reproduction by the edition scientist."""@en;
+	rdfs:subClassOf textedit:Edition.
 
 textedit:CriticalEdition
 	a owl:Class;
@@ -114,7 +123,7 @@ textedit:CriticalEdition
 textedit:GeneticEdition
 	a owl:Class;
 	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
-	rdfs:comment """Critical edition accounting for the modifications by the author."""@en; #*
+	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
 	rdfs:subClassOf textedit:CriticalEdition.
 
 textedit:CriticalApparatus
@@ -143,7 +152,7 @@ textedit:CriticalApparatus
 # apparatus has format:
 # eg.
 # location of version in text
-# lemma: part of text in CA
+# lemma: part of text in CA: Textstelle
 # symbol
 # source
 # list of variants + source: if frequently cited: abbreviated with a siglum

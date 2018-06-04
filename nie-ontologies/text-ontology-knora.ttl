@@ -78,8 +78,8 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasWord; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -87,11 +87,11 @@ text:Expression
 		a owl:Restriction; owl:onProperty text-structure:hasLine; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLineValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # -> concept
+		a owl:Restriction; owl:onProperty text-structure:hasColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [  # -> concept
+		a owl:Restriction; owl:onProperty text-structure:hasPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasTable; owl:minCardinality "0"^^xsd:nonNegativeInteger], [  # -> concept
+		a owl:Restriction; owl:onProperty text-structure:hasTable; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasTableValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasNoteStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:hasNoteStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -133,6 +133,12 @@ text:Translator
 	rdfs:label "translator"@en, "Übersetzer"@de;
 	rdfs:comment """Role of a person translating text by writing or printing."""@en;
 	rdfs:subClassOf language:PersonTranslator.
+
+text:Copyist
+	a owl:Class;
+	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copista"@it; # "scribe"@en, "Schreiber"@de;
+	rdfs:comment """Role of a person copying text by handwriting."""@en;
+	rdfs:subClassOf human:Creator.
 
 text:SentenceExpression
 	a owl:Class;
@@ -341,7 +347,7 @@ text:hasAuthor #*
 	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasAuthorRole; owl:someValuesFrom text:Author]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -382,7 +388,7 @@ text:hasRevisorValue
 text:hasCopyist
 	a owl:ObjectProperty;
 	rdfs:label "has copyist"@en, "hat Kopist"@de;
-	rdfs:comment """Relating a text to a person who copied it by handwriting."""@en;
+	rdfs:comment """Relating a text expression to a person who copied it by handwriting."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Copyist]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -392,7 +398,7 @@ text:hasCopyist
 text:hasCopyistValue
 	a owl:ObjectProperty;
 	rdfs:label "has copyist - statement"@en, "hat Kopist - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who copied it by handwriting."""@en;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who copied it by handwriting."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -402,13 +408,13 @@ text:hasReferenceText
 	rdfs:label "has reference text"@en, "hat Bezugstext"@de;
 	rdfs:comment "Relating a text to another one as its reference."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text:Expression.
+	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
 
 text:hasReferenceTextValue
 	a owl:ObjectProperty;
 	rdfs:label "has reference text - statement"@en, "hat Bezugstext - Festlegung"@de;
 	rdfs:comment "Relating a text to a reification statement of the relation between the text and another one as its reference."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.

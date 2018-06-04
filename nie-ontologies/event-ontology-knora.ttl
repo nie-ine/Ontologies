@@ -33,7 +33,7 @@ event:Event
 	a owl:Class;
 	rdfs:label "event"@en, "Ereignis"@de;
 	rdfs:comment """Occurrence as a space-time thing."""@en;
-	rdfs:subClassOf physical:Space, physical:Time, [
+	rdfs:subClassOf physical:Space, physical:Time, [ #* SCO cidoc:E5_Event SCO cidoc:E4_Period cidoc:E92_Spacetime_Volume, cidoc:E2_Temporal_Entity
 		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -175,6 +175,8 @@ event:hasExistence
 	a owl:ObjectProperty;
 	rdfs:label "has existence"@en, "hat Existenz"@de;
 	rdfs:comment """Relating someone or something to her/his/its existence."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range event:Existence;
 	rdfs:subPropertyOf event:hasEvent;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint event:Existence.
@@ -191,6 +193,8 @@ event:hasState
 	a owl:ObjectProperty;
 	rdfs:label "has state"@en, "hat Zustand"@de;
 	rdfs:comment """Relating a resource to a state."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range event:State;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint event:State.
@@ -207,6 +211,8 @@ event:isInputOf
 	a owl:ObjectProperty;
 	rdfs:label "is input of"@en, "ist Input von"@de;
 	rdfs:comment """Relating an input to a process."""@en;
+	rdfs:domain event:Input;
+	rdfs:range event:Process;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint event:Input;
 	knora-base:objectClassConstraint event:Process.
@@ -223,6 +229,8 @@ event:isOutputOf
 	a owl:ObjectProperty;
 	rdfs:label "is output of"@en, "ist Output von"@de;
 	rdfs:comment """Relating an output to a process."""@en;
+	rdfs:domain event:Output;
+	rdfs:range event:Process;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint event:Output;
 	knora-base:objectClassConstraint event:Process.
@@ -239,6 +247,8 @@ event:hasStage
 	a owl:ObjectProperty;
 	rdfs:label "has stage"@en, "hat Stufe"@de;
 	rdfs:comment """Relating a process to a stage thereof."""@en;
+	rdfs:domain event:Process;
+	rdfs:range event:Stage;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint event:Process;
 	knora-base:objectClassConstraint event:Stage.
@@ -255,6 +265,8 @@ event:hasGenesisDescription
 	a owl:ObjectProperty;
 	rdfs:label "has genesis description"@en, "hat Genesis-Beschreibung"@de;
 	rdfs:comment """Relating something to a description (as object) of the genesis thereof."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;

@@ -37,12 +37,15 @@ infocar:Carrier
  	rdfs:comment """Carrier of information created by a person."""@en;
 	skos:note """Includes both F4_Manifestation_Singleton and F5_Item as declared in FRBROO."""@en;
 	rdfs:subClassOf human:PhysicalCreation, cidoc:E84_Information_Carrier, [
-		a owl:Restriction; owl:onProperty infocar:carrierHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
+		a owl:Restriction; owl:onProperty infocar:carrierHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty physical:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty physical:isPartOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty image:hasPhotoRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty image:hasPhotoRepresentationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
-		.
+#		a owl:Restriction; owl:onProperty image:hasPhotoRepresentationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #* infocar:Text OR physical as on carrier
 
@@ -53,6 +56,8 @@ infocar:Leaf
 	rdfs:subClassOf infocar:Carrier, [
 		a owl:Restriction; owl:onProperty infocar:isLeafOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isLeafOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# fold, Falte, cf. Gedicht Heinrich Heine
 
 infocar:Page
 	a owl:Class;
@@ -95,7 +100,7 @@ infocar:Printing
 infocar:Printer
 	a owl:Class;
 	rdfs:label "printer"@en, "Drucker"@de;
-	rdfs:comment """Role of an agent - person or organization - printing an expression."""@en;
+	rdfs:comment """Role of a human agent - person or organization - printing an expression."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 infocar:Print
@@ -103,6 +108,8 @@ infocar:Print
 	rdfs:label "print"@en, "Druck"@de;
 	rdfs:comment """An expression printed on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:hasPrinter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasPrinterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPartOfPrintRun; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPartOfPrintRunValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -116,8 +123,8 @@ infocar:PrintRun
 infocar:FirstPrint
 	a owl:Class;
 	rdfs:label "first print"@en, "Erstdruck"@de;
-	rdfs:comment """Earliest print of a tex expression."""@en;
-	rdfs:subClassOf infocar:Carrier.
+	rdfs:comment """Earliest print of an expression."""@en;
+	rdfs:subClassOf infocar:Print.
 
 infocar:Archive
 	a owl:Class;
@@ -134,7 +141,7 @@ infocar:ArchiveElement
 		a owl:Restriction; owl:onProperty infocar:isPartOfArchiveValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-infocar:Nachlass
+infocar:Nachlass #* -> Legacy
 	a owl:Class;
 	rdfs:label "nachlass"@en, "Nachlass"@de;
 	rdfs:comment """Collection of materialized expressions of a person as existing after the person's death."""@en;
@@ -225,42 +232,42 @@ infocar:Diary
 infocar:Sender
 	a owl:Class;
 	rdfs:label "sender"@en, "Sender"@de;
-	rdfs:comment """Role of a person sending information on a a carrier."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:comment """Role of a human agent - a person or a group - sending information on a carrier."""@en;
+	rdfs:subClassOf human:Sender.
 
 infocar:Receiver
 	a owl:Class;
 	rdfs:label "receiver"@en, "Empfänger"@de;
-	rdfs:comment """Role of a person receiving information on a a carrier."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:comment """Role of a human agent - a person or a group - receiving information on carrier."""@en;
+	rdfs:subClassOf human:Receiver.
 
 infocar:Letter
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
 	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
-		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton. #, [
+#		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Postcard
 	a owl:Class;
 	rdfs:label "postcard"@en, "Postkarte"@de;
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
-		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton. #, [
+#		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Convolute
 	a owl:Class;
@@ -471,6 +478,8 @@ infocar:volumeHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "volume has number"@en, "Band hat Nummer"@de;
 	rdfs:comment "Relating a volume to its sequence number."@en;
+	rdfs:domain infocar:Volume;
+	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Volume;
 	knora-base:objectClassConstraint knora-base:IntValue.
@@ -551,73 +560,37 @@ infocar:isInLetterValue
 infocar:hasSender
 	a owl:ObjectProperty;
 	rdfs:label "has sender"@en, "hat Absender"@de;
-	rdfs:comment """Relating something to a person who sent it."""@en; #* or an Organization -> foaf:Agent
-	rdfs:domain knora-base:Resource; #*
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Sender]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint human:Person.
+	rdfs:comment """Relating something to a human agent - a person or a group - that sent it."""@en;
+	rdfs:domain infocar:Carrier;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Sender]];
+	rdfs:subPropertyOf human:hasSender;
+	knora-base:subjectClassConstraint infocar:Carrier;
+	knora-base:objectClassConstraint human:Agent.
 
 infocar:hasSenderValue
 	a owl:ObjectProperty;
 	rdfs:label "has sender - statement"@en, "hat Absender - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a person who sent it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
+	rdfs:subPropertyOf human:hasSenderValue;
+	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:hasReceiver
 	a owl:ObjectProperty;
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
-	rdfs:comment """Relating something to a person who received it."""@en; #* or an Organization -> foaf:Agent
-	rdfs:domain knora-base:Resource; #*
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom infocar:Receiver]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint human:Person.
+	rdfs:comment """Relating something to a human agent - a person or a group - that received it."""@en;
+	rdfs:domain infocar:Carrier;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Receiver]];
+	rdfs:subPropertyOf human:hasReceiver;
+	knora-base:subjectClassConstraint infocar:Carrier;
+	knora-base:objectClassConstraint human:Agent.
 
 infocar:hasReceiverValue
 	a owl:ObjectProperty;
 	rdfs:label "has receiver - statement"@en, "hat Empfänger - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a person who received it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-infocar:hasSendingLocation
-	a owl:ObjectProperty;
-	rdfs:label "has sending location"@en, "hat Absendeort"@de;
-	rdfs:comment """Relating something to a location it was sent from."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range physical:Place;
-	rdfs:subPropertyOf physical:hasLocation;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint physical:Place.
-
-infocar:hasSendingLocationValue
-	a owl:ObjectProperty;
-	rdfs:label "has sending location - statement"@en, "hat Absendeort - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a location it was sent from."""@en;
-	rdfs:subPropertyOf physical:hasLocationValue;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-infocar:hasReceivingLocation
-	a owl:ObjectProperty;
-	rdfs:label "has receiving location"@en, "hat Empfangort"@de; #*
-	rdfs:comment """Relating something to a location it was sent to."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range physical:Place;
-	rdfs:subPropertyOf physical:hasLocation;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
-	knora-base:objectClassConstraint physical:Place.
-
-infocar:hasReceivingLocationValue
-	a owl:ObjectProperty;
-	rdfs:label "has receiving location - statement"@en, "hat Empfangort - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a location it was sent to."""@en;
-	rdfs:subPropertyOf physical:hasLocationValue;
-	knora-base:subjectClassConstraint knora-base:Resource; #*
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
+	rdfs:subPropertyOf human:hasReceiverValue;
+	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:convoluteHasTitle
@@ -722,6 +695,24 @@ infocar:hasCarrierCollectionDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
+infocar:hasPrinter
+	a owl:ObjectProperty;
+	rdfs:label "has printer"@en, "hat Drucker"@de;
+	rdfs:comment """Relating a print to its printer."""@en;
+	rdfs:domain infocar:Print;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Printer]];
+	rdfs:subPropertyOf human:hasCreator;
+	knora-base:subjectClassConstraint infocar:Print;
+	knora-base:objectClassConstraint human:Agent.
+
+infocar:hasPrinterValue
+	a owl:ObjectProperty;
+	rdfs:label "has printer - statement"@en, "hat Drucker - Festlegung"@de;
+	rdfs:comment """Relating a print to a reification statement of the relation between the print and its printer."""@en;
+	rdfs:subPropertyOf human:hasCreatorValue;
+	knora-base:subjectClassConstraint infocar:Print;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 infocar:isPartOfPrintRun
 	a owl:ObjectProperty;
 	rdfs:label "is part of print run"@en, "ist Teil einer Druckauflage"@de;
@@ -758,6 +749,8 @@ infocar:hasArchiveSignature
 	a owl:ObjectProperty;
 	rdfs:label "has archive signature"@en, "hat Archivsignatur"@de;
 	rdfs:comment """Relating an element of an archive to its signature (as object) as identifier."""@en;
+	rdfs:domain infocar:ArchiveElement;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasIdentifier;
 	knora-base:subjectClassConstraint infocar:ArchiveElement;
 	knora-base:objectClassConstraint knora-base:TextValue.

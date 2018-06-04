@@ -49,7 +49,10 @@ document:Layout
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf knora-base:Resource. #* concept:Layout
 
+# document:Page
+# document:Column -> paragraph, page, strophe
 # document:Marginalia
+# document:Table
 
 # Format
 # Size

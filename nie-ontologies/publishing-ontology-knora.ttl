@@ -426,16 +426,16 @@ publish:hasPublisher
 	rdfs:label "has publisher"@en, "hat Herausgeber"@de;
 	rdfs:comment "Relating a publication to its publisher."@en;
 	rdfs:domain publish:Publication;
-#	rdfs:range [rdfs:subClassOf event:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom publish:Publisher]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:Publisher]];
+	rdfs:subPropertyOf human:hasCreator;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint agent:Agent.
+	knora-base:objectClassConstraint human:Agent.
 
 publish:hasPublisherValue
 	a owl:ObjectProperty;
 	rdfs:label "has publisher - statement"@en, "hat Herausgeber - Festlegung"@de;
 	rdfs:comment "Relating a publication to a reification statement of the relation between the publication and its publisher."@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf human:hasCreatorValue;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

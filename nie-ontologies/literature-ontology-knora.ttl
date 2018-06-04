@@ -133,6 +133,8 @@ litera:Poem #* poemHasStructure
 		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasPoetryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+# metric analysis
+
 litera:VersePoem
 	a owl:Class;
 	rdfs:label "verse poem"@en, "Versgedicht"@de;

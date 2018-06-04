@@ -178,20 +178,20 @@ human:User
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
 	rdfs:label "user"@en;
-	rdfs:comment """Role of a person taking something into service or applying for a purpose."""@en;
-	rdfs:subClassOf human:Role, agent:User.
+	rdfs:comment """Role of a human agent - person or group - taking something into service or applying for a purpose."""@en;
+	rdfs:subClassOf human:AgentRole, agent:User.
 
 human:Giver
 	a owl:Class;
 	rdfs:label "giver"@en, "Geber"@de;
-	rdfs:comment """Role of a person transferring the possession of something to someone."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:comment """Role of a human agent - person or group - transferring the possession of something to someone."""@en;
+	rdfs:subClassOf human:AgentRole.
 
 human:Creator
 	a owl:Class;
-	rdfs:label "creator"@en, "Erschaffer"@de;
-	rdfs:comment """Role of a person creating something."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:label "creator"@en, "ErschafferIn"@de;
+	rdfs:comment """Role of a human agent - person or group - creating something."""@en;
+	rdfs:subClassOf human:AgentRole.
 
 human:Creating
 	a owl:Class;
@@ -204,6 +204,8 @@ human:Creation
 	rdfs:label "person's creation"@en, "Kreation einer Person"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
+		a owl:Restriction; owl:onProperty human:hasCreator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasCreatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -246,9 +248,9 @@ human:CreationVersion
 	rdfs:subClassOf human:Creation. 
 
 # version: considering:
-# time: earlier, later -> infer with rule
-# extent: standard, reduced, extended
-# etc.
+# - time: earlier, later -> infer with rule
+# - extent: standard, reduced, extended
+# - etc.
 
 human:FirstVersion
 	a owl:Class;
@@ -286,6 +288,19 @@ human:Property # check cidoc
 	rdfs:label "property"@en, "Besitz"@de;
 	rdfs:comment """Something physical or non-physical belonging to someone."""@en;
 	rdfs:subClassOf knora-base:Resource.
+
+human:Sender
+	a owl:Class;
+	rdfs:label "sender"@en, "Sender"@de;
+	rdfs:comment """Role of a human agent - a person or a group - sending something physical."""@en;
+	rdfs:subClassOf human:AgentRole.
+
+human:Receiver
+	a owl:Class;
+	rdfs:label "receiver"@en, "Empfänger"@de;
+	rdfs:comment """Role of a human agent - a person or a group - receiving something physical."""@en;
+	rdfs:subClassOf human:AgentRole.
+
 
 human:CulturalAction
 	a owl:Class;
@@ -393,42 +408,6 @@ human:agentHasRoleValue
 	rdfs:comment """Relating a human agent - a person or a group - to a reification statement of the relation between the agent and a role the agent has."""@en;
 	rdfs:subPropertyOf agent:hasRoleValue;
 	knora-base:subjectClassConstraint human:Agent;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-human:groupHasRole
-	a owl:ObjectProperty;
-	rdfs:label "group has role"@en, "Gruppe hat Rolle"@de;
-	rdfs:comment """Relating a group to a role it has."""@en;
-	rdfs:domain human:Group;
-	rdfs:range human:GroupRole;
-	rdfs:subPropertyOf human:agentHasRole;
-	knora-base:subjectClassConstraint human:Group;
-	knora-base:objectClassConstraint human:GroupRole.
-
-human:groupHasRoleValue
-	a owl:ObjectProperty;
-	rdfs:label "group has role - statement"@en, "Gruppe hat Rolle - Festlegung"@de;
-	rdfs:comment """Relating a group to a reification statement of the relation between the group and a role it has."""@en;
-	rdfs:subPropertyOf human:agentHasRoleValue;
-	knora-base:subjectClassConstraint human:Group;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-human:groupIsMemberOf
-	a owl:ObjectProperty;
-	rdfs:label "group is member of"@en, "Gruppe ist Mitglied"@de;
-	rdfs:comment """Relating a group to another group it is member of."""@en;
-	rdfs:domain human:Group;
-	rdfs:range human:Group;
-	rdfs:subPropertyOf agent:isMemberOf;
-	knora-base:subjectClassConstraint human:Group;
-	knora-base:objectClassConstraint human:Group.
-
-human:groupIsMemberOfValue
-	a owl:ObjectProperty;
-	rdfs:label "group is member of - statement"@en, "Gruppe ist Mitglied - Festlegung"@de;
-	rdfs:comment """Relating a group to a reification statement of the relation between the group and another group it is member of."""@en;
-	rdfs:subPropertyOf agent:isMemberOfValue;
-	knora-base:subjectClassConstraint human:Group;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasBirthDate
@@ -637,6 +616,60 @@ human:isMemberOfValue
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+human:groupHasRole
+	a owl:ObjectProperty;
+	rdfs:label "group has role"@en, "Gruppe hat Rolle"@de;
+	rdfs:comment """Relating a group to a role it has."""@en;
+	rdfs:domain human:Group;
+	rdfs:range human:GroupRole;
+	rdfs:subPropertyOf human:agentHasRole;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint human:GroupRole.
+
+human:groupHasRoleValue
+	a owl:ObjectProperty;
+	rdfs:label "group has role - statement"@en, "Gruppe hat Rolle - Festlegung"@de;
+	rdfs:comment """Relating a group to a reification statement of the relation between the group and a role it has."""@en;
+	rdfs:subPropertyOf human:agentHasRoleValue;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:groupIsMemberOf
+	a owl:ObjectProperty;
+	rdfs:label "group is member of"@en, "Gruppe ist Mitglied"@de;
+	rdfs:comment """Relating a group to another group it is member of."""@en;
+	rdfs:domain human:Group;
+	rdfs:range human:Group;
+	rdfs:subPropertyOf agent:isMemberOf;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint human:Group.
+
+human:groupIsMemberOfValue
+	a owl:ObjectProperty;
+	rdfs:label "group is member of - statement"@en, "Gruppe ist Mitglied - Festlegung"@de;
+	rdfs:comment """Relating a group to a reification statement of the relation between the group and another group it is member of."""@en;
+	rdfs:subPropertyOf agent:isMemberOfValue;
+	knora-base:subjectClassConstraint human:Group;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasCreator
+	a owl:ObjectProperty;
+	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
+	rdfs:comment """Relating something to a human agent - a person or a group - that created it."""@en;
+	rdfs:domain rdfs:Resource;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Creator]];
+	rdfs:subPropertyOf agent:hasCreator;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint human:Agent.
+
+human:hasCreatorValue
+	a owl:ObjectProperty;
+	rdfs:label "has creator - statement"@en, "hat ErschafferIn - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that created it."""@en;
+	rdfs:subPropertyOf agent:hasCreatorValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 human:hasCreating
 	a owl:ObjectProperty;
 	rdfs:label "has creating"@en, "hat Kreierung"@de;
@@ -700,7 +733,7 @@ human:hasUser
 	rdfs:label "has user"@en, "hat Benutzerin"@de;
 	rdfs:comment """Relating something to an agent - a person or a group - using it."""@en;
 	rdfs:domain rdfs:Resource;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom human:User]]; # human:Agent.
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom human:User]];
 	rdfs:subPropertyOf agent:hasUser;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint human:Agent.
@@ -711,4 +744,40 @@ human:hasUserValue
 	rdfs:comment """Relating something to a reification statement of the relation between that something and an agent - a person or a group - using it."""@en;
 	rdfs:subPropertyOf agent:hasUserValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasSender
+	a owl:ObjectProperty;
+	rdfs:label "has sender"@en, "hat Absender"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
+	rdfs:domain physical:Matter;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Sender]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint human:Agent.
+
+human:hasSenderValue
+	a owl:ObjectProperty;
+	rdfs:label "has sender - statement"@en, "hat Absender - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasReceiver
+	a owl:ObjectProperty;
+	rdfs:label "has receiver"@en, "hat Empfänger"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
+	rdfs:domain physical:Matter;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Receiver]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint human:Agent.
+
+human:hasReceiverValue
+	a owl:ObjectProperty;
+	rdfs:label "has receiver - statement"@en, "hat Empfänger - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
 	knora-base:objectClassConstraint knora-base:LinkValue.

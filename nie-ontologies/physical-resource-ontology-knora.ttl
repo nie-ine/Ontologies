@@ -106,12 +106,16 @@ physical:Matter
 	rdfs:label "matter"@en, "Materie"@de;
 	rdfs:comment """Physical resource having mass and volume."""@en;
 	skos:note """As in classical physics observed in everyday life."""@en;
-	rdfs:subClassOf physical:Space, dct:PhysicalResource #, [
-#		a owl:Restriction; owl:onProperty physical:hasSize; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasSizeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasLength; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasLengthValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
-		.
+	rdfs:subClassOf physical:Space, dct:PhysicalResource, [
+		a owl:Restriction; owl:onProperty human:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 
 physical:Compound
 	a owl:Class;
@@ -221,3 +225,39 @@ physical:placeHasName
 	knora-base:subjectClassConstraint physical:Place;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+physical:hasSendingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has sending location"@en, "hat Absendeort"@de;
+	rdfs:comment """Relating something material to a location it was sent from."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint physical:Place.
+
+physical:hasSendingLocationValue
+	a owl:ObjectProperty;
+	rdfs:label "has sending location - statement"@en, "hat Absendeort - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a location it was sent from."""@en;
+	rdfs:subPropertyOf physical:hasLocationValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+physical:hasReceivingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has receiving location"@en, "hat Empfangort"@de;
+	rdfs:comment """Relating something material to a location it was sent to."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint physical:Place.
+
+physical:hasReceivingLocationValue
+	a owl:ObjectProperty;
+	rdfs:label "has receiving location - statement"@en, "hat Empfangort - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a location it was sent to."""@en;
+	rdfs:subPropertyOf physical:hasLocationValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.

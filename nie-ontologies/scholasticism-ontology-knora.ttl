@@ -58,22 +58,22 @@ schola:Role
 	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:Role.
 
-schola:Copyist
-	a owl:Class;
-	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copista"@it; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text by handwriting."""@en; #* ONLY text?
-	rdfs:subClassOf human:Creator.
-
 schola:Reportator
 	a owl:Class;
 	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
 	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en; #* also secretary of lecturer, RP
 	rdfs:subClassOf schola:Role.
 
+# schola:Expression
+#	a owl:Class;
+#	rdfs:label "scholastic expression"@en, "scholastischer Expression"@de;
+#	rdfs:comment """Expression created by a scholastic."""@en;
+#	rdfs:subClassOf concept:Expression.
+
 schola:Commentary
 	a owl:Class;
 	rdfs:label "commentarius scholasticus"@la, "scholastic commentary"@en, "scholastischer Kommentar"@de;
-	rdfs:comment """Commentary made by a person with a scholastic role."""@en;
+	rdfs:comment """Commentary made by a scholastic."""@en;
 	rdfs:subClassOf text:Commentary, [
 		a owl:Restriction; owl:onProperty schola:commentaryHasMethod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasMethodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

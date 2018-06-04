@@ -13,6 +13,7 @@
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix device: <http://www.knora.org/ontology/0045/device#>.
+@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
@@ -51,7 +52,9 @@ language:HumanNaturalLanguage
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
 	rdfs:subClassOf language:HumanLanguage, [
-		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 #	owl:disjointWith language:FormalLanguage.
 
 language:English
@@ -59,6 +62,14 @@ language:English
 	rdfs:label "English"@en, "Englisch"@de;
 	rdfs:comment """The language of England, widely used in many varieties throughout the world."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
+
+language:SwissGerman
+	a owl:Class;
+	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
+	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguage, [
+		a owl:Restriction; owl:onProperty language:swissGermanHasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:swissGermanHasDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 language:HumanNaturalLanguageExpression
 	a owl:Class;
@@ -73,12 +84,17 @@ language:HumanNaturalLanguageExpression
 		a owl:Restriction; owl:onProperty language:expressedInDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:hasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:hasTranslatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		language:hasMachineTranslator
-#		language:hasMachineTranslatorValue
+		a owl:Restriction; owl:onProperty language:hasPersonTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasPersonTranslatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasMachineTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasMachineTranslatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:translatedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty language:translatedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty ling:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 language:Dialect
 	a owl:Class;
@@ -86,11 +102,17 @@ language:Dialect
 	rdfs:comment """Regional variant of a standard language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
+language:BaselGerman
+	a owl:Class;
+	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
+	rdfs:comment """Dialect of the city of Basel, Switzerland."""@en;
+	rdfs:subClassOf language:Dialect.
+
 language:Translator #*
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
 	rdfs:comment """Role of an agent transferring a human natural language expression in another natural language."""@en;
-	rdfs:subClassOf agent:Role.
+	rdfs:subClassOf agent:Creator.
 
 language:PersonTranslator
 	a owl:Class;
@@ -124,8 +146,8 @@ language:hasCode
 	a owl:ObjectProperty;
 	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
 	rdfs:comment """Relating a language to a code (object) representing that language."""@en;
-#	rdfs:domain language:HumanNaturalLanguage;
-#	rdfs:range skos:Concept;
+	rdfs:domain language:HumanNaturalLanguage;
+	rdfs:range skos:Concept;
 	rdfs:subPropertyOf knora-base:hasValue; # skos:exactMatch
 	knora-base:subjectClassConstraint language:HumanNaturalLanguage;
 	knora-base:objectClassConstraint knora-base:TextValue. 
@@ -135,11 +157,47 @@ language:hasContent
 	rdfs:label "has content"@en, "hat Inhalt"@de;
 	rdfs:comment """Relating a human natural language expression to its content (as object)."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range xsd:string;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf knora-base:hasValue; #* concept:hasContent
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+language:hasDialect
+	a owl:ObjectProperty;
+	rdfs:label "has dialect"@en, "hat Dialekt"@de;
+	rdfs:comment """Relating a human natural language to a dialect it has."""@en;
+	rdfs:domain language:HumanNaturalLanguage;
+	rdfs:range language:Dialect;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint language:HumanNaturalLanguage;
+	knora-base:objectClassConstraint language:Dialect.
+
+language:hasDialectValue
+	a owl:ObjectProperty;
+	rdfs:label "has dialect - statement"@en, "hat Dialekt - Festlegung"@de;
+	rdfs:comment """Relating a human natural language to a reification statement of the relation between the natural language and a dialect it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint language:HumanNaturalLanguage;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+language:swissGermanHasDialect
+	a owl:ObjectProperty;
+	rdfs:label "Swiss German has dialect"@en, "Schweizerdeutsch hat Dialekt"@de;
+	rdfs:comment """Relating Swiss German to a dialect it has."""@en;
+	rdfs:domain language:SwissGerman;
+	rdfs:range language:Dialect;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint language:SwissGerman;
+	knora-base:objectClassConstraint language:Dialect.
+
+language:swissGermanHasDialectValue
+	a owl:ObjectProperty;
+	rdfs:label "Swiss German has dialect - statement"@en, "Schweizerdeutsch hat Dialekt - Festlegung"@de;
+	rdfs:comment """Relating Swiss German to a reification statement of the relation between Swiss German and a dialect it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint language:SwissGerman;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 language:expressedInNaturalLanguage
 	a owl:ObjectProperty;
@@ -182,7 +240,7 @@ language:translatedIn
 	rdfs:label "is translated in"@en, "ist übersetzt in"@de;
 	rdfs:comment """Relating a human natural language expression to another one in another natural language it is translated in."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range language:HumanNaturalLanguageExpression;
+	rdfs:range language:Translation;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint language:Translation.
@@ -266,12 +324,3 @@ language:translatedInNaturalLanguageValue
 	rdfs:subPropertyOf language:expressedInNaturalLanguageValue;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
-
-language:hasLinguisticComment
-	a owl:ObjectProperty;
-	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
-	rdfs:comment """Relating a human natural language expression to a linguistic comment (as object) as a textual statement about the resource."""@en;
-	rdfs:subPropertyOf text:hasComment;
-	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.

@@ -49,9 +49,14 @@ document:Layout
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf knora-base:Resource. #* concept:Layout
 
+document:Marginal
+	a owl:Class;
+	rdfs:label "marginal"@en, "Marginale"@de; # in GUI can be "marginalia"@en, "Marginalien"@de
+	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, or illuminations."""@en;
+	rdfs:subClassOf concept:Information.
+
 # document:Page
 # document:Column -> paragraph, page, strophe
-# document:Marginalia
 # document:Table
 
 # Format

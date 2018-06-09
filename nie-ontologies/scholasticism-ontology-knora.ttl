@@ -50,7 +50,7 @@ schola:Scholastic
 #		a owl:Restriction; owl:onProperty schola:hasReportatorRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
-#* schola:Lecture
+#* schola:Translator: SCO text:Translator: handwriting?
 
 schola:Role
 	a owl:Class;
@@ -75,120 +75,72 @@ schola:Commentary
 	rdfs:label "commentarius scholasticus"@la, "scholastic commentary"@en, "scholastischer Kommentar"@de;
 	rdfs:comment """Commentary made by a scholastic."""@en;
 	rdfs:subClassOf text:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasMethod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasMethodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#*		a owl:Restriction; owl:onProperty schola:commentaryHasProcedure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#*		a owl:Restriction; owl:onProperty schola:commentaryHasProcedureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasForm; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasFormValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-schola:CommentaryMethod #* RLP: stage?
-	a owl:Class;
-	rdfs:label "scholastic commentary method"@en, "scholastische Kommentarmethode"@de;
-	rdfs:comment """Scholastic method to comment."""@en;
-	rdfs:subClassOf concept:Procedure.
-
-schola:Lectura
-	a owl:Class;
-	rdfs:label "lectura"@la;
-	rdfs:comment """Scholastic commentary on a text expression as presented by its author in a lecture."""@en;
-	rdfs:subClassOf schola:CommentaryMethod.
-
-schola:LecturaRevisa #* RLP: = Ordinatio?
-	a owl:Class;
-	rdfs:label "lectura revisa"@la;
-	rdfs:comment """Scholastic commentary on a text expression as revised by its author after its presentation in a lecture."""@en;
-	rdfs:subClassOf schola:CommentaryMethod.
-
-schola:Reportatio
-	a owl:Class;
-	rdfs:label "reportatio"@la, "reportatio"@en, "Reportatio"@de;
-	rdfs:comment """Scholastic commentary on a text expression as recorded by a student."""@en; #* RLP: "listener", "auditor" instead of "student"?
-	rdfs:subClassOf schola:CommentaryMethod. #, [
-#*		a owl:Restriction; owl:onProperty schola:hasReportator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#*		a owl:Restriction; owl:onProperty schola:hasReportatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-schola:ReportatioApprobata
-	a owl:Class;
-	rdfs:label "reportatio approbata"@la;
-	rdfs:comment """Scholastic commentary on a text expression as student recordings approved by the master."""@en;
-	rdfs:subClassOf schola:CommentaryMethod.
-
-schola:Ordinatio
-	a owl:Class;
-	rdfs:label "ordinatio"@la;
-	rdfs:comment """Scholastic commentary on a text expression as composed for publication."""@en;
-	rdfs:subClassOf schola:CommentaryMethod.
-
-schola:GlossCommentary
-	a owl:Class;
-	rdfs:label "gloss commentary"@en, "Glosse-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of glosses."""@en;
-	rdfs:subClassOf schola:Commentary, [
+		a owl:Restriction; owl:onProperty schola:commentaryHasFormValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasGloss; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasGlossValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty schola:commentaryHasGlossValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasTable; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasTableValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasAbbreviation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #* concerns whole expression ?
+		a owl:Restriction; owl:onProperty schola:commentaryHasAbbreviationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasParaphrase; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #* concerns whole expression
+		a owl:Restriction; owl:onProperty schola:commentaryHasParaphraseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExposition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #* concerns whole expression
+		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExpositionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-schola:QuestionCommentary
+schola:SentenceCommentary
 	a owl:Class;
-	rdfs:label "question commentary"@en, "Frage-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of questions."""@en;
+	rdfs:label "commentarius scholasticus"@la, "scholastic sentence commentary"@en, "scholastischer Satz-Kommentar"@de; #*
+	rdfs:comment """Commentary with sentence structure, made by a scholastic."""@en;
 	rdfs:subClassOf schola:Commentary, text:SentenceExpression, [
 		a owl:Restriction; owl:onProperty schola:commentaryHasQuestion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasQuestionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-schola:ConclusionCommentary
-	a owl:Class;
-	rdfs:label "conclusion commentary"@en, "Konklusion-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of conclusions."""@en;
-	rdfs:subClassOf schola:Commentary, text:SentenceExpression, [
+		a owl:Restriction; owl:onProperty schola:commentaryHasQuestionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasConclusion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasConclusionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-schola:SyllogismCommentary
-	a owl:Class;
-	rdfs:label "syllogism commentary"@en, "Syllogismus-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of syllogisms."""@en;
-	rdfs:subClassOf schola:Commentary, text:SentenceExpression, [
+		a owl:Restriction; owl:onProperty schola:commentaryHasConclusionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasSyllogism; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:commentaryHasSyllogismValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-schola:VerseCommentary
-	a owl:Class;
-	rdfs:label "verse commentary"@en, "Vers-Kommentar"@de; #*
-	rdfs:comment """Scholastic commentary on a text expression in the form of condensing information in verse form."""@en;
-	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+# schola:CommentingProcedure #* RLP: stage?
+#	a owl:Class;
+#	rdfs:label "scholastic commenting procedure"@en, "scholastische Kommentierungvorgehensweise"@de;
+#	rdfs:comment """Scholastic procedure to comment."""@en;
+#	rdfs:subClassOf event:Procedure. # event:Stage
 
-schola:TableCommentary
+schola:Lectura # actually a result of a creating procedure of which the commentary is the subject
 	a owl:Class;
-	rdfs:label "table commentary"@en, "Tabelle-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of condensed information in a table."""@en;
-	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasTable; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasTableValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "lectura"@la;
+	rdfs:comment """Scholastic commentary on a text expression, as presented by its author in a lecture."""@en;
+	rdfs:subClassOf schola:Commentary.
 
-schola:AbbreviationCommentary #* text:SentenceExpression?
+schola:LecturaRevisa #* RLP: = Ordinatio? ; after Lectura
 	a owl:Class;
-	rdfs:label "abbreviation commentary"@en, "Kurzfassung-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of a shortened version."""@en;
-	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasAbbreviation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasAbbreviationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "lectura revisa"@la;
+	rdfs:comment """Scholastic commentary on a text expression, as revised by its author after its presentation in a lecture."""@en;
+	rdfs:subClassOf schola:Commentary.
 
-schola:ParaphraseCommentary #* text:SentenceExpression?
+schola:Reportatio #* after LecturaRevisa
 	a owl:Class;
-	rdfs:label "paraphrase commentary"@en, "Paraphrase-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of a restatement of a text to clarify meaning."""@en;
+	rdfs:label "reportatio"@la, "reportatio"@en, "Reportatio"@de;
+	rdfs:comment """Scholastic commentary on a text expression, as recorded by a *student* in a lecture."""@en; #* RLP: "listener", "auditor" instead of "student"?
 	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasParaphrase; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasParaphraseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty schola:hasReportator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:hasReportatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-schola:LiteralExpositionCommentary #* text:SentenceExpression?
+schola:ReportatioApprobata #* after Reportatio
 	a owl:Class;
-	rdfs:label "literal exposition commentary"@en, "wörtliche Auslegung-Kommentar"@de;
-	rdfs:comment """Scholastic commentary on a text expression in the form of a literal exposition."""@en;
-	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExposition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExpositionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "reportatio approbata"@la;
+	rdfs:comment """Scholastic commentary on a text expression as student recordings approved by the master."""@en;
+	rdfs:subClassOf schola:Commentary.
+
+schola:Ordinatio #* after ReportatioApprobata
+	a owl:Class;
+	rdfs:label "ordinatio"@la;
+	rdfs:comment """Scholastic commentary on a text expression as composed for publication."""@en;
+	rdfs:subClassOf schola:Commentary.
 
 #
 # PROPERTIES
@@ -230,40 +182,22 @@ schola:hasRoleValue
 #	knora-base:subjectClassConstraint schola:Scholastic;
 #	knora-base:objectClassConstraint knora-base:LinkValue.
 
-# schola:hasReportator
-#	a owl:ObjectProperty;
-#	rdfs:label "has reportator"@en, "hat Reportator"@de;
-#	rdfs:comment """Relating a scholastic lecture to a scholastic who reported it."""@en;
-#	rdfs:domain schola:Lecture;
-#	rdfs:range schola:Scholastic;  
-#	rdfs:subPropertyOf knora-base:hasLinkTo;
-#	knora-base:subjectClassConstraint schola:Lecture;
-#	knora-base:objectClassConstraint schola:Scholastic.
-
-# schola:hasReportatorValue
-#	a owl:ObjectProperty;
-#	rdfs:label "has reportator - statement"@en, "hat Reportator - Festlegung"@de;
-#	rdfs:comment """Relating a scholastic lecture to a statement as reification of the relation between the lecture and a scholastic who reported it."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkToValue;
-#	knora-base:subjectClassConstraint schola:Lecture;
-#	knora-base:objectClassConstraint knora-base:LinkValue.
-
-schola:commentaryHasMethod
+ schola:hasReportator
 	a owl:ObjectProperty;
-	rdfs:label "commentary has method"@en, "Kommentar hat Methode"@de;
-	rdfs:comment """Relating a scholastic commentary to a method it adheres to."""@en;
-	rdfs:domain schola:Commentary;
-	rdfs:range schola:CommentaryMethod;
+	rdfs:label "has reportator"@en, "hat Reportator"@de;
+	rdfs:comment """Relating a scholastic comment of a lecture to a scholastic who reported it."""@en;
+	rdfs:domain schola:Reportatio;
+#	rdfs:range [rdfs:subClassOf schola:Scholastic, [a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Reportator];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint schola:Commentary;
-	knora-base:objectClassConstraint schola:CommentaryMethod.
+	knora-base:subjectClassConstraint schola:Reportatio;
+	knora-base:objectClassConstraint schola:Scholastic.
 
-schola:commentaryHasMethodValue
+schola:hasReportatorValue
 	a owl:ObjectProperty;
-	rdfs:label "commentary has method - statement"@en, "Kommentar hat Methode - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a method it adheres to."""@en;
+	rdfs:label "has reportator - statement"@en, "hat Reportator - Festlegung"@de;
+	rdfs:comment """Relating a scholastic lecture to a statement as reification of the relation between the lecture and a scholastic who reported it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint schola:Commentary;
+	knora-base:subjectClassConstraint schola:Reportatio;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasForm
@@ -287,161 +221,161 @@ schola:commentaryHasFormValue
 schola:commentaryHasGloss
 	a owl:ObjectProperty;
 	rdfs:label "commentary has gloss"@en, "Kommentar hat Glosse"@de;
-	rdfs:comment """Relating a scholastic commentary to a gloss it has."""@en;
-	rdfs:domain schola:GlossCommentary;
+	rdfs:comment """Relating a scholastic commentary to a gloss it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range text-structure:Gloss;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasGloss;
-	knora-base:subjectClassConstraint schola:GlossCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint text-structure:Gloss.
 
 schola:commentaryHasGlossValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has gloss - statement"@en, "Kommentar hat Glosse - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a gloss it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a gloss it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasGlossValue;
-	knora-base:subjectClassConstraint schola:GlossCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasQuestion
 	a owl:ObjectProperty;
 	rdfs:label "commentary has question"@en, "Kommentar hat Frage"@de;
-	rdfs:comment """Relating a scholastic commentary to a question it has."""@en;
-	rdfs:domain schola:QuestionCommentary;
+	rdfs:comment """Relating a scholastic commentary to a question it contains."""@en;
+	rdfs:domain schola:SentenceCommentary;
 	rdfs:range ling:Question;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasSentence;
-	knora-base:subjectClassConstraint schola:QuestionCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint ling:Question.
 
 schola:commentaryHasQuestionValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has question - statement"@en, "Kommentar hat Frage - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a question it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a question it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasSentenceValue;
-	knora-base:subjectClassConstraint schola:QuestionCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasConclusion
 	a owl:ObjectProperty;
 	rdfs:label "commentary has conclusion"@en, "Kommentar hat Konklusion"@de;
-	rdfs:comment """Relating a scholastic commentary to a conclusion it has."""@en;
-	rdfs:domain schola:ConclusionCommentary;
+	rdfs:comment """Relating a scholastic commentary to a conclusion it contains."""@en;
+	rdfs:domain schola:SentenceCommentary;
 	rdfs:range logic:Conclusion;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasSentence;
-	knora-base:subjectClassConstraint schola:ConclusionCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint logic:Conclusion.
 
 schola:commentaryHasConclusionValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has conclusion - statement"@en, "Kommentar hat Konklusion - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a conclusion it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a conclusion it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasSentenceValue;
-	knora-base:subjectClassConstraint schola:ConclusionCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasSyllogism
 	a owl:ObjectProperty;
 	rdfs:label "commentary has syllogism"@en, "Kommentar hat Syllogismus"@de;
-	rdfs:comment """Relating a scholastic commentary to a syllogism it has."""@en;
-	rdfs:domain schola:SyllogismCommentary;
+	rdfs:comment """Relating a scholastic commentary to a syllogism it contains."""@en;
+	rdfs:domain schola:SentenceCommentary;
 	rdfs:range logic:Syllogism;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasParagraph;
-	knora-base:subjectClassConstraint schola:SyllogismCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint logic:Syllogism.
 
 schola:commentaryHasSyllogismValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has syllogism - statement"@en, "Kommentar hat Syllogismus - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a syllogism it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a syllogism it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasParagraphValue;
-	knora-base:subjectClassConstraint schola:SyllogismCommentary;
+	knora-base:subjectClassConstraint schola:SentenceCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasVerse
 	a owl:ObjectProperty;
 	rdfs:label "commentary has verse"@en, "Kommentar hat Vers"@de;
-	rdfs:comment """Relating a scholastic commentary to a verse it has."""@en;
-	rdfs:domain schola:VerseCommentary;
+	rdfs:comment """Relating a scholastic commentary to a verse it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range text-structure:Verse;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasStructure; #* :VerseExpression
-	knora-base:subjectClassConstraint schola:VerseCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint text-structure:Verse.
 
 schola:commentaryHasVerseValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has verse - statement"@en, "Kommentar hat Vers - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a verse it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a verse it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint schola:VerseCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasTable
 	a owl:ObjectProperty;
 	rdfs:label "commentary has table"@en, "Kommentar hat Tabelle"@de;
-	rdfs:comment """Relating a scholastic commentary to a table it has."""@en;
-	rdfs:domain schola:TableCommentary;
+	rdfs:comment """Relating a scholastic commentary to a table it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range text-structure:Table;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasStructure;
-	knora-base:subjectClassConstraint schola:TableCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint text-structure:Table.
 
 schola:commentaryHasTableValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has table - statement"@en, "Kommentar hat Tabelle - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a table it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a table it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint schola:TableCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasAbbreviation
 	a owl:ObjectProperty;
 	rdfs:label "commentary has abbreviation"@en, "Kommentar hat Kurzfassung"@de;
-	rdfs:comment """Relating a scholastic commentary to an abbreviation it has."""@en;
-	rdfs:domain schola:AbbreviationCommentary;
+	rdfs:comment """Relating a scholastic commentary to an abbreviation it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range textedit:Abbreviation;
 	rdfs:subPropertyOf schola:commentaryHasForm;
-	knora-base:subjectClassConstraint schola:AbbreviationCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint textedit:Abbreviation.
 
 schola:commentaryHasAbbreviationValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has abbreviation - statement"@en, "Kommentar hat Kurzfassung - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and an abbreviation it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and an abbreviation it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue;
-	knora-base:subjectClassConstraint schola:AbbreviationCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasParaphrase
 	a owl:ObjectProperty;
 	rdfs:label "commentary has paraphrase"@en, "Kommentar hat Paraphrase"@de;
-	rdfs:comment """Relating a scholastic commentary to a paraphrase it has."""@en;
-	rdfs:domain schola:ParaphraseCommentary;
+	rdfs:comment """Relating a scholastic commentary to a paraphrase it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range textedit:Paraphrase;
 	rdfs:subPropertyOf schola:commentaryHasForm;
-	knora-base:subjectClassConstraint schola:ParaphraseCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint textedit:Paraphrase.
 
 schola:commentaryHasParaphraseValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has paraphrase - statement"@en, "Kommentar hat Paraphrase - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a paraphrase it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a paraphrase it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue;
-	knora-base:subjectClassConstraint schola:ParaphraseCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasLiteralExposition
 	a owl:ObjectProperty;
 	rdfs:label "commentary has literal exposition"@en, "Kommentar hat wörtliche Auslegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a literal exposition it has."""@en;
-	rdfs:domain schola:LiteralExpositionCommentary;
+	rdfs:comment """Relating a scholastic commentary to a literal exposition it contains."""@en;
+	rdfs:domain schola:Commentary;
 	rdfs:range textedit:LiteralExposition;
 	rdfs:subPropertyOf schola:commentaryHasForm;
-	knora-base:subjectClassConstraint schola:LiteralExpositionCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint textedit:LiteralExposition.
 
 schola:commentaryHasLiteralExpositionValue
 	a owl:ObjectProperty;
 	rdfs:label "commentary has literal exposition - statement"@en, "Kommentar hat wörtliche Auslegung - Festlegung"@de;
-	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a literal exposition it has."""@en;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a literal exposition it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue;
-	knora-base:subjectClassConstraint schola:LiteralExpositionCommentary;
+	knora-base:subjectClassConstraint schola:Commentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.

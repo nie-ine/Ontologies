@@ -33,6 +33,7 @@ cathorg:Organization
 
 cathorg:Person
 	a owl:Class;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr; # "persona"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousPerson, [

@@ -71,19 +71,19 @@ org:ReligiousOrganization #* OR to group religions
 	rdfs:comment """Organization of religious persons."""@en;
 	rdfs:subClassOf org:Organization.
 
-org:Politician
-	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "politician role"@en, "Politiker-Rolle"@de;
-	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
-	rdfs:subClassOf human:OccupationalRole.
-
 org:PoliticalOrganization
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
 	rdfs:label "political organization"@en, "politische Organisation"@de;
 	rdfs:comment """Organization being involved in politics."""@en;
 	rdfs:subClassOf org:Organization.
+
+org:Politician
+	a owl:Class;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	rdfs:label "politician role"@en, "Politiker-Rolle"@de;
+	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
+	rdfs:subClassOf human:OccupationalRole.
 
 org:MasonicLodge
 	a owl:Class;

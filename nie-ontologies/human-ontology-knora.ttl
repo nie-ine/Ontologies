@@ -301,7 +301,6 @@ human:Receiver
 	rdfs:comment """Role of a human agent - a person or a group - receiving something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
-
 human:CulturalAction
 	a owl:Class;
 	rdfs:label "cultural action"@en, "kulturelle Aktion"@de;
@@ -327,6 +326,53 @@ human:Floruit #* on which level: agent, body of thought?
 	rdfs:label "person's floruit"@en, "Floruit einer Person"@de;
 	rdfs:comment """Period during which a person or an organization was most active or flourishing."""@en;
 	rdfs:subClassOf human:Action.
+
+human:Vulgarizer
+	a owl:Class;
+	rdfs:label "vulgarizer"@en, "Vulgarisator"@de, "vulgarisateur"@fr;
+	rdfs:comment """Role of a person making something, e.g. science, less subtle, complex, or refined."""@en;
+	rdfs:subClassOf human:Role.
+
+human:Performer
+	a owl:Class;
+	rdfs:label "performer"@en, "PerformerIn"@de;
+	rdfs:comment """Role of a person entertaining an audience."""@en;
+	rdfs:subClassOf human:Role.
+
+human:Artist
+	a owl:Class;
+	rdfs:label "artist"@en, "KünstlerIn"@de, "artiste"@fr;
+	rdfs:comment """Role of a person creating art."""@en;
+	rdfs:subClassOf human:Role.
+
+# human:PerformingArt, e.g.
+# Theatre
+# Music
+# Dance
+# Ballet
+# 0pera
+# Kabuki
+
+human:PerformingArtist
+	a owl:Class;
+	rdfs:label "performing artist"@en, "Kunst-PerformerIn"@de, "artiste de la performance"@fr;
+	rdfs:comment """Artist in a performing art."""@en;
+	rdfs:subClassOf human:Artist.
+
+# Actor
+# Musician
+# Singer
+# Dancer
+# BalletDancer
+# 0peraSinger
+
+# Science
+
+human:Scientist
+	a owl:Class;
+	rdfs:label "scientist"@en, "WissenschaftlerIn"@de, "scientifique"@fr;
+	rdfs:comment """Role of a person practicing science."""@en;
+	rdfs:subClassOf human:Role.
 
 human:Mathematician
 	a owl:Class;

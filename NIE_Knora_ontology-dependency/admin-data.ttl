@@ -1275,8 +1275,8 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 <http://rdfh.ch/projects/005F> a knora-base:knoraProject;
   knora-base:projectShortname "test"^^xsd:string;
   knora-base:projectShortcode "005F"^^xsd:string;
-  knora-base:projectLongname "An ontology about test"@en;
-  knora-base:projectDescription "Testing"^^xsd:string;
+  knora-base:projectLongname "An ontology about test"^^xsd:string;
+  knora-base:projectDescription "Testing"@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1291,3 +1291,27 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProject <http://rdfh.ch/projects/005F>;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/005F>.
+
+#
+# Delille
+#
+
+<http://rdfh.ch/projects/0060> a knora-base:knoraProject;
+  knora-base:projectShortname "Delille"^^xsd:string;
+  knora-base:projectShortcode "0060"^^xsd:string;
+  knora-base:projectLongname "An ontology about Jacques Delille's poetry"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of poetry of Jacques Delille, 22 June 1738 – 1 May 1813"@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0060>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0060>.

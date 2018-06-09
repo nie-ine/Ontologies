@@ -72,7 +72,7 @@ concept:PropositionalConcept
 concept:ThoughtBody #* related to belief system related to school of thought related to theory
 	a owl:Class;
 	rdfs:label "body of thought"@en, "Gedankengut"@de;
-	rdfs:comment """Coherent group of propositional concepts."""@en; #*
+	rdfs:comment """Group of coexisting propositional concepts."""@en; #* possibly coherent
 	rdfs:subClassOf concept:PropositionalConcept.
 
 concept:Work
@@ -120,7 +120,7 @@ concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
 concept:ThoughtMethod #* part/SC of philosophy ?
 	a owl:Class;
 	rdfs:label "thought method"@en, "Methode des Denkens"@de;
-	rdfs:comment """Analysis of facts to form a judgment."""@en;
+	rdfs:comment """Way of analysing facts to form a judgment."""@en; #*
 	rdfs:subClassOf concept:Information.
 
 #concept:CriticalThoughtMethod

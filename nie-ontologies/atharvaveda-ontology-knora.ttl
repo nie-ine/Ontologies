@@ -24,15 +24,21 @@
 # CLASSES
 #
 
-# apparatus has format:
-# location of version in text
-# lemma: part of text
-# symbol
-# source
-# list of variants + source: if frequently cited: abbreviated with a siglum
+# apparatus has format: cf. textedit
+# lemma
+# symbol ']'
+# source from which the edition took its reading (bold font)
+# list of variants + source, set off with a comma
+# Special markup that can appear:
+# [[...]] denoting editorial observations on the preceding reading(s)
+# [ Aa ] denoting manuscripts with a specific meaning
+# <..> denote wholly or partially lost text due to damage suffered by the palm-leaves
 
 athar:CriticalApparatus
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
 	rdfs:comment """Critical apparatus used in the Atharvaveda project at the Zürich University 2018."""@en;
 	rdfs:subClassOf textedit:CriticalApparatus.
+
+# hemistich: texts delimited by single and double pipes, respectively. We would like to keep the pipes, however, eventually in a special XML tag, in order to be able to refer to them later
+# verse + metric

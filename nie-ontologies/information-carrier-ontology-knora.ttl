@@ -221,7 +221,7 @@ infocar:ManuelTranscription
 	a owl:Class;
 	rdfs:label "manuel transcription"@en, "manuelle Abschrift"@de;
 	rdfs:comment """Carrier with a handwritten copy of a text."""@en;
-	rdfs:subClassOf infocar:Transcription.
+	rdfs:subClassOf infocar:Transcription, infocar:Manuscript.
 
 infocar:Diary
 	a owl:Class;

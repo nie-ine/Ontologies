@@ -55,12 +55,30 @@ humgeo:State
 	rdfs:comment """Political organization of a nation with an own government."""@en;
 	rdfs:subClassOf org:PoliticalOrganization.
 
+humgeo:Monarchy #*
+	a owl:Class;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
+	rdfs:label "monarchy"@en, "Monarchie"@de;
+	rdfs:comment """State wherein one person or family governs."""@en;
+	rdfs:subClassOf humgeo:State.
+
+humgeo:Monarch
+	a owl:Class;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
+	rdfs:label "monarch"@en, "Monarch"@de, "monarque"@fr;
+	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
+	rdfs:subClassOf human:Role.
+
+# king, queen
+
 humgeo:Empire
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "empire"@en, "Imperium"@de;
 	rdfs:comment """Group of nations with an overarching government."""@en;
 	rdfs:subClassOf org:PoliticalOrganization.
+
+# emperor, empress
 
 # humgeo:NationState: nation-state
 

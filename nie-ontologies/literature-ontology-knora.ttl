@@ -16,8 +16,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about literature"@en;
 	dct:description """Formal description of literature, its general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/0050>.
@@ -227,7 +227,7 @@ litera:NonfictionNovel
 
 litera:Poet
 	a owl:Class;
-	rdfs:label "poet"@en, "Dichter"@de;
+	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr;
 	rdfs:comment """Author of a poem."""@en;
 	rdfs:subClassOf text:Author.
 
@@ -392,10 +392,10 @@ litera:poemHasProse
 	rdfs:label "poem has prose"@en, "Gedicht hat Prosa"@de;
 	rdfs:comment """Relating a poem to prose it has."""@en;
 	rdfs:domain litera:ProsePoem;
-	rdfs:range text-structure:Prose; #*
+	rdfs:range text-structure:Prose; #* text-structure:RhythmicProse
 	rdfs:subPropertyOf text-structure:hasProse;
 	knora-base:subjectClassConstraint litera:ProsePoem;
-	knora-base:objectClassConstraint text-structure:Prose. #*
+	knora-base:objectClassConstraint text-structure:Prose. #* text-structure:RhythmicProse
 
 litera:poemHasProseValue
 	a owl:ObjectProperty;

@@ -17,7 +17,7 @@
 	a owl:Ontology;
 	dct:title "An ontology for the Digital Repertory of Commentaries on Peter Lombard’s Sentences"@en;
 	dct:description """Formal description of specific concepts in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, University of Basel, Switzerland"@en;
 	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
 #	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>;
 
@@ -52,6 +52,13 @@ drcs:Commentary
 	rdfs:subClassOf schola:Commentary, [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCommentaryDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	# owl:disjointUnioOf (schola:Lectura schola:LecturaRevisa schola:Reportatio schola:ReportatioApprobata schola:Ordinatio).
+
+drcs:SentenceCommentary
+	a owl:Class;
+	rdfs:label "commentarius"@la, "sentence commentary"@en, "Satz-Kommentar"@de; #*
+	rdfs:comment """Commentary with sentence structure on Petrus Lombardus' Sentences."""@en;
+	rdfs:subClassOf drcs:Commentary, schola:SentenceCommentary.
 
 #
 # PROPERTIES

@@ -74,7 +74,7 @@ event:Action
 
 event:Procedure
 	a owl:Class;
-	rdfs:label "procedure"@en, "Vorgehen"@de;
+	rdfs:label "procedure"@en, "Vorgehensweise"@de;
 	rdfs:comment """Action executed in one or more steps, in a certain manner obtaining a certain output under certain circumstances."""@en;
 	rdfs:subClassOf event:Action.
 

@@ -144,6 +144,9 @@ human:Intersexual
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
+# birth place
+# death place
+
 human:Ability
 	a owl:Class;
 	rdfs:label "human ability"@en, "menschliche Fähigkeit"@de;

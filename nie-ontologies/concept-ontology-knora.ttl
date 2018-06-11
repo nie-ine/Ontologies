@@ -178,7 +178,7 @@ concept:Expression
 #
 
 concept:isPartOf
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty; #, owl:TransitiveProperty;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a symbolic concept to another one it is part of."@en;
 	rdfs:domain concept:SymbolicConcept;

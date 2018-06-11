@@ -35,6 +35,8 @@
 # CLASSES
 #
 
+# Transfer text independent elemenst from text etc.
+
 document:Document
 	a owl:Class;
 	rdfs:label "document"@en, "Dokument"@de;
@@ -56,6 +58,7 @@ document:Marginal
 	rdfs:subClassOf concept:Information.
 
 # document:Page
+
 # document:Column -> paragraph, page, strophe
 # document:Table
 
@@ -78,3 +81,17 @@ document:Marginal
 #	rdfs:subPropertyOf knora-base:hasLinkTo;
 #	knora-base:subjectClassConstraint layout:Layout;
 #	knora-base:objectClassConstraint document:Document.
+
+
+#* document:hasFootnote
+#	a owl:ObjectProperty;
+#	rdfs:label "has footnote"@en, "hat Fussnote"@de;
+#	rdfs:comment """Relating a text expression to a footnote it has."""@en;
+#	rdfs:domain text:Expression;
+#	rdfs:range text-structure:Structure;
+#	rdfs:subPropertyOf knora-base:hasLinkTo;
+#	knora-base:subjectClassConstraint text:Expression;
+#	knora-base:objectClassConstraint text-structure:Structure.
+
+
+#* document:hasEndnote

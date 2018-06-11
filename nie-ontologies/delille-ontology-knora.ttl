@@ -6,6 +6,7 @@
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
@@ -26,26 +27,24 @@
 # CLASSES
 #
 
+delille:VersePoem
+	a owl:Class;
+	rdfs:label "Jacques Delille verse poem"@en, "Jacques Delille-Versgedicht"@de;
+	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:VersePoem.
+
+delille:EditedVersePoem
+	a owl:Class;
+	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Jacques Delille-Versgedicht"@de;
+	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
+	rdfs:subClassOf delille:VersePoem, textedit:Edition.
+
 delille:Person
 	a owl:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
+	rdfs:comment """Person as subject in the scientific study of Jacques Delille's poetry."""@en;
 	rdfs:subClassOf human:Person.
 
-delille:Text
-	a owl:Class;
-	rdfs:label "text expression"@en, "Text-Expression"@de;
-	rdfs:comment """."""@en;
-	rdfs:subClassOf text:Expression.
-
-# delille:Song
-
-# delille:Strophe
-
-# delille:Text
-
-# delille:Verse content, footnote, 
-
-# delille:verseHasNumber
 
 # delille:Person, names, bd, dd, biography, ref/link, 
 

@@ -37,7 +37,7 @@
 # CLASSES
 #
 
-text-structure:Structure
+text-structure:Structure #* has number
 	a owl:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Human natural language expression as structure, e.g. a word, sentence, text line, paragraph, verse, strophe."""@en;
@@ -205,7 +205,8 @@ text-structure:Strophe # OR stanza OR verse - Vers
 	rdfs:subClassOf text-structure:ProsodicStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
 		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Hemistich
 	a owl:Class;
@@ -272,6 +273,18 @@ text-structure:InterlinearGloss
 	rdfs:label "interlinear gloss"@en, "interlineare Glosse"@de;
 	rdfs:comment """Gloss as an interlinear note."""@en;
 	rdfs:subClassOf text-structure:Gloss, text-structure:InterlinearNote.
+
+text-structure:Footote #* number
+	a owl:Class;
+	rdfs:label "footnote structure"@en, "Fussnote-Struktur"@de;
+	rdfs:comment """Note on information on a page at the end of that page, seperate from the main content."""@en;
+	rdfs:subClassOf text-structure:Note.
+
+text-structure:Endnote #* number
+	a owl:Class;
+	rdfs:label "end note structure"@en, "Endnote-Struktur"@de;
+	rdfs:comment """Note on information on a page at the end of the document, seperate from the main content."""@en;
+	rdfs:subClassOf text-structure:Note.
 
 text-structure:Letter
 	a owl:Class;
@@ -783,6 +796,16 @@ text-structure:stropheIsPartOfTextValue
 	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:stropheHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "strophe has number"@en, "Strophe hat Nummer"@de;
+	rdfs:comment """Relating a strophe to its number (as object)."""@en;
+	rdfs:domain text-structure:Strophe;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 text-structure:hasNoteStructure
 	a owl:ObjectProperty;

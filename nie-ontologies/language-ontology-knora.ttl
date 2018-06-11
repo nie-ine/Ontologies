@@ -60,7 +60,25 @@ language:HumanNaturalLanguage
 language:English
 	a owl:Class;
 	rdfs:label "English"@en, "Englisch"@de;
-	rdfs:comment """The language of England, widely used in many varieties throughout the world."""@en;
+	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguage.
+
+language:French
+	a owl:Class;
+	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
+	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguage.
+
+language:German
+	a owl:Class;
+	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
+	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguage.
+
+language:Italian
+	a owl:Class;
+	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
+	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:SwissGerman

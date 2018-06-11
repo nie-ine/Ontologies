@@ -64,7 +64,7 @@ kuno-raeber:Text
 
 kuno-raeber:Poem
 	a owl:Class;
-	rdfs:label "poem"@en, "Gedicht"@de;
+	rdfs:label "Kuno Raeber poem"@en, "Kuno Raeber-Gedicht"@de;
 	rdfs:comment """Poem authored by Kuno Raeber."""@en, """Gedicht von Kuno Raeber."""@de;
 	rdfs:subClassOf litera:Poem, kuno-raeber:Text, [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

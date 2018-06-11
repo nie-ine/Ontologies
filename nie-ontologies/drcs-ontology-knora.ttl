@@ -16,7 +16,7 @@
 <http://www.knora.org/ontology/0046/drcs>
 	a owl:Ontology;
 	dct:title "An ontology for the Digital Repertory of Commentaries on Peter Lombard’s Sentences"@en;
-	dct:description """Formal description of specific concepts in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
+	dct:description """Formal description of specific concepts in the scientific study of Commentaries on Peter Lombard's Sentences, as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, University of Basel, Switzerland"@en;
 	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
 #	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>;
@@ -30,7 +30,7 @@
 drcs:Person
 	a owl:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
-	rdfs:comment """Person as subject in the scientific study of Petrus Lombardus."""@en;
+	rdfs:comment """Person as subject in the scientific study of Commentaries on Peter Lombard’s Sentences."""@en;
 	rdfs:subClassOf human:Person, [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "1"^^xsd:nonNegativeInteger].
@@ -48,7 +48,7 @@ drcs:Person
 drcs:Commentary
 	a owl:Class;
 	rdfs:label "commentarius"@la, "commentary"@en, "Kommentar"@de;
-	rdfs:comment """Commentary on Petrus Lombardus' Sentences."""@en;
+	rdfs:comment """Commentary on Peter Lombard’s Sentences."""@en;
 	rdfs:subClassOf schola:Commentary, [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCommentaryDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -57,7 +57,7 @@ drcs:Commentary
 drcs:SentenceCommentary
 	a owl:Class;
 	rdfs:label "commentarius"@la, "sentence commentary"@en, "Satz-Kommentar"@de; #*
-	rdfs:comment """Commentary with sentence structure on Petrus Lombardus' Sentences."""@en;
+	rdfs:comment """Commentary with sentence structure on Peter Lombard’s Sentences."""@en;
 	rdfs:subClassOf drcs:Commentary, schola:SentenceCommentary.
 
 #

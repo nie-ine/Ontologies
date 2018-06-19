@@ -9,6 +9,7 @@
 @prefix naprospadi: <http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix org: <http://www.knora.org/ontology/0051/organization#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.

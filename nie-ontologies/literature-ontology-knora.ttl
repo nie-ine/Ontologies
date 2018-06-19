@@ -145,7 +145,9 @@ litera:VersePoem
 		a owl:Restriction; owl:onProperty litera:poemHasVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty litera:poemHasStrophe; owl:allValuesFrom text-structure:Strophe], [
 		a owl:Restriction; owl:onProperty litera:poemHasStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty litera:poemHasStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:poemHasVerseSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:poemHasVerseSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:VerseSong
 	a owl:Class;
@@ -383,6 +385,24 @@ litera:poemHasStropheValue
 	a owl:ObjectProperty;
 	rdfs:label "poem has strophe - statement"@en, "Gedicht hat Strophe - Festlegung"@de;
 	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and a strophe it has."""@en;
+	rdfs:subPropertyOf text-structure:hasStructureValue;
+	knora-base:subjectClassConstraint litera:VersePoem;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:poemHasVerseSection
+	a owl:ObjectProperty;
+	rdfs:label "poem has verse section"@en, "Gedicht hat Versabschnitt"@de;
+	rdfs:comment """Relating a verse poem to a section it has."""@en;
+	rdfs:domain litera:VersePoem;
+	rdfs:range text-structure:VerseSection;
+	rdfs:subPropertyOf text-structure:hasStructure;
+	knora-base:subjectClassConstraint litera:VersePoem;
+	knora-base:objectClassConstraint text-structure:VerseSection.
+
+litera:poemHasVerseSectionValue
+	a owl:ObjectProperty;
+	rdfs:label "poem has verse section - statement"@en, "Gedicht hat Versabschnitt - Festlegung"@de;
+	rdfs:comment """Relating a verse poem to a reification statement of the relation between the poem and a section it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
 	knora-base:subjectClassConstraint litera:VersePoem;
 	knora-base:objectClassConstraint knora-base:LinkValue.

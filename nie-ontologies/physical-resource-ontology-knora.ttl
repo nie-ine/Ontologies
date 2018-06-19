@@ -144,7 +144,7 @@ physical:Product
 #
 
 physical:isPartOf
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty; #, owl:TransitiveProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a space to another one it is part of."@en;

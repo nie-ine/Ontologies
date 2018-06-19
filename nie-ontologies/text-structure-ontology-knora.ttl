@@ -28,7 +28,7 @@
 	dct:description """Formal description of text structure, subclasses, related classes, and properties."""@en;
 	skos:note """Text and text editing are described in other ontologies"""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/005B>.
@@ -37,7 +37,7 @@
 # CLASSES
 #
 
-text-structure:Structure #* has number
+text-structure:Structure
 	a owl:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Human natural language expression as structure, e.g. a word, sentence, text line, paragraph, verse, strophe."""@en;
@@ -159,13 +159,13 @@ text-structure:Line
 text-structure:Column
 	a owl:Class;
 	rdfs:label "text column"@en, "Textspalte"@de;
-	rdfs:comment """Text structure composed as a column."""@en;
+	rdfs:comment """Text lines composed as a column."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isPartOfPage; owl:allValuesFrom text-structure:Page], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text-structure:Page #* move to concept: - on it: text, visuals, page # etc.
+text-structure:Page #* move to document: - on it: text, visuals, page # etc.
 	a owl:Class;
 	rdfs:label "text page"@en, "Textseite"@de;
 	rdfs:comment """Text structure composed as a page."""@en;
@@ -203,10 +203,20 @@ text-structure:Strophe # OR stanza OR verse - Vers
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
-		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfSection; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
+		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:stropheIsPartOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:VerseSection
+	a owl:Class;
+	rdfs:label "verse section"@en, "Versabschnitt"@de; # "chant"@fr
+	rdfs:comment """Group of strophes."""@en;
+	rdfs:subClassOf text-structure:ProsodicStructure, [
+#		a owl:Restriction; owl:onProperty text-structure:verseSectionIsPartOfText; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
+		a owl:Restriction; owl:onProperty text-structure:verseSectionIsPartOfText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:verseSectionIsPartOfTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:verseSectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Hemistich
 	a owl:Class;
@@ -617,7 +627,7 @@ text-structure:paragraphHasTitle
 	rdfs:comment """Relating a paragraph to its title (as object)."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle, language:hasContent;
+	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
@@ -628,7 +638,7 @@ text-structure:paragraphHasNumber
 	rdfs:comment """Relating a paragraph to its number (as object)."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf knora-base:hasValue; #, language:hasContent;
+	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
@@ -656,7 +666,7 @@ text-structure:sectionHasTitle
 	rdfs:comment """Relating a section to its title (as object)."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle, language:hasContent;
+	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text-structure:Section;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
@@ -667,7 +677,7 @@ text-structure:sectionHasNumber
 	rdfs:comment """Relating a section to its number (as object)."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf knora-base:hasValue; #language:hasContent;
+	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text-structure:Section;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
@@ -779,20 +789,20 @@ text-structure:isPartOfStropheValue
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text-structure:stropheIsPartOfText
+text-structure:stropheIsPartOfSection
 	a owl:ObjectProperty;
-	rdfs:label "strophe is part of text"@en, "Strophe ist Teil eines Textes"@de;
-	rdfs:comment """Relating a strophe to a text it is part of."""@en;
+	rdfs:label "strophe is part of section"@en, "Strophe ist Teil eines Versabschnittes"@de;
+	rdfs:comment """Relating a strophe to a section it is part of."""@en;
 	rdfs:domain text-structure:Strophe;
-	rdfs:range language:HumanNaturalLanguageExpression;
+	rdfs:range text-structure:VerseSection;
 	rdfs:subPropertyOf text-structure:isPartOfText;
 	knora-base:subjectClassConstraint text-structure:Strophe;
-	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
+	knora-base:objectClassConstraint text-structure:VerseSection.
 
-text-structure:stropheIsPartOfTextValue
+text-structure:stropheIsPartOfSectionValue
 	a owl:ObjectProperty;
-	rdfs:label "strophe is part of text - statement"@en, "Strophe ist Teil eines Textes - Festlegung"@de;
-	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a text it is part of."""@en;
+	rdfs:label "strophe is part of section - statement"@en, "Strophe ist Teil eines Versabschnittes - Festlegung"@de;
+	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a section it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isPartOfTextValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -800,11 +810,39 @@ text-structure:stropheIsPartOfTextValue
 text-structure:stropheHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "strophe has number"@en, "Strophe hat Nummer"@de;
-	rdfs:comment """Relating a strophe to its number (as object)."""@en;
+	rdfs:comment """Relating a strophe to a number (as object) it has."""@en;
 	rdfs:domain text-structure:Strophe;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:IntValue.
+
+text-structure:verseSectionIsPartOfText
+	a owl:ObjectProperty;
+	rdfs:label "verse section is part of text"@en, "Versabschnitt ist Teil eines Textes"@de;
+	rdfs:comment """Relating a verse section to a text it is part of."""@en;
+	rdfs:domain text-structure:VerseSection;
+	rdfs:range language:HumanNaturalLanguageExpression;
+	rdfs:subPropertyOf text-structure:isPartOfText;
+	knora-base:subjectClassConstraint text-structure:VerseSection;
+	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
+
+text-structure:verseSectionIsPartOfTextValue
+	a owl:ObjectProperty;
+	rdfs:label "verse section is part of text - statement"@en, "Versabschnitt ist Teil eines Textes - Festlegung"@de;
+	rdfs:comment """Relating a verse section to a reification statement of the relation between the verse section and a text it is part of."""@en;
+	rdfs:subPropertyOf text-structure:isPartOfTextValue;
+	knora-base:subjectClassConstraint text-structure:VerseSection;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:verseSectionHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "verse section has number"@en, "Versabschnitt hat Nummer"@de;
+	rdfs:comment """Relating a verse section to a number (as object) it has."""@en;
+	rdfs:domain text-structure:VerseSection;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint text-structure:VerseSection;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
 text-structure:hasNoteStructure

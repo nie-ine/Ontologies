@@ -49,7 +49,7 @@ kuno-raeber:Text
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAlias; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInSwissGerman; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -67,6 +67,7 @@ kuno-raeber:Poem
 	rdfs:label "Kuno Raeber poem"@en, "Kuno Raeber-Gedicht"@de;
 	rdfs:comment """Poem authored by Kuno Raeber."""@en, """Gedicht von Kuno Raeber."""@de;
 	rdfs:subClassOf litera:Poem, kuno-raeber:Text, [
+		a owl:Restriction; owl:onProperty kuno-raeber:poemHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasDetailDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -451,6 +452,15 @@ kuno-raeber:hasDiplomaticTranscriptionValue
 	rdfs:subPropertyOf textedit:hasDiplomaticTranscriptionValue;
 	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+kuno-raeber:poemHasTitle
+	a owl:ObjectProperty;
+	rdfs:label "poem has title"@en, "Gedicht hat Titel"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to a title (as object) it has."""@en;
+	rdfs:subPropertyOf text:hasTitle;
+	knora-base:subjectClassConstraint kuno-raeber:Poem;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 kuno-raeber:isOnPage # to be removed when knora-base:hasRepresentation will be implemented in Knora2
 	a owl:ObjectProperty;

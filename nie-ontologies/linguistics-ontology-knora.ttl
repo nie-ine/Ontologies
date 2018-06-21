@@ -37,6 +37,44 @@
 # CLASSES
 #
 
+ling:Symbol
+	a owl:Class;
+	rdfs:label "language symbol"@en, "Sprache-Symbol"@de;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf text:WrittenText.
+
+ling:Literal #*
+	a owl:Class;
+	rdfs:label "literal"@en, "Literal"@de;
+	rdfs:comment """One or more language symbols of any kind."""@en;
+	skos:note """Not only letters; as also used in Information Technology, e.g. Resource Description Framework."""@en;
+	rdfs:subClassOf text:WrittenText.
+
+ling:PartOfSpeech
+	a owl:Class;
+	rdfs:label "part of speech"@en, "Wortart"@de; # Sprachteil
+	rdfs:comment """Word with certain grammatical properties."""@en;
+	rdfs:subClassOf text-structure:Word.
+
+# ling:lexeme
+
+# part of speech: general: verb, noun, adjective, adverb, pronoun, preposition, conjunction, interjection, article or determiner
+
+ling:Numeral # noun, adjective, adverb
+	a owl:Class;
+	rdfs:label "numeral"@en, "Numerale"@de;
+	rdfs:comment """Part of speech designating a number."""@en;
+	rdfs:subClassOf ling:PartOfSpeech.
+
+# cardinal number representing quantity, used for counting - frequency, fraction
+# ordinal number representing position in a sequence, used for ordering
+
+# case
+# -> SCO in dif. speeches
+
+# Genus
+# Comparison
+
 # speech act: see J. L. Austin
 	# speaker: locutionary, illocutionary: utterance
 	# listener: perlocutionary
@@ -51,6 +89,15 @@
 # rhetic: having the semantic properties of sense and reference
 
 # illocutionary act: promising/promise, commanding/command
+
+# multimodality of signed language: unlike chinese:
+	 # orientation : 
+
+ling:String
+	a owl:Class;
+	rdfs:label "string"@en, "String"@de;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf text:Text.
 
 ling:Statement
 	a owl:Class;
@@ -101,15 +148,11 @@ ling:Evaluation
 	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
-# Word:
-# Genus
-# Comparison
-
 #
 # PROPERTIES
 #
 
-ling:hasComment
+ling:hasComment #* OR text?
 	a owl:ObjectProperty;
 	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
 	rdfs:comment """Relating a human natural language expression to a linguistic comment (as object) as a textual statement about the expression."""@en;

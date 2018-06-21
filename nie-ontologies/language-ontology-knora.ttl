@@ -36,14 +36,14 @@
 language:Language #* to be linked to ability
 	a owl:Class;
 	rdfs:label "language"@en, "Sprache"@de;
-	rdfs:comment """ to express meaning using carriers (e.g. a symbol, sign, word) along rules or grammar model, e.g. syntax for serialization."""@en;
-	# Dynamic set of sensory signs, including sounds and gestures, of communication and the semantic, pragmatic, and grammar elements or rules to manipulate them. # dct:LinguisticSystem
+	rdfs:comment """Dynamic set of sensory carriers, e.g. a sign, symbol, word, including sound and gesture, to express meaning, and used along rules or grammar model, e.g. syntax for serialization."""@en; # dct:LinguisticSystem
 	rdfs:subClassOf knora-base:Resource.
 
-language:HumanLanguage
+language:HumanLanguage #*
 	a owl:Class;
 	rdfs:label "human language"@en, "menschliche Sprache"@de;
 	rdfs:comment """Language of a human."""@en;
+	skos:note """Also formal language, e.g. computer programming language."""@en;
 	rdfs:subClassOf language:Language. #*, human:Ability.
 
 language:HumanNaturalLanguage
@@ -92,7 +92,7 @@ language:SwissGerman
 language:HumanNaturalLanguageExpression
 	a owl:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
-	rdfs:comment """Expression in a human natural language, being text in most abstract sense, as writable."""@en;
+	rdfs:comment """Expression in a human natural language."""@en;
 	skos:note """Different from the FRBROO based concept:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
 		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -110,9 +110,7 @@ language:HumanNaturalLanguageExpression
 		a owl:Restriction; owl:onProperty language:translatedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:translatedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty ling:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty ling:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 language:Dialect
 	a owl:Class;

@@ -60,6 +60,7 @@ human:Person
 		a owl:Restriction; owl:onProperty human:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBiography; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasOccupationalRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -82,7 +83,7 @@ human:PersonLike
 	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@de;
 	rdfs:comment """Person like resource having non-human features."""@en;
 	skos:note """E.g. Jesus is for a believer a person also having non-human features."""@en;
-	rdfs:subClassOf knora-base:Resource. #* human:Role
+	rdfs:subClassOf knora-base:Resource.
 
 human:Agent
 	a owl:Class;
@@ -521,6 +522,8 @@ human:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a person to a name (as object) of that person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -531,8 +534,6 @@ human:hasFamilyName
 	rdfs:label "has family name"@en, "hat Nachname"@de;
 	rdfs:comment """Relating a person to a family name (as object) of that person."""@en;
 #	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
-	rdfs:domain human:Person;
-	rdfs:range xsd:date;
 	rdfs:subPropertyOf human:hasName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -561,7 +562,7 @@ human:hasAlias
 	a owl:ObjectProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
 	rdfs:comment """Relating a person to an alias (as object) of that person."""@en;
-	rdfs:subPropertyOf text:hasAlias;
+	rdfs:subPropertyOf human:hasName, text:hasAlias;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
@@ -570,7 +571,20 @@ human:hasDescription
 	a owl:ObjectProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
 	rdfs:comment """Relating a person to a description (as object) of that person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+human:hasBiography
+	a owl:ObjectProperty;
+	rdfs:label "has biography"@en, "hat Biografie"@de;
+	rdfs:comment """Relating a person to a biography (as object) of the person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf human:hasDescription;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.

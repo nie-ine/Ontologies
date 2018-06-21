@@ -36,21 +36,11 @@
 # CLASSES
 #
 
-textedit:Derivative #* -> Edition SCO human:CreationDerivative
-	a owl:Class;
-	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
-	rdfs:comment """Text expression derived from another text expression."""@en;
-	rdfs:subClassOf text:Expression, human:CreationDerivative, [
-		a owl:Restriction; owl:onProperty textedit:hasDiacriticalSign; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
 textedit:Edition
 	a owl:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de;
-	rdfs:comment """Changed text expression as a result of editing."""@en;
-	rdfs:subClassOf textedit:Derivative.
+	rdfs:comment """Changed text as a result of editing."""@en;
+	rdfs:subClassOf human:CreationVersion, text:Text.
 
 textedit:Editor
 	a owl:Class;
@@ -94,6 +84,16 @@ textedit:LiteralExposition
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
+textedit:Derivative # nature of text change
+	a owl:Class;
+	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
+	rdfs:comment """Text expression derived from another text expression."""@en;
+	rdfs:subClassOf text:Expression, human:CreationDerivative, [
+		a owl:Restriction; owl:onProperty textedit:hasDiacriticalSign; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 textedit:DiplomaticTranscription
 	a owl:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
@@ -117,7 +117,7 @@ textedit:CriticalEdition
 	a owl:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;
-	rdfs:subClassOf textedit:Edition, [
+	rdfs:subClassOf textedit:Edition, textedit:Derivative, [
 #		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:someValuesFrom textedit:CriticalApparatus], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -216,7 +216,7 @@ textedit:Conjecture #* conjectural emendation
 textedit:hasEditor
 	a owl:ObjectProperty;
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
-	rdfs:comment """Relating a text expression to a person who edited it."""@en;
+	rdfs:comment """Relating a text to a person who edited it."""@en;
 	rdfs:domain text:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;

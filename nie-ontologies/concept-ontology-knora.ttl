@@ -62,6 +62,19 @@ concept:SymbolicConcept
 		a owl:Restriction; owl:onProperty concept:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isPartOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+concept:Identifier
+	a owl:Class;
+	rdfs:label "identifier"@en, "Identifikator"@de;
+	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
+	rdfs:subClassOf concept:SymbolicConcept, cidoc:E42_Identifier, [ # rdfs:subClassOf cidoc:E41_Appellation
+		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:Set #*
+	a owl:Class;
+	rdfs:label "concept set"@en, "Konzeptsammlung"@de;
+	rdfs:comment """Set of concepts."""@en;
+	rdfs:subClassOf concept:SymbolicConcept.
+
 concept:PropositionalConcept
 	a owl:Class;
 	rdfs:label "propositional concept"@en, "propositionales Konzept"@de;
@@ -99,11 +112,13 @@ concept:Information
 		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-concept:Set
+concept:ElectronicInformation
 	a owl:Class;
-	rdfs:label "set"@en, "Sammlung"@de;
-	rdfs:comment """Set of expressions."""@en; #*
-	rdfs:subClassOf concept:Information.
+	rdfs:label "electronic information"@en, "elektronische Information"@de;
+	rdfs:comment """Information ."""@en; #*
+	rdfs:subClassOf concept:Information, [
+		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Cycle
 	a owl:Class;
@@ -277,3 +292,13 @@ concept:hasDedicatedToValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+concept:hasLiteral
+	a owl:ObjectProperty;
+	rdfs:label "has literal"@en, "hat Literale"@de;
+	rdfs:comment """Relating an identifier to a literal (as object) that expresses it."""@en;
+	rdfs:domain concept:Identifier;
+#	rdfs:range ling:Literal;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint concept:Identifier;
+	knora-base:objectClassConstraint knora-base:TextValue.

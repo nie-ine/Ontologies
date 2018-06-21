@@ -141,7 +141,7 @@ infocar:ArchiveElement
 		a owl:Restriction; owl:onProperty infocar:isPartOfArchiveValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-infocar:Nachlass #* -> Legacy
+infocar:Nachlass #* -> unpublished during life OR ALSO 
 	a owl:Class;
 	rdfs:label "nachlass"@en, "Nachlass"@de;
 	rdfs:comment """Collection of materialized expressions of a person as existing after the person's death."""@en;
@@ -293,17 +293,17 @@ infocar:ElectronicCarrier #* data or information storage device
 	rdfs:comment """Electronic machine carrying electronic information."""@en;
 	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
 
-infocar:ElectronicDocument
-	a owl:Class;
-	rdfs:label "electronic document"@en,"elektronisches Dokument"@de;
-	rdfs:comment """Document stored as electronic information."""@en;
-	rdfs:subClassOf knora-base:Resource. # infocar:ElectronicData.
-
 infocar:ElectronicBook
 	a owl:Class;
 	rdfs:label "electronic book"@en,"elektronisches Buch"@de;
-	rdfs:comment """Electronic document with a text structure as in a book."""@en;
-	rdfs:subClassOf infocar:ElectronicDocument.
+	rdfs:comment """Electronic information carrier with a text structure as in a book."""@en;
+	rdfs:subClassOf infocar:ElectronicCarrier.
+
+# infocar:Hyperlink
+#	a owl:Class;
+#	rdfs:label "hyperlink"@en,"Hyperlink"@de;
+#	rdfs:comment """Link from a hypertext document to another location, activated by clicking on a highlighted word or image."""@en;
+#	rdfs:subClassOf .
 
 # OR electronic/digital document does not exist without a computer
 
@@ -334,6 +334,22 @@ infocar:isOnCarrierValue
 	rdfs:comment "Relating information to a reification statement of the relation between the information and a carrier it is on."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint concept:Information;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isOnElectronicCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is on electronic carrier"@en, "ist auf elektronischen Träger"@de;
+	rdfs:comment "Relating electronic information to an electronic carrier it is on."@en;
+	rdfs:subPropertyOf infocar:isOnCarrier;
+	knora-base:subjectClassConstraint concept:ElectronicInformation;
+	knora-base:objectClassConstraint infocar:ElectronicCarrier.
+
+infocar:isOnElectronicCarrierValue
+	a owl:ObjectProperty;
+	rdfs:label "is on electronic carrier - statement"@en, "ist auf elektronischen Träger - Festlegung"@de;
+	rdfs:comment "Relating electronic information to a reification statement of the relation between the information and an electronic carrier it is on."@en;
+	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint concept:ElectronicInformation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:isWrittenWith
@@ -412,10 +428,10 @@ infocar:isPageOfBookValue
 infocar:pageHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "page has number"@en, "Seite hat Nummer"@de;
-	rdfs:comment """Relating a page to the number (as object) it has."""@en;
+	rdfs:comment """Relating a page to a number (as object) it has."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Page;
-	knora-base:objectClassConstraint knora-base:IntValue;  #* -> int
+	knora-base:objectClassConstraint knora-base:IntValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
 infocar:isLeafOf

@@ -205,10 +205,10 @@ schola:commentaryHasForm
 	rdfs:label "commentary has form"@en, "Kommentar hat Form"@de;
 	rdfs:comment """Relating a scholastic commentary to a form it has."""@en;
 	rdfs:domain schola:Commentary;
-	rdfs:range language:HumanNaturalLanguageExpression;
+	rdfs:range text:Text;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint schola:Commentary;
-	knora-base:objectClassConstraint language:HumanNaturalLanguageExpression.
+	knora-base:objectClassConstraint text:Text.
 
 schola:commentaryHasFormValue
 	a owl:ObjectProperty;

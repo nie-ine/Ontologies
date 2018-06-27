@@ -92,7 +92,7 @@ schola:Commentary
 		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExposition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #* concerns whole expression
 		a owl:Restriction; owl:onProperty schola:commentaryHasLiteralExpositionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-schola:SentenceCommentary
+schola:SentencesCommentary
 	a owl:Class;
 	rdfs:label "commentarius scholasticus"@la, "scholastic sentence commentary"@en, "scholastischer Satz-Kommentar"@de; #*
 	rdfs:comment """Commentary with sentence structure, made by a scholastic."""@en;
@@ -240,10 +240,10 @@ schola:commentaryHasQuestion
 	a owl:ObjectProperty;
 	rdfs:label "commentary has question"@en, "Kommentar hat Frage"@de;
 	rdfs:comment """Relating a scholastic commentary to a question it contains."""@en;
-	rdfs:domain schola:SentenceCommentary;
+	rdfs:domain schola:SentencesCommentary;
 	rdfs:range ling:Question;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasSentence;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint ling:Question.
 
 schola:commentaryHasQuestionValue
@@ -251,17 +251,17 @@ schola:commentaryHasQuestionValue
 	rdfs:label "commentary has question - statement"@en, "Kommentar hat Frage - Festlegung"@de;
 	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a question it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasSentenceValue;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasConclusion
 	a owl:ObjectProperty;
 	rdfs:label "commentary has conclusion"@en, "Kommentar hat Konklusion"@de;
 	rdfs:comment """Relating a scholastic commentary to a conclusion it contains."""@en;
-	rdfs:domain schola:SentenceCommentary;
+	rdfs:domain schola:SentencesCommentary;
 	rdfs:range logic:Conclusion;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasSentence;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint logic:Conclusion.
 
 schola:commentaryHasConclusionValue
@@ -269,17 +269,17 @@ schola:commentaryHasConclusionValue
 	rdfs:label "commentary has conclusion - statement"@en, "Kommentar hat Konklusion - Festlegung"@de;
 	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a conclusion it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasSentenceValue;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasSyllogism
 	a owl:ObjectProperty;
 	rdfs:label "commentary has syllogism"@en, "Kommentar hat Syllogismus"@de;
 	rdfs:comment """Relating a scholastic commentary to a syllogism it contains."""@en;
-	rdfs:domain schola:SentenceCommentary;
+	rdfs:domain schola:SentencesCommentary;
 	rdfs:range logic:Syllogism;
 	rdfs:subPropertyOf schola:commentaryHasForm, text-structure:hasParagraph;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint logic:Syllogism.
 
 schola:commentaryHasSyllogismValue
@@ -287,7 +287,7 @@ schola:commentaryHasSyllogismValue
 	rdfs:label "commentary has syllogism - statement"@en, "Kommentar hat Syllogismus - Festlegung"@de;
 	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a syllogism it contains."""@en;
 	rdfs:subPropertyOf schola:commentaryHasFormValue, text-structure:hasParagraphValue;
-	knora-base:subjectClassConstraint schola:SentenceCommentary;
+	knora-base:subjectClassConstraint schola:SentencesCommentary;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:commentaryHasVerse

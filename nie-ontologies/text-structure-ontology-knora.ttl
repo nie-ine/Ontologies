@@ -153,7 +153,7 @@ text-structure:Line
 	rdfs:label "text line"@en, "Textzeile"@de;
 	rdfs:comment """Text structure composed as a line."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:lineIsPartOfColumn; owl:allValuesFrom text-structure:Column], [
+#		a owl:Restriction; owl:onProperty text-structure:lineIsPartOfColumn; owl:allValuesFrom document:Column], [
 		a owl:Restriction; owl:onProperty text-structure:lineIsPartOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:lineIsPartOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -174,7 +174,7 @@ text-structure:Verse
 	rdfs:label "verse"@en, "Vers"@de;
 	rdfs:comment """Text line with prosody."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
-#		a owl:Restriction; owl:onProperty text-structure:isPartOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
+#		a owl:Restriction; owl:onProperty text-structure:isPartOfStrophe; owl:allValuesFrom text-structure:Strophe], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -306,7 +306,7 @@ text-structure:hasStructure
 	rdfs:domain text:Text;
 	rdfs:range text-structure:Structure;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Structure.
 
 text-structure:hasStructureValue
@@ -314,14 +314,14 @@ text-structure:hasStructureValue
 	rdfs:label "has structure - statement"@en, "hat Struktur - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text expression and its structure."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 #text-structure:hasUnit
 #	a owl:ObjectProperty;
 #	rdfs:label "has unit"@en, "hat Einheit"@de;
 #	rdfs:comment """Relating a text structure to its unit."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkTo; #* can be rdfs:subPropertyOf :hasPart 
+#	rdfs:subPropertyOf knora-base:hasLinkTo; #* can be rdfs:subPropertyOf :hasPart
 #	knora-base:subjectClassConstraint text-structure:Structure;
 #	knora-base:objectClassConstraint text-structure:Structure.
 
@@ -337,10 +337,10 @@ text-structure:hasWord
 	a owl:ObjectProperty;
 	rdfs:label "has word"@en, "hat Wort"@de;
 	rdfs:comment """Relating a text expression to a word it contains."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Word;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Word.
 
 text-structure:hasWordValue
@@ -348,17 +348,17 @@ text-structure:hasWordValue
 	rdfs:label "has word - statement"@en, "hat Wort - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a word it contains."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasLine
 	a owl:ObjectProperty;
 	rdfs:label "has line"@en, "hat Zeile"@de;
 	rdfs:comment """Relating a text expression to a line it contains."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Line;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Line.
 
 text-structure:hasLineValue
@@ -366,17 +366,17 @@ text-structure:hasLineValue
 	rdfs:label "has line - statement"@en, "hat Zeile - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a line it contains."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasLineNumber
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
 	rdfs:comment """Relating a text expression to the number (as object) of a line of the text expression."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range rdfs:Literal;	
+	rdfs:domain text:Text;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf language:hasContent;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
@@ -384,46 +384,46 @@ text-structure:hasColumn
 	a owl:ObjectProperty;
 	rdfs:label "has column"@en, "hat Spalte"@de;
 	rdfs:comment """Relating a text expression to a column it has."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Column;
+	rdfs:domain text:Text;
+	rdfs:range document:Column;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Column.
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint document:Column.
 
 text-structure:hasColumnValue
 	a owl:ObjectProperty;
 	rdfs:label "has column - statement"@en, "hat Spalte - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a column it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasPage
 	a owl:ObjectProperty;
 	rdfs:label "has page structure"@en, "hat Seitestruktur"@de;
 	rdfs:comment """Relating a text expression to a page structure it has."""@en;
-	rdfs:domain text:Expression;
-	rdfs:range text-structure:Page;
+	rdfs:domain text:Text;
+	rdfs:range document:Page;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text-structure:Page.
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint document:Page.
 
 text-structure:hasPageValue
 	a owl:ObjectProperty;
 	rdfs:label "has page - statement"@en, "hat Seite - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a page structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasTable
 	a owl:ObjectProperty;
 	rdfs:label "has table structure"@en, "hat Tabellestruktur"@de;
 	rdfs:comment """Relating a text expression to a table structure it has."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Table;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Table.
 
 text-structure:hasTableValue
@@ -431,7 +431,7 @@ text-structure:hasTableValue
 	rdfs:label "has table structure - statement"@en, "hat Tabellestruktur - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a table structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasSentence
@@ -827,10 +827,10 @@ text-structure:hasNoteStructure
 	a owl:ObjectProperty;
 	rdfs:label "has note structure"@en, "hat Notizstruktur"@de;
 	rdfs:comment """Relating a text expression to a note structure it has."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Note;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Note.
 
 text-structure:hasNoteStructureValue
@@ -838,17 +838,17 @@ text-structure:hasNoteStructureValue
 	rdfs:label "has note structure - statement"@en, "hat Notizstruktur - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a note structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:hasGloss
 	a owl:ObjectProperty;
 	rdfs:label "has gloss"@en, "hat Glosse"@de;
 	rdfs:comment """Relating a text expression to a gloss it has."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Gloss;
 	rdfs:subPropertyOf text-structure:hasNoteStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Gloss.
 
 text-structure:hasGlossValue
@@ -856,7 +856,7 @@ text-structure:hasGlossValue
 	rdfs:label "has gloss - statement"@en, "hat Glosse - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text expression and a gloss it has."""@en;
 	rdfs:subPropertyOf text-structure:hasNoteStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:footnoteHasNumber
@@ -935,10 +935,10 @@ text-structure:hasLetterStructure
 	a owl:ObjectProperty;
 	rdfs:label "has letter structure"@en, "hat Briefstruktur"@de;
 	rdfs:comment """Relating a text expression to a letter structure it has."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 	rdfs:range text-structure:Letter;
 	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text-structure:Letter.
 
 text-structure:hasLetterStructureValue
@@ -946,5 +946,5 @@ text-structure:hasLetterStructureValue
 	rdfs:label "has letter structure - statement"@en, "hat Briefstruktur - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a letter structure it has."""@en;
 	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.

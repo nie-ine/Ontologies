@@ -9,6 +9,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix document: <http://www.knora.org/ontology/005C/document#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
@@ -108,23 +109,13 @@ concept:Information
 	rdfs:label "information"@en, "Information"@de;
 	rdfs:comment """Symbolic propositional concept resolving uncertainty."""@en;
 	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object, [
+		a owl:Restriction; owl:onProperty concept:hasContentSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasContentSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
-#		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-concept:ElectronicInformation
-	a owl:Class;
-	rdfs:label "electronic information"@en, "elektronische Information"@de;
-	rdfs:comment """Information ."""@en; #*
-	rdfs:subClassOf concept:Information, [
+		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-concept:Cycle
-	a owl:Class;
-	rdfs:label "cycle"@en, "Zyklus"@de;
-	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
-	rdfs:subClassOf concept:Set.
+#		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
 	a owl:Class;
@@ -143,42 +134,6 @@ concept:ThoughtMethod #* part/SC of philosophy ?
 #	rdfs:label "critical thought method"@en, "Methode des kritischen Denkens"@de;
 #	rdfs:comment """Objective analysis of facts to form a judgment."""@en;
 #	rdfs:subClassOf concept:ThoughtMethod.
-
-concept:Expression
-	a owl:Class;
-	rdfs:label "expression"@en, "Expression"@de;
-	rdfs:comment """Identifiable immaterial symbolic realisation of an individual work, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
-	rdfs:subClassOf concept:Information, frbroo:F22_Self-Contained_Expression, [
-		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:hasContentSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:hasContentSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:isPartOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasLastPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasLastPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPublishedOnline; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPublishedOnlineValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNachlassPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # publish:hasMonoAuthorPublication
 
@@ -213,17 +168,17 @@ concept:isPartOfValue
 concept:isExpressedIn
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
-	rdfs:comment "Relating a work to an expression thereof."@en;
+	rdfs:comment "Relating a work to an expression of it."@en;
 	rdfs:domain concept:Work;
-	rdfs:range concept:Expression;
+	rdfs:range document:Expression;
 	rdfs:subPropertyOf frbroo:R9_is_realised_in, knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:Work;
-	knora-base:objectClassConstraint concept:Expression.
+	knora-base:objectClassConstraint document:Expression.
 
 concept:isExpressedInValue
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in - statement"@en, "ist ausgedruckt in - Festlegung"@de;
-	rdfs:comment "Relating a work to a reification statement of the relation between the work and an expression thereof."@en;
+	rdfs:comment "Relating a work to a reification statement of the relation between the work and an expression of it."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint concept:Work;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -236,44 +191,25 @@ concept:isExpressedInValue
 #	knora-base:subjectClassConstraint concept:Information;
 #	knora-base:objectClassConstraint knora-base:Value. # BUT not allowed in Knora
 
-
-# frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
-
 concept:hasContentSubject
 	a owl:ObjectProperty;
 	rdfs:label "has content subject"@en, "hat inhaltliches Thema"@de;
-	rdfs:comment """Relating an expression to a content subject thereof."""@en;
-	rdfs:domain concept:Expression;
+	rdfs:comment """Relating information to a content subject it has."""@en;
+	rdfs:domain concept:Information;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint concept:Expression;
+	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint knora-base:Resource.
 
 concept:hasContentSubjectValue
 	a owl:ObjectProperty;
 	rdfs:label "has content subject - statement"@en, "hat inhaltliches Thema - Festlegung"@de;
-	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a content subject thereof."""@en;
+	rdfs:comment """Relating information to a reification statement of the relation between the information and a content subject it has."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint concept:Expression;
+	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-concept:isPartOfCycle
-	a owl:ObjectProperty;
-	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
-	rdfs:comment """Relating an expression to a cycle it is part of."""@en;
-	rdfs:domain concept:Expression;
-	rdfs:range concept:Cycle;
-	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint concept:Expression;
-	knora-base:objectClassConstraint concept:Cycle.
-
-concept:isPartOfCycleValue
-	a owl:ObjectProperty;
-	rdfs:label "is part of cycle - statement"@en, "ist Teil eines Zyklus - Festlegung"@de;
-	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint concept:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+# frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
 
 concept:hasDedicatedTo #*
 	a owl:ObjectProperty;

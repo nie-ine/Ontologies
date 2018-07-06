@@ -43,13 +43,13 @@
 document:Document
 	a owl:Class;
 	rdfs:label "document"@en, "Dokument"@de;
-	rdfs:comment """."""@en;
-	rdfs:subClassOf concept:Information, cidoc:E31_Document.
+	rdfs:comment """Identifiable, immaterial, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram."""@en;
+	rdfs:subClassOf concept:Information. # , cidoc:E31_Document: proposition about reality
 
 document:Element #*
 	a owl:Class;
 	rdfs:label "document element"@en, "Dokumentelement"@de;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """Information as part of a document."""@en; #*
 	rdfs:subClassOf concept:Information, [
 		a owl:Restriction; owl:onProperty document:isPartOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPartOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -62,15 +62,11 @@ document:Element #*
 		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# infocar:ElectronicFootnoteReference electronic link on carrier, not abstractable from carrier
-#	a owl:Class;
-#	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
-#	rdfs:comment """Symbol of a footnoteReference."""@en;
-#*	rdfs:subClassOf x:z, [
-#		a owl:Restriction; owl:onProperty document:ReferenceHasSymbol; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty document:referenceHasLink; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-# document:Structure
+document:Structure
+	a owl:Class;
+	rdfs:label "document structure"@en, "Dokumentstruktur"@de;
+	rdfs:comment """Structural document element."""@en;
+	rdfs:subClassOf document:Element.
 
 document:Layout
 	a owl:Class;
@@ -81,18 +77,18 @@ document:Layout
 document:Column
 	a owl:Class;
 	rdfs:label "column"@en, "Spalte"@de;
-	rdfs:comment """Document element displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [ # document:Element
-#		a owl:Restriction; owl:onProperty document:isPartOfPage; owl:allValuesFrom document:Page], [
+	rdfs:comment """Document structure displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
+	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
+#		a owl:Restriction; owl:onProperty document:columnIsPartOfPage; owl:allValuesFrom document:Page], [
 		a owl:Restriction; owl:onProperty document:columnIsPartOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:columnIsPartOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Page # text, visuals, page # etc.
 	a owl:Class;
 	rdfs:label "page"@en, "Seite"@de;
-	rdfs:comment """Document element displaying information e.g. text lines and graphs, as a page as part of a document."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [ # document:Element
-#		a owl:Restriction; owl:onProperty text-structure:pageIsPartO; owl:allValuesFrom language:HumanNaturalLanguageExpression], [
+	rdfs:comment """Document structure displaying information e.g. text lines and graphs, as a page as part of a document."""@en;
+	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
+#		a owl:Restriction; owl:onProperty document:pageIsPartOfDocument; owl:allValuesFrom document:Document], [
 		a owl:Restriction; owl:onProperty document:pageIsPartOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:pageIsPartOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -102,7 +98,50 @@ document:Marginal
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, illuminations."""@en;
 	rdfs:subClassOf document:Element.
 
-# document:Table
+document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
+	a owl:Class;
+	rdfs:label "table"@en, "Tabelle"@de;
+	rdfs:comment """Two-dimensional structure composed of one or more fields containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
+	rdfs:subClassOf document:Structure, [
+		a owl:Restriction; owl:onProperty document:tableIsPartOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:tableIsPartOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:Expression
+	a owl:Class;
+	rdfs:label "Document expression"@en, "Document-Expression"@de;
+	rdfs:comment """Document realisation of an individual work conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
+	rdfs:subClassOf document:Document, frbroo:F22_Self-Contained_Expression, [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isPartOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasElectronicPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasElectronicPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasWebPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasWebPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasLastPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasLastPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasUnauthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasUnauthorizedPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:Cycle
+	a owl:Class;
+	rdfs:label "expression cycle"@en, "Expression-Zyklus"@de;
+	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en; #*
+	rdfs:subClassOf concept:Set.
 
 # Format
 # Size
@@ -110,26 +149,11 @@ document:Marginal
 # Shape
 # color
 
-document:ElectronicDocument
-	a owl:Class;
-	rdfs:label "electronic document"@en,"elektronisches Dokument"@de;
-	rdfs:comment """Document stored as electronic information."""@en;
-	rdfs:subClassOf document:Document, concept:ElectronicInformation.
-
-document:ElectronicElement #*
-	a owl:Class;
-	rdfs:label "electronic document element"@en, "elektronisches Dokumentelement"@de;
-	rdfs:comment """."""@en; #*
-	rdfs:subClassOf document:Element, concept:ElectronicInformation, [
-		a owl:Restriction; owl:onProperty document:isPartOfElectronicDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPartOfElectronicDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
 document:HypertextDocument
 	a owl:Class;
 	rdfs:label "hypertext document"@en,"Hypertext-Dokument"@de;
-	rdfs:comment """Electronic document written in HTML."""@en;
-	rdfs:subClassOf document:ElectronicDocument.
+	rdfs:comment """Document written in Hypertext Markup Language (HTML)."""@en;
+	rdfs:subClassOf document:Document.
 
 #
 # PROPERTIES
@@ -271,30 +295,38 @@ document:hasEndnoteReferenceIdentifierValue
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isPartOfElectronicDocument
+document:tableIsPartOfColumn # page (abstracted from carrier) being a special case of column
 	a owl:ObjectProperty;
-	rdfs:label "is part of electronic document"@en, "ist teil eines elektronischen Dokumentes"@de;
-	rdfs:comment """Relating an electronic document element to an electronic document it is part of."""@en;
-	rdfs:domain document:ElectronicElement;
-	rdfs:range document:ElectronicDocument;
-	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint document:ElectronicElement;
-	knora-base:objectClassConstraint document:ElectronicDocument.
+	rdfs:label "table is part of column"@en, "Tabelle ist Teil einer Spalte"@de;
+	rdfs:comment """Relating a table to a column it is part of."""@en;
+	rdfs:domain document:Table;
+	rdfs:range document:Column;
+	rdfs:subPropertyOf concept:isPartOf; #**
+	knora-base:subjectClassConstraint document:Table;
+	knora-base:objectClassConstraint document:Column.
 
-document:isPartOfElectronicDocumentValue
+document:tableIsPartOfColumnValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of electronic document - statement"@en, "ist teil eines elektronischen Dokumentes - Festlegung"@de;
-	rdfs:comment """Relating an electronic document element to a reification statement of the relation between the element and an electronic document it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint document:ElectronicElement;
+	rdfs:label "table is part of column - statement"@en, "Tabelle ist Teil einer Spalte - Festlegung"@de;
+	rdfs:comment """Relating a table to a reification statement of the relation between the table and a column it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue; #**
+	knora-base:subjectClassConstraint document:Table;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasHyperlink
+document:isPartOfCycle
 	a owl:ObjectProperty;
-	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
-	rdfs:comment """Relating an electronic document element to a hyperlink it has."""@en;
-	rdfs:domain document:ElectronicElement;
-#	rdfs:range infocar:Hyperlink;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint document:ElectronicElement;
-	knora-base:objectClassConstraint knora-base:UriValue.
+	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
+	rdfs:comment """Relating an expression to a cycle it is part of."""@en;
+	rdfs:domain document:Expression;
+	rdfs:range document:Cycle;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint document:Cycle.
+
+document:isPartOfCycleValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of cycle - statement"@en, "ist Teil eines Zyklus - Festlegung"@de;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.

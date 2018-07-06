@@ -29,8 +29,8 @@
 litera:Literature
 	a owl:Class;
 	rdfs:label "literature"@en, "Literatur"@de;
-	rdfs:comment """Written text as art."""@en;
-	rdfs:subClassOf text:WrittenText. #* a language expression, but NOT an (conceptual) expression in FRBR sense-> features: art: distinctively written with certain expressive quality
+	rdfs:comment """Written text as art."""@en; # distinctively written with certain expressive quality
+	rdfs:subClassOf text:WrittenText.
 
 litera:Fiction
 	a owl:Class;
@@ -124,7 +124,7 @@ litera:Expression
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-litera:Poem #* poemHasStructure
+litera:Poem
 	a owl:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
 	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de;
@@ -139,15 +139,7 @@ litera:VersePoem
 	a owl:Class;
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
 	rdfs:comment """Poem written in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
-	rdfs:subClassOf litera:Poem, [
-#		a owl:Restriction; owl:onProperty litera:poemHasVerse; owl:allValuesFrom text-structure:Verse], [
-		a owl:Restriction; owl:onProperty litera:poemHasVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty litera:poemHasStrophe; owl:allValuesFrom text-structure:Strophe], [
-		a owl:Restriction; owl:onProperty litera:poemHasStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasVerseSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasVerseSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf litera:Poem.
 
 litera:VerseSong
 	a owl:Class;
@@ -163,14 +155,14 @@ litera:Hymn
 
 # litera:Hymnal # OR hymn book # collection of hymns
 
-litera:ProsePoem
+litera:ProsePoem #**
 	a owl:Class;
 	rdfs:label "prose poem"@en, "Prosagedicht"@de;
 	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;
-	rdfs:subClassOf litera:Poem, text:SentenceExpression, [
+	rdfs:subClassOf litera:Poem, text:SentenceExpression. # , [
 #		a owl:Restriction; owl:onProperty litera:poemHasProse; owl:allValuesFrom text-structure:Prose], [
-		a owl:Restriction; owl:onProperty litera:poemHasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:poemHasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#**		a owl:Restriction; owl:onProperty litera:poemHasProse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty litera:poemHasProseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #litera:EpicPoem
 #	a owl:Class;
@@ -179,41 +171,41 @@ litera:ProsePoem
 #	rdfs:subClassOf litera:Expression, [
 #		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:someValuesFrom litera:EpicPoetry].
 
-litera:VerseNovel
+litera:VerseNovel #**
 	a owl:Class;
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
 	rdfs:comment """Narrative fiction expression in verse - possibly partially - and with novel-length, wherein character development and plot are more important than poetry."""@en;
 	rdfs:subClassOf litera:Expression, [
 #		a owl:Restriction; owl:onProperty litera:novelHasVerse; owl:someValuesFrom text-structure:Verse], [
-		a owl:Restriction; owl:onProperty litera:novelHasVerse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:novelHasVerseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty litera:novelHasVerse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty litera:novelHasVerseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
-litera:Novel
+litera:Novel #**
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Narrative fiction expression in prose."""@en;
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
 #		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:someValuesFrom text-structure:Prose], [
-		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
-litera:NonfictionNovel
+litera:NonfictionNovel #**
 	a owl:Class;
 	rdfs:label "nonfiction novel"@en, "sachliche Roman"@de;
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
 #	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
 #		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:someValuesFrom text-structure:Prose], [
-		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty text-structure:hasProse; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#**		a owl:Restriction; owl:onProperty text-structure:hasProseValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNonfiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNonfictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
@@ -353,92 +345,38 @@ litera:hasPoetValue
 
 #* litera:hasNovelist
 
-litera:poemHasVerse
-	a owl:ObjectProperty;
-	rdfs:label "poem has verse"@en, "Gedicht hat Vers"@de;
-	rdfs:comment """Relating a poem to a verse it has."""@en; #*
-	rdfs:domain litera:VersePoem;
-	rdfs:range text-structure:Verse;
-	rdfs:subPropertyOf text-structure:hasLine;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint text-structure:Verse.
-
-litera:poemHasVerseValue
-	a owl:ObjectProperty;
-	rdfs:label "poem has verse - statement"@en, "Gedicht hat Vers - Festlegung"@de;
-	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and a verse it has."""@en;
-	rdfs:subPropertyOf text-structure:hasLineValue;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-litera:poemHasStrophe
-	a owl:ObjectProperty;
-	rdfs:label "poem has strophe"@en, "Gedicht hat Strophe"@de;
-	rdfs:comment """Relating a poem to a strophe it has."""@en;
-	rdfs:domain litera:VersePoem;
-	rdfs:range text-structure:Strophe;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint text-structure:Strophe.
-
-litera:poemHasStropheValue
-	a owl:ObjectProperty;
-	rdfs:label "poem has strophe - statement"@en, "Gedicht hat Strophe - Festlegung"@de;
-	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and a strophe it has."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-litera:poemHasVerseSection
-	a owl:ObjectProperty;
-	rdfs:label "poem has verse section"@en, "Gedicht hat Versabschnitt"@de;
-	rdfs:comment """Relating a verse poem to a section it has."""@en;
-	rdfs:domain litera:VersePoem;
-	rdfs:range text-structure:VerseSection;
-	rdfs:subPropertyOf text-structure:hasStructure;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint text-structure:VerseSection.
-
-litera:poemHasVerseSectionValue
-	a owl:ObjectProperty;
-	rdfs:label "poem has verse section - statement"@en, "Gedicht hat Versabschnitt - Festlegung"@de;
-	rdfs:comment """Relating a verse poem to a reification statement of the relation between the poem and a section it has."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
-	knora-base:subjectClassConstraint litera:VersePoem;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-litera:poemHasProse
+litera:poemHasProse #**
 	a owl:ObjectProperty;
 	rdfs:label "poem has prose"@en, "Gedicht hat Prosa"@de;
 	rdfs:comment """Relating a poem to prose it has."""@en;
 	rdfs:domain litera:ProsePoem;
 	rdfs:range text-structure:Prose; #* text-structure:RhythmicProse
-	rdfs:subPropertyOf text-structure:hasProse;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint litera:ProsePoem;
 	knora-base:objectClassConstraint text-structure:Prose. #* text-structure:RhythmicProse
 
-litera:poemHasProseValue
+litera:poemHasProseValue #**
 	a owl:ObjectProperty;
 	rdfs:label "poem has prose - statement"@en, "Gedicht hat Prosa - Festlegung"@de;
 	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and prose it has."""@en;
-	rdfs:subPropertyOf text-structure:hasProseValue;
+	rdfs:subPropertyOf knora-base:hasLinkToValue; # text-structure:hasProseValue;
 	knora-base:subjectClassConstraint litera:ProsePoem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-litera:novelHasVerse
+litera:novelHasVerse #**
 	a owl:ObjectProperty;
 	rdfs:label "novel has verse"@en, "Roman hat Vers"@de;
 	rdfs:comment """Relating a novel to a verse it has."""@en;
 	rdfs:domain litera:VerseNovel;
 	rdfs:range text-structure:Verse;
-	rdfs:subPropertyOf text-structure:hasStructure;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint litera:VerseNovel;
 	knora-base:objectClassConstraint text-structure:Verse.
 
-litera:novelHasVerseValue
+litera:novelHasVerseValue #**
 	a owl:ObjectProperty;
 	rdfs:label "novel has verse - statement"@en, "Roman hat Vers - Festlegung"@de;
 	rdfs:comment """Relating a novel to a reification statement of the relation between the novel and a verse it has."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint litera:VerseNovel;
 	knora-base:objectClassConstraint knora-base:LinkValue.

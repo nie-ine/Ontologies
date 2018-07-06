@@ -68,7 +68,7 @@ textedit:Abbreviator
 
 textedit:Abbreviation
 	a owl:Class;
-	rdfs:label "abbreviation"@en, "Kurzfassung"@de, "abbreviatio"@la;
+	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
 	rdfs:comment """Shortened edition."""@en;
 	rdfs:subClassOf textedit:Edition.
 
@@ -217,82 +217,82 @@ textedit:hasEditor
 	a owl:ObjectProperty;
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
-	rdfs:domain text:Expression;
+	rdfs:domain text:Text;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
 
 textedit:hasEditorValue
 	a owl:ObjectProperty;
 	rdfs:label "has editor - statement"@en, "hat Text-Redakteur - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who edited it."""@en;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who edited it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasRedactor
 	a owl:ObjectProperty;
 	rdfs:label "has redactor"@en, "hat Redaktor"@de;
-	rdfs:comment """Relating a text expression to a person who redacted it."""@en;
-	rdfs:domain text:Expression;
+	rdfs:comment """Relating a text to a person who redacted it."""@en;
+	rdfs:domain text:Text;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
 
 textedit:hasRedactorValue
 	a owl:ObjectProperty;
 	rdfs:label "has redactor - statement"@en, "hat Redaktor - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who redacted it."""@en;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who redacted it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasGlossator
 	a owl:ObjectProperty;
 	rdfs:label "has glossator"@en, "hat Glossator"@de;
-	rdfs:comment """Relating a text expression to a person who glossed it."""@en;
-	rdfs:domain text:Expression;
+	rdfs:comment """Relating a text to a person who glossed it."""@en;
+	rdfs:domain text:Text;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
 
 textedit:hasGlossatorValue
 	a owl:ObjectProperty;
 	rdfs:label "has glossator - statement"@en, "hat Glossator - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who glossed it."""@en;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who glossed it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasAbbreviator
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
-	rdfs:comment """Relating a text expression to a person who abbreviated it."""@en;
-	rdfs:domain text:Expression;
+	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
+	rdfs:domain text:Text;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
 
 textedit:hasAbbreviatorValue
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator - statement"@en, "hat Abkurzer - Festlegung"@de;
-	rdfs:comment """Relating a text to expression a reification statement of the relation between the text and a person who abbreviated it."""@en;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who abbreviated it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasEdition
 	a owl:ObjectProperty;
 	rdfs:label "has edition"@en, "hat Edition"@de;
-	rdfs:comment "Relating a text to an edition thereof."@en;
-	rdfs:domain text:Expression;
+	rdfs:comment "Relating a text to an edition it has."@en;
+	rdfs:domain text:Text;
 	rdfs:range textedit:Edition;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint textedit:Edition.
 
 textedit:hasEditionValue
@@ -300,7 +300,7 @@ textedit:hasEditionValue
 	rdfs:label "has edition - statement"@en, "hat Edition - Festlegung"@de;
 	rdfs:comment "Relating a text to a reification statement of the relation between the text and an edition thereof."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 #:hasEditedContent
@@ -312,20 +312,22 @@ textedit:hasEditionValue
 #	knora-base:objectClassConstraint knora-base:TextValue;
 #	salsah-gui:guiElement salsah-gui:Richtext.
 
-textedit:hasSameEditionAs # different from https://www.w3.org/TR/owl-ref/#sameAs-def
+textedit:hasSameEditionAs
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de;
 	rdfs:comment """Relating two texts with a same edition."""@en;
+	rdfs:domain text:Text;
+	rdfs:range textedit:Text;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint text:Expression.
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint text:Text.
 
 textedit:hasSameEditionAsValue
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as - statement"@en, "hat gleiche Edition als - Festlegung"@de;
 	rdfs:comment """Relating a text to a reification statement of the relation between the text and another one with a same edition."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasDiplomaticTranscription
@@ -422,7 +424,7 @@ textedit:hasApparatus
 	rdfs:comment """Relating a critical edition to its apparatus."""@en;
 	rdfs:domain textedit:CriticalEdition;
 	rdfs:range textedit:CriticalApparatus;
-	rdfs:subPropertyOf text-structure:hasStructure;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint textedit:CriticalApparatus.
 
@@ -430,7 +432,7 @@ textedit:hasApparatusValue
 	a owl:ObjectProperty;
 	rdfs:label "has apparatus - statement"@en, "hat Apparat - Festlegung"@de;
 	rdfs:comment """Relating a critical edition to a reification statement of the relation between the edition and its apparatus."""@en;
-	rdfs:subPropertyOf text-structure:hasStructureValue;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

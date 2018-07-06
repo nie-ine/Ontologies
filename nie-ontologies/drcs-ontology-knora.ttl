@@ -35,7 +35,7 @@ drcs:Person
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
-# drcs:Scholastic #*
+# drcs:Scholastic
 #	a owl:Class;
 #	rdfs:label "scholastic"@en, "Scholastiker"@de;
 #	rdfs:comment """Scholastic as subject in the scientific study of Petrus Lombardus."""@en;
@@ -47,18 +47,18 @@ drcs:Person
 
 drcs:Commentary
 	a owl:Class;
-	rdfs:label "commentarius"@la, "commentary"@en, "Kommentar"@de;
+	rdfs:label "commentary"@en, "Kommentar"@de, "commentarius"@la;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences."""@en;
 	rdfs:subClassOf schola:Commentary, [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCommentaryDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 	# owl:disjointUnioOf (schola:Lectura schola:LecturaRevisa schola:Reportatio schola:ReportatioApprobata schola:Ordinatio).
 
-drcs:SentenceCommentary
-	a owl:Class;
-	rdfs:label "commentarius"@la, "sentence commentary"@en, "Satz-Kommentar"@de; #*
-	rdfs:comment """Commentary with sentence structure on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf drcs:Commentary, schola:SentenceCommentary.
+# drcs:SentenceCommentary
+#	a owl:Class;
+#	rdfs:label "sentence commentary"@en, "Satz-Kommentar"@de, "commentarius"@la;
+#	rdfs:comment """Commentary with sentence structure on Peter Lombard’s Sentences."""@en;
+#	rdfs:subClassOf drcs:Commentary, schola:SentenceCommentary.
 
 #
 # PROPERTIES

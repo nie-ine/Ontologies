@@ -93,7 +93,7 @@ language:HumanNaturalLanguageExpression
 	a owl:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
-	skos:note """Different from the FRBROO based concept:Expression."""@en;
+	skos:note """Different from the FRBROO based document:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
 		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

@@ -37,7 +37,7 @@ delille:VersePoem
 delille:Canto
 	a owl:Class;
 	rdfs:label "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
-	rdfs:comment """Group of strophes."""@en;
+	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-structure:VerseSection.
 
 delille:EditedVersePoem
@@ -46,15 +46,11 @@ delille:EditedVersePoem
 	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
 	rdfs:subClassOf delille:VersePoem, textedit:Edition.
 
-delille:Person
-	a owl:Class;
-	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
-	rdfs:comment """Person as subject in the scientific study of Jacques Delille's poetry."""@en;
-	rdfs:subClassOf human:Person.
-
-
-# delille:Person, names, bd, dd, biography, ref/link
-
+# delille:Person
+#	a owl:Class;
+#	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
+#	rdfs:comment """Person as subject in the scientific study of Jacques Delille's poetry."""@en;
+#	rdfs:subClassOf human:Person.
 
 #
 # PROPERTIES

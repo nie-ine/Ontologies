@@ -6,6 +6,7 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix document: <http://www.knora.org/ontology/005C/document#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -29,13 +30,13 @@
 image:Image #*
 	a owl:Class;
 	rdfs:label "image"@en,"Bild"@de;
-	rdfs:comment """Visual representation of a resource."""@en;
-	rdfs:subClassOf concept:Expression, cidoc:E38_Image. # rdfs:subClassOf cidoc:E36_Visual_Item rdfs:subClassOf cidoc:E73_Information_Object rdfs:subClassOf cidoc:E90_Symbolic_Object rdfs:subClassOf cidoc:E28_Conceptual_Object
+	rdfs:comment """Visual representation of something."""@en;
+	rdfs:subClassOf document:Document, cidoc:E38_Image. # rdfs:subClassOf cidoc:E36_Visual_Item rdfs:subClassOf cidoc:E73_Information_Object rdfs:subClassOf cidoc:E90_Symbolic_Object rdfs:subClassOf cidoc:E28_Conceptual_Object
 
 image:ImageCarrier
 	a owl:Class;
 	rdfs:label "image carrier"@en,"Bildträger"@de;
-	rdfs:comment """Visual representation of a resource on a carrier."""@en;
+	rdfs:comment """Image on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
 image:Photograph

@@ -68,7 +68,9 @@ concept:Identifier
 	rdfs:label "identifier"@en, "Identifikator"@de;
 	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subClassOf concept:SymbolicConcept, cidoc:E42_Identifier, [ # rdfs:subClassOf cidoc:E41_Appellation
-		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
+#		a owl:Restriction; owl:onProperty concept:hasLink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty concept:hasLinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Set #*
 	a owl:Class;

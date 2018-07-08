@@ -51,16 +51,16 @@ document:Element #*
 	rdfs:label "document element"@en, "Dokumentelement"@de;
 	rdfs:comment """Information as part of a document."""@en; #*
 	rdfs:subClassOf concept:Information, [
-		a owl:Restriction; owl:onProperty document:isPartOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPartOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isElementOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isElementOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Structure
 	a owl:Class;
@@ -79,18 +79,18 @@ document:Column
 	rdfs:label "column"@en, "Spalte"@de;
 	rdfs:comment """Document structure displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
 	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
-#		a owl:Restriction; owl:onProperty document:columnIsPartOfPage; owl:allValuesFrom document:Page], [
-		a owl:Restriction; owl:onProperty document:columnIsPartOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:columnIsPartOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:allValuesFrom document:Page], [
+		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isColumnOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Page # text, visuals, page # etc.
 	a owl:Class;
 	rdfs:label "page"@en, "Seite"@de;
 	rdfs:comment """Document structure displaying information e.g. text lines and graphs, as a page as part of a document."""@en;
 	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
-#		a owl:Restriction; owl:onProperty document:pageIsPartOfDocument; owl:allValuesFrom document:Document], [
-		a owl:Restriction; owl:onProperty document:pageIsPartOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:pageIsPartOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:allValuesFrom document:Document], [
+		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Marginal
 	a owl:Class;
@@ -103,8 +103,8 @@ document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	rdfs:label "table"@en, "Tabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf document:Structure, [
-		a owl:Restriction; owl:onProperty document:tableIsPartOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:tableIsPartOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty document:isTableOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isTableOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Expression
 	a owl:Class;
@@ -112,8 +112,8 @@ document:Expression
 	rdfs:comment """Document realisation of an individual work conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F22_Self-Contained_Expression, [
 		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPartOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isExpressionOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isExpressionOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -169,9 +169,9 @@ document:HypertextDocument
 #	knora-base:subjectClassConstraint layout:Layout;
 #	knora-base:objectClassConstraint document:Document.
 
-document:isPartOfDocument
+document:isElementOfDocument
 	a owl:ObjectProperty;
-	rdfs:label "is part of document"@en, "ist teil eines Dokumentes"@de;
+	rdfs:label "is element of document"@en, "ist Element eines Dokumentes"@de;
 	rdfs:comment """Relating a document element to a document it is part of."""@en;
 	rdfs:domain document:Element;
 	rdfs:range document:Document;
@@ -179,17 +179,17 @@ document:isPartOfDocument
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint document:Document.
 
-document:isPartOfDocumentValue
+document:isElementOfDocumentValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of document - statement"@en, "ist teil eines Dokumentes - Festlegung"@de;
+	rdfs:label "is element of document - statement"@en, "ist Element eines Dokumentes - Festlegung"@de;
 	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a document it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:columnIsPartOfPage
+document:isColumnOfPage
 	a owl:ObjectProperty;
-	rdfs:label "column is part of page"@en, "Spalte ist Teil einer Seite"@de;
+	rdfs:label "is column of page"@en, "ist Spalte einer Seite"@de;
 	rdfs:comment """Relating a column to a page it is part of."""@en;
 	rdfs:domain document:Column;
 	rdfs:range document:Page;
@@ -197,17 +197,17 @@ document:columnIsPartOfPage
 	knora-base:subjectClassConstraint document:Column;
 	knora-base:objectClassConstraint document:Page.
 
-document:columnIsPartOfPageValue
+document:isColumnOfPageValue
 	a owl:ObjectProperty;
-	rdfs:label "column is part of page - statement"@en, "Spalte ist Teil einer Seite - Festlegung"@de;
+	rdfs:label "is column of page - statement"@en, "ist Spalte einer Seite - Festlegung"@de;
 	rdfs:comment """Relating a column to a reification statement of the relation between the column and a page it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Column;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:pageIsPartOfDocument
+document:isPageOfDocument
 	a owl:ObjectProperty;
-	rdfs:label "page is part of document"@en, "Seite ist Teil eines Dokumentes"@de;
+	rdfs:label "is page of document"@en, "ist Seite eines Dokumentes"@de;
 	rdfs:comment """Relating a page to a document it is part of."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:Document;
@@ -215,30 +215,12 @@ document:pageIsPartOfDocument
 	knora-base:subjectClassConstraint document:Page;
 	knora-base:objectClassConstraint document:Document.
 
-document:pageIsPartOfDocumentValue
+document:isPageOfDocumentValue
 	a owl:ObjectProperty;
-	rdfs:label "page is part of document - statement"@en, "Seite ist Teil eines Dokumentes - Festlegung"@de;
+	rdfs:label "is page of document - statement"@en, "ist Seite eines Dokumentes - Festlegung"@de;
 	rdfs:comment """Relating a page to a reification statement of the relation between the page and a document it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Page;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasFootnoteReferenceNumber
-	a owl:ObjectProperty;
-	rdfs:label "has footnote reference number"@en, "hat Fussnotereferenznummer"@de;
-	rdfs:comment """Relating a document element to a footnote reference number (as resource) it has."""@en;
-	rdfs:domain document:Element;
-	rdfs:range math:NaturalNumber;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:Element;
-	knora-base:objectClassConstraint math:NaturalNumber.
-
-document:hasFootnoteReferenceNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has footnote reference number - statement"@en, "hat Fussnotereferenznummer - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a footnote reference number (as resource) it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasFootnoteReferenceIdentifier
@@ -259,22 +241,58 @@ document:hasFootnoteReferenceIdentifierValue
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasEndnoteReferenceNumber
+document:hasFootnoteReferenceNumber
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference number"@en, "hat Endnotereferenznummer"@de;
-	rdfs:comment """Relating a document element to an endnote reference number (as resource) it has."""@en;
+	rdfs:label "has footnote reference number"@en, "hat Fussnotereferenznummer"@de;
+	rdfs:comment """Relating a document element to a footnote reference number (as resource) it has."""@en;
 	rdfs:domain document:Element;
 	rdfs:range math:NaturalNumber;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf document:hasFootnoteReferenceIdentifier;
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint math:NaturalNumber.
 
-document:hasEndnoteReferenceNumberValue
+document:hasFootnoteReferenceNumberValue
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference number - statement"@en, "hat Endnotereferenznummer - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and an endnote reference number (as resource) it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:label "has footnote reference number - statement"@en, "hat Fussnotereferenznummer - Festlegung"@de;
+	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a footnote reference number (as resource) it has."""@en;
+	rdfs:subPropertyOf document:hasFootnoteReferenceIdentifierValue;
 	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has footnote identifier"@en, "hat Fussnoteidentifikator"@de;
+	rdfs:comment """Relating a footnote reference identifier (as resource) to its footnote identifier (as resource)."""@en;
+	rdfs:domain concept:Identifier;  #** more specific
+	rdfs:range concept:Identifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint concept:Identifier;
+	knora-base:objectClassConstraint concept:Identifier.
+
+document:hasFootnoteIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote identifier - statement"@en, "hat Fussnoteidentifikator - Festlegung"@de;
+	rdfs:comment """Relating a footnote reference identifier (as resource) to a reification statement of the relation between that identifier and its footnote identifier (as resource)."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint concept:Identifier; #**
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteNumber
+	a owl:ObjectProperty;
+	rdfs:label "has footnote number"@en, "hat Fussnotenummer"@de;
+	rdfs:comment """Relating a footnote reference number (as resource) to its footnote number (as resource)."""@en;
+	rdfs:domain math:NaturalNumber; #**
+	rdfs:range math:NaturalNumber;
+	rdfs:subPropertyOf document:hasFootnoteIdentifier;
+	knora-base:subjectClassConstraint math:NaturalNumber;
+	knora-base:objectClassConstraint math:NaturalNumber.
+
+document:hasFootnoteNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote reference number - statement"@en, "hat Fussnotereferenznummer - Festlegung"@de;
+	rdfs:comment """Relating a footnote reference number (as resource) to a reification statement of the relation between that number and its footnote number (as resource)."""@en;
+	rdfs:subPropertyOf document:hasFootnoteIdentifierValue;
+	knora-base:subjectClassConstraint math:NaturalNumber; #**
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasEndnoteReferenceIdentifier
@@ -295,9 +313,63 @@ document:hasEndnoteReferenceIdentifierValue
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:tableIsPartOfColumn # page (abstracted from carrier) being a special case of column
+document:hasEndnoteReferenceNumber
 	a owl:ObjectProperty;
-	rdfs:label "table is part of column"@en, "Tabelle ist Teil einer Spalte"@de;
+	rdfs:label "has endnote reference number"@en, "hat Endnotereferenznummer"@de;
+	rdfs:comment """Relating a document element to an endnote reference number (as resource) it has."""@en;
+	rdfs:domain document:Element;
+	rdfs:range math:NaturalNumber;
+	rdfs:subPropertyOf document:hasEndnoteReferenceIdentifier;
+	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint math:NaturalNumber.
+
+document:hasEndnoteReferenceNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote reference number - statement"@en, "hat Endnotereferenznummer - Festlegung"@de;
+	rdfs:comment """Relating a document element to a reification statement of the relation between the element and an endnote reference number (as resource) it has."""@en;
+	rdfs:subPropertyOf document:hasEndnoteReferenceIdentifierValue;
+	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEndnoteIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has endnote identifier"@en, "hat Endnoteidentifikator"@de;
+	rdfs:comment """Relating an endnote reference identifier (as resource) to its endnote identifier (as resource)."""@en;
+	rdfs:domain concept:Identifier;  #** more specific
+	rdfs:range concept:Identifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint concept:Identifier;
+	knora-base:objectClassConstraint concept:Identifier.
+
+document:hasEndnoteIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote identifier - statement"@en, "hat Endnoteidentifikator - Festlegung"@de;
+	rdfs:comment """Relating an endnote reference identifier (as resource) to a reification statement of the relation between that identifier and its endnote identifier (as resource)."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint concept:Identifier; #**
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEndnoteNumber
+	a owl:ObjectProperty;
+	rdfs:label "has endnote number"@en, "hat Endnotenummer"@de;
+	rdfs:comment """Relating an endnote reference number (as resource) to its endnote number (as resource)."""@en;
+	rdfs:domain math:NaturalNumber; #**
+	rdfs:range math:NaturalNumber;
+	rdfs:subPropertyOf document:hasEndnoteIdentifier;
+	knora-base:subjectClassConstraint math:NaturalNumber;
+	knora-base:objectClassConstraint math:NaturalNumber.
+
+document:hasEndnoteNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote reference number - statement"@en, "hat Endnotenummer - Festlegung"@de;
+	rdfs:comment """Relating an endnote reference number (as resource) to a reification statement of the relation between that number and its endnote number (as resource)."""@en;
+	rdfs:subPropertyOf document:hasEndnoteIdentifierValue;
+	knora-base:subjectClassConstraint math:NaturalNumber; #**
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:isTableOfColumn # page (abstracted from carrier) being a special case of column
+	a owl:ObjectProperty;
+	rdfs:label "is table of column"@en, "ist Tabelle einer Spalte"@de;
 	rdfs:comment """Relating a table to a column it is part of."""@en;
 	rdfs:domain document:Table;
 	rdfs:range document:Column;
@@ -305,17 +377,17 @@ document:tableIsPartOfColumn # page (abstracted from carrier) being a special ca
 	knora-base:subjectClassConstraint document:Table;
 	knora-base:objectClassConstraint document:Column.
 
-document:tableIsPartOfColumnValue
+document:isTableOfColumnValue
 	a owl:ObjectProperty;
-	rdfs:label "table is part of column - statement"@en, "Tabelle ist Teil einer Spalte - Festlegung"@de;
+	rdfs:label "is table of column - statement"@en, "ist Tabelle einer Spalte - Festlegung"@de;
 	rdfs:comment """Relating a table to a reification statement of the relation between the table and a column it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue; #**
 	knora-base:subjectClassConstraint document:Table;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isPartOfCycle
+document:isExpressionOfCycle
 	a owl:ObjectProperty;
-	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
+	rdfs:label "is expression of cycle"@en, "ist Expression eines Zyklus"@de;
 	rdfs:comment """Relating an expression to a cycle it is part of."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range document:Cycle;
@@ -323,9 +395,9 @@ document:isPartOfCycle
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint document:Cycle.
 
-document:isPartOfCycleValue
+document:isExpressionOfCycleValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of cycle - statement"@en, "ist Teil eines Zyklus - Festlegung"@de;
+	rdfs:label "is expression of cycle - statement"@en, "ist Expression eines Zyklus - Festlegung"@de;
 	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Expression;

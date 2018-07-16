@@ -211,6 +211,7 @@
 <http://rdfh.ch/projects/0803> rdf:type knora-base:knoraProject ;
 
                                           knora-base:projectShortname "incunabula"^^xsd:string ;
+
                                           knora-base:projectShortcode "0803"^^xsd:string;
 
                                           knora-base:projectLongname "Bilderfolgen Basler Frühdrucke"^^xsd:string ;
@@ -471,6 +472,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProject <http://rdfh.ch/projects/DczxPs-sR6aZN91qV92ZmQ> ;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean ;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/DczxPs-sR6aZN91qV92ZmQ> .
+
 
 
 ###################################
@@ -1339,3 +1341,27 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProject <http://rdfh.ch/projects/0061>;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0061>.
+
+#
+# Sanskrit
+#
+
+<http://rdfh.ch/projects/0062> a knora-base:knoraProject;
+  knora-base:projectShortname "Sanskrit"^^xsd:string;
+  knora-base:projectShortcode "0062"^^xsd:string;
+  knora-base:projectLongname "An ontology about Sanskrit"^^xsd:string;
+  knora-base:projectDescription "Formal description of concepts in Sanskrit"@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0062>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0062>.

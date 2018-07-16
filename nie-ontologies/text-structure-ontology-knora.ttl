@@ -194,9 +194,19 @@ text-structure:Verse
 #		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #* Place an ancient verse without line structure in a place-time
+
+# text-structure:Hemistich
+#	a owl:Class;
+#	rdfs:label "hemistich"@en, "Hemistich"@de;
+#	rdfs:comment """Half a verse."""@en;
+#	rdfs:subClassOf text-structure:ProsodicStructure, [
+#		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Strophe # OR stanza OR verse - Vers
 	a owl:Class;
@@ -207,11 +217,22 @@ text-structure:Strophe # OR stanza OR verse - Vers
 #		a owl:Restriction; owl:onProperty text-structure:isStropheOfSection; owl:allValuesFrom text:Text], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:HalfStrophe
+	a owl:Class;
+	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
+#	text:hasSynonym	"distich"@en, "Distich"@de;
+	rdfs:comment """Half a strophe."""@en;
+	rdfs:subClassOf text-structure:ProsodicStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isHalfOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isHalfOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:VerseSection
 	a owl:Class;
-	rdfs:label "verse section"@en, "Versabschnitt"@de; # "chant"@fr
+	rdfs:label "verse section"@en, "Versabschnitt"@de;
+#	text:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
 	rdfs:comment """Group of strophes."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfPoem; owl:allValuesFrom text:Text], [
@@ -221,12 +242,6 @@ text-structure:VerseSection
 		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseSectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseSectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text-structure:Hemistich
-	a owl:Class;
-	rdfs:label "hemistich"@en, "Hemistich"@de;
-	rdfs:comment """Half a strophe."""@en;
-	rdfs:subClassOf text-structure:Strophe.
 
 text-structure:FreeVerse
 	a owl:Class;
@@ -292,23 +307,47 @@ text-structure:InterlinearGloss
 
 text-structure:Footnote
 	a owl:Class;
-	rdfs:label "footnote structure"@en, "Fussnote-Struktur"@de;
+	rdfs:label "footnote structure"@en, "Fussnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of that page, seperate from the main content."""@en;
 	rdfs:subClassOf text-structure:Note, [
-			a owl:Restriction; owl:onProperty text-structure:footnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:footnoteHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:footnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:footnoteHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:footnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:footnoteHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:footnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:footnoteHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:FootnoteIdentifier
+	a owl:Class;
+	rdfs:label "footnote identifier"@en, "Fussnoteidentifikator"@de;
+	rdfs:comment """Identifier of a footnote."""@en;
+	rdfs:subClassOf concept:Identifier, document:Element.
+
+text-structure:FootnoteNumber
+	a owl:Class;
+	rdfs:label "footnote number"@en, "Fussnotenummer"@de;
+	rdfs:comment """Number of a footnote."""@en;
+	rdfs:subClassOf text-structure:FootnoteIdentifier, math:Number, document:Element. # math:NaturalNumber.
 
 text-structure:Endnote
 	a owl:Class;
-	rdfs:label "endnote structure"@en, "Endnote-Struktur"@de;
+	rdfs:label "endnote structure"@en, "Endnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of the document, seperate from the main content."""@en;
 	rdfs:subClassOf text-structure:Note, [
-			a owl:Restriction; owl:onProperty text-structure:endnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:endnoteHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:endnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-			a owl:Restriction; owl:onProperty text-structure:endnoteHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:endnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:endnoteHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:endnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:endnoteHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:EndnoteIdentifier
+	a owl:Class;
+	rdfs:label "endnote identifier"@en, "Endnoteidentifikator"@de;
+	rdfs:comment """Identifier of an endnote."""@en;
+	rdfs:subClassOf concept:Identifier, document:Element.
+
+text-structure:EndnoteNumber
+	a owl:Class;
+	rdfs:label "endnote number"@en, "Endnotenummer"@de;
+	rdfs:comment """Number of an endnote."""@en;
+	rdfs:subClassOf text-structure:EndnoteIdentifier, math:Number, document:Element. # math:NaturalNumber.
 
 text-structure:Letter
 	a owl:Class;
@@ -431,7 +470,7 @@ text-structure:isParagraphOfSectionValue
 text-structure:paragraphHasTitle
 	a owl:ObjectProperty;
 	rdfs:label "paragraph has title"@en, "Paragraf hat Titel"@de;
-	rdfs:comment """Relating a paragraph to its title (as object)."""@en;
+	rdfs:comment """Relating a paragraph to its title."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
@@ -442,7 +481,7 @@ text-structure:paragraphHasTitle
 text-structure:paragraphHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "paragraph has number"@en, "Paragraf hat Nummer"@de;
-	rdfs:comment """Relating a paragraph to its number (as object)."""@en;
+	rdfs:comment """Relating a paragraph to its number."""@en;
 	rdfs:domain text-structure:Paragraph;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -470,7 +509,7 @@ text-structure:isSectionOfExpressionValue
 text-structure:sectionHasTitle
 	a owl:ObjectProperty;
 	rdfs:label "section has title"@en, "Textabschnitt hat Titel"@de;
-	rdfs:comment """Relating a section to its title (as object)."""@en;
+	rdfs:comment """Relating a section to its title."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
@@ -481,7 +520,7 @@ text-structure:sectionHasTitle
 text-structure:sectionHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "section has number"@en, "Textabschnitt hat Nummer"@de;
-	rdfs:comment """Relating a section to its number (as object)."""@en;
+	rdfs:comment """Relating a section to its number."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -527,7 +566,7 @@ text-structure:isLineOfColumnValue
 text-structure:lineHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "line has number"@en, "Linie hat Nummer"@de;
-	rdfs:comment """Relating a line to a number (as object) it has."""@en;
+	rdfs:comment """Relating a line to a number it has."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -570,10 +609,28 @@ text-structure:isVerseOfStropheValue
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+# text-structure:isVerseOfHemistich
+#	a owl:ObjectProperty;
+#	rdfs:label "is verse of hemistich"@en, "ist Vers einer Hemistich"@de;
+#	rdfs:comment """Relating a verse to a strophe it is part of."""@en;
+#	rdfs:domain text-structure:Verse;
+#	rdfs:range text-structure:Strophe;
+#	rdfs:subPropertyOf concept:isPartOf;
+#	knora-base:subjectClassConstraint text-structure:Verse;
+#	knora-base:objectClassConstraint text-structure:Strophe.
+
+# text-structure:isVerseOfHemistichValue
+#	a owl:ObjectProperty;
+#	rdfs:label "is verse of strophe - statement"@en, "ist Vers einer Strophe - Festlegung"@de;
+#	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a strophe it is part of."""@en;
+#	rdfs:subPropertyOf concept:isPartOfValue;
+#	knora-base:subjectClassConstraint text-structure:Verse;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:verseHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "verse has number"@en, "Vers hat Nummer"@de;
-	rdfs:comment """Relating a verse to a number (as object) it has."""@en;
+	rdfs:comment """Relating a verse to a number it has."""@en;
 	rdfs:domain text-structure:Verse;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -598,15 +655,43 @@ text-structure:isStropheOfSectionValue
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text-structure:stropheHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de;
+	rdfs:comment """Relating a strophe to an identifier it has."""@en;
+	rdfs:domain text-structure:Strophe;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
 text-structure:stropheHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "strophe has number"@en, "Strophe hat Nummer"@de;
-	rdfs:comment """Relating a strophe to a number (as object) it has."""@en;
+	rdfs:comment """Relating a strophe to a number it has."""@en;
 	rdfs:domain text-structure:Strophe;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:IntValue.
+
+text-structure:isHalfOfStrophe
+	a owl:ObjectProperty;
+	rdfs:label "is half of strophe"@en, "ist Hälfte einer Strophe"@de;
+	rdfs:comment """Relating a half-strophe to its strophe."""@en;
+	rdfs:domain text-structure:HalfStrophe;
+	rdfs:range text-structure:Strophe;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:HalfStrophe;
+	knora-base:objectClassConstraint text-structure:Strophe.
+
+text-structure:isHalfOfStropheValue
+	a owl:ObjectProperty;
+	rdfs:label "is half of strophe - statement"@en, "ist Hälfte einer Strophe - Festlegung"@de;
+	rdfs:comment """Relating a half-strophe to a reification statement of the relation between the half-strophe and its strophe."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:HalfStrophe;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:isVerseSectionOfPoem
 	a owl:ObjectProperty;
@@ -647,7 +732,7 @@ text-structure:isVerseSectionOfNovelValue
 text-structure:verseSectionHasTitle #* needed?
 	a owl:ObjectProperty;
 	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de;
-	rdfs:comment """Relating a verse section to its title (as object)."""@en;
+	rdfs:comment """Relating a verse section to its title."""@en;
 	rdfs:domain text-structure:VerseSection;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
@@ -658,7 +743,7 @@ text-structure:verseSectionHasTitle #* needed?
 text-structure:verseSectionHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "verse section has number"@en, "Versabschnitt hat Nummer"@de;
-	rdfs:comment """Relating a verse section to a number (as object) it has."""@en;
+	rdfs:comment """Relating a verse section to a number it has."""@en;
 	rdfs:domain text-structure:VerseSection;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -706,10 +791,10 @@ text-structure:footnoteHasIdentifier
 	rdfs:label "footnote has identifier"@en, "Fussnote hat Identifikator"@de;
 	rdfs:comment """Relating a footnote to an identifier (as resource) it has."""@en;
 	rdfs:domain text-structure:Footnote;
-	rdfs:range concept:Identifier;
+	rdfs:range text-structure:FootnoteIdentifier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text-structure:Footnote;
-	knora-base:objectClassConstraint concept:Identifier.
+	knora-base:objectClassConstraint text-structure:FootnoteIdentifier.
 
 text-structure:footnoteHasIdentifierValue
 	a owl:ObjectProperty;
@@ -724,10 +809,10 @@ text-structure:footnoteHasNumber
 	rdfs:label "footnote has number"@en, "Fussnote hat Nummer"@de;
 	rdfs:comment """Relating a footnote to a natural number (as resource) it has."""@en;
 	rdfs:domain text-structure:Footnote;
-	rdfs:range math:NaturalNumber;
+	rdfs:range text-structure:FootnoteNumber;
 	rdfs:subPropertyOf text-structure:footnoteHasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Footnote;
-	knora-base:objectClassConstraint math:NaturalNumber.
+	knora-base:objectClassConstraint text-structure:FootnoteNumber.
 
 text-structure:footnoteHasNumberValue
 	a owl:ObjectProperty;
@@ -742,10 +827,10 @@ text-structure:endnoteHasIdentifier
 	rdfs:label "endnote has identifier"@en, "Endnote hat Identifikator"@de;
 	rdfs:comment """Relating an endnote to an identifier (as resource) it has."""@en;
 	rdfs:domain text-structure:Endnote;
-	rdfs:range concept:Identifier;
+	rdfs:range text-structure:EndnoteIdentifier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text-structure:Endnote;
-	knora-base:objectClassConstraint concept:Identifier.
+	knora-base:objectClassConstraint text-structure:EndnoteIdentifier.
 
 text-structure:endnoteHasIdentifierValue
 	a owl:ObjectProperty;
@@ -760,10 +845,10 @@ text-structure:endnoteHasNumber
 	rdfs:label "endnote has number"@en, "Endnote hat Nummer"@de;
 	rdfs:comment """Relating an endnote to a number (as resource) it has."""@en;
 	rdfs:domain text-structure:Endnote;
-	rdfs:range math:NaturalNumber;
+	rdfs:range text-structure:EndnoteNumber;
 	rdfs:subPropertyOf text-structure:endnoteHasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Endnote;
-	knora-base:objectClassConstraint math:NaturalNumber.
+	knora-base:objectClassConstraint text-structure:EndnoteNumber.
 
 text-structure:endnoteHasNumberValue
 	a owl:ObjectProperty;

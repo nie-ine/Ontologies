@@ -151,9 +151,15 @@ litera:Hymn
 	a owl:Class;
 	rdfs:label "hymn"@en, "Hymne"@de, "hymnus"@la;
 	rdfs:comment """Verse song of adoration for a deity or prominent person."""@en;
-	rdfs:subClassOf litera:VerseSong.
+	rdfs:subClassOf litera:VerseSong, [
+		a owl:Restriction; owl:onProperty litera:isPartOfHymnal; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:isPartOfHymnalValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].	
 
-# litera:Hymnal # OR hymn book # collection of hymns
+litera:Hymnal
+	a owl:Class;
+	rdfs:label "hymnal"@en, "Gesangbuch"@de;
+	rdfs:comment """Collection of hymns."""@en;
+	rdfs:subClassOf litera:Expression.
 
 litera:ProsePoem
 	a owl:Class;
@@ -173,20 +179,20 @@ litera:VerseNovel
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
 	rdfs:comment """Narrative fiction expression in verse - possibly partially - and with novel-length, wherein character development and plot are more important than poetry."""@en;
 	rdfs:subClassOf litera:Expression, [
-		a owl:Restriction; owl:onProperty litera:hasFiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:Novel
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Narrative fiction expression in prose."""@en;
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
-		a owl:Restriction; owl:onProperty litera:hasFiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:NonfictionNovel
 	a owl:Class;
@@ -194,10 +200,10 @@ litera:NonfictionNovel
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
 #	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
-		a owl:Restriction; owl:onProperty litera:hasNonfiction; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNonfictionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty litera:hasNonfiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNonfictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # WM 20180206
 #* Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature
@@ -329,6 +335,24 @@ litera:hasPoetValue
 	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and a person who authored it."""@en;
 	rdfs:subPropertyOf text:hasAuthorValue;
 	knora-base:subjectClassConstraint litera:Poem;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:isPartOfHymnal
+	a owl:ObjectProperty;
+	rdfs:label "is part of hymnal"@en, "ist teil eines Gesangbuches"@de;
+	rdfs:comment """Relating a hymn to a hymnal it is part of."""@en;
+	rdfs:domain litera:Hymn;
+	rdfs:range litera:Hymnal;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint litera:Hymn;
+	knora-base:objectClassConstraint litera:Hymnal.
+
+litera:isPartOfHymnalValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of hymnal - statement"@en, "ist teil eines Gesangbuches - Festlegung"@de;
+	rdfs:comment """Relating a hymn to a reification statement of the relation between the hymn and a hymnal it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint litera:Hymn;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 #* litera:hasNovelist

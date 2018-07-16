@@ -54,12 +54,6 @@ drcs:Commentary
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 	# owl:disjointUnioOf (schola:Lectura schola:LecturaRevisa schola:Reportatio schola:ReportatioApprobata schola:Ordinatio).
 
-# drcs:SentenceCommentary
-#	a owl:Class;
-#	rdfs:label "sentence commentary"@en, "Satz-Kommentar"@de, "commentarius"@la;
-#	rdfs:comment """Commentary with sentence structure on Peter Lombard’s Sentences."""@en;
-#	rdfs:subClassOf drcs:Commentary, schola:SentenceCommentary.
-
 #
 # PROPERTIES
 #
@@ -67,7 +61,7 @@ drcs:Commentary
 drcs:hasStegmuellerPersonDescription
  	a owl:ObjectProperty;
  	rdfs:label "has Stegmüller's person description"@en;
- 	rdfs:comment """Relating a person to a Stegmüller's description (as object) thereof."""@en;
+ 	rdfs:comment """Relating a person to a Stegmüller's description thereof."""@en;
  	rdfs:subPropertyOf human:hasDescription;
  	knora-base:subjectClassConstraint drcs:Person;
  	knora-base:objectClassConstraint knora-base:TextValue;
@@ -76,7 +70,7 @@ drcs:hasStegmuellerPersonDescription
 drcs:hasStegmuellerCommentaryDescription
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's commentary description"@en;
-	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description (as object) thereof."""@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint drcs:Commentary;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -85,8 +79,26 @@ drcs:hasStegmuellerCommentaryDescription
 drcs:hasStegmuellerCode
 	a owl:ObjectProperty;
 	rdfs:label "has Stegmüller's code"@en;
-	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's code (as object) thereof."""@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's code thereof."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint drcs:Commentary;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+# drcs:isPartOfCommentary
+#	a owl:ObjectProperty;
+#	rdfs:label "is part of commentary "@en, "ist Teil eines Kommentars"@de;
+#	rdfs:comment """Relating a scholastic text structure to a scholastic commentary it is part of."""@en;
+#	rdfs:domain schola:Structure;
+#	rdfs:range schola:Commentary;
+#	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
+#	knora-base:subjectClassConstraint schola:Structure;
+#	knora-base:objectClassConstraint schola:Commentary.
+
+# drcs:isPartOfCommentaryValue
+#	a owl:ObjectProperty;
+#	rdfs:label "is part of commentary - statement"@en, "ist Teil eines Kommentars - Festlegung"@de;
+#	rdfs:comment """Relating a scholastic text structure to a statement as reification of the relation between the text and a commentary it is part of."""@en;
+#	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
+#	knora-base:subjectClassConstraint schola:Structure;
+#	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -34,6 +34,8 @@
 # [ Aa ] denoting manuscripts with a specific meaning
 # <..> denote wholly or partially lost text due to damage suffered by the palm-leaves
 
+# athar:
+
 athar:CriticalApparatus
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;

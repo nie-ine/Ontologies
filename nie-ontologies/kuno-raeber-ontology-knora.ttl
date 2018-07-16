@@ -413,7 +413,7 @@ kuno-raeber:hasDiplomaticTranscriptionValue
 kuno-raeber:poemHasTitle
 	a owl:ObjectProperty;
 	rdfs:label "poem has title"@en, "Gedicht hat Titel"@de;
-	rdfs:comment """Relating a poem by Kuno Raeber to a title (as object) it has."""@en;
+	rdfs:comment """Relating a poem by Kuno Raeber to a title it has."""@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint kuno-raeber:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -694,7 +694,7 @@ kuno-raeber:hasReferencePoemValue
 kuno-raeber:hasReferenceTitle
 	a owl:ObjectProperty;
 	rdfs:label "has reference title"@en, "hat Bezugstitel"@de;
-	rdfs:comment """Relating a poem to a title (as object) of a reference poem."""@en;
+	rdfs:comment """Relating a poem to a title of a reference poem."""@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint kuno-raeber:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue;

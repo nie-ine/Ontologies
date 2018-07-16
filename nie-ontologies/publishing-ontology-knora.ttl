@@ -84,17 +84,25 @@ publish:NewspaperPublisher
 	rdfs:comment """Publisher of a newspaper."""@en;
 	rdfs:subClassOf publish:Publisher.
 
-publish:Publication
+publish:Publication #**
 	a owl:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
 	rdfs:comment """An expression published on a carrier."""@en; # output of publishing
 	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
 		a owl:Restriction; owl:onProperty publish:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPeriod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPeriodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisher; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+publish:Period
+	a owl:Class;
+	rdfs:label "publication period"@en, "Publikationsperiode"@de;
+	rdfs:comment """Period a publication was created in."""@en;
+	rdfs:subClassOf event:Event.
 
 publish:PrintedPublication
 	a owl:Class;
@@ -129,11 +137,17 @@ publish:PolyAuthorPublication
 
 publish:FirstPublication
 	a owl:Class;
-	rdfs:label "first publication"@en, "Erstausgabe"@de; # first edition ?
-	rdfs:comment """Earliest publication of a tex expression."""@en;
+	rdfs:label "first publication"@en, "Erstausgabe"@de;
+	rdfs:comment """Earliest publication of an expression."""@en;
 	rdfs:subClassOf publish:Publication.
 
 # human:FirstVersion
+
+publish:LastPublication
+	a owl:Class;
+	rdfs:label "last publication"@en, "letzte Ausgabe"@de;
+	rdfs:comment """Last publication of an expression."""@en;
+	rdfs:subClassOf publish:Publication.
 
 publish:Magazine
 	a owl:Class;
@@ -244,18 +258,34 @@ publish:hasWebPublicationValue
 publish:hasPublicationNumber
 	a owl:ObjectProperty;
 	rdfs:label "has publication number"@en, "hat Publikationsnummer"@de;
-	rdfs:comment """Relating an expression to its number (as object) in a publication."""@en;
+	rdfs:comment """Relating an expression to its number in a publication."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
-publish:hasLastPublication # Can be formally inferred with an N3 rule.
+publish:hasFirstPublication
+	a owl:ObjectProperty;
+	rdfs:label "has first publication"@en, "hat erste Publikation"@de;
+	rdfs:comment "Relating an expression to its first publication."@en;
+	rdfs:subPropertyOf publish:hasPublication;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint publish:FirstPublication.
+
+publish:hasFirstPublicationValue
+	a owl:ObjectProperty;
+	rdfs:label "has first publication - statement"@en, "hat erste Publikation - Festlegung"@de;
+	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its first publication."@en;
+	rdfs:subPropertyOf publish:hasPublicationValue;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+publish:hasLastPublication
 	a owl:ObjectProperty;
 	rdfs:label "has last publication"@en, "hat letzte Publikation"@de;
 	rdfs:comment "Relating an expression to its last publication."@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
-	knora-base:objectClassConstraint publish:Publication.
+	knora-base:objectClassConstraint publish:LastPublication.
 
 publish:hasLastPublicationValue
 	a owl:ObjectProperty;
@@ -365,7 +395,7 @@ publish:hasNachlassPublicationValue
 publish:hasNachlassPublicationDescription
 	a owl:ObjectProperty;
 	rdfs:label "has nachlass publication description"@en, "hat Nachlassausgabebeschreibung"@de;
-	rdfs:comment """Relating an expression to a description (as object) of its nachlass publication."""@en;
+	rdfs:comment """Relating an expression to a description of its nachlass publication."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -429,6 +459,8 @@ publish:hasDescription
 	a owl:ObjectProperty;
 	rdfs:label "publication has description"@en, "Publikation hat beschreibung"@de;
 	rdfs:comment "Relating a publication to a description thereof."@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -443,10 +475,28 @@ publish:hasDate
 	knora-base:objectClassConstraint knora-base:DateValue;
 	salsah-gui:guiElement salsah-gui:Date.
 
+publish:hasPeriod
+	a owl:ObjectProperty;
+	rdfs:label "publication has period"@en, "Publikation hat Periode"@de;
+	rdfs:comment "Relating a publication to a period it was created in."@en;
+	rdfs:domain publish:Publication;
+	rdfs:range publish:Period;
+	rdfs:subPropertyOf event:hasEvent;
+	knora-base:subjectClassConstraint publish:Publication;
+	knora-base:objectClassConstraint publish:Period.
+
+publish:hasPeriodValue
+	a owl:ObjectProperty;
+	rdfs:label "publication has period - statement"@en, "Publikation hat Periode - Festlegung"@de;
+	rdfs:comment "Relating a publication to a reification statement of the relation between the publication and a period it was cretaed in."@en;
+	rdfs:subPropertyOf event:hasEventValue;
+	knora-base:subjectClassConstraint publish:Publication;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 publish:hasTitle
 	a owl:ObjectProperty;
 	rdfs:label "publication has title"@en, "Publikation hat titel"@de;
-	rdfs:comment "Relating a publication to its title (as object)."@en;
+	rdfs:comment "Relating a publication to its title."@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -473,7 +523,7 @@ publish:hasPublisherValue
 publish:hasPublisherDescription
 	a owl:ObjectProperty;
 	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de;
-	rdfs:comment "Relating a publication to its publisher's description (as object)."@en;
+	rdfs:comment "Relating a publication to its publisher's description."@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -482,7 +532,7 @@ publish:hasPublisherDescription
 publish:hasPrinterDescription
 	a owl:ObjectProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de;
-	rdfs:comment "Relating a publication to its printer's description (as object)."@en;
+	rdfs:comment "Relating a publication to its printer's description."@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;

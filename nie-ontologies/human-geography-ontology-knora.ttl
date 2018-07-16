@@ -12,7 +12,9 @@
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix org: <http://www.knora.org/ontology/0051/organization#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/0049/human-geography>.
 @prefix humgeo: <http://www.knora.org/ontology/0049/human-geography#>.
@@ -136,7 +138,12 @@ humgeo:PostalAddress #* more general? # comprises cidoc:E45_Address and E51 Cont
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "postal address"@en, "Postanschrift"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf concept:SymbolicConcept.
+	rdfs:subClassOf concept:SymbolicConcept, [
+		a owl:Restriction; owl:onProperty humgeo:hasStreetName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasHouseNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasPostcode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # zip code
+		a owl:Restriction; owl:onProperty humgeo:hasTownName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasCountryName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 humgeo:Residence #* Wohnsitz = address!
 	a owl:Class;
@@ -150,3 +157,76 @@ humgeo:Residence #* Wohnsitz = address!
 #
 # PROPERTIES
 #
+
+humgeo:hasPostalAddress
+	a owl:ObjectProperty;
+	rdfs:label "has postal address"@en, "hat Postanschrift"@de;
+	rdfs:comment """Relating someone or something to her/his/its postal address."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range humgeo:PostalAddress;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint humgeo:PostalAddress.
+
+humgeo:hasPostalAddressValue
+	a owl:ObjectProperty;
+	rdfs:label "has postal address - statement"@en, "hat Postanschrift - Festlegung"@de;
+	rdfs:comment """Relating someone or something to a reification statement of the relation between that someone or something and her/his/its postal address."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+humgeo:hasStreetName
+	a owl:ObjectProperty;
+	rdfs:label "has street name"@en, "hat Strassenname"@de;
+	rdfs:comment """Relating a postal address to the name of the street."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+humgeo:hasHouseNumber
+	a owl:ObjectProperty;
+	rdfs:label "has house number"@en, "hat Hausnummer"@de;
+	rdfs:comment """Relating a postal address to the nummer of the house."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+humgeo:hasPostcode
+	a owl:ObjectProperty;
+	rdfs:label "has postcode"@en, "hat Postleitzahl"@de;
+	rdfs:comment """Relating a postal address to its postcode."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasText;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+humgeo:hasTownName
+	a owl:ObjectProperty;
+	rdfs:label "has town name"@en, "hat Ortsname"@de;
+	rdfs:comment """Relating a postal address to its town name."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+humgeo:hasCountryName
+	a owl:ObjectProperty;
+	rdfs:label "has country name"@en, "hat Ländername"@de;
+	rdfs:comment """Relating a postal address to its country name."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.

@@ -40,7 +40,7 @@
 
 text:Text
 	a owl:Class;
-	rdfs:label "text"@en, "Text"@de;
+	rdfs:label "text"@en, "Text"@de, "texte"@fr, "testo"@it;
 	rdfs:comment """Human natural language expression serialized in writable form."""@en; # what can be learned by heart
 	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -68,7 +68,7 @@ text:Text
 
 text:WrittenText
 	a owl:Class;
-	rdfs:label "written text"@en, "geschriebener Text"@de;
+	rdfs:label "written text"@en, "geschriebener Text"@de, "texte écrit"@fr, "testo scritto"@it;
 	rdfs:comment """Text written by any method, e.g. manually, with an analogue or digital typewriter, or on a computer, abstracted from its carrier."""@en;
 	rdfs:subClassOf text:Text, [
 		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -76,7 +76,7 @@ text:WrittenText
 
 text:HandwrittenText
 	a owl:Class;
-	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de;
+	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de, "texte manuscrit"@fr, "testo scritto a mano"@it;
 	rdfs:comment """Text written by hand."""@en;
 	rdfs:subClassOf text:WrittenText, [
 		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -84,18 +84,25 @@ text:HandwrittenText
 
 text:TypewrittenText
 	a owl:Class;
-	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de;
+	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de, "texte dactylographié"@fr, "testo dattiloscritto"@it;
 	rdfs:comment """Text written with a typewriter."""@en;
 	rdfs:subClassOf text:WrittenText, [
 		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
 
+text:Transliteration
+	a owl:Class;
+	rdfs:label "translitertion"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
+	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
+	skos:note """Not primarily representing the sounds, but the symbols."""@en;
+	rdfs:subClassOf text:WrittenText.
+
 # text:Print: printed text abstracted from its carrier
 
 text:Expression
 	a owl:Class;
-	rdfs:label "text expression"@en, "Text-Expression"@de;
+	rdfs:label "text expression"@en, "Text-Expression"@de, "expression textuelle"@fr, "espressione testuale"@it;
 	rdfs:comment """Expression conform FRBROO, as text."""@en;
 	rdfs:subClassOf document:Expression, text:Text, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -110,50 +117,50 @@ text:Expression
 
 text:Author
 	a owl:Class;
-	rdfs:label "author"@en, "Autor"@de;
+	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
 	rdfs:comment """Role of a person being responsible for a text expression."""@en;
 	skos:note """Often an author is also the creator of a text expression."""@en;
 	rdfs:subClassOf human:Role.
 
 text:ManOfLetters
 	a owl:Class;
-	rdfs:label "man of letters"@en, "Literat"@de;
+	rdfs:label "man of letters"@en, "Literat"@de, "homme de lettres"@fr, "uomo di lettere"@it;
 	rdfs:comment """Role of a man devoted to literary activity."""@en;
 	rdfs:subClassOf human:Role.
 
 text:WomanOfLetters
 	a owl:Class;
-	rdfs:label "woman of letters"@en, "Literatin"@de;
+	rdfs:label "woman of letters"@en, "Literatin"@de, "femme de lettres"@fr, "donna di lettere"@it;
 	rdfs:comment """Role of a woman devoted to literary activity."""@en;
 	rdfs:subClassOf human:Role.
 
 text:Revisor
 	a owl:Class;
-	rdfs:label "revisor"@en, "Revisor"@de;
+	rdfs:label "revisor"@en, "Revisor"@de, "réviseur"@fr, "revisore"@it;
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
 	rdfs:subClassOf human:Role.
 
 text:Translator
 	a owl:Class;
-	rdfs:label "translator"@en, "Übersetzer"@de;
+	rdfs:label "translator"@en, "ÜbersetzerIn"@de, "traduct-eur/rice"@fr, "tradutt-ore/rice"@it;
 	rdfs:comment """Role of a person translating text by writing or printing."""@en;
 	rdfs:subClassOf language:PersonTranslator.
 
 text:Copyist
 	a owl:Class;
-	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copista"@it; # "scribe"@en, "Schreiber"@de;
+	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it; # "scribe"@en, "Schreiber"@de;
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
 
 text:SentenceExpression
 	a owl:Class;
-	rdfs:label "sentence expression"@en, "Satz-Expression"@de;
+	rdfs:label "sentence expression"@en, "Satz-Expression"@de, "expression de phrases"@fr, "espressione di frase"@it;
 	rdfs:comment """Text expression with sentence structure."""@en;
 	rdfs:subClassOf text:Expression.
 
 text:DiaryEntry
 	a owl:Class;
-	rdfs:label "diary entry"@en, "Tagebucheintrag"@de;
+	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione diario"@it;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -219,7 +226,7 @@ text:Development
 text:hasText
 	a owl:ObjectProperty;
 	rdfs:label "has text"@en, "hat Text"@de;
-	rdfs:comment """Relating a resource to a text (as object) as a writable coherent set of signs representing semantics in a language."""@en;
+	rdfs:comment """Relating a resource to a text as a writable coherent set of signs representing semantics in a language."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf knora-base:hasValue;
@@ -230,7 +237,7 @@ text:hasText
 text:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
-	rdfs:comment """Relating a resource to a name (as object) as a textual identifier of the resource."""@en;
+	rdfs:comment """Relating a resource to a name as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText; # rdfs:label, foaf:name
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -239,7 +246,7 @@ text:hasName
 text:hasPreferredName
 	a owl:ObjectProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
-	rdfs:comment """Relating a resource to a preferred name (as object)."""@en;
+	rdfs:comment """Relating a resource to a preferred name."""@en;
 	rdfs:subPropertyOf text:hasName;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -248,7 +255,7 @@ text:hasPreferredName
 text:hasAlias
 	a owl:ObjectProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
-	rdfs:comment """Relating a resource to an alias (as object) as an alternative name of the resource."""@en;
+	rdfs:comment """Relating a resource to an alias as an alternative name of the resource."""@en;
 	rdfs:subPropertyOf text:hasName;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -257,7 +264,7 @@ text:hasAlias
 text:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;
-	rdfs:comment """Relating a resource to an identifier (as object) as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
+	rdfs:comment """Relating a resource to an identifier as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subPropertyOf text:hasText; #* cf. dcterms:identifier
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -266,7 +273,7 @@ text:hasIdentifier
 text:hasTitle
 	a owl:ObjectProperty;
 	rdfs:label "has title"@en, "hat Titel"@de;
-	rdfs:comment """Relating a resource to a title as a textual identifier (as object) of the resource."""@en;
+	rdfs:comment """Relating a resource to a title as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -275,7 +282,7 @@ text:hasTitle
 text:hasComment
 	a owl:ObjectProperty;
 	rdfs:label "has comment"@en, "hat Kommentar"@de;
-	rdfs:comment """Relating a resource to a comment (as object) as a textual statement about the resource."""@en;
+	rdfs:comment """Relating a resource to a comment as a textual statement about the resource."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -284,7 +291,7 @@ text:hasComment
 text:hasDescription
 	a owl:ObjectProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
-	rdfs:comment """Relating a resource to a description (as object) as a textual statement about features of the resource."""@en;
+	rdfs:comment """Relating a resource to a description as a textual statement about features of the resource."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -293,7 +300,7 @@ text:hasDescription
 text:hasDefinition
 	a owl:ObjectProperty;
 	rdfs:label "has definition"@en, "hat Definition"@de;
-	rdfs:comment """Relating a resource to a definition (as object) as a textual statement about the essential features of the resource."""@en;
+	rdfs:comment """Relating a resource to a definition as a textual statement about the essential features of the resource."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -302,7 +309,7 @@ text:hasDefinition
 text:hasDetailDescription
 	a owl:ObjectProperty;
 	rdfs:label "has detail description"@en, "hat Detail-Beschreibung"@de;
-	rdfs:comment """Relating a resource to a description (as object) of its detail(s). E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
+	rdfs:comment """Relating a resource to a description of its detail(s). E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -311,7 +318,7 @@ text:hasDetailDescription
 text:hasSpecialDescription
 	a owl:ObjectProperty;
 	rdfs:label "has special description"@en, "hat Besonderes-Beschreibung"@de;
-	rdfs:comment """Relating a resource to a description (as object) of (a) certain feature(s)."""@en;
+	rdfs:comment """Relating a resource to a description of (a) certain feature(s)."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -356,7 +363,7 @@ text:hasCopyistValue
 text:hasVersionIndicator
 	a owl:ObjectProperty;
 	rdfs:label "has version indicator"@en, "hat Version-Indikator"@de;
-	rdfs:comment """Relating a text to a textual element (as object) that indicates its version."""@en;
+	rdfs:comment """Relating a text to a textual element that indicates its version."""@en;
 	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -397,7 +404,7 @@ text:isOnPageValue
 #text:hasPageNumber
 #	a owl:ObjectProperty;
 #	rdfs:label "has page number"@en;
-#	rdfs:comment """Relating a text to the number (as object) of a page it is on."""@en;
+#	rdfs:comment """Relating a text to the number of a page it is on."""@en;
 #	rdfs:subPropertyOf knora-base:hasValue;
 #	knora-base:subjectClassConstraint text:Text; # owl:propertyChainAxiom (text:isOnPage infocar:pageHasNumber)
 #	knora-base:objectClassConstraint knora-base:IntValue.
@@ -405,7 +412,7 @@ text:isOnPageValue
 text:hasPageNumberDescription
 	a owl:ObjectProperty;
 	rdfs:label "text has page number description"@en, "Text hat Seitennummerbeschreibung"@de;
-	rdfs:comment """Relating a text to a description (as object) of the number(s) of and possibly a location on (a) pages it is on; examples of the string of its value: "001-002", "01 recto", "O2 (bottom)"."""@en;
+	rdfs:comment """Relating a text to a description of the number(s) of and possibly a location on (a) pages it is on; examples of the string of its value: "001-002", "01 recto", "O2 (bottom)"."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -440,7 +447,7 @@ text:hasAuthorValue
 text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
-	rdfs:comment """Relating an untitled text expression to a beginning part thereof (as object) to identify the text."""@en;
+	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -449,7 +456,7 @@ text:hasIncipit
 text:hasExplicit
 	a owl:ObjectProperty;
 	rdfs:label "has explicit"@en, "hat Explicit"@de;
-	rdfs:comment """Relating an untitled text expression to an end part thereof (as object) to identify the text."""@en;
+	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -458,7 +465,7 @@ text:hasExplicit
 text:hasLineNumber
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
-	rdfs:comment """Relating a text expression to the number (as object) of a line of the text expression."""@en;
+	rdfs:comment """Relating a text expression to the number of a line of the text expression."""@en;
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal;	
 	rdfs:subPropertyOf language:hasContent;

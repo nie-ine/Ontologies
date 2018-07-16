@@ -68,9 +68,7 @@ concept:Identifier
 	rdfs:label "identifier"@en, "Identifikator"@de;
 	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subClassOf concept:SymbolicConcept, cidoc:E42_Identifier, [ # rdfs:subClassOf cidoc:E41_Appellation
-		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
-#		a owl:Restriction; owl:onProperty concept:hasLink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty concept:hasLinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Set #*
 	a owl:Class;
@@ -188,7 +186,7 @@ concept:isExpressedInValue
 #concept:hasContent
 #	a owl:ObjectProperty;
 #	rdfs:label "has content"@en, "hat Inhalt"@de;
-#	rdfs:comment """Relating information to its content (as object)."""@en;
+#	rdfs:comment """Relating information to its content."""@en;
 #	rdfs:subPropertyOf knora-base:hasValue;
 #	knora-base:subjectClassConstraint concept:Information;
 #	knora-base:objectClassConstraint knora-base:Value. # BUT not allowed in Knora
@@ -234,7 +232,7 @@ concept:hasDedicatedToValue
 concept:hasLiteral
 	a owl:ObjectProperty;
 	rdfs:label "has literal"@en, "hat Literale"@de;
-	rdfs:comment """Relating an identifier to a literal (as object) that expresses it."""@en;
+	rdfs:comment """Relating an identifier to a literal that expresses it."""@en;
 	rdfs:domain concept:Identifier;
 #	rdfs:range ling:Literal;
 	rdfs:subPropertyOf knora-base:hasValue;

@@ -84,6 +84,12 @@ textedit:LiteralExposition
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
+textedit:EclecticEdition
+	a owl:Class;
+	rdfs:label "eclectic edition"@en, "konstituierter Text"@de; #* synonym: Lesetext
+	rdfs:comment """Plain text expression as endresult of a reproduction by the edition scientist."""@en;
+	rdfs:subClassOf textedit:Edition.
+
 textedit:Derivative # nature of text change
 	a owl:Class;
 	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
@@ -106,12 +112,6 @@ textedit:DiplomaticTranscription
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:cardinality "1"^^xsd:nonNegativeInteger]
 
 # textedit:Diplomatic-InterpretativeTranscription
-
-textedit:EclecticEdition
-	a owl:Class;
-	rdfs:label "eclectic edition"@en, "konstituierter Text"@de; #* synonym: Lesetext
-	rdfs:comment """Plain text expression as endresult of a reproduction by the edition scientist."""@en;
-	rdfs:subClassOf textedit:Edition.
 
 textedit:CriticalEdition
 	a owl:Class;
@@ -308,7 +308,7 @@ textedit:hasEditionValue
 #:hasEditedContent
 #	a owl:ObjectProperty;
 #	rdfs:label "has edited content"@en;
-#	rdfs:comment """Relating an edition to its content (as object)."""@en;
+#	rdfs:comment """Relating an edition to its content."""@en;
 #	rdfs:subPropertyOf language:hasContent;
 #	knora-base:subjectClassConstraint textedit:Edition;
 #	knora-base:objectClassConstraint knora-base:TextValue;
@@ -387,7 +387,7 @@ textedit:hasCriticalEditionValue
 textedit:hasDiacriticalSign
 	a owl:ObjectProperty;
 	rdfs:label "has diacritical sign"@en, "hat diakritisches Zeichen"@de;
-	rdfs:comment """Relating a derived text expression to a sign (as object) indicating a textual aspect of the original text."""@en;
+	rdfs:comment """Relating a derived text expression to a sign indicating a textual aspect of the original text."""@en;
 	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint textedit:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -396,7 +396,7 @@ textedit:hasDiacriticalSign
 textedit:hasPageIndicator
 	a owl:ObjectProperty;
 	rdfs:label "has page indicator"@en, "hat Seite-Indikator"@de;
-	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates where a page starts."""@en;
+	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates where a page starts."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -405,7 +405,7 @@ textedit:hasPageIndicator
 textedit:hasPageNumberIndicator
 	a owl:ObjectProperty;
 	rdfs:label "has page number indicator"@en, "hat Seitennummer-Indikator"@de;
-	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates the number of a page."""@en;
+	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates the number of a page."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -414,7 +414,7 @@ textedit:hasPageNumberIndicator
 textedit:hasColumnIndicator
 	a owl:ObjectProperty;
 	rdfs:label "has column indicator"@en, "hat Spalte-Indikator"@de;
-	rdfs:comment """Relating a derived text expression to a diacritical sign (as object) that indicates where on a page a column starts."""@en;
+	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates where on a page a column starts."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:Derivative;
 	knora-base:objectClassConstraint knora-base:TextValue;

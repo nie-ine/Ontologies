@@ -264,7 +264,7 @@ event:hasStageValue
 event:hasGenesisDescription
 	a owl:ObjectProperty;
 	rdfs:label "has genesis description"@en, "hat Genesis-Beschreibung"@de;
-	rdfs:comment """Relating something to a description (as object) of the genesis thereof."""@en;
+	rdfs:comment """Relating something to a description of the genesis thereof."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;

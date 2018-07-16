@@ -10,6 +10,7 @@
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix document: <http://www.knora.org/ontology/005C/document#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix device: <http://www.knora.org/ontology/0045/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -293,8 +294,6 @@ infocar:ElectronicCarrier #* data or information storage device
 	rdfs:comment """Electronic machine carrying electronic information."""@en;
 	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
 
-# hasHyperlink
-
 infocar:ElectronicBook
 	a owl:Class;
 	rdfs:label "electronic book"@en,"elektronisches Buch"@de;
@@ -308,7 +307,7 @@ infocar:WebPage # as a Web document
 	skos:note """Not necessarily published, i.e. made public."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
 
-# infocar:Hyperlink
+# infocar:Hyperlink # infocar:hasURI xsd:anyURI
 #	a owl:Class;
 #	rdfs:label "hyperlink"@en,"Hyperlink"@de;
 #	rdfs:comment """Link from a hypertext document to another location, activated by clicking on a highlighted word or image."""@en;
@@ -329,7 +328,7 @@ infocar:WebPage # as a Web document
 infocar:carrierHasDescription
 	a owl:ObjectProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
-	rdfs:comment """Relating an information carrier to a description (as object) thereof."""@en;
+	rdfs:comment """Relating an information carrier to a description thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -418,7 +417,7 @@ infocar:isPageOfBookValue
 infocar:pageHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "page has number"@en, "Seite hat Nummer"@de;
-	rdfs:comment """Relating a page to a number (as object) it has."""@en;
+	rdfs:comment """Relating a page to a number it has."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Page;
 	knora-base:objectClassConstraint knora-base:IntValue;
@@ -475,9 +474,9 @@ infocar:isBindingOfValue
 #infocar:hasPageNumber
 #	a owl:ObjectProperty;
 #	rdfs:label "has page number"@en;
-#	rdfs:comment """Relating an expression to the number (as object) of a page it is on."""@en;
+#	rdfs:comment """Relating an expression to the number of a page it is on."""@en;
 #	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint document:Expression; # owl:propertyChainAxiom (text:isOnPage x:hasNumber)
+#	knora-base:subjectClassConstraint document:Expression; # owl:propertyChainAxiom (infocar:isOnPage x:hasNumber)
 #	knora-base:objectClassConstraint knora-base:IntValue.
 
 infocar:volumeHasNumber
@@ -602,7 +601,7 @@ infocar:hasReceiverValue
 infocar:convoluteHasTitle
 	a owl:ObjectProperty;
 	rdfs:label "convolute has title"@en, "Konvolut hat Titel"@de;
-	rdfs:comment """Relating a convolute to its titel (as object)."""@en;
+	rdfs:comment """Relating a convolute to its titel."""@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -611,7 +610,7 @@ infocar:convoluteHasTitle
 infocar:convoluteHasDescription
 	a owl:ObjectProperty;
 	rdfs:label "convolute has description"@en, "Konvolut hat Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description (as object) thereof."""@en;
+	rdfs:comment """Relating a convolute to a description thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -620,7 +619,7 @@ infocar:convoluteHasDescription
 infocar:convoluteHasSizeDescription
 	a owl:ObjectProperty;
 	rdfs:label "convolute has size description"@en, "Konvolutgrösse hat Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description (as object) of its size."""@en;
+	rdfs:comment """Relating a convolute to a description of its size."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -629,7 +628,7 @@ infocar:convoluteHasSizeDescription
 infocar:convoluteHasOriginDescription
 	a owl:ObjectProperty;
 	rdfs:label "convolute has origin description"@en, "Konvolut hat Herkunftbeschreibung"@de;
-	rdfs:comment """Relating a text convolute to a description (as object) of its origin."""@en;
+	rdfs:comment """Relating a text convolute to a description of its origin."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -638,7 +637,7 @@ infocar:convoluteHasOriginDescription
 infocar:convoluteHasContentRepresentation
 	a owl:ObjectProperty;
 	rdfs:label "convolute has content representation"@en, "Konvolut hat Inhaltrepräsentation"@de;
-	rdfs:comment """Relating a convolute to a description (as object) of its content representation."""@en;
+	rdfs:comment """Relating a convolute to a description of its content representation."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -695,7 +694,7 @@ infocar:containsLaterStagesOfValue
 infocar:hasCarrierCollectionDescription
 	a owl:ObjectProperty;
 	rdfs:label "has information carrier collection description"@en, "hat Textträgersammlung-Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description (as object) of an information carrier collection it contains."""@en;
+	rdfs:comment """Relating a convolute to a description of an information carrier collection it contains."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -754,7 +753,7 @@ infocar:isPartOfArchiveValue
 infocar:hasArchiveSignature
 	a owl:ObjectProperty;
 	rdfs:label "has archive signature"@en, "hat Archivsignatur"@de;
-	rdfs:comment """Relating an element of an archive to its signature (as object) as identifier."""@en;
+	rdfs:comment """Relating an element of an archive to its signature as identifier."""@en;
 	rdfs:domain infocar:ArchiveElement;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasIdentifier;
@@ -777,12 +776,12 @@ infocar:isPartOfNachlassValue
 	knora-base:subjectClassConstraint infocar:NachlassElement;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-# document:hasHyperlink
-#	a owl:ObjectProperty;
-#	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
-#	rdfs:comment """Relating an electronic document element to a hyperlink it has."""@en;
-#	rdfs:domain document:ElectronicElement;
+infocar:hasHyperlink
+	a owl:ObjectProperty;
+	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
+	rdfs:comment """Relating a document element to a hyperlink it has on an electronic carrier."""@en;
+	rdfs:domain document:Element;
 #	rdfs:range infocar:Hyperlink;
-#	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint document:ElectronicElement;
-#	knora-base:objectClassConstraint knora-base:UriValue.
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint knora-base:UriValue.

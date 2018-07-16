@@ -33,11 +33,21 @@
 # CLASSES
 #
 
+human:Agent
+	a owl:Class;
+	rdfs:label "human agent"@en, "menschliche Agent"@de;
+	rdfs:comment """Agent being one or more humans"""@en, """Agent einer oder mehrerer Menschen betreffend."""@de;
+	rdfs:subClassOf agent:Agent, [ #* cidoc
+		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:agentHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:agentHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 human:Human
 	a owl:Class;
 	rdfs:label "human"@en, "Mensch"@de, "homme"@fr, "huomo"@it;
 	rdfs:comment """Member of the subspecies Homo sapiens sapiens."""@en;
-	skos:note """A human lives but is not necessarily born, as is a human embryo or foetus."""@en;
+	skos:note """A human lives but is not necessarily born, i.e. a human embryo or foetus."""@en;
 	unicore:scientificName "Homo sapiens sapiens"@en;
 	unicore:rank unicore:Subspecies;
 	rdfs:subClassOf human:Agent, unitax:9606, [ # rdfs:subClassOf species Homo sapiens
@@ -85,20 +95,10 @@ human:PersonLike
 	skos:note """E.g. Jesus is for a believer a person also having non-human features."""@en;
 	rdfs:subClassOf knora-base:Resource.
 
-human:Agent
-	a owl:Class;
-	rdfs:label "human agent"@en, "menschliche Agent"@de;
-	rdfs:comment """Agent being one or more persons"""@en, """Agent einer oder mehrerer Personen betreffend."""@de;
-	rdfs:subClassOf agent:Agent, [ #* cidoc
-		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:agentHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:agentHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
 human:Group
 	a owl:Class;
-	rdfs:label "group of persons"@en, "Personengruppe"@de;
-	rdfs:comment """Group of persons."""@en;
+	rdfs:label "group of humans"@en, "Menschengruppe"@de;
+	rdfs:comment """Group of humans."""@en;
 	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group, [ # rdfs:subClassOf cidoc:E39_Actor
 		a owl:Restriction; owl:onProperty human:groupHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:groupHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -110,14 +110,6 @@ human:Action
 	rdfs:label "human action"@en, "menschliche Aktion"@de;
 	rdfs:comment """Action with a human agent."""@en;
 	rdfs:subClassOf event:Action.
-
-human:PersonLife
-	a owl:Class;
-	rdfs:label "person's life"@en, "Leben einer Person"@de;
-	rdfs:comment """Life of a human from birth until death."""@en;
-	skos:note """Considered as an action wherein a person is an agent."""@en;
-	skos:note """No satisfying biological description of onset of a human life."""@en;
-	rdfs:subClassOf event:Action, event:Existence.
 
 human:BiologicalSex # :subClassOf :Trait
 	a owl:Class;
@@ -171,6 +163,14 @@ human:GroupRole
 	rdfs:label "human group role"@en, "Rolle einer menschlichen Gruppe"@de;
 	rdfs:comment """Role a group of persons has."""@en;
 	rdfs:subClassOf human:AgentRole.
+
+human:PersonLife
+	a owl:Class;
+	rdfs:label "person's life"@en, "Leben einer Person"@de;
+	rdfs:comment """Life of a human from birth until death."""@en;
+	skos:note """Considered as an action wherein a person is an agent."""@en;
+	skos:note """No satisfying biological description of onset of a human life."""@en;
+	rdfs:subClassOf event:Action, event:Existence.
 
 human:Use
 	a owl:Class;
@@ -463,8 +463,8 @@ human:agentHasRoleValue
 human:hasBirthDate
 	a owl:ObjectProperty;
 	rdfs:label "has birth date"@en, "hat Geburtsdatum"@de;
-	rdfs:comment """Relating a person to a date of birth (as object) of that person."""@en;
-#	skos:note """It is possible to find different birth dates in different historical sources; an overall certainty period can be calculated."""@en;
+	rdfs:comment """Relating a person to a date of birth of that person."""@en;
+#	skos:note """It is possible to find different birth dates in different historical sources; an overall certainty period can be calculated."""@en; -> N3 rule
 	rdfs:domain human:Person;
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf knora-base:hasValue;	
@@ -474,7 +474,7 @@ human:hasBirthDate
 human:hasDeathDate
 	a owl:ObjectProperty;
 	rdfs:label "has death date"@en, "hat Todesdatum"@de;
-	rdfs:comment """Relating a person to a date of death (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a date of death of that person."""@en;
 #	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date;
@@ -521,7 +521,7 @@ human:hasLifeValue
 human:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
-	rdfs:comment """Relating a person to a name (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a name of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName;
@@ -532,7 +532,7 @@ human:hasName
 human:hasFamilyName
 	a owl:ObjectProperty;
 	rdfs:label "has family name"@en, "hat Nachname"@de;
-	rdfs:comment """Relating a person to a family name (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a family name of that person."""@en;
 #	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
 	rdfs:subPropertyOf human:hasName;
 	knora-base:subjectClassConstraint human:Person;
@@ -542,17 +542,19 @@ human:hasFamilyName
 human:hasGivenName
 	a owl:ObjectProperty;
 	rdfs:label "has given name"@en, "hat Vorname"@de;
-	rdfs:comment """Relating a person to a given name (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a given name of that person."""@en;
 #	skos:note """Further restriction given along specific law; e.g. a person can have her/his given name legally changed."""@en;
 	rdfs:subPropertyOf human:hasName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
+# name parts, e.g. middle name, compound given name
+
 human:hasPreferredName
 	a owl:ObjectProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
-	rdfs:comment """Relating a person to a preferred name (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a preferred name of that person."""@en;
 	rdfs:subPropertyOf human:hasName, text:hasPreferredName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -561,7 +563,7 @@ human:hasPreferredName
 human:hasAlias
 	a owl:ObjectProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
-	rdfs:comment """Relating a person to an alias (as object) of that person."""@en;
+	rdfs:comment """Relating a person to an alias of that person."""@en;
 	rdfs:subPropertyOf human:hasName, text:hasAlias;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -570,7 +572,7 @@ human:hasAlias
 human:hasDescription
 	a owl:ObjectProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
-	rdfs:comment """Relating a person to a description (as object) of that person."""@en;
+	rdfs:comment """Relating a person to a description of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
@@ -581,7 +583,7 @@ human:hasDescription
 human:hasBiography
 	a owl:ObjectProperty;
 	rdfs:label "has biography"@en, "hat Biografie"@de;
-	rdfs:comment """Relating a person to a biography (as object) of the person."""@en;
+	rdfs:comment """Relating a person to a biography of the person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf human:hasDescription;

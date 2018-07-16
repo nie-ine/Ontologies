@@ -69,7 +69,7 @@ ling:Numeral # noun, adjective, adverb
 # cardinal number representing quantity, used for counting - frequency, fraction
 # ordinal number representing position in a sequence, used for ordering
 
-# case
+# case: general
 # -> SCO in dif. speeches
 
 # Genus
@@ -125,20 +125,26 @@ ling:Command
 # ordering: Directing or commissioning to make, provide, or furnish something
 # order: Direction or commission to make, provide, or furnish something, as output of ordering
 
-ling:Promise
-	a owl:Class;
-	rdfs:label "promise"@en, "Versprechen"@de;
-	rdfs:comment """Sentence... ."""@en;
-	rdfs:subClassOf text-structure:Sentence.
-
 ling:Question
 	a owl:Class;
 	rdfs:label "question"@en, "Frage"@de;
 	rdfs:comment """Sentence eliciting information."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
+ling:Answer
+	a owl:Class;
+	rdfs:label "answer"@en, "Antwort"@de;
+	rdfs:comment """Sentence providing information on elicitation."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
 # requesting: Asking for an action to be performed
 # request: question for an action to be performed, as output of requesting
+
+ling:Promise
+	a owl:Class;
+	rdfs:label "promise"@en, "Versprechen"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
 
 # evaluating: Examining with judging
 
@@ -155,7 +161,7 @@ ling:Evaluation
 ling:hasComment #* OR text?
 	a owl:ObjectProperty;
 	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
-	rdfs:comment """Relating a human natural language expression to a linguistic comment (as object) as a textual statement about the expression."""@en;
+	rdfs:comment """Relating a human natural language expression to a linguistic comment as a textual statement about the expression."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasComment;

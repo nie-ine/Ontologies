@@ -115,7 +115,7 @@ language:HumanNaturalLanguageExpression
 language:Dialect
 	a owl:Class;
 	rdfs:label "dialect"@en, "Mundart"@de;
-	rdfs:comment """Regional variant of a standard language."""@en;
+	rdfs:comment """Regional variant of a standard human natural language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:BaselGerman
@@ -138,7 +138,7 @@ language:PersonTranslator
 
 language:Translation #* OR result of translating with translated text as its object 
 	a owl:Class;
-	rdfs:label "translation"@en, "Übersetzung"@de;
+	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
 	rdfs:comment """Human natural language expression transferred in another natural language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression. #, event:Output.
 
@@ -150,7 +150,7 @@ language:PersonTranslation
 
 language:MachineTranslation
 	a owl:Class;
-	rdfs:label "machine translation"@en, "maschinelle Übersetzung"@de;
+	rdfs:label "machine translation"@en, "Maschinenübersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
 	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
 	rdfs:subClassOf language:Translation.
 
@@ -171,7 +171,7 @@ language:hasCode
 language:hasContent
 	a owl:ObjectProperty;
 	rdfs:label "has content"@en, "hat Inhalt"@de;
-	rdfs:comment """Relating a human natural language expression to its content (as object)."""@en;
+	rdfs:comment """Relating a human natural language expression to its content."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf knora-base:hasValue; #* concept:hasContent

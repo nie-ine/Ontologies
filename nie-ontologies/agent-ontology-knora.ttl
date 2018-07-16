@@ -31,7 +31,7 @@ agent:Agent
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0040/agent#>;
 	rdfs:label "agent"@en, "Agent"@de;
 	rdfs:comment """Something that performs an action."""@en; # not a criterion: intention, purpose
-	rdfs:subClassOf foaf:Agent, knora-base:Resource, [
+	rdfs:subClassOf foaf:Agent, physical:Resource, [
 		a owl:Restriction; owl:onProperty agent:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

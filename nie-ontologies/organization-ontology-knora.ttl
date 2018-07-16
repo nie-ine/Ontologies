@@ -10,6 +10,7 @@
 @prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
@@ -18,8 +19,8 @@
 
 <http://www.knora.org/ontology/0051/organization>
 	a owl:Ontology;
-	dct:title "An ontology about human organization"@en;
-	dct:description """Formal description of organization involving humans, general subclasses, related classes and properties."""@en;
+	dct:title "An ontology about person organization"@en;
+	dct:description """Formal description of organization involving persons, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
@@ -37,6 +38,7 @@ org:Organization
 	skos:note """An organization can be a legal person."""@en;
 #	owl:disjointWith human:Person; # from FOAF
 	rdfs:subClassOf human:Group, agent:Organization, foaf:Organization, frbroo:F11_Corporate_Body, [ # rdfs:subClassOf cidoc:E74_Group
+		a owl:Restriction; owl:onProperty org:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -113,11 +115,22 @@ org:Administration
 # PROPERTIES
 #
 
+org:hasName
+	a owl:ObjectProperty;
+	rdfs:label "person organization has name"@en, "Personensorganisation hat Name"@de;
+	rdfs:comment """Relating a person organization to a name of that organization."""@en;
+	rdfs:domain org:Organization;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint org:Organization;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
 org:actsIn
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "organization acts in"@en, "Organization agiert in"@de;
-	rdfs:comment """Relating an organization of persons to an action it is acting in."""@en;
+	rdfs:label "person organization acts in"@en, "Personensorganisation agiert in"@de;
+	rdfs:comment """Relating a person organization to an action it acts in."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range human:Action;
 	rdfs:subPropertyOf human:actsIn;
@@ -127,8 +140,8 @@ org:actsIn
 org:actsInValue
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "organization acts in - statement"@en, "Organization agiert in - Festlegung"@de;
-	rdfs:comment """Relating person organization to a reification statement of the relation between the organization and an action it is acting in."""@en;
+	rdfs:label "person organization acts in - statement"@en, "Personensorganisation agiert in - Festlegung"@de;
+	rdfs:comment """Relating a person organization to a reification statement of the relation between the organization and an action it is acting in."""@en;
 	rdfs:subPropertyOf human:actsInValue;
 	knora-base:subjectClassConstraint org:Organization;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -136,7 +149,7 @@ org:actsInValue
 org:hasRole
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "person organization has role"@en, "Personensorganization hat Rolle"@de;
+	rdfs:label "person organization has role"@en, "Personensorganisation hat Rolle"@de;
 	rdfs:comment """Relating a person organization to a role it has."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range org:Role;
@@ -147,8 +160,8 @@ org:hasRole
 org:hasRoleValue
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "person organization has role - statement"@en, "Personensorganization hat Rolle - Festlegung"@de;
-	rdfs:comment """Relating person organization to a reification statement of the relation between the organization and a role it has."""@en;
+	rdfs:label "person organization has role - statement"@en, "Personensorganisation hat Rolle - Festlegung"@de;
+	rdfs:comment """Relating a person organization to a reification statement of the relation between the organization and a role it has."""@en;
 	rdfs:subPropertyOf human:groupHasRoleValue;
 	knora-base:subjectClassConstraint org:Organization;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -156,7 +169,7 @@ org:hasRoleValue
 org:isMemberOf
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "is member of organization"@en, "ist Mitglied einer Organization"@de;
+	rdfs:label "is member of person organization"@en, "ist Mitglied einer Personensorganisation"@de;
 	rdfs:comment """Relating a person to an organization the person is a member of."""@en;
 	rdfs:domain human:Person;
 	rdfs:range org:Organization;
@@ -167,7 +180,7 @@ org:isMemberOf
 org:isMemberOfValue
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
-	rdfs:label "is member of organization - statement"@en, "ist Mitglied einer Organization - Festlegung"@de;
+	rdfs:label "is member of person organization - statement"@en, "ist Mitglied einer Personensorganisation - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and an organization the person is a member of."""@en;
 	rdfs:subPropertyOf human:isMemberOfValue;
 	knora-base:subjectClassConstraint human:Person;

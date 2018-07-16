@@ -104,7 +104,7 @@ image:hasPhotographInValue
 image:hasPhotographSourceDescription
 	a owl:ObjectProperty;
 	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
-	rdfs:comment """Relating something to a description (as object) of a source of a photograph of that something."""@en;
+	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;

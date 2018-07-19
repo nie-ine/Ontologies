@@ -48,7 +48,7 @@ document:Document
 document:Element
 	a owl:Class;
 	rdfs:label "document element"@en, "Dokumentelement"@de;
-	rdfs:comment """Information as part of a document."""@en; #*
+	rdfs:comment """Information as part of a document."""@en;
 	rdfs:subClassOf concept:Information, [
 		a owl:Restriction; owl:onProperty document:isElementOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isElementOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -56,9 +56,16 @@ document:Element
 document:Structure
 	a owl:Class;
 	rdfs:label "document structure"@en, "Dokumentstruktur"@de;
-	rdfs:comment """Structural document element."""@en;
+	rdfs:comment """Structural element of a document."""@en;
 	rdfs:subClassOf document:Element, [
-		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #**
+		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasHyperlinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:ContentStructure
+	a owl:Class;
+	rdfs:label "document content structure"@en, "Dokumentinhaltstruktur"@de;
+	rdfs:comment """Structural content element of a document."""@en;
+	rdfs:subClassOf document:Structure, [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -68,11 +75,17 @@ document:Structure
 		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+document:Reference
+	a owl:Class;
+	rdfs:label "document reference"@en, "Dokumentreferenz"@de;
+	rdfs:comment """Reference as a structural element in a document."""@en;
+	rdfs:subClassOf document:Structure.
+
 document:FootnoteReferenceIdentifier
 	a owl:Class;
 	rdfs:label "footnote reference identifier"@en, "Fussnotereferenzidentifikator"@de;
 	rdfs:comment """Identifier of a footnote reference."""@en;
-	rdfs:subClassOf concept:Identifier, document:Element, [
+	rdfs:subClassOf concept:Identifier, document:Reference, [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -80,7 +93,7 @@ document:FootnoteReferenceNumber
 	a owl:Class;
 	rdfs:label "footnote reference number"@en, "Fussnotereferenznummer"@de;
 	rdfs:comment """Number of a footnote reference."""@en;
-	rdfs:subClassOf document:FootnoteReferenceIdentifier, document:Element, [
+	rdfs:subClassOf document:FootnoteReferenceIdentifier, [
 		a owl:Restriction; owl:onProperty document:hasFootnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -88,7 +101,7 @@ document:EndnoteReferenceIdentifier
 	a owl:Class;
 	rdfs:label "endnote reference identifier"@en, "Endnotereferenzidentifikator"@de;
 	rdfs:comment """Identifier of an endnote reference."""@en;
-	rdfs:subClassOf concept:Identifier, document:Element, [
+	rdfs:subClassOf concept:Identifier, document:Reference, [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -96,7 +109,7 @@ document:EndnoteReferenceNumber
 	a owl:Class;
 	rdfs:label "endnote reference number"@en, "Endnotereferenznummer"@de;
 	rdfs:comment """Number of an endnote reference."""@en;
-	rdfs:subClassOf document:EndnoteReferenceIdentifier, document:Element, [
+	rdfs:subClassOf document:EndnoteReferenceIdentifier, [
 		a owl:Restriction; owl:onProperty document:hasEndnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -106,20 +119,21 @@ document:Layout
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf knora-base:Resource. #* concept:Layout
 
-document:Column
+document:Column # make a text: SC? - ReadabilityStructure
 	a owl:Class;
 	rdfs:label "column"@en, "Spalte"@de;
 	rdfs:comment """Document structure displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
-	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
+	rdfs:subClassOf document:ContentStructure, [
 #		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:allValuesFrom document:Page], [
 		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isColumnOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-document:Page # text, visuals, page # etc.
+document:Page # text, visuals, page # etc. # make a text: SC?
 	a owl:Class;
-	rdfs:label "page"@en, "Seite"@de;
+	rdfs:label "document page"@en, "Dokumentseite"@de;
 	rdfs:comment """Document structure displaying information e.g. text lines and graphs, as a page as part of a document."""@en;
-	rdfs:subClassOf document:Structure, text-structure:ReadabilityStructure, [
+	skos:note """It is a column filling a complete information carrier page."""@en;
+	rdfs:subClassOf document:Column, [
 #		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:allValuesFrom document:Document], [
 		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -137,13 +151,13 @@ document:Marginal
 	a owl:Class;
 	rdfs:label "marginal"@en, "Marginale"@de; # in GUI can be "marginalia"@en, "Marginalien"@de
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, illuminations."""@en;
-	rdfs:subClassOf document:Element.
+	rdfs:subClassOf document:ContentStructure.
 
 document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a owl:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
-	rdfs:subClassOf document:Structure, [
+	rdfs:subClassOf document:ContentStructure, [
 		a owl:Restriction; owl:onProperty document:isTableOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isTableOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -188,7 +202,6 @@ document:Cycle
 
 # Format
 # Size
-# structure
 # Shape
 # color
 
@@ -197,6 +210,22 @@ document:HypertextDocument
 	rdfs:label "hypertext document"@en,"Hypertext-Dokument"@de;
 	rdfs:comment """Document written in Hypertext Markup Language (HTML)."""@en;
 	rdfs:subClassOf document:Document.
+
+document:HypertextElement
+	a owl:Class;
+	rdfs:label "hypertext document element"@en, "Hypertext-Dokumentelement"@de;
+	rdfs:comment """Information as part of a hypertext document."""@en;
+	rdfs:subClassOf document:Element, [
+		a owl:Restriction; owl:onProperty document:isElementOfHypertextDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isElementOfHypertextDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:HypertextStructure
+	a owl:Class;
+	rdfs:label "hypertext document structure"@en, "Hypertext-Dokumentstruktur"@de;
+	rdfs:comment """Structural element of a hypertext document."""@en;
+	rdfs:subClassOf document:HypertextElement, document:Structure, [
+		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasHyperlinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -453,4 +482,22 @@ document:isExpressionOfCycleValue
 	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:isElementOfHypertextDocument
+	a owl:ObjectProperty;
+	rdfs:label "is element of hypertext  document"@en, "ist Element eines Hypertext-Dokumentes"@de;
+	rdfs:comment """Relating a hypertext document element to a hypertext document it is part of."""@en;
+	rdfs:domain document:HypertextElement;
+	rdfs:range document:HypertextDocument;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint document:HypertextElement;
+	knora-base:objectClassConstraint document:HypertextDocument.
+
+document:isElementOfHypertextDocumentValue
+	a owl:ObjectProperty;
+	rdfs:label "is element of hypertext hypertext hypertext document - statement"@en, "ist Element eines Hypertext-Dokumentes - Festlegung"@de;
+	rdfs:comment """Relating a hypertext hypertext document element to a reification statement of the relation between the element and a hypertext document it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint document:HypertextElement;
 	knora-base:objectClassConstraint knora-base:LinkValue.

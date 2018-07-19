@@ -261,6 +261,17 @@ text:hasAlias
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
+text:hasSynonym
+	a owl:ObjectProperty;
+	rdfs:label "has synonym"@en, "hat Synonym"@de;
+	rdfs:comment """Relating a class to a synonym as an alternative name of the class."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
 text:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;

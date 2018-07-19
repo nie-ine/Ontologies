@@ -40,11 +40,11 @@ delille:Canto
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-structure:VerseSection.
 
-# delille:EditedVersePoem
-#	a owl:Class;
-#	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Jacques Delille-Versgedicht"@de;
-#	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
-#	rdfs:subClassOf delille:VersePoem, textedit:Edition.
+delille:EditedVersePoem
+	a owl:Class;
+	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Jacques Delille-Versgedicht"@de;
+	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
+	rdfs:subClassOf delille:VersePoem, textedit:Edition.
 
 # delille:Person
 #	a owl:Class;

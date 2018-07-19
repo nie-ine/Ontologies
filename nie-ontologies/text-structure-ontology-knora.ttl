@@ -43,7 +43,7 @@ text-structure:Structure
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Text as structure, e.g. a word, sentence, text line, paragraph, section, verse, strophe."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
-	rdfs:subClassOf text:Text, document:Structure, [
+	rdfs:subClassOf text:Text, document:ContentStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -62,7 +62,7 @@ text-structure:CompositionalStructure
 text-structure:ContentStructure
 	a owl:Class;
 	rdfs:label "content text structure"@en, "inhaltliche Textstruktur"@de;
-	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section."""@en;
+	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section, prose."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
 text-structure:CompositionalContentStructure

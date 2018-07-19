@@ -218,9 +218,9 @@ infocar:Transcription
 
  # homonym: transcription: conversion from different manifestation, eg. from spoken or recorded sound to written
 
-infocar:ManuelTranscription
+infocar:ManualTranscription
 	a owl:Class;
-	rdfs:label "manuel transcription"@en, "manuelle Abschrift"@de;
+	rdfs:label "manual transcription"@en, "manuelle Abschrift"@de;
 	rdfs:comment """Carrier with a handwritten copy of a text."""@en;
 	rdfs:subClassOf infocar:Transcription, infocar:Manuscript.
 
@@ -307,19 +307,13 @@ infocar:WebPage # as a Web document
 	skos:note """Not necessarily published, i.e. made public."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
 
-# infocar:Hyperlink # infocar:hasURI xsd:anyURI
-#	a owl:Class;
-#	rdfs:label "hyperlink"@en,"Hyperlink"@de;
-#	rdfs:comment """Link from a hypertext document to another location, activated by clicking on a highlighted word or image."""@en;
-#	rdfs:subClassOf .
-
-# infocar:ElectronicFootnoteReference electronic link on carrier, not abstractable from carrier
-#	a owl:Class;
-#	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
-#	rdfs:comment """Symbol of a footnoteReference."""@en;
-#*	rdfs:subClassOf x:z, [
-#		a owl:Restriction; owl:onProperty document:ReferenceHasSymbol; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty document:referenceHasLink; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+infocar:Hyperlink # software
+	a owl:Class;
+	rdfs:label "hyperlink"@en,"Hyperlink"@de;
+	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
+	rdfs:subClassOf knora-base:Resource, [
+		a owl:Restriction; owl:onProperty infocar:hyperlinkHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hyperlinkHasURI; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -764,6 +758,8 @@ infocar:isPartOfNachlass
 	a owl:ObjectProperty;
 	rdfs:label "is part of a nachlass"@en, "ist Teil eines Nachlasses"@de;
 	rdfs:comment """Relating an element of a nachlass to the nachlass."""@en;
+	rdfs:domain infocar:NachlassElement;
+	rdfs:range infocar:Nachlass;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint infocar:NachlassElement;
 	knora-base:objectClassConstraint infocar:Nachlass.
@@ -779,9 +775,37 @@ infocar:isPartOfNachlassValue
 infocar:hasHyperlink
 	a owl:ObjectProperty;
 	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
-	rdfs:comment """Relating a document element to a hyperlink it has on an electronic carrier."""@en;
-	rdfs:domain document:Element;
-#	rdfs:range infocar:Hyperlink;
+	rdfs:comment """Relating a document structure to a hyperlink it has on an electronic carrier."""@en;
+	rdfs:domain document:Structure;
+	rdfs:range infocar:Hyperlink;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:Structure;
+	knora-base:objectClassConstraint infocar:Hyperlink.
+
+infocar:hasHyperlinkValue
+	a owl:ObjectProperty;
+	rdfs:label "has hyperlink - statement"@en, "hat Hyperlink - Festlegung"@de;
+	rdfs:comment """Relating document structure to a reification statement of the relation between the document structure and a hyperlink it has on an electronic carrier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:Structure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:hyperlinkHasName
+	a owl:ObjectProperty;
+	rdfs:label "hyperlink has name"@en, "Hyperlink hat Name"@de;
+	rdfs:comment """Relating a hyperlink to a name it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint infocar:Hyperlink;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
+infocar:hyperlinkHasURI
+	a owl:ObjectProperty;
+	rdfs:label "hyperlink has URI"@en, "Hyperlink hat URI"@de;
+	rdfs:comment """Relating a hyperlink to a URI it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range xsd:anyURI;
 	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint document:Element;
+	knora-base:subjectClassConstraint infocar:Hyperlink;
 	knora-base:objectClassConstraint knora-base:UriValue.

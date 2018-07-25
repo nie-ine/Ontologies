@@ -11,6 +11,7 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix phygeo: <http://www.knora.org/ontology/0054/physical-geography#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix humgeo: <http://www.knora.org/ontology/0049/human-geography#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
@@ -64,9 +65,16 @@ physical:Place
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
 	rdfs:label "place"@en, "Platz"@de;
-	rdfs:comment """Specific space in a reference positioning system, e.g. the ."""@en;
+	rdfs:comment """Specific space in a reference positioning system."""@en;
 	rdfs:subClassOf physical:Space, cidoc:E53_Place, [
-		a owl:Restriction; owl:onProperty physical:placeHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:placeHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+physical:EarthPlace
+	a owl:Class;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	rdfs:label "place on earth"@en, "Platz auf Erde"@de;
+	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
+	rdfs:subClassOf physical:Place, [
 		a owl:Restriction; owl:onProperty phygeo:hasLatitude; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty phygeo:hasLongitude; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -114,8 +122,9 @@ physical:Matter
 		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
+		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasPostalAddressValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 physical:Compound
 	a owl:Class;

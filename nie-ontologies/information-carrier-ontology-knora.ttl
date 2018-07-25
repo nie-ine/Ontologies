@@ -300,12 +300,14 @@ infocar:ElectronicBook
 	rdfs:comment """Electronic information carrier with a text structure as in a book."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
 
-infocar:WebPage # as a Web document
+infocar:WebPage
 	a owl:Class;
 	rdfs:label "web page"@en, "Webseite"@de;
 	rdfs:comment """Electronic carrier page on the World Wide Web."""@en;
 	skos:note """Not necessarily published, i.e. made public."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier.
+	rdfs:subClassOf infocar:ElectronicCarrier, [
+		a owl:Restriction; owl:onProperty infocar:webPageHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:webPageHasURL; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Hyperlink # software
 	a owl:Class;
@@ -313,7 +315,7 @@ infocar:Hyperlink # software
 	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
 	rdfs:subClassOf knora-base:Resource, [
 		a owl:Restriction; owl:onProperty infocar:hyperlinkHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hyperlinkHasURI; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:hyperlinkHasURL; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -772,6 +774,26 @@ infocar:isPartOfNachlassValue
 	knora-base:subjectClassConstraint infocar:NachlassElement;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+infocar:webPageHasName
+	a owl:ObjectProperty;
+	rdfs:label "web page has name"@en, "Webseite hat Name"@de;
+	rdfs:comment """Relating a web page to a name it has."""@en;
+	rdfs:domain infocar:WebPage;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint infocar:WebPage;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
+infocar:webPageHasURL
+	a owl:ObjectProperty;
+	rdfs:label "web page has URL"@en, "Webseite hat URL"@de;
+	rdfs:comment """Relating a web page to a URL it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range xsd:anyURI;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint infocar:WebPage;
+	knora-base:objectClassConstraint knora-base:UriValue.
+
 infocar:hasHyperlink
 	a owl:ObjectProperty;
 	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
@@ -800,10 +822,10 @@ infocar:hyperlinkHasName
 	knora-base:subjectClassConstraint infocar:Hyperlink;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-infocar:hyperlinkHasURI
+infocar:hyperlinkHasURL
 	a owl:ObjectProperty;
-	rdfs:label "hyperlink has URI"@en, "Hyperlink hat URI"@de;
-	rdfs:comment """Relating a hyperlink to a URI it has."""@en;
+	rdfs:label "hyperlink has URL"@en, "Hyperlink hat URL"@de;
+	rdfs:comment """Relating a hyperlink to a URL it has."""@en;
 	rdfs:domain infocar:Hyperlink;
 	rdfs:range xsd:anyURI;
 	rdfs:subPropertyOf knora-base:hasValue;

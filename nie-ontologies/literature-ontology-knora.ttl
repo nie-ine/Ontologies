@@ -129,6 +129,8 @@ litera:Poem
 	rdfs:label "poem"@en, "Gedicht"@de;
 	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de;
 	rdfs:subClassOf litera:Expression, [
+		a owl:Restriction; owl:onProperty litera:hasPoet; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasPoetValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:allValuesFrom litera:Poetry], [
 		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasPoetryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].

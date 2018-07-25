@@ -49,7 +49,7 @@ humgeo:Country
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "country"@en, "Land"@de;
 	rdfs:comment """Place of a nation."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:State
 	a owl:Class;
@@ -96,42 +96,42 @@ humgeo:Town
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "town"@en, "Ortschaft"@de;
 	rdfs:comment """Smallest place with political boundaries and an own government."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:Village
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "village"@en, "Dorf"@de;
 	rdfs:comment """Small place with political boundaries but without an own government."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:City
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "city"@en, "Stadt"@de;
 	rdfs:comment """Large town."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:District
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "district"@en, "Stadtviertel"@de;
 	rdfs:comment """Part of a city with own administration."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:Street
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "street"@en, "Strasse"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:Building
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "building"@en, "Gebäude"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 humgeo:PostalAddress #* more general? # comprises cidoc:E45_Address and E51 Contact Point: postal box
 	a owl:Class;
@@ -150,7 +150,7 @@ humgeo:Residence #* Wohnsitz = address!
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "residence"@en, "Wohnsitz"@de;
 	rdfs:comment """Place where a person is registered to be living."""@en; # main dwelling place in period
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical:EarthPlace.
 
 # domicile
 

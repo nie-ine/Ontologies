@@ -52,40 +52,46 @@ language:HumanNaturalLanguage
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
 	rdfs:subClassOf language:HumanLanguage, [
-		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#	owl:disjointWith language:FormalLanguage.
+
+language:GeneralHumanNaturalLanguage
+	a owl:Class;
+	rdfs:label "general human natural language"@en, "algemeine menschliche naturliche Sprache"@de;
+	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #**
+	rdfs:subClassOf language:HumanNaturalLanguage, [
 		a owl:Restriction; owl:onProperty language:hasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:hasDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-#	owl:disjointWith language:FormalLanguage.
 
 language:English
 	a owl:Class;
 	rdfs:label "English"@en, "Englisch"@de;
 	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguage.
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
 
 language:French
 	a owl:Class;
 	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
 	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguage.
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
 
 language:German
 	a owl:Class;
 	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
 	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguage.
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
 
 language:Italian
 	a owl:Class;
 	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
 	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguage.
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
 
 language:SwissGerman
 	a owl:Class;
 	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
 	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguage, [
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
 		a owl:Restriction; owl:onProperty language:swissGermanHasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty language:swissGermanHasDialectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 

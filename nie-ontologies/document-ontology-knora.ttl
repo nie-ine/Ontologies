@@ -109,7 +109,7 @@ document:EndnoteReferenceNumber
 	a owl:Class;
 	rdfs:label "endnote reference number"@en, "Endnotereferenznummer"@de;
 	rdfs:comment """Number of an endnote reference."""@en;
-	rdfs:subClassOf document:EndnoteReferenceIdentifier, [
+	rdfs:subClassOf document:EndnoteReferenceIdentifier, [ # math:NaturalNumber
 		a owl:Restriction; owl:onProperty document:hasEndnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -171,6 +171,8 @@ document:Expression
 		a owl:Restriction; owl:onProperty document:isExpressionOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPublishingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasElectronicPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -427,7 +429,7 @@ document:hasEndnoteNumber
 	rdfs:comment """Relating an endnote reference number (as resource) to its endnote number (as resource)."""@en;
 	rdfs:domain document:EndnoteReferenceNumber;
 	rdfs:range text-structure:EndnoteNumber;
-	rdfs:subPropertyOf document:hasEndnoteIdentifier;
+	rdfs:subPropertyOf document:hasEndnoteIdentifier; # math:hasNumeral
 	knora-base:subjectClassConstraint document:EndnoteReferenceNumber;
 	knora-base:objectClassConstraint text-structure:EndnoteNumber.
 

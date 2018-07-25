@@ -62,7 +62,7 @@ publish:Published
 
 publish:Publishing
 	a owl:Class;
-	rdfs:label "publishing"@en, "herausgeben"@de;
+	rdfs:label "publishing"@en, "Herausgeben"@de;
 	rdfs:comment """Action of making an expression public."""@en;
 	rdfs:subClassOf human:Action, frbroo:F30_Publication_Event.
 
@@ -75,7 +75,7 @@ publish:Redactor
 publish:Publisher
 	a owl:Class;
 	rdfs:label "publisher"@en, "Herausgeber"@de;
-	rdfs:comment """Role of an agent - person or organization - publishing."""@en;
+	rdfs:comment """Role of a publishing agent, person or organization."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 publish:NewspaperPublisher
@@ -198,6 +198,24 @@ publish:hasPublishingStateValue
 	rdfs:label "has publishing state - statement"@en, "hat Publikationszustand - Festlegung"@de;
 	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publishing state it has."@en;
 	rdfs:subPropertyOf event:hasStateValue;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+publish:hasPublishing
+	a owl:ObjectProperty;
+	rdfs:label "has publishing"@en, "hat Herausgeben"@de;
+	rdfs:comment "Relating an expression to its publishing."@en;
+	rdfs:domain document:Expression;
+	rdfs:range publish:Publishing;
+	rdfs:subPropertyOf event:hasEvent;
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint publish:Publishing.
+
+publish:hasPublishingValue
+	a owl:ObjectProperty;
+	rdfs:label "has publishing - statement"@en, "hat Herausgeben - Festlegung"@de;
+	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its publishing."@en;
+	rdfs:subPropertyOf event:hasEventValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

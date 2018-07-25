@@ -194,19 +194,20 @@ text-structure:Verse
 #		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #* Place an ancient verse without line structure in a place-time
 
-# text-structure:Hemistich
-#	a owl:Class;
-#	rdfs:label "hemistich"@en, "Hemistich"@de;
-#	rdfs:comment """Half a verse."""@en;
-#	rdfs:subClassOf text-structure:ProsodicStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+text-structure:HalfVerse
+	a owl:Class;
+	rdfs:label "half-verse"@en, "Halbvers"@de;
+#	text:hasSynonym "hemistich"@en, "Hemistich"@de;
+	rdfs:comment """Half a verse."""@en;
+	rdfs:subClassOf text-structure:ProsodicStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Strophe # OR stanza OR verse - Vers
 	a owl:Class;
@@ -220,10 +221,9 @@ text-structure:Strophe # OR stanza OR verse - Vers
 		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text-structure:HalfStrophe
+text-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :HalfStrophe
 	a owl:Class;
 	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
-#	text:hasSynonym	"distich"@en, "Distich"@de;
 	rdfs:comment """Half a strophe."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isHalfOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -319,13 +319,13 @@ text-structure:FootnoteIdentifier
 	a owl:Class;
 	rdfs:label "footnote identifier"@en, "Fussnoteidentifikator"@de;
 	rdfs:comment """Identifier of a footnote."""@en;
-	rdfs:subClassOf concept:Identifier, document:Element.
+	rdfs:subClassOf concept:Identifier, document:Structure.
 
 text-structure:FootnoteNumber
 	a owl:Class;
 	rdfs:label "footnote number"@en, "Fussnotenummer"@de;
 	rdfs:comment """Number of a footnote."""@en;
-	rdfs:subClassOf text-structure:FootnoteIdentifier, math:Number, document:Element. # math:NaturalNumber.
+	rdfs:subClassOf text-structure:FootnoteIdentifier, math:Number.
 
 text-structure:Endnote
 	a owl:Class;
@@ -341,13 +341,13 @@ text-structure:EndnoteIdentifier
 	a owl:Class;
 	rdfs:label "endnote identifier"@en, "Endnoteidentifikator"@de;
 	rdfs:comment """Identifier of an endnote."""@en;
-	rdfs:subClassOf concept:Identifier, document:Element.
+	rdfs:subClassOf concept:Identifier, document:Structure.
 
 text-structure:EndnoteNumber
 	a owl:Class;
 	rdfs:label "endnote number"@en, "Endnotenummer"@de;
 	rdfs:comment """Number of an endnote."""@en;
-	rdfs:subClassOf text-structure:EndnoteIdentifier, math:Number, document:Element. # math:NaturalNumber.
+	rdfs:subClassOf text-structure:EndnoteIdentifier, math:Number.
 
 text-structure:Letter
 	a owl:Class;
@@ -591,6 +591,24 @@ text-structure:isWordOfVerseValue
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text-structure:isHalfOfVerse
+	a owl:ObjectProperty;
+	rdfs:label "is half of verse"@en, "ist Hälfte eines Verses"@de;
+	rdfs:comment """Relating a half-verse to its verse."""@en;
+	rdfs:domain text-structure:HalfVerse;
+	rdfs:range text-structure:Verse;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:HalfVerse;
+	knora-base:objectClassConstraint text-structure:Verse.
+
+text-structure:isHalfOfVerseValue
+	a owl:ObjectProperty;
+	rdfs:label "is half of verse - statement"@en, "ist Hälfte eines Verses - Festlegung"@de;
+	rdfs:comment """Relating a half-verse to a reification statement of the relation between the half-verse and its verse."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:HalfVerse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:isVerseOfStrophe
 	a owl:ObjectProperty;
 	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
@@ -609,23 +627,23 @@ text-structure:isVerseOfStropheValue
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-# text-structure:isVerseOfHemistich
-#	a owl:ObjectProperty;
-#	rdfs:label "is verse of hemistich"@en, "ist Vers einer Hemistich"@de;
-#	rdfs:comment """Relating a verse to a strophe it is part of."""@en;
-#	rdfs:domain text-structure:Verse;
-#	rdfs:range text-structure:Strophe;
-#	rdfs:subPropertyOf concept:isPartOf;
-#	knora-base:subjectClassConstraint text-structure:Verse;
-#	knora-base:objectClassConstraint text-structure:Strophe.
+text-structure:isVerseOfHalfStrophe
+	a owl:ObjectProperty;
+	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de;
+	rdfs:comment """Relating a verse to a half-strophe it is part of."""@en;
+	rdfs:domain text-structure:Verse;
+	rdfs:range text-structure:HalfStrophe;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint text-structure:HalfStrophe.
 
-# text-structure:isVerseOfHemistichValue
-#	a owl:ObjectProperty;
-#	rdfs:label "is verse of strophe - statement"@en, "ist Vers einer Strophe - Festlegung"@de;
-#	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a strophe it is part of."""@en;
-#	rdfs:subPropertyOf concept:isPartOfValue;
-#	knora-base:subjectClassConstraint text-structure:Verse;
-#	knora-base:objectClassConstraint knora-base:LinkValue.
+text-structure:isVerseOfHalfStropheValue
+	a owl:ObjectProperty;
+	rdfs:label "is verse of half-strophe - statement"@en, "ist Vers einer Halbstrophe - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a half-strophe it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:verseHasNumber
 	a owl:ObjectProperty;

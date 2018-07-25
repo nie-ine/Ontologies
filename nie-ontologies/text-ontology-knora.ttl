@@ -47,6 +47,10 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasRevisorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCopyist; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCopyistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCiter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCiterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCitationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #*
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -151,6 +155,18 @@ text:Copyist
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it; # "scribe"@en, "Schreiber"@de;
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
+
+text:Citer
+	a owl:Class;
+	rdfs:label "citer"@en, "ZitiererIn"@de;
+	rdfs:comment """Role of a human agent as person or group, citing a text."""@en;
+	rdfs:subClassOf human:AgentRole.
+
+text:Citation
+	a owl:Class;
+	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf text:Text.
 
 text:SentenceExpression
 	a owl:Class;
@@ -264,7 +280,7 @@ text:hasAlias
 text:hasSynonym
 	a owl:ObjectProperty;
 	rdfs:label "has synonym"@en, "hat Synonym"@de;
-	rdfs:comment """Relating a class to a synonym as an alternative name of the class."""@en;
+	rdfs:comment """Relating a class to a synonym of the name of the class."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName;
@@ -371,11 +387,45 @@ text:hasCopyistValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text:hasCiter
+	a owl:ObjectProperty;
+	rdfs:label "has citer"@en, "hat ZitiererIn"@de;
+	rdfs:comment """Relating a text to a person who cited it."""@en;
+	rdfs:domain text:Text;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Citer]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasCiterValue
+	a owl:ObjectProperty;
+	rdfs:label "has citer - statement"@en, "hat ZitiererIn - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who cited it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:hasCitation
+	a owl:ObjectProperty;
+	rdfs:label "has citation"@en, "hat Zitat"@de;
+	rdfs:comment "Relating a text to a citation of it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint text:Citation.
+
+text:hasCitationValue
+	a owl:ObjectProperty;
+	rdfs:label "has citation - statement"@en, "hat Zitat - Festlegung"@de;
+	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation of it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text:hasVersionIndicator
 	a owl:ObjectProperty;
 	rdfs:label "has version indicator"@en, "hat Version-Indikator"@de;
 	rdfs:comment """Relating a text to a textual element that indicates its version."""@en;
-	rdfs:subPropertyOf language:hasContent;
+	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
@@ -479,7 +529,7 @@ text:hasLineNumber
 	rdfs:comment """Relating a text expression to the number of a line of the text expression."""@en;
 	rdfs:domain text:Expression;
 	rdfs:range rdfs:Literal;	
-	rdfs:subPropertyOf language:hasContent;
+	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.

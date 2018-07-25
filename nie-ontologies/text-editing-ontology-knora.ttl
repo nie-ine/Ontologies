@@ -117,7 +117,7 @@ textedit:CriticalEdition
 	a owl:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;
-	rdfs:subClassOf textedit:Edition, textedit:Derivative.
+	rdfs:subClassOf textedit:Derivative.
 
 # textedit:Variorum subClassOf CriticalEdition
 
@@ -372,7 +372,7 @@ textedit:hasCriticalEdition
 	rdfs:comment "Relating a text expression to a critical edition thereof."@en;
 	rdfs:domain text:Expression;
 	rdfs:range textedit:CriticalEdition;
-	rdfs:subPropertyOf textedit:hasEdition;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint textedit:CriticalEdition.
 
@@ -380,7 +380,7 @@ textedit:hasCriticalEditionValue
 	a owl:ObjectProperty;
 	rdfs:label "has critical text edition - statement"@en, "hat kritische Textedition - Festlegung"@de;
 	rdfs:comment "Relating a text expression to a reification statement of the relation between the text and a critical edition thereof."@en;
-	rdfs:subPropertyOf textedit:hasEditionValue;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

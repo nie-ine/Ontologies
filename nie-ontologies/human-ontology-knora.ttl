@@ -149,7 +149,7 @@ human:Ability
 human:AgentRole
 	a owl:Class;
 	rdfs:label "human agent role"@en, "Rolle eines menschlichen Agenten"@de;
-	rdfs:comment """Role a human agent - person or group - has."""@en;
+	rdfs:comment """Role a human agent has as a person or group."""@en;
 	rdfs:subClassOf agent:Role.
 
 human:Role

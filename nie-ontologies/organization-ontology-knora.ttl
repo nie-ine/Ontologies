@@ -227,3 +227,23 @@ org:isMemberOfAdministrationValue
 	rdfs:subPropertyOf org:isMemberOfValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+org:isMemberOfCompany
+	a owl:ObjectProperty;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	rdfs:label "is member of company"@en, "ist Mitglied einer Firme"@de;
+	rdfs:comment """Relating a person to a company the person is a member of."""@en;
+	rdfs:domain human:Person;
+	rdfs:range org:Company;
+	rdfs:subPropertyOf org:isMemberOf;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint org:Company.
+
+org:isMemberOfCompanyValue
+	a owl:ObjectProperty;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	rdfs:label "is member of company - statement"@en, "ist Mitglied einer Firme - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a company the person is a member of."""@en;
+	rdfs:subPropertyOf org:isMemberOfValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.

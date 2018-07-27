@@ -96,7 +96,9 @@ publish:Publication #**
 		a owl:Restriction; owl:onProperty publish:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisher; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasPrinterDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:hasBibliographicReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 publish:Period
 	a owl:Class;
@@ -151,7 +153,7 @@ publish:LastPublication
 
 publish:Magazine
 	a owl:Class;
-	rdfs:label "magazine"@en, "Zeitschrift"@de, "magazine"@fr;
+	rdfs:label "magazine"@en, "Zeitschrift"@de, "périodique"@fr;
 	rdfs:comment """Periodically published book."""@en;
 	rdfs:subClassOf infocar:Book, publish:Publication.
 
@@ -422,7 +424,7 @@ publish:hasNachlassPublicationDescription
 publish:isPublishedIn
 	a owl:ObjectProperty;
 	rdfs:label "is published in"@en, "ist publiziert in"@de;
-	rdfs:comment "Relating a publication expression to a publication of it."@en;
+	rdfs:comment "Relating a publication expression to a publication thereof."@en;
 	rdfs:domain publish:Expression;
 	rdfs:range publish:Publication;
 	rdfs:subPropertyOf infocar:isOnCarrier;
@@ -432,7 +434,7 @@ publish:isPublishedIn
 publish:isPublishedInValue
 	a owl:ObjectProperty;
 	rdfs:label "is published in - statement"@en, "ist publiziert in - Festlegung"@de;
-	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a publication of it."@en;
+	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a publication thereof."@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
 	knora-base:subjectClassConstraint publish:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -551,6 +553,15 @@ publish:hasPrinterDescription
 	a owl:ObjectProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de;
 	rdfs:comment "Relating a publication to its printer's description."@en;
+	rdfs:subPropertyOf text:hasDescription;
+	knora-base:subjectClassConstraint publish:Publication;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
+publish:hasBibliographicReference
+	a owl:ObjectProperty;
+	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
+	rdfs:comment "Relating a publication to a bibliographic reference thereof."@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;

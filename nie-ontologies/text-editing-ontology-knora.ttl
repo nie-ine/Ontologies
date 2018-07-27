@@ -36,17 +36,17 @@
 # CLASSES
 #
 
+textedit:Editor
+	a owl:Class;
+	rdfs:label "text editor"@en, "Text-Redakteur"@de;
+	rdfs:comment """Role of a person changing a text."""@en;
+	rdfs:subClassOf human:Role, human:Creator.
+
 textedit:Edition
 	a owl:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de;
 	rdfs:comment """Changed text as a result of editing."""@en;
 	rdfs:subClassOf text:Text. # human:CreationVersion
-
-textedit:Editor
-	a owl:Class;
-	rdfs:label "text editor"@en, "Text-Redakteur"@de;
-	rdfs:comment """Role of a person changing a text."""@en;
-	rdfs:subClassOf human:Creator.
 
 textedit:Redactor
 	a owl:Class;
@@ -86,7 +86,8 @@ textedit:LiteralExposition
 
 textedit:EclecticEdition
 	a owl:Class;
-	rdfs:label "eclectic edition"@en, "konstituierter Text"@de; #* synonym: Lesetext
+	rdfs:label "eclectic edition"@en, "konstituierter Text"@de;
+#	text:hasSynonym "Lesetext"@de;
 	rdfs:comment """Plain text expression as endresult of a reproduction by the edition scientist."""@en;
 	rdfs:subClassOf textedit:Edition.
 
@@ -107,15 +108,19 @@ textedit:DiplomaticTranscription
 #	skos:note """Only autographs or jurudical; without interpretation"""; # Lesehilfe
 	rdfs:subClassOf textedit:Derivative, [
 		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
-#		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:cardinality "1"^^xsd:nonNegativeInteger]
+		a owl:Restriction; owl:onProperty textedit:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # textedit:Diplomatic-InterpretativeTranscription
 
+textedit:CriticalEditor
+	a owl:Class;
+	rdfs:label "critical text editor"@en, "kritische Text-Redakteur"@de;
+	rdfs:comment """Role of a scientist editing a text expression in a critical scientific way."""@en;
+	rdfs:subClassOf human:Scientist, human:Creator.
+
 textedit:CriticalEdition
 	a owl:Class;
-	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung
+	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung ?
 	rdfs:comment """Edition to which an editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;
 	rdfs:subClassOf textedit:Derivative.
 
@@ -364,6 +369,24 @@ textedit:isDiplomaticTranscriptionOfTextOnPageValue
 	rdfs:comment "Relating a diplomatic transcription to a reification statement of the relation between the diplomatic transcription and a page its source text is on."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint textedit:DiplomaticTranscription;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasCriticalEditor
+	a owl:ObjectProperty;
+	rdfs:label "has critical editor"@en, "hat kritische Text-Redakteur"@de;
+	rdfs:comment "Relating a text expression to a critical editor thereof."@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:CriticalEditor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+textedit:hasCriticalEditorValue
+	a owl:ObjectProperty;
+	rdfs:label "has critical editor - statement"@en, "hat kritische Text-Redakteur - Festlegung"@de;
+	rdfs:comment "Relating a text expression to a reification statement of the relation between the text expression and a critical editor thereof."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 textedit:hasCriticalEdition

@@ -207,6 +207,30 @@ document:Cycle
 # Shape
 # color
 
+document:Dictionary
+	a owl:Class;
+	rdfs:label "dictionary"@en, "Wörterbuch"@de;
+	rdfs:comment """List of words of a human natural language, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
+	rdfs:subClassOf document:Expression.
+
+document:Catalogue
+	a owl:Class;
+	rdfs:label "catalogue"@en, "Katalog"@de, "catalogue"@fr;
+	rdfs:comment """List of descriptions of things, mostly ordered, e.g. alphabetically; e.g. library's book catalogue, exhibition's works of art catalogue, mail-order company's items for sale catalogue."""@en;
+	rdfs:subClassOf document:Expression.
+
+document:ScientificExpression
+	a owl:Class;
+	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
+	rdfs:comment """Text expression with scientific content."""@en;
+	rdfs:subClassOf document:Expression.
+
+document:VulgarizedScientificExpression
+	a owl:Class;
+	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de;
+	rdfs:comment """Text with vulgarized scientific content."""@en;
+	rdfs:subClassOf document:ScientificExpression.
+
 document:HypertextDocument
 	a owl:Class;
 	rdfs:label "hypertext document"@en,"Hypertext-Dokument"@de;

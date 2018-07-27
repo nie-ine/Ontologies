@@ -168,7 +168,7 @@ concept:isPartOfValue
 concept:isExpressedIn
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
-	rdfs:comment "Relating a work to an expression of it."@en;
+	rdfs:comment "Relating a work to an expression thereof."@en;
 	rdfs:domain concept:Work;
 	rdfs:range document:Expression;
 	rdfs:subPropertyOf frbroo:R9_is_realised_in, knora-base:hasLinkTo;
@@ -178,7 +178,7 @@ concept:isExpressedIn
 concept:isExpressedInValue
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in - statement"@en, "ist ausgedruckt in - Festlegung"@de;
-	rdfs:comment "Relating a work to a reification statement of the relation between the work and an expression of it."@en;
+	rdfs:comment "Relating a work to a reification statement of the relation between the work and an expression thereof."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint concept:Work;
 	knora-base:objectClassConstraint knora-base:LinkValue.

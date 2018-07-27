@@ -51,6 +51,8 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasCiterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isCitedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isCitedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #*
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -116,6 +118,8 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasCriticalEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -200,12 +204,6 @@ text:Commentary
 	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
 	rdfs:subClassOf text:Expression.
 
-text:Biography
-	a owl:Class;
-	rdfs:label "biography"@en, "Biographie"@de; #*
-	rdfs:comment """Text expression about a person's life."""@en;
-	rdfs:subClassOf text:Expression.
-
 text:Draft
 	a owl:Class;
 	rdfs:label "draft"@en, "Entwurf"@de;
@@ -234,6 +232,12 @@ text:Development
 #	rdfs:label "witness"@en, "Textzeuge"@de;
 #	rdfs:comment """Copy of an original text ."""@en; #* note: enabling its reconstruction, -> looking for features of originality
 #	rdfs:subClassOf text:Transcription.
+
+text:Biography
+	a owl:Class;
+	rdfs:label "biography"@en, "Biographie"@de; #*
+	rdfs:comment """Text expression about a person's life."""@en;
+	rdfs:subClassOf text:Expression.
 
 #
 # PROPERTIES
@@ -390,12 +394,12 @@ text:hasCopyistValue
 text:hasCiter
 	a owl:ObjectProperty;
 	rdfs:label "has citer"@en, "hat ZitiererIn"@de;
-	rdfs:comment """Relating a text to a person who cited it."""@en;
+	rdfs:comment """Relating a text to a person or group citing it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Citer]];
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:Citer]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint human:Person.
+	knora-base:objectClassConstraint human:Agent.
 
 text:hasCiterValue
 	a owl:ObjectProperty;
@@ -408,7 +412,9 @@ text:hasCiterValue
 text:hasCitation
 	a owl:ObjectProperty;
 	rdfs:label "has citation"@en, "hat Zitat"@de;
-	rdfs:comment "Relating a text to a citation of it."@en;
+	rdfs:comment "Relating a text to a citation thereof."@en;
+	rdfs:domain text:Text;
+	rdfs:range text:Citation;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text:Citation.
@@ -416,7 +422,25 @@ text:hasCitation
 text:hasCitationValue
 	a owl:ObjectProperty;
 	rdfs:label "has citation - statement"@en, "hat Zitat - Festlegung"@de;
-	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation of it."@en;
+	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation thereof."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isCitedIn
+	a owl:ObjectProperty;
+	rdfs:label "is cited in"@en, "ist zitiert in"@de;
+	rdfs:comment "Relating a text to an expression wherein it is cited."@en;
+	rdfs:domain text:Text;
+	rdfs:range document:Expression;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint document:Expression.
+
+text:isCitedInValue
+	a owl:ObjectProperty;
+	rdfs:label "is cited in - statement"@en, "ist zitiert in - Festlegung"@de;
+	rdfs:comment "Relating a text to a reification statement of the relation between the text and an expression wherein it is cited."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -85,6 +85,8 @@ human:Person
 		a owl:Restriction; owl:onProperty org:isMemberOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:isMemberOfAdministration; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:isMemberOfAdministrationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty org:isMemberOfCompany; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty org:isMemberOfCompanyValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:hasDedicatedTo; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:hasDedicatedToValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -241,8 +243,6 @@ human:Copy # model: parent copy: decide to exist even when absent -> phylology t
 	rdfs:label "copy"@en, "Kopie"@de;
 	rdfs:comment """Reproduction of a person's creation."""@en;
 	rdfs:subClassOf human:PhysicalCreation.
-
-# doc: add, cf CIDOC: concept
 
 human:CreationVersion
 	a owl:Class;
@@ -778,7 +778,7 @@ human:hasModificationDate
 human:hasUse
 	a owl:ObjectProperty;
 	rdfs:label "has use"@en, "hat Verwendungszweck"@de;
-	rdfs:comment """Relating something to a use of it."""@en; # NOT limited to a physical thing
+	rdfs:comment """Relating something to a use thereof."""@en; # NOT limited to a physical thing
 	rdfs:domain rdfs:Resource;
 	rdfs:range human:Use;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -788,7 +788,7 @@ human:hasUse
 human:hasUseValue
 	a owl:ObjectProperty;
 	rdfs:label "has use - statement"@en, "hat Verwendungszweck - Festlegung"@de;
-	rdfs:comment "Relating a physical thing to a reification statement of the relation between that thing and a use of it."@en;
+	rdfs:comment "Relating a physical thing to a reification statement of the relation between that thing and a use thereof."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.

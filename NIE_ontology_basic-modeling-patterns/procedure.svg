@@ -346,12 +346,12 @@
      </g>
      <g class="com.sun.star.drawing.CustomShape">
       <g id="id28">
-       <rect class="BoundingBox" stroke="none" fill="none" x="507" y="669" width="24642" height="2058"/>
-       <path fill="rgb(255,255,255)" stroke="none" d="M 4603,670 C 2555,670 508,775 508,881 L 508,1039 508,1197 508,1413 508,1571 508,1729 C 508,1835 2555,1941 4603,1941 L 11227,2725 10740,1941 14914,1941 17983,1941 21051,1941 C 23099,1941 25147,1835 25147,1729 L 25147,1571 25147,1413 25147,1197 25147,1039 25147,881 C 25147,775 23099,670 21051,670 L 17983,670 14914,670 10740,670 7671,670 4603,670 Z M 508,670 L 508,670 Z M 25147,1941 L 25147,1941 Z"/>
-       <path fill="none" stroke="rgb(102,102,255)" d="M 4603,670 C 2555,670 508,775 508,881 L 508,1039 508,1197 508,1413 508,1571 508,1729 C 508,1835 2555,1941 4603,1941 L 11227,2725 10740,1941 14914,1941 17983,1941 21051,1941 C 23099,1941 25147,1835 25147,1729 L 25147,1571 25147,1413 25147,1197 25147,1039 25147,881 C 25147,775 23099,670 21051,670 L 17983,670 14914,670 10740,670 7671,670 4603,670 Z"/>
-       <path fill="none" stroke="rgb(102,102,255)" d="M 508,670 L 508,670 Z"/>
+       <rect class="BoundingBox" stroke="none" fill="none" x="253" y="669" width="24896" height="2058"/>
+       <path fill="rgb(255,255,255)" stroke="none" d="M 4391,670 C 2322,670 254,775 254,881 L 254,1039 254,1197 254,1413 254,1571 254,1729 C 254,1835 2322,1941 4391,1941 L 11227,2725 10591,1941 14809,1941 17909,1941 21009,1941 C 23078,1941 25147,1835 25147,1729 L 25147,1571 25147,1413 25147,1197 25147,1039 25147,881 C 25147,775 23078,670 21009,670 L 17909,670 14809,670 10591,670 7491,670 4391,670 Z M 254,670 L 254,670 Z M 25147,1941 L 25147,1941 Z"/>
+       <path fill="none" stroke="rgb(102,102,255)" d="M 4391,670 C 2322,670 254,775 254,881 L 254,1039 254,1197 254,1413 254,1571 254,1729 C 254,1835 2322,1941 4391,1941 L 11227,2725 10591,1941 14809,1941 17909,1941 21009,1941 C 23078,1941 25147,1835 25147,1729 L 25147,1571 25147,1413 25147,1197 25147,1039 25147,881 C 25147,775 23078,670 21009,670 L 17909,670 14809,670 10591,670 7491,670 4391,670 Z"/>
+       <path fill="none" stroke="rgb(102,102,255)" d="M 254,670 L 254,670 Z"/>
        <path fill="none" stroke="rgb(102,102,255)" d="M 25147,1941 L 25147,1941 Z"/>
-       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="458px" font-weight="400"><tspan class="TextPosition" x="1371" y="1464"><tspan fill="rgb(0,0,0)" stroke="none">Action executed in one or more steps, in a certain manner, obtaining a certain output under certain circumstances</tspan></tspan></tspan></text>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="458px" font-weight="400"><tspan class="TextPosition" x="1244" y="1464"><tspan fill="rgb(0,0,0)" stroke="none">Action executed in one or more steps, in a certain manner, obtaining a certain output under certain circumstances</tspan></tspan></tspan></text>
       </g>
      </g>
     </g>

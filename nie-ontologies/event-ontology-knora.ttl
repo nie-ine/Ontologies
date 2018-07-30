@@ -144,7 +144,7 @@ event:hasEndDate
 
 event:hasName
 	a owl:ObjectProperty;
-	rdfs:label "event has name"@en, "Ereignis hat Name"@de;
+	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating an event to its name."""@en;
 	rdfs:domain event:Event;
 	rdfs:range rdfs:Literal;

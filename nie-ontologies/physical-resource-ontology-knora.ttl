@@ -67,7 +67,7 @@ physical:Place
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
 	rdfs:label "place"@en, "Platz"@de;
-	rdfs:comment """Specific space in a reference positioning system."""@en;
+	rdfs:comment """Specific space in a positioning reference system."""@en;
 	rdfs:subClassOf physical:Space, cidoc:E53_Place, [
 		a owl:Restriction; owl:onProperty physical:placeHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 

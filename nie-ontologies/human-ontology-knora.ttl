@@ -177,8 +177,8 @@ human:PersonLife
 	rdfs:label "person's life"@en, "Leben einer Person"@de;
 	rdfs:comment """Life of a human from birth until death."""@en;
 	skos:note """Considered as an action wherein a person is an agent."""@en;
-	skos:note """No satisfying biological description of onset of a human life."""@en;
-	rdfs:subClassOf event:Action, event:Existence.
+	skos:note """No satisfying biological description of onset of a human life; set at birth when a human becomes a person."""@en;
+	rdfs:subClassOf human:Action, event:Existence.
 
 human:Use
 	a owl:Class;
@@ -508,9 +508,9 @@ human:hasLife
 	a owl:ObjectProperty;
 	rdfs:label "person has life"@en, "Person hat Leben"@de;
 	rdfs:comment """Relating a person to the person's life."""@en;
-	rdfs:subPropertyOf event:hasExistence; #, human:actsIn;
 	rdfs:domain human:Person;
 	rdfs:range human:PersonLife;
+	rdfs:subPropertyOf event:hasExistence, human:actsIn;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:PersonLife.
 

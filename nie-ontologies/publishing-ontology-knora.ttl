@@ -64,7 +64,7 @@ publish:Publishing
 	a owl:Class;
 	rdfs:label "publishing"@en, "Herausgeben"@de;
 	rdfs:comment """Action of making an expression public."""@en;
-	rdfs:subClassOf human:Action, frbroo:F30_Publication_Event.
+	rdfs:subClassOf human:Procedure, frbroo:F30_Publication_Event.
 
 publish:Redactor
 	a owl:Class;
@@ -91,8 +91,8 @@ publish:Publication #**
 	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
 		a owl:Restriction; owl:onProperty publish:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPeriod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPeriodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty publish:hasPeriod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty publish:hasPeriodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisher; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -100,11 +100,11 @@ publish:Publication #**
 		a owl:Restriction; owl:onProperty publish:hasPrinterDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasBibliographicReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-publish:Period
-	a owl:Class;
-	rdfs:label "publication period"@en, "Publikationsperiode"@de;
-	rdfs:comment """Period a publication was created in."""@en;
-	rdfs:subClassOf event:Event.
+#publish:Creating
+#	a owl:Class;
+#	rdfs:label "publication creating"@en, "Publikationskreierung"@de;
+#	rdfs:comment """Creating of a publication."""@en;
+#	rdfs:subClassOf event:Event.
 
 publish:PrintedPublication
 	a owl:Class;
@@ -188,7 +188,7 @@ publish:UnauthorizedPublication
 publish:hasPublishingState
 	a owl:ObjectProperty;
 	rdfs:label "has publishing state"@en, "hat Publikationszustand"@de;
-	rdfs:comment "Relating an expression to a publishing state it has."@en;
+	rdfs:comment """Relating an expression to a publishing state it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:PublishingState;
 	rdfs:subPropertyOf event:hasState;
@@ -198,7 +198,7 @@ publish:hasPublishingState
 publish:hasPublishingStateValue
 	a owl:ObjectProperty;
 	rdfs:label "has publishing state - statement"@en, "hat Publikationszustand - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publishing state it has."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a publishing state it has."""@en;
 	rdfs:subPropertyOf event:hasStateValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -206,7 +206,7 @@ publish:hasPublishingStateValue
 publish:hasPublishing
 	a owl:ObjectProperty;
 	rdfs:label "has publishing"@en, "hat Herausgeben"@de;
-	rdfs:comment "Relating an expression to its publishing."@en;
+	rdfs:comment """Relating an expression to its publishing."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:Publishing;
 	rdfs:subPropertyOf event:hasEvent;
@@ -216,7 +216,7 @@ publish:hasPublishing
 publish:hasPublishingValue
 	a owl:ObjectProperty;
 	rdfs:label "has publishing - statement"@en, "hat Herausgeben - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its publishing."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and its publishing."""@en;
 	rdfs:subPropertyOf event:hasEventValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -224,7 +224,7 @@ publish:hasPublishingValue
 publish:hasPublication
 	a owl:ObjectProperty;
 	rdfs:label "has publication"@en, "hat Publikation"@de;
-	rdfs:comment "Relating an expression to a publication it has."@en;
+	rdfs:comment """Relating an expression to a publication it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:Publication;
 	rdfs:subPropertyOf infocar:isOnCarrier;
@@ -234,7 +234,7 @@ publish:hasPublication
 publish:hasPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has publication - statement"@en, "hat Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publication it has."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a publication it has."""@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -242,7 +242,7 @@ publish:hasPublicationValue
 publish:hasElectronicPublication
 	a owl:ObjectProperty;
 	rdfs:label "has electronic publication"@en, "hat elektronische Publikation"@de;
-	rdfs:comment "Relating an expression to an electronic publication it has."@en;
+	rdfs:comment """Relating an expression to an electronic publication it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:ElectronicPublication;
 	rdfs:subPropertyOf infocar:isOnElectronicCarrier, publish:hasPublication;
@@ -252,7 +252,7 @@ publish:hasElectronicPublication
 publish:hasElectronicPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has electronic publication - statement"@en, "hat elektronische Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and an electronic publication it has."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and an electronic publication it has."""@en;
 	rdfs:subPropertyOf infocar:isOnElectronicCarrierValue, publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -260,7 +260,7 @@ publish:hasElectronicPublicationValue
 publish:hasWebPublication
 	a owl:ObjectProperty;
 	rdfs:label "has web publication"@en, "hat Web-Publikation"@de;
-	rdfs:comment "Relating an expression to a web publication it has."@en;
+	rdfs:comment """Relating an expression to a web publication it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:WebPublication;
 	rdfs:subPropertyOf publish:hasElectronicPublication;
@@ -270,7 +270,7 @@ publish:hasWebPublication
 publish:hasWebPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has web publication - statement"@en, "hat Web-Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a web publication it has."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a web publication it has."""@en;
 	rdfs:subPropertyOf publish:hasElectronicPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -286,7 +286,7 @@ publish:hasPublicationNumber
 publish:hasFirstPublication
 	a owl:ObjectProperty;
 	rdfs:label "has first publication"@en, "hat erste Publikation"@de;
-	rdfs:comment "Relating an expression to its first publication."@en;
+	rdfs:comment """Relating an expression to its first publication."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:FirstPublication.
@@ -294,7 +294,7 @@ publish:hasFirstPublication
 publish:hasFirstPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has first publication - statement"@en, "hat erste Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its first publication."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and its first publication."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -302,7 +302,7 @@ publish:hasFirstPublicationValue
 publish:hasLastPublication
 	a owl:ObjectProperty;
 	rdfs:label "has last publication"@en, "hat letzte Publikation"@de;
-	rdfs:comment "Relating an expression to its last publication."@en;
+	rdfs:comment """Relating an expression to its last publication."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:LastPublication.
@@ -310,7 +310,7 @@ publish:hasLastPublication
 publish:hasLastPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has last publication - statement"@en, "hat letzte Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its last publication."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and its last publication."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -318,7 +318,7 @@ publish:hasLastPublicationValue
 publish:hasLastAuthorizedPublication
 	a owl:ObjectProperty;
 	rdfs:label "has last authorized publication"@en, "hat letzte autorisierte Publikation"@de;
-	rdfs:comment "Relating an expression to its last publication with the author's authorization."@en;
+	rdfs:comment """Relating an expression to its last publication with the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:Publication.
@@ -326,7 +326,7 @@ publish:hasLastAuthorizedPublication
 publish:hasLastAuthorizedPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has last authorized publication - statement"@en, "hat letzte autorisierte Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its last publication with the author's authorization."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and its last publication with the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -334,7 +334,7 @@ publish:hasLastAuthorizedPublicationValue
 publish:hasUnauthorizedPublication
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized publication"@en, "hat nicht-autorisierte Publikation"@de;
-	rdfs:comment "Relating an expression to a publication thereof without the author's authorization."@en;
+	rdfs:comment """Relating an expression to a publication thereof without the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:Publication.
@@ -342,7 +342,7 @@ publish:hasUnauthorizedPublication
 publish:hasUnauthorizedPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized publication - statement"@en, "hat nicht-autorisierte Publikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publication thereof without the author's authorization."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a publication thereof without the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -350,7 +350,7 @@ publish:hasUnauthorizedPublicationValue
 publish:hasUnauthorizedRepublication
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized republication"@en, "hat nicht-autorisierte Wiederpublikation"@de;
-	rdfs:comment "Relating an expression to a republication thereof without the author's authorization."@en;
+	rdfs:comment """Relating an expression to a republication thereof without the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:Publication.
@@ -358,7 +358,7 @@ publish:hasUnauthorizedRepublication
 publish:hasUnauthorizedRepublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized republication - statement"@en, "hat nicht-autorisierte Wiederpublikation - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a republication thereof without the author's authorization."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a republication thereof without the author's authorization."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -366,7 +366,7 @@ publish:hasUnauthorizedRepublicationValue
 #publish:hasMonoAuthorPublication
 #	a owl:ObjectProperty;
 #	rdfs:label "has mono-author publication"@en, "hat Publikation eines einzelnen Autors"@de;
-#	rdfs:comment "Relating an expression to its publication of one author."@en;
+#	rdfs:comment """Relating an expression to its publication of one author."""@en;
 #	rdfs:subPropertyOf publish:hasPublication;
 #	knora-base:subjectClassConstraint document:Expression;
 #	knora-base:objectClassConstraint publish:Publication.
@@ -374,8 +374,8 @@ publish:hasUnauthorizedRepublicationValue
 #publish:hasMonoAuthorPublicationValue
 #	a owl:ObjectProperty;
 #	rdfs:label "has mono-author publication - statement"@en, "hat Publikation eines einzelnen Autors - Festlegung"@de;
-#	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and its publication of one 
-#	author."@en;
+#	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and its publication of one 
+#	author."""@en;
 #	rdfs:subPropertyOf publish:hasPublicationValue;
 #	knora-base:subjectClassConstraint document:Expression;
 #	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -383,7 +383,7 @@ publish:hasUnauthorizedRepublicationValue
 publish:hasPolyAuthorPublication
 	a owl:ObjectProperty;
 	rdfs:label "has poly-author publication"@en, "hat Publikation mehrerer Autoren"@de;
-	rdfs:comment "Relating an expression to a publication thereof containing also expressions of other authors."@en;
+	rdfs:comment """Relating an expression to a publication thereof containing also expressions of other authors."""@en;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:PolyAuthorPublication.
@@ -391,7 +391,7 @@ publish:hasPolyAuthorPublication
 publish:hasPolyAuthorPublicationValue
 	a owl:ObjectProperty;
 	rdfs:label "has poly-author publication - statement"@en, "hat Publikation mehrerer Autoren - Festlegung"@de;
-	rdfs:comment "Relating an expression to a reification statement of the relation between the expression and a publication thereof containing also expressions of other authors."@en;
+	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a publication thereof containing also expressions of other authors."""@en;
 	rdfs:subPropertyOf publish:hasPublicationValue;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -424,7 +424,7 @@ publish:hasNachlassPublicationDescription
 publish:isPublishedIn
 	a owl:ObjectProperty;
 	rdfs:label "is published in"@en, "ist publiziert in"@de;
-	rdfs:comment "Relating a publication expression to a publication thereof."@en;
+	rdfs:comment """Relating a publication expression to a publication thereof."""@en;
 	rdfs:domain publish:Expression;
 	rdfs:range publish:Publication;
 	rdfs:subPropertyOf infocar:isOnCarrier;
@@ -434,7 +434,7 @@ publish:isPublishedIn
 publish:isPublishedInValue
 	a owl:ObjectProperty;
 	rdfs:label "is published in - statement"@en, "ist publiziert in - Festlegung"@de;
-	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a publication thereof."@en;
+	rdfs:comment """Relating a publication expression to a reification statement of the relation between the publication expression and a publication thereof."""@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
 	knora-base:subjectClassConstraint publish:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -460,7 +460,7 @@ publish:isPublishedOnWeb
 publish:hasRedactor
 	a owl:ObjectProperty;
 	rdfs:label "has redactor"@en, "hat  Redakteur"@de;
-	rdfs:comment "Relating a publication expression to a redactor thereof."@en;
+	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
 	rdfs:domain publish:Expression;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom publish:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -470,7 +470,7 @@ publish:hasRedactor
 publish:hasRedactorValue
 	a owl:ObjectProperty;
 	rdfs:label "has redactor - statement"@en, "hat  Redakteur - Festlegung"@de;
-	rdfs:comment "Relating a publication expression to a reification statement of the relation between the publication expression and a redactor thereof."@en;
+	rdfs:comment """Relating a publication expression to a reification statement of the relation between the publication expression and a redactor thereof."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint publish:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -478,7 +478,7 @@ publish:hasRedactorValue
 publish:hasDescription
 	a owl:ObjectProperty;
 	rdfs:label "publication has description"@en, "Publikation hat beschreibung"@de;
-	rdfs:comment "Relating a publication to a description thereof."@en;
+	rdfs:comment """Relating a publication to a description thereof."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
@@ -489,34 +489,34 @@ publish:hasDescription
 publish:hasDate
 	a owl:ObjectProperty;
 	rdfs:label "publication has date"@en, "Publikation hat datum"@de;
-	rdfs:comment "Relating a publication to the date it was published on."@en;
+	rdfs:comment """Relating a publication to the date it was published on."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:DateValue;
 	salsah-gui:guiElement salsah-gui:Date.
 
-publish:hasPeriod
-	a owl:ObjectProperty;
-	rdfs:label "publication has period"@en, "Publikation hat Periode"@de;
-	rdfs:comment "Relating a publication to a period it was created in."@en;
-	rdfs:domain publish:Publication;
-	rdfs:range publish:Period;
-	rdfs:subPropertyOf event:hasEvent;
-	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint publish:Period.
+#publish:hasCreating
+#	a owl:ObjectProperty;
+#	rdfs:label "publication has creating"@en, "Publikation hat Periode"@de;
+#	rdfs:comment """Relating a publication to its creating."""@en;
+#	rdfs:domain publish:Publication;
+#	rdfs:range publish:Creating;
+#	rdfs:subPropertyOf event:hasEvent;
+#	knora-base:subjectClassConstraint publish:Publication;
+#	knora-base:objectClassConstraint publish:Creating.
 
-publish:hasPeriodValue
-	a owl:ObjectProperty;
-	rdfs:label "publication has period - statement"@en, "Publikation hat Periode - Festlegung"@de;
-	rdfs:comment "Relating a publication to a reification statement of the relation between the publication and a period it was cretaed in."@en;
-	rdfs:subPropertyOf event:hasEventValue;
-	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+#publish:hasCreatingValue
+#	a owl:ObjectProperty;
+#	rdfs:label "publication has creating - statement"@en, "Publikation hat Periode - Festlegung"@de;
+#	rdfs:comment """Relating a publication to a reification statement of the relation between the publication and a its creating."""@en;
+#	rdfs:subPropertyOf event:hasEventValue;
+#	knora-base:subjectClassConstraint publish:Publication;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
 
 publish:hasTitle
 	a owl:ObjectProperty;
 	rdfs:label "publication has title"@en, "Publikation hat titel"@de;
-	rdfs:comment "Relating a publication to its title."@en;
+	rdfs:comment """Relating a publication to its title."""@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -525,7 +525,7 @@ publish:hasTitle
 publish:hasPublisher
 	a owl:ObjectProperty;
 	rdfs:label "has publisher"@en, "hat Herausgeber"@de;
-	rdfs:comment "Relating a publication to its publisher."@en;
+	rdfs:comment """Relating a publication to its publisher."""@en;
 	rdfs:domain publish:Publication;
 #	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:Publisher]];
 	rdfs:subPropertyOf human:hasCreator;
@@ -535,7 +535,7 @@ publish:hasPublisher
 publish:hasPublisherValue
 	a owl:ObjectProperty;
 	rdfs:label "has publisher - statement"@en, "hat Herausgeber - Festlegung"@de;
-	rdfs:comment "Relating a publication to a reification statement of the relation between the publication and its publisher."@en;
+	rdfs:comment """Relating a publication to a reification statement of the relation between the publication and its publisher."""@en;
 	rdfs:subPropertyOf human:hasCreatorValue;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -543,7 +543,7 @@ publish:hasPublisherValue
 publish:hasPublisherDescription
 	a owl:ObjectProperty;
 	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de;
-	rdfs:comment "Relating a publication to its publisher's description."@en;
+	rdfs:comment """Relating a publication to its publisher's description."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -552,7 +552,7 @@ publish:hasPublisherDescription
 publish:hasPrinterDescription
 	a owl:ObjectProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de;
-	rdfs:comment "Relating a publication to its printer's description."@en;
+	rdfs:comment """Relating a publication to its printer's description."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -561,7 +561,7 @@ publish:hasPrinterDescription
 publish:hasBibliographicReference
 	a owl:ObjectProperty;
 	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
-	rdfs:comment "Relating a publication to a bibliographic reference thereof."@en;
+	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;

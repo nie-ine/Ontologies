@@ -113,6 +113,12 @@ human:Action
 	rdfs:comment """Action with a human agent."""@en;
 	rdfs:subClassOf event:Action.
 
+human:Procedure
+	a owl:Class;
+	rdfs:label "human procedure"@en, "menschliche Vorgehensweise"@de;
+	rdfs:comment """Procedure with a human agent."""@en;
+	rdfs:subClassOf event:Procedure.
+
 human:BiologicalSex # :subClassOf :Trait
 	a owl:Class;
 	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
@@ -222,9 +228,7 @@ human:Creation
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:PhysicalCreation
 	a owl:Class;
@@ -325,11 +329,11 @@ human:OccupationalRole
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:subClassOf human:Role.
 
-human:Floruit #* on which level: agent, body of thought?
+human:Floruit
 	a owl:Class;
 	rdfs:label "person's floruit"@en, "Floruit einer Person"@de;
-	rdfs:comment """Period during which a person or an organization was most active or flourishing."""@en;
-	rdfs:subClassOf human:Action.
+	rdfs:comment """Period during which a person was most active or flourishing."""@en;
+	rdfs:subClassOf human:Action. # part of a life
 
 human:Vulgarizer
 	a owl:Class;

@@ -96,7 +96,7 @@ infocar:Printing
 	a owl:Class;
 	rdfs:label "printing"@en, "Drucken"@de;
 	rdfs:comment """Action of putting an expression on a carrier, e.g. with ink on paper."""@en;
-	rdfs:subClassOf human:Action, frbroo:F32_Carrier_Production_Event.
+	rdfs:subClassOf human:Procedure, frbroo:F32_Carrier_Production_Event.
 
 infocar:Printer
 	a owl:Class;

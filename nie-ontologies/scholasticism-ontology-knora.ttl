@@ -58,6 +58,12 @@ schola:Role
 	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:Role.
 
+# schola:Complilator
+#	a owl:Class;
+#	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
+#	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en; #* also secretary of lecturer, RP
+#	rdfs:subClassOf schola:Role.
+
 schola:Reportator
 	a owl:Class;
 	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
@@ -125,37 +131,37 @@ schola:OrdinatioCommentary #* after ReportatioApprobata
 schola:GlossCommentary
 	a owl:Class;
 	rdfs:label "gloss commentary"@en, "Glosse-Kommentar"@de;
-	rdfs:comment """Scholastic commentary initiated by a gloss."""@en;
+	rdfs:comment """Scholastic commentary containing glosses."""@en;
 	rdfs:subClassOf schola:Commentary. # hasGloss, hasDiscussion
 
 schola:VerseCommentary
 	a owl:Class;
 	rdfs:label "verse commentary"@en, "Vers-Kommentar"@de;
-	rdfs:comment """Scholastic commentary initiated by a verse."""@en;
+	rdfs:comment """Scholastic commentary containing verses."""@en;
 	rdfs:subClassOf schola:Commentary. # hasVerse, hasDiscussion
 
 schola:TableCommentary #** only text?
 	a owl:Class;
 	rdfs:label "table commentary"@en, "Tabelle-Kommentar"@de;
-	rdfs:comment """Scholastic commentary initiated by a table."""@en;
+	rdfs:comment """Scholastic commentary containing a table."""@en;
 	rdfs:subClassOf schola:Commentary. # hasTable, hasDiscussion
 
 schola:QuaestioCommentary
 	a owl:Class;
 	rdfs:label "quaestio commentary"@en, "Quaestio-Kommentar"@de, "quaestio"@la;
-	rdfs:comment """Scholastic commentary initiated by a question."""@en;
+	rdfs:comment """Scholastic commentary containing questions."""@en; # initiated?
 	rdfs:subClassOf schola:Commentary. # hasQuestion, hasAnswer, hasDiscussion
 
 schola:ConclusioCommentary
 	a owl:Class;
 	rdfs:label "conclusio commentary"@en, "Conclusio-Kommentar"@de, "conclusio"@la;
-	rdfs:comment """Scholastic commentary initiated by a conclusion."""@en;
+	rdfs:comment """Scholastic commentary containing conclusions."""@en;
 	rdfs:subClassOf schola:Commentary. # hasConclusion, hasDiscussion
 
 schola:SyllogismusCommentary
 	a owl:Class;
 	rdfs:label "syllogismus commentary"@en, "Syllogismus-Kommentar"@de, "syllogismus"@la;
-	rdfs:comment """Scholastic commentary initiated by a syllogism."""@en;
+	rdfs:comment """Scholastic commentary containing syllogisms."""@en;
 	rdfs:subClassOf schola:Commentary. # hasSyllogism, hasDiscussion
 
 schola:AbbreviationCommentary

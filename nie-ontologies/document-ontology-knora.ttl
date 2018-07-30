@@ -117,7 +117,7 @@ document:Layout
 	a owl:Class;
 	rdfs:label "layout"@en, "Aufmachung"@de;
 	rdfs:comment """Way in which the content of a page is set out."""@en;
-	rdfs:subClassOf knora-base:Resource. #* concept:Layout
+	rdfs:subClassOf knora-base:Resource. #* document:Element, concept:Layout
 
 document:Column # make a text: SC? - ReadabilityStructure
 	a owl:Class;

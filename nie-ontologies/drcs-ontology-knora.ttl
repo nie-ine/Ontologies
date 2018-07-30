@@ -33,7 +33,7 @@ drcs:Person
 	rdfs:comment """Person as subject in the scientific study of Commentaries on Peter Lombard’s Sentences."""@en;
 	rdfs:subClassOf human:Person, [
 		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # drcs:Scholastic
 #	a owl:Class;

@@ -61,7 +61,7 @@ event:Input
 event:Output
 	a owl:Class;
 	rdfs:label "output"@en, "Output"@de;
-	rdfs:comment """Consequence of a change in a process."""@en;
+	rdfs:comment """Postcondition to a change in a process."""@en;
 	rdfs:subClassOf knora-base:Resource, [
 		a owl:Restriction; owl:onProperty event:isOutputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:isOutputOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -75,7 +75,7 @@ event:Action
 event:Procedure
 	a owl:Class;
 	rdfs:label "procedure"@en, "Vorgehensweise"@de;
-	rdfs:comment """Action executed in one or more steps, in a certain manner obtaining a certain output under certain circumstances."""@en;
+	rdfs:comment """Action executed in one or more sub-actions, in a certain manner, obtaining a certain output under certain circumstances."""@en;
 	rdfs:subClassOf event:Action.
 
 event:State

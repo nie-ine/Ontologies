@@ -36,7 +36,7 @@ teach:Teaching
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0058/teaching#>;
 	rdfs:label "teaching"@en, "Unterricht"@de;
 	rdfs:comment """Person's action of communicating information in order to help another person to acquire knowledge, competence or value."""@en;
-	rdfs:subClassOf human:Action, [
+	rdfs:subClassOf human:Procedure, [
 		a owl:Restriction; owl:onProperty teach:teachingBy; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty teach:teachingByValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 

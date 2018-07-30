@@ -39,7 +39,9 @@ physical:Resource
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf knora-base:Resource, [ #* to link to cidoc:
 		a owl:Restriction; owl:onProperty human:hasUse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasUseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty human:hasUseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 physical:Space
 	a owl:Class;

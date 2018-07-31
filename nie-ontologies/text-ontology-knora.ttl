@@ -340,7 +340,7 @@ text:hasDefinition
 text:hasDetailDescription
 	a owl:ObjectProperty;
 	rdfs:label "has detail description"@en, "hat Detail-Beschreibung"@de;
-	rdfs:comment """Relating a resource to a description of its detail(s). E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
+	rdfs:comment """Relating a resource to a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;

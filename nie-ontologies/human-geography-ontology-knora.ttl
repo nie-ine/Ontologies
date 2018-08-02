@@ -133,30 +133,42 @@ humgeo:Building
 	rdfs:comment """."""@en;
 	rdfs:subClassOf physical:EarthPlace.
 
-humgeo:PostalAddress #* more general? # comprises cidoc:E45_Address and E51 Contact Point: postal box
+humgeo:PostalAddress #* more general? # comprises cidoc:E45_Address and cidoc:E51_Contact_Point: postal box
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "postal address"@en, "Postanschrift"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf concept:SymbolicConcept, [
+		a owl:Restriction; owl:onProperty humgeo:hasAddressee; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty humgeo:hasStreetName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty humgeo:hasHouseNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasPostcode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # zip code
+		a owl:Restriction; owl:onProperty humgeo:hasPostcode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty humgeo:hasTownName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty humgeo:hasCountryName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-humgeo:Residence #* Wohnsitz = address!
-	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
-	rdfs:label "residence"@en, "Wohnsitz"@de;
-	rdfs:comment """Place where a person is registered to be living."""@en; # main dwelling place in period
-	rdfs:subClassOf physical:EarthPlace.
 
 # domicile
 
 #
 # PROPERTIES
 #
+
+humgeo:hasDomicile
+	a owl:ObjectProperty;
+	rdfs:label "has domicile"@en, "hat Sitz"@de;
+	rdfs:comment """Relating a human agent - person or group - to a place of registered staying and contactability."""@en;
+	rdfs:domain human:Agent;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation;
+	knora-base:subjectClassConstraint human:Agent;
+	knora-base:objectClassConstraint physical:Place.
+
+humgeo:hasDomicileValue
+	a owl:ObjectProperty;
+	rdfs:label "has domicile - statement"@en, "hat Sitz - Festlegung"@de;
+	rdfs:comment """Relating a human agent - person or group - to a reification statement of the relation between the agent and a place of registered staying."""@en;
+	rdfs:subPropertyOf physical:hasLocationValue;
+	knora-base:subjectClassConstraint human:Agent;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 humgeo:hasPostalAddress
 	a owl:ObjectProperty;
@@ -175,6 +187,53 @@ humgeo:hasPostalAddressValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+humgeo:hasReceiverPostalAddress
+	a owl:ObjectProperty;
+	rdfs:label "has receiver postal address"@en, "hat Empfänger-Postanschrift"@de;
+	rdfs:comment """Relating something being sent to the postal address of the receiver."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range humgeo:PostalAddress;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint humgeo:PostalAddress.
+
+humgeo:hasReceiverPostalAddressValue
+	a owl:ObjectProperty;
+	rdfs:label "has receiver postal address - statement"@en, "hat Empfänger-Postanschrift - Festlegung"@de;
+	rdfs:comment """Relating something being sent to a reification statement of the relation between that something and the postal address of the receiver."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+humgeo:hasReturnPostalAddress
+	a owl:ObjectProperty;
+	rdfs:label "has return postal address"@en, "hat Rücksendung-Postanschrift"@de;
+	rdfs:comment """Relating something being sent to the postal address for return."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range humgeo:PostalAddress;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint humgeo:PostalAddress.
+
+humgeo:hasReturnPostalAddressValue
+	a owl:ObjectProperty;
+	rdfs:label "has sender postal address - statement"@en, "hat Rücksendung-Postanschrift - Festlegung"@de;
+	rdfs:comment """Relating something being sent to a reification statement of the relation between that something and the postal address of the sender."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+humgeo:hasAddressee
+	a owl:ObjectProperty;
+	rdfs:label "has addressee"@en, "hat AdressatIn"@de;
+	rdfs:comment """Relating a postal address to an addressee."""@en;
+	rdfs:domain humgeo:PostalAddress;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint humgeo:PostalAddress;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 humgeo:hasStreetName
 	a owl:ObjectProperty;
@@ -201,6 +260,7 @@ humgeo:hasHouseNumber
 humgeo:hasPostcode
 	a owl:ObjectProperty;
 	rdfs:label "has postcode"@en, "hat Postleitzahl"@de;
+#	text:hasSynonym "has zip code"@en;
 	rdfs:comment """Relating a postal address to its postcode."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;

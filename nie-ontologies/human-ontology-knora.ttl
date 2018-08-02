@@ -11,6 +11,7 @@
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix humgeo: <http://www.knora.org/ontology/0049/human-geography#>.
 @prefix org: <http://www.knora.org/ontology/0051/organization#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
@@ -37,11 +38,15 @@ human:Agent
 	a owl:Class;
 	rdfs:label "human agent"@en, "menschliche Agent"@de;
 	rdfs:comment """Agent being one or more humans"""@en, """Agent einer oder mehrerer Menschen betreffend."""@de;
-	rdfs:subClassOf agent:Agent, [ #* cidoc
+	rdfs:subClassOf agent:Agent, cidoc:E39_Actor, [
 		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:actsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:agentHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:agentHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty human:agentHasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasDomicile; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasDomicileValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasPostalAddressValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Human
 	a owl:Class;
@@ -288,7 +293,7 @@ human:CreationDerivative
 human:Owner
 	a owl:Class;
 	rdfs:label "owner"@en, "Besitzer"@de;
-	rdfs:comment """Role of a person having a property."""@en;
+	rdfs:comment """Role of a human agent - a person or a group - having a property."""@en;
 	rdfs:subClassOf human:Role.
 
 human:Property # check cidoc
@@ -367,12 +372,33 @@ human:PerformingArtist
 	rdfs:comment """Artist in a performing art."""@en;
 	rdfs:subClassOf human:Artist.
 
-# Actor
-# Musician
-# Singer
-# Dancer
-# BalletDancer
+human:Actor
+	a owl:Class;
+	rdfs:label "actor"@en, "DarstellerIn"@de, "acteur ou actrice"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf human:PerformingArtist.
+
+human:Musician
+	a owl:Class;
+	rdfs:label "musician"@en, "MusikerIn"@de, "musicien ou musicienne"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf human:PerformingArtist.
+
+human:Singer
+	a owl:Class;
+	rdfs:label "singer"@en, "SängerIn"@de, "chanteur ou chanteuse"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf human:PerformingArtist.
+
 # 0peraSinger
+
+human:Dancer
+	a owl:Class;
+	rdfs:label "dancer"@en, "DanserIn"@de, "danseur ou danseuse"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf human:PerformingArtist.
+
+# BalletDancer
 
 # Science
 

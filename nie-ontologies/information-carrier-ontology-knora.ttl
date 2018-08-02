@@ -246,29 +246,13 @@ infocar:Letter
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
 	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton. #, [
-#		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:Postcard
 	a owl:Class;
 	rdfs:label "postcard"@en, "Postkarte"@de;
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton. #, [
-#		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:Convolute
 	a owl:Class;

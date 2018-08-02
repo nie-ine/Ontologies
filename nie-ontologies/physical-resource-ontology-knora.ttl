@@ -121,12 +121,16 @@ physical:Matter
 		a owl:Restriction; owl:onProperty human:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSendingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceivingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasSendingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasReceivingLocationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasPostalAddressValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty humgeo:hasReceiverPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasReceiverPostalAddressValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasReturnPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasReturnPostalAddressValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 physical:Compound
 	a owl:Class;
@@ -236,6 +240,28 @@ physical:placeHasName
 	knora-base:subjectClassConstraint physical:Place;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+physical:hasSendingDate
+	a owl:ObjectProperty;
+	rdfs:label "has sending date"@en, "hat Absendedatum"@de;
+	rdfs:comment """Relating something material to a date it was sent on."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range xsd:date;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:DateValue;
+	salsah-gui:guiElement salsah-gui:Date.
+
+physical:hasReceivingDate
+	a owl:ObjectProperty;
+	rdfs:label "has receiving date"@en, "hat Empfangsdatum"@de;
+	rdfs:comment """Relating something material to a date it was received on."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range xsd:date;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:DateValue;
+	salsah-gui:guiElement salsah-gui:Date.
 
 physical:hasSendingLocation
 	a owl:ObjectProperty;

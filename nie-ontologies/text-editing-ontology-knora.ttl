@@ -58,7 +58,7 @@ textedit:Glossator
 	a owl:Class;
 	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
 	rdfs:comment """Role of a person adding glosses to a text."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf textedit:Editor.
 
 textedit:Abbreviator
 	a owl:Class;
@@ -66,19 +66,19 @@ textedit:Abbreviator
 	rdfs:comment """Editor shortening a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
-textedit:Abbreviation
+textedit:Abbreviation # derivative?
 	a owl:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
 	rdfs:comment """Shortened edition."""@en;
 	rdfs:subClassOf textedit:Edition.
 
-textedit:Paraphrase
+textedit:Paraphrase # derivative?
 	a owl:Class;
 	rdfs:label "paraphrase"@en, "Paraphrase"@de;
 	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
-textedit:LiteralExposition
+textedit:LiteralExposition # derivative?
 	a owl:Class;
 	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de;
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;

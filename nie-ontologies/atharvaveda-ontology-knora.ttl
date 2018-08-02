@@ -36,11 +36,11 @@
 
 # athar:
 
-athar:CriticalApparatus
-	a owl:Class;
-	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
-	rdfs:comment """Critical apparatus used in the Atharvaveda project at the Zürich University 2018."""@en;
-	rdfs:subClassOf textedit:CriticalApparatus.
+# athar:CriticalApparatus
+#	a owl:Class;
+#	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
+#	rdfs:comment """Critical apparatus used in the Atharvaveda project at the Zürich University 2018."""@en;
+#	rdfs:subClassOf textedit:CriticalApparatus.
 
 # hemistich: texts delimited by single and double pipes, respectively. We would like to keep the pipes, however, eventually in a special XML tag, in order to be able to refer to them later
 # verse + metric

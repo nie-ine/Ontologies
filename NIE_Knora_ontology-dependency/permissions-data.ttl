@@ -1339,7 +1339,7 @@
 	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
 
 #
-# Sanskrit
+# Meyer
 #
 
 ## Administrative permissions on project member

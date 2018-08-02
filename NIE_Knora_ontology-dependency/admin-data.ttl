@@ -1343,14 +1343,14 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0061>.
 
 #
-# Sanskrit
+# Meyer
 #
 
 <http://rdfh.ch/projects/0062> a knora-base:knoraProject;
-  knora-base:projectShortname "Sanskrit"^^xsd:string;
+  knora-base:projectShortname "Meyer"^^xsd:string;
   knora-base:projectShortcode "0062"^^xsd:string;
-  knora-base:projectLongname "An ontology about Sanskrit"^^xsd:string;
-  knora-base:projectDescription "Formal description of concepts in Sanskrit"@en;
+  knora-base:projectLongname "An ontology about Conrad Ferdinand Meyer's correspondence"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of correspondence of Conrad Ferdinand Meyer, 11 October 1825 – 28 November 1898"@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 

@@ -81,7 +81,7 @@ agent:OrganizationRole
 agent:Creator
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0040/agent#>;
-	rdfs:label "creator"@en, "ErschafferIn"@de;
+	rdfs:label "creator"@en, "Erschaffer"@de;
 	rdfs:comment """Role of an agent creating something."""@en;
 	skos:note """Does not need to be a person."""@en;
 	rdfs:subClassOf agent:Role.

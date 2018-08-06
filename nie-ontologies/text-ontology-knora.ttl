@@ -125,10 +125,10 @@ text:Expression
 
 text:Author
 	a owl:Class;
-	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
+	rdfs:label "text author"@en, "Textautor"@de, "auteur du texte"@fr, "autore di testo"@it;
 	rdfs:comment """Role of a person being responsible for a text expression."""@en;
 	skos:note """Often an author is also the creator of a text expression."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:Author.
 
 text:ManOfLetters
 	a owl:Class;
@@ -520,22 +520,22 @@ text:isCitedInValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text:hasAuthor #*
+text:hasAuthor
 	a owl:ObjectProperty;
-	rdfs:label "has author"@en, "hat Autor"@de;
+	rdfs:label "text has author"@en, "Text hat Autor"@de;
 	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasAuthorRole; owl:someValuesFrom text:Author]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
+	rdfs:subPropertyOf human:hasAuthor;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
 
 text:hasAuthorValue
 	a owl:ObjectProperty;
-	rdfs:label "has author - statement"@en, "hat Autor - Festlegung"@de;
+	rdfs:label "text has author - statement"@en, "Text hat Autor - Festlegung"@de;
 	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who authored it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf human:hasAuthorValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

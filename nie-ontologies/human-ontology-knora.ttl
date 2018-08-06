@@ -210,6 +210,13 @@ human:Creator
 	rdfs:comment """Role of a human agent - person or group - creating something."""@en;
 	rdfs:subClassOf human:AgentRole.
 
+human:Author
+	a owl:Class;
+	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
+	rdfs:comment """Role of a person being responsible for a creation."""@en;
+	skos:note """An author can also be the creator."""@en;
+	rdfs:subClassOf human:Role.
+
 human:Creating
 	a owl:Class;
 	rdfs:label "person's creating"@en, "Kreierung einer Person"@de;
@@ -218,11 +225,13 @@ human:Creating
 
 human:Creation
 	a owl:Class;
-	rdfs:label "person's creation"@en, "Kreation einer Person"@de;
+	rdfs:label "human creation"@en, "Kreation einer Mensch"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
 		a owl:Restriction; owl:onProperty human:hasCreator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasCreatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
+		a owl:Restriction; owl:onProperty human:hasCreatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -750,19 +759,38 @@ human:groupIsMemberOfValue
 human:hasCreator
 	a owl:ObjectProperty;
 	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
-	rdfs:comment """Relating something to a human agent - a person or a group - that created it."""@en;
-	rdfs:domain rdfs:Resource;
+	rdfs:comment """Relating a creation to a human agent - a person or a group - that created it."""@en;
+	rdfs:domain human:Creation;
 #	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Creator]];
 	rdfs:subPropertyOf agent:hasCreator;
-	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint human:Agent.
 
 human:hasCreatorValue
 	a owl:ObjectProperty;
 	rdfs:label "has creator - statement"@en, "hat ErschafferIn - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that created it."""@en;
+	rdfs:comment """Relating a creation to a reification statement of the relation between the creation and a human agent - a person or a group - that created it."""@en;
 	rdfs:subPropertyOf agent:hasCreatorValue;
-	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:subjectClassConstraint human:Creation;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasAuthor
+	a owl:ObjectProperty;
+	rdfs:label "has author"@en, "hat Autor"@de;
+	rdfs:comment """Relating a creation to a person who authored it."""@en;
+	skos:note """A creation can have more than one author."""@en;
+	rdfs:domain human:Creation;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom human:Author]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint human:Creation;
+	knora-base:objectClassConstraint human:Person.
+
+human:hasAuthorValue
+	a owl:ObjectProperty;
+	rdfs:label "has author - statement"@en, "hat Autor - Festlegung"@de;
+	rdfs:comment """Relating a creation to a reification statement of the relation between the creation and a person who authored it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasCreating

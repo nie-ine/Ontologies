@@ -58,7 +58,7 @@ document:Structure
 	rdfs:label "document structure"@en, "Dokumentstruktur"@de;
 	rdfs:comment """Structural element of a document."""@en;
 	rdfs:subClassOf document:Element, [
-		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #**
 		a owl:Restriction; owl:onProperty infocar:hasHyperlinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:ContentStructure

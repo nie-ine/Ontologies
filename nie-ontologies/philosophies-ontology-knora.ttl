@@ -36,7 +36,7 @@ philos:Humanism
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf philo:Philosophy.
 
-philos:Nominalism #* existing?
+philos:Nominalism #** existing?
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0052/philosophies#>;
 	rdfs:label "Nominalism"@en;

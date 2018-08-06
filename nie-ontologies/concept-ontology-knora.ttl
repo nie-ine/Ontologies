@@ -31,7 +31,7 @@
 # CLASSES
 #
 
-concept:Concept
+concept:Concept #***
 	a owl:Class;
 	rdfs:label "concept"@en, "Konzept"@de;
 	rdfs:comment """Abstract idea created by a person, as product of mental activity."""@en;
@@ -55,7 +55,7 @@ concept:Commonplace # related: truism, cliché
 	rdfs:comment """Concept generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:Concept.
 
-concept:SymbolicConcept
+concept:SymbolicConcept #***
 	a owl:Class;
 	rdfs:label "symbolic concept"@en, "symbolisches Konzept"@de;
 	rdfs:comment """Concept represented by one or more symbols."""@en; #*
@@ -76,7 +76,7 @@ concept:Set #*
 	rdfs:comment """Set of concepts."""@en;
 	rdfs:subClassOf concept:SymbolicConcept.
 
-concept:PropositionalConcept
+concept:PropositionalConcept #***
 	a owl:Class;
 	rdfs:label "propositional concept"@en, "propositionales Konzept"@de;
 	rdfs:comment """Concept represented by a statement bearing a truth value, e.g. a judgement or opinion."""@en; #*

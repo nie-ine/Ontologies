@@ -26,7 +26,7 @@ philo:Philosophy
 	a owl:Class;
 	rdfs:label "philosophy"@en, "Philosophie"@de;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf concept:ThoughtBody. #*
+	rdfs:subClassOf concept:ThoughtBody.
 
 philo:Metaphysics
 	a owl:Class;

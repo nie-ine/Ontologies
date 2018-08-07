@@ -76,7 +76,7 @@ publish:Publisher
 	a owl:Class;
 	rdfs:label "publisher"@en, "Herausgeber"@de;
 	rdfs:comment """Role of a publishing agent, person or organization."""@en;
-	rdfs:subClassOf human:AgentRole.
+	rdfs:subClassOf human:Creator.
 
 publish:NewspaperPublisher
 	a owl:Class;

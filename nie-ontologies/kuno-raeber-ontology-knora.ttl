@@ -54,8 +54,8 @@ kuno-raeber:Text
 		a owl:Restriction; owl:onProperty kuno-raeber:isInSwissGerman; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasEdition; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasEditionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasEdition; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasEditionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:Poem
@@ -74,12 +74,12 @@ kuno-raeber:Poem
 		a owl:Restriction; owl:onProperty kuno-raeber:hasReferenceTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:Edition
-	a owl:Class;
-	rdfs:label "edited text"@en, "edierte Text"@de;
-	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;
-	rdfs:subClassOf textedit:Edition, [
-		a owl:Restriction; owl:onProperty language:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger].
+# kuno-raeber:Edition
+#	a owl:Class;
+#	rdfs:label "edited text"@en, "edierte Text"@de;
+#	rdfs:comment """Edition of a text authored by Kuno Raeber."""@en, """Edition eines von Kuno Raeber verfassten Texts."""@de;
+#	rdfs:subClassOf textedit:DerivedTextExpression, [
+#		a owl:Restriction; owl:onProperty language:hasContent; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:DiplomaticTranscription
 	a owl:Class;
@@ -98,8 +98,8 @@ kuno-raeber:HandwrittenPoem
 	rdfs:subClassOf kuno-raeber:Poem, text:HandwrittenText, [
 		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -119,8 +119,8 @@ kuno-raeber:PostcardPoem
 	rdfs:subClassOf kuno-raeber:HandwrittenPoem, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPostcard; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPostcardValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscription; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscriptionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscription; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:hasDiplomaticTranscriptionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:TypewrittenPoem
@@ -378,37 +378,37 @@ kuno-raeber:NachlassPublication
 # PROPERTIES
 #
 
-kuno-raeber:hasEdition
-	a owl:ObjectProperty;
-	rdfs:label "has edition"@en, "hat Edition"@de;
-	rdfs:comment """Relating a text by Kuno Raeber to an edition it has."""@en;
-	rdfs:subPropertyOf textedit:hasEdition;
-	knora-base:subjectClassConstraint kuno-raeber:Text;
-	knora-base:objectClassConstraint kuno-raeber:Edition.
+# kuno-raeber:hasEdition
+#	a owl:ObjectProperty;
+#	rdfs:label "has edition"@en, "hat Edition"@de;
+#	rdfs:comment """Relating a text by Kuno Raeber to an edition it has."""@en;
+#	rdfs:subPropertyOf textedit:hasEdition;
+#	knora-base:subjectClassConstraint kuno-raeber:Text;
+#	knora-base:objectClassConstraint kuno-raeber:Edition.
 
-kuno-raeber:hasEditionValue
-	a owl:ObjectProperty;
-	rdfs:label "has edition - statement"@en, "hat Edition - Festlegung"@de;
-	rdfs:comment """Relating a text by Kuno Raeber to a reification statement of the relation between the text and an edition it has."""@en;
-	rdfs:subPropertyOf textedit:hasEditionValue;
-	knora-base:subjectClassConstraint kuno-raeber:Text;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+# kuno-raeber:hasEditionValue
+#	a owl:ObjectProperty;
+#	rdfs:label "has edition - statement"@en, "hat Edition - Festlegung"@de;
+#	rdfs:comment """Relating a text by Kuno Raeber to a reification statement of the relation between the text and an edition it has."""@en;
+#	rdfs:subPropertyOf textedit:hasEditionValue;
+#	knora-base:subjectClassConstraint kuno-raeber:Text;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
 
-kuno-raeber:hasDiplomaticTranscription
-	a owl:ObjectProperty;
-	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de;
-	rdfs:comment "Relating a handwritten poem by Kuno Raeber to a diplomatic transcription it has."@en;
-	rdfs:subPropertyOf textedit:hasDiplomaticTranscription;
-	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
-	knora-base:objectClassConstraint kuno-raeber:DiplomaticTranscription.
+# kuno-raeber:hasDiplomaticTranscription
+#	a owl:ObjectProperty;
+#	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de;
+#	rdfs:comment "Relating a handwritten poem by Kuno Raeber to a diplomatic transcription it has."@en;
+#	rdfs:subPropertyOf textedit:hasDiplomaticTranscription;
+#	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
+#	knora-base:objectClassConstraint kuno-raeber:DiplomaticTranscription.
 
-kuno-raeber:hasDiplomaticTranscriptionValue
-	a owl:ObjectProperty;
-	rdfs:label "has diplomatic transcription - statement"@en, "hat diplomatische Umschrift - Festlegung"@de;
-	rdfs:comment "Relating a poem by Kuno Raeber to a reification statement of the relation between the poem and a diplomatic transcription it has."@en;
-	rdfs:subPropertyOf textedit:hasDiplomaticTranscriptionValue;
-	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+# kuno-raeber:hasDiplomaticTranscriptionValue
+#	a owl:ObjectProperty;
+#	rdfs:label "has diplomatic transcription - statement"@en, "hat diplomatische Umschrift - Festlegung"@de;
+#	rdfs:comment "Relating a poem by Kuno Raeber to a reification statement of the relation between the poem and a diplomatic transcription it has."@en;
+#	rdfs:subPropertyOf textedit:hasDiplomaticTranscriptionValue;
+#	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
 
 kuno-raeber:poemHasTitle
 	a owl:ObjectProperty;

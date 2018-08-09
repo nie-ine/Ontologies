@@ -87,7 +87,7 @@ publish:PersonPublisher
 
 publish:OrganizationPublisher
 	a owl:Class;
-	rdfs:label "organization publisher"@en, "Organization-Herausgeber"@de;
+	rdfs:label "organization publisher"@en, "Organisation-Herausgeber"@de;
 	rdfs:comment """Publisher as organization."""@en;
 	rdfs:subClassOf publish:Publisher, org:Role.
 

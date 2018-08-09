@@ -7,6 +7,7 @@
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix org: <http://www.knora.org/ontology/0051/organization#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix document: <http://www.knora.org/ontology/005C/document#>.
@@ -83,6 +84,12 @@ publish:PersonPublisher
 	rdfs:label "person publisher"@en, "Person-Herausgeber"@de;
 	rdfs:comment """Publisher as person."""@en;
 	rdfs:subClassOf publish:Publisher, human:Role.
+
+publish:OrganizationPublisher
+	a owl:Class;
+	rdfs:label "organization publisher"@en, "Organisation-Herausgeber"@de;
+	rdfs:comment """Publisher as organization."""@en;
+	rdfs:subClassOf publish:Publisher, org:Role.
 
 publish:NewspaperPublisher
 	a owl:Class;

@@ -149,7 +149,7 @@ text-structure:Paragraph
 
 text-structure:Section
 	a owl:Class;
-	rdfs:label "section"@en, "Textabschnitt"@de;
+	rdfs:label "section"@en, "Textabschnitt"@de, "kanda"@sa;
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isSectionOfExpression; owl:allValuesFrom text:Section], [

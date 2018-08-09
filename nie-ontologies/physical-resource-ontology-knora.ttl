@@ -117,10 +117,10 @@ physical:Matter
 	rdfs:comment """Physical resource having mass and volume."""@en;
 	skos:note """As in classical physics observed in everyday life."""@en;
 	rdfs:subClassOf physical:Space, dct:PhysicalResource, [
-		a owl:Restriction; owl:onProperty human:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasSendingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasReceivingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -240,6 +240,42 @@ physical:placeHasName
 	knora-base:subjectClassConstraint physical:Place;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+physical:hasSender
+	a owl:ObjectProperty;
+	rdfs:label "has sender"@en, "hat Absender"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
+	rdfs:domain physical:Matter;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Sender]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint human:Agent.
+
+physical:hasSenderValue
+	a owl:ObjectProperty;
+	rdfs:label "has sender - statement"@en, "hat Absender - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+physical:hasReceiver
+	a owl:ObjectProperty;
+	rdfs:label "has receiver"@en, "hat Empfänger"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
+	rdfs:domain physical:Matter;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Receiver]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint human:Agent.
+
+physical:hasReceiverValue
+	a owl:ObjectProperty;
+	rdfs:label "has receiver - statement"@en, "hat Empfänger - Festlegung"@de;
+	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Matter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 physical:hasSendingDate
 	a owl:ObjectProperty;

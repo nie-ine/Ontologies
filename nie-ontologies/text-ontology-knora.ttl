@@ -162,11 +162,17 @@ text:Copyist
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
 	rdfs:subClassOf human:Creator.
 
+text:AgentCiter
+	a owl:Class;
+	rdfs:label "agent citer"@en, "Agent-Zitierer"@de;
+	rdfs:comment """Role of a human agent as person or group, citing a text."""@en;
+	rdfs:subClassOf human:AgentRole.
+
 text:Citer
 	a owl:Class;
 	rdfs:label "citer"@en, "ZitiererIn"@de;
-	rdfs:comment """Role of a human agent as person or group, citing a text."""@en;
-	rdfs:subClassOf human:AgentRole.
+	rdfs:comment """Role of a person citing a text."""@en;
+	rdfs:subClassOf text:AgentCiter, human:Role.
 
 text:Citation
 	a owl:Class;

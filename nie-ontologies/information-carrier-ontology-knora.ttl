@@ -435,30 +435,6 @@ infocar:isBindingOfValue
 	knora-base:subjectClassConstraint infocar:Binding;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-#infocar:hasPage
-#	a owl:ObjectProperty;
-#	rdfs:label "has page"@en;
-#	rdfs:comment """Relating a book to a page thereof."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkTo;
-#	knora-base:subjectClassConstraint infocar:Book; # owl:propertyChainAxiom (infocar:hasLeaf x:hasSide)
-#	knora-base:objectClassConstraint infocar:Page.
-
-#infocar:hasPageValue
-#	a owl:ObjectProperty;
-#	rdfs:label "has page - statement"@en;
-#	rdfs:comment """Relating a book to a reification statement of the relation between the book and a page thereof."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkToValue;
-#	knora-base:subjectClassConstraint infocar:Book;
-#	knora-base:objectClassConstraint knora-base:LinkValue.
-
-#infocar:hasPageNumber
-#	a owl:ObjectProperty;
-#	rdfs:label "has page number"@en;
-#	rdfs:comment """Relating an expression to the number of a page it is on."""@en;
-#	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint document:Expression; # owl:propertyChainAxiom (infocar:isOnPage x:hasNumber)
-#	knora-base:objectClassConstraint knora-base:IntValue.
-
 infocar:volumeHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "volume has number"@en, "Band hat Nummer"@de;
@@ -521,7 +497,7 @@ infocar:hasDiaryEnteringDate
 	a owl:ObjectProperty;
 	rdfs:label "has diary entering date"@en, "hat Tagebucheintragsdatum"@de;
 	rdfs:comment """Relating a diary entry to its date of entering in a diary."""@en;
-	rdfs:subPropertyOf human:hasCreationDate;
+	rdfs:subPropertyOf human:creationHasDate;
 	knora-base:subjectClassConstraint text:DiaryEntry;
 	knora-base:objectClassConstraint knora-base:DateValue;
 	salsah-gui:guiElement salsah-gui:Date.
@@ -545,36 +521,36 @@ infocar:isInLetterValue
 infocar:hasSender
 	a owl:ObjectProperty;
 	rdfs:label "has sender"@en, "hat Absender"@de;
-	rdfs:comment """Relating something to a human agent - a person or a group - that sent it."""@en;
+	rdfs:comment """Relating an information carrier to a human agent - a person or a group - that sent it."""@en;
 	rdfs:domain infocar:Carrier;
 #	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Sender]];
-	rdfs:subPropertyOf human:hasSender;
+	rdfs:subPropertyOf physical:hasSender;
 	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint human:Agent.
 
 infocar:hasSenderValue
 	a owl:ObjectProperty;
 	rdfs:label "has sender - statement"@en, "hat Absender - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
-	rdfs:subPropertyOf human:hasSenderValue;
+	rdfs:comment """Relating an information carrier to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
+	rdfs:subPropertyOf physical:hasSenderValue;
 	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:hasReceiver
 	a owl:ObjectProperty;
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
-	rdfs:comment """Relating something to a human agent - a person or a group - that received it."""@en;
+	rdfs:comment """Relating an information carrier to a human agent - a person or a group - that received it."""@en;
 	rdfs:domain infocar:Carrier;
 #	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Receiver]];
-	rdfs:subPropertyOf human:hasReceiver;
+	rdfs:subPropertyOf physical:hasReceiver;
 	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint human:Agent.
 
 infocar:hasReceiverValue
 	a owl:ObjectProperty;
 	rdfs:label "has receiver - statement"@en, "hat Empfänger - Festlegung"@de;
-	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
-	rdfs:subPropertyOf human:hasReceiverValue;
+	rdfs:comment """Relating an information carrier to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
+	rdfs:subPropertyOf physical:hasReceiverValue;
 	knora-base:subjectClassConstraint infocar:Carrier;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

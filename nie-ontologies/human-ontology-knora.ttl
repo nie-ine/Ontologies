@@ -239,7 +239,7 @@ human:Creation
 		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:creationHasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -809,9 +809,9 @@ human:hasCreatingValue
 	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasCreationDate
+human:creationHasDate
 	a owl:ObjectProperty;
-	rdfs:label "has creation date"@en, "hat Kreationsdatum"@de;
+	rdfs:label "creation has date"@en, "Kreation hat Datum"@de;
 	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
 	rdfs:domain human:Creation;
 	rdfs:range xsd:date;
@@ -867,40 +867,4 @@ human:hasUserValue
 	rdfs:comment """Relating something to a reification statement of the relation between that something and an agent - a person or a group - using it."""@en;
 	rdfs:subPropertyOf agent:hasUserValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-human:hasSender
-	a owl:ObjectProperty;
-	rdfs:label "has sender"@en, "hat Absender"@de;
-	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
-	rdfs:domain physical:Matter;
-#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Sender]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint physical:Matter;
-	knora-base:objectClassConstraint human:Agent.
-
-human:hasSenderValue
-	a owl:ObjectProperty;
-	rdfs:label "has sender - statement"@en, "hat Absender - Festlegung"@de;
-	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that sent it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint physical:Matter;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-human:hasReceiver
-	a owl:ObjectProperty;
-	rdfs:label "has receiver"@en, "hat Empfänger"@de;
-	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
-	rdfs:domain physical:Matter;
-#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Receiver]];
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint physical:Matter;
-	knora-base:objectClassConstraint human:Agent.
-
-human:hasReceiverValue
-	a owl:ObjectProperty;
-	rdfs:label "has receiver - statement"@en, "hat Empfänger - Festlegung"@de;
-	rdfs:comment """Relating something material to a reification statement of the relation between that something and a human agent - a person or a group - that received it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint physical:Matter;
 	knora-base:objectClassConstraint knora-base:LinkValue.

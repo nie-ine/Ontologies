@@ -56,7 +56,7 @@ schola:Role
 	a owl:Class;
 	rdfs:label "scholastic role"@en;
 	rdfs:comment """Role a scholastic has."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:PersonRole.
 
 # schola:Complilator
 #	a owl:Class;
@@ -192,7 +192,7 @@ schola:hasRole
 	rdfs:comment """Relating a scholastic to a role he has."""@en;
 	rdfs:domain schola:Scholastic;
 	rdfs:range schola:Role;
-	rdfs:subPropertyOf human:hasRole;
+	rdfs:subPropertyOf human:personHasRole;
 	knora-base:subjectClassConstraint schola:Scholastic;
 	knora-base:objectClassConstraint schola:Role.
 
@@ -200,7 +200,7 @@ schola:hasRoleValue
 	a owl:ObjectProperty;
 	rdfs:label "has role - statement"@en, "hat Rolle - Festlegung"@de;
 	rdfs:comment """Relating a scholastic to a statement as reification of the relation between the scholastic and a role he has."""@en;
-	rdfs:subPropertyOf human:hasRoleValue;
+	rdfs:subPropertyOf human:personHasRoleValue;
 	knora-base:subjectClassConstraint schola:Scholastic;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

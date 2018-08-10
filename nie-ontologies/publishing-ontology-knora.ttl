@@ -7,6 +7,7 @@
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix org: <http://www.knora.org/ontology/0051/organization#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix document: <http://www.knora.org/ontology/005C/document#>.
@@ -72,23 +73,29 @@ publish:Redactor
 	rdfs:comment """Editor preparing text for publication."""@en; #* NOT ONLY text -> expression
 	rdfs:subClassOf textedit:Editor.
 
-publish:Publisher
+publish:AgentPublisher
 	a owl:Class;
-	rdfs:label "publisher"@en, "Herausgeber"@de;
-	rdfs:comment """Role of a publishing agent, person or organization."""@en;
-	rdfs:subClassOf human:Creator.
+	rdfs:label "agent publisher"@en, "Agent-Herausgeber"@de;
+	rdfs:comment """Role of an agent, person or group, that is publishing."""@en;
+	rdfs:subClassOf human:AgentCreator.
 
 publish:PersonPublisher
 	a owl:Class;
-	rdfs:label "person publisher"@en, "Person-Herausgeber"@de;
-	rdfs:comment """Publisher as person."""@en;
-	rdfs:subClassOf publish:Publisher, human:Role.
+	rdfs:label "person publisher"@en, "Person-HerausgeberIn"@de;
+	rdfs:comment """Publisher as role of a person."""@en;
+	rdfs:subClassOf publish:AgentPublisher, human:PersonRole.
+
+publish:OrganizationPublisher
+	a owl:Class;
+	rdfs:label "organization publisher"@en, "Organisation-Herausgeberin"@de;
+	rdfs:comment """Publisher as role of an organization."""@en;
+	rdfs:subClassOf publish:AgentPublisher, org:Role.
 
 publish:NewspaperPublisher
 	a owl:Class;
 	rdfs:label "newspaper publisher"@en, "Zeitungsverleger"@de;
 	rdfs:comment """Publisher of a newspaper."""@en;
-	rdfs:subClassOf publish:Publisher.
+	rdfs:subClassOf publish:AgentPublisher.
 
 publish:Publication
 	a owl:Class;
@@ -456,7 +463,7 @@ publish:hasRedactor
 	rdfs:label "has redactor"@en, "hat  Redakteur"@de;
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
 	rdfs:domain publish:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom publish:Redactor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint publish:Expression;
 	knora-base:objectClassConstraint human:Person.

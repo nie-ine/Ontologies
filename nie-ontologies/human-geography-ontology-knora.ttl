@@ -70,7 +70,7 @@ humgeo:Monarch
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
 	rdfs:label "monarch"@en, "Monarch"@de, "monarque"@fr;
 	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:PersonRole.
 
 # king, queen
 

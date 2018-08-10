@@ -326,7 +326,7 @@ litera:hasPoet
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
 	rdfs:domain litera:Poem;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:allValuesFrom litera:Poet]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:allValuesFrom litera:Poet]];
 	rdfs:subPropertyOf text:hasAuthor;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint human:Person.

@@ -100,8 +100,8 @@ infocar:Printing
 
 infocar:Printer
 	a owl:Class;
-	rdfs:label "printer"@en, "Drucker"@de;
-	rdfs:comment """Role of a human agent - person or organization - printing an expression."""@en;
+	rdfs:label "agent printer"@en, "Agent-Drucker"@de;
+	rdfs:comment """Role of a human agent, person or organization, printing an expression."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 infocar:Print
@@ -230,17 +230,17 @@ infocar:Diary
 	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
-infocar:Sender
+infocar:PersonSender
 	a owl:Class;
-	rdfs:label "sender"@en, "Sender"@de;
-	rdfs:comment """Role of a human agent - a person or a group - sending information on a carrier."""@en;
-	rdfs:subClassOf human:Sender.
+	rdfs:label "person sender"@en, "Person-Sender"@de;
+	rdfs:comment """Role of a person sending information on a carrier."""@en;
+	rdfs:subClassOf human:PersonSender.
 
-infocar:Receiver
+infocar:PersonReceiver
 	a owl:Class;
-	rdfs:label "receiver"@en, "Empfänger"@de;
-	rdfs:comment """Role of a human agent - a person or a group - receiving information on carrier."""@en;
-	rdfs:subClassOf human:Receiver.
+	rdfs:label "person receiver"@en, "Person-Empfänger"@de;
+	rdfs:comment """Role of a person receiving information on carrier."""@en;
+	rdfs:subClassOf human:PersonReceiver.
 
 infocar:Letter
 	a owl:Class;

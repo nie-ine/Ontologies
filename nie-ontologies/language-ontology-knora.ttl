@@ -130,17 +130,19 @@ language:BaselGerman
 	rdfs:comment """Dialect of the city of Basel, Switzerland."""@en;
 	rdfs:subClassOf language:Dialect.
 
-language:Translator #*
+language:AgentTranslator
 	a owl:Class;
-	rdfs:label "translator"@en, "Übersetzer"@de;
-	rdfs:comment """Role of an agent transferring a human natural language expression in another natural language."""@en;
+	rdfs:label "agent translator"@en, "Agent-Übersetzer"@de;
+	rdfs:comment """Role of an agent, person or machine, transferring a human natural language expression in another natural language."""@en;
 	rdfs:subClassOf agent:Creator.
 
 language:PersonTranslator
 	a owl:Class;
 	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
-	rdfs:comment """Role of a person as translator."""@en;
-	rdfs:subClassOf language:Translator, human:Creator.
+	rdfs:comment """Translator as role of a person."""@en;
+	rdfs:subClassOf language:AgentTranslator, human:PersonCreator.
+
+# interpreter
 
 language:Translation #* OR result of translating with translated text as its object 
 	a owl:Class;
@@ -298,7 +300,7 @@ language:hasPersonTranslator
 	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:PersonTranslator]];
+	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
 	rdfs:subPropertyOf language:hasTranslator;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint human:Person.
@@ -316,7 +318,7 @@ language:hasMachineTranslator
 	rdfs:label "has machine-translator"@en, "hat Maschine-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range device:DigitalElectronicComputer; # [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom language:Translator]];
+	rdfs:range device:DigitalElectronicComputer; # [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:Translator]];
 	rdfs:subPropertyOf language:hasTranslator;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint device:DigitalElectronicComputer.

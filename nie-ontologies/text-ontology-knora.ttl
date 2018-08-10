@@ -136,19 +136,19 @@ text:ManOfLetters
 	a owl:Class;
 	rdfs:label "man of letters"@en, "Literat"@de, "homme de lettres"@fr, "uomo di lettere"@it;
 	rdfs:comment """Role of a man devoted to literary activity."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:PersonRole.
 
 text:WomanOfLetters
 	a owl:Class;
 	rdfs:label "woman of letters"@en, "Literatin"@de, "femme de lettres"@fr, "donna di lettere"@it;
 	rdfs:comment """Role of a woman devoted to literary activity."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:PersonRole.
 
 text:Revisor
 	a owl:Class;
 	rdfs:label "revisor"@en, "Revisor"@de, "réviseur"@fr, "revisore"@it;
 	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
-	rdfs:subClassOf human:Role.
+	rdfs:subClassOf human:PersonRole.
 
 text:Translator
 	a owl:Class;
@@ -160,19 +160,25 @@ text:Copyist
 	a owl:Class;
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it; # "scribe"@en, "Schreiber"@de;
 	rdfs:comment """Role of a person copying text by handwriting."""@en;
-	rdfs:subClassOf human:Creator.
+	rdfs:subClassOf human:PersonCreator.
 
 text:AgentCiter
 	a owl:Class;
 	rdfs:label "agent citer"@en, "Agent-Zitierer"@de;
-	rdfs:comment """Role of a human agent as person or group, citing a text."""@en;
+	rdfs:comment """Role of a human agent, person or group, citing a text."""@en;
 	rdfs:subClassOf human:AgentRole.
 
-text:Citer
+text:PersonCiter
 	a owl:Class;
-	rdfs:label "citer"@en, "ZitiererIn"@de;
-	rdfs:comment """Role of a person citing a text."""@en;
-	rdfs:subClassOf text:AgentCiter, human:Role.
+	rdfs:label "person citer"@en, "Person-ZitiererIn"@de;
+	rdfs:comment """Citer as role of a person."""@en;
+	rdfs:subClassOf text:AgentCiter, human:PersonRole.
+
+text:OrganizationCiter
+	a owl:Class;
+	rdfs:label "organization citer"@en, "Organisation-Zitiererin"@de;
+	rdfs:comment """Citer as role of an organization."""@en;
+	rdfs:subClassOf text:AgentCiter, org:Role.
 
 text:Citation
 	a owl:Class;
@@ -443,7 +449,7 @@ text:hasRevisor
 	rdfs:label "has revisor"@en, "hat Revisor"@de;
 	rdfs:comment """Relating a text to a person who revised it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Revisor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Revisor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -461,7 +467,7 @@ text:hasCopyist
 	rdfs:label "has copyist"@en, "hat Kopist"@de;
 	rdfs:comment """Relating a text to a person who copied it by handwriting."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Copyist]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Copyist]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -534,7 +540,7 @@ text:hasAuthor
 	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Author]];
 	rdfs:subPropertyOf human:hasAuthor;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.
@@ -551,7 +557,7 @@ text:hasAuthorValue
 #	a owl:ObjectProperty;
 #	rdfs:label "author of"@en;
 #	rdfs:comment """Relating a person with author role to a text the person authored."""@en;
-#	knora-base:subjectClassConstraint human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Author]];
+#	knora-base:subjectClassConstraint human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Author]];
 #	knora-base:objectClassConstraint text:Expression.
 
 text:hasIncipit

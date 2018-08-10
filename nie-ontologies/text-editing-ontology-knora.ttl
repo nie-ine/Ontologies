@@ -40,7 +40,7 @@ textedit:Editor
 	a owl:Class;
 	rdfs:label "text editor"@en, "Text-Redakteur"@de;
 	rdfs:comment """Role of a person changing a text."""@en;
-	rdfs:subClassOf human:Role, human:Creator.
+	rdfs:subClassOf human:PersonCreator.
 
 textedit:Edition
 	a owl:Class;
@@ -116,7 +116,7 @@ textedit:CriticalEditor
 	a owl:Class;
 	rdfs:label "critical text editor"@en, "kritische Text-Redakteur"@de;
 	rdfs:comment """Role of a scientist editing a text expression in a critical scientific way."""@en;
-	rdfs:subClassOf human:Scientist, human:Creator.
+	rdfs:subClassOf human:Scientist, human:PersonCreator.
 
 textedit:CriticalEdition
 	a owl:Class;
@@ -225,7 +225,7 @@ textedit:hasEditor
 	rdfs:label "has editor"@en, "hat Text-Redakteur"@de;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Editor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -243,7 +243,7 @@ textedit:hasRedactor
 	rdfs:label "has redactor"@en, "hat Redaktor"@de;
 	rdfs:comment """Relating a text to a person who redacted it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:Redactor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Redactor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -261,7 +261,7 @@ textedit:hasGlossator
 	rdfs:label "has glossator"@en, "hat Glossator"@de;
 	rdfs:comment """Relating a text to a person who glossed it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Glossator]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Glossator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -279,7 +279,7 @@ textedit:hasAbbreviator
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
 	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom text:Abbreviator]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Abbreviator]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
@@ -394,7 +394,7 @@ textedit:hasCriticalEditor
 	rdfs:label "has critical editor"@en, "hat kritische Text-Redakteur"@de;
 	rdfs:comment "Relating a text expression to a critical editor thereof."@en;
 	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom textedit:CriticalEditor]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:CriticalEditor]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint human:Person.

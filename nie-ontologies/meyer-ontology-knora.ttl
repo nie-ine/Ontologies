@@ -25,11 +25,11 @@
 # CLASSES
 #
 
-meyer:LetterExpression
-	a owl:Class;
-	rdfs:label "Conrad Ferdinand Meyer letter expression"@en, "Brief-Expression Conrad Ferdinand Meyers"@de;
-	rdfs:comment """Letter either authored or received by Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf text:LetterExpression.
+# meyer:LetterExpression
+#	a owl:Class;
+#	rdfs:label "Conrad Ferdinand Meyer letter expression"@en, "Brief-Expression Conrad Ferdinand Meyers"@de;
+#	rdfs:comment """Letter either authored or received by Conrad Ferdinand Meyer."""@en;
+#	rdfs:subClassOf text:LetterExpression.
 
 # meyer:EditedLetter
 #	a owl:Class;

@@ -196,20 +196,20 @@ kuno-raeber:PoemNotebook
 		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:carrierHasDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [ # knora-base restriction
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfManuscriptConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfManuscriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemManuscript
 	a owl:Class;
 	rdfs:label "poem manuscript"@en, "Gedicht-Manuskript"@de;
 	rdfs:comment """Manuscript with a poem authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Leaf, infocar:Manuscript, infocar:ArchiveElement, [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvolute; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvoluteValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemManuscriptConvolute
@@ -222,8 +222,8 @@ kuno-raeber:PoemManuscriptConvolute
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebook; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebookValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [		
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -238,7 +238,7 @@ kuno-raeber:PoemPostcard
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfPostcardConvolute; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfPostcardConvoluteValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger]. # knora-base restriction
+		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemPostcardConvolute
 	a owl:Class;
@@ -262,8 +262,8 @@ kuno-raeber:PoemTypescript
 	rdfs:label "poem typescript"@en, "Gedicht-Typoskript"@de;
 	rdfs:comment """Poem typescript by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Leaf, infocar:Typescript, infocar:ArchiveElement, [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvolute; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvoluteValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemTypescriptConvolute
@@ -303,10 +303,10 @@ kuno-raeber:PrintedPoemBookPublication
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebook; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebookValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfTypescriptConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfTypescriptConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PolyAuthorPublication
 	a owl:Class;
@@ -351,8 +351,8 @@ kuno-raeber:Letter
 	rdfs:label "letter"@en,"Brief"@de;
 	rdfs:comment """Letter written by or to Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Letter, infocar:ArchiveElement, [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfLetterConvolute; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfLetterConvoluteValue; owl:minCardinality "1"^^xsd:nonNegativeInteger]
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfLetterConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfLetterConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 #		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 

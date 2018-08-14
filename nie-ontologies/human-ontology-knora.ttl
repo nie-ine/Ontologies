@@ -66,8 +66,12 @@ human:Person
 	rdfs:comment """A real born living human."""@en;
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property."""@en;
 	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person, [ # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
-		a owl:Restriction; owl:onProperty human:hasBirthDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBirthdate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBirthplace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBirthplaceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDeathDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasDeathplace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasDeathplaceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasLife; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasLifeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -75,6 +79,7 @@ human:Person
 		a owl:Restriction; owl:onProperty human:hasGivenName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty human:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasBiography; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:personHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -523,27 +528,65 @@ human:agentHasRoleValue
 	knora-base:subjectClassConstraint human:Agent;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasBirthDate
+human:hasBirthdate
 	a owl:ObjectProperty;
-	rdfs:label "has birth date"@en, "hat Geburtsdatum"@de;
-	rdfs:comment """Relating a person to a date of birth of that person."""@en;
-#	skos:note """It is possible to find different birth dates in different historical sources; an overall certainty period can be calculated."""@en; -> N3 rule
+	rdfs:label "has birthdate"@en, "hat Geburtsdatum"@de;
+	rdfs:comment """Relating a person to the birthdate of that person."""@en;
+#	skos:note """It is possible to find different birthdates in different historical sources; an overall certainty period can be calculated."""@en; -> N3 rule
 	rdfs:domain human:Person;
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf knora-base:hasValue;	
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:DateValue.
 
+human:hasBirthplace
+	a owl:ObjectProperty;
+	rdfs:label "has birthplace"@en, "hat Geburtsort"@de;
+	rdfs:comment """Relating a person to the birthplace of that person."""@en;
+	skos:note """It is possible to find different birthplace in different historical sources."""@en;
+	rdfs:domain human:Person;
+	rdfs:range physical:EarthPlace;
+	rdfs:subPropertyOf knora-base:hasLinkTo;	
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint physical:EarthPlace.
+
+human:hasBirthplaceValue
+	a owl:ObjectProperty;
+	rdfs:label "has birthplace - statement"@en, "hat Geburtsort - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and the birthplace of that person."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 human:hasDeathDate
 	a owl:ObjectProperty;
 	rdfs:label "has death date"@en, "hat Todesdatum"@de;
-	rdfs:comment """Relating a person to a date of death of that person."""@en;
+	rdfs:comment """Relating a person to the death date of that person."""@en;
 #	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:DateValue.
+
+human:hasDeathplace
+	a owl:ObjectProperty;
+	rdfs:label "has deathplace"@en, "hat Todesort"@de;
+	rdfs:comment """Relating a person to the deathplace of that person."""@en;
+#	skos:note """It is possible to find different deathplaces in different historical sources."""@en;
+	rdfs:domain human:Person;
+	rdfs:range physical:EarthPlace;
+	rdfs:subPropertyOf knora-base:hasLinkTo;	
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint physical:EarthPlace.
+
+human:hasDeathplaceValue
+	a owl:ObjectProperty;
+	rdfs:label "has deathplace - statement"@en, "hat Todesort - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and the deathplace of that person."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasBiologicalSex
 	a owl:ObjectProperty;
@@ -563,7 +606,7 @@ human:hasBiologicalSexValue
 	knora-base:subjectClassConstraint human:Human;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasLife
+human:hasLife # living
 	a owl:ObjectProperty;
 	rdfs:label "person has life"@en, "Person hat Leben"@de;
 	rdfs:comment """Relating a person to the person's life."""@en;
@@ -631,6 +674,9 @@ human:hasAlias
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+# human:hasTitle
+
 
 human:hasDescription
 	a owl:ObjectProperty;

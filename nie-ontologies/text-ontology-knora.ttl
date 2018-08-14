@@ -485,7 +485,7 @@ text:hasCiter
 	rdfs:label "has citer"@en, "hat ZitiererIn"@de;
 	rdfs:comment """Relating a text to a person or group citing it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:Citer]];
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Agent.

@@ -46,6 +46,7 @@ send "load ../_test_data/all_data/biblio-data.ttl into http://www.knora.org/data
 expect $prompt
 send "load ../_test_data/all_data/beol-data.ttl into http://www.knora.org/data/0801/beol .\r"
 expect $prompt
+
 send "load ../_test_data/ontologies/webern-onto.ttl into http://www.knora.org/ontology/08AE/webern .\r"
 expect $prompt
 send "load ../_test_data/all_data/webern-data.ttl into http://www.knora.org/data/08AE/webern .\r"
@@ -120,6 +121,7 @@ send "load ../_test_data/ontologies/mathematics-ontology-knora.ttl into http://w
 expect $prompt
 send "load ../_test_data/ontologies/meyer-ontology-knora.ttl into http://www.knora.org/ontology/0062/meyer .\r"
 expect $prompt
+
 send "close .\r"
 expect $prompt
 send "exit .\r"

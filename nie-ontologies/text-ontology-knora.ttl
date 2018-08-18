@@ -8,6 +8,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix org: <http://www.knora.org/ontology/0051/organization#>.
 @prefix language: <http://www.knora.org/ontology/004F/language#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix document: <http://www.knora.org/ontology/005C/document#>.

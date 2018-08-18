@@ -512,7 +512,6 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean ;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/08AE> .
 
-
 #
 # Agent
 #

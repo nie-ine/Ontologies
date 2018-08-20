@@ -84,21 +84,3 @@ drcs:hasStegmuellerCode
 	knora-base:subjectClassConstraint drcs:Commentary;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
-
-# drcs:isPartOfCommentary
-#	a owl:ObjectProperty;
-#	rdfs:label "is part of commentary "@en, "ist Teil eines Kommentars"@de;
-#	rdfs:comment """Relating a scholastic text structure to a scholastic commentary it is part of."""@en;
-#	rdfs:domain schola:Structure;
-#	rdfs:range schola:Commentary;
-#	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
-#	knora-base:subjectClassConstraint schola:Structure;
-#	knora-base:objectClassConstraint schola:Commentary.
-
-# drcs:isPartOfCommentaryValue
-#	a owl:ObjectProperty;
-#	rdfs:label "is part of commentary - statement"@en, "ist Teil eines Kommentars - Festlegung"@de;
-#	rdfs:comment """Relating a scholastic text structure to a statement as reification of the relation between the text and a commentary it is part of."""@en;
-#	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
-#	knora-base:subjectClassConstraint schola:Structure;
-#	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -98,11 +98,17 @@ infocar:Printing
 	rdfs:comment """Action of putting an expression on a carrier, e.g. with ink on paper."""@en;
 	rdfs:subClassOf human:Procedure, frbroo:F32_Carrier_Production_Event.
 
-infocar:Printer
+infocar:AgentPrinter
 	a owl:Class;
 	rdfs:label "agent printer"@en, "Agent-Drucker"@de;
 	rdfs:comment """Role of a human agent, person or organization, printing an expression."""@en;
 	rdfs:subClassOf human:AgentRole.
+
+infocar:PersonPrinter
+	a owl:Class;
+	rdfs:label "person printer"@en, "Person-Drucker"@de;
+	rdfs:comment """Role of a person printing an expression."""@en;
+	rdfs:subClassOf human:PersonCreator, infocar:AgentPrinter.
 
 infocar:Print
 	a owl:Class;
@@ -661,7 +667,7 @@ infocar:hasPrinter
 	rdfs:label "has printer"@en, "hat Drucker"@de;
 	rdfs:comment """Relating a print to its printer."""@en;
 	rdfs:domain infocar:Print;
-#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Printer]];
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:AgentPrinter]];
 	rdfs:subPropertyOf human:hasCreator;
 	knora-base:subjectClassConstraint infocar:Print;
 	knora-base:objectClassConstraint human:Agent.

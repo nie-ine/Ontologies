@@ -159,8 +159,8 @@ text:Translator
 
 text:Copyist
 	a owl:Class;
-	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text by handwriting."""@en;
+	rdfs:label "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it, "scribes"@la; # "scribe"@en, "Schreiber"@de;
+	rdfs:comment """Role of a person copying text."""@en;
 	rdfs:subClassOf human:PersonCreator.
 
 text:AgentCiter
@@ -466,7 +466,7 @@ text:hasRevisorValue
 text:hasCopyist
 	a owl:ObjectProperty;
 	rdfs:label "has copyist"@en, "hat Kopist"@de;
-	rdfs:comment """Relating a text to a person who copied it by handwriting."""@en;
+	rdfs:comment """Relating a text to a person who copied it."""@en;
 	rdfs:domain text:Text;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Copyist]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -476,7 +476,7 @@ text:hasCopyist
 text:hasCopyistValue
 	a owl:ObjectProperty;
 	rdfs:label "has copyist - statement"@en, "hat Kopist - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who copied it by handwriting."""@en;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who copied it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.

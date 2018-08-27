@@ -35,7 +35,7 @@ schola:Scholasticism
 	a owl:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
-	rdfs:subClassOf concept:ThoughtMethod. #*
+	rdfs:subClassOf concept:ThoughtMethod.
 
 schola:Scholastic
 	a owl:Class;

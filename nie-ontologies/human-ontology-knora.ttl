@@ -222,12 +222,6 @@ human:PersonCreator
 	rdfs:comment """Creator as role of a person."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentCreator.
 
-human:OrganizationCreator
-	a owl:Class;
-	rdfs:label "organization creator"@en, "Organisation-Erschafferin"@de;
-	rdfs:comment """Publisher as role of an organization."""@en;
-	rdfs:subClassOf human:AgentCreator, org:Role.
-
 human:Author
 	a owl:Class;
 	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
@@ -321,6 +315,12 @@ human:AgentOwner
 	rdfs:label "agent owner"@en, "Agent-Besitzer"@de;
 	rdfs:comment """Role of a human agent, a person or a group, having a property."""@en;
 	rdfs:subClassOf human:AgentRole.
+
+human:PersonOwner
+	a owl:Class;
+	rdfs:label "person owner"@en, "Person-BesitzerIn"@de;
+	rdfs:comment """Role of a person having a property."""@en;
+	rdfs:subClassOf human:PersonRole, human:AgentOwner.
 
 human:Property # check cidoc
 	a owl:Class;
@@ -936,5 +936,23 @@ human:hasUserValue
 	rdfs:label "has user - statement"@en, "hat Benutzerin - Festlegung"@de;
 	rdfs:comment """Relating something to a reification statement of the relation between that something and an agent - a person or a group - using it."""@en;
 	rdfs:subPropertyOf agent:hasUserValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasOwner
+	a owl:ObjectProperty;
+	rdfs:label "has owner"@en, "hat EignerIn"@de;
+	rdfs:comment """Relating something to a human agent - a person or a group - owning it."""@en;
+	rdfs:domain rdfs:Resource;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentOwner]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint human:Agent.
+
+human:hasOwnerValue
+	a owl:ObjectProperty;
+	rdfs:label "has owner - statement"@en, "hat EignerIn - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - owning it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -58,6 +58,15 @@ drcs:Commentary
 # PROPERTIES
 #
 
+drcs:hasDescription #* To be removed
+	a owl:ObjectProperty;
+	rdfs:label "has description"@en, "hat Beschreibung"@de;
+	rdfs:comment """Relating a resource to a description as a textual statement about features of the resource."""@en;
+	rdfs:subPropertyOf text:hasDescription;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
+
 drcs:hasStegmuellerPersonDescription
  	a owl:ObjectProperty;
  	rdfs:label "has Stegmüller's person description"@en;

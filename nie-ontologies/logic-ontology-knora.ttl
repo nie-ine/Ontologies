@@ -60,7 +60,7 @@ logic:Argument
 	a owl:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Premises presenting a reason for accepting a conclusion."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure, text-structure:Paragraph.
+	rdfs:subClassOf text-structure:Paragraph.
 
 # Independent of natural language: logic, mathematics, computer science
 

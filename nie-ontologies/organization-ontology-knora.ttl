@@ -51,6 +51,12 @@ org:Role
 	rdfs:comment """Role of a person organization."""@en;
 	rdfs:subClassOf human:GroupRole.
 
+org:Creator
+	a owl:Class;
+	rdfs:label "organization creator"@en, "Organisation-Erschafferin"@de;
+	rdfs:comment """Publisher as role of an organization."""@en;
+	rdfs:subClassOf human:AgentCreator, org:Role.
+
 org:Company
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;

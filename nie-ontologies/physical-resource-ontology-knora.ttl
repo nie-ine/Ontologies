@@ -74,7 +74,7 @@ physical:Place
 physical:EarthPlace
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
-	rdfs:label "place on earth"@en, "Platz auf Erde"@de;
+	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
 	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
 	rdfs:subClassOf physical:Place, [
 		a owl:Restriction; owl:onProperty phygeo:hasLatitude; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

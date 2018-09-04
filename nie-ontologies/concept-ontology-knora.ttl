@@ -107,15 +107,16 @@ concept:IndividualWork
 concept:Information
 	a owl:Class;
 	rdfs:label "information"@en, "Information"@de;
-	rdfs:comment """Symbolic propositional concept resolving uncertainty."""@en;
+	rdfs:comment """Symbolic propositional concept resolving uncertainty."""@en; # linked data
 	rdfs:subClassOf concept:PropositionalConcept, concept:SymbolicConcept, cidoc:E73_Information_Object, [
-		a owl:Restriction; owl:onProperty concept:hasContentSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:hasContentSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:informationHasSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:informationHasSubjectValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-#		a owl:Restriction; owl:onProperty concept:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasEncoder; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasEncoderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
 	a owl:Class;
@@ -137,7 +138,7 @@ concept:ThoughtMethod #* part/SC of philosophy ?
 
 # publish:hasMonoAuthorPublication
 
-# to do: concept:PolyAuthorExpression
+# concept:PolyAuthorExpression
 
 # public - private
 
@@ -183,28 +184,20 @@ concept:isExpressedInValue
 	knora-base:subjectClassConstraint concept:Work;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-#concept:hasContent
-#	a owl:ObjectProperty;
-#	rdfs:label "has content"@en, "hat Inhalt"@de;
-#	rdfs:comment """Relating information to its content."""@en;
-#	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint concept:Information;
-#	knora-base:objectClassConstraint knora-base:Value. # BUT not allowed in Knora
-
-concept:hasContentSubject
+concept:informationHasSubject
 	a owl:ObjectProperty;
-	rdfs:label "has content subject"@en, "hat inhaltliches Thema"@de;
-	rdfs:comment """Relating information to a content subject it has."""@en;
+	rdfs:label "information has subject"@en, "Information hat Thema"@de;
+	rdfs:comment """Relating information to a subject it is about."""@en;
 	rdfs:domain concept:Information;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint knora-base:Resource.
 
-concept:hasContentSubjectValue
+concept:informationHasSubjectValue
 	a owl:ObjectProperty;
-	rdfs:label "has content subject - statement"@en, "hat inhaltliches Thema - Festlegung"@de;
-	rdfs:comment """Relating information to a reification statement of the relation between the information and a content subject it has."""@en;
+	rdfs:label "information has subject - statement"@en, "Information hat Thema - Festlegung"@de;
+	rdfs:comment """Relating information to a reification statement of the relation between the information and a subject it is about."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -238,3 +231,21 @@ concept:hasLiteral
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint concept:Identifier;
 	knora-base:objectClassConstraint knora-base:TextValue.
+
+concept:hasEncoder
+	a owl:ObjectProperty;
+	rdfs:label "information has encoder"@en, "Information hat Encoder"@de;
+	rdfs:comment "Relating information to a person who encoded it."@en;
+	rdfs:domain concept:Information;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint concept:Information;
+	knora-base:objectClassConstraint human:Person.
+
+concept:hasEncoderValue
+	a owl:ObjectProperty;
+	rdfs:label "information has encoder - statement"@en, "Information hat Encoder - Festlegung"@de;
+	rdfs:comment "Relating information to a reification statement of the relation between the information and a person who encoded it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint concept:Information;
+	knora-base:objectClassConstraint knora-base:LinkValue.

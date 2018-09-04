@@ -189,7 +189,7 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;
-	rdfs:comment """Text line with prosody."""@en;
+	rdfs:comment """Text line with prosody."""@en; # recurring metrical unit
 	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
 #		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -209,9 +209,10 @@ text-structure:HalfVerse
 		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerseValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text-structure:Strophe # OR stanza OR verse - Vers
+text-structure:Strophe
 	a owl:Class;
 	rdfs:label "strophe"@en, "Strophe"@de;
+#	text:hasSynonym "stanza"@en, "Stanze"@de;
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
@@ -247,7 +248,7 @@ text-structure:FreeVerse
 	a owl:Class;
 	rdfs:label "free verse"@en, "freie Vers"@de;
 	rdfs:comment """Verse without a fixed prosody."""@en; #*
-	rdfs:subClassOf text-structure:Verse.
+	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line.
 
 #* text-structure:FixedVerse and SC
 # different meters

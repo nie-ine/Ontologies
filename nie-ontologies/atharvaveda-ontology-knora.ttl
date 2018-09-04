@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
@@ -23,6 +24,13 @@
 #
 # CLASSES
 #
+
+athar:Strophe
+	a owl:Class;
+	rdfs:label "strophe"@en, "Strophe"@de;
+	rdfs:comment """Group of verses."""@en;
+	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
+	rdfs:subClassOf text-structure:Strophe.
 
 # apparatus has format: cf. textedit
 # lemma

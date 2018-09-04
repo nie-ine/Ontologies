@@ -43,7 +43,9 @@ document:Document
 	a owl:Class;
 	rdfs:label "document"@en, "Dokument"@de;
 	rdfs:comment """Identifiable, immaterial, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram."""@en;
-	rdfs:subClassOf concept:Information. # , cidoc:E31_Document: proposition about reality
+	rdfs:subClassOf concept:Information. # , cidoc:E31_Document: proposition about reality: narrower
+#		a owl:Restriction; owl:onProperty document:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty document:hasContentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Element
 	a owl:Class;
@@ -231,11 +233,17 @@ document:VulgarizedScientificExpression
 	rdfs:comment """Text with vulgarized scientific content."""@en;
 	rdfs:subClassOf document:ScientificExpression.
 
+document:Code
+	a owl:Class;
+	rdfs:label "Code document"@en,"Kode-Dokument"@de;
+	rdfs:comment """Document containing code."""@en;
+	rdfs:subClassOf document:Document.
+
 document:HypertextDocument
 	a owl:Class;
 	rdfs:label "hypertext document"@en,"Hypertext-Dokument"@de;
 	rdfs:comment """Document written in Hypertext Markup Language (HTML)."""@en;
-	rdfs:subClassOf document:Document.
+	rdfs:subClassOf document:Code.
 
 document:HypertextElement
 	a owl:Class;
@@ -256,6 +264,14 @@ document:HypertextStructure
 #
 # PROPERTIES
 #
+
+# document:hasContent
+#	a owl:ObjectProperty;
+#	rdfs:label "has content"@en, "hat Inhalt"@de;
+#	rdfs:comment """Relating a document to its content."""@en;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint document:Document;
+#	knora-base:objectClassConstraint knora-base:FileValue. # not instantiable in knora
 
 # document:isLayoutOf
 #	a owl:ObjectProperty;
@@ -526,4 +542,22 @@ document:isElementOfHypertextDocumentValue
 	rdfs:comment """Relating a hypertext hypertext document element to a reification statement of the relation between the element and a hypertext document it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:HypertextElement;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEncoder
+	a owl:ObjectProperty;
+	rdfs:label "code has encoder"@en, "Code hat Encoder"@de;
+	rdfs:comment "Relating code to a person who created it."@en;
+	rdfs:domain document:Code;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:Code;
+	knora-base:objectClassConstraint human:Person.
+
+document:hasEncoderValue
+	a owl:ObjectProperty;
+	rdfs:label "code has encoder - statement"@en, "Code hat Encoder - Festlegung"@de;
+	rdfs:comment "Relating code to a reification statement of the relation between the code and a person who created it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:Code;
 	knora-base:objectClassConstraint knora-base:LinkValue.

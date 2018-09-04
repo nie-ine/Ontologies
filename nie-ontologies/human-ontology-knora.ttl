@@ -122,7 +122,9 @@ human:Action
 	a owl:Class;
 	rdfs:label "human action"@en, "menschliche Aktion"@de;
 	rdfs:comment """Action with a human agent."""@en;
-	rdfs:subClassOf event:Action.
+	rdfs:subClassOf event:Action, [
+		a owl:Restriction; owl:onProperty human:hasSponsor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasSponsorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Procedure
 	a owl:Class;
@@ -156,8 +158,8 @@ human:Intersexual
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
-# birth place
-# death place
+# birthplace
+# deathplace
 
 human:Ability
 	a owl:Class;
@@ -239,21 +241,22 @@ human:Creation
 	rdfs:label "human creation"@en, "Kreation einer Mensch"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:creationHasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty agent:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty agent:hasUserValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasSponsor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasSponsorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:PhysicalCreation
 	a owl:Class;
@@ -267,7 +270,7 @@ human:PhysicalCreation
 #	rdfs:comment """Physical creation as result of producing."""@en;
 #	rdfs:subClassOf physical:Product.
 
-human:Copy # model: parent copy: decide to exist even when absent -> phylology too broad: codicology, paleography, diplomatics: study of docs=expr, dif. volumes / ling.
+human:Copy
 	a owl:Class;
 	rdfs:label "copy"@en, "Kopie"@de;
 	rdfs:comment """Reproduction of a person's creation."""@en;
@@ -327,6 +330,18 @@ human:Property # check cidoc
 	rdfs:label "property"@en, "Besitz"@de;
 	rdfs:comment """Something physical or non-physical belonging to someone."""@en;
 	rdfs:subClassOf knora-base:Resource.
+
+human:AgentSponsor
+	a owl:Class;
+	rdfs:label "agent sponsor"@en, "Agent-Sponsor"@de;
+	rdfs:comment """Role of a human agent, a person or a group, being a sponsor."""@en;
+	rdfs:subClassOf human:AgentRole.
+
+human:PersonSponsor
+	a owl:Class;
+	rdfs:label "person sponsor"@en, "Person-SponsorIn"@de;
+	rdfs:comment """Role of a person being a sponsor."""@en; # of an action
+	rdfs:subClassOf human:PersonRole, human:AgentSponsor.
 
 human:AgentSender
 	a owl:Class;
@@ -953,6 +968,24 @@ human:hasOwnerValue
 	a owl:ObjectProperty;
 	rdfs:label "has owner - statement"@en, "hat EignerIn - Festlegung"@de;
 	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - owning it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasSponsor
+	a owl:ObjectProperty;
+	rdfs:label "has sponsor"@en, "hat Sponsor"@de;
+	rdfs:comment """Relating something to a human agent - a person or a group - sponsoring it."""@en;
+	rdfs:domain rdfs:Resource;
+#	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSponsor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint human:Agent.
+
+human:hasSponsorValue
+	a owl:ObjectProperty;
+	rdfs:label "has sponsor - statement"@en, "hat Sponsor - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a human agent - a person or a group - sponsoring it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.

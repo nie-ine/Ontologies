@@ -53,8 +53,8 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRevisorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCopyist; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCopyistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasTranscriberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCiter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCiterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -119,6 +119,8 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -157,10 +159,10 @@ text:Translator
 	rdfs:comment """Role of a person translating text by writing or printing."""@en;
 	rdfs:subClassOf language:PersonTranslator.
 
-text:Copyist
+text:Copyist # -> text:Transcriber
 	a owl:Class;
 	rdfs:label "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it, "scribes"@la; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text."""@en;
+	rdfs:comment """Role of a person copying text by writing."""@en;
 	rdfs:subClassOf human:PersonCreator.
 
 text:AgentCiter
@@ -463,20 +465,20 @@ text:hasRevisorValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text:hasCopyist
+text:hasTranscriber
 	a owl:ObjectProperty;
-	rdfs:label "has copyist"@en, "hat Kopist"@de;
-	rdfs:comment """Relating a text to a person who copied it."""@en;
+	rdfs:label "has transcriber"@en, "hat TranskribiererIn"@de;
+	rdfs:comment """Relating a text to a person who transcribed it."""@en;
 	rdfs:domain text:Text;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Copyist]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]];
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint human:Person.
 
-text:hasCopyistValue
+text:hasTranscriberValue
 	a owl:ObjectProperty;
-	rdfs:label "has copyist - statement"@en, "hat Kopist - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who copied it."""@en;
+	rdfs:label "has transcriber - statement"@en, "hat TranskribiererIn - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who transcribed it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -578,3 +580,21 @@ text:hasExplicit
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+text:hasScientificEditor
+	a owl:ObjectProperty;
+	rdfs:label "text expression has scientific editor"@en, "Text-Expression hat wissenschaftliche Editor"@de;
+	rdfs:comment "Relating a text expression to a person who edited it scientifically."@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:ScientificEditor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasScientificEditorValue
+	a owl:ObjectProperty;
+	rdfs:label "text expression has scientific editor - statement"@en, "Text-Expression hat wissenschaftliche Editor - Festlegung"@de;
+	rdfs:comment "Relating a text expression to a reification statement of the relation between the expression and person who edited it scientifically."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -4,6 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix language: <http://www.knora.org/ontology/004F/language#>.
@@ -80,21 +81,21 @@ schola:Commentary
 	a owl:Class;
 	rdfs:label "scholastic commentary"@en, "scholastischer Kommentar"@de, "commentarius scholasticus"@la;
 	rdfs:comment """Commentary made by a scholastic."""@en;
-	rdfs:subClassOf text:Commentary. # , [
-#		a owl:Restriction; owl:onProperty schola:commentaryHasProcedure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty schola:commentaryHasProcedureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Commentary, [ # owl:unionOf (schola:ProceduralCommentary schola:GlossCommentary ...)
+		a owl:Restriction; owl:onProperty schola:commentaryHasProcedure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty schola:commentaryHasProcedureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 schola:ProceduralCommentary
 	a owl:Class;
 	rdfs:label "procedural scholastic commentary"@en, "prozeduraler scholastischer Kommentar"@de;
 	rdfs:comment """Scholastic commentary as result of a creation procedure."""@en;
-	rdfs:subClassOf schola:Commentary.
+	rdfs:subClassOf schola:Commentary. # owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary)
 
-# schola:CommentingProcedure #* RLP: stage?
-#	a owl:Class;
-#	rdfs:label "scholastic commenting procedure"@en, "scholastische Kommentierungvorgehensweise"@de;
-#	rdfs:comment """Scholastic procedure to comment."""@en;
-#	rdfs:subClassOf event:Procedure. # event:Stage
+schola:CommentingProcedure #* RLP: stage?
+	a owl:Class;
+	rdfs:label "scholastic commenting procedure"@en, "scholastische Kommentierungsprozedur"@de;
+	rdfs:comment """Commenting procedure wherein a scholastic commentary is created."""@en;
+	rdfs:subClassOf event:Procedure. # event:Stage
 
 schola:LecturaCommentary
 	a owl:Class;
@@ -221,6 +222,24 @@ schola:hasRoleValue
 #	rdfs:subPropertyOf schola:hasRoleValue;
 #	knora-base:subjectClassConstraint schola:Scholastic;
 #	knora-base:objectClassConstraint knora-base:LinkValue.
+
+schola:commentaryHasProcedure
+	a owl:ObjectProperty;
+	rdfs:label "commentary has procedure"@en, "Kommentar hat Prozedur"@de;
+	rdfs:comment """Relating a scholastic commentary to a procedure it is created in."""@en;
+	rdfs:domain schola:Commentary;
+	rdfs:range schola:CommentingProcedure;
+	rdfs:subPropertyOf event:isOutputOf;
+	knora-base:subjectClassConstraint schola:Commentary;
+	knora-base:objectClassConstraint schola:CommentingProcedure.
+
+schola:commentaryHasProcedureValue
+	a owl:ObjectProperty;
+	rdfs:label "commentary has procedure - statement"@en, "Kommentar hat Prozedur - Festlegung"@de;
+	rdfs:comment """Relating a scholastic commentary to a statement as reification of the relation between the commentary and a procedure it is created in."""@en;
+	rdfs:subPropertyOf event:isOutputOfValue;
+	knora-base:subjectClassConstraint schola:Commentary;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
  schola:hasReportator
 	a owl:ObjectProperty;

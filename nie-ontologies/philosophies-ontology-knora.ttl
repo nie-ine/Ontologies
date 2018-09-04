@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix philo: <http://www.knora.org/ontology/0053/philosophy#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
@@ -59,3 +60,25 @@ philos:Thomism
 
 #* Averroes?
 #* Augustinus? - Augustinianism - Augustine of Hippo
+
+#
+# PROPERTIES
+#
+
+philos:adheringToThought
+	a owl:ObjectProperty;
+	rdfs:label "adhering to philosophy"@en, "ist Anhänger von Philosophie"@de;
+	rdfs:comment """Relating a person to a philosophy the person adheres to."""@en;
+	rdfs:domain human:Person;
+	rdfs:range philo:Philosophy;
+	rdfs:subPropertyOf human:adheringToThought;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint philo:Philosophy.
+
+philos:adheringToThoughtValue
+	a owl:ObjectProperty;
+	rdfs:label "adhering to philosophy - statement"@en, "ist Anhänger von Philosophie - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a philosophy the person adheres to."""@en;
+	rdfs:subPropertyOf human:adheringToThoughtValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.

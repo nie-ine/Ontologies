@@ -34,13 +34,13 @@ cathorg:Organization
 cathorg:Person
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
-	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr; # "persona"@it;
+	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousPerson, [
 		a owl:Restriction; owl:onProperty cathorg:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty cathorg:isMemberOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-cathorg:Order #* ? all Roman Catholic Church
+cathorg:Order
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
@@ -51,7 +51,7 @@ cathorg:SecularClergy
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
 	rdfs:label "secular clergy"@en;
-	rdfs:comment """Catholic organization whose member does not belong to a catholic order."""@en;
+	rdfs:comment """Catholic organization whose member does not take religious vows and does not live in an institution."""@en;
 	rdfs:subClassOf cathorg:Organization.
 
 #

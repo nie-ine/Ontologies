@@ -8,31 +8,31 @@
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
-@base <http://www.knora.org/ontology/0062/meyer>.
-@prefix meyer: <http://www.knora.org/ontology/0062/meyer#>.
+@base <http://www.knora.org/ontology/0064/lavater>.
+@prefix lavater: <http://www.knora.org/ontology/0064/lavater#>.
 
-<http://www.knora.org/ontology/0062/meyer>
+<http://www.knora.org/ontology/0064/lavater>
 	a owl:Ontology;
-	dct:title "An ontology about Conrad Ferdinand Meyer's correspondence"@en;
-	dct:description """Formal description of specific concepts in the scientific study of correspondence of Conrad Ferdinand Meyer, 11 October 1825 – 28 November 1898."""@en;
+	dct:title "An ontology about Johann Caspar Lavater's correspondence"@en;
+	dct:description """Formal description of specific concepts in the scientific study of correspondence of Johann Caspar Lavater, 15 November 1741 - 2 January 1801."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/0062>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0064>.
 
 #
 # CLASSES
 #
 
-meyer:LetterExpression
+lavater:LetterExpression
 	a owl:Class;
-	rdfs:label "Conrad Ferdinand Meyer letter expression"@en, "Brief-Expression Conrad Ferdinand Meyers"@de;
-	rdfs:comment """Letter either authored or received by Conrad Ferdinand Meyer."""@en;
+	rdfs:label "Johann Caspar Lavater letter expression"@en, "Brief-Expression Johann Caspar Lavaters"@de;
+	rdfs:comment """Letter either authored or received by Johann Caspar Lavater."""@en;
 	rdfs:subClassOf text:LetterExpression.
 
-meyer:EditedLetter
+lavater:EditedLetter
 	a owl:Class;
-	rdfs:label "edited Conrad Ferdinand Meyer letter"@en, "edierter Brief Conrad Ferdinand Meyers"@de;
-	rdfs:comment """Letter either authored or received by Conrad Ferdinand Meyer, and critically edited."""@en;
+	rdfs:label "edited Johann Caspar Lavater letter"@en, "edierter Brief Johann Caspar Lavaters"@de;
+	rdfs:comment """Letter either authored or received by Johann Caspar Lavater, and critically edited."""@en;
 	rdfs:subClassOf textedit:CriticalEdition.

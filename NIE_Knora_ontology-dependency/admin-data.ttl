@@ -1364,3 +1364,75 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProject <http://rdfh.ch/projects/0062>;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0062>.
+
+#
+# Semantic positional annotation
+#
+
+<http://rdfh.ch/projects/0063> a knora-base:knoraProject;
+  knora-base:projectShortname "SPA"^^xsd:string;
+  knora-base:projectShortcode "0063"^^xsd:string;
+  knora-base:projectLongname "An ontology about semantic positional annotation"^^xsd:string;
+  knora-base:projectDescription "Formal description of semantic positional annotation, subclasses, related classes and properties"@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0063>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0063>.
+
+#
+# Lavater
+#
+
+<http://rdfh.ch/projects/0064> a knora-base:knoraProject;
+  knora-base:projectShortname "Lavater"^^xsd:string;
+  knora-base:projectShortcode "0064"^^xsd:string;
+  knora-base:projectLongname "An ontology about Lavater's correspondence"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of correspondence of Lavater,  – "@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0064>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0064>.
+
+#
+# Dietrich
+#
+
+<http://rdfh.ch/projects/0065> a knora-base:knoraProject;
+  knora-base:projectShortname "Dietrich"^^xsd:string;
+  knora-base:projectShortcode "0065"^^xsd:string;
+  knora-base:projectLongname "An ontology about father Joseph Dietrich's monastery diary"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study 'Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704'."@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0065>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0065>.

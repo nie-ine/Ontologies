@@ -79,7 +79,7 @@ human:Person
 		a owl:Restriction; owl:onProperty human:hasGivenName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty human:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasBiography; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:personHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -690,8 +690,14 @@ human:hasAlias
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-# human:hasTitle
-
+human:hasTitle
+	a owl:ObjectProperty;
+	rdfs:label "has title"@en, "hat Titel"@de;
+	rdfs:comment """Relating a person to a title of that person."""@en;
+	rdfs:subPropertyOf human:hasName;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:TextValue;
+	salsah-gui:guiElement salsah-gui:Richtext.
 
 human:hasDescription
 	a owl:ObjectProperty;
@@ -714,6 +720,8 @@ human:hasBiography
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
+
+# hagiography
 
 human:personHasRole
 	a owl:ObjectProperty;

@@ -363,7 +363,7 @@ text-structure:Letter
 # PROPERTIES
 #
 
-text-structure:isPartOfTextExpression # can be removed after implementation of transitive property
+text-structure:isPartOfTextExpression
 	a owl:ObjectProperty;
 	rdfs:label "is part of text expression"@en, "ist Teil einer Text-Expression"@de;
 	rdfs:comment """Relating a text structure to a text expression it is part of."""@en;

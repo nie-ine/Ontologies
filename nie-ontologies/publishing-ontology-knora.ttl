@@ -108,7 +108,7 @@ publish:Publication
 		a owl:Restriction; owl:onProperty publish:hasPublisher; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasBibliographicReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty publish:hasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 publish:PartitionedPublication
 	a owl:Class;
@@ -561,7 +561,7 @@ publish:hasPrinterDescription
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-publish:hasBibliographicReference
+publish:hasReference
 	a owl:ObjectProperty;
 	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
 	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;

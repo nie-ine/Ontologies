@@ -1,0 +1,121 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
+@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix device: <http://www.knora.org/ontology/0045/device#>.
+@prefix language: <http://www.knora.org/ontology/004F/language#>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+
+
+@base <http://www.knora.org/ontology/0063/semantic-positional-annotation>.
+@prefix spa: <http://www.nie.org/ontology/0063/semantic-positional-annotation#>.
+
+<http://www.nie.org/ontology/0063/semantic-positional-annotation>
+	a owl:Ontology.
+	dct:title "An ontology about semantic positional annotation"@en;
+	dct:description """Formal description of semantic positional annotation, subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:contributor "Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+
+	knora-base:attachedToProject <http://rdfh.ch/projects/0063>.
+
+#
+# CLASSES
+#
+
+spa:Tag
+	a owl:Class;
+	rdfs:label "semantic positional annotation tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguageExpression.
+
+spa:TextMarkupTag
+	a owl:Class;
+	rdfs:label "text markup tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:Tag.
+
+spa:ItalicTag
+	a owl:Class;
+	rdfs:label "italic tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:TextMarkupTag.
+
+spa:BoldTag
+	a owl:Class;
+	rdfs:label "bold tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:TextMarkupTag.
+
+spa:StructureTag
+	a owl:Class;
+	rdfs:label "text structure tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:Tag.
+
+spa:ParagraphTag
+	a owl:Class;
+	rdfs:label "paragraph tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:StructureTag.
+
+spa:ConceptTag
+	a owl:Class;
+	rdfs:label "concept tag"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subClassOf spa:Tag.	
+
+#
+# PROPERTIES
+#
+
+spa:hasStart
+	a owl:DatatypeProperty;
+	rdfs:label "semantic positional annotation tag has start"@en;
+	rdfs:comment """...."""@en;
+	rdfs:domain spa:Tag;
+	rdfs:range xsd:nonNegativeInteger.
+
+spa:hasEnd
+	a owl:DatatypeProperty;
+	rdfs:label "semantic positional annotation tag has end"@en;
+	rdfs:comment """...."""@en;
+	rdfs:domain spa:Tag;
+	rdfs:range xsd:nonNegativeInteger.
+
+spa:tags
+	a owl:ObjectProperty;
+	rdfs:label "semantic positional annotation tags"@en;
+	rdfs:comment """...."""@en;
+	rdfs:domain spa:Tag;
+	rdfs:range rdfs:Resource.
+
+# spa:tagsParagraph
+#	a owl:ObjectProperty;
+#	rdfs:label "tags"@en;
+#	rdfs:comment """...."""@en;
+#	rdfs:subPropertyOf spa:tags;
+#	rdfs:domain spa:ParagraphTag;
+#	rdfs:range text-structure:Paragraph.
+
+spa:tagsConcept
+	a owl:ObjectProperty;
+	rdfs:label "tags"@en;
+	rdfs:comment """...."""@en;
+	rdfs:subPropertyOf spa:tags;
+	rdfs:domain spa:ConceptTag;
+	rdfs:range concept:Concept.

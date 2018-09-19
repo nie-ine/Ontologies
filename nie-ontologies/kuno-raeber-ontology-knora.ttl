@@ -395,7 +395,7 @@ kuno-raeber:isOnPage # to be removed when knora-base:hasRepresentation will be i
 	a owl:ObjectProperty;
 	rdfs:label "is on page"@en, "ist auf Seite"@de;
 	rdfs:comment """Relating a handwritten poem by Kuno Raeber to a carrier page it is on."""@en;
-	rdfs:subPropertyOf text:isOnPage;
+	rdfs:subPropertyOf infocar:isTextOnPage;
 	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
 	knora-base:objectClassConstraint kuno-raeber:Page.
 
@@ -403,7 +403,7 @@ kuno-raeber:isOnPageValue # to be removed when knora-base:hasRepresentation will
 	a owl:ObjectProperty;
 	rdfs:label "is on page - statement"@en, "ist auf Seite - Festlegung"@de;
 	rdfs:comment """Relating a handwritten poem by Kuno Raeber to a reification statement of the relation between the poem and a carrier page it is on."""@en;
-	rdfs:subPropertyOf text:isOnPageValue;
+	rdfs:subPropertyOf infocar:isTextOnPageValue;
 	knora-base:subjectClassConstraint kuno-raeber:HandwrittenPoem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

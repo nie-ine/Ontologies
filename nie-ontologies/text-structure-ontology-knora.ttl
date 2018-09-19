@@ -161,12 +161,28 @@ text-structure:Section
 text-structure:Line
 	a owl:Class;
 	rdfs:label "text line"@en, "Textzeile"@de;
-	rdfs:comment """Text structure composed as a line."""@en;
+	rdfs:comment """Text structured as a line."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isLineOfColumn; owl:allValuesFrom document:Column], [
 		a owl:Restriction; owl:onProperty text-structure:isLineOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isLineOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:lineHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:Column
+	a owl:Class;
+	rdfs:label "text column"@en, "Textspalte"@de;
+	rdfs:comment """Text structured as a column."""@en;
+	rdfs:subClassOf text-structure:ReadabilityStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isTextOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isTextOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:Page
+	a owl:Class;
+	rdfs:label "text page"@en, "Textseite"@de;
+	rdfs:comment """Text structured as a page."""@en;
+	rdfs:subClassOf text-structure:ReadabilityStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isTextOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isTextOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a owl:Class;
@@ -554,10 +570,10 @@ text-structure:isLineOfColumn
 	rdfs:label "is line of column"@en, "ist Zeile einer Spalte"@de;
 	rdfs:comment """Relating a text line to a column it is part of."""@en;
 	rdfs:domain text-structure:Line;
-	rdfs:range document:Column;
+	rdfs:range text-structure:Column;
 	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint text-structure:Line;
-	knora-base:objectClassConstraint document:Column.
+	knora-base:objectClassConstraint text-structure:Column.
 
 text-structure:isLineOfColumnValue
 	a owl:ObjectProperty;
@@ -576,6 +592,42 @@ text-structure:lineHasNumber
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint text-structure:Line;
 	knora-base:objectClassConstraint knora-base:IntValue.
+
+text-structure:isTextOfColumn
+	a owl:ObjectProperty;
+	rdfs:label "is text of column"@en, "ist Text einer Spalte"@de;
+	rdfs:comment """Relating text to a column it is part of."""@en;
+	rdfs:domain text-structure:Column;
+	rdfs:range document:Column;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Column;
+	knora-base:objectClassConstraint document:Column.
+
+text-structure:isTextOfColumnValue
+	a owl:ObjectProperty;
+	rdfs:label "is text of column - statement"@en, "ist Text einer Spalte - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a column it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Column;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isTextOfPage
+	a owl:ObjectProperty;
+	rdfs:label "is text of page"@en, "ist Text einer Seite"@de;
+	rdfs:comment """Relating text to a page it is part of."""@en;
+	rdfs:domain text-structure:Page;
+	rdfs:range document:Page;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Page;
+	knora-base:objectClassConstraint document:Page.
+
+text-structure:isTextOfPageValue
+	a owl:ObjectProperty;
+	rdfs:label "is text of page - statement"@en, "ist Text einer Seite - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a page it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Page;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:isWordOfVerse
 	a owl:ObjectProperty;

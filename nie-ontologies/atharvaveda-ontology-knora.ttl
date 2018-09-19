@@ -30,7 +30,6 @@ athar:Strophe
 	a owl:Class;
 	rdfs:label "strophe"@en, "Strophe"@de;
 	rdfs:comment """Group of verses."""@en;
-	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
 	rdfs:subClassOf text-structure:Strophe.
 
 # apparatus has format: cf. textedit

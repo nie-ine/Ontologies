@@ -47,8 +47,8 @@ text:Text
 	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -432,24 +432,6 @@ text:hasVersionIndicator
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
-
-text:isOnPage
-	a owl:ObjectProperty;
-	rdfs:label "text is on page"@en, "Text ist auf Seite"@de;
-	rdfs:comment """Relating a text to a carrier page it is on."""@en;
-	rdfs:domain text:Text;
-	rdfs:range infocar:Page;
-	rdfs:subPropertyOf infocar:isOnCarrier;
-	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint infocar:Page.
-
-text:isOnPageValue
-	a owl:ObjectProperty;
-	rdfs:label "text is on page - statement"@en, "Text ist auf Seite - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a carrier page it is on."""@en;
-	rdfs:subPropertyOf infocar:isOnCarrierValue;
-	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint knora-base:LinkValue.
 
 #text:hasPageNumber
 #	a owl:ObjectProperty;

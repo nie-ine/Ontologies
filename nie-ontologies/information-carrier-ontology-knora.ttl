@@ -55,18 +55,18 @@ infocar:Leaf
 	rdfs:label "leaf"@en, "Blatt"@de;
 	rdfs:comment """Sheet of a writable substance, e.g. paper or parchment."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty infocar:isLeafOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isLeafOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isLeafOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isLeafOfBookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 # fold, Falte, cf. Gedicht Heinrich Heine
 
 infocar:Page
 	a owl:Class;
 	rdfs:label "page"@en, "Seite"@de;
-	rdfs:comment """One of the 2 surfaces of a leaf, e.g. a manuscript, or of a leaf of a book."""@en;
+	rdfs:comment """One of the 2 surfaces of a leaf, e.g. a manuscript, or of a leaf as part of a bundled set of leafs, e.g. a book."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty infocar:isPageOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isPageOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfLeaf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfLeafValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOfBookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:pageHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -328,6 +328,8 @@ infocar:isOnCarrier
 	a owl:ObjectProperty;
 	rdfs:label "is on carrier"@en, "ist auf Träger"@de;
 	rdfs:comment "Relating information to a carrier it is on."@en;
+	rdfs:domain concept:Information;
+	rdfs:range infocar:Carrier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint infocar:Carrier.
@@ -344,6 +346,8 @@ infocar:isOnElectronicCarrier
 	a owl:ObjectProperty;
 	rdfs:label "is on electronic carrier"@en, "ist auf elektronischen Träger"@de;
 	rdfs:comment "Relating information to an electronic carrier it is on."@en;
+	rdfs:domain concept:Information;
+	rdfs:range infocar:ElectronicCarrier;
 	rdfs:subPropertyOf infocar:isOnCarrier;
 	knora-base:subjectClassConstraint concept:Information;
 	knora-base:objectClassConstraint infocar:ElectronicCarrier.
@@ -354,6 +358,42 @@ infocar:isOnElectronicCarrierValue
 	rdfs:comment "Relating information to a reification statement of the relation between the information and an electronic carrier it is on."@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
 	knora-base:subjectClassConstraint concept:Information;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isPageOnCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is page on carrier"@en, "ist Seite auf Träger"@de;
+	rdfs:comment """Relating a document page to a carrier page it is on."""@en;
+	rdfs:domain document:Page;
+	rdfs:range infocar:Page;
+	rdfs:subPropertyOf infocar:isOnCarrier;
+	knora-base:subjectClassConstraint document:Page;
+	knora-base:objectClassConstraint infocar:Page.
+
+infocar:isPageOnCarrierValue
+	a owl:ObjectProperty;
+	rdfs:label "is page on carrier - statement"@en, "ist Seite auf Träger - Festlegung"@de;
+	rdfs:comment """Relating a document page to a reification statement of the relation between the page and a carrier page it is on."""@en;
+	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint document:Page;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isTextOnPage
+	a owl:ObjectProperty;
+	rdfs:label "is text on page"@en, "ist Text auf Seite"@de;
+	rdfs:comment """Relating a text to a carrier page it is on."""@en;
+	rdfs:domain text:Text;
+	rdfs:range infocar:Page;
+	rdfs:subPropertyOf infocar:isOnCarrier;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint infocar:Page.
+
+infocar:isTextOnPageValue
+	a owl:ObjectProperty;
+	rdfs:label "is text on page - statement"@en, "ist Text auf Seite - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a carrier page it is on."""@en;
+	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:isWrittenWith
@@ -372,17 +412,19 @@ infocar:isWrittenWithValue
 	knora-base:subjectClassConstraint text:WrittenText;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-infocar:isPageOf
+infocar:isPageOfLeaf
 	a owl:ObjectProperty;
-	rdfs:label "is page of"@en, "ist Seite von"@de;
+	rdfs:label "is page of leaf"@en, "ist Seite eines Blattes"@de;
 	rdfs:comment """Relating a page to its leaf, single or in a book."""@en;
+	rdfs:domain infocar:Page;
+	rdfs:range infocar:Leaf;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint infocar:Page;
 	knora-base:objectClassConstraint infocar:Leaf. # owl:disjointUnionOf (infocar:Leaf infocar:Book) # exclusive OR
 
-infocar:isPageOfValue
+infocar:isPageOfLeafValue
 	a owl:ObjectProperty;
-	rdfs:label "is page of - statement"@en, "ist Seite von - Festlegung"@de;
+	rdfs:label "is page of leaf - statement"@en, "ist Seite eines Blattes - Festlegung"@de;
 	rdfs:comment """Relating a page to a reification statement of the relation between the page and its leaf, single or in a book."""@en;
 	rdfs:subPropertyOf physical:isPartOfValue;
 	knora-base:subjectClassConstraint infocar:Page;
@@ -392,7 +434,9 @@ infocar:isPageOfBook
 	a owl:ObjectProperty;
 	rdfs:label "is page of book"@en, "ist Seite eines Buchs"@de;
 	rdfs:comment """Relating a page to a book its leaf is part of."""@en;
-	rdfs:subPropertyOf physical:isPartOf; # owl:propertyChainAxiom (infocar:isPageOf infocar:isLeafOf)
+	rdfs:domain infocar:Page;
+	rdfs:range infocar:Book;
+	rdfs:subPropertyOf physical:isPartOf; # owl:propertyChainAxiom (infocar:isPageOfLeaf infocar:isLeafOfBook)
 	knora-base:subjectClassConstraint infocar:Page;
 	knora-base:objectClassConstraint infocar:Book.
 
@@ -413,33 +457,35 @@ infocar:pageHasNumber
 	knora-base:objectClassConstraint knora-base:IntValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
-infocar:isLeafOf
+infocar:isLeafOfBook
 	a owl:ObjectProperty;
-	rdfs:label "is leaf of"@en, "ist Blatt von"@de;
+	rdfs:label "is leaf of book"@en, "ist Blatt eines Buchs"@de;
 	rdfs:comment """Relating a leaf to a book it is part of."""@en;
+	rdfs:domain infocar:Leaf;
+	rdfs:range infocar:Book;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint infocar:Leaf;
 	knora-base:objectClassConstraint infocar:Book.
 
-infocar:isLeafOfValue
+infocar:isLeafOfBookValue
 	a owl:ObjectProperty;
-	rdfs:label "is leaf of - statement"@en, "ist Blatt von - Festlegung"@de;
+	rdfs:label "is leaf of book - statement"@en, "ist Blatt eines Buchs - Festlegung"@de;
 	rdfs:comment """Relating a leaf to a reification statement of the relation between the leaf and a book it is part of."""@en;
 	rdfs:subPropertyOf physical:isPartOfValue;
 	knora-base:subjectClassConstraint infocar:Leaf;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-infocar:isBindingOf
+infocar:isBindingOfBook
 	a owl:ObjectProperty;
-	rdfs:label "is binding of"@en, "ist Einband von"@de;
+	rdfs:label "is binding of book"@en, "ist Einband eines Buchs"@de;
 	rdfs:comment """Relating a binding to a book it is part of."""@en;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint infocar:Binding;
 	knora-base:objectClassConstraint infocar:Book.
 
-infocar:isBindingOfValue
+infocar:isBindingOfBookValue
 	a owl:ObjectProperty;
-	rdfs:label "is binding of - statement"@en, "ist Einband von - Festlegung"@de;
+	rdfs:label "is binding of book - statement"@en, "ist Einband eines Buchs - Festlegung"@de;
 	rdfs:comment """Relating a binding to a reification statement of the relation between the binding and a book it is part of."""@en;
 	rdfs:subPropertyOf physical:isPartOfValue;
 	knora-base:subjectClassConstraint infocar:Binding;
@@ -459,6 +505,8 @@ infocar:isInManuscript
 	a owl:ObjectProperty;
 	rdfs:label "is in manuscript"@en, "ist in Manuskript"@de;
 	rdfs:comment "Relating a handwritten text to the manuscript that carries it."@en;
+	rdfs:domain text:HandwrittenText;
+	rdfs:range infocar:Manuscript;
 	rdfs:subPropertyOf infocar:isOnCarrier;
 	knora-base:subjectClassConstraint text:HandwrittenText;
 	knora-base:objectClassConstraint infocar:Manuscript.
@@ -475,6 +523,8 @@ infocar:isInTypescript
 	a owl:ObjectProperty;
 	rdfs:label "is in typescript"@en, "ist in Typoskript"@de;
 	rdfs:comment "Relating a typewritten text to the typescript that carries it."@en;
+	rdfs:domain text:TypewrittenText;
+	rdfs:range infocar:Typescript;
 	rdfs:subPropertyOf infocar:isOnCarrier;
 	knora-base:subjectClassConstraint text:TypewrittenText;
 	knora-base:objectClassConstraint infocar:Typescript.
@@ -491,6 +541,8 @@ infocar:isInDiary
 	a owl:ObjectProperty;
 	rdfs:label "is in diary"@en, "ist in Tagebuch"@de;
 	rdfs:comment """Relating a diary entry to a diary it is in."""@en;
+	rdfs:domain text:DiaryEntry;
+	rdfs:range infocar:Diary;
 	rdfs:subPropertyOf infocar:isOnCarrier;
 	knora-base:subjectClassConstraint text:DiaryEntry;
 	knora-base:objectClassConstraint infocar:Diary.
@@ -516,6 +568,8 @@ infocar:isInLetter
 	a owl:ObjectProperty;
 	rdfs:label "is in letter"@en, "ist in Brief"@de;
 	rdfs:comment """Relating a letter expression to a letter it is in."""@en;
+	rdfs:domain text:LetterExpression;
+	rdfs:range infocar:Letter;
 	rdfs:subPropertyOf infocar:isOnCarrier;
 	knora-base:subjectClassConstraint text:LetterExpression;
 	knora-base:objectClassConstraint infocar:Letter.

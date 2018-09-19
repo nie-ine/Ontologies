@@ -121,7 +121,7 @@ document:Layout
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf knora-base:Resource. #* document:Element, concept:Layout
 
-document:Column # make a text: SC? - ReadabilityStructure
+document:Column
 	a owl:Class;
 	rdfs:label "column"@en, "Spalte"@de;
 	rdfs:comment """Document structure displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
@@ -130,24 +130,22 @@ document:Column # make a text: SC? - ReadabilityStructure
 		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isColumnOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-document:Page # text, visuals, page # etc. # make a text: SC?
+document:Page
 	a owl:Class;
 	rdfs:label "document page"@en, "Dokumentseite"@de;
-	rdfs:comment """Document structure displaying information e.g. text lines and graphs, as a page as part of a document."""@en;
-	skos:note """It is a column filling a complete information carrier page."""@en;
-	rdfs:subClassOf document:Column, [
+	rdfs:comment """Content structure displaying information, e.g. text lines and graphs, as a page as part of a document, on an information carrier page."""@en;
+	rdfs:subClassOf document:ContentStructure, [
 #		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:allValuesFrom document:Document], [
 		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:TitlePage
 	a owl:Class;
 	rdfs:label "title page"@en, "Titelblatt"@de;
 	rdfs:comment """Document page contianing a title."""@en;
-	rdfs:subClassOf document:Page. # , [
-#		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:allValuesFrom document:Document], [
-#		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Page.
 
 document:Marginal
 	a owl:Class;

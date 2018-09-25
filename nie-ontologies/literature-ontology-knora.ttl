@@ -120,7 +120,7 @@ litera:Expression
 	a owl:Class;
 	rdfs:label "literary expression"@en, "literarische Expression"@de;
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
-	rdfs:subClassOf text:Expression, [
+	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 

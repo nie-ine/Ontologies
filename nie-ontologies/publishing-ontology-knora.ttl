@@ -35,7 +35,7 @@ publish:Expression
 	a owl:Class;
 	rdfs:label "publication expression"@en, "Publikation-Expression"@de;
 	rdfs:comment """See http://iflastandards.info/ns/fr/frbr/frbroo/F24_Publication_Expression."""@en;
-	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression, [
+	rdfs:subClassOf document:IndividualExpression, frbroo:F24_Publication_Expression, [
 		a owl:Restriction; owl:onProperty publish:isPublishedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:isPublishedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:isPublishedOnWeb; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -520,6 +520,8 @@ publish:hasTitle
 	a owl:ObjectProperty;
 	rdfs:label "publication has title"@en, "Publikation hat titel"@de;
 	rdfs:comment """Relating a publication to its title."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -547,6 +549,8 @@ publish:hasPublisherDescription
 	a owl:ObjectProperty;
 	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de;
 	rdfs:comment """Relating a publication to its publisher's description."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -556,6 +560,8 @@ publish:hasPrinterDescription
 	a owl:ObjectProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de;
 	rdfs:comment """Relating a publication to its printer's description."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -565,6 +571,8 @@ publish:hasReference
 	a owl:ObjectProperty;
 	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
 	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
 	knora-base:objectClassConstraint knora-base:TextValue;

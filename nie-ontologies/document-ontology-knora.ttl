@@ -32,7 +32,7 @@
 	knora-base:attachedToProject <http://rdfh.ch/projects/005C>.
 
 
-# EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements
+# Declared 'middle-out', as concepts are needed, not intended to contain upfront all elements
 
 
 #
@@ -59,9 +59,7 @@ document:Structure
 	a owl:Class;
 	rdfs:label "document structure"@en, "Dokumentstruktur"@de;
 	rdfs:comment """Structural element of a document."""@en;
-	rdfs:subClassOf document:Element, [
-		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #**
-		a owl:Restriction; owl:onProperty infocar:hasHyperlinkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Element.
 
 document:ContentStructure
 	a owl:Class;
@@ -119,7 +117,13 @@ document:Layout
 	a owl:Class;
 	rdfs:label "layout"@en, "Aufmachung"@de;
 	rdfs:comment """Way in which the content of a page is set out."""@en;
-	rdfs:subClassOf knora-base:Resource. #* document:Element, concept:Layout
+	rdfs:subClassOf document:Element.
+
+# Format
+# Character Type, Size
+# Shape
+# Color
+# Readability Line
 
 document:Column
 	a owl:Class;
@@ -135,9 +139,9 @@ document:Page
 	rdfs:label "document page"@en, "Dokumentseite"@de;
 	rdfs:comment """Content structure displaying information, e.g. text lines and graphs, as a page as part of a document, on an information carrier page."""@en;
 	rdfs:subClassOf document:ContentStructure, [
-#		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:allValuesFrom document:Document], [
-		a owl:Restriction; owl:onProperty document:isPageOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isPageOfDocumentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:allValuesFrom document:Document], [
+		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isPageOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -156,7 +160,7 @@ document:Marginal
 document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a owl:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
-	rdfs:comment """Two-dimensional structure composed of one or more fields containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
+	rdfs:comment """Two-dimensional structure composed of one or more fields or cell containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf document:ContentStructure, [
 		a owl:Restriction; owl:onProperty document:isTableOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isTableOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -164,11 +168,9 @@ document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 document:Expression
 	a owl:Class;
 	rdfs:label "document expression"@en, "Document-Expression"@de;
-	rdfs:comment """Document realisation of an individual work conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
-	rdfs:subClassOf document:Document, frbroo:F22_Self-Contained_Expression, [
-		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isExpressionOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:isExpressionOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+	rdfs:comment """Document realisation of a work, conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
+	rdfs:subClassOf document:Document, frbroo:F2_Expression, [
+		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #°
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -196,34 +198,45 @@ document:Expression
 		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+document:IndividualExpression
+	a owl:Class;
+	rdfs:label "individual document expression"@en, "individuelle Document-Expression"@de;
+	rdfs:comment """Document realisation of an individual work."""@en;
+	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression, [
+		a owl:Restriction; owl:onProperty document:isExpressionOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isExpressionOfCycleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:ExpressionPart
+	a owl:Class;
+	rdfs:label "document expression part"@en, "Document-Expressionsteil"@de;
+	rdfs:comment """Part of an individual document expression."""@en;
+	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment, [
+		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 document:Cycle
 	a owl:Class;
 	rdfs:label "expression cycle"@en, "Expression-Zyklus"@de;
 	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en; #*
 	rdfs:subClassOf concept:Set.
 
-# Format
-# Size
-# Shape
-# color
-
 document:Dictionary
 	a owl:Class;
 	rdfs:label "dictionary"@en, "Wörterbuch"@de;
 	rdfs:comment """List of words of a human natural language, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
-	rdfs:subClassOf document:Expression.
+	rdfs:subClassOf document:IndividualExpression.
 
 document:Catalogue
 	a owl:Class;
 	rdfs:label "catalogue"@en, "Katalog"@de, "catalogue"@fr;
 	rdfs:comment """List of descriptions of things, mostly ordered, e.g. alphabetically; e.g. library's book catalogue, exhibition's works of art catalogue, mail-order company's items for sale catalogue."""@en;
-	rdfs:subClassOf document:Expression.
+	rdfs:subClassOf document:IndividualExpression.
 
 document:ScientificExpression
 	a owl:Class;
 	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
 	rdfs:comment """Text expression with scientific content."""@en;
-	rdfs:subClassOf document:Expression.
+	rdfs:subClassOf document:IndividualExpression.
 
 document:VulgarizedScientificExpression
 	a owl:Class;
@@ -233,9 +246,11 @@ document:VulgarizedScientificExpression
 
 document:Code
 	a owl:Class;
-	rdfs:label "Code document"@en,"Kode-Dokument"@de;
+	rdfs:label "code document"@en,"Kode-Dokument"@de;
 	rdfs:comment """Document containing code."""@en;
-	rdfs:subClassOf document:Document.
+	rdfs:subClassOf document:Document, [
+		a owl:Restriction; owl:onProperty document:hasEncoder; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasEncoderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:HypertextDocument
 	a owl:Class;
@@ -299,10 +314,28 @@ document:isElementOfDocumentValue
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+document:isPartOfDocumentExpression
+	a owl:ObjectProperty;
+	rdfs:label "is part of document expression"@en, "ist Teil einer Dokument-Expression"@de;
+	rdfs:comment """Relating a document element to a document expression it is part of."""@en;
+	rdfs:domain document:Element;
+	rdfs:range document:Expression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint document:Expression.
+
+text-structure:isPartOfTextExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of document expression - statement"@en, "ist Teil einer Dokument-Expression - Festlegung"@de;
+	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a document expression it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint document:Element;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 document:isColumnOfPage
 	a owl:ObjectProperty;
-	rdfs:label "is column of page"@en, "ist Spalte einer Seite"@de;
-	rdfs:comment """Relating a column to a page it is part of."""@en;
+	rdfs:label "is column of document page"@en, "ist Spalte einer Dokumentseite"@de;
+	rdfs:comment """Relating a column to a document page it is part of."""@en;
 	rdfs:domain document:Column;
 	rdfs:range document:Page;
 	rdfs:subPropertyOf concept:isPartOf;
@@ -311,26 +344,26 @@ document:isColumnOfPage
 
 document:isColumnOfPageValue
 	a owl:ObjectProperty;
-	rdfs:label "is column of page - statement"@en, "ist Spalte einer Seite - Festlegung"@de;
-	rdfs:comment """Relating a column to a reification statement of the relation between the column and a page it is part of."""@en;
+	rdfs:label "is column of document page - statement"@en, "ist Spalte einer Dokumentseite - Festlegung"@de;
+	rdfs:comment """Relating a column to a reification statement of the relation between the column and a document page it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Column;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isPageOfDocument
+document:isPageOfExpression
 	a owl:ObjectProperty;
-	rdfs:label "is page of document"@en, "ist Seite eines Dokumentes"@de;
-	rdfs:comment """Relating a page to a document it is part of."""@en;
+	rdfs:label "is page of expression"@en, "ist Seite einer Expression"@de;
+	rdfs:comment """Relating a page to an expression it is part of."""@en;
 	rdfs:domain document:Page;
-	rdfs:range document:Document;
+	rdfs:range document:Expression;
 	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint document:Page;
-	knora-base:objectClassConstraint document:Document.
+	knora-base:objectClassConstraint document:Expression.
 
-document:isPageOfDocumentValue
+document:isPageOfExpressionValue
 	a owl:ObjectProperty;
-	rdfs:label "is page of document - statement"@en, "ist Seite eines Dokumentes - Festlegung"@de;
-	rdfs:comment """Relating a page to a reification statement of the relation between the page and a document it is part of."""@en;
+	rdfs:label "is page of expression - statement"@en, "ist Seite einer Expression - Festlegung"@de;
+	rdfs:comment """Relating a page to a reification statement of the relation between the page and an expression it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -479,7 +512,7 @@ document:hasEndnoteNumberValue
 	knora-base:subjectClassConstraint document:EndnoteReferenceNumber;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isTableOfColumn # page (abstracted from carrier) being a special case of column
+document:isTableOfColumn
 	a owl:ObjectProperty;
 	rdfs:label "is table of column"@en, "ist Tabelle einer Spalte"@de;
 	rdfs:comment """Relating a table to a column it is part of."""@en;
@@ -509,19 +542,37 @@ document:expressionHasTitle
 document:isExpressionOfCycle
 	a owl:ObjectProperty;
 	rdfs:label "is expression of cycle"@en, "ist Expression eines Zyklus"@de;
-	rdfs:comment """Relating an expression to a cycle it is part of."""@en;
-	rdfs:domain document:Expression;
+	rdfs:comment """Relating an individual expression to a cycle it is part of."""@en;
+	rdfs:domain document:IndividualExpression;
 	rdfs:range document:Cycle;
 	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint document:Expression;
+	knora-base:subjectClassConstraint document:IndividualExpression;
 	knora-base:objectClassConstraint document:Cycle.
 
 document:isExpressionOfCycleValue
 	a owl:ObjectProperty;
 	rdfs:label "is expression of cycle - statement"@en, "ist Expression eines Zyklus - Festlegung"@de;
-	rdfs:comment """Relating an expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
+	rdfs:comment """Relating an individual expression to a reification statement of the relation between the expression and a cycle it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint document:Expression;
+	knora-base:subjectClassConstraint document:IndividualExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:isPartOfIndividualExpression
+	a owl:ObjectProperty;
+	rdfs:label "is part of individual expression"@en, "ist Teil einer individuellen Expression"@de;
+	rdfs:comment """Relating an expression part to an individual expression it is part of."""@en;
+	rdfs:domain document:ExpressionPart;
+	rdfs:range document:IndividualExpression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint document:ExpressionPart;
+	knora-base:objectClassConstraint document:IndividualExpression.
+
+document:isPartOfIndividualExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of individual expression - statement"@en, "ist Teil einer individuellen Expression - Festlegung"@de;
+	rdfs:comment """Relating an expression part to a reification statement of the relation between the expression part and an individual expression it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint document:ExpressionPart;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:isElementOfHypertextDocument

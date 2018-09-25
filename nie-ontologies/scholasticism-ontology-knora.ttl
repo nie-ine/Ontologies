@@ -75,7 +75,7 @@ schola:Reportator
 #	a owl:Class;
 #	rdfs:label "scholastic expression"@en, "scholastischer Expression"@de;
 #	rdfs:comment """Expression created by a scholastic."""@en;
-#	rdfs:subClassOf document:Expression.
+#	rdfs:subClassOf document:IndividualExpression.
 
 schola:Commentary
 	a owl:Class;

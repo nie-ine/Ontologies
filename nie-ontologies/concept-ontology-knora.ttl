@@ -94,17 +94,17 @@ concept:Work
 	rdfs:label "work"@en, "Werk"@de;
 	rdfs:comment """Intellectual product as concept."""@en; #*
 	rdfs:subClassOf concept:PropositionalConcept, frbroo:F1_Work, [
-		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:isExpressedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:isExpressedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 concept:IndividualWork
 	a owl:Class;
 	rdfs:label "individual work"@en, "individuelles Werk"@de;
 	rdfs:comment """Work as a complete whole realised in one self-contained expression."""@en;
-	rdfs:subClassOf concept:Work, frbroo:F14_Individual_Work.
+	rdfs:subClassOf concept:Work, frbroo:F14_Individual_Work, [
+		a owl:Restriction; owl:onProperty concept:isExpressedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:isExpressedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-concept:Information
+concept:Information #°
 	a owl:Class;
 	rdfs:label "information"@en, "Information"@de;
 	rdfs:comment """Symbolic propositional concept resolving uncertainty."""@en; # linked data
@@ -169,19 +169,19 @@ concept:isPartOfValue
 concept:isExpressedIn
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
-	rdfs:comment "Relating a work to an expression thereof."@en;
-	rdfs:domain concept:Work;
-	rdfs:range document:Expression;
+	rdfs:comment "Relating an individual work to an individual expression thereof."@en;
+	rdfs:domain concept:IndividualWork;
+	rdfs:range document:IndividualExpression;
 	rdfs:subPropertyOf frbroo:R9_is_realised_in, knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint concept:Work;
-	knora-base:objectClassConstraint document:Expression.
+	knora-base:subjectClassConstraint concept:IndividualWork;
+	knora-base:objectClassConstraint document:IndividualExpression.
 
 concept:isExpressedInValue
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in - statement"@en, "ist ausgedruckt in - Festlegung"@de;
-	rdfs:comment "Relating a work to a reification statement of the relation between the work and an expression thereof."@en;
+	rdfs:comment "Relating an individual work to a reification statement of the relation between the work and an individual expression thereof."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint concept:Work;
+	knora-base:subjectClassConstraint concept:IndividualWork;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 concept:informationHasSubject

@@ -47,8 +47,6 @@ text:Text
 	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -66,18 +64,20 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasCitationReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isCitedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isCitedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasAbbreviatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasSameEditionAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasSameEditionAsValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty textedit:hasSameEditionAsValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:WrittenText
 	a owl:Class;
@@ -116,22 +116,38 @@ text:Transliteration
 text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de, "expression textuelle"@fr, "espressione testuale"@it;
-	rdfs:comment """Expression conform FRBROO, as text."""@en;
+	rdfs:comment """Text as expression conform FRBROO."""@en;
 	rdfs:subClassOf document:Expression, text:Text, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCriticalEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasScientificEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasScientificEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasCriticalEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:IndividualExpression
+	a owl:Class;
+	rdfs:label "individual text expression"@en, "individuelle Text-Expression"@de;
+	rdfs:comment """Text as individual expression."""@en;
+	rdfs:subClassOf text:Expression, document:IndividualExpression, [
+		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:ExpressionPart
+	a owl:Class;
+	rdfs:label "text expression part"@en, "Text-Expressionsteil"@de;
+	rdfs:comment """Part of an individual text expression."""@en;
+	rdfs:subClassOf text:Expression, document:ExpressionPart, [
+		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Author
 	a owl:Class;
@@ -238,7 +254,7 @@ text:DiaryEntry
 	a owl:Class;
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione diario"@it;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
-	rdfs:subClassOf text:Expression, [
+	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -247,7 +263,7 @@ text:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
-	rdfs:subClassOf text:Expression, [
+	rdfs:subClassOf text:IndividualExpression, [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:LetterStructure], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -258,7 +274,7 @@ text:Commentary
 	a owl:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
-	rdfs:subClassOf text:Expression.
+	rdfs:subClassOf text:IndividualExpression.
 
 text:Draft
 	a owl:Class;
@@ -293,7 +309,7 @@ text:Biography
 	a owl:Class;
 	rdfs:label "biography"@en, "Biographie"@de; #*
 	rdfs:comment """Text expression about a person's life."""@en;
-	rdfs:subClassOf text:Expression.
+	rdfs:subClassOf text:IndividualExpression.
 
 #
 # PROPERTIES
@@ -594,6 +610,24 @@ text:isCitedInValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text:hasEditor
+	a owl:ObjectProperty;
+	rdfs:label "text has editor"@en, "Text hat Editor"@de;
+	rdfs:comment """Relating a text to a person who edited it."""@en;
+	rdfs:domain text:Text;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasEditorValue
+	a owl:ObjectProperty;
+	rdfs:label "text has editor - statement"@en, "Text hat Editor - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who edited it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text:hasAuthor
 	a owl:ObjectProperty;
 	rdfs:label "text has author"@en, "Text hat Autor"@de;
@@ -623,18 +657,18 @@ text:hasAuthorValue
 text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
-	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
+	rdfs:comment """Relating an untitled individual text expression to a beginning part thereof to identify the text."""@en;
 	rdfs:subPropertyOf text:hasText;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:IndividualExpression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
 text:hasExplicit
 	a owl:ObjectProperty;
 	rdfs:label "has explicit"@en, "hat Explicit"@de;
-	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
+	rdfs:comment """Relating an untitled individual text expression to an end part thereof to identify the text."""@en;
 	rdfs:subPropertyOf text:hasText;
-	knora-base:subjectClassConstraint text:Expression;
+	knora-base:subjectClassConstraint text:IndividualExpression;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Richtext.
 
@@ -654,6 +688,42 @@ text:hasScientificEditorValue
 	rdfs:comment "Relating a text expression to a reification statement of the relation between the expression and person who edited it scientifically."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:hasCriticalEditor
+	a owl:ObjectProperty;
+	rdfs:label "text expression has critical editor"@en, "Text-Expression hat kritische Editor"@de;
+	rdfs:comment "Relating a text expression to a person who edited it critically."@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:CriticalEditor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasCriticalEditorValue
+	a owl:ObjectProperty;
+	rdfs:label "text expression has critical editor - statement"@en, "Text-Expression hat kritische Editor - Festlegung"@de;
+	rdfs:comment "Relating a text expression to a reification statement of the relation between the expression and person who edited it critically."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isPartOfIndividualExpression
+	a owl:ObjectProperty;
+	rdfs:label "is part of individual text expression"@en, "ist Teil einer individuellen Text-Expression"@de;
+	rdfs:comment """Relating a text expression part to an individual expression it is part of."""@en;
+	rdfs:domain text:ExpressionPart;
+	rdfs:range text:IndividualExpression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text:ExpressionPart;
+	knora-base:objectClassConstraint text:IndividualExpression.
+
+text:isPartOfIndividualExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of individual text expression - statement"@en, "ist Teil einer individuellen Text-Expression - Festlegung"@de;
+	rdfs:comment """Relating a text expression part to a reification statement of the relation between the part and an individual expression it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text:ExpressionPart;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text:citationHasIdentifier

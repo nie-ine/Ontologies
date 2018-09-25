@@ -20,10 +20,10 @@
 
 
 @base <http://www.knora.org/ontology/0063/semantic-positional-annotation>.
-@prefix spa: <http://www.nie.org/ontology/0063/semantic-positional-annotation#>.
+@prefix spa: <http://www.knora.org/ontology/0063/semantic-positional-annotation#>.
 
-<http://www.nie.org/ontology/0063/semantic-positional-annotation>
-	a owl:Ontology.
+<http://www.knora.org/ontology/0063/semantic-positional-annotation>
+	a owl:Ontology;
 	dct:title "An ontology about semantic positional annotation"@en;
 	dct:description """Formal description of semantic positional annotation, subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;

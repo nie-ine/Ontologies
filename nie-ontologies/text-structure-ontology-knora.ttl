@@ -173,8 +173,12 @@ text-structure:Column
 	rdfs:label "text column"@en, "Textspalte"@de;
 	rdfs:comment """Text structured as a column."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, [
+#		a owl:Restriction; owl:onProperty text-structure:isTextOfColumn; owl:allValuesFrom document:Column], [
 		a owl:Restriction; owl:onProperty text-structure:isTextOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isTextOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isTextOfColumnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty text-structure:isColumnOfPage; owl:allValuesFrom document:Page], [
+		a owl:Restriction; owl:onProperty text-structure:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isColumnOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Page
 	a owl:Class;
@@ -184,13 +188,14 @@ text-structure:Page
 		a owl:Restriction; owl:onProperty text-structure:isTextOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isTextOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+
 text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a owl:Class;
 	rdfs:label "text table"@en, "Texttabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
 
-#* running text - Fliesstext, as distinguished from headline, illustration, table
+# running text - Fliesstext, as distinguished from headline, illustration, table
 
 # text-structure:Cycle
 #	a owl:Class;
@@ -198,9 +203,9 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 #	rdfs:comment """Set of text expressions belonging together, e.g. created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 #	rdfs:subClassOf document:Cycle, text-structure:Structure. #*
 
-#* scenic text - Szenischer Text # drama
+# scenic text - Szenischer Text # drama
 
-#* Sachtext-structure: e.g. Essay, Einleitung
+# Sachtext-structure: e.g. Essay, Einleitung
 
 text-structure:Verse
 	a owl:Class;
@@ -611,6 +616,24 @@ text-structure:isTextOfColumnValue
 	knora-base:subjectClassConstraint text-structure:Column;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text-structure:isColumnOfPage
+	a owl:ObjectProperty;
+	rdfs:label "is column of text page"@en, "ist Spalte einer Textseite"@de;
+	rdfs:comment """Relating a column to a text page it is part of."""@en;
+	rdfs:domain text-structure:Column;
+	rdfs:range text-structure:Page;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Column;
+	knora-base:objectClassConstraint text-structure:Page.
+
+text-structure:isColumnOfPageValue
+	a owl:ObjectProperty;
+	rdfs:label "is column of text page - statement"@en, "ist Spalte einer Textseite - Festlegung"@de;
+	rdfs:comment """Relating a column to a reification statement of the relation between the column and a text page it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Column;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:isTextOfPage
 	a owl:ObjectProperty;
 	rdfs:label "is text of page"@en, "ist Text einer Seite"@de;
@@ -625,6 +648,24 @@ text-structure:isTextOfPageValue
 	a owl:ObjectProperty;
 	rdfs:label "is text of page - statement"@en, "ist Text einer Seite - Festlegung"@de;
 	rdfs:comment """Relating a text to a reification statement of the relation between the text and a page it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Page;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isPageOfExpression
+	a owl:ObjectProperty;
+	rdfs:label "is page of text expression"@en, "ist Seite einer Text-Expression"@de;
+	rdfs:comment """Relating a text page to a text expression it is part of."""@en;
+	rdfs:domain text-structure:Page;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Page;
+	knora-base:objectClassConstraint text:Expression.
+
+text-structure:isPageOfExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is text page of expression - statement"@en, "ist Seite einer Text-Expression - Festlegung"@de;
+	rdfs:comment """Relating a text page to a reification statement of the relation between the page and a text expression it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint text-structure:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -44,7 +44,7 @@ kuno-raeber:Text
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de;
 	rdfs:comment """Text expression authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text:Expression, [
+	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInSwissGerman; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

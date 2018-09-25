@@ -82,8 +82,8 @@ infocar:Binding
 	rdfs:label "binding"@en, "Einband"@de;
 	rdfs:comment """Material holding the leafs and covers of a book together."""@en;
 	rdfs:subClassOf infocar:Carrier, [
-		a owl:Restriction; owl:onProperty infocar:isBindingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isBindingOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:isBindingOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isBindingOfBookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Volume
 	a owl:Class;
@@ -479,6 +479,8 @@ infocar:isBindingOfBook
 	a owl:ObjectProperty;
 	rdfs:label "is binding of book"@en, "ist Einband eines Buchs"@de;
 	rdfs:comment """Relating a binding to a book it is part of."""@en;
+	rdfs:domain infocar:Binding;
+	rdfs:range infocar:Book;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint infocar:Binding;
 	knora-base:objectClassConstraint infocar:Book.

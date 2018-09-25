@@ -40,7 +40,7 @@ delille:VersePoem
 	a owl:Class;
 	rdfs:label "Jacques Delille verse poem"@en, "Jacques Delille-Versgedicht"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text:Expression, litera:VersePoem.
+	rdfs:subClassOf litera:VersePoem.
 
 delille:EditedVersePoem
 	a owl:Class;
@@ -54,6 +54,8 @@ delille:Canto
 	rdfs:label "Jacques Delille canto"@en, "Jacques Delille Canto"@de, "Jacques Delille chant de Jacques Delille"@fr, "canto di Jacques Delille"@it;
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-structure:VerseSection.
+
+
 
 delille:CitationReferenceVerseNumber
 	a owl:Class;

@@ -1425,3 +1425,58 @@
 	knora-base:forGroup knora-base:ProjectMember;
 	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
 
+#
+# Wölfflin
+#
+
+## Administrative permissions on project member
+
+<http://rdfh.ch/permissions/0066/047-a1>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/0066>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+
+## Administrative permissions on project admin
+
+<http://rdfh.ch/permissions/0066/047-a2>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/0066>;
+	knora-base:forGroup knora-base:ProjectAdmin;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+
+## Default object access permissions on project member group
+
+<http://rdfh.ch/permissions/0066/047-d1>
+	rdf:type knora-base:DefaultObjectAccessPermission;
+	knora-base:forProject <http://rdfh.ch/projects/0066>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
+
+#
+# Parzival
+#
+
+## Administrative permissions on project member
+
+<http://rdfh.ch/permissions/0067/048-a1>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/0067>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+
+## Administrative permissions on project admin
+
+<http://rdfh.ch/permissions/0067/048-a2>
+	rdf:type knora-base:AdministrativePermission;
+	knora-base:forProject <http://rdfh.ch/projects/0067>;
+	knora-base:forGroup knora-base:ProjectAdmin;
+	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+
+## Default object access permissions on project member group
+
+<http://rdfh.ch/permissions/0067/048-d1>
+	rdf:type knora-base:DefaultObjectAccessPermission;
+	knora-base:forProject <http://rdfh.ch/projects/0067>;
+	knora-base:forGroup knora-base:ProjectMember;
+	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.

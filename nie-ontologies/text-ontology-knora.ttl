@@ -144,7 +144,7 @@ text:IndividualExpression
 text:ExpressionPart
 	a owl:Class;
 	rdfs:label "text expression part"@en, "Text-Expressionsteil"@de;
-	rdfs:comment """Part of an individual text expression."""@en;
+	rdfs:comment """Part of an individual text expression, considered as incomplete."""@en;
 	rdfs:subClassOf text:Expression, document:ExpressionPart, [
 		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -430,7 +430,7 @@ text:hasSpecialDescription
 text:hasLineNumber
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
-	rdfs:comment """Relating a text expression to the number of a line of the text expression."""@en;
+	rdfs:comment """Relating a text to the number of a line of the text expression."""@en;
 	rdfs:domain text:Text;
 	rdfs:range rdfs:Literal;	
 	rdfs:subPropertyOf text:hasText;
@@ -454,7 +454,7 @@ text:hasVersionIndicator
 #	rdfs:label "has page number"@en;
 #	rdfs:comment """Relating a text to the number of a page it is on."""@en;
 #	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint text:Text; # owl:propertyChainAxiom (text:isOnPage infocar:pageHasNumber)
+#	knora-base:subjectClassConstraint text:Text; # owl:propertyChainAxiom (infocar:isTextOnPage infocar:pageHasNumber)
 #	knora-base:objectClassConstraint knora-base:IntValue.
 
 text:hasPageNumberDescription

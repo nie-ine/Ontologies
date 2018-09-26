@@ -1349,7 +1349,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "Meyer"^^xsd:string;
   knora-base:projectShortcode "0062"^^xsd:string;
   knora-base:projectLongname "An ontology about Conrad Ferdinand Meyer's correspondence"^^xsd:string;
-  knora-base:projectDescription "Formal description of specific concepts in the scientific study of correspondence of Conrad Ferdinand Meyer, 11 October 1825 – 28 November 1898"@en;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of the correspondence of Conrad Ferdinand Meyer, 11 October 1825 – 28 November 1898"@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1396,8 +1396,8 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 <http://rdfh.ch/projects/0064> a knora-base:knoraProject;
   knora-base:projectShortname "Lavater"^^xsd:string;
   knora-base:projectShortcode "0064"^^xsd:string;
-  knora-base:projectLongname "An ontology about Lavater's correspondence"^^xsd:string;
-  knora-base:projectDescription "Formal description of specific concepts in the scientific study of correspondence of Lavater,  – "@en;
+  knora-base:projectLongname "An ontology about Johann Caspar Lavater's correspondence"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of the correspondence of Johann Caspar Lavater, 15 November 1741 - 2 January 1801"@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1436,3 +1436,51 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:isInProject <http://rdfh.ch/projects/0065>;
   knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
   knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0065>.
+
+#
+# Wölfflin
+#
+
+<http://rdfh.ch/projects/0066> a knora-base:knoraProject;
+  knora-base:projectShortname "Wölfflin"^^xsd:string;
+  knora-base:projectShortcode "0066"^^xsd:string;
+  knora-base:projectLongname "An ontology about Heinrich Wölfflin"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of Heinrich Wölfflin, 21 June 1864 – 19 July 1945."@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0066>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0066>.
+
+#
+# Parzival
+#
+
+<http://rdfh.ch/projects/0067> a knora-base:knoraProject;
+  knora-base:projectShortname "Parzival"^^xsd:string;
+  knora-base:projectShortcode "0067"^^xsd:string;
+  knora-base:projectLongname "An ontology about Wolfram von Eschenbach's 'Parzival'"^^xsd:string;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study and digital edition of Wolfram von Eschenbach's 'Parzival'."@en;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+  knora-base:userid "hansCools"^^xsd:string;
+  knora-base:familyName "Cools"^^xsd:string;
+  knora-base:givenName "Hans"^^xsd:string;
+  knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+  knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+  knora-base:preferredLanguage "de"^^xsd:string;
+  knora-base:status "true"^^xsd:boolean;
+  knora-base:isInProject <http://rdfh.ch/projects/0067>;
+  knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+  knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/0067>.

@@ -211,7 +211,7 @@ text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;
 	rdfs:comment """Text line with prosody."""@en; # recurring metrical unit
-	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line, [
+	rdfs:subClassOf text-structure:ProsodicStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:allValuesFrom text-structure:Strophe], [ 
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

@@ -100,7 +100,7 @@ textedit:ScientificEdition
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:EclecticEdition
+textedit:EclecticEdition #°
 	a owl:Class;
 	rdfs:label "eclectic edition"@en, "konstituierter Text"@de;
 #	text:hasSynonym "Lesetext"@de;

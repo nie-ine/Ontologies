@@ -209,7 +209,7 @@ document:IndividualExpression
 document:ExpressionPart
 	a owl:Class;
 	rdfs:label "document expression part"@en, "Document-Expressionsteil"@de;
-	rdfs:comment """Part of an individual document expression."""@en;
+	rdfs:comment """Part of an individual document expression, considered as incomplete."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment, [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].

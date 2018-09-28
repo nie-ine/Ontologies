@@ -55,8 +55,6 @@ delille:Canto
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-structure:VerseSection.
 
-
-
 delille:CitationReferenceVerseNumber
 	a owl:Class;
 	rdfs:label "citation reference verse number"@en, "Zitatreferenz-Versnummer"@de;

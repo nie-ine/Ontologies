@@ -264,9 +264,6 @@ text:LetterExpression
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:IndividualExpression, [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:allValuesFrom text-structure:LetterStructure], [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 

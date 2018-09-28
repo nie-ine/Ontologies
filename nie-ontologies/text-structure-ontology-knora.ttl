@@ -269,7 +269,7 @@ text-structure:FreeVerse
 	a owl:Class;
 	rdfs:label "free verse"@en, "freie Vers"@de;
 	rdfs:comment """Verse without a fixed prosody."""@en; #*
-	rdfs:subClassOf text-structure:ProsodicStructure, text-structure:Line.
+	rdfs:subClassOf text-structure:ProsodicStructure.
 
 #* text-structure:FixedVerse and SC
 # different meters
@@ -293,8 +293,8 @@ text-structure:Note
 	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
 	rdfs:comment """Text with note structure, not necessarily having a unit such as a sentence or being syntactically correct; e.g. a first quick registration of thought, or a remark related to another text."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isNoteOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isNoteOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isNoteStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isNoteStructureOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:MarginalNote
 	a owl:Class;
@@ -377,8 +377,8 @@ text-structure:Letter
 	rdfs:label "letter structure"@en, "Brief-Struktur"@de;
 	rdfs:comment """Text with letter structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -865,7 +865,7 @@ text-structure:verseSectionHasNumber
 	knora-base:subjectClassConstraint text-structure:VerseSection;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
-text-structure:isNoteOfExpression
+text-structure:isNoteStructureOfExpression
 	a owl:ObjectProperty;
 	rdfs:label "is note of expression"@en, "ist Notiz einer Expression"@de;
 	rdfs:comment """Relating a note structure to a text expression it is part of."""@en;
@@ -875,7 +875,7 @@ text-structure:isNoteOfExpression
 	knora-base:subjectClassConstraint text-structure:Note;
 	knora-base:objectClassConstraint text:Expression.
 
-text-structure:isNoteOfExpressionValue
+text-structure:isNoteStructureOfExpressionValue
 	a owl:ObjectProperty;
 	rdfs:label "is note of expression - statement"@en, "ist Notiz einer Expression - Festlegung"@de;
 	rdfs:comment """Relating a note structure to a reification statement of the relation between the note and a text expression it is part of."""@en;
@@ -889,7 +889,7 @@ text-structure:isGlossOfExpression
 	rdfs:comment """Relating a gloss to a text expression it is part of."""@en;
 	rdfs:domain text-structure:Gloss;
 	rdfs:range text:Expression;
-	rdfs:subPropertyOf text-structure:isNoteOfExpression;
+	rdfs:subPropertyOf text-structure:isNoteStructureOfExpression;
 	knora-base:subjectClassConstraint text-structure:Gloss;
 	knora-base:objectClassConstraint text:Expression.
 
@@ -897,7 +897,7 @@ text-structure:isGlossOfExpressionValue
 	a owl:ObjectProperty;
 	rdfs:label "is gloss of expression - statement"@en, "ist Glosse einer Expression - Festlegung"@de;
 	rdfs:comment """Relating a gloss to a reification statement of the relation between the gloss and a text expression it is part of."""@en;
-	rdfs:subPropertyOf text-structure:isNoteOfExpressionValue;
+	rdfs:subPropertyOf text-structure:isNoteStructureOfExpressionValue;
 	knora-base:subjectClassConstraint text-structure:Gloss;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -973,9 +973,9 @@ text-structure:endnoteHasNumberValue
 	knora-base:subjectClassConstraint text-structure:Endnote;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text-structure:isLetterStructureOf
+text-structure:isLetterStructureOfExpression
 	a owl:ObjectProperty;
-	rdfs:label "is letter structure of"@en, "ist Briefstruktur von"@de;
+	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de;
 	rdfs:comment """Relating a letter structure to a text expression it is part of."""@en;
 	rdfs:domain text-structure:Letter;
 	rdfs:range text:Expression;
@@ -983,9 +983,9 @@ text-structure:isLetterStructureOf
 	knora-base:subjectClassConstraint text-structure:Letter;
 	knora-base:objectClassConstraint text:Expression.
 
-text-structure:isLetterStructureOfValue
+text-structure:isLetterStructureOfExpressionValue
 	a owl:ObjectProperty;
-	rdfs:label "is letter structure of - statement"@en, "ist Briefstruktur von - Festlegung"@de;
+	rdfs:label "is letter structure of expression - statement"@en, "ist Briefstruktur einer Expression - Festlegung"@de;
 	rdfs:comment """Relating a letter structure to a reification statement of the relation between the letter structure and a text expression it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
 	knora-base:subjectClassConstraint text-structure:Letter;

@@ -1421,7 +1421,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "Dietrich"^^xsd:string;
   knora-base:projectShortcode "0065"^^xsd:string;
   knora-base:projectLongname "An ontology about father Joseph Dietrich's monastery diary"^^xsd:string;
-  knora-base:projectDescription "Formal description of specific concepts in the scientific study 'Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704'."@en;
+  knora-base:projectDescription """Formal description of specific concepts in the scientific study 'Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704'."""@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1444,8 +1444,8 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 <http://rdfh.ch/projects/0066> a knora-base:knoraProject;
   knora-base:projectShortname "Wölfflin"^^xsd:string;
   knora-base:projectShortcode "0066"^^xsd:string;
-  knora-base:projectLongname "An ontology about Heinrich Wölfflin"^^xsd:string;
-  knora-base:projectDescription "Formal description of specific concepts in the scientific study of Heinrich Wölfflin, 21 June 1864 – 19 July 1945."@en;
+  knora-base:projectLongname "An ontology about the collected works of Heinrich Wölfflin"^^xsd:string;
+  knora-base:projectDescription """Formal description of specific concepts in the scientific study 'Heinrich Wölfflins gesammelte Werke'."""@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -1468,8 +1468,8 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 <http://rdfh.ch/projects/0067> a knora-base:knoraProject;
   knora-base:projectShortname "Parzival"^^xsd:string;
   knora-base:projectShortcode "0067"^^xsd:string;
-  knora-base:projectLongname "An ontology about Wolfram von Eschenbach's 'Parzival'"^^xsd:string;
-  knora-base:projectDescription "Formal description of specific concepts in the scientific study and digital edition of Wolfram von Eschenbach's 'Parzival'."@en;
+  knora-base:projectLongname """An ontology about Wolfram von Eschenbach's 'Parzival'"""^^xsd:string;
+  knora-base:projectDescription """Formal description of specific concepts in the scientific study and digital edition of Wolfram von Eschenbach's 'Parzival'."""@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 

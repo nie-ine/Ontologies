@@ -14,7 +14,7 @@
 <http://www.knora.org/ontology/0065/dietrich>
 	a owl:Ontology;
 	dct:title "An ontology about father Joseph Dietrich's monastery diary"@en;
-	dct:description """Formal description of specific concepts in the scientific study 'Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704'."""@en;
+	dct:description """Formal description of specific concepts in the scientific study "Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704"."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Reinhard Priber, tool coordinator and software developer, NIE-INE, University of Bern, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;

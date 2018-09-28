@@ -13,8 +13,8 @@
 
 <http://www.knora.org/ontology/0067/parzival>
 	a owl:Ontology;
-	dct:title """An ontology about Wolfram von Eschenbach's 'Parzival'"""@en;
-	dct:description """Formal description of specific concepts in the scientific study and digital edition of Wolfram von Eschenbach's 'Parzival'."""@en;
+	dct:title """An ontology about Wolfram von Eschenbach's "Parzival" """@en;
+	dct:description """Formal description of specific concepts in the scientific study and digital edition of Wolfram von Eschenbach's "Parzival"."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Reinhard Priber, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;

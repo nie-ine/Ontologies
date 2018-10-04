@@ -286,7 +286,11 @@ text-structure:RhythmicProse
 	rdfs:comment """Prose structure with a meter."""@en;
 	rdfs:subClassOf text-structure:Prose, text-structure:ProsodicStructure.
 
-# dialogical/theater: direct speech, captions?
+text-structure:Dialogue
+	a owl:Class;
+	rdfs:label "dialogue"@en, "Dialog"@de;
+	rdfs:comment """Text with dialogue structure."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 text-structure:Note
 	a owl:Class;

@@ -32,7 +32,7 @@ kuno-raeber-gui:Poem
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSameEditionAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasRhyme; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasRhyme; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -131,13 +131,13 @@ kuno-raeber-gui:hasStructure
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-kuno-raeber-gui:hasRhyme
-	a owl:ObjectProperty;
-	rdfs:label "has rhyme"@en, "hat Reim"@de;
-	rdfs:comment """Relating a poem by Kuno Raeber to having a rhyme or not."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
-	knora-base:objectClassConstraint knora-base:IntValue.
+#kuno-raeber-gui:hasRhyme
+#	a owl:ObjectProperty;
+#	rdfs:label "has rhyme"@en, "hat Reim"@de;
+#	rdfs:comment """Relating a poem by Kuno Raeber to having a rhyme or not."""@en;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+#	knora-base:objectClassConstraint knora-base:IntValue.
 
 kuno-raeber-gui:hasStrophe
 	a owl:ObjectProperty;
@@ -219,13 +219,13 @@ kuno-raeber-gui:hasAlphabeticIndex
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
-kuno-raeber-gui:hasDateIndex
-	a owl:ObjectProperty;
-	rdfs:label "has date index"@en, "hat Datumsindex"@de;
-	rdfs:comment """Relating a poem by Kuno Raeber to its date index."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
-	knora-base:objectClassConstraint knora-base:IntValue.
+#kuno-raeber-gui:hasDateIndex
+#	a owl:ObjectProperty;
+#	rdfs:label "has date index"@en, "hat Datumsindex"@de;
+#	rdfs:comment """Relating a poem by Kuno Raeber to its date index."""@en;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+#	knora-base:objectClassConstraint knora-base:IntValue.
 
 kuno-raeber-gui:hasFictitiousCreationDate
 	a owl:ObjectProperty;

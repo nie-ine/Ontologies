@@ -7,6 +7,7 @@
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+@prefix indo: <http://www.knora.org/ontology/004B/indology#>.
 
 @base <http://www.knora.org/ontology/0041/atharvaveda>.
 @prefix athar: <http://www.knora.org/ontology/0041/atharvaveda#>.
@@ -30,7 +31,12 @@ athar:Strophe
 	a owl:Class;
 	rdfs:label "strophe"@en, "Strophe"@de;
 	rdfs:comment """Group of verses."""@en;
-	rdfs:subClassOf text-structure:Strophe.
+	rdfs:subClassOf text-structure:Strophe, [
+		a owl:Restriction; owl:onProperty indo:hasIndologicComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+
+
+
 
 # apparatus has format: cf. textedit
 # lemma

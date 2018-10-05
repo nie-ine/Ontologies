@@ -240,6 +240,8 @@ text-structure:Strophe
 #		a owl:Restriction; owl:onProperty text-structure:isStropheOfSection; owl:allValuesFrom text:Text], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isStropheOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isStropheOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -770,6 +772,24 @@ text-structure:isStropheOfSectionValue
 	a owl:ObjectProperty;
 	rdfs:label "is strophe of section - statement"@en, "ist Strophe eines Versabschnittes - Festlegung"@de;
 	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a section it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isStropheOfPoem
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of poem"@en, "ist Strophe eines Gedichtes"@de;
+	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
+	rdfs:domain text-structure:Strophe;
+	rdfs:range litera:VersePoem;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint litera:VersePoem.
+
+text-structure:isStropheOfPoemValue
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of poem - statement"@en, "ist Strophe eines Gedichtes - Festlegung"@de;
+	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a poem it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.

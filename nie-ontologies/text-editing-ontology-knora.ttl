@@ -92,6 +92,12 @@ textedit:DerivedTextExpression
 	rdfs:comment """Text expression derived from another text expression with content changed beyond a version."""@en;
 	rdfs:subClassOf text:Expression, human:CreationDerivative.
 
+textedit:EditionScientist
+	a owl:Class;
+	rdfs:label "edition scientist"@en, "EditionswissenschaftlerIn"@de, "éditrice scientifique"@fr;
+	rdfs:comment """Role of a person practicing edition science."""@en;
+	rdfs:subClassOf human:Scientist.
+
 textedit:ScientificEdition
 	a owl:Class;
 	rdfs:label "scientific edition"@en, "wissenschaftliche Edition"@de;

@@ -216,7 +216,7 @@ concept:hasDedicatedTo #*
 
 concept:hasDedicatedToValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of cycle - statement"@en, "ist Teil eines Zyklus - Festlegung"@de;
+	rdfs:label "has dedicated to - statement"@en, "hat gewidmet - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and another person to whom the former has dedicated something."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Person;

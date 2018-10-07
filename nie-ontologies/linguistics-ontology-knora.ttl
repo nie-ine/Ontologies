@@ -154,6 +154,8 @@ ling:Evaluation
 	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
+# check: GOLD, Eagles, OnLit
+
 #
 # PROPERTIES
 #

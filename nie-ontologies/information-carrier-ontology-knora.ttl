@@ -53,7 +53,7 @@ infocar:Carrier
 infocar:Leaf
 	a owl:Class;
 	rdfs:label "leaf"@en, "Blatt"@de;
-	rdfs:comment """Sheet of a writable substance, e.g. paper or parchment."""@en;
+	rdfs:comment """Sheet of a writable substance, e.g. paper, parchment, treated plant leaf."""@en;
 	rdfs:subClassOf infocar:Carrier, [
 		a owl:Restriction; owl:onProperty infocar:isLeafOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isLeafOfBookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -197,6 +197,13 @@ infocar:Manuscript
 	rdfs:label "manuscript"@en, "Manuskript"@de;
 	rdfs:comment """Carrier with a handwritten text."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+infocar:PalmLeafManuscript
+	a owl:Class;
+	rdfs:label "palm-leaf manuscript"@en, "Palmblattmanuskript"@de;
+	rdfs:comment """Palm leaf manuscript."""@en;
+	skos:Note """Dried and smoke treated palm leaves were used as writing carrier in the Indian subcontinent and Southeast since at least the 5th century BC, possibly much earlier."""@en;
+	rdfs:subClassOf infocar:Leaf, infocar:Manuscript.
 
 infocar:NoteCarrier
 	a owl:Class;

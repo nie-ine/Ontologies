@@ -544,7 +544,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
   knora-base:projectShortname "Atharvaveda"^^xsd:string;
   knora-base:projectShortcode "0041"^^xsd:string;
   knora-base:projectLongname "An ontology about Atharvaveda"^^xsd:string;
-  knora-base:projectDescription "Formal description of Atharvaveda, general subclasses, related classes and properties."@en;
+  knora-base:projectDescription "Formal description of specific concepts in the scientific study of Atharvaveda."@en;
   knora-base:status "true"^^xsd:boolean;
   knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 

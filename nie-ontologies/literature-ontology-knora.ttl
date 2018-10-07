@@ -207,14 +207,6 @@ litera:NonfictionNovel
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# WM 20180206
-#* Neutrale Sachtexte: Wissenschaftl. Abhandlungen, Monographien, Gebrauchsanweisungen - NOT literature
-# Sachbezogene Texte (Essays, Rezensionen, Einleitungen, Biographien etc. ) - mix
-# Persönliche / Situative Texte (Tagebuch, Autobiographie, Briefe? ...)
-# editorischen Metatexte: Erläuterungen, Kommentare, Übersichten ...
-# fictional biography, diary
-#* para-text - Delille
-
 litera:Poet
 	a owl:Class;
 	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr;

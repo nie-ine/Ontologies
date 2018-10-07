@@ -106,11 +106,11 @@ textedit:ScientificEdition
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:EclecticEdition #°
+textedit:ConstitutedEdition # eclectic edition
 	a owl:Class;
-	rdfs:label "eclectic edition"@en, "konstituierter Text"@de;
+	rdfs:label "constituted text edition"@en, "konstituierter Text"@de;
 #	text:hasSynonym "Lesetext"@de;
-	rdfs:comment """Plain text expression as endresult of scientific editing of another text expression."""@en;
+	rdfs:comment """Plain text expression as endresult of scientific editing of another text expression, and meant as head text for reading."""@en;
 	rdfs:subClassOf textedit:ScientificEdition.
 
 textedit:DiplomaticTranscription

@@ -3,6 +3,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
@@ -31,7 +33,7 @@
 
 athar:Kanda
 	a owl:Class;
-	rdfs:label "Kāṇḍa"@sa, "kanda"@en, "Kanda"@de;
+	rdfs:label "Atharvaveda Kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda-Kanda"@de;
 	rdfs:comment """Book of the Atharvaveda as a hymnal."""@en;
 	rdfs:subClassOf litera:Hymnal.
 
@@ -39,26 +41,26 @@ athar:Hymn
 	a owl:Class;
 	rdfs:label "Atharvaveda hymn"@en, "Atharvaveda-Hymne"@de;
 	rdfs:comment """Hymn in the Atharvaveda."""@en;
-	rdfs:subClassOf litera:Hymn, indo:Expression, text:HandwrittenText [
+	rdfs:subClassOf litera:Hymn, indo:Expression, text:HandwrittenText, [
 		a owl:Restriction; owl:onProperty indo:hasVedaGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty indo:hasVedaGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 athar:Strophe
 	a owl:Class;
-	rdfs:label "strophe"@en, "Strophe"@de;
+	rdfs:label "Atharvaveda strophe"@en, "Atharvaveda-Strophe"@de;
 	rdfs:comment """Group of verses or 2 half-strophes as in the Atharvaveda."""@en;
-	rdfs:subClassOf text-structure:Strophe, [
+	rdfs:subClassOf text-structure:Strophe, text:ExpressionPart, [
 		a owl:Restriction; owl:onProperty indo:hasIndologicComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 athar:HalfStrophe
 	a owl:Class;
-	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
+	rdfs:label "Atharvaveda half-strophe"@en, "Atharvaveda-Halbstrophe"@de;
 	rdfs:comment """Half a strophe as in the Atharvaveda."""@en;
 	rdfs:subClassOf text-structure:HalfStrophe.
 
 athar:Pada
 	a owl:Class;
-	rdfs:label "pada"@sa, "pada"@en, "Pada"@de;
+	rdfs:label "Atharva Veda pada"@sa, "Atharvaveda pada"@en, "Atharvaveda-Pada"@de;
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
 	rdfs:subClassOf text-structure:Verse, [
 		a owl:Restriction; owl:onProperty athar:isPadaOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -66,7 +68,7 @@ athar:Pada
 
 athar:PadaPadha
 	a owl:Class;
-	rdfs:label "pada padha"@sa, "constituted text edition"@en, "konstituierter Text"@de;
+	rdfs:label "Atharva Veda pada padha"@sa, "Atharvaveda constituted text edition"@en, "konstituierter Text Atharvavedas"@de;
 	rdfs:comment """constituted text edition as created in the Atharvaveda project."""@en;
 	rdfs:subClassOf textedit:ConstitutedEdition.
 
@@ -106,7 +108,7 @@ athar:PalmLeafManuscript
 athar:isPadaOfStrophe
 	a owl:ObjectProperty;
 	rdfs:label "is pada of strophe"@en, "ist Pada einer Strophe"@de;
-	rdfs:comment """Relating a pada to a strophe it is part of."""@en;
+	rdfs:comment """Relating an Atharvaveda pada to a strophe it is part of."""@en;
 	rdfs:domain athar:Pada;
 	rdfs:range athar:Strophe;
 	rdfs:subPropertyOf concept:isPartOf;
@@ -116,7 +118,7 @@ athar:isPadaOfStrophe
 athar:isPadaOfStropheValue
 	a owl:ObjectProperty;
 	rdfs:label "is pada of strophe - statement"@en, "ist Pada einer Strophe - Festlegung"@de;
-	rdfs:comment """Relating a pada to a reification statement of the relation between the pada and a strophe it is part of."""@en;
+	rdfs:comment """Relating an Atharvaveda pada to a reification statement of the relation between the pada and a strophe it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint athar:Pada;
 	knora-base:objectClassConstraint knora-base:LinkValue.

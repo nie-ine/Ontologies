@@ -14,7 +14,7 @@ Note: the graphics have to be updated to the current status of the ontologies.
 These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
-External ontology classes and properties are represented by purple ellipses and arrows resp.
+External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  
 
 Following external ontologies are used:  

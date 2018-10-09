@@ -10,7 +10,7 @@ All the used ontologies are referenced in a prefix header in the Turtle files.
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
 # Graphics
-Note: the graphics have to be updated to the current status of the ontologies.
+Note: the graphics have to be updated to the current status of the ontologies.  
 These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  

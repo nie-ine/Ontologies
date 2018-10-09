@@ -90,7 +90,15 @@ infocar:Volume
 	rdfs:label "volume"@en, "Band"@de;
 	rdfs:comment """One of the books carrying an expression materialized in more than one book."""@en;
 	rdfs:subClassOf infocar:Book, [
+		a owl:Restriction; owl:onProperty infocar:isVolumeOfWork; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isVolumeOfWorkValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Work
+	a owl:Class;
+	rdfs:label "work"@en, "Werk"@de;
+	rdfs:comment """Set of volumes carrying an expression, e.g. a dictionary."""@en;
+	rdfs:subClassOf infocar:Carrier.
 
 infocar:Printing
 	a owl:Class;
@@ -241,7 +249,7 @@ infocar:ManualTranscription
 	rdfs:comment """Carrier with a handwritten copy of a text."""@en;
 	rdfs:subClassOf infocar:Transcription, infocar:Manuscript.
 
-infocar:Diary
+infocar:Diary #°
 	a owl:Class;
 	rdfs:label "diary"@en,"Tagebuch"@de;
 	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
@@ -259,13 +267,13 @@ infocar:PersonReceiver
 	rdfs:comment """Role of a person receiving information on carrier."""@en;
 	rdfs:subClassOf human:PersonReceiver.
 
-infocar:Letter
+infocar:Letter #°
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
 	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Postcard
+infocar:Postcard #°
 	a owl:Class;
 	rdfs:label "postcard"@en, "Postkarte"@de;
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
@@ -498,6 +506,24 @@ infocar:isBindingOfBookValue
 	rdfs:comment """Relating a binding to a reification statement of the relation between the binding and a book it is part of."""@en;
 	rdfs:subPropertyOf physical:isPartOfValue;
 	knora-base:subjectClassConstraint infocar:Binding;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isVolumeOfWork
+	a owl:ObjectProperty;
+	rdfs:label "is volume of work"@en, "ist Band eines Werkes"@de;
+	rdfs:comment """Relating a volume to a work it is part of."""@en;
+	rdfs:domain infocar:Volume;
+	rdfs:range infocar:Work;
+	rdfs:subPropertyOf physical:isPartOf;
+	knora-base:subjectClassConstraint infocar:Volume;
+	knora-base:objectClassConstraint infocar:Work.
+
+infocar:isVolumeOfWorkValue
+	a owl:ObjectProperty;
+	rdfs:label "is volume of work - statement"@en, "ist Band eines Werkes - Festlegung"@de;
+	rdfs:comment """Relating a volume to a reification statement of the relation between the volume and a work it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOfValue;
+	knora-base:subjectClassConstraint infocar:Volume;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:volumeHasNumber

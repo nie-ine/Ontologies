@@ -86,6 +86,13 @@ textedit:LiteralExposition # derivative? # scientific?
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
+textedit:Transliteration
+	a owl:Class;
+	rdfs:label "transliteration"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
+	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
+	skos:note """Primarily representing the symbols, not the sounds."""@en;
+	rdfs:subClassOf text:WrittenText, textedit:Edition.
+
 textedit:DerivedTextExpression
 	a owl:Class;
 	rdfs:label "derived text expression"@en, "abgeleitete Text-Expression"@de;
@@ -351,6 +358,24 @@ textedit:hasSameEditionAsValue
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as - statement"@en, "hat gleiche Edition als - Festlegung"@de;
 	rdfs:comment """Relating a text to a reification statement of the relation between the text and another one with a same edition."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasTransliteration
+	a owl:ObjectProperty;
+	rdfs:label "has transliteration"@en, "hat Transliteration"@de;
+	rdfs:comment """Relating a text to a transliteration thereof."""@en;
+	rdfs:domain text:Text;
+	rdfs:range textedit:Transliteration;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint textedit:Transliteration.
+
+textedit:hasTransliterationValue
+	a owl:ObjectProperty;
+	rdfs:label "has transliteration - statement"@en, "hat Transliteration - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a transliteration thereof."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.

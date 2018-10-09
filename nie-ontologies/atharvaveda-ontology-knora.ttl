@@ -111,7 +111,7 @@ athar:isPadaOfStrophe
 	rdfs:comment """Relating an Atharvaveda pada to a strophe it is part of."""@en;
 	rdfs:domain athar:Pada;
 	rdfs:range athar:Strophe;
-	rdfs:subPropertyOf concept:isPartOf;
+	rdfs:subPropertyOf text-structure:isVerseOfStrophe;
 	knora-base:subjectClassConstraint athar:Pada;
 	knora-base:objectClassConstraint athar:Strophe.
 
@@ -119,6 +119,6 @@ athar:isPadaOfStropheValue
 	a owl:ObjectProperty;
 	rdfs:label "is pada of strophe - statement"@en, "ist Pada einer Strophe - Festlegung"@de;
 	rdfs:comment """Relating an Atharvaveda pada to a reification statement of the relation between the pada and a strophe it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
+	rdfs:subPropertyOf text-structure:isVerseOfStropheValue;
 	knora-base:subjectClassConstraint athar:Pada;
 	knora-base:objectClassConstraint knora-base:LinkValue.

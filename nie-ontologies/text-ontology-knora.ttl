@@ -68,6 +68,8 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasTransliteration; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasTransliterationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasGlossatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -103,13 +105,6 @@ text:TypewrittenText
 		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
-
-text:Transliteration
-	a owl:Class;
-	rdfs:label "translitertion"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
-	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
-	skos:note """Not primarily representing the sounds, but the symbols."""@en;
-	rdfs:subClassOf text:WrittenText.
 
 # text:Print: printed text abstracted from its carrier
 

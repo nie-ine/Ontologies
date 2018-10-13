@@ -96,17 +96,17 @@ event:Staging
 	rdfs:comment """Determining the extent of a process."""@en;
 	rdfs:subClassOf event:Action.
 
-event:Cause		# to do: relate to agent
-	a owl:Class;
-	rdfs:label "cause"@en, "Ursache"@de;
-	rdfs:comment """Source of entailment."""@en;
-	rdfs:subClassOf event:Input.
+# event:Cause		# to do: relate to agent
+#	a owl:Class;
+#	rdfs:label "cause"@en, "Ursache"@de;
+#	rdfs:comment """Source of entailment."""@en;
+#	rdfs:subClassOf knora-base:Resource.
 
-event:Effect
-	a owl:Class;
-	rdfs:label "effect"@en, "Effekt"@de;
-	rdfs:comment """Output related to a cause."""@en;
-	rdfs:subClassOf event:Output.
+# event:Effect
+#	a owl:Class;
+#	rdfs:label "effect"@en, "Effekt"@de;
+#	rdfs:comment """Output related to a cause."""@en;
+#	rdfs:subClassOf knora-base:Resource.
 
 event:Intent
 	a owl:Class;

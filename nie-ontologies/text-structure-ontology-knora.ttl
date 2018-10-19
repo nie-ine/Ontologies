@@ -18,7 +18,6 @@
 @prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
 @prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/005B/text-structure>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
@@ -242,6 +241,8 @@ text-structure:Strophe
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfSectionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isStropheOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isStropheOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -506,8 +507,7 @@ text-structure:paragraphHasTitle
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text-structure:Paragraph;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 text-structure:paragraphHasNumber
 	a owl:ObjectProperty;
@@ -545,8 +545,7 @@ text-structure:sectionHasTitle
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text-structure:Section;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 text-structure:sectionHasNumber
 	a owl:ObjectProperty;
@@ -794,6 +793,24 @@ text-structure:isStropheOfPoemValue
 	knora-base:subjectClassConstraint text-structure:Strophe;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text-structure:isStropheOfNovel
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of verse novel"@en, "ist Strophe eines Versromans"@de;
+	rdfs:comment """Relating a strophe to a verse novel it is part of."""@en;
+	rdfs:domain text-structure:Strophe;
+	rdfs:range litera:VerseNovel;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint litera:VerseNovel.
+
+text-structure:isStropheOfNovelValue
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of verse novel - statement"@en, "ist Strophe eines Versromans - Festlegung"@de;
+	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a verse novel it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:stropheHasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de;
@@ -876,8 +893,7 @@ text-structure:verseSectionHasTitle
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text-structure:VerseSection;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 text-structure:verseSectionHasNumber
 	a owl:ObjectProperty;

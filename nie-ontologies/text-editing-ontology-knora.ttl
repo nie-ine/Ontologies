@@ -16,7 +16,6 @@
 @prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
 @prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/005A/text-editing>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
@@ -165,11 +164,11 @@ textedit:Apparatus
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# textedit:DoctrinalApparatus
-#	a owl:Class;
-#	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de;
-#	rdfs:comment """Editing apparatus commmenting on the content of a text expression."""@en;
-#	rdfs:subClassOf textedit:Apparatus.
+textedit:DoctrinalApparatus # historical
+	a owl:Class;
+	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de;
+	rdfs:comment """Editing apparatus commmenting on the content of a text expression."""@en;
+	rdfs:subClassOf textedit:Apparatus.
 
 textedit:ApparatusFontium
 	a owl:Class;
@@ -191,7 +190,7 @@ textedit:Lemma
 		a owl:Restriction; owl:onProperty textedit:isLemmaOfApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isLemmaOfApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#* RLP: rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
+#* RLP: rdfs:comment """A word or phrase judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
 
 # apparatus has format:
 # eg.
@@ -341,8 +340,7 @@ textedit:hasEditionValue
 #	rdfs:comment """Relating an edition to its content."""@en;
 #	rdfs:subPropertyOf language:hasContent;
 #	knora-base:subjectClassConstraint textedit:Edition;
-#	knora-base:objectClassConstraint knora-base:TextValue;
-#	salsah-gui:guiElement salsah-gui:Richtext.
+#	knora-base:objectClassConstraint knora-base:TextValue.
 
 textedit:hasSameEditionAs
 	a owl:ObjectProperty;
@@ -458,8 +456,7 @@ textedit:hasDiacriticalSign
 	rdfs:comment """Relating a derived text expression to a sign indicating a textual aspect of the original text."""@en;
 	rdfs:subPropertyOf language:hasContent;
 	knora-base:subjectClassConstraint textedit:DiplomaticTranscription;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 textedit:hasPageIndicator
 	a owl:ObjectProperty;
@@ -467,8 +464,7 @@ textedit:hasPageIndicator
 	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates where a page starts."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:DiplomaticTranscription;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 textedit:hasPageNumberIndicator
 	a owl:ObjectProperty;
@@ -476,8 +472,7 @@ textedit:hasPageNumberIndicator
 	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates the number of a page."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:DiplomaticTranscription;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 textedit:hasColumnIndicator
 	a owl:ObjectProperty;
@@ -485,8 +480,7 @@ textedit:hasColumnIndicator
 	rdfs:comment """Relating a derived text expression to a diacritical sign that indicates where on a page a column starts."""@en;
 	rdfs:subPropertyOf textedit:hasDiacriticalSign;
 	knora-base:subjectClassConstraint textedit:DiplomaticTranscription;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 textedit:isDiplomaticTranscriptionOfTextOnPage
 	a owl:ObjectProperty;

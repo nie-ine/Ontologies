@@ -6,10 +6,9 @@
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/0067/parzival>.
-@prefix woelfflin: <http://www.knora.org/ontology/0067/parzival#>.
+@prefix parzival: <http://www.knora.org/ontology/0067/parzival#>.
 
 <http://www.knora.org/ontology/0067/parzival>
 	a owl:Ontology;
@@ -25,3 +24,65 @@
 # CLASSES
 #
 
+parzival:Verse
+	a owl:Class;
+	rdfs:label """verse of Wolfram Von Eschenbach's 'Parzival'"""@en, """Vers von Wolfram Von Eschenbachs 'Parzival'"""@de;
+	rdfs:comment """Verse in Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:subClassOf text-structure:Verse, [
+		a owl:Restriction; owl:onProperty parzival:isVerseOfDreissiger; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty parzival:isVerseOfDreissigerValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+parzival:Dreissiger
+	a owl:Class;
+	rdfs:label "dreissiger"@en, "Dreissiger"@de;
+	rdfs:comment """Strophe of 30 verses in Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:seeAlso """Bumke Joachim, "Wolfram von Eschenbach", Springer-Verlag, Stuttgart, 2004."""@en;
+	rdfs:subClassOf text-structure:Strophe, [
+		a owl:Restriction; owl:onProperty parzival:isDreissigerOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty parzival:isDreissigerOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+parzival:CriticalApparatus
+	a owl:Class;
+	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
+	rdfs:comment """Editing apparatus to a critical text edition providing information of a textual version."""@en;
+	rdfs:subClassOf text-structure:CriticalApparatus.
+
+#
+# PROPERTIES
+#
+
+parzival:isVerseOfDreissiger
+	a owl:ObjectProperty;
+	rdfs:label "is verse of dreissiger"@en, "ist Vers eines Dreissigers"@de;
+	rdfs:comment """Relating a verse to a dreissiger it is part of."""@en;
+	rdfs:domain parzival:Verse;
+	rdfs:range parzival:Dreissiger;
+	rdfs:subPropertyOf text-structure:isVerseOfStrophe;
+	knora-base:subjectClassConstraint parzival:Verse;
+	knora-base:objectClassConstraint parzival:Dreissiger.
+
+parzival:isVerseOfDreissigerValue
+	a owl:ObjectProperty;
+	rdfs:label "is verse of dreissiger - statement"@en, "ist Vers eines Dreissigers - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a dreissiger it is part of."""@en;
+	rdfs:subPropertyOf text-structure:isVerseOfStropheValue;
+	knora-base:subjectClassConstraint parzival:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+parzival:isDreissigerOfNovel
+	a owl:ObjectProperty;
+	rdfs:label "is dreissiger of verse novel"@en, "ist Dreissiger eines Versromans"@de;
+	rdfs:comment """Relating a dreissiger to a verse novel it is part of."""@en;
+	rdfs:domain parzival:Dreissiger;
+	rdfs:range litera:VerseNovel;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint parzival:Dreissiger;
+	knora-base:objectClassConstraint litera:VerseNovel.
+
+parzival:isDreissigerOfNovelValue
+	a owl:ObjectProperty;
+	rdfs:label "is dreissiger of verse novel - statement"@en, "ist Dreissiger eines Versromans - Festlegung"@de;
+	rdfs:comment """Relating a dreissiger to a reification statement of the relation between the dreissiger and a verse novel it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint parzival:Dreissiger;
+	knora-base:objectClassConstraint knora-base:LinkValue.

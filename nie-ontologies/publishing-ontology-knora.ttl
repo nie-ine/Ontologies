@@ -14,7 +14,6 @@
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/0056/publishing>.
 @prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
@@ -419,8 +418,7 @@ publish:hasNachlassPublicationDescription
 	rdfs:comment """Relating an expression to a description of its nachlass publication."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint document:Expression;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 publish:isPublishedIn
 	a owl:ObjectProperty;
@@ -484,8 +482,7 @@ publish:hasDescription
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 publish:hasDate
 	a owl:ObjectProperty;
@@ -495,8 +492,7 @@ publish:hasDate
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf human:creationHasDate;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:DateValue;
-	salsah-gui:guiElement salsah-gui:Date.
+	knora-base:objectClassConstraint knora-base:DateValue.
 
 publish:hasPeriod
 	a owl:ObjectProperty;
@@ -524,8 +520,7 @@ publish:hasTitle
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 publish:hasPublisher
 	a owl:ObjectProperty;
@@ -553,8 +548,7 @@ publish:hasPublisherDescription
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 publish:hasPrinterDescription
 	a owl:ObjectProperty;
@@ -564,8 +558,7 @@ publish:hasPrinterDescription
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 publish:hasReference
 	a owl:ObjectProperty;
@@ -575,5 +568,4 @@ publish:hasReference
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint publish:Publication;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.

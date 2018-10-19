@@ -14,7 +14,6 @@
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix device: <http://www.knora.org/ontology/0045/device#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/004C/information-carrier>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
@@ -336,8 +335,7 @@ infocar:carrierHasDescription
 	rdfs:comment """Relating an information carrier to a description thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Carrier;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:isOnCarrier
 	a owl:ObjectProperty;
@@ -469,8 +467,7 @@ infocar:pageHasNumber
 	rdfs:comment """Relating a page to a number it has."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Page;
-	knora-base:objectClassConstraint knora-base:IntValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 infocar:isLeafOfBook
 	a owl:ObjectProperty;
@@ -596,8 +593,7 @@ infocar:hasDiaryEnteringDate
 	rdfs:comment """Relating a diary entry to its date of entering in a diary."""@en;
 	rdfs:subPropertyOf human:creationHasDate;
 	knora-base:subjectClassConstraint text:DiaryEntry;
-	knora-base:objectClassConstraint knora-base:DateValue;
-	salsah-gui:guiElement salsah-gui:Date.
+	knora-base:objectClassConstraint knora-base:DateValue.
 
 infocar:isInLetter
 	a owl:ObjectProperty;
@@ -677,8 +673,7 @@ infocar:convoluteHasTitle
 	rdfs:comment """Relating a convolute to its titel."""@en;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:convoluteHasDescription
 	a owl:ObjectProperty;
@@ -686,8 +681,7 @@ infocar:convoluteHasDescription
 	rdfs:comment """Relating a convolute to a description thereof."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:convoluteHasSizeDescription
 	a owl:ObjectProperty;
@@ -695,8 +689,7 @@ infocar:convoluteHasSizeDescription
 	rdfs:comment """Relating a convolute to a description of its size."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:convoluteHasOriginDescription
 	a owl:ObjectProperty;
@@ -704,8 +697,7 @@ infocar:convoluteHasOriginDescription
 	rdfs:comment """Relating a text convolute to a description of its origin."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:convoluteHasContentRepresentation
 	a owl:ObjectProperty;
@@ -713,8 +705,7 @@ infocar:convoluteHasContentRepresentation
 	rdfs:comment """Relating a convolute to a description of its content representation."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:containsEarlierStagesOf
 	a owl:ObjectProperty; # , owl:TransitiveProperty;
@@ -770,8 +761,7 @@ infocar:hasCarrierCollectionDescription
 	rdfs:comment """Relating a convolute to a description of an information carrier collection it contains."""@en;
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint infocar:Convolute;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 infocar:hasPrinter
 	a owl:ObjectProperty;

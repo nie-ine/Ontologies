@@ -13,7 +13,6 @@
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/0058/teaching>.
 @prefix teach: <http://www.knora.org/ontology/0058/teaching#>.

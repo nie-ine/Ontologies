@@ -7,7 +7,6 @@
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
-@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 
 @base <http://www.knora.org/ontology/0050/literature>.
 @prefix litera: <http://www.knora.org/ontology/0050/literature#>.
@@ -318,7 +317,7 @@ litera:hasPoet
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
 	rdfs:domain litera:Poem;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:allValuesFrom litera:Poet]];
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom litera:Poet]];
 	rdfs:subPropertyOf text:hasAuthor;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint human:Person.

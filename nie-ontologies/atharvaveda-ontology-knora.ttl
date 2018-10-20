@@ -31,15 +31,15 @@
 # CLASSES
 #
 
-athar:Kanda
+athar:Hymnal
 	a owl:Class;
-	rdfs:label "Atharvaveda Kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda-Kanda"@de;
+	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda hymnal"@en, "Atharvaveda-Gesangbuch"@de;
 	rdfs:comment """Book of the Atharvaveda as a hymnal."""@en;
 	rdfs:subClassOf litera:Hymnal.
 
 athar:Hymn
 	a owl:Class;
-	rdfs:label "Atharvaveda hymn"@en, "Atharvaveda-Hymne"@de;
+	rdfs:label "Atharvaveda sūkta"@sa, "Atharvaveda hymn"@en, "Atharvaveda-Hymne"@de;
 	rdfs:comment """Hymn in the Atharvaveda."""@en;
 	rdfs:subClassOf litera:Hymn, indo:Expression, text:HandwrittenText, [
 		a owl:Restriction; owl:onProperty indo:hasVedaGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -48,27 +48,27 @@ athar:Hymn
 athar:Strophe
 	a owl:Class;
 	rdfs:label "Atharvaveda strophe"@en, "Atharvaveda-Strophe"@de;
-	rdfs:comment """Group of verses or 2 half-strophes as in the Atharvaveda."""@en;
+	rdfs:comment """Group of verses or 2 half-strophes in the Atharvaveda."""@en;
 	rdfs:subClassOf text-structure:Strophe, text:ExpressionPart, [
 		a owl:Restriction; owl:onProperty indo:hasIndologicComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 athar:HalfStrophe
 	a owl:Class;
 	rdfs:label "Atharvaveda half-strophe"@en, "Atharvaveda-Halbstrophe"@de;
-	rdfs:comment """Half a strophe as in the Atharvaveda."""@en;
+	rdfs:comment """Half a strophe in the Atharvaveda."""@en;
 	rdfs:subClassOf text-structure:HalfStrophe.
 
-athar:Pada
+athar:Verse
 	a owl:Class;
-	rdfs:label "Atharva Veda pada"@sa, "Atharvaveda pada"@en, "Atharvaveda-Pada"@de;
+	rdfs:label "Atharvaveda pada"@sa, "Atharvaveda verse"@en, "Atharvaveda-Vers"@de;
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
 	rdfs:subClassOf text-structure:Verse, [
-		a owl:Restriction; owl:onProperty athar:isPadaOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty athar:isPadaOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty athar:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty athar:isVerseOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-athar:PadaPadha
+athar:ConstitutedEdition
 	a owl:Class;
-	rdfs:label "Atharva Veda pada padha"@sa, "Atharvaveda constituted text edition"@en, "konstituierter Text Atharvavedas"@de;
+	rdfs:label "Atharvaveda pada patha"@sa, "Atharvaveda constituted text edition"@en, "konstituierter Text Atharvavedas"@de;
 	rdfs:comment """constituted text edition as created in the Atharvaveda project."""@en;
 	rdfs:subClassOf textedit:ConstitutedEdition.
 
@@ -105,20 +105,20 @@ athar:PalmLeafManuscript
 # PROPERTIES
 #
 
-athar:isPadaOfStrophe
+athar:isVerseOfStrophe
 	a owl:ObjectProperty;
-	rdfs:label "is pada of strophe"@en, "ist Pada einer Strophe"@de;
-	rdfs:comment """Relating an Atharvaveda pada to a strophe it is part of."""@en;
-	rdfs:domain athar:Pada;
+	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
+	rdfs:comment """Relating an Atharvaveda verse to a strophe it is part of."""@en;
+	rdfs:domain athar:Verse;
 	rdfs:range athar:Strophe;
 	rdfs:subPropertyOf text-structure:isVerseOfStrophe;
-	knora-base:subjectClassConstraint athar:Pada;
+	knora-base:subjectClassConstraint athar:Verse;
 	knora-base:objectClassConstraint athar:Strophe.
 
-athar:isPadaOfStropheValue
+athar:isVerseOfStropheValue
 	a owl:ObjectProperty;
-	rdfs:label "is pada of strophe - statement"@en, "ist Pada einer Strophe - Festlegung"@de;
-	rdfs:comment """Relating an Atharvaveda pada to a reification statement of the relation between the pada and a strophe it is part of."""@en;
+	rdfs:label "is verse of strophe - statement"@en, "ist Vers einer Strophe - Festlegung"@de;
+	rdfs:comment """Relating an Atharvaveda verse to a reification statement of the relation between the verse and a strophe it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isVerseOfStropheValue;
-	knora-base:subjectClassConstraint athar:Pada;
+	knora-base:subjectClassConstraint athar:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.

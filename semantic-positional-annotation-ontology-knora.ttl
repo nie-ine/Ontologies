@@ -10,10 +10,10 @@
 @prefix event: <http://www.knora.org/ontology/0047/event#>.
 @prefix agent: <http://www.knora.org/ontology/0040/agent#>.
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix con: <http://www.knora.org/ontology/0044/concept#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix device: <http://www.knora.org/ontology/0045/device#>.
-@prefix language: <http://www.knora.org/ontology/004F/language#>.
+@prefix lang: <http://www.knora.org/ontology/004F/language#>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
@@ -38,79 +38,101 @@
 spa:Tag
 	a owl:Class;
 	rdfs:label "semantic positional annotation tag"@en;
-	rdfs:comment """...."""@en;
-	rdfs:subClassOf language:HumanNaturalLanguageExpression.
+	#rdfs:comment """...."""@en;
+	rdfs:subClassOf lang:HumanNaturalLanguageExpression.
+
+lang:HumanNaturalLanguageExpression
+	a owl:Class;
+	rdfs:label "human natural language expression"@en.
+
+rdfs:Resource
+	a owl:Class;
+	rdfs:label "Resource".
+
+spa:StartPosition
+	a owl:Class;
+	rdfs:label "start position"@en.
+	#rdfs:comment """...."""@en.
+
+spa:EndPosition
+	a owl:Class;
+	rdfs:label "end position"@en.
+	#rdfs:comment """...."""@en.
+
+con:Concept
+	a owl:Class;
+	rdfs:label "concept"@en.
 
 spa:TextMarkupTag
 	a owl:Class;
 	rdfs:label "text markup tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:Tag.
 
 spa:ItalicTag
 	a owl:Class;
 	rdfs:label "italic tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:TextMarkupTag.
 
 spa:BoldTag
 	a owl:Class;
 	rdfs:label "bold tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:TextMarkupTag.
 
 spa:StructureTag
 	a owl:Class;
 	rdfs:label "text structure tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:Tag.
 
 spa:ParagraphTag
 	a owl:Class;
 	rdfs:label "paragraph tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:StructureTag.
 
 spa:StropheTag
 	a owl:Class;
 	rdfs:label "strophe tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:StructureTag.
 
 spa:ConceptTag
 	a owl:Class;
 	rdfs:label "concept tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:Tag.
 
 spa:SignTag
 	a owl:Class;
 	rdfs:label "sign tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:Tag.
 
 spa:BracketTag
 	a owl:Class;
 	rdfs:label "bracket tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:SignTag.
 
 spa:LeftSquareBracketTag
 	a owl:Class;
 	rdfs:label "left square bracket tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:BracketTag.
 
 spa:RightSquareBracketTag
 	a owl:Class;
 	rdfs:label "right square bracket tag"@en;
-	rdfs:comment """...."""@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:BracketTag.
 
 spa:LemmaBracketTag
 	a owl:Class;
-	rdfs:label "lemma bracket tag"@en, "Lemmaklammer-Tag"@en;
-	rdfs:comment """Tag for a right square bracket on the right of a lemma in a critical apparatus"""@en;
+	rdfs:label "lemma bracket tag"@en, "Lemmaklammer-Tag"@de;
+	#rdfs:comment """Tag for a right square bracket on the right of a lemma in a critical apparatus"""@en;
 	rdfs:subClassOf spa:RightSquareBracketTag.
 
 #
@@ -118,38 +140,42 @@ spa:LemmaBracketTag
 #
 
 spa:hasStart
-	a owl:DatatypeProperty;
-	rdfs:label "semantic positional annotation tag has start"@en;
-	rdfs:comment """...."""@en;
+	a owl:ObjectProperty;
+	rdfs:label "has start position"@en;
+	#rdfs:comment """...."""@en;
 	rdfs:domain spa:Tag;
-	rdfs:range xsd:nonNegativeInteger.
+	rdfs:range spa:StartPosition.
+
+#	xsd:nonNegativeInteger.
 
 spa:hasEnd
-	a owl:DatatypeProperty;
-	rdfs:label "semantic positional annotation tag has end"@en;
-	rdfs:comment """...."""@en;
+	a owl:ObjectProperty;
+	rdfs:label "has end position"@en;
+#	#rdfs:comment """...."""@en;
 	rdfs:domain spa:Tag;
-	rdfs:range xsd:nonNegativeInteger.
+	rdfs:range spa:EndPosition.
+
+#	xsd:nonNegativeInteger.
 
 spa:tags
 	a owl:ObjectProperty;
-	rdfs:label "semantic positional annotation tags"@en;
-	rdfs:comment """...."""@en;
+	rdfs:label "tags"@en;
+	#rdfs:comment """...."""@en;
 	rdfs:domain spa:Tag;
 	rdfs:range rdfs:Resource.
 
 # spa:tagsParagraph
 #	a owl:ObjectProperty;
 #	rdfs:label "tags"@en;
-#	rdfs:comment """...."""@en;
+#	#rdfs:comment """...."""@en;
 #	rdfs:subPropertyOf spa:tags;
 #	rdfs:domain spa:ParagraphTag;
 #	rdfs:range text-structure:Paragraph.
 
 spa:tagsConcept
 	a owl:ObjectProperty;
-	rdfs:label "tags"@en;
-	rdfs:comment """...."""@en;
+	rdfs:label "tags concept"@en;
+	#rdfs:comment """...."""@en;
 	rdfs:subPropertyOf spa:tags;
 	rdfs:domain spa:ConceptTag;
-	rdfs:range concept:Concept.
+	rdfs:range con:Concept.

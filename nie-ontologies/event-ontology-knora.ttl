@@ -32,7 +32,7 @@ event:Event
 	a owl:Class;
 	rdfs:label "event"@en, "Ereignis"@de;
 	rdfs:comment """Space-time occurrence."""@en;
-	rdfs:subClassOf physical:Space, physical:Time, [ #* SCO cidoc:E5_Event SCO cidoc:E4_Period cidoc:E92_Spacetime_Volume, cidoc:E2_Temporal_Entity
+	rdfs:subClassOf physical:Space, physical:Time, [
 		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].

@@ -24,6 +24,14 @@
 # CLASSES
 #
 
+° parzival:EditedVerseNovel
+	a owl:Class;
+	rdfs:label """edited version of Wolfram Von Eschenbach's 'Parzival'"""@en, """Vers von Wolfram Von Eschenbachs 'Parzival'"""@de;
+	rdfs:comment """Handwritten transcription of Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:subClassOf text:HandwrittenText, [
+		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 parzival:Verse
 	a owl:Class;
 	rdfs:label """verse of Wolfram Von Eschenbach's 'Parzival'"""@en, """Vers von Wolfram Von Eschenbachs 'Parzival'"""@de;

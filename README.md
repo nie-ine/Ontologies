@@ -57,7 +57,7 @@ Following figures show graphical representations of triples from different ontol
 ##### Figure 5: Graphic representing classes and properties from different ontologies concerning 'expression'
 &nbsp;  
 &nbsp;  
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text.svg)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text.png)
 
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'text'
 &nbsp;  

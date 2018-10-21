@@ -11,7 +11,7 @@ A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki
 
 # Graphics
 Note: the graphics have to be updated to the current status of the ontologies.  
-These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format.  
+These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format, except the first 'event', which is as try-out created with https://app.gra.fo/.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
@@ -21,7 +21,10 @@ Following external ontologies are used:
 [CIDOC](http://www.cidoc-crm.org/)  
 [Dublin Core Terms](http://purl.org/dc/terms/)  
 [FOAF](http://xmlns.com/foaf/0.1/)  
-[FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
+[FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)
+[NASA Space](http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#)
+[NASA Time](http://sweet.jpl.nasa.gov/2.3/propTime.owl#)
+[NASA Space Distance](http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#)
 
 Following figures show graphical representations of triples from different ontologies concerning indicated concepts with related classes and properties.  
 &nbsp;  

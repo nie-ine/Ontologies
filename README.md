@@ -21,10 +21,10 @@ Following external ontologies are used:
 [CIDOC](http://www.cidoc-crm.org/)  
 [Dublin Core Terms](http://purl.org/dc/terms/)  
 [FOAF](http://xmlns.com/foaf/0.1/)  
-[FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)
-[NASA Space](http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#)
-[NASA Time](http://sweet.jpl.nasa.gov/2.3/propTime.owl#)
-[NASA Space Distance](http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#)
+[FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
+[NASA Space](http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#)  
+[NASA Time](http://sweet.jpl.nasa.gov/2.3/propTime.owl#)  
+[NASA Space Distance](http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#)  
 
 Following figures show graphical representations of triples from different ontologies concerning indicated concepts with related classes and properties.  
 &nbsp;  

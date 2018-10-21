@@ -11,7 +11,7 @@ A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki
 
 # Graphics
 Note: the graphics have to be updated to the current status of the ontologies.  
-These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format, except the first 'event', which is as try-out created with https://app.gra.fo/.  
+These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format, except 'event' and 'test', which are as try-out created with https://app.gra.fo/.  
 They contain reduced representations of class and property declarations from external and NIE-ontologies.  
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  

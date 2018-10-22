@@ -64,6 +64,12 @@ text-structure:ContentStructure
 	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section, prose."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
+text-structure:SentenceStructure
+	a owl:Class;
+	rdfs:label "sentence structure"@en, "Satzstruktur"@de;
+	rdfs:comment """Content structure depending on sentences, e.g. a paragraph, section, prose"""@en;
+	rdfs:subClassOf text-structure:ContentStructure.
+
 text-structure:CompositionalContentStructure
 	a owl:Class;
 	rdfs:label "compositional content text structure"@en, "kompositionelle inhaltliche Textstruktur"@de;
@@ -118,12 +124,6 @@ text-structure:Sentence
 
 # text-structure:WrittenSentence: orthographic element: one or more words starting with a capital letter and ending in a full stop or period, question mark, or exclamation mark
 
-text-structure:SentenceStructure
-	a owl:Class;
-	rdfs:label "sentence structure"@en, "Satzstruktur"@de;
-	rdfs:comment """Content structure depending on sentences, e.g. a paragraph, section, prose"""@en;
-	rdfs:subClassOf text-structure:ContentStructure.
-
 text-structure:Prose
 	a owl:Class;
 	rdfs:label "prose"@en, "Prosa"@de;
@@ -134,6 +134,8 @@ text-structure:Prose
 		a owl:Restriction; owl:onProperty text-structure:isProseOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #**		text-structure:isProseOfPoem
+
+
 
 text-structure:Paragraph
 	a owl:Class;

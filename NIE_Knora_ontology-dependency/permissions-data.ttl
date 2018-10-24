@@ -1347,27 +1347,27 @@
 
 ## Administrative permissions on project member
 
-<http://rdfh.ch/permissions/0063/044-a1>
-	rdf:type knora-base:AdministrativePermission;
-	knora-base:forProject <http://rdfh.ch/projects/0063>;
-	knora-base:forGroup knora-base:ProjectMember;
-	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
+#<http://rdfh.ch/permissions/0063/044-a1>
+#	rdf:type knora-base:AdministrativePermission;
+#	knora-base:forProject <http://rdfh.ch/projects/0063>;
+#	knora-base:forGroup knora-base:ProjectMember;
+#	knora-base:hasPermissions "ProjectResourceCreateAllPermission"^^xsd:string.
 
 ## Administrative permissions on project admin
 
-<http://rdfh.ch/permissions/0063/044-a2>
-	rdf:type knora-base:AdministrativePermission;
-	knora-base:forProject <http://rdfh.ch/projects/0063>;
-	knora-base:forGroup knora-base:ProjectAdmin;
-	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
+#<http://rdfh.ch/permissions/0063/044-a2>
+#	rdf:type knora-base:AdministrativePermission;
+#	knora-base:forProject <http://rdfh.ch/projects/0063>;
+#	knora-base:forGroup knora-base:ProjectAdmin;
+#	knora-base:hasPermissions "ProjectResourceCreateAllPermission|ProjectAdminAllPermission"^^xsd:string.
 
 ## Default object access permissions on project member group
 
-<http://rdfh.ch/permissions/0063/044-d1>
-	rdf:type knora-base:DefaultObjectAccessPermission;
-	knora-base:forProject <http://rdfh.ch/projects/0063>;
-	knora-base:forGroup knora-base:ProjectMember;
-	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
+#<http://rdfh.ch/permissions/0063/044-d1>
+#	rdf:type knora-base:DefaultObjectAccessPermission;
+#	knora-base:forProject <http://rdfh.ch/projects/0063>;
+#	knora-base:forGroup knora-base:ProjectMember;
+#	knora-base:hasPermissions "CR knora-base:Creator|M knora-base:ProjectMember|V knora-base:KnownUser,knora-base:UnknownUser"^^xsd:string.
 
 #
 # Lavater

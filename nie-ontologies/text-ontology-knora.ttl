@@ -105,6 +105,14 @@ text:TypewrittenText
 		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
 
+text:TranscribedText
+	a owl:Class;
+	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
+	rdfs:comment """Text copied by character by any method."""@en;
+	rdfs:subClassOf text:WrittenText, [
+		a owl:Restriction; owl:onProperty infocar:isInTranscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInTranscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 # text:Print: printed text abstracted from its carrier
 
 text:Expression
@@ -282,12 +290,6 @@ text:Draft
 	rdfs:label "draft"@en, "Entwurf"@de;
 	rdfs:comment """Developmental text expression."""@en;
 	rdfs:subClassOf human:CreationVersion.
-
-#text:Transcription # homonym: from dif. expr. - eg. spoken - to written
-#	a owl:Class;
-#	rdfs:label "transcription"@en, "Transkription"@de;
-#	rdfs:comment """Text expr copied by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
-#	rdfs:subClassOf text:Text.
 
 text:Development
 	a owl:Class;

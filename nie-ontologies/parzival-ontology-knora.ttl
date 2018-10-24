@@ -3,8 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
 @base <http://www.knora.org/ontology/0067/parzival>.
@@ -24,13 +28,23 @@
 # CLASSES
 #
 
-° parzival:EditedVerseNovel
+parzival:TranscribedVerseNovel
 	a owl:Class;
-	rdfs:label """edited version of Wolfram Von Eschenbach's 'Parzival'"""@en, """Vers von Wolfram Von Eschenbachs 'Parzival'"""@de;
-	rdfs:comment """Handwritten transcription of Wolfram Von Eschenbach's 'Parzival'."""@en;
-	rdfs:subClassOf text:HandwrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInManuscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label """transcribed version of Wolfram Von Eschenbach's 'Parzival'"""@en, """transkribierte Version von Wolfram Von Eschenbachs 'Parzival'"""@de;
+	rdfs:comment """Transcribed version of Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:subClassOf litera:VerseNovel, text:TranscribedText.
+
+parzival:HandwrittenTranscribedVerseNovel
+	a owl:Class;
+	rdfs:label """handwritten transcribed version of Wolfram Von Eschenbach's 'Parzival'"""@en, """handgeschribene transkribierte Version von Wolfram Von Eschenbachs 'Parzival'"""@de;
+	rdfs:comment """Handwritten transcribed version of Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:subClassOf parzival:TranscribedVerseNovel, text:HandwrittenText.
+
+parzival:PrintedTranscribedVerseNovel
+	a owl:Class;
+	rdfs:label """printed transcribed version of Wolfram Von Eschenbach's 'Parzival'"""@en, """gedruckte transkribierte Version von Wolfram Von Eschenbachs 'Parzival'"""@de;
+	rdfs:comment """Printed transcribed version of Wolfram Von Eschenbach's 'Parzival'."""@en;
+	rdfs:subClassOf parzival:TranscribedVerseNovel.
 
 parzival:Verse
 	a owl:Class;
@@ -53,7 +67,7 @@ parzival:CriticalApparatus
 	a owl:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;
 	rdfs:comment """Editing apparatus to a critical text edition providing information of a textual version."""@en;
-	rdfs:subClassOf text-structure:CriticalApparatus.
+	rdfs:subClassOf textedit:CriticalApparatus.
 
 #
 # PROPERTIES

@@ -231,23 +231,25 @@ infocar:Typescript
 	rdfs:comment """Carrier with a typewritten text."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Transcription
+infocar:Transcript
 	a owl:Class;
-	rdfs:label "transcription"@en, "Abschrift"@de;
-	rdfs:comment """Carrier with a text copied by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
+	rdfs:label "transcript"@en, "Abschrift"@de;
+	rdfs:comment """Carrier with a text copied by character, by any method, e.g. handwriting, typewriting, printing, digitizing."""@en;
 	rdfs:subClassOf human:Copy, infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
 		a owl:Restriction; owl:onProperty infocar:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasTranscriberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
- # homonym: transcription: conversion from different manifestation, eg. from spoken or recorded sound to written
+# machine/photocopy
 
- # facsimile
+# homonym: transcript: conversion from different manifestation, eg. from spoken or recorded sound to written
 
-infocar:ManualTranscription
+# facsimile
+
+infocar:ManualTranscript
 	a owl:Class;
-	rdfs:label "manual transcription"@en, "manuelle Abschrift"@de;
+	rdfs:label "manual transcript"@en, "manuelle Abschrift"@de;
 	rdfs:comment """Carrier with a handwritten copy of a text."""@en;
-	rdfs:subClassOf infocar:Transcription, infocar:Manuscript.
+	rdfs:subClassOf infocar:Transcript, infocar:Manuscript.
 
 infocar:Diary #°
 	a owl:Class;
@@ -587,6 +589,24 @@ infocar:isInTypescriptValue
 	knora-base:subjectClassConstraint text:TypewrittenText;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+infocar:isInTranscript
+	a owl:ObjectProperty;
+	rdfs:label "is in transcript"@en, "ist in Abschrift"@de;
+	rdfs:comment "Relating a transcribed text to the transcript that carries it."@en;
+	rdfs:domain text:TranscribedText;
+	rdfs:range infocar:Transcript;
+	rdfs:subPropertyOf infocar:isOnCarrier;
+	knora-base:subjectClassConstraint text:TranscribedText;
+	knora-base:objectClassConstraint infocar:Transcript.
+
+infocar:isInTranscriptValue
+	a owl:ObjectProperty;
+	rdfs:label "is in transcript - statement"@en, "ist in Abschrift - Festlegung"@de;
+	rdfs:comment "Relating a transcribed text to a reification statement of the relation between the text and the transcript that carries it."@en;
+	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint text:TranscribedText;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 infocar:entryIsInDiary
 	a owl:ObjectProperty;
 	rdfs:label "entry is in diary"@en, "Eintrag ist in Tagebuch"@de;
@@ -688,19 +708,19 @@ infocar:hasReceiverValue
 infocar:hasTranscriber
 	a owl:ObjectProperty;
 	rdfs:label "has transcriber"@en, "hat TranskribiererIn"@de;
-	rdfs:comment """Relating a transcription to a person who created it."""@en;
-	rdfs:domain infocar:Transcription;
+	rdfs:comment """Relating a transcript to a person who created it."""@en;
+	rdfs:domain infocar:Transcript;
 #	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]];
 	rdfs:subPropertyOf human:hasCreator;
-	knora-base:subjectClassConstraint infocar:Transcription;
+	knora-base:subjectClassConstraint infocar:Transcript;
 	knora-base:objectClassConstraint human:Person.
 
 infocar:hasTranscriberValue
 	a owl:ObjectProperty;
 	rdfs:label "has transcriber - statement"@en, "hat TranskribiererIn - Festlegung"@de;
-	rdfs:comment """Relating a transcription to a reification statement of the relation between the transcription and a person who created it."""@en;
+	rdfs:comment """Relating a transcript to a reification statement of the relation between the transcript and a person who created it."""@en;
 	rdfs:subPropertyOf human:hasCreatorValue;
-	knora-base:subjectClassConstraint infocar:Transcription;
+	knora-base:subjectClassConstraint infocar:Transcript;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:convoluteHasTitle

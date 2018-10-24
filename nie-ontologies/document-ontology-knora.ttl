@@ -213,6 +213,12 @@ document:ExpressionPart
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+document:CollectedWorks
+	a owl:Class;
+	rdfs:label "collected works"@en, "gesammelte Werke"@de;
+	rdfs:comment """Collection of individual document expressions of one author."""@en;
+	rdfs:subClassOf document:Expression.
+
 document:Cycle
 	a owl:Class;
 	rdfs:label "expression cycle"@en, "Expression-Zyklus"@de;

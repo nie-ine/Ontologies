@@ -85,16 +85,6 @@ athar:PalmLeafManuscript
 #	rdfs:comment """critical text edition as created in the Atharvaveda project."""@en;
 #	rdfs:subClassOf textedit:CriticalEdition
 
-# apparatus has format: cf. textedit
-# lemma
-# symbol ']'
-# source from which the edition took its reading (bold font)
-# list of variants + source, set off with a comma
-# Special markup that can appear:
-# [[...]] denoting editorial observations on the preceding reading(s)
-# [ Aa ] denoting manuscripts with a specific meaning
-# <..> denote wholly or partially lost text due to damage suffered by the palm-leaves
-
 # athar:CriticalApparatus
 #	a owl:Class;
 #	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de;

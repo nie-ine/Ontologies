@@ -133,9 +133,11 @@ text-structure:Prose
 		a owl:Restriction; owl:onProperty text-structure:isProseOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isProseOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#**		text-structure:isProseOfPoem
+
+#° text-structure:isProseOfPoem
 
 
+#° text:Incipit
 
 text-structure:Paragraph
 	a owl:Class;
@@ -381,13 +383,29 @@ text-structure:EndnoteNumber
 	rdfs:comment """Number of an endnote."""@en;
 	rdfs:subClassOf text-structure:EndnoteIdentifier, math:Number.
 
+text-structure:Diary
+	a owl:Class;
+	rdfs:label "diary structure"@en, "Tagebuch-Struktur"@de;
+	rdfs:comment """Text with diary structure."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isDiaryStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isDiaryStructureOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 text-structure:Letter
 	a owl:Class;
-	rdfs:label "letter structure"@en, "Brief-Struktur"@de;
+	rdfs:label "letter structure"@en, "Briefstruktur"@de;
 	rdfs:comment """Text with letter structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isLetterStructureOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:Postcard
+	a owl:Class;
+	rdfs:label "postcard structure"@en, "Postkarte-Struktur"@de;
+	rdfs:comment """Text with postcard structure."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty text-structure:isPostcardStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isPostcardStructureOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -1031,4 +1049,40 @@ text-structure:isLetterStructureOfExpressionValue
 	rdfs:comment """Relating a letter structure to a reification statement of the relation between the letter structure and a text expression it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
 	knora-base:subjectClassConstraint text-structure:Letter;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isPostcardStructureOfExpression
+	a owl:ObjectProperty;
+	rdfs:label "is postcard structure of expression"@en, "ist Postkarte-Struktur einer Expression"@de;
+	rdfs:comment """Relating a postcard structure to a text expression it is part of."""@en;
+	rdfs:domain text-structure:Postcard;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
+	knora-base:subjectClassConstraint text-structure:Postcard;
+	knora-base:objectClassConstraint text:Expression.
+
+text-structure:isPostcardStructureOfExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is postcard structure of expression - statement"@en, "ist Postkarte-Struktur einer Expression - Festlegung"@de;
+	rdfs:comment """Relating a postcard structure to a reification statement of the relation between the postcard structure and a text expression it is part of."""@en;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
+	knora-base:subjectClassConstraint text-structure:Postcard;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:isDiaryStructureOfExpression
+	a owl:ObjectProperty;
+	rdfs:label "is diary structure of expression"@en, "ist Tagebuch-Struktur einer Expression"@de;
+	rdfs:comment """Relating a diary structure to a text expression it is part of."""@en;
+	rdfs:domain text-structure:Diary;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
+	knora-base:subjectClassConstraint text-structure:Diary;
+	knora-base:objectClassConstraint text:Expression.
+
+text-structure:isDiaryStructureOfExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is diary structure of expression - statement"@en, "ist Tagebuch-Struktur einer Expression - Festlegung"@de;
+	rdfs:comment """Relating a diary structure to a reification statement of the relation between the diary structure and a text expression it is part of."""@en;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
+	knora-base:subjectClassConstraint text-structure:Diary;
 	knora-base:objectClassConstraint knora-base:LinkValue.

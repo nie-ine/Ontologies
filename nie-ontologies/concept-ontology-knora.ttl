@@ -83,15 +83,17 @@ concept:PropositionalConcept #***
 	skos:note """Different from a linguistic proposition."""@en;
 	rdfs:subClassOf concept:Concept, cidoc:E89_Propositional_Object.
 
-concept:ThoughtBody #* related to belief system related to school of thought related to theory
+concept:ThoughtBody
 	a owl:Class;
 	rdfs:label "body of thought"@en, "Gedankengut"@de;
-	rdfs:comment """Group of coexisting propositional concepts."""@en; #* possibly coherent
+	rdfs:comment """Group of coexisting propositional concepts."""@en;
+	skos:note """Without the necessity of being logically coherent."""@en;
+	skos:note """Related to belief system related to school of thought related to theory."""@en;
 	rdfs:subClassOf concept:PropositionalConcept.
 
 concept:Work
 	a owl:Class;
-	rdfs:label "work"@en, "Werk"@de;
+	rdfs:label "conceptual work"@en, "konzeptuelles Werk"@de;
 	rdfs:comment """Intellectual product as concept."""@en; #*
 	rdfs:subClassOf concept:PropositionalConcept, frbroo:F1_Work, [
 		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger].

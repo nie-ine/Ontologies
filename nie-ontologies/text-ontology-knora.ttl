@@ -29,7 +29,7 @@
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
 	skos:note """Text editing is described in a seperate ontology"""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 #	skos:note """Representation of an otherwise literal data element as object enabling relating it to other data"""@en.
 
@@ -246,17 +246,27 @@ text:SentenceExpression
 
 text:DiaryEntry
 	a owl:Class;
-	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione diario"@it;
+	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione del diario"@it;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
 	rdfs:subClassOf text:IndividualExpression, [
-		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isEntryOfDiaryExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isEntryOfDiaryExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:entryIsInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:entryIsInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:DiaryExpression
+	a owl:Class;
+	rdfs:label "diary expression"@en, "Tagebuch-Expression"@de, "expression d'un journal"@fr, "expression del diario"@it;
+	rdfs:comment """Text expression with a diary content and possibly structure."""@en;
+	rdfs:subClassOf text:IndividualExpression, [
+		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
-	rdfs:comment """Text expression with a letter structure."""@en;
+	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
 	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -623,13 +633,6 @@ text:hasAuthorValue
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-#text:isAuthorOf
-#	a owl:ObjectProperty;
-#	rdfs:label "author of"@en;
-#	rdfs:comment """Relating a person with author role to a text the person authored."""@en;
-#	knora-base:subjectClassConstraint human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Author]];
-#	knora-base:objectClassConstraint text:Expression.
-
 text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
@@ -788,4 +791,22 @@ text:hasCitationNumberValue
 	rdfs:comment """Relating a citation reference number (as resource) to a reification statement of the relation between that number and its citation number (as resource)."""@en;
 	rdfs:subPropertyOf text:hasCitationIdentifierValue;
 	knora-base:subjectClassConstraint text:CitationReferenceNumber;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isEntryOfDiaryExpression
+	a owl:ObjectProperty;
+	rdfs:label "is entry of diary expression"@en, "ist Eingabe einer Tagebuch-Expression"@de;
+	rdfs:comment """Relating a diary entry to its diary expression."""@en;
+	rdfs:domain text:DiaryEntry;
+	rdfs:range text:DiaryExpression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text:DiaryEntry;
+	knora-base:objectClassConstraint text:DiaryExpression.
+
+text:isEntryOfDiaryExpressionValue
+	a owl:ObjectProperty;
+	rdfs:label "is entry of diary expression - statement"@en, "ist Eingabe einer Tagebuch-Expression - Festlegung"@de;
+	rdfs:comment """Relating a diary entry to a reification statement of the relation between that entry and its diary expression."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text:DiaryEntry;
 	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -193,12 +193,15 @@ textedit:Lemma
 #* RLP: rdfs:comment """A word or phrase judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
 
 # apparatus has format:
-# eg.
 # location of version in text
-# lemma: part of text in CA: Textstelle
-# symbol
-# source from which the edition took its reading
-# list of variants + source, set off with a comma: if frequently cited: abbreviated with a siglum
+# lemma
+# symbol, e.g. ']'
+# source from which the edition took its reading, e.g. bold font
+# list of variants + source, set off with a comma or if frequently cited: abbreviated with a siglum
+# Special markup that can appear:
+#   [[...]] denoting editorial observations on the preceding reading(s)
+#   [ Aa ] denoting manuscripts with a specific meaning
+#   <..> denote wholly or partially lost text, e.g. due to damage suffered by the carrier
 
 textedit:Reading # superclass of lemma, variant
 	a owl:Class;

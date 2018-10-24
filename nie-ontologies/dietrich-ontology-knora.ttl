@@ -30,7 +30,7 @@ dietrich:DiaryWork
 	a owl:Class;
 	rdfs:label "diary by father Joseph Dietrich"@en,"Tagebuch des Paters Joseph Dietrich"@de;
 	rdfs:comment """Diary work authored by father Joseph Dietrich."""@en;
-	rdfs:subClassOf infocar:Work.
+	rdfs:subClassOf infocar:PartitionedWork.
 
 dietrich:DiaryVolume
 	a owl:Class;

@@ -12,10 +12,12 @@ A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki
 # Graphics
 Note: the graphics have to be updated to the current status of the ontologies.  
 These are created with [EasyRDF ](http://www.easyrdf.org/converter) in SVG format, except 'event' and 'text', which are as try-out created with https://app.gra.fo/.  
-They contain reduced representations of class and property declarations from external and NIE-ontologies.  
+They contain reduced representations of class and property declarations from external and NIE-ontologies and are meant to show dependencies between ontologies.  
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  
+
+Besides these graphics there are tree structures created with [Protégé](https://protege.stanford.edu/) to give a subsumption-based overview of 1 or more ontologies.
 
 Following external ontologies are used:  
 [CIDOC](http://www.cidoc-crm.org/)  
@@ -52,6 +54,16 @@ Following figures show graphical representations of triples from different ontol
 ##### Figure 4: Graphic representing classes and properties from different ontologies concerning 'language'
 &nbsp;  
 &nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_information.png)
+
+##### Figure 5: Tree representing classes from different ontologies concerning 'information'
+&nbsp;  
+&nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_expression.png)
+
+##### Figure 5: Tree representing classes from different ontologies concerning 'expression'
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_expression.svg)
 
 ##### Figure 5: Graphic representing classes and properties from different ontologies concerning 'expression'
@@ -62,9 +74,25 @@ Following figures show graphical representations of triples from different ontol
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'text'
 &nbsp;  
 &nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_CompositionalStructure.png)
+
+##### Figure 7: Tree representing classes from different ontologies concerning 'compositional text structure'
+&nbsp;  
+&nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_Content+Syntactic.png)
+
+##### Figure 7: Tree representing classes from different ontologies concerning 'content and syntactic text structure'
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure.svg)
 
 ##### Figure 7: Graphic representing classes and properties from different ontologies concerning 'text structure'
+&nbsp;  
+&nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
+
+##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'edition'
+
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_information-carrier.svg)
@@ -80,11 +108,6 @@ Following figures show graphical representations of triples from different ontol
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter_DUO.svg)
 
 ##### Figure 10: Graphic representing classes and properties from different ontologies concerning 'letter'
-&nbsp;  
-&nbsp;  
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
-
-##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'edition'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature_basis.svg)

@@ -54,6 +54,7 @@ Following figures show graphical representations of triples from different ontol
 ##### Figure 4: Graphic representing classes and properties from different ontologies concerning 'language'
 &nbsp;  
 &nbsp;  
+Figure 5 shows classes from the concept, document, text and text structure ontologies.  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_information.png)
 
 ##### Figure 5: Tree representing classes from different ontologies concerning 'information'
@@ -61,73 +62,73 @@ Following figures show graphical representations of triples from different ontol
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_expression.png)
 
-##### Figure 5: Tree representing classes from different ontologies concerning 'expression'
+##### Figure 6: Tree representing classes from different ontologies concerning 'expression'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_expression.svg)
 
-##### Figure 5: Graphic representing classes and properties from different ontologies concerning 'expression'
+##### Figure 7: Graphic representing classes and properties from different ontologies concerning 'expression'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text.png)
 
-##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'text'
+##### Figure 8: Graphic representing classes and properties from different ontologies concerning 'text'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_CompositionalStructure.png)
 
-##### Figure 7: Tree representing classes from different ontologies concerning 'compositional text structure'
+##### Figure 9: Tree representing classes from different ontologies concerning 'compositional text structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_Content+Syntactic.png)
 
-##### Figure 7: Tree representing classes from different ontologies concerning 'content and syntactic text structure'
+##### Figure 10: Tree representing classes from different ontologies concerning 'content and syntactic text structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure.svg)
 
-##### Figure 7: Graphic representing classes and properties from different ontologies concerning 'text structure'
+##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'text structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
 
-##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'edition'
+##### Figure 12: Graphic representing classes and properties from different ontologies concerning 'edition'
 
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_information-carrier.svg)
 
-##### Figure 8: Graphic representing classes and properties from different ontologies concerning 'information carrier'
+##### Figure 14: Graphic representing classes and properties from different ontologies concerning 'information carrier'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_print.svg)
 
-##### Figure 9: Graphic representing classes and properties from different ontologies concerning 'print'
+##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'print'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter_DUO.svg)
 
-##### Figure 10: Graphic representing classes and properties from different ontologies concerning 'letter'
+##### Figure 16: Graphic representing classes and properties from different ontologies concerning 'letter'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature_basis.svg)
 
-##### Figure 12: Graphic representing classes and properties from different ontologies providing a conceptual basis for 'literature'
+##### Figure 17: Graphic representing classes and properties from different ontologies providing a conceptual basis for 'literature'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature.svg)
 
-##### Figure 13: Graphic representing classes and properties from different ontologies concerning 'literature'
+##### Figure 18: Graphic representing classes and properties from different ontologies concerning 'literature'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure_poem.svg)
 
-##### Figure 14: Graphic representing classes and properties from different ontologies concerning 'text-structure' and 'poem'
+##### Figure 19: Graphic representing classes and properties from different ontologies concerning 'text-structure' and 'poem'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_publication.svg)
 
-##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'publication'
+##### Figure 20: Graphic representing classes and properties from different ontologies concerning 'publication'
 </div>
 &nbsp;  
 &nbsp;  
@@ -137,6 +138,6 @@ Figure 16 shows a graphical representation of the classes and properties from th
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
 
-##### Figure 16: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
+##### Figure 21: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
 </div>
 

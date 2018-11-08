@@ -79,10 +79,10 @@ device:ElectronicComputer
 	rdfs:comment """Computer also being an electronic machine."""@en;
 	rdfs:subClassOf device:Computer, device:ElectronicMachine.
 
-device:DigitalComputer #*
+device:DigitalComputer #°
 	a owl:Class;
 	rdfs:label "digital computer"@en, "digitale Rechner"@de;
-	rdfs:comment """Computer ...."""@en; #*
+	rdfs:comment """Computer ...."""@en; #°
 	rdfs:subClassOf device:Computer.
 
 device:DigitalElectronicComputer

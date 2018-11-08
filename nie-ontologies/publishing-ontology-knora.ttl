@@ -183,14 +183,14 @@ publish:Newspaper
 publish:Article
 	a owl:Class;
 	rdfs:label "article"@en, "Artikel"@de, "article"@fr;
-	rdfs:comment """Unit in a periodical publication."""@en; #*
+	rdfs:comment """Unit in a periodical publication."""@en;
 	rdfs:subClassOf publish:Publication.
 
 publish:NachlassPublication
 	a owl:Class;
 	rdfs:label "nachlass publication"@en, "Nachlassausgabe"@de;
 	rdfs:comment """Publication of a nachlass."""@en;
-	rdfs:subClassOf publish:Publication, infocar:NachlassElement. #*
+	rdfs:subClassOf publish:Publication, infocar:NachlassElement.
 
 publish:UnauthorizedPublication
 	a owl:Class;

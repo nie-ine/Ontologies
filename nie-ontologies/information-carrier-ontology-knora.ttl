@@ -46,9 +46,15 @@ infocar:Carrier
 infocar:Set
 	a owl:Class;
 	rdfs:label "information carrier set"@en, "Informationsträger-Reihe"@de, "ensemble des supports d'information"@fr;
-	rdfs:comment """Information carriers considered together."""@en;
+	rdfs:comment """Information carriers belonging together, e.g. a series of volumes, an archive, , nachlass."""@en;
 	rdfs:subClassOf human:PhysicalCreation, [
 		a owl:Restriction; owl:onProperty infocar:hasCarrierDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Copy
+	a owl:Class;
+	rdfs:label "information carrier copy"@en, "Informationsträgerkopie"@de;
+	rdfs:comment """Carrier with a copy of information."""@en;
+	rdfs:subClassOf human:Copy.
 
 infocar:Leaf
 	a owl:Class;
@@ -239,7 +245,11 @@ infocar:Transcript
 		a owl:Restriction; owl:onProperty infocar:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasTranscriberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# machine/photocopy
+infocar:TextCopy
+	a owl:Class;
+	rdfs:label "text copy"@en, "Textkopie"@de;
+	rdfs:comment """Carrier with a copy of a text."""@en;
+	rdfs:subClassOf infocar:Copy.
 
 # homonym: transcript: conversion from different manifestation, eg. from spoken or recorded sound to written
 
@@ -281,7 +291,7 @@ infocar:Postcard
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Convolute
+infocar:Convolute #° version
 	a owl:Class;
 	rdfs:label "information carrier convolute"@en, "Informationsträger-Konvolut"@de;
 	rdfs:comment """Set of information carriers, e.g. handwritten drafts, manuscripts, typoscripts or prints, with a commonality, e.g. being of the same author."""@en;
@@ -306,7 +316,7 @@ infocar:ConvoluteElement
 		a owl:Restriction; owl:onProperty infocar:isPartOfConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPartOfConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-infocar:ElectronicCarrier #* data or information storage device
+infocar:ElectronicCarrier #° data or information storage device
 	a owl:Class;
 	rdfs:label "electronic information carrier"@en,"elektronischer Informationsträger"@de;
 	rdfs:comment """Electronic machine carrying electronic information."""@en;
@@ -587,6 +597,24 @@ infocar:isInTypescriptValue
 	rdfs:comment "Relating a typewritten text to a reification statement of the relation between the typewritten text and the typescript that carries it."@en;
 	rdfs:subPropertyOf infocar:isOnCarrierValue;
 	knora-base:subjectClassConstraint text:TypewrittenText;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+infocar:isInTextCopy
+	a owl:ObjectProperty;
+	rdfs:label "is in text copy"@en, "ist in Textkopie"@de;
+	rdfs:comment "Relating a copied text to its carrier."@en;
+	rdfs:domain text:CopiedText;
+	rdfs:range infocar:TextCopy;
+	rdfs:subPropertyOf infocar:isOnCarrier;
+	knora-base:subjectClassConstraint text:CopiedText;
+	knora-base:objectClassConstraint infocar:TextCopy.
+
+infocar:isInTextCopyValue
+	a owl:ObjectProperty;
+	rdfs:label "is in text copy - statement"@en, "ist in Textkopie - Festlegung"@de;
+	rdfs:comment "Relating a copied text to a reification statement of the relation between the copied text and its carrier."@en;
+	rdfs:subPropertyOf infocar:isOnCarrierValue;
+	knora-base:subjectClassConstraint text:CopiedText;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 infocar:isInTranscript

@@ -31,11 +31,6 @@
 # CLASSES
 #
 
-# humgeo:HumanGeography
-# humgeo:PoliticalGeography
-
-# http://sweet.jpl.nasa.gov/2.3/realm.owl#PlanetarySurface
-
 humgeo:Nation
 	a owl:Class;
 	#rdfs:isDefinedBy <http://www.knora.org/ontology/0049/human-geography#>;
@@ -256,7 +251,7 @@ humgeo:hasHouseNumber
 humgeo:hasPostcode
 	a owl:ObjectProperty;
 	rdfs:label "has postcode"@en, "hat Postleitzahl"@de;
-#	text:hasSynonym "has zip code"@en;
+#	ling:hasSynonym "has zip code"@en;
 	rdfs:comment """Relating a postal address to its postcode."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;

@@ -91,6 +91,11 @@ athar:PalmLeafManuscript
 #	rdfs:comment """Critical apparatus used in the Atharvaveda project at the Zürich University 2018."""@en;
 #	rdfs:subClassOf textedit:CriticalApparatus.
 
+# Special markup that can appear:
+#   [[...]] denoting editorial observations on the preceding reading(s)
+#   [ Aa ] denoting manuscripts with a specific meaning
+#   <..> denote wholly or partially lost text, e.g. due to damage suffered by the carrier
+
 #
 # PROPERTIES
 #

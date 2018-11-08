@@ -31,7 +31,7 @@
 # CLASSES
 #
 
-concept:Concept #***
+concept:Concept #°
 	a owl:Class;
 	rdfs:label "concept"@en, "Konzept"@de;
 	rdfs:comment """Abstract idea created by a person, as product of mental activity."""@en;
@@ -55,10 +55,10 @@ concept:Commonplace # related: truism, cliché
 	rdfs:comment """Concept generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:Concept.
 
-concept:SymbolicConcept #***
+concept:SymbolicConcept #°
 	a owl:Class;
 	rdfs:label "symbolic concept"@en, "symbolisches Konzept"@de;
-	rdfs:comment """Concept represented by one or more symbols."""@en; #*
+	rdfs:comment """Concept represented by one or more symbols."""@en; #°
 	rdfs:subClassOf concept:Concept, cidoc:E90_Symbolic_Object, [
 		a owl:Restriction; owl:onProperty concept:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:isPartOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -70,13 +70,13 @@ concept:Identifier
 	rdfs:subClassOf concept:SymbolicConcept, cidoc:E42_Identifier, [ # rdfs:subClassOf cidoc:E41_Appellation
 		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-concept:Set #*
+concept:Set #°
 	a owl:Class;
 	rdfs:label "concept set"@en, "Konzeptsammlung"@de;
 	rdfs:comment """Set of concepts."""@en;
 	rdfs:subClassOf concept:SymbolicConcept.
 
-concept:PropositionalConcept #***
+concept:PropositionalConcept #°
 	a owl:Class;
 	rdfs:label "propositional concept"@en, "propositionales Konzept"@de;
 	rdfs:comment """Concept represented by a statement bearing a truth value, e.g. a judgement or opinion."""@en; #*
@@ -120,13 +120,13 @@ concept:Information #° not always PropositionalConcept
 		a owl:Restriction; owl:onProperty concept:hasEncoder; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty concept:hasEncoderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-concept:Procedure #* -> physical procedure SCO cidoc:E29_Design_or_Procedure
+concept:Procedure #° -> physical procedure SCO cidoc:E29_Design_or_Procedure
 	a owl:Class;
 	rdfs:label "procedure"@en, "Vorgehen"@de;
 	rdfs:comment """Plan to perform an action in one or more steps, in a certain manner to obtain a certain output under certain circumstances."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E29_Design_or_Procedure.
 
-concept:ThoughtMethod #* part/SC of philosophy ?
+concept:ThoughtMethod #° part/SCO philosophy ?
 	a owl:Class;
 	rdfs:label "thought method"@en, "Methode des Denkens"@de;
 	rdfs:comment """Way of analysing facts to form a judgment."""@en; #*
@@ -206,7 +206,7 @@ concept:informationHasSubjectValue
 
 # frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
 
-concept:hasDedicatedTo #*
+concept:hasDedicatedTo #°
 	a owl:ObjectProperty;
 	rdfs:label "has dedicated to"@en, "hat gewidmet"@de;
 	rdfs:comment """Relating a person to another person to whom the former has dedicated something."""@en;

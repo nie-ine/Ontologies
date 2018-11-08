@@ -32,13 +32,13 @@
 # CLASSES
 #
 
-language:Language #* to be linked to ability
+language:Language
 	a owl:Class;
 	rdfs:label "language"@en, "Sprache"@de;
 	rdfs:comment """Dynamic set of sensory carriers, e.g. a sign, symbol, word, including sound and gesture, to express meaning, and used along rules or grammar model, e.g. syntax for serialization."""@en; # dct:LinguisticSystem
 	rdfs:subClassOf knora-base:Resource.
 
-language:HumanLanguage #*
+language:HumanLanguage
 	a owl:Class;
 	rdfs:label "human language"@en, "menschliche Sprache"@de;
 	rdfs:comment """Language of a human."""@en;
@@ -143,7 +143,7 @@ language:PersonTranslator
 
 # interpreter
 
-language:Translation #* OR result of translating with translated text as its object 
+language:Translation
 	a owl:Class;
 	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
 	rdfs:comment """Human natural language expression transferred in another natural language."""@en;
@@ -239,7 +239,7 @@ language:expressedInNaturalLanguageValue
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-language:expressedInDialect #*
+language:expressedInDialect
 	a owl:ObjectProperty;
 	rdfs:label "expressed in dialect"@en, "geäußert in Mundart"@de;
 	rdfs:comment """Relating a human expression to a dialect it is expressed in."""@en;
@@ -275,13 +275,13 @@ language:translatedInValue
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-language:hasTranslator #*
+language:hasTranslator
 	a owl:ObjectProperty;
 	rdfs:label "has translator"@en, "hat Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to an agent that translated it."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range agent:Agent; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:Translator]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint agent:Agent.
 

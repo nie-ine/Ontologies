@@ -44,7 +44,15 @@ text-structure:Structure
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
 	rdfs:subClassOf text:Text, document:ContentStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:hasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:Identifier
+	a owl:Class;
+	rdfs:label "text structure identifier"@en, "Textstrukturidentifikator"@de;
+	rdfs:comment """Identifier of a text structure."""@en;
+	rdfs:subClassOf concept:Identifier, document:Structure.
 
 text-structure:SyntacticStructure
 	a owl:Class;
@@ -133,12 +141,6 @@ text-structure:Prose
 		a owl:Restriction; owl:onProperty text-structure:isProseOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isProseOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-
-#° text-structure:isProseOfPoem
-
-
-#° text:Incipit
-
 text-structure:Paragraph
 	a owl:Class;
 	rdfs:label "paragraph"@en, "Paragraf"@de;
@@ -152,7 +154,7 @@ text-structure:Paragraph
 
 text-structure:Section
 	a owl:Class;
-	rdfs:label "section"@en, "Textabschnitt"@de, "kanda"@sa;
+	rdfs:label "text section"@en, "Textabschnitt"@de;
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isSectionOfExpression; owl:allValuesFrom text:Section], [
@@ -198,18 +200,6 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
 
-# running text - Fliesstext, as distinguished from headline, illustration, table
-
-# text-structure:Cycle
-#	a owl:Class;
-#	rdfs:label "text cycle"@en, "Text-Zyklus"@de;
-#	rdfs:comment """Set of text expressions belonging together, e.g. created around a certain theme, and intended to be experienced in a certain sequence."""@en;
-#	rdfs:subClassOf document:Cycle, text-structure:Structure. #*
-
-# scenic text - Szenischer Text # drama
-
-# Sachtext-structure: e.g. Essay, Einleitung
-
 text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;
@@ -227,7 +217,7 @@ text-structure:Verse
 text-structure:HalfVerse
 	a owl:Class;
 	rdfs:label "half-verse"@en, "Halbvers"@de;
-#	text:hasSynonym "hemistich"@en, "Hemistich"@de;
+#	ling:hasSynonym "hemistich"@en, "Hemistich"@de;
 	rdfs:comment """Half a verse."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -236,7 +226,7 @@ text-structure:HalfVerse
 text-structure:Strophe
 	a owl:Class;
 	rdfs:label "strophe"@en, "Strophe"@de;
-#	text:hasSynonym "stanza"@en, "Stanze"@de;
+#	ling:hasSynonym "stanza"@en, "Stanze"@de;
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
@@ -261,24 +251,24 @@ text-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :
 text-structure:VerseSection
 	a owl:Class;
 	rdfs:label "verse section"@en, "Versabschnitt"@de;
-#	text:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
+#	ling:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
 	rdfs:comment """Group of strophes."""@en;
 	rdfs:subClassOf text-structure:ProsodicStructure, [
 #		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfPoem; owl:allValuesFrom text:Text], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfVerseNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isVerseSectionOfVerseNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseSectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:verseSectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:FreeVerse
 	a owl:Class;
 	rdfs:label "free verse"@en, "freie Vers"@de;
-	rdfs:comment """Verse without a fixed prosody."""@en; #*
+	rdfs:comment """Verse without a fixed prosody."""@en; #°
 	rdfs:subClassOf text-structure:ProsodicStructure.
 
-#* text-structure:FixedVerse and SC
+# text-structure:FixedVerse and SC
 # different meters
 
 text-structure:RhymingVerse
@@ -309,7 +299,7 @@ text-structure:Note
 
 text-structure:MarginalNote
 	a owl:Class;
-	rdfs:label "marginal note"@en, "Marginale Notiz"@de; # in GUI can be "marginalia"@en, "Marginalien"@de
+	rdfs:label "marginal note"@en, "Marginale Notiz"@de;
 	rdfs:comment """Note written besides a text in the margin of a carrier."""@en;
 	rdfs:subClassOf text-structure:Note, text:WrittenText, document:Marginal.
 
@@ -353,7 +343,7 @@ text-structure:FootnoteIdentifier
 	a owl:Class;
 	rdfs:label "footnote identifier"@en, "Fussnoteidentifikator"@de;
 	rdfs:comment """Identifier of a footnote."""@en;
-	rdfs:subClassOf concept:Identifier, document:Structure.
+	rdfs:subClassOf text-structure:Identifier.
 
 text-structure:FootnoteNumber
 	a owl:Class;
@@ -375,7 +365,7 @@ text-structure:EndnoteIdentifier
 	a owl:Class;
 	rdfs:label "endnote identifier"@en, "Endnoteidentifikator"@de;
 	rdfs:comment """Identifier of an endnote."""@en;
-	rdfs:subClassOf concept:Identifier, document:Structure.
+	rdfs:subClassOf text-structure:Identifier.
 
 text-structure:EndnoteNumber
 	a owl:Class;
@@ -426,6 +416,24 @@ text-structure:isPartOfTextExpressionValue
 	rdfs:label "is part of text expression - statement"@en, "ist Teil einer Text-Expression - Festlegung"@de;
 	rdfs:comment """Relating a text structure to a reification statement of the relation between the text structure and a text expression it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text-structure:Structure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text-structure:hasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "text structure has identifier"@en, "Textstruktur hat Identifikator"@de;
+	rdfs:comment """Relating a text structure to an identifier it has."""@en;
+	rdfs:domain text-structure:Structure;
+	rdfs:range text-structure:Identifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text-structure:Structure;
+	knora-base:objectClassConstraint text-structure:Identifier.
+
+text-structure:hasIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "text structure has identifier - statement"@en, "Textstruktur hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a text structure to a reification statement of the relation between the structure and an identifier it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text-structure:Structure;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -887,20 +895,20 @@ text-structure:isVerseSectionOfPoemValue
 	knora-base:subjectClassConstraint text-structure:VerseSection;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text-structure:isVerseSectionOfNovel
+text-structure:isVerseSectionOfVerseNovel
 	a owl:ObjectProperty;
-	rdfs:label "is verse section of novel"@en, "ist Versabschnitt eines Romans"@de;
-	rdfs:comment """Relating a verse section to a novel it is part of."""@en;
+	rdfs:label "is verse section of verse novel"@en, "ist Versabschnitt eines Versromans"@de;
+	rdfs:comment """Relating a verse section to a verse novel it is part of."""@en;
 	rdfs:domain text-structure:VerseSection;
 	rdfs:range litera:VerseNovel;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
 	knora-base:subjectClassConstraint text-structure:VerseSection;
 	knora-base:objectClassConstraint litera:VerseNovel.
 
-text-structure:isVerseSectionOfNovelValue
+text-structure:isVerseSectionOfVerseNovelValue
 	a owl:ObjectProperty;
-	rdfs:label "is verse section of novel - statement"@en, "ist Versabschnitt eines Romans - Festlegung"@de;
-	rdfs:comment """Relating a verse section to a reification statement of the relation between the verse section and a novel it is part of."""@en;
+	rdfs:label "is verse section of verse novel - statement"@en, "ist Versabschnitt eines Versromans - Festlegung"@de;
+	rdfs:comment """Relating a verse section to a reification statement of the relation between the verse section and a verse novel it is part of."""@en;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
 	knora-base:subjectClassConstraint text-structure:VerseSection;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -967,7 +975,7 @@ text-structure:footnoteHasIdentifier
 	rdfs:comment """Relating a footnote to an identifier (as resource) it has."""@en;
 	rdfs:domain text-structure:Footnote;
 	rdfs:range text-structure:FootnoteIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf text-structure:hasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Footnote;
 	knora-base:objectClassConstraint text-structure:FootnoteIdentifier.
 
@@ -975,7 +983,7 @@ text-structure:footnoteHasIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "footnote has identifier - statement"@en, "Fussnote hat Identifikator - Festlegung"@de;
 	rdfs:comment """Relating a footnote to a reification statement of the relation between the footnote and an identifier (as resource) it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf text-structure:hasIdentifierValue;
 	knora-base:subjectClassConstraint text-structure:Footnote;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -1003,7 +1011,7 @@ text-structure:endnoteHasIdentifier
 	rdfs:comment """Relating an endnote to an identifier (as resource) it has."""@en;
 	rdfs:domain text-structure:Endnote;
 	rdfs:range text-structure:EndnoteIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf text-structure:hasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Endnote;
 	knora-base:objectClassConstraint text-structure:EndnoteIdentifier.
 
@@ -1011,7 +1019,7 @@ text-structure:endnoteHasIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "endnote has identifier - statement"@en, "Endnote hat Identifikator - Festlegung"@de;
 	rdfs:comment """Relating an endnote to a reification statement of the relation between the endnote and an identifier (as resource) it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf text-structure:hasIdentifierValue;
 	knora-base:subjectClassConstraint text-structure:Endnote;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

@@ -30,10 +30,6 @@
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/005C>.
 
-
-# Declared 'middle-out', as concepts are needed, not intended to contain upfront all elements
-
-
 #
 # CLASSES
 #
@@ -65,52 +61,45 @@ document:ContentStructure
 	rdfs:label "document content structure"@en, "Dokumentinhaltstruktur"@de;
 	rdfs:comment """Structural content element of a document."""@en;
 	rdfs:subClassOf document:Structure, [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty document:hasTextReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasTextReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasFootnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasEndnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Reference
 	a owl:Class;
 	rdfs:label "document reference"@en, "Dokumentreferenz"@de;
-	rdfs:comment """Reference as a structural element in a document."""@en;
-	rdfs:subClassOf document:Structure.
+	rdfs:comment """Reference as a structural element in a document, referring from one document content structure to another, e.g. a footnote reference from a text or image to a footnote. The reference is linked to and has the same symbol as literal representation as the identifier of the content structure it refers to."""@en;
+	rdfs:subClassOf document:Structure, concept:Identifier.
 
-document:FootnoteReferenceIdentifier
+document:TextReference
 	a owl:Class;
-	rdfs:label "footnote reference identifier"@en, "Fussnotereferenzidentifikator"@de;
-	rdfs:comment """Identifier of a footnote reference."""@en;
-	rdfs:subClassOf concept:Identifier, document:Reference, [
+	rdfs:label "text reference"@en, "Textreferenz"@de;
+	rdfs:comment """Reference to text, e.g. a footnote reference."""@en;
+	rdfs:subClassOf document:Reference, [
+		a owl:Restriction; owl:onProperty document:hasTextIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasTextIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
+#		a owl:Restriction; owl:onProperty document:hasTextNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty document:hasTextNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+		.
+
+document:FootnoteReference
+	a owl:Class;
+	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
+	rdfs:comment """Reference to a footnote."""@en;
+	rdfs:subClassOf document:Reference, [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-document:FootnoteReferenceNumber
+document:EndnoteReference
 	a owl:Class;
-	rdfs:label "footnote reference number"@en, "Fussnotereferenznummer"@de;
-	rdfs:comment """Number of a footnote reference."""@en;
-	rdfs:subClassOf document:FootnoteReferenceIdentifier, [
-		a owl:Restriction; owl:onProperty document:hasFootnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-document:EndnoteReferenceIdentifier
-	a owl:Class;
-	rdfs:label "endnote reference identifier"@en, "Endnotereferenzidentifikator"@de;
-	rdfs:comment """Identifier of an endnote reference."""@en;
-	rdfs:subClassOf concept:Identifier, document:Reference, [
+	rdfs:label "endnote reference"@en, "Endnotereferenz"@de;
+	rdfs:comment """Reference to an endnote."""@en;
+	rdfs:subClassOf document:Reference, [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-document:EndnoteReferenceNumber
-	a owl:Class;
-	rdfs:label "endnote reference number"@en, "Endnotereferenznummer"@de;
-	rdfs:comment """Number of an endnote reference."""@en;
-	rdfs:subClassOf document:EndnoteReferenceIdentifier, [ # math:NaturalNumber
-		a owl:Restriction; owl:onProperty document:hasEndnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:Layout
 	a owl:Class;
@@ -152,7 +141,7 @@ document:TitlePage
 
 document:Marginal
 	a owl:Class;
-	rdfs:label "marginal"@en, "Marginale"@de; # in GUI can be "marginalia"@en, "Marginalien"@de
+	rdfs:label "marginal"@en, "Marginale"@de;
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, illuminations."""@en;
 	rdfs:subClassOf document:ContentStructure.
 
@@ -373,148 +362,166 @@ document:isPageOfExpressionValue
 	knora-base:subjectClassConstraint document:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasFootnoteReferenceIdentifier
+document:hasTextReference
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference identifier"@en, "hat Fussnotereferenzidentifikator"@de;
-	rdfs:comment """Relating a document element to a footnote reference identifier (as resource) it has."""@en;
-	rdfs:domain document:Structure;
-	rdfs:range document:FootnoteReferenceIdentifier;
+	rdfs:label "has text reference"@en, "hat Textreferenz"@de;
+	rdfs:comment """Relating a document content structure to a text reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:TextReference;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:Structure;
-	knora-base:objectClassConstraint document:FootnoteReferenceIdentifier.
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:TextReference.
 
-document:hasFootnoteReferenceIdentifierValue
+document:hasTextReferenceValue
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference identifier - statement"@en, "hat Fussnotereferenzidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a footnote reference identifier (as resource) it has."""@en;
+	rdfs:label "has text reference - statement"@en, "hat Textreferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a text reference it has."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:Structure;
+	knora-base:subjectClassConstraint document:ContentStructure;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasFootnoteReferenceNumber
+document:hasTextIdentifier
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference number"@en, "hat Fussnotereferenznummer"@de;
-	rdfs:comment """Relating a document element to a footnote reference number (as resource) it has."""@en;
-	rdfs:domain document:Structure;
-	rdfs:range document:FootnoteReferenceNumber;
-	rdfs:subPropertyOf document:hasFootnoteReferenceIdentifier;
-	knora-base:subjectClassConstraint document:Structure;
-	knora-base:objectClassConstraint document:FootnoteReferenceNumber.
+	rdfs:label "has text identifier"@en, "hat Textidentifikator"@de;
+	rdfs:comment """Relating a text reference to its text identifier."""@en;
+	rdfs:domain document:TextReference;
+	rdfs:range text-structure:Identifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #°
+	knora-base:subjectClassConstraint document:TextReference;
+	knora-base:objectClassConstraint text-structure:Identifier.
 
-document:hasFootnoteReferenceNumberValue
+document:hasTextIdentifierValue
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference number - statement"@en, "hat Fussnotereferenznummer - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a footnote reference number (as resource) it has."""@en;
-	rdfs:subPropertyOf document:hasFootnoteReferenceIdentifierValue;
-	knora-base:subjectClassConstraint document:Structure;
+	rdfs:label "has text identifier - statement"@en, "hat Textidentifikator - Festlegung"@de;
+	rdfs:comment """Relating a text reference to a reification statement of the relation between that reference and its text identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:TextReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+# document:hasTextNumber
+#	a owl:ObjectProperty;
+#	rdfs:label "has text number"@en, "hat Textnummer"@de;
+#	rdfs:comment """Relating a text reference to its text number."""@en;
+#	rdfs:domain document:TextReference;
+#	rdfs:range text-structure:Number;
+#	rdfs:subPropertyOf document:hasTextIdentifier;
+#	knora-base:subjectClassConstraint document:TextReference;
+#	knora-base:objectClassConstraint text-structure:Number.
+
+# document:hasTextNumberValue
+#	a owl:ObjectProperty;
+#	rdfs:label "has text number - statement"@en, "hat Textnummer - Festlegung"@de;
+#	rdfs:comment """Relating a text reference to a reification statement of the relation between that reference and its text number."""@en;
+#	rdfs:subPropertyOf document:hasTextIdentifierValue;
+#	knora-base:subjectClassConstraint document:TextReference;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteReference
+	a owl:ObjectProperty;
+	rdfs:label "has footnote reference"@en, "hat Fussnotereferenz"@de;
+	rdfs:comment """Relating a document content structure to a footnote reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:FootnoteReference;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:FootnoteReference.
+
+document:hasFootnoteReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote reference - statement"@en, "hat Fussnotereferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a footnote reference it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasFootnoteIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has footnote identifier"@en, "hat Fussnoteidentifikator"@de;
-	rdfs:comment """Relating a footnote reference identifier (as resource) to its footnote identifier (as resource)."""@en;
-	rdfs:domain document:FootnoteReferenceIdentifier;
+	rdfs:comment """Relating a footnote reference to its footnote identifier."""@en;
+	rdfs:domain document:FootnoteReference;
 	rdfs:range text-structure:FootnoteIdentifier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:FootnoteReferenceIdentifier;
+	knora-base:subjectClassConstraint document:FootnoteReference;
 	knora-base:objectClassConstraint text-structure:FootnoteIdentifier.
 
 document:hasFootnoteIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "has footnote identifier - statement"@en, "hat Fussnoteidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a footnote reference identifier (as resource) to a reification statement of the relation between that identifier and its footnote identifier (as resource)."""@en;
+	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote identifier."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:FootnoteReferenceIdentifier;
+	knora-base:subjectClassConstraint document:FootnoteReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasFootnoteNumber
 	a owl:ObjectProperty;
 	rdfs:label "has footnote number"@en, "hat Fussnotenummer"@de;
-	rdfs:comment """Relating a footnote reference number (as resource) to its footnote number (as resource)."""@en;
-	rdfs:domain document:FootnoteReferenceNumber;
+	rdfs:comment """Relating a footnote reference to its footnote number."""@en;
+	rdfs:domain document:FootnoteReference;
 	rdfs:range text-structure:FootnoteNumber;
 	rdfs:subPropertyOf document:hasFootnoteIdentifier;
-	knora-base:subjectClassConstraint document:FootnoteReferenceNumber;
+	knora-base:subjectClassConstraint document:FootnoteReference;
 	knora-base:objectClassConstraint text-structure:FootnoteNumber.
 
 document:hasFootnoteNumberValue
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference number - statement"@en, "hat Fussnotereferenznummer - Festlegung"@de;
-	rdfs:comment """Relating a footnote reference number (as resource) to a reification statement of the relation between that number and its footnote number (as resource)."""@en;
+	rdfs:label "has footnote number - statement"@en, "hat Fussnotenummer - Festlegung"@de;
+	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote number."""@en;
 	rdfs:subPropertyOf document:hasFootnoteIdentifierValue;
-	knora-base:subjectClassConstraint document:FootnoteReferenceNumber;
+	knora-base:subjectClassConstraint document:FootnoteReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasEndnoteReferenceIdentifier
+document:hasEndnoteReference
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference identifier"@en, "hat Endnotereferenzidentifikator"@de;
-	rdfs:comment """Relating a document element to an endnote reference identifier (as resource) it has."""@en;
-	rdfs:domain document:Structure;
-	rdfs:range document:EndnoteReferenceIdentifier;
+	rdfs:label "has endnote reference"@en, "hat Endnotereferenz"@de;
+	rdfs:comment """Relating a document content structure to an endnote reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:EndnoteReference;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:Structure;
-	knora-base:objectClassConstraint document:EndnoteReferenceIdentifier.
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:EndnoteReference.
 
-document:hasEndnoteReferenceIdentifierValue
+document:hasEndnoteReferenceValue
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference identifier - statement"@en, "hat Endnotereferenzidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and an endnote reference identifier (as resource) it has."""@en;
+	rdfs:label "has endnote reference - statement"@en, "hat Endnotereferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and an endnote reference it has."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:Structure;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasEndnoteReferenceNumber
-	a owl:ObjectProperty;
-	rdfs:label "has endnote reference number"@en, "hat Endnotereferenznummer"@de;
-	rdfs:comment """Relating a document element to an endnote reference number (as resource) it has."""@en;
-	rdfs:domain document:Structure;
-	rdfs:range document:EndnoteReferenceNumber;
-	rdfs:subPropertyOf document:hasEndnoteReferenceIdentifier;
-	knora-base:subjectClassConstraint document:Structure;
-	knora-base:objectClassConstraint document:EndnoteReferenceNumber.
-
-document:hasEndnoteReferenceNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has endnote reference number - statement"@en, "hat Endnotereferenznummer - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and an endnote reference number (as resource) it has."""@en;
-	rdfs:subPropertyOf document:hasEndnoteReferenceIdentifierValue;
-	knora-base:subjectClassConstraint document:Structure;
+	knora-base:subjectClassConstraint document:ContentStructure;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasEndnoteIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has endnote identifier"@en, "hat Endnoteidentifikator"@de;
-	rdfs:comment """Relating an endnote reference identifier (as resource) to its endnote identifier (as resource)."""@en;
-	rdfs:domain document:EndnoteReferenceIdentifier;
+	rdfs:comment """Relating an endnote reference to its endnote identifier."""@en;
+	rdfs:domain document:EndnoteReference;
 	rdfs:range text-structure:EndnoteIdentifier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:EndnoteReferenceIdentifier;
+	knora-base:subjectClassConstraint document:EndnoteReference;
 	knora-base:objectClassConstraint text-structure:EndnoteIdentifier.
 
 document:hasEndnoteIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "has endnote identifier - statement"@en, "hat Endnoteidentifikator - Festlegung"@de;
-	rdfs:comment """Relating an endnote reference identifier (as resource) to a reification statement of the relation between that identifier and its endnote identifier (as resource)."""@en;
+	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote identifier."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:EndnoteReferenceIdentifier;
+	knora-base:subjectClassConstraint document:EndnoteReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasEndnoteNumber
 	a owl:ObjectProperty;
 	rdfs:label "has endnote number"@en, "hat Endnotenummer"@de;
-	rdfs:comment """Relating an endnote reference number (as resource) to its endnote number (as resource)."""@en;
-	rdfs:domain document:EndnoteReferenceNumber;
+	rdfs:comment """Relating an endnote reference to its endnote number."""@en;
+	rdfs:domain document:EndnoteReference;
 	rdfs:range text-structure:EndnoteNumber;
 	rdfs:subPropertyOf document:hasEndnoteIdentifier; # math:hasNumeral
-	knora-base:subjectClassConstraint document:EndnoteReferenceNumber;
+	knora-base:subjectClassConstraint document:EndnoteReference;
 	knora-base:objectClassConstraint text-structure:EndnoteNumber.
 
 document:hasEndnoteNumberValue
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference number - statement"@en, "hat Endnotenummer - Festlegung"@de;
-	rdfs:comment """Relating an endnote reference number (as resource) to a reification statement of the relation between that number and its endnote number (as resource)."""@en;
+	rdfs:label "has endnote number - statement"@en, "hat Endnotenummer - Festlegung"@de;
+	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote number."""@en;
 	rdfs:subPropertyOf document:hasEndnoteIdentifierValue;
-	knora-base:subjectClassConstraint document:EndnoteReferenceNumber;
+	knora-base:subjectClassConstraint document:EndnoteReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:isTableOfColumn

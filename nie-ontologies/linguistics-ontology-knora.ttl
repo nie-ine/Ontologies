@@ -42,7 +42,7 @@ ling:Symbol
 	rdfs:comment """."""@en;
 	rdfs:subClassOf text:WrittenText.
 
-ling:Literal #*
+ling:Literal #°
 	a owl:Class;
 	rdfs:label "literal"@en, "Literal"@de;
 	rdfs:comment """One or more language symbols of any kind."""@en;
@@ -167,4 +167,14 @@ ling:hasComment
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasComment;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
+ling:hasSynonym
+	a owl:ObjectProperty;
+	rdfs:label "has synonym"@en, "hat Synonym"@de;
+	rdfs:comment """Relating a resource to a synonym of the name of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName;
+	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.

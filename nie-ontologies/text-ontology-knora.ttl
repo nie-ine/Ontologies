@@ -105,6 +105,14 @@ text:TypewrittenText
 		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
 #		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
 
+text:CopiedText
+	a owl:Class;
+	rdfs:label "copied text"@en, "kopierter Text"@de, "texte copié"@fr, "testo copiato"@it;
+	rdfs:comment """Text copied by any method, abstracted from its carrier."""@en;
+	rdfs:subClassOf text:Text, [
+		a owl:Restriction; owl:onProperty infocar:isInTextCopy; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInTextCopyValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 text:TranscribedText
 	a owl:Class;
 	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
@@ -302,12 +310,6 @@ text:Development
 #* extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
 #* intrinsic: formal content
 
-#*text:Witness
-#	a owl:Class;
-#	rdfs:label "witness"@en, "Textzeuge"@de;
-#	rdfs:comment """Copy of an original text ."""@en; #* note: enabling its reconstruction, -> looking for features of originality
-#	rdfs:subClassOf text:Transcription.
-
 text:Biography
 	a owl:Class;
 	rdfs:label "biography"@en, "Biographie"@de; #*
@@ -332,7 +334,7 @@ text:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a resource to a name as a textual identifier of the resource."""@en;
-	rdfs:subPropertyOf text:hasText; # rdfs:label, foaf:name
+	rdfs:subPropertyOf text:hasText; #° rdfs:label, foaf:name
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
@@ -352,21 +354,11 @@ text:hasAlias
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-# text:hasSynonym
-#	a owl:ObjectProperty;
-#	rdfs:label "has synonym"@en, "hat Synonym"@de;
-#	rdfs:comment """Relating a class to a synonym of the name of the class."""@en;
-#	rdfs:domain rdfs:Resource;
-#	rdfs:range rdfs:Literal;
-#	rdfs:subPropertyOf text:hasName;
-#	knora-base:subjectClassConstraint knora-base:Resource;
-#	knora-base:objectClassConstraint knora-base:TextValue.
-
 text:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;
 	rdfs:comment """Relating a resource to an identifier as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
-	rdfs:subPropertyOf text:hasText; #* cf. dcterms:identifier
+	rdfs:subPropertyOf text:hasText; #° cf. dcterms:identifier
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.
 

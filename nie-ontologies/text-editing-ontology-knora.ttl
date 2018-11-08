@@ -10,6 +10,7 @@
 @prefix human: <http://www.knora.org/ontology/0048/human#>.
 @prefix language: <http://www.knora.org/ontology/004F/language#>.
 @prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@prefix document: <http://www.knora.org/ontology/005C/document#>.
 @prefix text: <http://www.knora.org/ontology/0059/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
 @prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
@@ -112,18 +113,18 @@ textedit:ScientificEdition
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:ConstitutedEdition # eclectic edition
+textedit:ConstitutedEdition
 	a owl:Class;
 	rdfs:label "constituted text edition"@en, "konstituierter Text"@de;
-#	text:hasSynonym "Lesetext"@de;
-	rdfs:comment """Plain text expression as endresult of scientific editing of another text expression, and meant as head text for reading."""@en;
+#	ling:hasSynonym "Lesetext"@de; # eclectic edition?
+	rdfs:comment """Plain text expression as endresult of scientific editing of another text expression."""@en;
 	rdfs:subClassOf textedit:ScientificEdition.
 
 textedit:DiplomaticTranscription
 	a owl:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
+#	ling:hasSynonym "Lesehilfe"@de;
 	rdfs:comment """Transcription of a text with diacritical signs indicating visual textual properties to describe the textual state."""@en;
-#	skos:note """Only autographs or jurudical; without interpretation"""; # Lesehilfe
 	rdfs:subClassOf textedit:ScientificEdition, [
 		a owl:Restriction; owl:onProperty textedit:hasDiacriticalSign; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -142,7 +143,7 @@ textedit:CriticalEditor
 
 textedit:CriticalEdition
 	a owl:Class;
-	rdfs:label "critical text edition"@en, "kritische Textedition"@de; #* kanonische Textfassung ?
+	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
 	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;
 	rdfs:subClassOf textedit:ScientificEdition, [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -156,92 +157,123 @@ textedit:GeneticEdition
 	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
 	rdfs:subClassOf textedit:CriticalEdition.
 
+textedit:EditorialStructure
+	a owl:Class;
+	rdfs:label "editorial text structure"@en, "editorische Textstruktur"@de;
+	rdfs:comment """Scientific text structure depending on editorial purpose, e.g. an editing apparatus."""@en;
+	rdfs:subClassOf text-structure:ScientificStructure, [
+		a owl:Restriction; owl:onProperty textedit:hasSiglum; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasSiglumValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
 textedit:Apparatus
 	a owl:Class;
 	rdfs:label "editing apparatus"@en, "Edierungsapparatus"@de, "apparatus editionis"@la;
-	rdfs:comment """Scientific compositional structure to analyse text along certain criteria in a critical edition."""@en;
-	rdfs:subClassOf text-structure:ScientificStructure, text-structure:CompositionalContentStructure, [
+	rdfs:comment """Scientific compositional structure to analyse text in a scientific edition along certain criteria."""@en;
+	rdfs:subClassOf text-structure:EditorialStructure, text-structure:CompositionalContentStructure, [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:isApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:DoctrinalApparatus # historical
+textedit:ApparatusEntry
+	a owl:Class;
+	rdfs:label "editing apparatus entry"@en, "Edierungsapparateintrag"@de; #, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
+	rdfs:comment """Entry of an editing apparatus."""@en;
+	rdfs:subClassOf text-structure:EditorialStructure, text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasApparatusEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:DoctrinalApparatus
 	a owl:Class;
 	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de;
-	rdfs:comment """Editing apparatus commmenting on the content of a text expression."""@en;
+#	ling:hasSynonym textedit:HistoricalApparatus;
+	rdfs:comment """Editing apparatus commmenting on the content of a scientific text edition in a historical and doctrinal context."""@en; # info about theory
 	rdfs:subClassOf textedit:Apparatus.
 
 textedit:ApparatusFontium
 	a owl:Class;
 	rdfs:label "apparatus fontium"@en, "Apparatus Fontium"@de, "apparatus fontium"@la;
-	rdfs:comment """Editing apparatus containing references to texts quoted or cited [?dif] by the author [of the original?] in the text of the critical edition."""@en;
+	rdfs:comment """Editing apparatus containing references to one or more citations in a scientific text edition."""@en;
 	rdfs:subClassOf textedit:Apparatus.
 
-textedit:CriticalApparatus # 1/expr
+textedit:CriticalApparatus
 	a owl:Class;
-	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparatus criticus"@la;
-	rdfs:comment """Editing apparatus to a critical text edition providing information of a textual version."""@en;
-	rdfs:subClassOf text-structure:ScientificStructure, text-structure:CompositionalContentStructure.
+	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparat critique"@fr, "apparato critico"@it, "apparatus criticus"@la;
+	rdfs:comment """Editing apparatus to a critical text edition providing information of textual versions."""@en;
+	rdfs:subClassOf textedit:Apparatus, [
+		a owl:Restriction; owl:onProperty textedit:isCriticalApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isCriticalApparatusOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:CriticalApparatusEntry
+	a owl:Class;
+	rdfs:label "critical apparatus entry"@en, "textkritischer Apparateintrag"@de, "entrée d'apparat critique"@fr, "iscrizione del apparato critico"@it;
+	rdfs:comment """Entry of critical apparatus."""@en;
+	rdfs:subClassOf textedit:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfCriticalApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfCriticalApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:StructureApparatus
+	a owl:Class;
+	rdfs:label "text structure apparatus"@en, "Textstruktur-Apparat"@de;
+	rdfs:comment """Editing apparatus to a critical text edition providing information of text structure."""@en;
+	rdfs:subClassOf textedit:Apparatus.
+
+textedit:StructureApparatusEntry
+	a owl:Class;
+	rdfs:label "structure apparatus entry"@en, "Textstruktur-Apparateintrag"@de; #, "entrée d'apparat de structure"@fr, "iscrizione del apparato del "@it;
+	rdfs:comment """Entry of text structure apparatus."""@en;
+	rdfs:subClassOf textedit:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfStructureApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isEntryOfStructureApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:entryHasStructureDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:Witness
+	a owl:Class;
+	rdfs:label "witness text"@en, "Textzeuge"@de;
+	rdfs:comment """Copy of a text studied in a critical edition, as comparison or proof of existance of the original by looking for features of originality, possibly enabling the original's reconstruction."""@en;
+	rdfs:subClassOf text:CopiedText, text:Expression.
+
+textedit:Siglum
+	a owl:Class;
+	rdfs:label "siglum"@en, "Siglum"@de, "siglum"@fr, "siglum"@it;
+	rdfs:comment """One or more symbols as a reference to a witness text."""@en;
+	rdfs:subClassOf document:TextReference.
+
+textedit:Reading
+	a owl:Class;
+	rdfs:label "reading"@en, "Textinterpretation"@de, "lezione"@it, "lectio"@la;
+	rdfs:comment """Copy of one or more words or phrases of a text part of a witness."""@en;
+	rdfs:subClassOf text-structure:EditorialStructure, [
+		a owl:Restriction; owl:onProperty textedit:hasWitness; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasWitnessValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].	
 
 textedit:Lemma
 	a owl:Class;
-	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@it;
-	rdfs:comment """Part of a critical text edition to which a critical apparatus applies."""@en;
-	rdfs:subClassOf text-structure:ScientificStructure, [ # textedit:Reading ?
-		a owl:Restriction; owl:onProperty textedit:isLemmaOfApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:isLemmaOfApparatusValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@fr, "lemma"@it;
+	rdfs:comment """One or more words or phrases in a critical apparatus referring to its edition text, and as appearing in a witness or created by an editor, and judged by the editor to be authentic, accurate, and/or authoritative, and compaired with variants referring to other witnesses"""@en;
+	skos:note """In an apparatus entry a lemma is seperated from a variant or editorial explanation by a right square bracket ']'."""@en;
+	rdfs:subClassOf text-structure:EditorialStructure, [
+		a owl:Restriction; owl:onProperty textedit:isLemmaOfEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isLemmaOfEntryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:lemmaHasTextReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:lemmaHasTextReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:lemmaHasVariant; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:lemmaHasVariantValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#* RLP: rdfs:comment """A word or phrase judged by an editor to be authentic, accurate, and/or authoritative; making up the edited text of a critical edition."""@en; #* dif word - phrase
-
-# apparatus has format:
-# location of version in text
-# lemma
-# symbol, e.g. ']'
-# source from which the edition took its reading, e.g. bold font
-# list of variants + source, set off with a comma or if frequently cited: abbreviated with a siglum
-# Special markup that can appear:
-#   [[...]] denoting editorial observations on the preceding reading(s)
-#   [ Aa ] denoting manuscripts with a specific meaning
-#   <..> denote wholly or partially lost text, e.g. due to damage suffered by the carrier
-
-textedit:Reading # superclass of lemma, variant
+textedit:NewLemma # textedit:Emendation
 	a owl:Class;
-	rdfs:label "reading"@en, "Textinterpretation"@de, "lezione"@it, "lectio"@la; #*
-	rdfs:comment """Reading of the text in one given witness."""@en; #* text? # spezifische Interpretation eines Textes
-	rdfs:subClassOf text:IndividualExpression. #*
-
-#* (oder Stichwort) ist in der Editionswissenschaft das Wort im Haupttext, auf welches sich die Anmerkung oder der textkritische Apparat eines Kommentars bezieht
-
-#* linguistics: morphology and lexicography, a lemma (plural lemmas or lemmata) is the canonical form
-#* morphology: study of words, how they are formed, and their relationship to other words in the same language
-#* lexikographisch: grundform eines Wortes
+	rdfs:label "new lemma"@en, "neues Lemma"@de; #, "lemma"@it, "lemma"@la;
+	rdfs:comment """Lemma created by an editor, not a reading from a witness."""@en;
+	rdfs:subClassOf textedit:Lemma.
 
 textedit:Variant
 	a owl:Class;
-	rdfs:label "variant"@en, "Variant"@de, "variante"@it;
-	rdfs:comment """A word or phrase *or the absence thereof* judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text; varying from what the editor has judged to be the lemma."""@en;
-	rdfs:subClassOf textedit:Reading. #* -> part of OR unit of CA
-	  
-textedit:Emendation # not testified
-	a owl:Class;
-	rdfs:label "emendation"@en, "emendazione"@it;
-	rdfs:comment """A reading expressly proposed by some person (possibly the editor) and accepted by the editor into the main text of an edition."""@en;
-	rdfs:subClassOf textedit:Reading.
-	# OR
-	# rdfs:comment """A reading based on a conjecture and that is used to correct the text of an edition."""@en;
-	# then: rdfs:subClassOf textedit:Conjecture + restriction: is integrated in the main text of an edition.
-	# see:
-	# This distinction between "emendation” and "conjecture" supports the goal of these guidelines of drawing attention to editions as arguments. 
-	# The terms are used subjectively, with regard to a particular edition. Readers of an edition may agree or disagree about whether a particular reading emends the text, 
-	# but the editor's argument is that a reading either emends the text, in which case it is an emendation, or does not in which case it is a conjecture.
-
-textedit:Conjecture #* conjectural emendation
-	a owl:Class;
-	rdfs:label "conjecture"@en, "Konjektur"@de, "?"@it;
-	rdfs:comment """A reading expressly proposed  - possibly the editor [?] - *and determined by* an editor to be of interest in establishing the text, but not to be printed in the main text of the edition."""@en;
-	# rdfs:comment """A reading choosed by an editor after some reasoning or deduction, but which isn't attested in any of the manuscripts."""@en;
-	rdfs:subClassOf textedit:Reading.
-
-# OD: suggestion of a reading of a text not present in the original source
+	rdfs:label "variant"@en, "Variant"@de, "variante"@fr, "variante"@it;
+	rdfs:comment """One or more words or phrases, or their absence, of a critical edition, judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text, and as such varying from what the editor has judged to be the lemma."""@en;
+	rdfs:subClassOf text-structure:EditorialStructure, textedit:Reading, [
+		a owl:Restriction; owl:onProperty textedit:isVariantOfEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:isVariantOfEntryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:variantHasTextReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:variantHasTextReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -350,7 +382,7 @@ textedit:hasSameEditionAs
 	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de;
 	rdfs:comment """Relating two texts with a same edition."""@en;
 	rdfs:domain text:Text;
-	rdfs:range textedit:Text;
+	rdfs:range text:Text;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint text:Text.
@@ -539,38 +571,236 @@ textedit:hasCriticalEditorValue
 	knora-base:subjectClassConstraint textedit:CriticalEdition;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+textedit:hasSiglum
+	a owl:ObjectProperty;
+	rdfs:label "editiorial text structure has siglum"@en, "editorische Textstruktur hat Siglum"@de;
+	rdfs:comment """Relating an editiorial text structure to a siglum it has."""@en;
+	rdfs:domain textedit:EditorialStructure;
+	rdfs:range textedit:Siglum;
+	rdfs:subPropertyOf document:hasTextReference;
+	knora-base:subjectClassConstraint textedit:EditorialStructure;
+	knora-base:objectClassConstraint textedit:Siglum.
+
+textedit:hasSiglumValue
+	a owl:ObjectProperty;
+	rdfs:label "editiorial text structure has siglum - statement"@en, "editorische Textstruktur hat Siglum - Festlegung"@de;
+	rdfs:comment """Relating an editiorial text structure to a reification statement of the relation between the structure and a siglum it has."""@en;
+	rdfs:subPropertyOf document:hasTextReferenceValue;
+	knora-base:subjectClassConstraint textedit:EditorialStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 textedit:isApparatusOf
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus of"@en, "ist Apparat von"@de;
-	rdfs:comment """Relating an editing apparatus to its critical edition."""@en;
+	rdfs:comment """Relating an editing apparatus to its scientific edition."""@en;
 	rdfs:domain textedit:Apparatus;
-	rdfs:range textedit:CriticalEdition;
+	rdfs:range textedit:ScientificEdition;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
 	knora-base:subjectClassConstraint textedit:Apparatus;
-	knora-base:objectClassConstraint textedit:CriticalEdition.
+	knora-base:objectClassConstraint textedit:ScientificEdition.
 
 textedit:isApparatusOfValue
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus of - statement"@en, "ist Apparat von - Festlegung"@de;
-	rdfs:comment """Relating a editing apparatus to a reification statement of the relation between the apparatus and its critical edition."""@en;
+	rdfs:comment """Relating a editing apparatus to a reification statement of the relation between the apparatus and its scientific edition."""@en;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
 	knora-base:subjectClassConstraint textedit:Apparatus;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-textedit:isLemmaOfApparatus
+textedit:isEntryOfApparatus
 	a owl:ObjectProperty;
-	rdfs:label "is lemma of apparatus"@en, "ist Lemma eines Apparates"@de;
-	rdfs:comment """Relating a lemma to its editing apparatus."""@en;
-	rdfs:domain textedit:Lemma;
+	rdfs:label "is entry of apparatus"@en, "ist Eintrag eines Apparates"@de;
+	rdfs:comment """Relating an entry to its editing apparatus."""@en;
+	rdfs:domain textedit:ApparatusEntry;
 	rdfs:range textedit:Apparatus;
 	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:subjectClassConstraint textedit:ApparatusEntry;
 	knora-base:objectClassConstraint textedit:Apparatus.
 
-textedit:isLemmaOfApparatusValue
+textedit:isEntryOfApparatusValue
 	a owl:ObjectProperty;
-	rdfs:label "is lemma of apparatus - statement"@en, "ist Lemma eines Apparates - Festlegung"@de;
-	rdfs:comment """Relating a lemma to a reification statement of the relation between the lemma and its editing apparatus."""@en;
+	rdfs:label "is entry of apparatus - statement"@en, "ist Eintrag eines Apparates - Festlegung"@de;
+	rdfs:comment """Relating an entry to a reification statement of the relation between the entry and its editing apparatus."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint textedit:ApparatusEntry;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:hasApparatusEnteringDate
+	a owl:ObjectProperty;
+	rdfs:label "has apparatus entering date"@en, "hat Apparatuseintragsdatum"@de;
+	rdfs:comment """Relating an entry to its date of entering in an apparatus."""@en;
+	rdfs:subPropertyOf human:creationHasDate;
+	knora-base:subjectClassConstraint textedit:ApparatusEntry;
+	knora-base:objectClassConstraint knora-base:DateValue.
+
+textedit:isCriticalApparatusOf
+	a owl:ObjectProperty;
+	rdfs:label "is critical apparatus of"@en, "ist textkritischer Apparat von"@de;
+	rdfs:comment """Relating a critical apparatus to its edition."""@en;
+	rdfs:domain textedit:CriticalApparatus;
+	rdfs:range textedit:CriticalEdition;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression;
+	knora-base:subjectClassConstraint textedit:CriticalApparatus;
+	knora-base:objectClassConstraint textedit:CriticalEdition.
+
+textedit:isCriticalApparatusOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is critical apparatus of - statement"@en, "ist textkritischer Apparat von - Festlegung"@de;
+	rdfs:comment """Relating a critical apparatus to a reification statement of the relation between the apparatus and its edition."""@en;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpressionValue;
+	knora-base:subjectClassConstraint textedit:CriticalApparatus;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:isEntryOfCriticalApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of critical apparatus"@en, "ist Eintrag eines textkritischen Apparates"@de;
+	rdfs:comment """Relating an entry to its critical apparatus."""@en;
+	rdfs:domain textedit:CriticalApparatusEntry;
+	rdfs:range textedit:CriticalApparatus;
+	rdfs:subPropertyOf textedit:isEntryOfApparatus;
+	knora-base:subjectClassConstraint textedit:CriticalApparatusEntry;
+	knora-base:objectClassConstraint textedit:CriticalApparatus.
+
+textedit:isEntryOfCriticalApparatusValue
+	a owl:ObjectProperty;
+	rdfs:label "is entry of critical apparatus - statement"@en, "ist Eintrag eines textkritischen Apparates - Festlegung"@de;
+	rdfs:comment """Relating an entry to a reification statement of the relation between the entry and its critical apparatus."""@en;
+	rdfs:subPropertyOf textedit:isEntryOfApparatusValue;
+	knora-base:subjectClassConstraint textedit:CriticalApparatusEntry;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:isEntryOfStructureApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of text structure apparatus"@en, "ist Eintrag eines Textstruktur-Apparates"@de;
+	rdfs:comment """Relating an entry to its text structure apparatus."""@en;
+	rdfs:domain textedit:StructureApparatusEntry;
+	rdfs:range textedit:StructureApparatus;
+	rdfs:subPropertyOf textedit:isEntryOfApparatus;
+	knora-base:subjectClassConstraint textedit:StructureApparatusEntry;
+	knora-base:objectClassConstraint textedit:StructureApparatus.
+
+textedit:isEntryOfStructureApparatusValue
+	a owl:ObjectProperty;
+	rdfs:label "is entry of text structure apparatus - statement"@en, "ist Eintrag eines Textstruktur-Apparates - Festlegung"@de;
+	rdfs:comment """Relating an entry to a reification statement of the relation between the entry and its text structure apparatus."""@en;
+	rdfs:subPropertyOf textedit:isEntryOfApparatusValue;
+	knora-base:subjectClassConstraint textedit:StructureApparatusEntry;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:entryHasStructureDescription
+	a owl:ObjectProperty;
+	rdfs:label "entry has structure description"@en, "Eintrag hat Strukturbeschreibung"@de;
+	rdfs:comment """Relating a text structure apparatus entry to a text structure description."""@en;
+	rdfs:domain textedit:StructureApparatusEntry;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint textedit:StructureApparatusEntry;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
+textedit:hasWitness
+	a owl:ObjectProperty;
+	rdfs:label "has witness"@en, "hat Textzeuge"@de;
+	rdfs:comment """Relating a reading to its witness."""@en;
+	rdfs:domain textedit:Reading;
+	rdfs:range textedit:Witness;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint textedit:Reading;
+	knora-base:objectClassConstraint textedit:Witness.
+
+textedit:hasWitnessValue
+	a owl:ObjectProperty;
+	rdfs:label "has witness - statement"@en, "hat Textzeuge - Festlegung"@de;
+	rdfs:comment """Relating a reading to a reification statement of the relation between the reading and its witness."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint textedit:Reading;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:isLemmaOfEntry
+	a owl:ObjectProperty;
+	rdfs:label "is lemma of apparatus entry"@en, "ist Lemma eines Apparateintrages"@de;
+	rdfs:comment """Relating a lemma to its critical apparatus entry."""@en;
+	rdfs:domain textedit:Lemma;
+	rdfs:range textedit:CriticalApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint textedit:CriticalApparatusEntry.
+
+textedit:isLemmaOfEntryValue
+	a owl:ObjectProperty;
+	rdfs:label "is lemma of apparatus entry - statement"@en, "ist Lemma eines Apparateintrages - Festlegung"@de;
+	rdfs:comment """Relating a lemma to a reification statement of the relation between the lemma and its critical apparatus entry."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:lemmaHasTextReference
+	a owl:ObjectProperty;
+	rdfs:label "lemma has text reference"@en, "Lemma hat Textreferenz"@de;
+	rdfs:comment """Relating a lemma to its text reference."""@en;
+	rdfs:domain textedit:Lemma;
+	rdfs:range document:TextReference;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint document:TextReference.
+
+textedit:lemmaHasTextReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "lemma has text reference - statement"@en, "Lemma hat Textreferenz - Festlegung"@de;
+	rdfs:comment """Relating a lemma to a reification statement of the relation between the lemma and its text reference."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:lemmaHasVariant
+	a owl:ObjectProperty;
+	rdfs:label "lemma has variant"@en, "Lemma hat Variant"@de;
+	rdfs:comment """Relating a lemma to a variant it has."""@en;
+	rdfs:domain textedit:Lemma;
+	rdfs:range textedit:Variant;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint textedit:Variant.
+
+textedit:lemmaHasVariantValue
+	a owl:ObjectProperty;
+	rdfs:label "lemma has variant - statement"@en, "Lemma hat Textinterpretation - Festlegung"@de;
+	rdfs:comment """Relating a lemma to a reification statement of the relation between the lemma and a variant it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint textedit:Lemma;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:isVariantOfEntry
+	a owl:ObjectProperty;
+	rdfs:label "is variant of apparatus entry"@en, "ist Variant eines Apparateintrages"@de;
+	rdfs:comment """Relating a variant to its critical apparatus entry."""@en;
+	rdfs:domain textedit:Variant;
+	rdfs:range textedit:CriticalApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint textedit:Variant;
+	knora-base:objectClassConstraint textedit:CriticalApparatusEntry.
+
+textedit:isVariantOfEntryValue
+	a owl:ObjectProperty;
+	rdfs:label "is variant of apparatus entry - statement"@en, "ist Variant eines Apparateintrages - Festlegung"@de;
+	rdfs:comment """Relating a variant to a reification statement of the relation between the variant and its critical apparatus entry."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint textedit:Variant;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+textedit:variantHasTextReference
+	a owl:ObjectProperty;
+	rdfs:label "variant has text reference"@en, "Variant hat Textreferenz"@de;
+	rdfs:comment """Relating a variant to its text reference."""@en;
+	rdfs:domain textedit:Variant;
+	rdfs:range document:TextReference;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint textedit:Variant;
+	knora-base:objectClassConstraint document:TextReference.
+
+textedit:variantHasTextReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "variant has text reference - statement"@en, "Variant hat Textreferenz - Festlegung"@de;
+	rdfs:comment """Relating a variant to a reification statement of the relation between the variant and its text reference."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint textedit:Variant;
 	knora-base:objectClassConstraint knora-base:LinkValue.

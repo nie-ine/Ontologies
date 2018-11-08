@@ -129,7 +129,7 @@ spa:RightSquareBracketTag
 	#rdfs:comment """...."""@en;
 	rdfs:subClassOf spa:BracketTag.
 
-spa:LemmaBracketTag
+spa:LemmaBracketTag # -> textedit:LemmaSeparator textedit:hasSymbol "]"^^editionalSymbol
 	a owl:Class;
 	rdfs:label "lemma bracket tag"@en, "Lemmaklammer-Tag"@de;
 	#rdfs:comment """Tag for a right square bracket on the right of a lemma in a critical apparatus"""@en;

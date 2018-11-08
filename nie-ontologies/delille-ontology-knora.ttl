@@ -28,14 +28,6 @@
 # CLASSES
 #
 
-# delille:Expression # only text?
-#	a owl:Class;
-#	rdfs:label "Jacques Delille expression"@en, "Jacques Delille-Expression"@de;
-#	rdfs:comment """Expression authored by Jacques Delille."""@en;
-#	rdfs:subClassOf text:Expression, [
-#		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
-
 delille:VersePoem
 	a owl:Class;
 	rdfs:label "Jacques Delille verse poem"@en, "Jacques Delille-Versgedicht"@de;

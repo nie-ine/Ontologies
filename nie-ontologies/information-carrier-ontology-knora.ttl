@@ -54,7 +54,7 @@ infocar:Copy
 	a owl:Class;
 	rdfs:label "information carrier copy"@en, "Informationsträgerkopie"@de;
 	rdfs:comment """Carrier with a copy of information."""@en;
-	rdfs:subClassOf human:Copy.
+	rdfs:subClassOf infocar:Carrier, human:Copy.
 
 infocar:Leaf
 	a owl:Class;

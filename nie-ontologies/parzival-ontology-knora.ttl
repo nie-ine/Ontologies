@@ -103,7 +103,7 @@ parzival:isVerseOfDreissiger
 	rdfs:comment """Relating a verse to a dreissiger it is part of."""@en;
 	rdfs:domain parzival:Verse;
 	rdfs:range parzival:Dreissiger;
-	rdfs:subPropertyOf text-structure:isVerseOfStrophe;
+	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint parzival:Verse;
 	knora-base:objectClassConstraint parzival:Dreissiger.
 
@@ -111,7 +111,7 @@ parzival:isVerseOfDreissigerValue
 	a owl:ObjectProperty;
 	rdfs:label "is verse of dreissiger - statement"@en, "ist Vers eines Dreissigers - Festlegung"@de;
 	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a dreissiger it is part of."""@en;
-	rdfs:subPropertyOf text-structure:isVerseOfStropheValue;
+	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint parzival:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -120,10 +120,10 @@ parzival:isDreissigerOfNovel
 	rdfs:label "is dreissiger of verse novel"@en, "ist Dreissiger eines Versromans"@de;
 	rdfs:comment """Relating a dreissiger to a verse novel it is part of."""@en;
 	rdfs:domain parzival:Dreissiger;
-	rdfs:range parzival:VerseNovel;
+	rdfs:range litera:VerseNovel;
 	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint parzival:Dreissiger;
-	knora-base:objectClassConstraint parzival:VerseNovel.
+	knora-base:objectClassConstraint litera:VerseNovel.
 
 parzival:isDreissigerOfNovelValue
 	a owl:ObjectProperty;

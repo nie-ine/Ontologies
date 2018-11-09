@@ -102,8 +102,7 @@ text:TypewrittenText
 	rdfs:comment """Text written with a typewriter."""@en;
 	rdfs:subClassOf text:WrittenText, [
 		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]. #, [
-#		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:allValuesFrom text:Typewriter].
+		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:CopiedText
 	a owl:Class;

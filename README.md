@@ -76,6 +76,11 @@ Figure 5 shows the subsumption tree of the class concept:Information, from the c
 ##### Figure 8: Graphic representing classes and properties from different ontologies concerning 'text'
 &nbsp;  
 &nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_reference.svg)
+
+##### Figure 8': Graphic representing classes and properties from different ontologies concerning 'reference'
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_CompositionalStructure.png)
 
 ##### Figure 9: Tree representing classes from different ontologies concerning 'compositional text structure'

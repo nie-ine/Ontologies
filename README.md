@@ -99,7 +99,11 @@ Figure 5 shows the subsumption tree of the class concept:Information, from the c
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
 
 ##### Figure 12: Graphic representing classes and properties from different ontologies concerning 'edition'
+&nbsp;  
+&nbsp;  
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_apparatus.svg)
 
+##### Figure 13: Graphic representing classes and properties from different ontologies concerning scientific edition and apparatus
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_information-carrier.svg)

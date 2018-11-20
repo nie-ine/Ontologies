@@ -28,10 +28,6 @@
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/005D>.
 
-
-# EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements
-
-
 #
 # CLASSES
 #

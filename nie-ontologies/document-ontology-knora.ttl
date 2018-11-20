@@ -56,40 +56,53 @@ document:Structure
 	rdfs:comment """Structural element of a document."""@en;
 	rdfs:subClassOf document:Element.
 
+#° document:Reference
+
 document:ContentStructure
 	a owl:Class;
 	rdfs:label "document content structure"@en, "Dokumentinhaltstruktur"@de;
-	rdfs:comment """Structural content element of a document."""@en;
+	rdfs:comment """Content structure of a document."""@en;
 	rdfs:subClassOf document:Structure, [
+		a owl:Restriction; owl:onProperty document:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasTextReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasTextReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty document:hasEndnoteReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasExpressionReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:hasExpressionReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-document:Reference
+document:ContentStructureIdentifier
 	a owl:Class;
-	rdfs:label "document reference"@en, "Dokumentreferenz"@de;
-	rdfs:comment """Reference as a structural element in a document, referring from one document content structure to another, e.g. a footnote reference from a text or image to a footnote. The reference is linked to and has the same symbol as literal representation as the identifier of the content structure it refers to."""@en;
+	rdfs:label "document content structure identifier"@en, "Dokumentinhaltstrukturidentifikator"@de;
+	rdfs:comment """Identifier of a document content structure."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
+
+document:ContentStructureReference #°
+	a owl:Class;
+	rdfs:label "document content structure reference"@en, "Dokumentinhaltstrukturreferenz"@de;
+	rdfs:comment """Reference as a document structure, referring from one document content structure to another via the identifier, e.g. a footnote reference from a text or image to the footnote identifier. The reference is linked to and has the same literal representation as the identifier of the content structure it refers to."""@en;
+	rdfs:subClassOf document:Structure, concept:Identifier, [
+		a owl:Restriction; owl:onProperty document:referenceHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:referenceHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:TextReference
 	a owl:Class;
 	rdfs:label "text reference"@en, "Textreferenz"@de;
 	rdfs:comment """Reference to text, e.g. a footnote reference."""@en;
-	rdfs:subClassOf document:Reference, [
+	rdfs:subClassOf document:ContentStructureReference, [
 		a owl:Restriction; owl:onProperty document:hasTextIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasTextIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
-#		a owl:Restriction; owl:onProperty document:hasTextNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty document:hasTextNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
-		.
+		a owl:Restriction; owl:onProperty document:hasTextIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 document:FootnoteReference
 	a owl:Class;
 	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
 	rdfs:comment """Reference to a footnote."""@en;
-	rdfs:subClassOf document:Reference, [
+	rdfs:subClassOf document:TextReference, [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -97,7 +110,7 @@ document:EndnoteReference
 	a owl:Class;
 	rdfs:label "endnote reference"@en, "Endnotereferenz"@de;
 	rdfs:comment """Reference to an endnote."""@en;
-	rdfs:subClassOf document:Reference, [
+	rdfs:subClassOf document:TextReference, [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -130,6 +143,7 @@ document:Page
 #		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:allValuesFrom document:Document], [
 		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPageOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:pageHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isPageOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -158,7 +172,9 @@ document:Expression
 	rdfs:label "document expression"@en, "Document-Expression"@de;
 	rdfs:comment """Document realisation of a work, conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F2_Expression, [
-		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #°
+		a owl:Restriction; owl:onProperty document:expressionHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:expressionHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [	
+		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -202,6 +218,20 @@ document:ExpressionPart
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+document:ExpressionReference
+	a owl:Class;
+	rdfs:label "document expression reference"@en, "Document-Expression-Referenz"@de;
+	rdfs:comment """Reference as a document structure, referring from a document content structure to a document expression identifier."""@en;
+	rdfs:subClassOf document:Structure, concept:Identifier, [
+		a owl:Restriction; owl:onProperty document:expressionReferenceHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty document:expressionReferenceHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+document:ExpressionIdentifier
+	a owl:Class;
+	rdfs:label "document expression identifier"@en, "Document-Expressionsidentifikator"@de;
+	rdfs:comment """Identifier of a document expression."""@en;
+	rdfs:subClassOf document:Structure, concept:Identifier.
+
 document:CollectedWorks
 	a owl:Class;
 	rdfs:label "collected works"@en, "gesammelte Werke"@de;
@@ -211,7 +241,7 @@ document:CollectedWorks
 document:Cycle
 	a owl:Class;
 	rdfs:label "expression cycle"@en, "Expression-Zyklus"@de;
-	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en; #*
+	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 	rdfs:subClassOf concept:Set.
 
 document:Dictionary
@@ -308,22 +338,220 @@ document:isElementOfDocumentValue
 	knora-base:subjectClassConstraint document:Element;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isPartOfDocumentExpression
+document:hasIdentifier
 	a owl:ObjectProperty;
-	rdfs:label "is part of document expression"@en, "ist Teil einer Dokument-Expression"@de;
-	rdfs:comment """Relating a document element to a document expression it is part of."""@en;
-	rdfs:domain document:Element;
-	rdfs:range document:Expression;
-	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint document:Element;
-	knora-base:objectClassConstraint document:Expression.
+	rdfs:label "document content structure has identifier"@en, "Dokumentinhaltstruktur hat Identifikator"@de;
+	rdfs:comment """Relating a document content structure to its identifier."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:ContentStructureIdentifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:ContentStructureIdentifier.
 
-text-structure:isPartOfTextExpressionValue
+document:hasIdentifierValue
 	a owl:ObjectProperty;
-	rdfs:label "is part of document expression - statement"@en, "ist Teil einer Dokument-Expression - Festlegung"@de;
-	rdfs:comment """Relating a document element to a reification statement of the relation between the element and a document expression it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint document:Element;
+	rdfs:label "document content structure has identifier - statement"@en, "Dokumentinhaltstruktur hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and its identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasReference
+	a owl:ObjectProperty;
+	rdfs:label "document content structure has reference"@en, "Dokumentinhaltstruktur hat Referenz"@de;
+	rdfs:comment """Relating a document content structure to a reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:ContentStructureReference;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:ContentStructureReference.
+
+document:hasReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "document content structure has reference - statement"@en, "Dokumentinhaltstruktur hat Referenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a reference it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasTextReference
+	a owl:ObjectProperty;
+	rdfs:label "has text reference"@en, "hat Textreferenz"@de;
+	rdfs:comment """Relating a document content structure to a text reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:TextReference;
+	rdfs:subPropertyOf document:hasReference;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:TextReference.
+
+document:hasTextReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has text reference - statement"@en, "hat Textreferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a text reference it has."""@en;
+	rdfs:subPropertyOf document:hasReferenceValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteReference
+	a owl:ObjectProperty;
+	rdfs:label "has footnote reference"@en, "hat Fussnotereferenz"@de;
+	rdfs:comment """Relating a document content structure to a footnote reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:FootnoteReference;
+	rdfs:subPropertyOf document:hasTextReference;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:FootnoteReference.
+
+document:hasFootnoteReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote reference - statement"@en, "hat Fussnotereferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a footnote reference it has."""@en;
+	rdfs:subPropertyOf document:hasTextReferenceValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEndnoteReference
+	a owl:ObjectProperty;
+	rdfs:label "has endnote reference"@en, "hat Endnotereferenz"@de;
+	rdfs:comment """Relating a document content structure to an endnote reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:EndnoteReference;
+	rdfs:subPropertyOf document:hasTextReference;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:EndnoteReference.
+
+document:hasEndnoteReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote reference - statement"@en, "hat Endnotereferenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and an endnote reference it has."""@en;
+	rdfs:subPropertyOf document:hasTextReferenceValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasExpressionReference
+	a owl:ObjectProperty;
+	rdfs:label "has expression reference"@en, "hat Expression-Referenz"@de;
+	rdfs:comment """Relating a document content structure to an expression reference it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:ExpressionReference;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint document:ExpressionReference.
+
+document:hasExpressionReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has expression reference - statement"@en, "hat Expression-Referenz - Festlegung"@de;
+	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and an expression reference it has."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:ContentStructure;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:referenceHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "reference has identifier"@en, "Referenz hat Identifikator"@de;
+	rdfs:comment """Relating a document reference to its content structure identifier."""@en;
+	rdfs:domain document:ContentStructureReference;
+	rdfs:range document:ContentStructureIdentifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint document:ContentStructureReference;
+	knora-base:objectClassConstraint document:ContentStructureIdentifier.
+
+document:referenceHasIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "reference has identifier - statement"@en, "Referenz hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a document reference to a reification statement of the relation between that reference and its content structure identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint document:ContentStructureReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasTextIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has text identifier"@en, "hat Textidentifikator"@de;
+	rdfs:comment """Relating a text reference to its text identifier."""@en;
+	rdfs:domain document:TextReference;
+	rdfs:range text-structure:Identifier;
+	rdfs:subPropertyOf document:referenceHasIdentifier;
+	knora-base:subjectClassConstraint document:TextReference;
+	knora-base:objectClassConstraint text-structure:Identifier.
+
+document:hasTextIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "has text identifier - statement"@en, "hat Textidentifikator - Festlegung"@de;
+	rdfs:comment """Relating a text reference to a reification statement of the relation between that reference and its text identifier."""@en;
+	rdfs:subPropertyOf document:referenceHasIdentifierValue;
+	knora-base:subjectClassConstraint document:TextReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has footnote identifier"@en, "hat Fussnoteidentifikator"@de;
+	rdfs:comment """Relating a footnote reference to its footnote identifier."""@en;
+	rdfs:domain document:FootnoteReference;
+	rdfs:range text-structure:FootnoteIdentifier;
+	rdfs:subPropertyOf document:hasTextIdentifier;
+	knora-base:subjectClassConstraint document:FootnoteReference;
+	knora-base:objectClassConstraint text-structure:FootnoteIdentifier.
+
+document:hasFootnoteIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote identifier - statement"@en, "hat Fussnoteidentifikator - Festlegung"@de;
+	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote identifier."""@en;
+	rdfs:subPropertyOf document:hasTextIdentifierValue;
+	knora-base:subjectClassConstraint document:FootnoteReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasFootnoteNumber
+	a owl:ObjectProperty;
+	rdfs:label "has footnote number"@en, "hat Fussnotenummer"@de;
+	rdfs:comment """Relating a footnote reference to its footnote number."""@en;
+	rdfs:domain document:FootnoteReference;
+	rdfs:range text-structure:FootnoteNumber;
+	rdfs:subPropertyOf document:hasFootnoteIdentifier;
+	knora-base:subjectClassConstraint document:FootnoteReference;
+	knora-base:objectClassConstraint text-structure:FootnoteNumber.
+
+document:hasFootnoteNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "has footnote number - statement"@en, "hat Fussnotenummer - Festlegung"@de;
+	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote number."""@en;
+	rdfs:subPropertyOf document:hasFootnoteIdentifierValue;
+	knora-base:subjectClassConstraint document:FootnoteReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEndnoteIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has endnote identifier"@en, "hat Endnoteidentifikator"@de;
+	rdfs:comment """Relating an endnote reference to its endnote identifier."""@en;
+	rdfs:domain document:EndnoteReference;
+	rdfs:range text-structure:EndnoteIdentifier;
+	rdfs:subPropertyOf document:hasTextIdentifier;
+	knora-base:subjectClassConstraint document:EndnoteReference;
+	knora-base:objectClassConstraint text-structure:EndnoteIdentifier.
+
+document:hasEndnoteIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote identifier - statement"@en, "hat Endnoteidentifikator - Festlegung"@de;
+	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote identifier."""@en;
+	rdfs:subPropertyOf document:hasTextIdentifierValue;
+	knora-base:subjectClassConstraint document:EndnoteReference;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:hasEndnoteNumber
+	a owl:ObjectProperty;
+	rdfs:label "has endnote number"@en, "hat Endnotenummer"@de;
+	rdfs:comment """Relating an endnote reference to its endnote number."""@en;
+	rdfs:domain document:EndnoteReference;
+	rdfs:range text-structure:EndnoteNumber;
+	rdfs:subPropertyOf document:hasEndnoteIdentifier;
+	knora-base:subjectClassConstraint document:EndnoteReference;
+	knora-base:objectClassConstraint text-structure:EndnoteNumber.
+
+document:hasEndnoteNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "has endnote number - statement"@en, "hat Endnotenummer - Festlegung"@de;
+	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote number."""@en;
+	rdfs:subPropertyOf document:hasEndnoteIdentifierValue;
+	knora-base:subjectClassConstraint document:EndnoteReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:isColumnOfPage
@@ -347,7 +575,7 @@ document:isColumnOfPageValue
 document:isPageOfExpression
 	a owl:ObjectProperty;
 	rdfs:label "is page of expression"@en, "ist Seite einer Expression"@de;
-	rdfs:comment """Relating a page to an expression it is part of."""@en;
+	rdfs:comment """Relating a document page to a document expression it is part of."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:Expression;
 	rdfs:subPropertyOf concept:isPartOf;
@@ -357,172 +585,20 @@ document:isPageOfExpression
 document:isPageOfExpressionValue
 	a owl:ObjectProperty;
 	rdfs:label "is page of expression - statement"@en, "ist Seite einer Expression - Festlegung"@de;
-	rdfs:comment """Relating a page to a reification statement of the relation between the page and an expression it is part of."""@en;
+	rdfs:comment """Relating a document page to a reification statement of the relation between the page and a document expression it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint document:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:hasTextReference
+document:pageHasNumber
 	a owl:ObjectProperty;
-	rdfs:label "has text reference"@en, "hat Textreferenz"@de;
-	rdfs:comment """Relating a document content structure to a text reference it has."""@en;
-	rdfs:domain document:ContentStructure;
-	rdfs:range document:TextReference;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint document:TextReference.
-
-document:hasTextReferenceValue
-	a owl:ObjectProperty;
-	rdfs:label "has text reference - statement"@en, "hat Textreferenz - Festlegung"@de;
-	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a text reference it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasTextIdentifier
-	a owl:ObjectProperty;
-	rdfs:label "has text identifier"@en, "hat Textidentifikator"@de;
-	rdfs:comment """Relating a text reference to its text identifier."""@en;
-	rdfs:domain document:TextReference;
-	rdfs:range text-structure:Identifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo; #°
-	knora-base:subjectClassConstraint document:TextReference;
-	knora-base:objectClassConstraint text-structure:Identifier.
-
-document:hasTextIdentifierValue
-	a owl:ObjectProperty;
-	rdfs:label "has text identifier - statement"@en, "hat Textidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a text reference to a reification statement of the relation between that reference and its text identifier."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:TextReference;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-# document:hasTextNumber
-#	a owl:ObjectProperty;
-#	rdfs:label "has text number"@en, "hat Textnummer"@de;
-#	rdfs:comment """Relating a text reference to its text number."""@en;
-#	rdfs:domain document:TextReference;
-#	rdfs:range text-structure:Number;
-#	rdfs:subPropertyOf document:hasTextIdentifier;
-#	knora-base:subjectClassConstraint document:TextReference;
-#	knora-base:objectClassConstraint text-structure:Number.
-
-# document:hasTextNumberValue
-#	a owl:ObjectProperty;
-#	rdfs:label "has text number - statement"@en, "hat Textnummer - Festlegung"@de;
-#	rdfs:comment """Relating a text reference to a reification statement of the relation between that reference and its text number."""@en;
-#	rdfs:subPropertyOf document:hasTextIdentifierValue;
-#	knora-base:subjectClassConstraint document:TextReference;
-#	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasFootnoteReference
-	a owl:ObjectProperty;
-	rdfs:label "has footnote reference"@en, "hat Fussnotereferenz"@de;
-	rdfs:comment """Relating a document content structure to a footnote reference it has."""@en;
-	rdfs:domain document:ContentStructure;
-	rdfs:range document:FootnoteReference;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint document:FootnoteReference.
-
-document:hasFootnoteReferenceValue
-	a owl:ObjectProperty;
-	rdfs:label "has footnote reference - statement"@en, "hat Fussnotereferenz - Festlegung"@de;
-	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and a footnote reference it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasFootnoteIdentifier
-	a owl:ObjectProperty;
-	rdfs:label "has footnote identifier"@en, "hat Fussnoteidentifikator"@de;
-	rdfs:comment """Relating a footnote reference to its footnote identifier."""@en;
-	rdfs:domain document:FootnoteReference;
-	rdfs:range text-structure:FootnoteIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:FootnoteReference;
-	knora-base:objectClassConstraint text-structure:FootnoteIdentifier.
-
-document:hasFootnoteIdentifierValue
-	a owl:ObjectProperty;
-	rdfs:label "has footnote identifier - statement"@en, "hat Fussnoteidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote identifier."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:FootnoteReference;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasFootnoteNumber
-	a owl:ObjectProperty;
-	rdfs:label "has footnote number"@en, "hat Fussnotenummer"@de;
-	rdfs:comment """Relating a footnote reference to its footnote number."""@en;
-	rdfs:domain document:FootnoteReference;
-	rdfs:range text-structure:FootnoteNumber;
-	rdfs:subPropertyOf document:hasFootnoteIdentifier;
-	knora-base:subjectClassConstraint document:FootnoteReference;
-	knora-base:objectClassConstraint text-structure:FootnoteNumber.
-
-document:hasFootnoteNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has footnote number - statement"@en, "hat Fussnotenummer - Festlegung"@de;
-	rdfs:comment """Relating a footnote reference to a reification statement of the relation between that reference and its footnote number."""@en;
-	rdfs:subPropertyOf document:hasFootnoteIdentifierValue;
-	knora-base:subjectClassConstraint document:FootnoteReference;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasEndnoteReference
-	a owl:ObjectProperty;
-	rdfs:label "has endnote reference"@en, "hat Endnotereferenz"@de;
-	rdfs:comment """Relating a document content structure to an endnote reference it has."""@en;
-	rdfs:domain document:ContentStructure;
-	rdfs:range document:EndnoteReference;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint document:EndnoteReference.
-
-document:hasEndnoteReferenceValue
-	a owl:ObjectProperty;
-	rdfs:label "has endnote reference - statement"@en, "hat Endnotereferenz - Festlegung"@de;
-	rdfs:comment """Relating a document content structure to a reification statement of the relation between the content structure and an endnote reference it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:ContentStructure;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasEndnoteIdentifier
-	a owl:ObjectProperty;
-	rdfs:label "has endnote identifier"@en, "hat Endnoteidentifikator"@de;
-	rdfs:comment """Relating an endnote reference to its endnote identifier."""@en;
-	rdfs:domain document:EndnoteReference;
-	rdfs:range text-structure:EndnoteIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint document:EndnoteReference;
-	knora-base:objectClassConstraint text-structure:EndnoteIdentifier.
-
-document:hasEndnoteIdentifierValue
-	a owl:ObjectProperty;
-	rdfs:label "has endnote identifier - statement"@en, "hat Endnoteidentifikator - Festlegung"@de;
-	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote identifier."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint document:EndnoteReference;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-document:hasEndnoteNumber
-	a owl:ObjectProperty;
-	rdfs:label "has endnote number"@en, "hat Endnotenummer"@de;
-	rdfs:comment """Relating an endnote reference to its endnote number."""@en;
-	rdfs:domain document:EndnoteReference;
-	rdfs:range text-structure:EndnoteNumber;
-	rdfs:subPropertyOf document:hasEndnoteIdentifier; # math:hasNumeral
-	knora-base:subjectClassConstraint document:EndnoteReference;
-	knora-base:objectClassConstraint text-structure:EndnoteNumber.
-
-document:hasEndnoteNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has endnote number - statement"@en, "hat Endnotenummer - Festlegung"@de;
-	rdfs:comment """Relating an endnote reference to a reification statement of the relation between that reference and its endnote number."""@en;
-	rdfs:subPropertyOf document:hasEndnoteIdentifierValue;
-	knora-base:subjectClassConstraint document:EndnoteReference;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+	rdfs:label "page has number"@en, "Seite hat Nummer"@de;
+	rdfs:comment """Relating a document page to a number it has."""@en;
+	rdfs:domain document:Page;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint document:Page;
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 document:isTableOfColumn
 	a owl:ObjectProperty;
@@ -530,7 +606,7 @@ document:isTableOfColumn
 	rdfs:comment """Relating a table to a column it is part of."""@en;
 	rdfs:domain document:Table;
 	rdfs:range document:Column;
-	rdfs:subPropertyOf concept:isPartOf; #**
+	rdfs:subPropertyOf concept:isPartOf; #°
 	knora-base:subjectClassConstraint document:Table;
 	knora-base:objectClassConstraint document:Column.
 
@@ -538,8 +614,26 @@ document:isTableOfColumnValue
 	a owl:ObjectProperty;
 	rdfs:label "is table of column - statement"@en, "ist Tabelle einer Spalte - Festlegung"@de;
 	rdfs:comment """Relating a table to a reification statement of the relation between the table and a column it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue; #**
+	rdfs:subPropertyOf concept:isPartOfValue; #°
 	knora-base:subjectClassConstraint document:Table;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:expressionHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "expression has identifier"@en, "Expression hat Identifikator"@de;
+	rdfs:comment """Relating a document expression to its identifier."""@en;
+	rdfs:domain document:Expression;
+	rdfs:range document:ExpressionIdentifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #°
+	knora-base:subjectClassConstraint document:Expression;
+	knora-base:objectClassConstraint document:ExpressionIdentifier.
+
+document:expressionHasIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "expression has identifier - statement"@en, "Expression hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a document expression to a reification statement of the relation between the expression and its identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue; #°
+	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:expressionHasTitle
@@ -588,22 +682,22 @@ document:isPartOfIndividualExpressionValue
 	knora-base:subjectClassConstraint document:ExpressionPart;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-document:isElementOfHypertextDocument
+document:expressionReferenceHasIdentifier
 	a owl:ObjectProperty;
-	rdfs:label "is element of hypertext  document"@en, "ist Element eines Hypertext-Dokumentes"@de;
-	rdfs:comment """Relating a hypertext document element to a hypertext document it is part of."""@en;
-	rdfs:domain document:HypertextElement;
-	rdfs:range document:HypertextDocument;
-	rdfs:subPropertyOf concept:isPartOf;
-	knora-base:subjectClassConstraint document:HypertextElement;
-	knora-base:objectClassConstraint document:HypertextDocument.
+	rdfs:label "expression reference has identifier"@en, "Expression-Referenz hat Identifikator"@de;
+	rdfs:comment """Relating a document expression reference to its identifier."""@en;
+	rdfs:domain document:ExpressionReference;
+	rdfs:range document:ExpressionIdentifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #°
+	knora-base:subjectClassConstraint document:ExpressionReference;
+	knora-base:objectClassConstraint document:ExpressionIdentifier.
 
-document:isElementOfHypertextDocumentValue
+document:expressionReferenceHasIdentifierValue
 	a owl:ObjectProperty;
-	rdfs:label "is element of hypertext hypertext hypertext document - statement"@en, "ist Element eines Hypertext-Dokumentes - Festlegung"@de;
-	rdfs:comment """Relating a hypertext hypertext document element to a reification statement of the relation between the element and a hypertext document it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint document:HypertextElement;
+	rdfs:label "expression reference has identifier - statement"@en, "Expression-Referenz hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a document expression reference to a reification statement of the relation between that reference and its identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue; #°
+	knora-base:subjectClassConstraint document:ExpressionReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 document:hasEncoder
@@ -622,4 +716,22 @@ document:hasEncoderValue
 	rdfs:comment "Relating code to a reification statement of the relation between the code and a person who created it."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint document:Code;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+document:isElementOfHypertextDocument
+	a owl:ObjectProperty;
+	rdfs:label "is element of hypertext  document"@en, "ist Element eines Hypertext-Dokumentes"@de;
+	rdfs:comment """Relating a hypertext document element to a hypertext document it is part of."""@en;
+	rdfs:domain document:HypertextElement;
+	rdfs:range document:HypertextDocument;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint document:HypertextElement;
+	knora-base:objectClassConstraint document:HypertextDocument.
+
+document:isElementOfHypertextDocumentValue
+	a owl:ObjectProperty;
+	rdfs:label "is element of hypertext hypertext hypertext document - statement"@en, "ist Element eines Hypertext-Dokumentes - Festlegung"@de;
+	rdfs:comment """Relating a hypertext hypertext document element to a reification statement of the relation between the element and a hypertext document it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint document:HypertextElement;
 	knora-base:objectClassConstraint knora-base:LinkValue.

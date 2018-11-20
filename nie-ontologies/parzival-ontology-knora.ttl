@@ -28,23 +28,37 @@
 # CLASSES
 #
 
-parzival:TranscribedVerseNovel
+parzival:VerseNovel
 	a owl:Class;
-	rdfs:label """transcribed version of 'Parzival'"""@en, """transkribierte Version von 'Parzival'"""@de;
-	rdfs:comment """Transcribed version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf litera:VerseNovel, text:TranscribedText, textedit:Witness.
+	rdfs:label """Version of 'Parzival'"""@en, """Version von 'Parzival'"""@de;
+	rdfs:comment """Any version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
+	rdfs:subClassOf litera:VerseNovel.
 
 parzival:HandwrittenTranscribedVerseNovel
 	a owl:Class;
-	rdfs:label """handwritten transcribed version of 'Parzival'"""@en, """handgeschriebene transkribierte Version 'Parzival'"""@de;
+	rdfs:label """handwritten transcribed version of 'Parzival'"""@en, """handtranskribierte Version von 'Parzival'"""@de;
 	rdfs:comment """Handwritten transcribed version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf parzival:TranscribedVerseNovel, text:HandwrittenText.
+	rdfs:subClassOf litera:VerseNovel, text:HandwrittenText, text:TranscribedText, textedit:Witness.
 
-parzival:PrintedTranscribedVerseNovel
+parzival:PrintedVerseNovel
 	a owl:Class;
-	rdfs:label """printed transcribed version of 'Parzival'"""@en, """gedruckte transkribierte Version 'Parzival'"""@de;
-	rdfs:comment """Printed transcribed version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf parzival:TranscribedVerseNovel.
+	rdfs:label """printed version of 'Parzival'"""@en, """gedruckte Version von 'Parzival'"""@de;
+	rdfs:comment """Printed version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
+	rdfs:subClassOf litera:VerseNovel, text:PrintedText, textedit:Witness.
+
+parzival:ManualVerseNovelTranscript
+	a owl:Class;
+	rdfs:label """manual transcript of 'Parzival'"""@en, """Manuelles Transkript von 'Parzival'"""@de;
+	rdfs:comment """Manual transcript of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
+	rdfs:subClassOf infocar:ManualTranscript, knora-base:StillImageRepresentation, [
+		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
+
+parzival:VerseNovelPrint
+	a owl:Class;
+	rdfs:label """print of 'Parzival'"""@en, """Druck von 'Parzival'"""@de;
+	rdfs:comment """Print of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
+	rdfs:subClassOf infocar:Print, knora-base:StillImageRepresentation, [
+		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 parzival:Verse
 	a owl:Class;
@@ -66,7 +80,7 @@ parzival:Dreissiger
 parzival:VerseSection
 	a owl:Class;
 	rdfs:label """verse section of 'Parzival'"""@en, """Versabschnitt von 'Parzival'"""@de;
-	rdfs:comment """Verse section of about 50 or less dreissiger in Wolfram Von Eschenbach's verse novel 'Parzival', or a version or derivative thereof."""@en;
+	rdfs:comment """Verse section of about 50 dreissiger in Wolfram Von Eschenbach's verse novel 'Parzival', or a version or derivative thereof."""@en;
 	rdfs:subClassOf text-structure:VerseSection, [
 		a owl:Restriction; owl:onProperty parzival:isSectionOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty parzival:isSectionOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -88,10 +102,6 @@ parzival:StructureApparatus
 	rdfs:label "text structure apparatus in the Parzival-project"@en, "Textstruktur-Apparat im Parzival-Projekt"@de;
 	rdfs:comment """Text structure apparatus in the Parzival-project."""@en;
 	rdfs:subClassOf textedit:StructureApparatus.
-
-# editorial explanation: 
-# om. : omisit, "omisit"^^text-edition:editorialExplanation
-
 
 #
 # PROPERTIES
@@ -138,10 +148,10 @@ parzival:isSectionOfNovel
 	rdfs:label """is verse section of verse novel 'Parzival'"""@en, """ist Versabschnitt des Versromans 'Parzival'"""@de;
 	rdfs:comment """Relating a verse section to a version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
 	rdfs:domain parzival:VerseSection;
-	rdfs:range parzival:TranscribedVerseNovel;
+	rdfs:range parzival:VerseNovel;
 	rdfs:subPropertyOf text-structure:isVerseSectionOfVerseNovel;
 	knora-base:subjectClassConstraint parzival:VerseSection;
-	knora-base:objectClassConstraint parzival:TranscribedVerseNovel.
+	knora-base:objectClassConstraint parzival:VerseNovel.
 
 parzival:isSectionOfNovelValue
 	a owl:ObjectProperty;

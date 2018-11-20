@@ -40,7 +40,7 @@
 text-structure:Structure
 	a owl:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
-	rdfs:comment """Text as structure, e.g. a word, sentence, text line, paragraph, section, verse, strophe."""@en;
+	rdfs:comment """Text as structure abstracted from its carrier, e.g. a word, sentence, text line, paragraph, section, verse, strophe."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
 	rdfs:subClassOf text:Text, document:ContentStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -52,7 +52,7 @@ text-structure:Identifier
 	a owl:Class;
 	rdfs:label "text structure identifier"@en, "Textstrukturidentifikator"@de;
 	rdfs:comment """Identifier of a text structure."""@en;
-	rdfs:subClassOf concept:Identifier, document:Structure.
+	rdfs:subClassOf document:ContentStructureIdentifier. #°
 
 text-structure:SyntacticStructure
 	a owl:Class;
@@ -191,8 +191,9 @@ text-structure:Page
 	rdfs:comment """Text structured as a page."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, [
 		a owl:Restriction; owl:onProperty text-structure:isTextOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isTextOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
+		a owl:Restriction; owl:onProperty text-structure:isTextOfPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isPageOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:isPageOfExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a owl:Class;
@@ -210,9 +211,22 @@ text-structure:Verse
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isVerseOfHalfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+ 		a owl:Restriction; owl:onProperty text-structure:verseHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:verseHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:verseHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#* Place an ancient verse without line structure in a place-time
+text-structure:VerseIdentifier
+	a owl:Class;
+	rdfs:label "verse identifier"@en, "Versidentifikator"@de;
+	rdfs:comment """Identifier of a verse."""@en;
+	rdfs:subClassOf text-structure:Identifier.
+
+text-structure:VerseNumber
+	a owl:Class;
+	rdfs:label "verse number"@en, "Versnummer"@de;
+	rdfs:comment """Number of a verse."""@en;
+	rdfs:subClassOf text-structure:VerseIdentifier, math:NaturalNumber.
 
 text-structure:HalfVerse
 	a owl:Class;
@@ -237,8 +251,15 @@ text-structure:Strophe
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfPoemValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:isStropheOfNovelValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
+		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-structure:stropheHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-structure:StropheIdentifier
+	a owl:Class;
+	rdfs:label "strophe identifier"@en, "Stropheidentifikator"@de;
+	rdfs:comment """Identifier of a strophe."""@en;
+	rdfs:subClassOf text-structure:Identifier.
 
 text-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :HalfStrophe
 	a owl:Class;
@@ -422,18 +443,18 @@ text-structure:isPartOfTextExpressionValue
 text-structure:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "text structure has identifier"@en, "Textstruktur hat Identifikator"@de;
-	rdfs:comment """Relating a text structure to an identifier it has."""@en;
+	rdfs:comment """Relating a text structure to its identifier."""@en;
 	rdfs:domain text-structure:Structure;
 	rdfs:range text-structure:Identifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf document:hasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Structure;
 	knora-base:objectClassConstraint text-structure:Identifier.
 
 text-structure:hasIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "text structure has identifier - statement"@en, "Textstruktur hat Identifikator - Festlegung"@de;
-	rdfs:comment """Relating a text structure to a reification statement of the relation between the structure and an identifier it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:comment """Relating a text structure to a reification statement of the relation between the structure and its identifier."""@en;
+	rdfs:subPropertyOf document:hasIdentifierValue;
 	knora-base:subjectClassConstraint text-structure:Structure;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -670,7 +691,7 @@ text-structure:isColumnOfPageValue
 text-structure:isTextOfPage
 	a owl:ObjectProperty;
 	rdfs:label "is text of page"@en, "ist Text einer Seite"@de;
-	rdfs:comment """Relating text to a page it is part of."""@en;
+	rdfs:comment """Relating a text page to a document page it is part of."""@en;
 	rdfs:domain text-structure:Page;
 	rdfs:range document:Page;
 	rdfs:subPropertyOf concept:isPartOf;
@@ -680,7 +701,7 @@ text-structure:isTextOfPage
 text-structure:isTextOfPageValue
 	a owl:ObjectProperty;
 	rdfs:label "is text of page - statement"@en, "ist Text einer Seite - Festlegung"@de;
-	rdfs:comment """Relating a text to a reification statement of the relation between the text and a page it is part of."""@en;
+	rdfs:comment """Relating a text page to a reification statement of the relation between the text page and a document page it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint text-structure:Page;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -775,15 +796,41 @@ text-structure:isVerseOfHalfStropheValue
 	knora-base:subjectClassConstraint text-structure:Verse;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text-structure:verseHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de;
+	rdfs:comment """Relating a verse to its identifier."""@en;
+	rdfs:domain text-structure:Verse;
+	rdfs:range text-structure:VerseIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint text-structure:VerseIdentifier.
+
+text-structure:verseHasIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "verse has identifier - statement"@en, "Vers hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and its identifier."""@en;
+	rdfs:subPropertyOf text-structure:hasIdentifierValue;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text-structure:verseHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "verse has number"@en, "Vers hat Nummer"@de;
-	rdfs:comment """Relating a verse to a number it has."""@en;
+	rdfs:comment """Relating a verse to its number."""@en;
 	rdfs:domain text-structure:Verse;
-	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:range text-structure:VerseNumber;
+	rdfs:subPropertyOf text-structure:verseHasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Verse;
-	knora-base:objectClassConstraint knora-base:IntValue.
+	knora-base:objectClassConstraint text-structure:VerseNumber.
+
+text-structure:verseHasNumberValue
+	a owl:ObjectProperty;
+	rdfs:label "verse has number - statement"@en, "Vers hat Nummer - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and its number."""@en;
+	rdfs:subPropertyOf text-structure:verseHasIdentifierValue;
+	knora-base:subjectClassConstraint text-structure:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:isStropheOfSection
 	a owl:ObjectProperty;
@@ -842,12 +889,20 @@ text-structure:isStropheOfNovelValue
 text-structure:stropheHasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de;
-	rdfs:comment """Relating a strophe to an identifier it has."""@en;
+	rdfs:comment """Relating a strophe to its identifier."""@en;
 	rdfs:domain text-structure:Strophe;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:range text-structure:StropheIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier;
 	knora-base:subjectClassConstraint text-structure:Strophe;
-	knora-base:objectClassConstraint knora-base:TextValue.
+	knora-base:objectClassConstraint text-structure:StropheIdentifier.
+
+text-structure:stropheHasIdentifierValue
+	a owl:ObjectProperty;
+	rdfs:label "strophe has identifier - statement"@en, "Strophe hat Identifikator - Festlegung"@de;
+	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and its identifier."""@en;
+	rdfs:subPropertyOf text-structure:hasIdentifierValue;
+	knora-base:subjectClassConstraint text-structure:Strophe;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text-structure:stropheHasNumber
 	a owl:ObjectProperty;

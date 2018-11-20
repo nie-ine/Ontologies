@@ -57,10 +57,8 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasCiterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationReferenceIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationReferenceIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationReferenceNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationReferenceNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCitationReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCitationReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isCitedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isCitedInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -116,16 +114,22 @@ text:TranscribedText
 	a owl:Class;
 	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
 	rdfs:comment """Text copied by character by any method."""@en;
-	rdfs:subClassOf text:WrittenText, [
+	rdfs:subClassOf text:CopiedText, [
 		a owl:Restriction; owl:onProperty infocar:isInTranscript; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInTranscriptValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-# text:Print: printed text abstracted from its carrier
+text:PrintedText
+	a owl:Class;
+	rdfs:label "printed text"@en, "gedruckter Text"@de, "texte imprimé"@fr, "testo stampato"@it;
+	rdfs:comment """Text printed by any method, abstracted from its carrier."""@en;
+	rdfs:subClassOf text:Text, [
+		a owl:Restriction; owl:onProperty infocar:isInPrint; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInPrintValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de, "expression textuelle"@fr, "espressione testuale"@it;
-	rdfs:comment """Text as expression conform FRBROO."""@en;
+	rdfs:comment """Document expression as text."""@en;
 	rdfs:subClassOf document:Expression, text:Text, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -216,14 +220,25 @@ text:OrganizationCiter
 text:Citation
 	a owl:Class;
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
-	rdfs:comment """."""@en;
-	rdfs:subClassOf text:Text, [
+	rdfs:comment """Copy of a text expression or part of it in another one with reference to the former."""@en; #°
+	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the source reference and the citation."""@en;
+	rdfs:subClassOf text-structure:Structure, [
+		a owl:Restriction; owl:onProperty text:citationHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:citationHasReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationIsPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationIsPartOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:CitationReference
+	a owl:Class;
+	rdfs:label "citation reference"@en, "Zitatreferenz"@de;
+	rdfs:comment """Reference of a citation to the referred."""@en;
+	rdfs:subClassOf document:TextReference, [
+		a owl:Restriction; owl:onProperty text:hasCitationIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCitationIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:CitationIdentifier
 	a owl:Class;
@@ -236,22 +251,6 @@ text:CitationNumber
 	rdfs:label "citation number"@en, "Zitatnummer"@de;
 	rdfs:comment """Number of a citation."""@en;
 	rdfs:subClassOf text:CitationIdentifier, math:Number.
-
-text:CitationReferenceIdentifier
-	a owl:Class;
-	rdfs:label "citation reference identifier"@en, "Zitatreferenzidentifikator"@de;
-	rdfs:comment """Identifier of a citation reference."""@en;
-	rdfs:subClassOf concept:Identifier, document:Reference, [
-		a owl:Restriction; owl:onProperty text:hasCitationIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:CitationReferenceNumber
-	a owl:Class;
-	rdfs:label "citation reference number"@en, "Zitatreferenznummer"@de;
-	rdfs:comment """Number of a citation reference."""@en;
-	rdfs:subClassOf text:CitationReferenceIdentifier, [
-		a owl:Restriction; owl:onProperty text:hasCitationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationNumberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:SentenceExpression
 	a owl:Class;
@@ -429,14 +428,6 @@ text:hasVersionIndicator
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-#text:hasPageNumber
-#	a owl:ObjectProperty;
-#	rdfs:label "has page number"@en;
-#	rdfs:comment """Relating a text to the number of a page it is on."""@en;
-#	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint text:Text; # owl:propertyChainAxiom (infocar:isTextOnPage infocar:pageHasNumber)
-#	knora-base:objectClassConstraint knora-base:IntValue.
-
 text:hasPageNumberDescription
 	a owl:ObjectProperty;
 	rdfs:label "text has page number description"@en, "Text hat Seitennummerbeschreibung"@de;
@@ -535,38 +526,20 @@ text:hasCitationValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-text:hasCitationReferenceIdentifier
+text:hasCitationReference
 	a owl:ObjectProperty;
-	rdfs:label "has citation reference identifier"@en, "hat Zitatreferenzidentifikator"@de;
-	rdfs:comment "Relating a text to a citation reference identifier thereof."@en;
+	rdfs:label "has citation reference"@en, "hat Zitatreferenz"@de;
+	rdfs:comment "Relating a text to a citation reference thereof."@en;
 	rdfs:domain text:Text;
-	rdfs:range text:CitationReferenceIdentifier;
+	rdfs:range text:CitationReference;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint text:CitationReferenceIdentifier.
+	knora-base:objectClassConstraint text:CitationReference.
 
-text:hasCitationReferenceIdentifierValue
+text:hasCitationReferenceValue
 	a owl:ObjectProperty;
-	rdfs:label "has citation reference identifier - statement"@en, "hat Zitatreferenzidentifikator - Festlegung"@de;
-	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation reference identifier thereof."@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:hasCitationReferenceNumber
-	a owl:ObjectProperty;
-	rdfs:label "has citation reference number"@en, "hat Zitatreferenznummer"@de;
-	rdfs:comment "Relating a text to a citation reference number thereof."@en;
-	rdfs:domain text:Text;
-	rdfs:range text:CitationReferenceNumber;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:Text;
-	knora-base:objectClassConstraint text:CitationReferenceNumber.
-
-text:hasCitationReferenceNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has citation reference number - statement"@en, "hat Zitatreferenznummer - Festlegung"@de;
-	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation reference number thereof."@en;
+	rdfs:label "has citation reference - statement"@en, "hat Zitatreferenz - Festlegung"@de;
+	rdfs:comment "Relating a text to a reification statement of the relation between the text and a citation reference thereof."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -696,10 +669,28 @@ text:isPartOfIndividualExpressionValue
 	knora-base:subjectClassConstraint text:ExpressionPart;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text:citationHasReference
+	a owl:ObjectProperty;
+	rdfs:label "citation has reference"@en, "Zitat hat Referenz"@de;
+	rdfs:comment """Relating a citation to its reference."""@en;
+	rdfs:domain text:Citation;
+	rdfs:range document:TextReference;
+	rdfs:subPropertyOf document:hasTextReference;
+	knora-base:subjectClassConstraint text:Citation;
+	knora-base:objectClassConstraint document:TextReference.
+
+text:citationHasReferenceValue
+	a owl:ObjectProperty;
+	rdfs:label "citation has reference - statement"@en, "Zitat hat Referenz - Festlegung"@de;
+	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and its reference."""@en;
+	rdfs:subPropertyOf document:hasTextReferenceValue;
+	knora-base:subjectClassConstraint text:Citation;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text:citationHasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "citation has identifier"@en, "Zitat hat Identifikator"@de;
-	rdfs:comment """Relating a citation to an identifier (as resource) it has."""@en;
+	rdfs:comment """Relating a citation to its identifier."""@en;
 	rdfs:domain text:Citation;
 	rdfs:range text:CitationIdentifier;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -709,7 +700,7 @@ text:citationHasIdentifier
 text:citationHasIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "citation has identifier - statement"@en, "Zitat hat Identifikator - Festlegung"@de;
-	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and an identifier (as resource) it has."""@en;
+	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and its identifier."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Citation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -717,7 +708,7 @@ text:citationHasIdentifierValue
 text:citationHasNumber
 	a owl:ObjectProperty;
 	rdfs:label "citation has number"@en, "Zitat hat Nummer"@de;
-	rdfs:comment """Relating a citation to a natural number (as resource) it has."""@en;
+	rdfs:comment """Relating a citation to its number."""@en;
 	rdfs:domain text:Citation;
 	rdfs:range text:CitationNumber;
 	rdfs:subPropertyOf text:citationHasIdentifier;
@@ -727,7 +718,7 @@ text:citationHasNumber
 text:citationHasNumberValue
 	a owl:ObjectProperty;
 	rdfs:label "citation has number - statement"@en, "Zitat hat Nummer - Festlegung"@de;
-	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and a natural number (as resource) it has."""@en;
+	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and its number."""@en;
 	rdfs:subPropertyOf text:citationHasIdentifierValue;
 	knora-base:subjectClassConstraint text:Citation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -753,37 +744,19 @@ text:citationIsPartOfValue
 text:hasCitationIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has citation identifier"@en, "hat Zitatidentifikator"@de;
-	rdfs:comment """Relating a citation reference identifier (as resource) to its citation identifier (as resource)."""@en;
-	rdfs:domain text:CitationReferenceIdentifier;
+	rdfs:comment """Relating a citation reference to its citation identifier."""@en;
+	rdfs:domain text:CitationReference;
 	rdfs:range text:CitationIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
-	knora-base:subjectClassConstraint text:CitationReferenceIdentifier;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #°
+	knora-base:subjectClassConstraint text:CitationReference;
 	knora-base:objectClassConstraint text:CitationIdentifier.
 
 text:hasCitationIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "has citation identifier - statement"@en, "hat Zitatidentifikator - Festlegung"@de;
-	rdfs:comment """Relating a citation reference identifier (as resource) to a reification statement of the relation between that identifier and its citation identifier (as resource)."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-	knora-base:subjectClassConstraint text:CitationReferenceIdentifier;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:hasCitationNumber
-	a owl:ObjectProperty;
-	rdfs:label "has citation number"@en, "hat Zitatnummer"@de;
-	rdfs:comment """Relating a citation reference number (as resource) to its citation number (as resource)."""@en;
-	rdfs:domain text:CitationReferenceNumber;
-	rdfs:range text:CitationNumber;
-	rdfs:subPropertyOf text:hasCitationIdentifier;
-	knora-base:subjectClassConstraint text:CitationReferenceNumber;
-	knora-base:objectClassConstraint text:CitationNumber.
-
-text:hasCitationNumberValue
-	a owl:ObjectProperty;
-	rdfs:label "has citation reference number - statement"@en, "hat Zitatnummer - Festlegung"@de;
-	rdfs:comment """Relating a citation reference number (as resource) to a reification statement of the relation between that number and its citation number (as resource)."""@en;
-	rdfs:subPropertyOf text:hasCitationIdentifierValue;
-	knora-base:subjectClassConstraint text:CitationReferenceNumber;
+	rdfs:comment """Relating a citation reference to a reification statement of the relation between that reference and its citation identifier."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue; #°
+	knora-base:subjectClassConstraint text:CitationReference;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text:isEntryOfDiaryExpression

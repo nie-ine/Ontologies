@@ -132,8 +132,6 @@ kuno-raeber:DiaryEntry
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiaryConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiaryConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-
-
 kuno-raeber:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;

@@ -142,12 +142,10 @@ Figure 5 shows the subsumption tree of the class concept:Information, from the c
 </div>
 &nbsp;  
 &nbsp;  
-Figure 21 shows a graphical representation of the classes and properties from the external
-[WGS84 Geo Positioning ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
+Figure 21 shows a graphical representation of the classes and properties from the external [WGS84 Geo Positioning ontology](https://github.com/nie-ine/Ontologies/blob/master/geo.ttl).  
 
 <div align="center">
-&nbsp;  
-&nbsp;  
+
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
 
 ##### Figure 21: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology

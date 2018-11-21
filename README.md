@@ -140,8 +140,7 @@ Figure 5 shows the subsumption tree of the class concept:Information, from the c
 
 ##### Figure 20: Graphic representing classes and properties from different ontologies concerning 'publication'
 </div>
-&nbsp;  
-&nbsp;  
+
 Figure 21 shows a graphical representation of the classes and properties from the external ontology [WGS84 Geo Positioning](http://www.w3.org/2003/01/geo/wgs84_pos#).  
 
 <div align="center">

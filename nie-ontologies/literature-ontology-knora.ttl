@@ -146,7 +146,15 @@ litera:VerseSong
 	a owl:Class;
 	rdfs:label "verse song"@en, "Verslied"@de;
 	rdfs:comment """Verse poem as lyrics of a song."""@en, """Versgedicht als Liedtext."""@de;
-	rdfs:subClassOf litera:VersePoem.
+	rdfs:subClassOf litera:VersePoem, [
+		a owl:Restriction; owl:onProperty litera:isPartOfVerseSongbook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:isPartOfVerseSongbookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+litera:VerseSongbook
+	a owl:Class;
+	rdfs:label "verse songbook"@en, "Versgesangbuch"@de;
+	rdfs:comment """Collection of verse songs."""@en;
+	rdfs:subClassOf litera:Expression.
 
 litera:Hymn
 	a owl:Class;
@@ -310,6 +318,24 @@ litera:hasPoetryValue
 	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and poetry it has."""@en;
 	rdfs:subPropertyOf litera:hasGenreValue;
 	knora-base:subjectClassConstraint litera:Poem;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:isPartOfVerseSongbook
+	a owl:ObjectProperty;
+	rdfs:label "is part of VerseSongbook"@en, "ist teil eines Versgesangbuches"@de;
+	rdfs:comment """Relating a verse song to a book it is part of."""@en;
+	rdfs:domain litera:VerseSong;
+	rdfs:range litera:VerseSongbook;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint litera:VerseSong;
+	knora-base:objectClassConstraint litera:VerseSongbook.
+
+litera:isPartOfVerseSongbookValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of VerseSongbook - statement"@en, "ist teil eines Versgesangbuches - Festlegung"@de;
+	rdfs:comment """Relating a verse song to a reification statement of the relation between the verse song and a book it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint litera:VerseSong;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 litera:hasPoet

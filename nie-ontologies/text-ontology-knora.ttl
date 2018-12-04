@@ -126,6 +126,12 @@ text:PrintedText
 		a owl:Restriction; owl:onProperty infocar:isInPrint; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInPrintValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+text:Nonfiction
+	a owl:Class;
+	rdfs:label "nonfiction text"@en, "Sachtext"@de;
+	rdfs:comment """Text having content based on fact."""@en;
+	rdfs:subClassOf text:Text, concept:Nonfiction.
+
 text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de, "expression textuelle"@fr, "espressione testuale"@it;
@@ -295,7 +301,7 @@ text:Draft
 	a owl:Class;
 	rdfs:label "draft"@en, "Entwurf"@de;
 	rdfs:comment """Developmental text expression."""@en;
-	rdfs:subClassOf human:CreationVersion.
+	rdfs:subClassOf text:Text, human:CreationVersion.
 
 text:Development
 	a owl:Class;
@@ -305,8 +311,8 @@ text:Development
 		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasStageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-#* extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
-#* intrinsic: formal content
+#° extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
+#° intrinsic: formal content
 
 text:Biography
 	a owl:Class;
@@ -323,7 +329,7 @@ text:hasText
 	rdfs:label "has text"@en, "hat Text"@de;
 	rdfs:comment """Relating a resource to a text as a writable coherent set of signs representing semantics in a language."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Literal;
+#	rdfs:range text:Text ling:Literal;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.

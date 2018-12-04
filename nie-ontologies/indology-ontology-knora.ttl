@@ -58,7 +58,7 @@ indo:hasIndologicComment
 	rdfs:label "has Indological comment"@en, "hat indologischer Kommentar"@de;
 	rdfs:comment """Relating something to an Indological comment as a textual statement about that something."""@en;
 	rdfs:domain knora-base:Resource;
-	rdfs:range rdfs:Literal;
+#	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasComment;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.
@@ -69,7 +69,7 @@ indo:hasVedaGenre
 	rdfs:comment """Relating a literary expression to a Veda genre it has."""@en;
 	rdfs:domain indo:Expression;
 	rdfs:range indo:VedaLiterature;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf litera:hasGenre;
 	knora-base:subjectClassConstraint indo:Expression;
 	knora-base:objectClassConstraint indo:VedaLiterature.
 
@@ -77,6 +77,6 @@ indo:hasVedaGenreValue
 	a owl:ObjectProperty;
 	rdfs:label "has Veda literary genre - statement"@en, "hat vedische literarische Gattung - Festlegung"@de;
 	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and a Veda genre it has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf litera:hasGenreValue;
 	knora-base:subjectClassConstraint indo:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.

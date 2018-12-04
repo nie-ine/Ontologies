@@ -257,6 +257,12 @@ human:Creation
 		a owl:Restriction; owl:onProperty human:hasSponsor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasSponsorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+human:UnfinishedCreation
+	a owl:Class;
+	rdfs:label "unfinished creation"@en, "unfertige Kreation"@de;
+	rdfs:comment """Creation in a state of being not finished."""@en;
+	rdfs:subClassOf human:Creation.
+
 human:PhysicalCreation
 	a owl:Class;
 	rdfs:label "person's physical creation"@en, "physische Kreation einer Person"@de;

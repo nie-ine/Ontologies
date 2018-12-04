@@ -145,7 +145,13 @@ infocar:WritingUtensil
 infocar:Pencil
 	a owl:Class;
 	rdfs:label "pencil"@en, "Bleistift"@de;
-	rdfs:comment """Elongated cylindrical(-like) object containing a thin rod of graphite for writing or drawing."""@en;
+	rdfs:comment """Elongated cylindrical(-like) utensil for writing or drawing, containing a thin rod of graphite."""@en;
+	rdfs:subClassOf infocar:WritingUtensil.
+
+infocar:ColouredPencil
+	a owl:Class;
+	rdfs:label "coloured pencil"@en, "Farbstift"@de, "crayon de couleur"@en, "matita colorata"@de;
+	rdfs:comment """Elongated cylindrical(-like) utensil for writing or drawing, containing a pigmented wax- or oil-based core."""@en;
 	rdfs:subClassOf infocar:WritingUtensil.
 
 infocar:Pen

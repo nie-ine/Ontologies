@@ -148,11 +148,11 @@ publish:PolyAuthorPublication
 	rdfs:comment """Publication of different expressions by different authors."""@en;
 	rdfs:subClassOf publish:Publication.
 
-# publish:DependentPublication # to be discussed
+# publish:DependentPublicationExpression # to be discussed
 #	a owl:Class;
-#	rdfs:label "dependent publication"@en, "abhängige Publikation"@de;
+#	rdfs:label "dependent publication expression"@en, "abhängige Publikation-Expression"@de;
 #	rdfs:comment """Expression published together with other expressions by other authors."""@en;
-#	rdfs:subClassOf publish:Publication.
+#	rdfs:subClassOf publish:Expression.
 
 publish:FirstPublication
 	a owl:Class;
@@ -336,6 +336,8 @@ publish:hasLastAuthorizedPublication
 	a owl:ObjectProperty;
 	rdfs:label "has last authorized publication"@en, "hat letzte autorisierte Publikation"@de;
 	rdfs:comment """Relating an expression to its last publication with the author's authorization."""@en;
+	rdfs:domain document:Expression;
+	rdfs:range publish:Publication;
 	rdfs:subPropertyOf publish:hasPublication;
 	knora-base:subjectClassConstraint document:Expression;
 	knora-base:objectClassConstraint publish:Publication.

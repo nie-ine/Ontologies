@@ -292,10 +292,22 @@ text-structure:FreeVerse
 # text-structure:FixedVerse and SC
 # different meters
 
+text-structure:Rhyme
+	a owl:Class;
+	rdfs:label "rhyme"@en, "Reim"@de;
+	rdfs:comment """Words or phrases with whole or end corresponding sound, especially when involving the last stressed vowel and all succeeding sounds."""@en;
+	rdfs:subClassOf text-structure:ContentStructure.
+
 text-structure:RhymingVerse
 	a owl:Class;
 	rdfs:label "rhyming verse"@en, "gereimter Vers"@de;
 	rdfs:comment """Verse with a rhyme."""@en;
+	rdfs:subClassOf text-structure:Verse, text-structure:Rhyme.
+
+text-structure:NonRhymingVerse
+	a owl:Class;
+	rdfs:label "non-rhyming verse"@en, "nichtgereimter Vers"@de;
+	rdfs:comment """Verse without a rhyme."""@en;
 	rdfs:subClassOf text-structure:Verse.
 
 text-structure:RhythmicProse
@@ -303,6 +315,18 @@ text-structure:RhythmicProse
 	rdfs:label "rhythmic prose"@en, "rhythmische Prosa"@de;
 	rdfs:comment """Prose structure with a meter."""@en;
 	rdfs:subClassOf text-structure:Prose, text-structure:ProsodicStructure.
+
+text-structure:RhymingRhythmicProse
+	a owl:Class;
+	rdfs:label "rhyming rhythmic prose"@en, "gereimte rhythmische Prosa"@de;
+	rdfs:comment """Rhythmic prose with a rhyme."""@en;
+	rdfs:subClassOf text-structure:RhythmicProse, text-structure:Rhyme.
+
+text-structure:NonRhymingRhythmicProse
+	a owl:Class;
+	rdfs:label "non-rhyming rhythmic prose"@en, "nichtgereimte rhythmische Prosa"@de;
+	rdfs:comment """Rhythmic prose without a rhyme."""@en;
+	rdfs:subClassOf text-structure:RhythmicProse.
 
 text-structure:Dialogue
 	a owl:Class;

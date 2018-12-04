@@ -45,7 +45,7 @@ concept:Fiction
 
 concept:Nonfiction
 	a owl:Class;
-	rdfs:label "nonfiction"@en, "sachliche Expression"@de;
+	rdfs:label "nonfiction"@en, "sachliches Konzept"@de;
 	rdfs:comment """Concept based on fact."""@en;
 	rdfs:subClassOf concept:Concept.
 
@@ -213,7 +213,7 @@ concept:hasDedicatedToValue
 concept:hasLiteral
 	a owl:ObjectProperty;
 	rdfs:label "has literal"@en, "hat Literale"@de;
-	rdfs:comment """Relating an identifier to a literal that expresses it."""@en;
+	rdfs:comment """Relating a symbolic concept to a literal that expresses it."""@en;
 	rdfs:domain concept:SymbolicConcept;
 #	rdfs:range ling:Literal;
 	rdfs:subPropertyOf knora-base:hasValue;

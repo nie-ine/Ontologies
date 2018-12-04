@@ -47,7 +47,7 @@ ling:Literal #°
 
 ling:PartOfSpeech
 	a owl:Class;
-	rdfs:label "part of speech"@en, "Wortart"@de; # Sprachteil
+	rdfs:label "part of speech"@en, "Wortart"@de; #° Sprachteil
 	rdfs:comment """Word with certain grammatical properties."""@en;
 	rdfs:subClassOf text-structure:Word.
 

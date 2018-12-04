@@ -31,8 +31,8 @@ kuno-raeber-gui:Poem
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSameEditionAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasRhyme; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasRhyme; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -123,21 +123,21 @@ kuno-raeber-gui:isWrittenWith
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-kuno-raeber-gui:hasStructure
-	a owl:ObjectProperty;
-	rdfs:label "has structure"@en, "hat Struktur"@de;
-	rdfs:comment """Relating a poem by Kuno Raeber to its structure."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
-	knora-base:objectClassConstraint knora-base:TextValue.
-
-#kuno-raeber-gui:hasRhyme
+# kuno-raeber-gui:hasStructure
 #	a owl:ObjectProperty;
-#	rdfs:label "has rhyme"@en, "hat Reim"@de;
-#	rdfs:comment """Relating a poem by Kuno Raeber to having a rhyme or not."""@en;
+#	rdfs:label "has structure"@en, "hat Struktur"@de;
+#	rdfs:comment """Relating a poem by Kuno Raeber to its structure."""@en;
 #	rdfs:subPropertyOf knora-base:hasValue;
 #	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
-#	knora-base:objectClassConstraint knora-base:IntValue.
+#	knora-base:objectClassConstraint knora-base:TextValue.
+
+kuno-raeber-gui:hasRhyme
+	a owl:ObjectProperty;
+	rdfs:label "has rhyme"@en, "hat Reim"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to having a rhyme or not."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 kuno-raeber-gui:hasStrophe
 	a owl:ObjectProperty;
@@ -163,13 +163,13 @@ kuno-raeber-gui:isPartOfCycle
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:IntValue.
 
-kuno-raeber-gui:hasNachlassIndex
-	a owl:ObjectProperty;
-	rdfs:label "has nachlass index"@en, "hat Nachlassindex"@de;
-	rdfs:comment """Relating a poem by Kuno Raeber to its nachlass index."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
-	knora-base:objectClassConstraint knora-base:IntValue.
+# kuno-raeber-gui:hasNachlassIndex
+#	a owl:ObjectProperty;
+#	rdfs:label "has nachlass index"@en, "hat Nachlassindex"@de;
+#	rdfs:comment """Relating a poem by Kuno Raeber to its nachlass index."""@en;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+#	knora-base:objectClassConstraint knora-base:IntValue.
 
 kuno-raeber-gui:hasPublishingStateIndex
 	a owl:ObjectProperty;

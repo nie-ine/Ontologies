@@ -30,7 +30,7 @@
 
 parzival:VerseNovel
 	a owl:Class;
-	rdfs:label """Version of 'Parzival'"""@en, """Version von 'Parzival'"""@de;
+	rdfs:label """version of 'Parzival'"""@en, """Version von 'Parzival'"""@de;
 	rdfs:comment """Any version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
 	rdfs:subClassOf litera:VerseNovel.
 

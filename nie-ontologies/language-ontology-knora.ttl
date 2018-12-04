@@ -180,8 +180,8 @@ language:hasContent
 	rdfs:label "has content"@en, "hat Inhalt"@de;
 	rdfs:comment """Relating a human natural language expression to its content."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf knora-base:hasValue; #* concept:hasContent
+#	rdfs:range ling:Literal;
+	rdfs:subPropertyOf concept:hasLiteral;
 	knora-base:subjectClassConstraint language:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:TextValue.
 

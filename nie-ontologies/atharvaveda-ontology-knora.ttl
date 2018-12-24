@@ -33,8 +33,8 @@
 
 athar:Kanda
 	a owl:Class;
-	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda songbook"@en, "Atharvaveda-Gesangbuch"@de;
-	rdfs:comment """Songbook of the Atharvaveda."""@en;
+	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda verse songbook"@en, "Atharvaveda-Versgesangbuch"@de;
+	rdfs:comment """Verse songbook of the Atharvaveda."""@en;
 	rdfs:subClassOf litera:VerseSongbook.
 
 athar:Sukta

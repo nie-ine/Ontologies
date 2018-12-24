@@ -55,6 +55,12 @@ concept:Commonplace
 	rdfs:comment """Concept generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:Concept.
 
+concept:Motto
+	a owl:Class;
+	rdfs:label "motto"@en, "Motto"@de, "devise"@fr, "motto"@it;
+	rdfs:comment """Concept chosen as encapsulating an ideal, principle, belief or goal of an individual or group."""@en;
+	rdfs:subClassOf concept:Concept.
+
 concept:SymbolicConcept
 	a owl:Class;
 	rdfs:label "symbolic concept"@en, "symbolisches Konzept"@de;

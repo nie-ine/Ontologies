@@ -132,11 +132,18 @@ text:Nonfiction
 	rdfs:comment """Text having content based on fact."""@en;
 	rdfs:subClassOf text:Text, concept:Nonfiction.
 
+text:Fiction
+	a owl:Class;
+	rdfs:label "fiction text"@en, "Fiktiontext"@de;
+	rdfs:comment """Text having content derived from imagination."""@en;
+	rdfs:subClassOf text:Text, concept:Fiction.
+
 text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de, "expression textuelle"@fr, "espressione testuale"@it;
 	rdfs:comment """Document expression as text."""@en;
 	rdfs:subClassOf document:Expression, text:Text, [
+		a owl:Restriction; owl:onProperty text:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -585,6 +592,16 @@ text:hasEditorValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:expressionHasTitle
+	a owl:ObjectProperty;
+	rdfs:label "text expression has title"@en, "Text-Expression hat Titel"@de;
+	rdfs:comment """Relating a text expression to a title it has."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range doc:Literal;
+	rdfs:subPropertyOf text:hasTitle;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:TextValue.
 
 text:hasAuthor
 	a owl:ObjectProperty;

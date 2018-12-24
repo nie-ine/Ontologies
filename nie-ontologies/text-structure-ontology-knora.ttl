@@ -201,6 +201,18 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
 
+text-structure:Prologue
+	a owl:Class;
+	rdfs:label "prologue"@en, "Vorwort"@de;
+	rdfs:comment """Introductory text."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
+
+text-structure:Epilogue
+	a owl:Class;
+	rdfs:label "epilogue"@en, "Nachwort"@de;
+	rdfs:comment """Concluding text."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
+
 text-structure:Verse
 	a owl:Class;
 	rdfs:label "verse"@en, "Vers"@de;

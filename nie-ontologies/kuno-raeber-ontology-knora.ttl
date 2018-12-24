@@ -35,30 +35,41 @@
 
 kuno-raeber:Work
 	a owl:Class;
-	rdfs:label "Kuno Raeber work"@en, "Kuno Raeber-Werk"@de;
-	rdfs:comment """Work by Kuno Raeber."""@en, """Werk von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber work"@en, "Werk Kuno Raebers"@de;
+	rdfs:comment """Work by Kuno Raeber."""@en;
 	rdfs:subClassOf concept:IndividualWork.
 
 kuno-raeber:Text
 	a owl:Class;
-	rdfs:label "Kuno Raeber text expression"@en, "Kuno Raeber-Text-Expression"@de;
+	rdfs:label "Kuno Raeber text expression"@en, "Text-Expression Kuno Raebers"@de;
 	rdfs:comment """Text expression authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasDetailDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInSwissGerman; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+kuno-raeber:Prologue
+	a owl:Class;
+	rdfs:label "Kuno Raeber prologue"@en, "Vorwort Kuno Raebers"@de;
+	rdfs:comment """Prologue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf text-structure:Prologue, text:Nonfiction, kuno-raeber:Text.
+
+kuno-raeber:Epilogue
+	a owl:Class;
+	rdfs:label "Kuno Raeber epilogue"@en, "Nachwort Kuno Raebers"@de;
+	rdfs:comment """Epilogue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf text-structure:Epilogue, text:Nonfiction, kuno-raeber:Text.
+
 kuno-raeber:Poem
 	a owl:Class;
-	rdfs:label "Kuno Raeber poem"@en, "Kuno Raeber-Gedicht"@de;
-	rdfs:comment """Poem authored by Kuno Raeber."""@en, """Gedicht von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber poem"@en, "Gedicht Kuno Raebers"@de;
+	rdfs:comment """Poem authored by Kuno Raeber."""@en;
 	rdfs:subClassOf litera:Poem, kuno-raeber:Text, [
 		a owl:Restriction; owl:onProperty kuno-raeber:poemHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasDetailDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasSameEditionAsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasSameEditionAsInValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasReferencePoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -68,7 +79,7 @@ kuno-raeber:Poem
 
 kuno-raeber:ScientificEdition
 	a owl:Class;
-	rdfs:label "Kuno Raeber scientific edition"@en, "Kuno Raeber wissenschaftliche Edition"@de;
+	rdfs:label "Kuno Raeber text scientific edition"@en, "wissenschaftliche Edition eines Kuno Raeber Textes"@de;
 	rdfs:comment """Scientific edition of a text authored by Kuno Raeber."""@en, """Wissenschaftliche Edition eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:ScientificEdition, [
 		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -78,7 +89,7 @@ kuno-raeber:ScientificEdition
 
 kuno-raeber:DiplomaticTranscription
 	a owl:Class;
-	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
+	rdfs:label "Kuno Raeber text diplomatic transcription"@en, "diplomatische Umschrift eines Kuno Raeber Textes"@de;
 	rdfs:comment """Diplomatic transcription of a text authored by Kuno Raeber."""@en, """Diplomatische Umschrift eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf textedit:DiplomaticTranscription, [
 		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # needed due to restriction in dhl-knora
@@ -86,24 +97,24 @@ kuno-raeber:DiplomaticTranscription
 
 kuno-raeber:HandwrittenPoem
 	a owl:Class;
-	rdfs:label "handwritten poem"@en, "handgeschriebenes Gedicht"@de;
-	rdfs:comment """Handwritten poem authored by Kuno Raeber."""@en, """Handgeschriebenes Gedicht von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber handwritten poem"@en, "handgeschriebenes Gedicht Kuno Raebers"@de;
+	rdfs:comment """Handwritten poem authored by Kuno Raeber."""@en, """Handgeschriebenes Gedicht Kuno Raebers."""@de;
 	rdfs:subClassOf kuno-raeber:Poem, text:HandwrittenText, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemNote
 	a owl:Class;
-	rdfs:label "poem note"@en, "Gedichtnotiz"@de;
-	rdfs:comment """Poem note authored by Kuno Raeber."""@en, """Gedichtnotiz von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber poem note"@en, "Gedichtnotiz Kuno Raebers"@de;
+	rdfs:comment """Poem note authored by Kuno Raeber."""@en, """Gedichtnotiz Kuno Raebers."""@de;
 	rdfs:subClassOf kuno-raeber:HandwrittenPoem, human:FirstVersion, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInNotebook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInNotebookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PostcardPoem
 	a owl:Class;
-	rdfs:label "postcard poem"@en, "Postkarten-Gedicht"@de;
-	rdfs:comment """Postcard poem authored by Kuno Raeber."""@en, """Postkarten-Gedicht von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber postcard poem"@en, "Postkarten-Gedicht Kuno Raebers"@de;
+	rdfs:comment """Postcard poem authored by Kuno Raeber."""@en, """Postkarten-Gedicht Kuno Raebers."""@de;
 	rdfs:subClassOf kuno-raeber:HandwrittenPoem, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPostcard; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isOnPostcardValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -111,21 +122,21 @@ kuno-raeber:PostcardPoem
 
 kuno-raeber:TypewrittenPoem
 	a owl:Class;
-	rdfs:label "typewritten poem"@en, "maschinengeschriebenes Gedicht"@de;
-	rdfs:comment """Typewritten poem authored by Kuno Raeber."""@en, """Maschinengeschriebenes Gedicht von Kuno Raeber."""@de;
+	rdfs:label "Kuno Raeber typewritten poem"@en, "maschinengeschriebenes Gedicht Kuno Raebers"@de;
+	rdfs:comment """Typewritten poem authored by Kuno Raeber."""@en, """Maschinengeschriebenes Gedicht Kuno Raebers."""@de;
 	rdfs:subClassOf kuno-raeber:Poem, text:TypewrittenText.
 
 kuno-raeber:PublicationPoem
 	a owl:Class;
-	rdfs:label "publication poem"@en, "Publikation-Gedicht"@de;
-	rdfs:comment """Poem authored by Kuno Raeber, as published."""@en, """Gedicht von Kuno Raeber wie publiziert."""@de;
+	rdfs:label "Kuno Raeber publication poem"@en, "Publikation-Gedicht Kuno Raebers"@de;
+	rdfs:comment """Poem authored by Kuno Raeber, as published."""@en, """Gedicht Kuno Raebers wie publiziert."""@de;
 	rdfs:subClassOf kuno-raeber:Poem, publish:Expression, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInPolyAuthorPublicationConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInPolyAuthorPublicationConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:DiaryEntry
 	a owl:Class;
-	rdfs:label "diary entry"@en, "Tagebucheintrag"@de;
+	rdfs:label "Kuno Raeber diary entry"@en, "Tagebucheintrag Kuno Raebers"@de;
 	rdfs:comment """Diary entry authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text:DiaryEntry, kuno-raeber:Text, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -135,28 +146,28 @@ kuno-raeber:DiaryEntry
 
 kuno-raeber:LetterExpression
 	a owl:Class;
-	rdfs:label "letter expression"@en, "Brief-Expression"@de;
+	rdfs:label "Kuno Raeber letter expression"@en, "Brief-Expression Kuno Raebers"@de;
 	rdfs:comment """Letter expression written by Kuno Raeber."""@en;
 	rdfs:subClassOf text:LetterExpression, text:WrittenText, kuno-raeber:Text, [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:Page
 	a owl:Class;
-	rdfs:label "page"@en, "Seite"@de;
+	rdfs:label "Kuno Raeber page"@en, "Seite Kuno Raebers"@de;
 	rdfs:comment """Page with a handwritten poem by Kuno Raeber."""@en, """Seite mit einem handgeschriebenen Gedicht Kuno Raebers."""@de;
 	rdfs:subClassOf infocar:Page, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:Convolute
 	a owl:Class;
-	rdfs:label "convolute"@en, "Konvolut"@de;
+	rdfs:label "Kuno Raeber convolute"@en, "Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of which the elements are authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Convolute, [
 		a owl:Restriction; owl:onProperty text:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PoemNotebook
 	a owl:Class;
-	rdfs:label "poem notebook"@en, "Gedichten-Notizbuch"@de;
+	rdfs:label "Kuno Raeber poem notebook"@en, "Gedichten-Notizbuch Kuno Raebers"@de;
 	rdfs:comment """Notebook with poem drafts authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Manuscript, infocar:Notebook, kuno-raeber:Convolute, infocar:ArchiveElement, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
@@ -165,17 +176,23 @@ kuno-raeber:PoemNotebook
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:PoemManuscript
+kuno-raeber:Manuscript
 	a owl:Class;
-	rdfs:label "poem manuscript"@en, "Gedicht-Manuskript"@de;
-	rdfs:comment """Manuscript with a poem authored by Kuno Raeber."""@en;
+	rdfs:label "Kuno Raeber manuscript"@en, "Manuskript Kuno Raebers"@de;
+	rdfs:comment """Manuscript authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Leaf, infocar:Manuscript, infocar:ConvoluteElement, infocar:ArchiveElement, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:PoemManuscriptConvolute
+kuno-raeber:PoemManuscript
 	a owl:Class;
-	rdfs:label "poem manuscript convolute"@en, "Gedicht-Manuskriptenkonvolut"@de;
+	rdfs:label "Kuno Raeber poem manuscript"@en, "Gedicht-Manuskript Kuno Raebers"@de;
+	rdfs:comment """Manuscript with a poem authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Manuscript.
+
+kuno-raeber:ManuscriptConvolute
+	a owl:Class;
+	rdfs:label "Kuno Raeber poem manuscript convolute"@en, "Gedicht-Manuskriptenkonvolut Kuno Raebers"@de;
 	rdfs:comment """Poem manuscript convolute with poems authored by Kuno Raeber."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement, [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -185,7 +202,7 @@ kuno-raeber:PoemManuscriptConvolute
 
 kuno-raeber:PoemPostcard
 	a owl:Class;
-	rdfs:label "poem postcard"@en, "Gedicht-Postkarte"@de;
+	rdfs:label "Kuno Raeber poem postcard"@en, "Gedicht-Postkarte Kuno Raebers"@de;
 	rdfs:comment """Postcard with a poem authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Manuscript, infocar:Postcard, infocar:ArchiveElement, infocar:ConvoluteElement, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfPostcardConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -194,41 +211,47 @@ kuno-raeber:PoemPostcard
 
 kuno-raeber:PoemPostcardConvolute
 	a owl:Class;
-	rdfs:label "poem postcard convolute"@en, "Gedicht-Postkartenkonvolut"@de;
+	rdfs:label "Kuno Raeber poem postcard convolute"@en, "Gedicht-Postkartenkonvolut Kuno Raebers"@de;
 	rdfs:comment """Poem postcard convolute with poems authored by Kuno Raeber."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:PoemTypescript
+kuno-raeber:Typescript
 	a owl:Class;
-	rdfs:label "poem typescript"@en, "Gedicht-Typoskript"@de;
-	rdfs:comment """Poem typescript by Kuno Raeber."""@en;
+	rdfs:label "Kuno Raeber typescript"@en, "Typoskript Kuno Raebers"@de;
+	rdfs:comment """Typescript by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Leaf, infocar:Typescript, infocar:ConvoluteElement, infocar:ArchiveElement, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:PoemTypescriptConvolute
+kuno-raeber:PoemTypescript
 	a owl:Class;
-	rdfs:label "poem typescript convolute"@en, "Gedicht-Typoskriptenonvolut"@de;
-	rdfs:comment """Poem typescript convolute with poems authored by Kuno Raeber."""@en;
+	rdfs:label "Kuno Raeber poem typescript"@en, "Gedicht-Typoskript Kuno Raebers"@de;
+	rdfs:comment """Poem typescript by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Typescript.
+
+kuno-raeber:TypescriptConvolute
+	a owl:Class;
+	rdfs:label "Kuno Raeber typescript convolute"@en, "Typoskriptenonvolut Kuno Raebers"@de;
+	rdfs:comment """Typescript convolute with poems authored by Kuno Raeber."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement, [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfNotebookValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:PoemTypescriptConvoluteWithImage # to be removed when knora-base:hasRepresentation will be implemented in Knora
+kuno-raeber:TypescriptConvoluteWithImage # to be removed when knora-base:hasRepresentation will be implemented in Knora
 	a owl:Class;
-	rdfs:label "poem typescript convolute with image"@en, "Gedicht-Typoskriptenonvolut mit Bild"@de;
+	rdfs:label "Kuno Raeber poem typescript convolute with image"@en, "Gedicht-Typoskriptenonvolut mit Bild Kuno Raebers"@de;
 	rdfs:comment """Poem typescript convolute with poems authored by Kuno Raeber, mit bild."""@en;
-	rdfs:subClassOf kuno-raeber:PoemTypescriptConvolute, knora-base:StillImageRepresentation, [
+	rdfs:subClassOf kuno-raeber:TypescriptConvolute, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PrintedPoemBookPublication
 	a owl:Class;
-	rdfs:label "printed poem book publication"@en, "gedruckte Gedichtenbuchausgabe"@de;
+	rdfs:label "Kuno Raeber printed poem book publication"@en, "gedruckte Gedichtenbuchausgabe Kuno Raebers"@de;
 	rdfs:comment """Printed publication of a book  with poems authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Book, publish:PrintedPublication, kuno-raeber:Convolute, knora-base:StillImageRepresentation, [
 		a owl:Restriction; owl:onProperty knora-base:hasStillImageFileValue; owl:minCardinality "1"^^xsd:nonNegativeInteger], [
@@ -241,34 +264,34 @@ kuno-raeber:PrintedPoemBookPublication
 
 kuno-raeber:PolyAuthorPublication
 	a owl:Class;
-	rdfs:label "poly-author publication"@en, "Mehrautorenpublikationen"@de;
-	rdfs:comment """Publication of a poem authored by Kuno Raeber among expressions by other authors."""@en;
+	rdfs:label "Kuno Raeber poly-author publication"@en, "Mehrautorenpublikationen Kuno Raebers"@de;
+	rdfs:comment """Publication with a poem authored by Kuno Raeber among expressions by other authors."""@en;
 	rdfs:subClassOf publish:PolyAuthorPublication, [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasContentPartInPolyAuthorPublicationConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasContentPartInPolyAuthorPublicationConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:PolyAuthorPublicationConvolute
 	a owl:Class;
-	rdfs:label "poly-author publication convolute"@en, "Mehrautorenpublikationen-Konvolut"@de;
+	rdfs:label "Kuno Raeber poly-author publication convolute"@en, "Mehrautorenpublikationen-Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of poems authored by Kuno Raeber as published among expressions by other authors."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute.
 
 kuno-raeber:Diary
 	a owl:Class;
-	rdfs:label "diary"@en,"Tagebuch"@de;
+	rdfs:label "Kuno Raeber diary"@en,"Tagebuch Kuno Raebers"@de;
 	rdfs:comment """Diary with entries authored by Kuno Raeber."""@en;
 	skos:note """Different from kuno-raeber:DiaryConvolute - in contrast to kuno-raeber:PoemNotebook - because only selections from different diaries are published online."""@en;
 	rdfs:subClassOf infocar:Diary, infocar:Manuscript, infocar:Book, infocar:ArchiveElement.
 
 kuno-raeber:DiaryConvolute
 	a owl:Class;
-	rdfs:label "diary convolute"@en,"Tagebuch-Konvolut"@de;
+	rdfs:label "Kuno Raeber diary convolute"@en,"Tagebuch-Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of diaries with entries authored by Kuno Raeber."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
 
 kuno-raeber:Letter
 	a owl:Class;
-	rdfs:label "letter"@en,"Brief"@de;
+	rdfs:label "Kuno Raeber letter"@en,"Brief Kuno Raebers"@de;
 	rdfs:comment """Letter written by or to Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Letter, infocar:ArchiveElement, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfLetterConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -276,13 +299,13 @@ kuno-raeber:Letter
 
 kuno-raeber:LetterConvolute
 	a owl:Class;
-	rdfs:label "letter convolute"@en,"Briefekonvolut"@de;
+	rdfs:label "Kuno Raeber letter convolute"@en,"Briefekonvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of letters written by and to Kuno Raeber."""@en;
 	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
 
 kuno-raeber:NachlassPublication
 	a owl:Class;
-	rdfs:label "nachlass publication"@en, "Nachlass-Publication"@de;
+	rdfs:label "Kuno Raeber nachlass publication"@en, "Nachlass-Publication Kuno Raebers"@de;
 	rdfs:comment """Publication of a Nachlass of Kuno Raeber."""@en;
 	rdfs:subClassOf publish:NachlassPublication, infocar:Volume, publish:PrintedPublication.
 
@@ -296,7 +319,7 @@ kuno-raeber:poemHasTitle
 	rdfs:comment """Relating a poem by Kuno Raeber to a title it has."""@en;
 	rdfs:domain kuno-raeber:Poem;
 	rdfs:range knora-base:TextValue;
-	rdfs:subPropertyOf document:expressionHasTitle;
+	rdfs:subPropertyOf text:expressionHasTitle;
 	knora-base:subjectClassConstraint kuno-raeber:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
@@ -405,19 +428,19 @@ kuno-raeber:isInPolyAuthorPublicationConvoluteValue
 kuno-raeber:isPartOfManuscriptConvolute
 	a owl:ObjectProperty;
 	rdfs:label "is part of manuscript convolute"@en, "ist Teil von Manuskriptkonvolut"@de;
-	rdfs:comment """Relating a poem manuscript by Kuno Raeber to the convolute it is part of."""@en;
-	rdfs:domain kuno-raeber:PoemManuscript;
-	rdfs:range kuno-raeber:PoemManuscriptConvolute;
+	rdfs:comment """Relating a manuscript by Kuno Raeber to the convolute it is part of."""@en;
+	rdfs:domain kuno-raeber:Manuscript;
+	rdfs:range kuno-raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute;
-	knora-base:subjectClassConstraint kuno-raeber:PoemManuscript;
-	knora-base:objectClassConstraint kuno-raeber:PoemManuscriptConvolute.
+	knora-base:subjectClassConstraint kuno-raeber:Manuscript;
+	knora-base:objectClassConstraint kuno-raeber:ManuscriptConvolute.
 
 kuno-raeber:isPartOfManuscriptConvoluteValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of manuscript convolute - statement"@en, "ist Teil von Manuskriptkonvolut - Festlegung"@de;
 	rdfs:comment """Relating a poem manuscript by Kuno Raeber to a reification statement of the relation between the poem manuscript and the convolute it is part of."""@en;
 	rdfs:subPropertyOf infocar:isPartOfConvoluteValue;
-	knora-base:subjectClassConstraint kuno-raeber:PoemManuscript;
+	knora-base:subjectClassConstraint kuno-raeber:Manuscript;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 kuno-raeber:isPartOfPostcardConvolute
@@ -441,19 +464,19 @@ kuno-raeber:isPartOfPostcardConvoluteValue
 kuno-raeber:isPartOfTypescriptConvolute
 	a owl:ObjectProperty;
 	rdfs:label "is part of typescript convolute"@en, "ist Teil von Typoskriptkonvolut"@de;
-	rdfs:comment """Relating a poem typescript by Kuno Raeber to the convolute it is part of."""@en;
-	rdfs:domain kuno-raeber:PoemTypescript;
-	rdfs:range kuno-raeber:PoemTypescriptConvolute;
+	rdfs:comment """Relating a typescript by Kuno Raeber to the convolute it is part of."""@en;
+	rdfs:domain kuno-raeber:Typescript;
+	rdfs:range kuno-raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute;
-	knora-base:subjectClassConstraint kuno-raeber:PoemTypescript;
-	knora-base:objectClassConstraint kuno-raeber:PoemTypescriptConvolute.
+	knora-base:subjectClassConstraint kuno-raeber:Typescript;
+	knora-base:objectClassConstraint kuno-raeber:TypescriptConvolute.
 
 kuno-raeber:isPartOfTypescriptConvoluteValue
 	a owl:ObjectProperty;
 	rdfs:label "is part of typescript convolute - statement"@en, "ist Teil von Typoskriptkonvolut - Festlegung"@de;
-	rdfs:comment """Relating a poem typescript by Kuno Raeber to a reification statement of the relation between the poem typescript and the convolute it is part of."""@en;
+	rdfs:comment """Relating a typescript by Kuno Raeber to a reification statement of the relation between the typescript and the convolute it is part of."""@en;
 	rdfs:subPropertyOf infocar:isPartOfConvoluteValue;
-	knora-base:subjectClassConstraint kuno-raeber:PoemTypescript;
+	knora-base:subjectClassConstraint kuno-raeber:Typescript;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 kuno-raeber:containsEarlierStagesOfManuscriptConvolute
@@ -461,10 +484,10 @@ kuno-raeber:containsEarlierStagesOfManuscriptConvolute
 	rdfs:label "contains earlier stages of manuscript convolute"@en, "enthält Vorstufen von Manuskriptenkonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing manuscripts with later stages of poems by Kuno Raeber of the former convolute."""@en;
 	rdfs:domain kuno-raeber:PoemNotebook;
-	rdfs:range kuno-raeber:PoemManuscriptConvolute;
+	rdfs:range kuno-raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:containsEarlierStagesOf;
 	knora-base:subjectClassConstraint kuno-raeber:PoemNotebook;
-	knora-base:objectClassConstraint kuno-raeber:PoemManuscriptConvolute.
+	knora-base:objectClassConstraint kuno-raeber:ManuscriptConvolute.
 
 kuno-raeber:containsEarlierStagesOfManuscriptConvoluteValue
 	a owl:ObjectProperty;
@@ -479,10 +502,10 @@ kuno-raeber:containsEarlierStagesOfTypescriptConvolute
 	rdfs:label "contains earlier stages of typescript convolute"@en, "enthält Vorstufen von Typoskriptenonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing typescripts with later stages of poems by Kuno Raeber of the former convolute."""@en;
 	rdfs:domain kuno-raeber:Convolute;
-	rdfs:range kuno-raeber:PoemTypescriptConvolute;
+	rdfs:range kuno-raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:containsEarlierStagesOf;
 	knora-base:subjectClassConstraint kuno-raeber:Convolute;
-	knora-base:objectClassConstraint kuno-raeber:PoemTypescriptConvolute.
+	knora-base:objectClassConstraint kuno-raeber:TypescriptConvolute.
 
 kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue
 	a owl:ObjectProperty;
@@ -515,10 +538,10 @@ kuno-raeber:containsLaterStagesOfManuscriptConvolute
 	rdfs:label "contains later stages of manuscript convolute"@en, "enthält spätere Stufen von Manuskriptenkonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing manuscripts with earlier stages of poems by Kuno Raeber of the former convolute."""@en;
 	rdfs:domain kuno-raeber:Convolute;
-	rdfs:range kuno-raeber:PoemManuscriptConvolute;
+	rdfs:range kuno-raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:containsLaterStagesOf;
 	knora-base:subjectClassConstraint kuno-raeber:Convolute;
-	knora-base:objectClassConstraint kuno-raeber:PoemManuscriptConvolute.
+	knora-base:objectClassConstraint kuno-raeber:ManuscriptConvolute.
 
 kuno-raeber:containsLaterStagesOfManuscriptConvoluteValue
 	a owl:ObjectProperty;
@@ -533,10 +556,10 @@ kuno-raeber:containsLaterStagesOfTypescriptConvolute
 	rdfs:label "contains later stages of typescript convolute"@en, "enthält spätere Stufen von Typoskriptenonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing typescripts with earlier stages of poems by Kuno Raeber of the former convolute."""@en;
 	rdfs:domain kuno-raeber:PrintedPoemBookPublication;
-	rdfs:range kuno-raeber:PoemTypescriptConvolute;
+	rdfs:range kuno-raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:containsLaterStagesOf;
 	knora-base:subjectClassConstraint kuno-raeber:PrintedPoemBookPublication;
-	knora-base:objectClassConstraint kuno-raeber:PoemTypescriptConvolute.
+	knora-base:objectClassConstraint kuno-raeber:TypescriptConvolute.
 
 kuno-raeber:containsLaterStagesOfTypescriptConvoluteValue
 	a owl:ObjectProperty;
@@ -664,15 +687,15 @@ kuno-raeber:hasContentPartInPolyAuthorPublicationConvoluteValue
 	knora-base:subjectClassConstraint kuno-raeber:PolyAuthorPublication;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-kuno-raeber:isFinalVersion
-	a owl:ObjectProperty;
-	rdfs:label "is final version"@en, "ist Endfassung"@de;
-	rdfs:comment """Relating a text by Kuno Raeber to being a last version or not."""@en;
-	rdfs:domain kuno-raeber:Text;
-	rdfs:range xsd:boolean;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber:Text;
-	knora-base:objectClassConstraint knora-base:BooleanValue.
+# kuno-raeber:isFinalVersion
+#	a owl:ObjectProperty;
+#	rdfs:label "is final version"@en, "ist Endfassung"@de;
+#	rdfs:comment """Relating a text by Kuno Raeber to being a last version or not."""@en;
+#	rdfs:domain kuno-raeber:Text;
+#	rdfs:range xsd:boolean;
+#	rdfs:subPropertyOf knora-base:hasValue;
+#	knora-base:subjectClassConstraint kuno-raeber:Text;
+#	knora-base:objectClassConstraint knora-base:BooleanValue.
 
 kuno-raeber:isInSwissGerman
 	a owl:ObjectProperty;

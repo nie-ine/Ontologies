@@ -35,13 +35,13 @@ litera:Fiction
 	a owl:Class;
 	rdfs:label "literary fiction"@en, "literarische Fiktion"@de;
 	rdfs:comment """Literature having content derived from imagination."""@en;
-	rdfs:subClassOf litera:Literature, concept:Fiction.
+	rdfs:subClassOf litera:Literature, text:Fiction.
 
 litera:Nonfiction
 	a owl:Class;
 	rdfs:label "literary nonfiction"@en, "sachliche Literatur"@de;
 	rdfs:comment """Literature having content based on fact."""@en;
-	rdfs:subClassOf litera:Literature, concept:Nonfiction.
+	rdfs:subClassOf litera:Literature, text:Nonfiction.
 
 litera:Narrative
 	a owl:Class;
@@ -216,15 +216,21 @@ litera:NonfictionNovel
 
 litera:Poet
 	a owl:Class;
-	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr;
+	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr, "poeta"@it;
 	rdfs:comment """Author of a poem."""@en;
 	rdfs:subClassOf text:Author.
 
 litera:Novelist
 	a owl:Class;
-	rdfs:label "novelist"@en, "Romanschriftsteller"@de;
+	rdfs:label "novelist"@en, "Romanschriftsteller"@de, "romancier"@fr, "novelliere"@it;
 	rdfs:comment """Author of a novel."""@en;
 	rdfs:subClassOf text:Author.
+
+litera:Motto
+	a owl:Class;
+	rdfs:label "motto"@en, "Motto"@de;
+	rdfs:comment """Citation prefacing a literary expression or part of it."""@en;
+	rdfs:subClassOf text:Citation, text-structure:Prologue.
 
 #
 # PROPERTIES

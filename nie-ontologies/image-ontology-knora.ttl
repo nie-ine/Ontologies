@@ -42,7 +42,7 @@ image:Photograph
 	a owl:Class;
 	rdfs:label "photograph"@en,"Foto"@de;
 	rdfs:comment """Image made by exposing a photosensitive surface to light."""@en;
-	rdfs:subClassOf image:ImageCarrier. #, knora-base:StillImageRepresentation.
+	rdfs:subClassOf image:ImageCarrier.
 
 #
 # PROPERTIES
@@ -107,3 +107,19 @@ image:hasPhotographSourceDescription
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.
+
+image:hasPhotoRepresentation
+	a owl:ObjectProperty;
+	rdfs:label "has photo representation", "hat Foto-Repräsentation"@de;
+	rdfs:comment """Relating something to a digital container of metadata of a digital photograph of that something."""@en;
+	rdfs:subPropertyOf knora-base:hasRepresentation;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:StillImageRepresentation.
+
+image:hasPhotoRepresentationValue
+	a owl:ObjectProperty;
+	rdfs:label "has photo representation - statement", "hat Foto-Repräsentation - Festlegung"@de;
+	rdfs:comment """Relating something to a reification statement of the relation between that something and a digital container of metadata of a digital photograph of that something."""@en;
+	rdfs:subPropertyOf knora-base:hasRepresentationValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -233,7 +233,7 @@ text:OrganizationCiter
 text:Citation
 	a owl:Class;
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
-	rdfs:comment """Copy of a text expression or part of it in another one with reference to the former."""@en; #°
+	rdfs:comment """Copy of a text expression, or part of it, in another one with reference to the former."""@en; #°
 	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the source reference and the citation."""@en;
 	rdfs:subClassOf text-structure:Structure, [
 		a owl:Restriction; owl:onProperty text:citationHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

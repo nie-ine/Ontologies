@@ -47,10 +47,18 @@ kuno-raeber:Text
 		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasDetailDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInSwissGerman; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+kuno-raeber:PublicationTextPart
+	a owl:Class;
+	rdfs:label "Kuno Raeber publication text expression part"@en, "Publikation-Text-Expressionsteil Kuno Raebers"@de;
+	rdfs:comment """Part of a publication text expression authored by Kuno Raeber."""@en;
+	rdfs:subClassOf text:ExpressionPart, publish:Expression, [
+		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 kuno-raeber:Prologue
 	a owl:Class;
@@ -58,11 +66,41 @@ kuno-raeber:Prologue
 	rdfs:comment """Prologue authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text-structure:Prologue, text:Nonfiction, kuno-raeber:Text.
 
+kuno-raeber:DraftHandwrittenPrologue
+	a owl:Class;
+	rdfs:label "Kuno Raeber draft handwritten prologue"@en, "handgeschriebener Vorwort-Entwurf Kuno Raebers"@de;
+	rdfs:comment """Draft handwritten prologue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Prologue, text:HandwrittenText, text:Draft.
+
+kuno-raeber:TypewrittenPrologue
+	a owl:Class;
+	rdfs:label "Kuno Raeber typewritten prologue"@en, "maschinengeschriebener Vorwort Kuno Raebers"@de;
+	rdfs:comment """Typewritten prologue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Prologue, text:TypewrittenText.
+
+kuno-raeber:PublicationPrologue
+	a owl:Class;
+	rdfs:label "Kuno Raeber publication prologue"@en, "Publikation-Vorwort Kuno Raebers"@de;
+	rdfs:comment """Publication prologue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Prologue, publish:Expression.
+
 kuno-raeber:Epilogue
 	a owl:Class;
 	rdfs:label "Kuno Raeber epilogue"@en, "Nachwort Kuno Raebers"@de;
 	rdfs:comment """Epilogue authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text-structure:Epilogue, text:Nonfiction, kuno-raeber:Text.
+
+kuno-raeber:TypewrittenEpilogue
+	a owl:Class;
+	rdfs:label "Kuno Raeber typewritten epilogue"@en, "maschinengeschriebener Nachwort Kuno Raebers"@de;
+	rdfs:comment """Typewritten epilogue authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Epilogue, text:TypewrittenText.
+
+kuno-raeber:PublicationMotto
+	a owl:Class;
+	rdfs:label "publication motto"@en, "Publikation-Motto"@de;
+	rdfs:comment """Publication motto authored by Kuno Raeber."""@en;
+	rdfs:subClassOf litera:Motto, publish:Expression, kuno-raeber:Text.
 
 kuno-raeber:Poem
 	a owl:Class;
@@ -242,7 +280,7 @@ kuno-raeber:TypescriptConvolute
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsLaterStagesOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:TypescriptConvoluteWithImage # to be removed when knora-base:hasRepresentation will be implemented in Knora
+kuno-raeber:TypescriptConvoluteWithImage
 	a owl:Class;
 	rdfs:label "Kuno Raeber poem typescript convolute with image"@en, "Gedicht-Typoskriptenonvolut mit Bild Kuno Raebers"@de;
 	rdfs:comment """Poem typescript convolute with poems authored by Kuno Raeber, mit bild."""@en;
@@ -687,15 +725,15 @@ kuno-raeber:hasContentPartInPolyAuthorPublicationConvoluteValue
 	knora-base:subjectClassConstraint kuno-raeber:PolyAuthorPublication;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-# kuno-raeber:isFinalVersion
-#	a owl:ObjectProperty;
-#	rdfs:label "is final version"@en, "ist Endfassung"@de;
-#	rdfs:comment """Relating a text by Kuno Raeber to being a last version or not."""@en;
-#	rdfs:domain kuno-raeber:Text;
-#	rdfs:range xsd:boolean;
-#	rdfs:subPropertyOf knora-base:hasValue;
-#	knora-base:subjectClassConstraint kuno-raeber:Text;
-#	knora-base:objectClassConstraint knora-base:BooleanValue.
+kuno-raeber:isFinalVersion
+	a owl:ObjectProperty;
+	rdfs:label "is final version"@en, "ist Endfassung"@de;
+	rdfs:comment """Relating a text by Kuno Raeber to being a last version or not."""@en;
+	rdfs:domain kuno-raeber:Text;
+	rdfs:range xsd:boolean;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber:Text;
+	knora-base:objectClassConstraint knora-base:BooleanValue.
 
 kuno-raeber:isInSwissGerman
 	a owl:ObjectProperty;

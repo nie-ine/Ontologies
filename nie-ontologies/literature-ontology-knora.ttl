@@ -198,6 +198,8 @@ litera:Novel
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Narrative fiction expression in prose."""@en;
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
+		a owl:Restriction; owl:onProperty litera:hasNovelist; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNovelistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -362,6 +364,24 @@ litera:hasPoetValue
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+litera:hasNovelist
+	a owl:ObjectProperty;
+	rdfs:label "has novelist"@en, "hat RomanautorIn"@de;
+	rdfs:comment """Relating a novel to a person who authored it."""@en;
+	rdfs:domain litera:Novel;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom litera:Novelist]];
+	rdfs:subPropertyOf text:hasAuthor;
+	knora-base:subjectClassConstraint litera:Novel;
+	knora-base:objectClassConstraint human:Person.
+
+litera:hasNovelistValue
+	a owl:ObjectProperty;
+	rdfs:label "has novelist - statement"@en, "hat RomanautorIn - Festlegung"@de;
+	rdfs:comment """Relating a novel to a reification statement of the relation between the novel and a person who authored it."""@en;
+	rdfs:subPropertyOf text:hasAuthorValue;
+	knora-base:subjectClassConstraint litera:Novel;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 litera:isPartOfHymnal
 	a owl:ObjectProperty;
 	rdfs:label "is part of hymnal"@en, "ist teil eines Gesangbuches"@de;
@@ -379,5 +399,3 @@ litera:isPartOfHymnalValue
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint litera:Hymn;
 	knora-base:objectClassConstraint knora-base:LinkValue.
-
-#* litera:hasNovelist

@@ -7,18 +7,18 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix document: <http://www.knora.org/ontology/005C/document#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix infocar: <http://www.knora.org/ontology/0000/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0000/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0044/concept>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
+@base <http://www.knora.org/ontology/0000/concept>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
 
-<http://www.knora.org/ontology/0044/concept>
+<http://www.knora.org/ontology/0000/concept>
 	a owl:Ontology;
 	dct:title "An ontology about concept"@en;
 	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;

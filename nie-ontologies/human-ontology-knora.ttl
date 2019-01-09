@@ -8,19 +8,19 @@
 @prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
-@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
-@prefix humgeo: <http://www.knora.org/ontology/0049/human-geography#>.
-@prefix org: <http://www.knora.org/ontology/0051/organization#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix physical: <http://www.knora.org/ontology/0000/physical-resource#>.
+@prefix agent: <http://www.knora.org/ontology/0000/agent#>.
+@prefix humgeo: <http://www.knora.org/ontology/0000/human-geography#>.
+@prefix org: <http://www.knora.org/ontology/0000/organization#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0048/human>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
+@base <http://www.knora.org/ontology/0000/human>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
 
-<http://www.knora.org/ontology/0048/human>
+<http://www.knora.org/ontology/0000/human>
 	a owl:Ontology;
 	dct:title "An ontology about human"@en;
 	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
@@ -35,7 +35,7 @@
 
 human:Agent
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/0000/human#>;
 	rdfs:label "human agent"@en, "menschliche Agent"@de;
 	rdfs:comment """Agent being one or more humans"""@en, """Agent einer oder mehrerer Menschen betreffend."""@de;
 	rdfs:subClassOf agent:Agent, cidoc:E39_Actor, [
@@ -200,7 +200,7 @@ human:Use
 
 human:AgentUser
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/0000/human#>;
 	rdfs:label "agent user"@en;
 	rdfs:comment """Role of a human agent, person or group, taking something into service or applying for a purpose."""@en;
 	rdfs:subClassOf human:AgentRole, agent:User.
@@ -500,7 +500,7 @@ human:Relic
 
 human:Salon
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/0000/human#>;
 	rdfs:label "salon"@en, "literarischer Salon"@de;
 	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
 	skos:note """Exists from the seventeenth century AD until today."""@en;
@@ -512,7 +512,7 @@ human:Salon
 
 human:actsIn
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/human#>;
 	rdfs:label "acts in"@en, "agiert in"@de;
 	rdfs:comment """Relating a human agent - a person or a group - to an action the agent acts in."""@en;
 	rdfs:domain human:Agent;
@@ -523,7 +523,7 @@ human:actsIn
 
 human:actsInValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0048/human#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/human#>;
 	rdfs:label "acts in - statement"@en, "agiert in - Festlegung"@de;
 	rdfs:comment """Relating a human agent - a person or a group - to a reification statement of the relation between the agent and an action the agent acts in."""@en;
 	rdfs:subPropertyOf agent:actsInValue;

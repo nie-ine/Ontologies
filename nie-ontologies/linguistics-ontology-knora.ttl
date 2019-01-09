@@ -7,19 +7,19 @@
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix language: <http://www.knora.org/ontology/004F/language#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix agent: <http://www.knora.org/ontology/0000/agent#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix language: <http://www.knora.org/ontology/0000/language#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/005D/linguistics>.
-@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
+@base <http://www.knora.org/ontology/0000/linguistics>.
+@prefix ling: <http://www.knora.org/ontology/0000/linguistics#>.
 
-<http://www.knora.org/ontology/005D/linguistics>
+<http://www.knora.org/ontology/0000/linguistics>
 	a owl:Ontology;
 	dct:title "An ontology about language"@en;
 	dct:description """Formal description of linguistics, general subclasses, related classes and properties."""@en;

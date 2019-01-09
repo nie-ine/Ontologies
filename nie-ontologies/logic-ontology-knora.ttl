@@ -7,19 +7,19 @@
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
-@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix agent: <http://www.knora.org/ontology/0000/agent#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
+@prefix ling: <http://www.knora.org/ontology/0000/linguistics#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/005E/logic>.
-@prefix logic: <http://www.knora.org/ontology/005E/logic#>.
+@base <http://www.knora.org/ontology/0000/logic>.
+@prefix logic: <http://www.knora.org/ontology/0000/logic#>.
 
-<http://www.knora.org/ontology/005E/logic>
+<http://www.knora.org/ontology/0000/logic>
 	a owl:Ontology;
 	dct:title "An ontology about logic"@en;
 	dct:description """Formal description of logic, general subclasses, related classes and properties."""@en;

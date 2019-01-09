@@ -4,21 +4,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix org: <http://www.knora.org/ontology/0051/organization#>.
-@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix document: <http://www.knora.org/ontology/005C/document#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix agent: <http://www.knora.org/ontology/0000/agent#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix org: <http://www.knora.org/ontology/0000/organization#>.
+@prefix infocar: <http://www.knora.org/ontology/0000/information-carrier#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix textedit: <http://www.knora.org/ontology/0000/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0056/publishing>.
-@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
+@base <http://www.knora.org/ontology/0000/publishing>.
+@prefix publish: <http://www.knora.org/ontology/0000/publishing#>.
 
-<http://www.knora.org/ontology/0056/publishing>
+<http://www.knora.org/ontology/0000/publishing>
 	a owl:Ontology;
 	dct:title "An ontology about publishing"@en;
 	dct:description """Formal description of publishing, its general subclasses, related classes and properties."""@en;
@@ -158,9 +158,7 @@ publish:FirstPublication
 	a owl:Class;
 	rdfs:label "first publication"@en, "Erstausgabe"@de;
 	rdfs:comment """Earliest publication of an expression."""@en;
-	rdfs:subClassOf publish:Publication.
-
-# human:FirstVersion
+	rdfs:subClassOf publish:Publication. # human:FirstVersion
 
 publish:LastPublication
 	a owl:Class;

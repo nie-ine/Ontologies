@@ -3,15 +3,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix org: <http://www.knora.org/ontology/0051/organization#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix org: <http://www.knora.org/ontology/0000/organization#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0043/catholic-organization>.
-@prefix cathorg: <http://www.knora.org/ontology/0043/catholic-organization#>.
+@base <http://www.knora.org/ontology/0000/catholic-organization>.
+@prefix cathorg: <http://www.knora.org/ontology/0000/catholic-organization#>.
 
-<http://www.knora.org/ontology/0043/catholic-organization>
+<http://www.knora.org/ontology/0000/catholic-organization>
 	a owl:Ontology;
 	dct:title "An ontology about catholic organization"@en;
 	dct:description """Formal description of catholic organization, general subclasses, related classes, properties, and instances."""@en;
@@ -26,14 +26,14 @@
 
 cathorg:Organization
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/catholic-organization#>;
 	rdfs:label "catholic organization"@en;
 	rdfs:comment """Organization representing a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousOrganization.
 
 cathorg:Person
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/catholic-organization#>;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousPerson, [
@@ -42,14 +42,14 @@ cathorg:Person
 
 cathorg:Order
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/catholic-organization#>;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
 	rdfs:comment """Catholic organization whose member is male and celibatarian, founded by... ."""@en; #*
 	rdfs:subClassOf cathorg:Organization.
 
 cathorg:SecularClergy
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0043/catholic-organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/catholic-organization#>;
 	rdfs:label "secular clergy"@en;
 	rdfs:comment """Catholic organization whose member does not take religious vows and does not live in an institution."""@en;
 	rdfs:subClassOf cathorg:Organization.

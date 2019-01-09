@@ -4,21 +4,21 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix language: <http://www.knora.org/ontology/004F/language#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
-@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
-@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
-@prefix logic: <http://www.knora.org/ontology/005E/logic#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix language: <http://www.knora.org/ontology/0000/language#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
+@prefix textedit: <http://www.knora.org/ontology/0000/text-editing#>.
+@prefix ling: <http://www.knora.org/ontology/0000/linguistics#>.
+@prefix logic: <http://www.knora.org/ontology/0000/logic#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0057/scholasticism>.
-@prefix schola: <http://www.knora.org/ontology/0057/scholasticism#>.
+@base <http://www.knora.org/ontology/0000/scholasticism>.
+@prefix schola: <http://www.knora.org/ontology/0000/scholasticism#>.
 
-<http://www.knora.org/ontology/0057/scholasticism>
+<http://www.knora.org/ontology/0000/scholasticism>
 	a owl:Ontology;
 	dct:title "An ontology about Scholasticism"@en;
 	dct:description """Formal description of elements in Scholasticism."""@en;

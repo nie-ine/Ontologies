@@ -3,15 +3,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
-@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
+@prefix litera: <http://www.knora.org/ontology/0000/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/004B/indology>.
-@prefix indo: <http://www.knora.org/ontology/004B/indology#>.
+@base <http://www.knora.org/ontology/0000/indology>.
+@prefix indo: <http://www.knora.org/ontology/0000/indology#>.
 
-<http://www.knora.org/ontology/004B/indology>
+<http://www.knora.org/ontology/0000/indology>
 	a owl:Ontology;
 	dct:title "An ontology about Indology"@en;
 	dct:description """Formal description of Indology, general subclasses, related classes, and properties."""@en;

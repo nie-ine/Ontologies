@@ -4,17 +4,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix document: <http://www.knora.org/ontology/005C/document#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix infocar: <http://www.knora.org/ontology/0000/information-carrier#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/004A/image>.
-@prefix image: <http://www.knora.org/ontology/004A/image#>.
+@base <http://www.knora.org/ontology/0000/image>.
+@prefix image: <http://www.knora.org/ontology/0000/image#>.
 
-<http://www.knora.org/ontology/004A/image>
+<http://www.knora.org/ontology/0000/image>
 	a owl:Ontology;
 	dct:title "An ontology about image"@en;
 	dct:description """Formal description of image as a visual resource in the broadest sense, its general subclasses, related classes, and properties."""@en;
@@ -103,7 +103,7 @@ image:hasPhotographInValue
 image:hasPhotographSourceDescription
 	a owl:ObjectProperty;
 	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
-	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;
+	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en; 
 	rdfs:subPropertyOf text:hasDescription;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue.

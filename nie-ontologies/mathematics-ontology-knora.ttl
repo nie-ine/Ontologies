@@ -3,17 +3,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix ling: <http://www.knora.org/ontology/005D/linguistics#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix ling: <http://www.knora.org/ontology/0000/linguistics#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix textedit: <http://www.knora.org/ontology/0000/text-editing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0061/mathematics>.
-@prefix math: <http://www.knora.org/ontology/0061/mathematics#>.
+@base <http://www.knora.org/ontology/0000/mathematics>.
+@prefix math: <http://www.knora.org/ontology/0000/mathematics#>.
 
-<http://www.knora.org/ontology/0061/mathematics>
+<http://www.knora.org/ontology/0000/mathematics>
 	a owl:Ontology;
 	dct:title "An ontology about mathematics"@en;
 	dct:description """Formal description of general concepts in mathematics."""@en;

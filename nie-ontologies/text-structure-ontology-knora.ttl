@@ -6,23 +6,23 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix language: <http://www.knora.org/ontology/004F/language#>.
-@prefix concept: <http://www.knora.org/ontology/0044/concept#>.
-@prefix math: <http://www.knora.org/ontology/0061/mathematics#>.
-@prefix document: <http://www.knora.org/ontology/005C/document#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
-@prefix textedit: <http://www.knora.org/ontology/005A/text-editing#>.
-@prefix infocar: <http://www.knora.org/ontology/004C/information-carrier#>.
-@prefix publish: <http://www.knora.org/ontology/0056/publishing#>.
-@prefix litera: <http://www.knora.org/ontology/0050/literature#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix language: <http://www.knora.org/ontology/0000/language#>.
+@prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix math: <http://www.knora.org/ontology/0000/mathematics#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
+@prefix textedit: <http://www.knora.org/ontology/0000/text-editing#>.
+@prefix infocar: <http://www.knora.org/ontology/0000/information-carrier#>.
+@prefix publish: <http://www.knora.org/ontology/0000/publishing#>.
+@prefix litera: <http://www.knora.org/ontology/0000/literature#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/005B/text-structure>.
-@prefix text-structure: <http://www.knora.org/ontology/005B/text-structure#>.
+@base <http://www.knora.org/ontology/0000/text-structure>.
+@prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
 
-<http://www.knora.org/ontology/005B/text-structure>
+<http://www.knora.org/ontology/0000/text-structure>
 	a owl:Ontology;
 	dct:title "An ontology about text structure"@en;
 	dct:description """Formal description of text structure, subclasses, related classes, and properties."""@en;
@@ -766,7 +766,7 @@ text-structure:isWordOfVerse
 	rdfs:comment """Relating a word to a verse it is part of."""@en;
 	rdfs:domain text-structure:Word;
 	rdfs:range text-structure:Verse;
-	rdfs:subPropertyOf concept:isPartOf; # text-structure:isWordOfLine;
+	rdfs:subPropertyOf concept:isPartOf;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint text-structure:Verse.
 
@@ -774,7 +774,7 @@ text-structure:isWordOfVerseValue
 	a owl:ObjectProperty;
 	rdfs:label "is word of verse - statement"@en, "ist Wort eines Verses - Festlegung"@de;
 	rdfs:comment """Relating a word to a reification statement of the relation between the word and a verse it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue; # text-structure:isWordOfLineValue;
+	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint text-structure:Word;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

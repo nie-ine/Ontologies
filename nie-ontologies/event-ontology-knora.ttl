@@ -7,14 +7,14 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix physical: <http://www.knora.org/ontology/0000/physical-resource#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0047/event>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
+@base <http://www.knora.org/ontology/0000/event>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
 
-<http://www.knora.org/ontology/0047/event>
+<http://www.knora.org/ontology/0000/event>
 	a owl:Ontology;
 	dct:title "An ontology about event"@en;
 	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;

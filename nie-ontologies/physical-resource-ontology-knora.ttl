@@ -9,16 +9,16 @@
 @prefix naproti: <http://sweet.jpl.nasa.gov/2.3/propTime.owl#>.
 @prefix naprospadi: <http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix phygeo: <http://www.knora.org/ontology/0054/physical-geography#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix humgeo: <http://www.knora.org/ontology/0049/human-geography#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix phygeo: <http://www.knora.org/ontology/0000/physical-geography#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix humgeo: <http://www.knora.org/ontology/0000/human-geography#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0055/physical-resource>.
-@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
+@base <http://www.knora.org/ontology/0000/physical-resource>.
+@prefix physical: <http://www.knora.org/ontology/0000/physical-resource#>.
 
-<http://www.knora.org/ontology/0055/physical-resource>
+<http://www.knora.org/ontology/0000/physical-resource>
 	a owl:Ontology;
 	dct:title """Physical Resource"""@en;
 	dct:description """Formal description of physical resource in broadest sense, general subclasses, related classes, and properties."""@en;
@@ -33,7 +33,7 @@
 
 physical:Resource
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "physical resource"@en, "physische Entität"@de;
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf knora-base:Resource, [ #* to link to cidoc:
@@ -44,7 +44,7 @@ physical:Resource
 
 physical:Space
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "space"@en, "Raum"@de;
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf physical:Resource, geo:SpatialThing, narespa:Space, [
@@ -57,14 +57,14 @@ physical:Space
 
 physical:Time
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "time"@en, "Zeit"@de;
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf physical:Resource, naproti:Time.
 
 physical:Place
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "place"@en, "Platz"@de;
 	rdfs:comment """Specific space in a positioning reference system."""@en;
 	rdfs:subClassOf physical:Space, cidoc:E53_Place, [
@@ -72,7 +72,7 @@ physical:Place
 
 physical:EarthPlace
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
 	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
 	rdfs:subClassOf physical:Place, [
@@ -83,35 +83,35 @@ physical:EarthPlace
 
 physical:Point
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "point"@en, "Punkt"@de;
 	rdfs:comment """Space without dimension."""@en;
 	rdfs:subClassOf physical:Space, geo:Point.
 
 physical:Size
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "size"@en, "Grösse"@de;
 	rdfs:comment """Spatial extent having 1 to 3 dimensions."""@en;
 	rdfs:subClassOf naprospadi:Size, knora-base:Resource.
 
 physical:Length
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "length"@en, "Länge"@de;
 	rdfs:comment """Spatial extent representing 1 dimension."""@en;
 	rdfs:subClassOf naprospadi:Length, knora-base:Resource.
 
 physical:Distance
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "distance"@en, "Abstand"@de;
 	rdfs:comment """Length of the space between two points."""@en;
 	rdfs:subClassOf physical:Length, naprospadi:Distance.
 
 physical:Matter
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "matter"@en, "Materie"@de;
 	rdfs:comment """Physical resource having mass and volume."""@en;
 	skos:note """As in classical physics observed in everyday life."""@en;
@@ -133,7 +133,7 @@ physical:Matter
 
 physical:Compound
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "compound"@en, "Mischung"@de;
 	rdfs:comment """Physical resource composed of more than 1 type of substance."""@en;
 	skos:note """This can be anything, e.g. chemical compound containing more than 1 elementary substance."""@en;
@@ -141,14 +141,14 @@ physical:Compound
 
 #physical:Specimen
 #	a owl:Class;
-#	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+#	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 #	rdfs:label "specimen"@en, "Materie"@de;
 #	rdfs:comment """Sample containing a substance for examination."""@en;
 #	rdfs:subClassOf physical:Matter.
 
 physical:Product
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "product"@en, "Produkt"@de;
 	rdfs:comment """Matter as result of producing in broadest sense, e.g. honey produced by bees."""@en;
 	rdfs:subClassOf physical:Matter.
@@ -159,7 +159,7 @@ physical:Product
 
 physical:isPartOf
 	a owl:ObjectProperty; #, owl:TransitiveProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a space to another one it is part of."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo; # cidoc:P46i_forms_part_of
@@ -168,7 +168,7 @@ physical:isPartOf
 
 physical:isPartOfValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "is part of - statement"@en, "ist Teil von - Festlegung"@de;
 	rdfs:comment "Relating a space to a reification statement of the relation between that space and another one it is part of."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
@@ -177,7 +177,7 @@ physical:isPartOfValue
 
 physical:hasSize
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "has size"@en, "hat Grösse"@de;
 	rdfs:comment "Relating a space to its size."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -186,7 +186,7 @@ physical:hasSize
 
 physical:hasSizeValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "has size - statement"@en, "hat Grösse - Festlegung"@de;
 	rdfs:comment "Relating a space to a reification statement of the relation between that space and its size."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
@@ -195,7 +195,7 @@ physical:hasSizeValue
 
 physical:hasLength
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "has length"@en, "hat Länge"@de;
 	rdfs:comment "Relating a space to its length."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
@@ -204,7 +204,7 @@ physical:hasLength
 
 physical:hasLengthValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0055/physical-resource#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/physical-resource#>;
 	rdfs:label "has length - statement"@en, "hat Länge - Festlegung"@de;
 	rdfs:comment "Relating a space to a reification statement of the relation between that space and its length."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;

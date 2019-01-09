@@ -6,17 +6,17 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.knora.org/ontology/0047/event#>.
-@prefix physical: <http://www.knora.org/ontology/0055/physical-resource#>.
-@prefix agent: <http://www.knora.org/ontology/0040/agent#>.
-@prefix human: <http://www.knora.org/ontology/0048/human#>.
-@prefix text: <http://www.knora.org/ontology/0059/text#>.
+@prefix event: <http://www.knora.org/ontology/0000/event#>.
+@prefix physical: <http://www.knora.org/ontology/0000/physical-resource#>.
+@prefix agent: <http://www.knora.org/ontology/0000/agent#>.
+@prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 
-@base <http://www.knora.org/ontology/0051/organization>.
-@prefix org: <http://www.knora.org/ontology/0051/organization#>.
+@base <http://www.knora.org/ontology/0000/organization>.
+@prefix org: <http://www.knora.org/ontology/0000/organization#>.
 
-<http://www.knora.org/ontology/0051/organization>
+<http://www.knora.org/ontology/0000/organization>
 	a owl:Ontology;
 	dct:title "An ontology about person organization"@en;
 	dct:description """Formal description of organization involving persons, general subclasses, related classes and properties."""@en;
@@ -31,7 +31,7 @@
 
 org:Organization
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "person organization"@en, "Personensorganisation"@de; #*
 	rdfs:comment """Organized group of persons."""@en;
 	skos:note """An organization can be a legal person."""@en;
@@ -45,7 +45,7 @@ org:Organization
 
 org:Role
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "organization's role"@en;
 	rdfs:comment """Role of a person organization."""@en;
 	rdfs:subClassOf human:GroupRole.
@@ -58,14 +58,14 @@ org:Creator
 
 org:Administration
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "administration"@en, "Verwaltung"@de;
 	rdfs:comment """Role of an organization administering a group of people on any level, e.g. international, national, regional or city level."""@en;
 	rdfs:subClassOf org:Role.
 
 org:ReligiousOrganization #* OR to group religions
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "religious organization"@en, "religiöse Organisation"@de;
 	rdfs:comment """Organization of religious persons."""@en;
 	rdfs:subClassOf org:Organization.
@@ -80,21 +80,21 @@ org:ReligiousPerson
 
 org:PoliticalOrganization
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "political organization"@en, "politische Organisation"@de;
 	rdfs:comment """Organization being involved in politics."""@en;
 	rdfs:subClassOf org:Organization.
 
 org:Politician
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "politician role"@en, "Politiker-Rolle"@de;
 	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
 	rdfs:subClassOf human:OccupationalRole.
 
 org:Company
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "company"@en, "Betrieb"@de;
 	rdfs:comment """Organization having primarily an economical role."""@en;
 	rdfs:subClassOf org:Organization.
@@ -119,7 +119,7 @@ org:Library
 
 org:MasonicLodge
 	a owl:Class;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "Masonic lodge"@en, "Freimaurerloge"@de;
 	rdfs:comment """Organizational unit of Freemasonry."""@en;
 	rdfs:subClassOf org:Organization.
@@ -140,7 +140,7 @@ org:hasName
 
 org:actsIn
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "person organization acts in"@en, "Personensorganisation agiert in"@de;
 	rdfs:comment """Relating a person organization to an action it acts in."""@en;
 	rdfs:domain org:Organization;
@@ -151,7 +151,7 @@ org:actsIn
 
 org:actsInValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "person organization acts in - statement"@en, "Personensorganisation agiert in - Festlegung"@de;
 	rdfs:comment """Relating a person organization to a reification statement of the relation between the organization and an action it is acting in."""@en;
 	rdfs:subPropertyOf human:actsInValue;
@@ -160,7 +160,7 @@ org:actsInValue
 
 org:hasRole
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "person organization has role"@en, "Personensorganisation hat Rolle"@de;
 	rdfs:comment """Relating a person organization to a role it has."""@en;
 	rdfs:domain org:Organization;
@@ -171,7 +171,7 @@ org:hasRole
 
 org:hasRoleValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "person organization has role - statement"@en, "Personensorganisation hat Rolle - Festlegung"@de;
 	rdfs:comment """Relating a person organization to a reification statement of the relation between the organization and a role it has."""@en;
 	rdfs:subPropertyOf human:groupHasRoleValue;
@@ -180,7 +180,7 @@ org:hasRoleValue
 
 org:isMemberOf
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of person organization"@en, "ist Mitglied einer Personensorganisation"@de;
 	rdfs:comment """Relating a person to an organization the person is a member of."""@en;
 	rdfs:domain human:Person;
@@ -191,7 +191,7 @@ org:isMemberOf
 
 org:isMemberOfValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of person organization - statement"@en, "ist Mitglied einer Personensorganisation - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and an organization the person is a member of."""@en;
 	rdfs:subPropertyOf human:isMemberOfValue;
@@ -202,7 +202,7 @@ org:isMemberOfValue
 
 org:isMemberOfReligiousOrganization
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of religious organization"@en, "ist Mitglied einer religiösen Organization"@de;
 	rdfs:comment """Relating a person to a religious organization the person is a member of."""@en;
 	rdfs:domain org:ReligiousPerson;
@@ -213,7 +213,7 @@ org:isMemberOfReligiousOrganization
 
 org:isMemberOfReligiousOrganizationValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of religious organization - statement"@en, "ist Mitglied einer religiösen Organization - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and a religious organization the person is a member of."""@en;
 	rdfs:subPropertyOf org:isMemberOfValue;
@@ -222,7 +222,7 @@ org:isMemberOfReligiousOrganizationValue
 
 org:isMemberOfAdministration
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of administration"@en, "ist Mitglied einer Verwaltung"@de;
 	rdfs:comment """Relating a person to an administration organization the person is a member of."""@en;
 	rdfs:domain human:Person;
@@ -233,7 +233,7 @@ org:isMemberOfAdministration
 
 org:isMemberOfAdministrationValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of administration - statement"@en, "ist Mitglied einer Verwaltung - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and an administration organization the person is a member of."""@en;
 	rdfs:subPropertyOf org:isMemberOfValue;
@@ -242,7 +242,7 @@ org:isMemberOfAdministrationValue
 
 org:isMemberOfCompany
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of company"@en, "ist Mitglied einer Firme"@de;
 	rdfs:comment """Relating a person to a company the person is a member of."""@en;
 	rdfs:domain human:Person;
@@ -253,7 +253,7 @@ org:isMemberOfCompany
 
 org:isMemberOfCompanyValue
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.knora.org/ontology/0051/organization#>;
+	#rdfs:isDefinedBy <http://www.knora.org/ontology/0000/organization#>;
 	rdfs:label "is member of company - statement"@en, "ist Mitglied einer Firme - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and a company the person is a member of."""@en;
 	rdfs:subPropertyOf org:isMemberOfValue;

@@ -19,7 +19,7 @@
 	dct:contributor "Magdalena Plamada, PhD, Zürich University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/004B>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/004B>.
 
 #
 # CLASSES

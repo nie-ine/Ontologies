@@ -24,7 +24,7 @@
 	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
 #	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0046>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0046>.
 
 #
 # CLASSES

@@ -132,8 +132,8 @@ send "load ../_test_data/ontologies/woelfflin-ontology-knora.ttl into http://www
 expect $prompt
 send "load ../_test_data/ontologies/parzival-ontology-knora.ttl into http://www.knora.org/ontology/0067/parzival .\r"
 expect $prompt
-send "load ../_test_data/ontologies/languages-ontology-knora.ttl into http://www.knora.org/ontology/0000/languages .\r"
-expect $prompt
+# send "load ../_test_data/ontologies/languages-ontology-knora.ttl into http://www.knora.org/ontology/0000/languages .\r"
+# expect $prompt
 
 send "close .\r"
 expect $prompt

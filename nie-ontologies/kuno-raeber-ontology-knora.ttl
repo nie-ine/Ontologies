@@ -27,7 +27,7 @@
 	dct:description """Formal description of elements in the online publication of the lyric work of the Swiss poet Kuno Raeber."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/004D>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/004D>.
 
 #
 # CLASSES

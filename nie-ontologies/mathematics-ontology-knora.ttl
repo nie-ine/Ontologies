@@ -21,7 +21,7 @@
 	dct:contributor "."@en;
 	dct:publisher "University of Basel, Switzerland"@en;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0061>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0061>.
 
 
 # EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements

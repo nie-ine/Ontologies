@@ -13,7 +13,7 @@
 <http://www.knora.org/ontology/005F/test>
 	a owl:Ontology;
 	
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/005F>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/005F>.
 
 #
 # CLASSES

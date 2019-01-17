@@ -19,7 +19,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0050>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0050>.
 
 #
 # CLASSES

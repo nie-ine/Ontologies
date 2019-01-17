@@ -31,7 +31,7 @@
 	dct:publisher "Basel University, Switzerland"@en;
 #	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/005A>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/005A>.
 
 #
 # CLASSES

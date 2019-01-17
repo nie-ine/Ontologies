@@ -18,7 +18,7 @@
 	dct:contributor "Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0064>.
+	knora-base:attachedToProject <http://rdfh.ch/projects/0064>.
 
 #
 # CLASSES

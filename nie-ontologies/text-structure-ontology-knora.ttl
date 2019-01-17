@@ -31,7 +31,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/005B>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/005B>.
 
 #
 # CLASSES
@@ -201,13 +201,20 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
 
-text-structure:Prologue
+# Prefazione - Avant-propos - preface: explain text genesis by author, dif per pub => KR, ext;
+# postface: wiki
+# preamble : not the author, ext.
+# introduction: no lit., int
+
+# 
+
+text-structure:Prologue # -> Introduction ? / more in lit., in text, by author
 	a owl:Class;
 	rdfs:label "prologue"@en, "Vorwort"@de;
 	rdfs:comment """Introductory text."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
-text-structure:Epilogue
+text-structure:Epilogue # int, by author
 	a owl:Class;
 	rdfs:label "epilogue"@en, "Nachwort"@de;
 	rdfs:comment """Concluding text."""@en;

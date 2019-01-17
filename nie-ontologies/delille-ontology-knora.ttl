@@ -22,7 +22,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/0060>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0060>.
 
 #
 # CLASSES
@@ -58,6 +58,20 @@ delille:Commentary
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text:Commentary.
+
+delille:PublicationPoem
+	a owl:Class;
+	rdfs:label "publication poem"@en, "Publikation-Gedicht"@de; #, ""@fr, ""@it;
+	rdfs:comment """Publication poem wherein a poem authored by Jacques Delille is cited."""@en;
+	rdfs:subClassOf publish:Expression, litera:Poem.
+
+delille:PublicationNovel
+	a owl:Class;
+	rdfs:label "publication novel"@en, "Publikation-Roman"@de; #, ""@fr, ""@it;
+	rdfs:comment """Publication novel wherein a poem authored by Jacques Delille is cited."""@en;
+	rdfs:subClassOf publish:Expression, litera:Novel.
+
+# image
 
 #
 # PROPERTIES

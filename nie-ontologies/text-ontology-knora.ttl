@@ -33,7 +33,7 @@
 	dct:publisher "Basel University, Switzerland"@en;
 #	skos:note """Representation of an otherwise literal data element as object enabling relating it to other data"""@en.
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/0059>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0059>.
 
 #
 # CLASSES
@@ -144,6 +144,8 @@ text:Expression
 	rdfs:comment """Document expression as text."""@en;
 	rdfs:subClassOf document:Expression, text:Text, [
 		a owl:Restriction; owl:onProperty text:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -163,9 +165,7 @@ text:IndividualExpression
 	a owl:Class;
 	rdfs:label "individual text expression"@en, "individuelle Text-Expression"@de;
 	rdfs:comment """Text as individual expression."""@en;
-	rdfs:subClassOf text:Expression, document:IndividualExpression, [
-		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Expression, document:IndividualExpression.
 
 text:ExpressionPart
 	a owl:Class;
@@ -181,6 +181,12 @@ text:Author
 	rdfs:comment """Role of a person being responsible for a text expression."""@en;
 	skos:note """Often an author is also the creator of a text expression."""@en;
 	rdfs:subClassOf human:Author.
+
+text:MainAuthor
+	a owl:Class;
+	rdfs:label "main text author"@en, "Haupttextautor"@de; # , "auteur du texte"@fr, "autore di testo"@it;
+	rdfs:comment """Role of a person being the main responsible person for a text expression."""@en;
+	rdfs:subClassOf text:Author.
 
 text:ManOfLetters
 	a owl:Class;
@@ -598,7 +604,7 @@ text:expressionHasTitle
 	rdfs:label "text expression has title"@en, "Text-Expression hat Titel"@de;
 	rdfs:comment """Relating a text expression to a title it has."""@en;
 	rdfs:domain text:Expression;
-#	rdfs:range doc:Literal;
+#	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue.
@@ -626,16 +632,20 @@ text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
 	rdfs:comment """Relating an untitled individual text expression to a beginning part thereof to identify the text."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText;
-	knora-base:subjectClassConstraint text:IndividualExpression;
+	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
 text:hasExplicit
 	a owl:ObjectProperty;
 	rdfs:label "has explicit"@en, "hat Explicit"@de;
 	rdfs:comment """Relating an untitled individual text expression to an end part thereof to identify the text."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText;
-	knora-base:subjectClassConstraint text:IndividualExpression;
+	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
 text:hasScientificEditor

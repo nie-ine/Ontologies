@@ -8,7 +8,7 @@
 
 <http://www.knora.org/ontology/004E/kuno-raeber-gui> a owl:Ontology;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/004E>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/004E>.
 
 # Just needed for search due to limits of the implementation of Semantic Web technology (SPARQL) in Knora1(?)
 

@@ -19,7 +19,7 @@
 	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/0050>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/0050>.
 
 #
 # CLASSES
@@ -121,7 +121,15 @@ litera:Expression
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
 	rdfs:subClassOf text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty litera:hasGenreValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:isPartOfAnthology; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:isPartOfAnthologyValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+litera:Anthology
+	a owl:Class;
+	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
+	rdfs:comment """Collection of literary publication expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
+	rdfs:subClassOf document:Expression.
 
 litera:Poem
 	a owl:Class;
@@ -253,6 +261,24 @@ litera:hasGenreValue
 	rdfs:label "has literary genre - statement"@en, "hat literarische Gattung - Festlegung"@de;
 	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and a genre it has."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:isPartOfAnthology
+	a owl:ObjectProperty;
+	rdfs:label "is part of anthology"@en, "ist Teil einer Anthologie"@de;
+	rdfs:comment """Relating a literary expression to an anthology it is part of."""@en;
+	rdfs:domain litera:Expression;
+	rdfs:range litera:Anthology;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint litera:Expression;
+	knora-base:objectClassConstraint litera:Anthology.
+
+litera:isPartOfAnthologyValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of anthology - statement"@en, "ist Teil einer Anthologie - Festlegung"@de;
+	rdfs:comment """Relating a literary expression to a reification statement of the relation between the expression and an anthology it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint litera:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

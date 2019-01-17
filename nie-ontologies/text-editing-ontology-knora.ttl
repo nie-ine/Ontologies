@@ -31,7 +31,7 @@
 	dct:publisher "Basel University, Switzerland"@en;
 #	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>;
 
-	knora-base:attachedToProject <http://rdfh.ch/projects/005A>.
+	knora-base:attachedToProject <http://www.knora.org/ontology/knora-base#DefaultSharedOntologiesProject>. # <http://rdfh.ch/projects/005A>.
 
 #
 # CLASSES
@@ -149,7 +149,7 @@ textedit:CriticalEditor
 	rdfs:comment """Role of being a scientist editing a text expression in a critical scientific way."""@en;
 	rdfs:subClassOf human:Scientist, human:PersonCreator.
 
-textedit:CriticalEdition
+textedit:CriticalEdition # + CA
 	a owl:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
 	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;

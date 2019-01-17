@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix physical: <http://www.knora.org/ontology/0000/physical-resource#>.
 @prefix event: <http://www.knora.org/ontology/0000/event#>.
 @prefix agent: <http://www.knora.org/ontology/0000/agent#>.
 @prefix human: <http://www.knora.org/ontology/0000/human#>.
@@ -194,7 +195,7 @@ publish:Serial
 	rdfs:comment """Successive publication with same title, usually numbered and/or dated, issued at a regular or irregular interval, without predetermined conclusion."""@en;
 #	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
 	rdfs:subClassOf publish:Publication, [
-		a owl:Restriction; owl:onProperty publish:isPartOfVolume Archive; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty publish:isPartOfVolume; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:isPartOfVolumeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 publish:SerialVolume
@@ -218,7 +219,7 @@ publish:Newspaper
 
 publish:Periodical
 	a owl:Class;
-	rdfs:label "periodical publication"@en, "Zeitschrift"@de, "périodique"@fr "periodico"@it;
+	rdfs:label "periodical publication"@en, "Zeitschrift"@de, "périodique"@fr, "periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
 #	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
 	rdfs:subClassOf publish:Serial. # infocar:Book
@@ -646,10 +647,10 @@ publish:isPartOfVolume
 	rdfs:label "is part of volume"@en, "ist Teil eines Volumens"@de;
 	rdfs:comment """Relating a periodical to a volume it is part of."""@en;
 	rdfs:domain publish:Serial;
-	rdfs:range publish:PeriodicalVolume;
+	rdfs:range publish:SerialVolume;
 	rdfs:subPropertyOf physical:isPartOf;
 	knora-base:subjectClassConstraint publish:Serial;
-	knora-base:objectClassConstraint publish:PeriodicalVolume.
+	knora-base:objectClassConstraint publish:SerialVolume.
 
 publish:isPartOfVolumeValue
 	a owl:ObjectProperty;

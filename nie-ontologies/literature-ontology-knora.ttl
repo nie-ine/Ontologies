@@ -4,6 +4,7 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.knora.org/ontology/0000/human#>.
 @prefix concept: <http://www.knora.org/ontology/0000/concept#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
 @prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -128,7 +129,7 @@ litera:Expression
 litera:Anthology
 	a owl:Class;
 	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
-	rdfs:comment """Collection of literary publication expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
+	rdfs:comment """Collection of literary expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
 	rdfs:subClassOf document:Expression.
 
 litera:Poem

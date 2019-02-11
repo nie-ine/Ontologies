@@ -28,10 +28,6 @@
 
 	knora-base:attachedToProject <http://rdfh.ch/projects/005E>.
 
-
-# EMBRYONIC: declared 'middle-out', on the go as concepts are needed, not intended to contain upfront all elements
-
-
 #
 # CLASSES
 #
@@ -58,7 +54,7 @@ logic:Conclusion
 logic:Argument
 	a owl:Class;
 	rdfs:label "argument"@en, "Argument"@de;
-	rdfs:comment """Premises presenting a reason for accepting a conclusion."""@en;
+	rdfs:comment """Premise(s) presenting a reason for accepting a conclusion."""@en;
 	rdfs:subClassOf text-structure:Paragraph.
 
 # Independent of natural language: logic, mathematics, computer science

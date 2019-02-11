@@ -53,6 +53,8 @@ text:Text
 		a owl:Restriction; owl:onProperty text:hasRevisorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasTranscriberValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasVulgarizer; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasVulgarizerValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCiter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCiterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -77,6 +79,20 @@ text:Text
 		a owl:Restriction; owl:onProperty textedit:hasSameEditionAsValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Draft
+	a owl:Class;
+	rdfs:label "draft"@en, "Entwurf"@de;
+	rdfs:comment """Developmental text expression."""@en;
+	rdfs:subClassOf text:Text, human:CreationVersion.
+
+text:Development
+	a owl:Class;
+	rdfs:label "text development"@en, "Text-Entwicklung"@de;
+	rdfs:comment """Action wherein a person(s) creates text resulting in different manifestation, e.g. from notebook to manuscript to typescript to published print."""@en;
+	rdfs:subClassOf human:Creating, [
+		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty event:hasStageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:WrittenText
 	a owl:Class;
@@ -126,6 +142,12 @@ text:PrintedText
 		a owl:Restriction; owl:onProperty infocar:isInPrint; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInPrintValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+text:Translation
+	a owl:Class;
+	rdfs:label "text translation"@en, "Textübersetzung"@de, "traduction de texte"@fr, "traduzione di testi"@it;
+	rdfs:comment """Translation from text to text."""@en;
+	rdfs:subClassOf text:Text, language:Translation. #, event:Output.
+
 text:Nonfiction
 	a owl:Class;
 	rdfs:label "nonfiction text"@en, "Sachtext"@de;
@@ -148,6 +170,8 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCommentator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasCommentatorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -160,6 +184,14 @@ text:Expression
 		a owl:Restriction; owl:onProperty textedit:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:PolyAuthorExpression
+	a owl:Class;
+	rdfs:label "poly-author text expression"@en, "Mehrautorentext-Expression"@de;
+	rdfs:comment """Text expression by different authors."""@en;
+	rdfs:subClassOf text:Expression, [
+		a owl:Restriction; owl:onProperty text:hasMainAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasMainAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:IndividualExpression
 	a owl:Class;
@@ -174,6 +206,26 @@ text:ExpressionPart
 	rdfs:subClassOf text:Expression, document:ExpressionPart, [
 		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Introduction
+	a owl:Class;
+	rdfs:label "text introduction"@en, "Texteinleitung"@de;
+	rdfs:comment """Beginning section of a text expression, usually written by the (main) author, stating e.g. the subject, purpose and limits of its main section; usually remaining unchanged."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart.
+
+text:Body
+	a owl:Class;
+	rdfs:label "text body"@en, "Texthauptteil"@de;
+	rdfs:comment """Main section of a text expression, e.g. including footnotes and illustrations but excluding the front matter and back matter."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart.
+
+text:Conclusion
+	a owl:Class;
+	rdfs:label "text conclusion"@en, "Textkonklusion"@de;
+	rdfs:comment """Concluding section of a text expression."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart.
 
 text:Author
 	a owl:Class;
@@ -212,11 +264,18 @@ text:Translator
 	rdfs:comment """Role of a person translating text by writing or printing."""@en;
 	rdfs:subClassOf language:PersonTranslator.
 
-text:Copyist # -> text:Transcriber
+text:Copyist
 	a owl:Class;
 	rdfs:label "copyist"@en, "Kopist"@de, "copiste"@fr, "copista"@it, "scribes"@la; # "scribe"@en, "Schreiber"@de;
+#	ling:hasSynonym "transcriber"@de;
 	rdfs:comment """Role of a person copying text by writing."""@en;
 	rdfs:subClassOf human:PersonCreator.
+
+text:Vulgarizer
+	a owl:Class;
+	rdfs:label "text vulgarizer"@en, "Text-VulgarisatorIn"@de, "vulgarisat-eur/rice du texte"@fr;
+	rdfs:comment """Role of a person vulgarizing a text, e.g. a scientific one, or creating one using vulgarizing terminology."""@en;
+	rdfs:subClassOf human:Vulgarizer.
 
 text:AgentCiter
 	a owl:Class;
@@ -239,9 +298,9 @@ text:OrganizationCiter
 text:Citation
 	a owl:Class;
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
-	rdfs:comment """Copy of a text expression, or part of it, in another one with reference to the former."""@en; #°
+	rdfs:comment """Copy of a text expression, or part of it, in another text expression, with reference to the first expression."""@en;
 	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the source reference and the citation."""@en;
-	rdfs:subClassOf text-structure:Structure, [
+	rdfs:subClassOf text-structure:ContentStructure, [
 		a owl:Restriction; owl:onProperty text:citationHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasReferenceValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:citationHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -281,7 +340,7 @@ text:DiaryEntry
 	a owl:Class;
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione del diario"@it;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
-	rdfs:subClassOf text:IndividualExpression, [
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:IndividualExpression, [
 		a owl:Restriction; owl:onProperty text:isEntryOfDiaryExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isEntryOfDiaryExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:entryIsInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -304,34 +363,58 @@ text:LetterExpression
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+text:Commentator
+	a owl:Class;
+	rdfs:label "commentator"@en, "KommentatorIn"@de;
+	rdfs:comment """Role of a person commenting on a text expression."""@en;
+	rdfs:subClassOf human:PersonRole.
+
 text:Commentary
 	a owl:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
-	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
-	rdfs:subClassOf text:IndividualExpression.
+	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of another text expression."""@en;
+	rdfs:subClassOf text:IndividualExpression, [
+		a owl:Restriction; owl:onProperty text:isCommentaryOn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isCommentaryOnValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-text:Draft
+text:Article
 	a owl:Class;
-	rdfs:label "draft"@en, "Entwurf"@de;
-	rdfs:comment """Developmental text expression."""@en;
-	rdfs:subClassOf text:Text, human:CreationVersion.
-
-text:Development
-	a owl:Class;
-	rdfs:label "text development"@en, "Text-Entwicklung"@de;
-	rdfs:comment """Action wherein a person(s) creates text resulting in different manifestation, e.g. from notebook to manuscript to typescript to published print."""@en;
-	rdfs:subClassOf human:Creating, [
-		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty event:hasStageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-#° extrinsic feature: carrier, typescript, system of signs, diacritical eg. &
-#° intrinsic: formal content
+	rdfs:label "article"@en, "Artikel"@de, "article"@fr, "articolo"@it;
+	rdfs:comment """Text expression about a defined (main) subject."""@en;
+	rdfs:subClassOf text:IndividualExpression, [
+		a owl:Restriction; owl:onProperty text:isArticleAbout; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isArticleAboutValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Biography
 	a owl:Class;
 	rdfs:label "biography"@en, "Biographie"@de; #*
 	rdfs:comment """Text expression about a person's life."""@en;
 	rdfs:subClassOf text:IndividualExpression.
+
+text:Manual
+	a owl:Class;
+	rdfs:label "manual"@en, "Handbuch"@de, "manuel"@fr, "manuale"@it;
+	rdfs:comment """Text expression providing procedural infromation."""@en;
+	rdfs:subClassOf text:IndividualExpression.
+
+text:ScientificExpression
+	a owl:Class;
+	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
+	rdfs:comment """Text expression with scientific content."""@en;
+	rdfs:subClassOf text:IndividualExpression.
+
+text:VulgarizedScientificExpression
+	a owl:Class;
+	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de;
+	rdfs:comment """Text expression with vulgarized scientific content."""@en;
+	rdfs:subClassOf text:ScientificExpression.
+
+text:Dictionary
+	a owl:Class;
+	rdfs:label "dictionary"@en, "Wörterbuch"@de;
+	rdfs:comment """List of brief explanatory entries for terms of a human natural language, belonging to a certain domain, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text:IndividualExpression. # text:ReferenceExpression
 
 #
 # PROPERTIES
@@ -509,6 +592,24 @@ text:hasTranscriberValue
 	knora-base:subjectClassConstraint text:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text:hasVulgarizer
+	a owl:ObjectProperty;
+	rdfs:label "text has vulgarizer"@en, "Text hat VulgarisatorIn"@de;
+	rdfs:comment """Relating a text to a person who vulgarized it."""@en;
+	rdfs:domain text:Text;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Vulgarizer]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasVulgarizerValue
+	a owl:ObjectProperty;
+	rdfs:label "text has vulgarizer - statement"@en, "Text hat VulgarisatorIn - Festlegung"@de;
+	rdfs:comment """Relating a text to a reification statement of the relation between the text and a person who vulgarized it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Text;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text:hasCiter
 	a owl:ObjectProperty;
 	rdfs:label "has citer"@en, "hat ZitiererIn"@de;
@@ -609,25 +710,6 @@ text:expressionHasTitle
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue.
 
-text:hasAuthor
-	a owl:ObjectProperty;
-	rdfs:label "text has author"@en, "Text hat Autor"@de;
-	rdfs:comment """Relating a text expression to a person who authored it."""@en;
-	skos:note """A text can have more than one author."""@en;
-	rdfs:domain text:Expression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Author]];
-	rdfs:subPropertyOf human:hasAuthor;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint human:Person.
-
-text:hasAuthorValue
-	a owl:ObjectProperty;
-	rdfs:label "text has author - statement"@en, "Text hat Autor - Festlegung"@de;
-	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who authored it."""@en;
-	rdfs:subPropertyOf human:hasAuthorValue;
-	knora-base:subjectClassConstraint text:Expression;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
 text:hasIncipit
 	a owl:ObjectProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de;
@@ -647,6 +729,43 @@ text:hasExplicit
 	rdfs:subPropertyOf text:hasText;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:TextValue.
+
+text:hasAuthor
+	a owl:ObjectProperty;
+	rdfs:label "text has author"@en, "Text hat Autor"@de;
+	rdfs:comment """Relating a text expression to a person who authored it."""@en;
+	skos:note """A text can have more than one author."""@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Author]];
+	rdfs:subPropertyOf human:hasAuthor;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasAuthorValue
+	a owl:ObjectProperty;
+	rdfs:label "text has author - statement"@en, "Text hat Autor - Festlegung"@de;
+	rdfs:comment """Relating a text expression to a reification statement of the relation between the text and a person who authored it."""@en;
+	rdfs:subPropertyOf human:hasAuthorValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:hasCommentator
+	a owl:ObjectProperty;
+	rdfs:label "text expression has commentator"@en, "Text-Expression hat KommentatorIn"@de;
+	rdfs:comment "Relating a text expression to a person who commented on it."@en;
+	rdfs:domain text:Expression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Commentator]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasCommentatorValue
+	a owl:ObjectProperty;
+	rdfs:label "text expression has commentator - statement"@en, "Text-Expression hat KommentatorIn - Festlegung"@de;
+	rdfs:comment "Relating a text expression to a reification statement of the relation between the expression and person who commented on it."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text:hasScientificEditor
 	a owl:ObjectProperty;
@@ -682,6 +801,24 @@ text:hasCriticalEditorValue
 	rdfs:comment "Relating a text expression to a reification statement of the relation between the expression and person who edited it critically."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:hasMainAuthor
+	a owl:ObjectProperty;
+	rdfs:label "has main author"@en, "hat Hauptautor"@de;
+	rdfs:comment """Relating a poly-author text expression to its main author."""@en;
+	rdfs:domain text:PolyAuthorExpression;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:MainAuthor]];
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:PolyAuthorExpression;
+	knora-base:objectClassConstraint human:Person.
+
+text:hasMainAuthorValue
+	a owl:ObjectProperty;
+	rdfs:label "has main author - statement"@en, "hat  Hauptautor - Festlegung"@de;
+	rdfs:comment """Relating a poly-author text expression to a reification statement of the relation between the expression and its main author."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:PolyAuthorExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 text:isPartOfIndividualExpression
@@ -726,7 +863,7 @@ text:citationHasIdentifier
 	rdfs:comment """Relating a citation to its identifier."""@en;
 	rdfs:domain text:Citation;
 	rdfs:range text:CitationIdentifier;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf knora-base:hasLinkTo; # text-structure:hasIdentifier
 	knora-base:subjectClassConstraint text:Citation;
 	knora-base:objectClassConstraint text:CitationIdentifier.
 
@@ -734,7 +871,7 @@ text:citationHasIdentifierValue
 	a owl:ObjectProperty;
 	rdfs:label "citation has identifier - statement"@en, "Zitat hat Identifikator - Festlegung"@de;
 	rdfs:comment """Relating a citation to a reification statement of the relation between the citation and its identifier."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf knora-base:hasLinkToValue; # text-structure:hasIdentifierValue
 	knora-base:subjectClassConstraint text:Citation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -808,4 +945,40 @@ text:isEntryOfDiaryExpressionValue
 	rdfs:comment """Relating a diary entry to a reification statement of the relation between that entry and its diary expression."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint text:DiaryEntry;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isCommentaryOn
+	a owl:ObjectProperty;
+	rdfs:label "is commentary on"@en, "ist Kommentar zu"@de;
+	rdfs:comment """Relating a commentary to a text expression it comments on."""@en;
+	rdfs:domain text:Commentary;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint text:Commentary;
+	knora-base:objectClassConstraint text:Expression.
+
+text:isCommentaryOnValue
+	a owl:ObjectProperty;
+	rdfs:label "is commentary on - statement"@en, "ist Kommentar zu - Festlegung"@de;
+	rdfs:comment """Relating a commentary to a reification statement of the relation between the commentary and a text expression it comments on."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint text:Commentary;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isArticleAbout
+	a owl:ObjectProperty;
+	rdfs:label "is article about"@en, "ist Artikel über"@de;
+	rdfs:comment """Relating an article to a subject it is about."""@en;
+	rdfs:domain text:Article;
+	rdfs:range rdfs:Resource;
+	rdfs:subPropertyOf concept:informationHasSubject;
+	knora-base:subjectClassConstraint text:Article;
+	knora-base:objectClassConstraint knora-base:Resource.
+
+text:isArticleAboutValue
+	a owl:ObjectProperty;
+	rdfs:label "is article about - statement"@en, "ist Artikel über - Festlegung"@de;
+	rdfs:comment """Relating an article to a reification statement of the relation between the article and a subject it is about."""@en;
+	rdfs:subPropertyOf concept:informationHasSubjectValue;
+	knora-base:subjectClassConstraint text:Article;
 	knora-base:objectClassConstraint knora-base:LinkValue.

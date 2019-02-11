@@ -121,13 +121,6 @@ textedit:ScientificEdition
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasScientificEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-textedit:ConstitutedEdition
-	a owl:Class;
-	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de;
-#	ling:hasSynonym "Lesetext"@de;
-	rdfs:comment """Plain text expression as endresult of scientific editing of another text expression."""@en;
-	rdfs:subClassOf textedit:ScientificEdition.
-
 textedit:DiplomaticTranscription
 	a owl:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
@@ -149,10 +142,10 @@ textedit:CriticalEditor
 	rdfs:comment """Role of being a scientist editing a text expression in a critical scientific way."""@en;
 	rdfs:subClassOf human:Scientist, human:PersonCreator.
 
-textedit:CriticalEdition # + CA
+textedit:CriticalEdition
 	a owl:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
-	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, allowing readers to assess the editor's choice."""@en;
+	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, using a critical apparatus, allowing readers to assess the editor's choice."""@en;
 	rdfs:subClassOf textedit:ScientificEdition, [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty textedit:hasCriticalEditorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
@@ -164,6 +157,13 @@ textedit:GeneticEdition
 	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
 	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
 	rdfs:subClassOf textedit:CriticalEdition.
+
+textedit:ConstitutedEdition
+	a owl:Class;
+	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de;
+#	ling:hasSynonym "Lesetext"@de;
+	rdfs:comment """Plain text expression as endresult of critical editing of another text expression."""@en;
+	rdfs:subClassOf textedit:ScientificEdition.
 
 textedit:EditorialStructure
 	a owl:Class;

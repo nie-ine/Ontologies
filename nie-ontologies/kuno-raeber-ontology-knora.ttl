@@ -60,41 +60,41 @@ kuno-raeber:PublicationTextPart
 		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-kuno-raeber:Prologue
+kuno-raeber:Preface
 	a owl:Class;
-	rdfs:label "Kuno Raeber prologue"@en, "Vorwort Kuno Raebers"@de;
-	rdfs:comment """Prologue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text-structure:Prologue, text:Nonfiction, kuno-raeber:Text.
+	rdfs:label "Kuno Raeber preface"@en, "Vorwort Kuno Raebers"@de;
+	rdfs:comment """Preface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf litera:Preface, text:Nonfiction, kuno-raeber:Text.
 
-kuno-raeber:DraftHandwrittenPrologue
+kuno-raeber:DraftHandwrittenPreface
 	a owl:Class;
-	rdfs:label "Kuno Raeber draft handwritten prologue"@en, "handgeschriebener Vorwort-Entwurf Kuno Raebers"@de;
-	rdfs:comment """Draft handwritten prologue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Prologue, text:HandwrittenText, text:Draft.
+	rdfs:label "Kuno Raeber draft handwritten preface"@en, "handgeschriebener Vorwort-Entwurf Kuno Raebers"@de;
+	rdfs:comment """Draft handwritten preface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Preface, text:HandwrittenText, text:Draft.
 
-kuno-raeber:TypewrittenPrologue
+kuno-raeber:TypewrittenPreface
 	a owl:Class;
-	rdfs:label "Kuno Raeber typewritten prologue"@en, "maschinengeschriebener Vorwort Kuno Raebers"@de;
-	rdfs:comment """Typewritten prologue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Prologue, text:TypewrittenText.
+	rdfs:label "Kuno Raeber typewritten preface"@en, "maschinengeschriebener Vorwort Kuno Raebers"@de;
+	rdfs:comment """Typewritten preface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Preface, text:TypewrittenText.
 
-kuno-raeber:PublicationPrologue
+kuno-raeber:PublicationPreface
 	a owl:Class;
-	rdfs:label "Kuno Raeber publication prologue"@en, "Publikation-Vorwort Kuno Raebers"@de;
-	rdfs:comment """Publication prologue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Prologue, publish:Expression.
+	rdfs:label "Kuno Raeber publication preface"@en, "Publikation-Vorwort Kuno Raebers"@de;
+	rdfs:comment """Publication preface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Preface, publish:Expression.
 
-kuno-raeber:Epilogue
+kuno-raeber:Postface
 	a owl:Class;
-	rdfs:label "Kuno Raeber epilogue"@en, "Nachwort Kuno Raebers"@de;
-	rdfs:comment """Epilogue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text-structure:Epilogue, text:Nonfiction, kuno-raeber:Text.
+	rdfs:label "Kuno Raeber postface"@en, "Nachwort Kuno Raebers"@de;
+	rdfs:comment """Postface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf litera:Postface, text:Nonfiction, kuno-raeber:Text.
 
-kuno-raeber:TypewrittenEpilogue
+kuno-raeber:TypewrittenPostface
 	a owl:Class;
-	rdfs:label "Kuno Raeber typewritten epilogue"@en, "maschinengeschriebener Nachwort Kuno Raebers"@de;
-	rdfs:comment """Typewritten epilogue authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Epilogue, text:TypewrittenText.
+	rdfs:label "Kuno Raeber typewritten postface"@en, "maschinengeschriebener Nachwort Kuno Raebers"@de;
+	rdfs:comment """Typewritten postface authored by Kuno Raeber."""@en;
+	rdfs:subClassOf kuno-raeber:Postface, text:TypewrittenText.
 
 kuno-raeber:PublicationMotto
 	a owl:Class;
@@ -215,6 +215,13 @@ kuno-raeber:PoemNotebook
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfManuscriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:containsEarlierStagesOfTypescriptConvoluteValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+kuno-raeber:StillImageRepresentation
+	a owl:Class;
+	rdfs:label "still image representation"@en, "Foto-Repräsentation"@de;
+	rdfs:comment """Directory containing still images."""@en;
+	skos:note """DHL knora application-specific entity."""@en;
+	rdfs:subClassOf knora-base:StillImageRepresentation.
 
 kuno-raeber:Manuscript
 	a owl:Class;

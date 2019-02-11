@@ -4,6 +4,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.knora.org/ontology/0000/human#>.
+@prefix language: <http://www.knora.org/ontology/0000/language#>.
+@prefix teach: <http://www.knora.org/ontology/0000/teaching#>.
+@prefix document: <http://www.knora.org/ontology/0000/document#>.
 @prefix text: <http://www.knora.org/ontology/0000/text#>.
 @prefix text-structure: <http://www.knora.org/ontology/0000/text-structure#>.
 @prefix textedit: <http://www.knora.org/ontology/0000/text-editing#>.
@@ -31,46 +34,117 @@
 
 delille:VersePoem
 	a owl:Class;
-	rdfs:label "Jacques Delille verse poem"@en, "Jacques Delille-Versgedicht"@de;
+	rdfs:label "Jacques Delille verse poem"@en, "Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf litera:VersePoem.
+	rdfs:subClassOf litera:VersePoem, publish:Expression.
+
+delille:TranslatedVersePoem
+	a owl:Class;
+	rdfs:label "Translated Jacques Delille verse poem"@en, "übersetzter gereimter Versgedicht Jacques Delilles"@de;
+	rdfs:comment """Translated Jacques Delille verse poem."""@en;
+	rdfs:subClassOf delille:VersePoem, language:PersonTranslation, text:Translation.
 
 delille:EditedVersePoem
 	a owl:Class;
-	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Jacques Delille-Versgedicht"@de;
+	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
-	skos:note """Not necessarily edited by Jacques Delille."""@en;
 	rdfs:subClassOf delille:VersePoem, textedit:Edition.
 
 delille:Canto
 	a owl:Class;
-	rdfs:label "Jacques Delille canto"@en, "Jacques Delille Canto"@de, "Jacques Delille chant de Jacques Delille"@fr, "canto di Jacques Delille"@it;
+	rdfs:label "Jacques Delille canto"@en, "Canto Jacques Delilles"@de, "chant de Jacques Delille"@fr, "canto di Jacques Delille"@it;
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-structure:VerseSection.
+	rdfs:subClassOf text-structure:VerseSection, text:ExpressionPart.
 
-delille:CitationReference #°
+# delille:RhymingVerse
+#	a owl:Class;
+#	rdfs:label "Jacques Delille rhyming verse"@en, "gereimter Vers Jacques Delilles"@de;
+#	rdfs:comment """Rhyming verse in a verse poem authored by Jacques Delille."""@en;
+#	rdfs:subClassOf text-structure:RhymingVerse.
+
+# delille:Citation
+#	a owl:Class;
+#	rdfs:label "Citation of a Jacques Delille poem verse"@en, "Zitat eines Jacques Delilles Gedichtverses"@de; #, "de Jacques Delille"@fr, "di Jacques Delille"@it;
+#	rdfs:comment """Citation of a Jacques Delille poem verse."""@en;
+#	rdfs:subClassOf text:Citation.
+
+# delille:CitationReference
+#	a owl:Class;
+#	rdfs:label "citation reference verse number"@en, "Zitatreferenz-Versnummer"@de;
+#	rdfs:comment """Citation reference of a Jacques Delille poem verse as the latter's number."""@en;
+#	rdfs:subClassOf text:CitationReference.
+
+# delille:CitingExpression
+#	a owl:Class;
+#	rdfs:label "citing expression"@en, "zitierende Expression"@de; #, ""@fr, ""@it;
+#	rdfs:comment """Publication text expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+#	rdfs:subClassOf publish:TextExpression.
+
+delille:Dictionary
 	a owl:Class;
-	rdfs:label "citation reference verse number"@en, "Zitatreferenz-Versnummer"@de;
-	rdfs:comment """Citation reference of a Jacques Delille poem verse as the latter's number."""@en;
-	rdfs:subClassOf text:CitationReference.
+	rdfs:label "citing dictionary"@en, "zitierendes Wörterbuch"@de; #, ""@fr, ""@it;
+	rdfs:comment """Dictionary citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf text:Dictionary, publish:TextExpression.
+
+delille:Manual
+	a owl:Class;
+	rdfs:label "citing teaching manual"@en, "zitierendes Lehrbuch"@de; #, ""@fr, ""@it;
+	rdfs:comment """Teaching manual citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf teach:Manual, publish:TextExpression.
+
+delille:LiteraryExpression
+	a owl:Class;
+	rdfs:label "citing publication literary expression"@en, "zitierende literarische Publikation-Expression"@de; #, ""@fr, ""@it;
+	rdfs:comment """Literary publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:Expression, publish:TextExpression.
+
+delille:CitingPoem
+	a owl:Class;
+	rdfs:label "citing poem"@en, "zitierendes Gedicht"@de; #, ""@fr, ""@it;
+	rdfs:comment """Poem citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:Poem, delille:LiteraryExpression.
+
+delille:Novel
+	a owl:Class;
+	rdfs:label "citing novel"@en, "zitierender Roman"@de; #, ""@fr, ""@it;
+	rdfs:comment """Novel citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:Novel, delille:LiteraryExpression.
+
+delille:Nonfiction
+	a owl:Class;
+	rdfs:label "citing literary nonfiction"@en, "zitierende sachliche Literatur"@de; #, ""@fr, ""@it;
+	rdfs:comment """Literary nonfiction citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:Nonfiction, delille:LiteraryExpression.
+
+delille:ScientificExpression
+	a owl:Class;
+	rdfs:label "citing scientific publication expression"@en, "zitierende wissenschaftliche Publikation-Expression"@de;
+	rdfs:comment """Scientific publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf text:ScientificExpression, publish:TextExpression.
+
+delille:VulgarizedScientificExpression
+	a owl:Class;
+	rdfs:label "citing vulgarized scientific publication expression"@en, "zitierende vulgarisierte wissenschaftliche Publikation-Expression"@de;
+	rdfs:comment """Vulgarized scientific publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf text:VulgarizedScientificExpression, publish:TextExpression.
+
+delille:Catalogue
+	a owl:Class;
+	rdfs:label "citing catalogue"@en, "zitierende Katalog"@de;
+	rdfs:comment """Catalogue citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf document:Catalogue, publish:TextExpression.
 
 delille:Commentary
 	a owl:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text:Commentary.
+	rdfs:subClassOf text:Commentary, text:ScientificExpression, publish:TextExpression.
 
-delille:PublicationPoem
+delille:Argument
 	a owl:Class;
-	rdfs:label "publication poem"@en, "Publikation-Gedicht"@de; #, ""@fr, ""@it;
-	rdfs:comment """Publication poem wherein a poem authored by Jacques Delille is cited."""@en;
-	rdfs:subClassOf publish:Expression, litera:Poem.
-
-delille:PublicationNovel
-	a owl:Class;
-	rdfs:label "publication novel"@en, "Publikation-Roman"@de; #, ""@fr, ""@it;
-	rdfs:comment """Publication novel wherein a poem authored by Jacques Delille is cited."""@en;
-	rdfs:subClassOf publish:Expression, litera:Novel.
+	rdfs:label "argument"@en, "Argument"@de;
+	rdfs:comment """Argument of a commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf litera:Argument, publish:TextExpression.
 
 # image
 

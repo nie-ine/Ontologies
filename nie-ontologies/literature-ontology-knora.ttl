@@ -130,7 +130,7 @@ litera:Anthology
 	a owl:Class;
 	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
 	rdfs:comment """Collection of literary expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
-	rdfs:subClassOf document:Expression.
+	rdfs:subClassOf text:Expression.
 
 litera:Poem
 	a owl:Class;
@@ -209,9 +209,9 @@ litera:Novel
 	rdfs:subClassOf litera:Expression, text:SentenceExpression, [
 		a owl:Restriction; owl:onProperty litera:hasNovelist; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNovelistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasFiction; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # litera:hasGenre
 		a owl:Restriction; owl:onProperty litera:hasFictionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # litera:hasGenre
 		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:NonfictionNovel
@@ -225,6 +225,8 @@ litera:NonfictionNovel
 		a owl:Restriction; owl:onProperty litera:hasNarrative; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty litera:hasNarrativeValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+# play
+
 litera:Poet
 	a owl:Class;
 	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr, "poeta"@it;
@@ -237,11 +239,63 @@ litera:Novelist
 	rdfs:comment """Author of a novel."""@en;
 	rdfs:subClassOf text:Author.
 
+# front matter: dedication, foreword, preface, introduction: seperate pagination usually numbered in lowercase Roman numerals
+# back matter: conclusion, postface, afterword
+
+litera:Foreword
+	a owl:Class;
+	rdfs:label "foreword"@en, "Einleitung"@de, "préface"@fr, "preambolo"@it;
+	rdfs:comment """Text expression preceding a literary expression, usually written by a person other than the (main) author, about the relation with the author or the literary expression, and possibly rewritten to alert the reader to changes in the literary expression."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart. # front matter
+
+# afterword
+
+litera:Preface
+	a owl:Class;
+	rdfs:label "preface"@en, "Vorwort"@de, "avant-propos"@fr, "prefazione"@it;
+	rdfs:comment """Text expression preceding a literary expression, usually written by the (main) author, stating the origin of the literary expression, its scope, purpose, plan, and intended audience, and including any afterthoughts and acknowledgments of assistance; possibly rewritten to alert the reader to changes in the literary expression."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart. # front matter
+
 litera:Motto
 	a owl:Class;
 	rdfs:label "motto"@en, "Motto"@de;
 	rdfs:comment """Citation prefacing a literary expression or part of it."""@en;
-	rdfs:subClassOf text:Citation, text-structure:Prologue.
+#	rdfs:seeAlso <https://www.collinsdictionary.com/dictionary/english/vice-versa>;
+	rdfs:subClassOf text:Citation, litera:Preface.
+
+litera:Postface
+	a owl:Class;
+	rdfs:label "postface"@en, "Nachwort"@de, "postface"@fr, "postfazione"@it;
+	rdfs:comment """Text expression following a literary expression, usually written by the (main) author."""@en;
+#	rdfs:seeAlso <https://www.merriam-webster.com/dictionary/postface>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text:ExpressionPart. # back matter
+
+litera:Prologue
+	a owl:Class;
+	rdfs:label "prologue"@en, "Prolog"@de;
+#	ling:hasSynonym "Vorwort"@de;
+	rdfs:comment """Introduction of a literary expression providing context and background, e.g. an earlier story that ties into the main one."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text:Introduction, text:ExpressionPart.
+
+litera:Epilogue
+	a owl:Class;
+	rdfs:label "epilogue"@en, "Epilog"@de;
+#	ling:hasSynonym "Nachwort"@de;
+	rdfs:comment """Conclusion of a literary expression or part of it."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text:Conclusion, text:ExpressionPart.
+
+litera:Argument
+	a owl:Class;
+	rdfs:label "argument"@en, "Argument"@de;
+	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
+#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text:Introduction, [ # text:Summary.
+		a owl:Restriction; owl:onProperty litera:isArgumentOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty litera:isArgumentOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -425,4 +479,22 @@ litera:isPartOfHymnalValue
 	rdfs:comment """Relating a hymn to a reification statement of the relation between the hymn and a hymnal it is part of."""@en;
 	rdfs:subPropertyOf concept:isPartOfValue;
 	knora-base:subjectClassConstraint litera:Hymn;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+litera:isArgumentOf
+	a owl:ObjectProperty;
+	rdfs:label "is argument of"@en, "ist Argument von"@de;
+	rdfs:comment """Relating an argument to a literary expression it is part of."""@en;
+	rdfs:domain litera:Argument;
+	rdfs:range litera:Expression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint litera:Argument;
+	knora-base:objectClassConstraint litera:Expression.
+
+litera:isArgumentOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is argument of - statement"@en, "ist Argument von - Festlegung"@de;
+	rdfs:comment """Relating an argument to a reification statement of the relation between the argument and a literary expression it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint litera:Argument;
 	knora-base:objectClassConstraint knora-base:LinkValue.

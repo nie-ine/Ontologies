@@ -26,14 +26,14 @@
 # CLASSES
 #
 
-dietrich:DiaryVolume
-	a owl:Class;
-	rdfs:label "diary volume by father Joseph Dietrich"@en, "Tagebuch-Band des Paters Joseph Dietrich"@de;
-	rdfs:comment """Diary volume written and authored by father Joseph Dietrich."""@en;
-	rdfs:subClassOf infocar:Manuscript, infocar:Diary, infocar:Volume.
-
 dietrich:DiaryEntry
 	a owl:Class;
 	rdfs:label "diary entry by father Joseph Dietrich"@en, "Tagebucheintrag des Paters Joseph Dietrich"@de;
 	rdfs:comment """Diary entry authored by father Joseph Dietrich."""@en;
 	rdfs:subClassOf text:HandwrittenText, text:DiaryEntry.
+
+dietrich:DiaryVolume
+	a owl:Class;
+	rdfs:label "diary volume by father Joseph Dietrich"@en, "Tagebuch-Band des Paters Joseph Dietrich"@de;
+	rdfs:comment """Diary volume written and authored by father Joseph Dietrich."""@en;
+	rdfs:subClassOf infocar:Manuscript, infocar:Diary, infocar:Volume.

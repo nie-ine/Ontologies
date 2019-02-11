@@ -169,15 +169,12 @@ document:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 
 document:Expression
 	a owl:Class;
-	rdfs:label "document expression"@en, "Document-Expression"@de;
+	rdfs:label "document expression"@en, "Dokument-Expression"@de;
 	rdfs:comment """Document realisation of a work, conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F2_Expression, [
 		a owl:Restriction; owl:onProperty document:expressionHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:expressionHasIdentifierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [	
 		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-
-# poly-author expression main author
-
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -188,7 +185,6 @@ document:Expression
 		a owl:Restriction; owl:onProperty publish:hasElectronicPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasWebPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasWebPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasFirstPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasFirstPublicationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
 		a owl:Restriction; owl:onProperty publish:hasLastPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -207,7 +203,7 @@ document:Expression
 
 document:IndividualExpression
 	a owl:Class;
-	rdfs:label "individual document expression"@en, "individuelle Document-Expression"@de;
+	rdfs:label "individual document expression"@en, "individuelle Dokument-Expression"@de;
 	rdfs:comment """Document realisation of an individual work."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression, [
 		a owl:Restriction; owl:onProperty document:isExpressionOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -215,15 +211,21 @@ document:IndividualExpression
 
 document:ExpressionPart
 	a owl:Class;
-	rdfs:label "document expression part"@en, "Document-Expressionsteil"@de;
+	rdfs:label "document expression part"@en, "Dokument-Expressionsteil"@de;
 	rdfs:comment """Part of an individual document expression, considered as incomplete."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment, [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpressionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+document:PolyAuthorExpression
+	a owl:Class;
+	rdfs:label "poly-author document expression"@en, "Mehrautorentextdokument-Expression"@de;
+	rdfs:comment """Document expression by different authors."""@en;
+	rdfs:subClassOf document:Expression.
+
 document:ExpressionReference
 	a owl:Class;
-	rdfs:label "document expression reference"@en, "Document-Expression-Referenz"@de;
+	rdfs:label "document expression reference"@en, "Dokument-Expression-Referenz"@de;
 	rdfs:comment """Reference as a document structure, referring from a document content structure to a document expression identifier."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier, [
 		a owl:Restriction; owl:onProperty document:expressionReferenceHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -231,7 +233,7 @@ document:ExpressionReference
 
 document:ExpressionIdentifier
 	a owl:Class;
-	rdfs:label "document expression identifier"@en, "Document-Expressionsidentifikator"@de;
+	rdfs:label "document expression identifier"@en, "Dokument-Expressionsidentifikator"@de;
 	rdfs:comment """Identifier of a document expression."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
@@ -249,29 +251,11 @@ document:Cycle
 	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 	rdfs:subClassOf concept:Set.
 
-document:Dictionary
-	a owl:Class;
-	rdfs:label "dictionary"@en, "Wörterbuch"@de;
-	rdfs:comment """List of words of a human natural language, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
-	rdfs:subClassOf document:IndividualExpression.
-
 document:Catalogue
 	a owl:Class;
 	rdfs:label "catalogue"@en, "Katalog"@de, "catalogue"@fr;
 	rdfs:comment """List of descriptions of things, mostly ordered, e.g. alphabetically; e.g. library's book catalogue, exhibition's works of art catalogue, mail-order company's items for sale catalogue."""@en;
 	rdfs:subClassOf document:IndividualExpression.
-
-document:ScientificExpression
-	a owl:Class;
-	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
-	rdfs:comment """Text expression with scientific content."""@en;
-	rdfs:subClassOf document:IndividualExpression.
-
-document:VulgarizedScientificExpression
-	a owl:Class;
-	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de;
-	rdfs:comment """Text with vulgarized scientific content."""@en;
-	rdfs:subClassOf document:ScientificExpression.
 
 document:Code
 	a owl:Class;

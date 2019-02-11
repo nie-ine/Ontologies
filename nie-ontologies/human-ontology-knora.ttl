@@ -401,7 +401,7 @@ human:Floruit
 human:Vulgarizer
 	a owl:Class;
 	rdfs:label "vulgarizer"@en, "Vulgarisator"@de, "vulgarisateur"@fr;
-	rdfs:comment """Role of a person making something, e.g. science, less subtle, complex, or refined."""@en;
+	rdfs:comment """Role of a person making something, e.g. scientific text, less subtle, complex, or refined."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Performer

@@ -69,8 +69,8 @@ text-structure:CompositionalStructure
 text-structure:ContentStructure
 	a owl:Class;
 	rdfs:label "content text structure"@en, "inhaltliche Textstruktur"@de;
-	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section, prose."""@en;
-	rdfs:subClassOf text-structure:Structure.
+	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section, prose, citation."""@en;
+	rdfs:subClassOf text-structure:Structure. # text:ExpressionPart
 
 text-structure:SentenceStructure
 	a owl:Class;
@@ -200,25 +200,6 @@ text-structure:Table #* tableHasTitle, tableHasField, tableHasRow, tableHasColum
 	rdfs:label "text table"@en, "Texttabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
-
-# Prefazione - Avant-propos - preface: explain text genesis by author, dif per pub => KR, ext;
-# postface: wiki
-# preamble : not the author, ext.
-# introduction: no lit., int
-
-# 
-
-text-structure:Prologue # -> Introduction ? / more in lit., in text, by author
-	a owl:Class;
-	rdfs:label "prologue"@en, "Vorwort"@de;
-	rdfs:comment """Introductory text."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure.
-
-text-structure:Epilogue # int, by author
-	a owl:Class;
-	rdfs:label "epilogue"@en, "Nachwort"@de;
-	rdfs:comment """Concluding text."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 text-structure:Verse
 	a owl:Class;

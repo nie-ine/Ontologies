@@ -70,7 +70,7 @@ athar:Verse
 		a owl:Restriction; owl:onProperty athar:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty athar:isVerseOfHalfStropheValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-athar:ConstitutedEdition
+athar:ConstitutedEdition # 
 	a owl:Class;
 	rdfs:label "Atharvaveda pada patha"@sa, "Atharvaveda constituted text edition"@en, "konstituierter Text Atharvavedas"@de;
 	rdfs:comment """constituted text edition as created in the Atharvaveda project."""@en;

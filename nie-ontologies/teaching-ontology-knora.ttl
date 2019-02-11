@@ -62,6 +62,12 @@ teach:Lecturer
 	rdfs:comment """Role of a person who lectures."""@en;
 	rdfs:subClassOf teach:Teacher.
 
+teach:Manual
+	a owl:Class;
+	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr; #, "manuale"@it; # schoolbook
+	rdfs:comment """Manual for teaching purposes."""@en;
+	rdfs:subClassOf text:Manual.
+
 #
 # PROPERTIES
 #

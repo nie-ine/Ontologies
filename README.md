@@ -35,6 +35,7 @@ Following figures show graphical representations of triples from different ontol
 <div align="center">
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_core-concepts_graphic.png)
+
 ##### Figure 0: Graphic representing core classes and properties from different ontologies
 &nbsp;  
 &nbsp;  

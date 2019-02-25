@@ -1,4 +1,8 @@
 # Ontologies
+
+The current ontology development is in the [Ontologies-shared repository](https://github.com/nie-ine/Ontologies-shared), concerning the ontology turtle files and their dependencies on DHL's Knora.
+The rest of the information here remains relevant.
+
 In the [NIE-INE](http://www.nie-ine.ch) project an infrastructure is developed to ensure long-term storage of data of scientific edition projects in the Humanities at the Swiss Universities of Basel, Bern and Zürich.  
 For this purpose the platform [Knora](https://github.com/dhlab-basel/Knora) of the [Digital Humanities Lab](https://github.com/dhlab-basel) is used.  
 The essence of the infrastructure is that data, stored in e.g. a MySQL relational database, are converted to a different i.e. machine-readable format by making the semantics of the data explicit.  

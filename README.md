@@ -107,7 +107,7 @@ Figure 7 shows the subsumption tree of the class concept:Information, from the c
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_prosodicStructure.png)
 
-##### Figure 14: Graphic representing classes and properties from different ontologies concerning 'text structure'
+##### Figure 14: Tree representing classes concerning 'prosodic structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)

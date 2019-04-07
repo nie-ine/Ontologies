@@ -68,7 +68,7 @@ Following figures show graphical representations of triples from different ontol
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'language'
 &nbsp;  
 &nbsp;  
-Figure 5 shows the subsumption tree of the class concept:Information, from the concept, document, text and text structure ontologies.  
+Figure 7 shows the subsumption tree of the class concept:Information, from the concept, document, text and text structure ontologies.  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_information.png)
 

@@ -100,9 +100,9 @@ Figure 7 shows the subsumption tree of the class concept:Information, from the c
 ##### Figure 12: Tree representing classes concerning 'text structure'
 &nbsp;  
 &nbsp;  
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_Content+Syntactic.png)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_note.png)
 
-##### Figure 13: Tree representing classes from different ontologies concerning 'content and syntactic text structure'
+##### Figure 13: Tree representing classes concerning 'note'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure.svg)

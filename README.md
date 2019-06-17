@@ -92,7 +92,8 @@ Figure 7 shows the subsumption tree of the class concept:Information, from the c
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_reference.png)
 
-##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'reference'
+##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'text referencing'
+See also: [Basic modeling pattern for text referencing](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_basic-modeling-patterns/BMP_reference.png)
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure.png)

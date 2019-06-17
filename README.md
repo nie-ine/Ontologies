@@ -103,7 +103,7 @@ See also: [Basic modeling pattern for text referencing](https://github.com/nie-i
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_note.png)
 
-##### Figure 13: Tree representing classes concerning 'note'
+##### Figure 13: Tree representing classes concerning 'note structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_prosodicStructure.png)

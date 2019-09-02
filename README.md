@@ -38,6 +38,11 @@ Following figures show graphical representations of triples from different ontol
 
 <div align="center">
 
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/sparql-viz-graph.svg)
+
+##### Figure 0: Graphic concept
+&nbsp;  
+&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_core-concepts_graphic.png)
 
 ##### Figure 1: Graphic representing core classes and properties from different ontologies

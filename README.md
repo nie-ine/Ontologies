@@ -38,11 +38,6 @@ Following figures show graphical representations of triples from different ontol
 
 <div align="center">
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/sparql-viz-graph.svg)
-
-##### Figure 0: Graphic concept
-&nbsp;  
-&nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_core-concepts_graphic.png)
 
 ##### Figure 1: Graphic representing core classes and properties from different ontologies
@@ -71,6 +66,13 @@ Following figures show graphical representations of triples from different ontol
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_language.svg)
 
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'language'
+&nbsp;  
+&nbsp;  
+Figure 6_2 shows the concept-ontology, created with [SPARQL-visualizer | Intro-viz](https://github.com/MadsHolten/sparql-visualizer)  
+
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/sparql-viz-graph_concept.svg)
+
+##### Figure 6_2: Graphic representing classes and properties from the concept-ontology
 &nbsp;  
 &nbsp;  
 Figure 7 shows the subsumption tree of the class concept:Information, from the concept, document, text and text structure ontologies.  

@@ -1,0 +1,38 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
+@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
+@prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
+@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
+
+# @base <http://www.nie.org/ontology/dietrich>.
+@prefix dietrich: <http://www.nie.org/ontology/dietrich#>.
+
+<http://www.nie.org/ontology/dietrich>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about father Joseph Dietrich's monastery diary"@en;
+	dct:description """Formal description of specific concepts in the scientific study "Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704"."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Reinhard Priber, tool coordinator and software developer, NIE-INE, University of Bern, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+dietrich:DiaryEntry
+	a rdfs:Class;
+	rdfs:label "diary entry by father Joseph Dietrich"@en, "Tagebucheintrag des Paters Joseph Dietrich"@de;
+	rdfs:comment """Diary entry authored by father Joseph Dietrich."""@en;
+	rdfs:subClassOf text:HandwrittenText, text-expression:DiaryEntry.
+
+dietrich:DiaryVolume
+	a rdfs:Class;
+	rdfs:label "diary volume by father Joseph Dietrich"@en, "Tagebuch-Band des Paters Joseph Dietrich"@de;
+	rdfs:comment """Diary volume written and authored by father Joseph Dietrich."""@en;
+	rdfs:subClassOf infocar:Manuscript, infocar:Diary, infocar:Volume.

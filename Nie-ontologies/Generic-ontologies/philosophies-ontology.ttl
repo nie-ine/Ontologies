@@ -1,0 +1,71 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix philo: <http://www.nie.org/ontology/philosophy#>.
+
+# @base <http://www.nie.org/ontology/philosophies>.
+@prefix philos: <http://www.nie.org/ontology/philosophies#>.
+
+<http://www.nie.org/ontology/philosophies>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about philosophies"@en;
+	dct:description """Formal description of philosophies, general subclasses, related classes, properties, and instances."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor
+		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
+		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en.
+
+#
+# INSTANCES
+#
+
+philos:Albertism
+	a rdfs:Class;
+	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:label "Albertism"@en;
+	rdfs:comment """Philosophy and theology based on the ideas of Albertus Magnus (before 1200 - 1280-11-15)."""@en;
+	rdfs:subClassOf philo:Philosophy. # :Theology
+
+philos:Humanism
+	a rdfs:Class;
+	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:label "Humanism"@en;
+	rdfs:comment """."""@en; #°
+	rdfs:subClassOf philo:Philosophy.
+
+philos:Nominalism
+	a rdfs:Class;
+	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:label "Nominalism"@en;
+	rdfs:comment """Philosophy stating that only individual things exist, denying the existence of universals and abstract objects."""@en;
+	rdfs:subClassOf philo:Metaphysics.
+
+philos:Scotism
+	a rdfs:Class;
+	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:label "Scotism"@en;
+	rdfs:comment """."""@en; #°
+	rdfs:subClassOf philo:Philosophy.
+
+philos:Thomism
+	a rdfs:Class;
+	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:label "Thomism"@en;
+	rdfs:comment """Philosophy based on the work of Thomas Aquinas (1225 - 1274-O3-O7)."""@en;
+	rdfs:subClassOf philo:Philosophy. # :Theology
+
+#
+# PROPERTIES
+#
+
+philos:adheringToThought
+	a owl:ObjectProperty;
+	rdfs:label "adhering to philosophy"@en, "ist Anhänger von Philosophie"@de;
+	rdfs:comment """Relating a person to a philosophy the person adheres to."""@en;
+	rdfs:domain human:Person;
+	rdfs:range philo:Philosophy;
+	rdfs:subPropertyOf human:adheringToThought.

@@ -1,0 +1,180 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix physical: <http://www.nie.org/ontology/physical-entity#>.
+@prefix event: <http://www.nie.org/ontology/event#>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix creating: <http://www.nie.org/ontology/creating#>.
+@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
+@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
+@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
+
+
+# @base <http://www.nie.org/ontology/letter-corresponding>.
+@prefix letter-corresponding: <http://www.nie.org/ontology/letter-corresponding#>.
+
+<http://www.nie.org/ontology/letter-corresponding>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about letter corresponding"@en;
+	dct:description """Formal description of letter corresponding, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor
+		"Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en,
+		"Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+letter-corresponding:Corresponding
+ 	a rdfs:Class;
+ 	rdfs:label "corresponding"@en,"Korrespondieren"@de;
+ 	rdfs:comment """Communicating by exchanging letters."""@en;
+	rdfs:subClassOf human:Procedure.
+
+letter-corresponding:Exchanging
+ 	a rdfs:Class;
+ 	rdfs:label "exchanging"@en,"Auswechselen"@de;
+ 	rdfs:comment """Sending-receiving cycle in corresponding."""@en;
+	rdfs:subClassOf human:Procedure, [
+		a owl:Restriction; owl:onProperty letter-corresponding:isExchangingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Compiling
+ 	a rdfs:Class;
+ 	rdfs:label "compiling"@en,"Zusammenstellen"@de;
+ 	rdfs:comment """Preparing a letter for sending, mostly by putting it in an envelope, possibly adding an enclosure."""@en;
+	rdfs:subClassOf human:Procedure, [
+		a owl:Restriction; owl:onProperty letter-corresponding:isCompilingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Expression
+	a rdfs:Class;
+	rdfs:label "letter expression"@en, "Brief-Expression"@de;
+	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression, [
+		a owl:Restriction; owl:onProperty letter-corresponding:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Structure
+	a rdfs:Class;
+	rdfs:label "letter structure"@en, "Briefstruktur"@de;
+	rdfs:comment """Text with letter structure."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty letter-corresponding:isStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Letter
+	a rdfs:Class;
+	rdfs:label "letter"@en, "Brief"@de, "lettre"@fr, "lettera"@it;
+	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to (an)other one(s), e.g. through a postal system."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
+		a owl:Restriction; owl:onProperty letter-corresponding:follows; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty letter-corresponding:hasEnvelope; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty letter-corresponding:hasEnvelopeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty letter-corresponding:hasEnclosure; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Envelope
+	a rdfs:Class;
+	rdfs:label "envelope"@en, "Umschlag"@de;
+	rdfs:comment """Flat paper container with a sealable flap for sending something, e.g. a letter, from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
+	rdfs:subClassOf creating:PhysicalCreation.
+
+letter-corresponding:EnclosureExpression
+	a rdfs:Class;
+	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de;
+	rdfs:comment """Text expression of a letter enclosure."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression, [
+		a owl:Restriction; owl:onProperty letter-corresponding:isTextInEnclosure; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+letter-corresponding:Enclosure
+	a rdfs:Class;
+	rdfs:label "letter enclosure"@en, "Briefbeilage"@de;
+	rdfs:comment """Something added to a letter being sent, e.g. another information carrier."""@en;
+	rdfs:subClassOf creating:PhysicalCreation.
+
+letter-corresponding:InformationEnclosure
+	a rdfs:Class;
+	rdfs:label "information letter enclosure"@en, "Information-Briefbeilage"@de;
+	rdfs:comment """Information carrier as letter enclosure."""@en;
+	rdfs:subClassOf letter-corresponding:Enclosure, infocar:Carrier.
+
+#
+# PROPERTIES
+#
+
+letter-corresponding:isExchangingOf
+	a owl:ObjectProperty;
+	rdfs:label "is exchanging of"@en, "ist Auswechselen von"@de;
+	rdfs:comment """Relating an exchanging to its corresponding it is a suprocedure of."""@en;
+	rdfs:domain letter-corresponding:Exchanging;
+	rdfs:range letter-corresponding:Corresponding;
+	rdfs:subPropertyOf event:isSubProcedureOf.
+
+letter-corresponding:isCompilingOf
+	a owl:ObjectProperty;
+	rdfs:label "is compiling of"@en, "ist Zusammenstellen von"@de;
+	rdfs:comment """Relating a compiling to its exchanging it is a suprocedure of."""@en;
+	rdfs:domain letter-corresponding:Compiling;
+	rdfs:range letter-corresponding:Exchanging;
+	rdfs:subPropertyOf event:isSubProcedureOf.
+
+letter-corresponding:isInLetter
+	a owl:ObjectProperty;
+	rdfs:label "is in letter"@en, "ist in Brief"@de;
+	rdfs:comment """Relating a letter expression to a letter it is in."""@en;
+	rdfs:domain letter-corresponding:Expression;
+	rdfs:range letter-corresponding:Letter;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+letter-corresponding:isStructureOfExpression
+	a owl:ObjectProperty;
+	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de;
+	rdfs:comment """Relating a letter structure to a text expression it is part of."""@en;
+	rdfs:domain letter-corresponding:Structure;
+	rdfs:range letter-corresponding:Expression;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
+
+letter-corresponding:follows
+	a owl:ObjectProperty;
+	rdfs:label "letter follows"@en, "Brief folgt"@de;
+	rdfs:comment """Relating a letter to a preceding letter."""@en;
+	rdfs:domain letter-corresponding:Letter;
+	rdfs:range letter-corresponding:Letter.
+
+letter-corresponding:hasEnvelope
+	a owl:ObjectProperty;
+	rdfs:label "letter has envelope"@en, "Brief hat Umschlag"@de;
+	rdfs:comment """Relating a letter to an envelope it has."""@en;
+	rdfs:domain letter-corresponding:Letter;
+	rdfs:range letter-corresponding:Envelope.
+
+letter-corresponding:hasEnvelopeDescription
+	a owl:ObjectProperty;
+	rdfs:label "letter has envelope description"@en, "Brief hat Umschlagbeschreibung"@de;
+	rdfs:comment """Relating a letter to a description of its envelope."""@en;
+	rdfs:domain letter-corresponding:Letter;
+	rdfs:range rdfs:Literal.
+
+letter-corresponding:hasEnclosure
+	a owl:ObjectProperty;
+	rdfs:label "letter has enclosure"@en, "Brief hat Beilage"@de;
+	rdfs:comment """Relating a letter to an enclosure it has."""@en;
+	rdfs:domain letter-corresponding:Letter;
+	rdfs:range letter-corresponding:Enclosure.
+
+letter-corresponding:isPageOfLetter
+	a owl:ObjectProperty;
+	rdfs:label "is page of letter"@en, "ist Seite eines Briefes"@de;
+	rdfs:comment """Relating a page to the letter it is part of."""@en;
+	rdfs:domain infocar:Page;
+	rdfs:range letter-corresponding:Letter;
+	rdfs:subPropertyOf physical:isPartOf.
+
+letter-corresponding:isTextInEnclosure
+	a owl:ObjectProperty;
+	rdfs:label "is text expression in letter enclosure"@en, "ist Textexpression in Briefbeilage"@de;
+	rdfs:comment """Relating a text expression to a letter information enclosure it is in."""@en;
+	rdfs:domain letter-corresponding:EnclosureExpression;
+	rdfs:range letter-corresponding:InformationEnclosure;
+	rdfs:subPropertyOf infocar:isOnCarrier.

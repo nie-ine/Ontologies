@@ -1,0 +1,62 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix concept: <http://www.nie.org/ontology/concept#>.
+@prefix ling: <http://www.nie.org/ontology/linguistics#>.
+@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
+
+# @base <http://www.nie.org/ontology/mathematics>.
+@prefix math: <http://www.nie.org/ontology/mathematics#>.
+
+<http://www.nie.org/ontology/mathematics>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about mathematics"@en;
+	dct:description """Formal description of general concepts in mathematics."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "University of Basel, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+math:MathematicalObject
+	a rdfs:Class;
+	rdfs:label "mathematical object"@en, "mathematisches Objekt"@de;
+	rdfs:comment """Symbolic entity in mathematics."""@en;
+	rdfs:subClassOf concept:SymbolicEntity.
+
+math:Number
+	a rdfs:Class;
+	rdfs:label "number"@en, "Zahl"@de;
+	rdfs:comment """Mathematical object for counting, measuring and labeling."""@en; #* and ordering
+	rdfs:subClassOf math:MathematicalObject, concept:Identifier, [
+		a owl:Restriction; owl:onProperty math:hasNumeral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+math:NaturalNumber
+	a rdfs:Class;
+	rdfs:label "natural number"@en, "natürliche Zahl"@de;
+	rdfs:comment """Non-negative whole number."""@en;
+	skos:note """Conform ISO 80000-2:2009."""@en;
+	rdfs:subClassOf math:Number.
+
+math:Set
+	a rdfs:Class;
+	rdfs:label "mathematical set"@en, "mathematische Sammlung"@de;
+	rdfs:comment """Set of mathematical objects."""@en;
+	rdfs:subClassOf concept:Set, math:MathematicalObject.
+
+#
+# PROPERTIES
+#
+
+math:hasNumeral
+	a owl:ObjectProperty; # -> a owl:DatatypeProperty;
+	rdfs:label "has numeral"@en, "hat Numerale"@de;
+	rdfs:comment """Relating a number to a numeral."""@en;
+	rdfs:domain math:Number;
+	rdfs:range xsd:integer.

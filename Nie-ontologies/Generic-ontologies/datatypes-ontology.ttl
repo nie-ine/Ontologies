@@ -1,0 +1,54 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+# @base <http://www.nie.org/ontology/datatypes>.
+@prefix datatypes: <http://www.nie.org/ontology/datatypes#>.
+
+<http://www.nie.org/ontology/datatypes>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about datatypes"@en;
+	dct:description """Formal description of datatypes, functioning as link between terminology and coding systems and OWL ontologies."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# SKOS SCHEME AND DATATYPE INSTANCES
+#
+
+datatypes:gndScheme
+	a rdfs:Class, skos:ConceptScheme;
+	rdfs:label "GND-scheme"@en;
+	rdfs:comment """The Integrated Authority File (in German Gemeinsame Normdatei, GND) is an authority file for persons, corporate bodies, conferences and events, geographic information, topics and works."""@en;
+	rdfs:seeAlso <https://www.dnb.de/EN/Standardisierung/GND/gnd_node.html>;
+	rdfs:subClassOf rdfs:Resource.
+
+datatypes:gndDatatype
+	a rdfs:Class, rdfs:Datatype;
+	rdfs:label "GND-datatype"@en;
+	rdfs:comment """Datatype to type a GND-identifier."""@en;
+	rdfs:subClassOf rdfs:Resource.
+
+# Open Archives Initiative, OAI
+
+#
+# PROPERTIES
+#
+
+datatypes:hasGNDIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has GND-identifier"@en, "hat GND-Identifikator"@de;
+	rdfs:comment "Relating a resource to its GND-identifier."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range skos:Concept.
+
+datatypes:hasOAIIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "has OAI-identifier"@en, "hat OAI-Identifikator"@de;
+	rdfs:comment "Relating a resource to its OAI-code."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range skos:Concept.

@@ -1,0 +1,336 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/event#>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix creating: <http://www.nie.org/ontology/creating#>.
+@prefix org: <http://www.nie.org/ontology/organization#>.
+@prefix language: <http://www.nie.org/ontology/language#>.
+@prefix concept: <http://www.nie.org/ontology/concept#>.
+@prefix math: <http://www.nie.org/ontology/mathematics#>.
+@prefix document: <http://www.nie.org/ontology/document#>.
+@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
+@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
+@prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
+@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
+@prefix publish: <http://www.nie.org/ontology/publishing#>.
+@prefix litera: <http://www.nie.org/ontology/literature#>.
+
+# @base <http://www.nie.org/ontology/text-expression>.
+@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
+
+<http://www.nie.org/ontology/text-expression>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about text expression"@en;
+	dct:description """Formal description of text expression, based on FRBROO, in broadest sense, with general subclasses, related classes, and properties."""@en;
+	skos:note """Text, text structure, prosodic structure, note structure, text editing, and scientific editing are described in respective ontologies"""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+text-expression:Expression
+	a rdfs:Class;
+	rdfs:label "text expression"@en, "Textexpression"@de, "expression textuelle"@fr, "espressione testuale"@it;
+	rdfs:comment """Document expression as text."""@en;
+	rdfs:subClassOf document:Expression, text:Text, [
+		a owl:Restriction; owl:onProperty text-expression:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasSubtitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasIdeationalExtent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasCommentator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text-expression:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasEditionPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Draft
+	a rdfs:Class;
+	rdfs:label "text expression draft"@en, "Textexpressionentwurf"@de;
+	rdfs:comment """Document draft as text expression."""@en;
+	rdfs:subClassOf text-expression:Expression, document:Draft, [
+		a owl:Restriction; owl:onProperty text-expression:isDraftOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:PolyAuthorExpression
+	a rdfs:Class;
+	rdfs:label "poly-author text expression"@en, "Mehrautorentextexpression"@de;
+	rdfs:comment """Text expression by different authors."""@en;
+	rdfs:subClassOf text-expression:Expression, [
+		a owl:Restriction; owl:onProperty text-expression:hasMainAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:IndividualExpression
+	a rdfs:Class;
+	rdfs:label "individual text expression"@en, "individuelle Textexpression"@de;
+	rdfs:comment """Text as individual expression."""@en;
+	rdfs:subClassOf text-expression:Expression, document:IndividualExpression.
+
+text-expression:ExpressionPart
+	a rdfs:Class;
+	rdfs:label "text expression part"@en, "Textexpressionsteil"@de;
+	rdfs:comment """Part of an individual text expression, considered as incomplete."""@en;
+	rdfs:subClassOf text-expression:Expression, document:ExpressionPart, [
+		a owl:Restriction; owl:onProperty text-expression:isPartOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Introduction
+	a rdfs:Class;
+	rdfs:label "text introduction"@en, "Texteinleitung"@de;
+	rdfs:comment """Beginning section of a text expression, usually written by the (main) author, stating e.g. the subject, purpose and limits of its main section; usually remaining unchanged."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
+
+text-expression:Body
+	a rdfs:Class;
+	rdfs:label "text body"@en, "Texthauptteil"@de;
+	rdfs:comment """Main section of a text expression, e.g. including footnotes and illustrations but excluding the front matter and back matter."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
+
+text-expression:Conclusion
+	a rdfs:Class;
+	rdfs:label "text conclusion"@en, "Textkonklusion"@de;
+	rdfs:comment """Concluding section of a text expression."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
+
+text-expression:Author
+	a rdfs:Class;
+	rdfs:label "text author"@en, "Textautor"@de, "auteur du texte"@fr, "autore di testo"@it;
+	rdfs:comment """Role of a person being responsible for the creation of a text expression."""@en;
+	skos:note """Often an author is also the creator of a text expression."""@en;
+	rdfs:subClassOf creating:Author.
+
+text-expression:MainAuthor
+	a rdfs:Class;
+	rdfs:label "main text author"@en, "Haupttextautor"@de; # , "auteur du texte"@fr, "autore di testo"@it;
+	rdfs:comment """Role of a person being the main responsible person for the creation of a text expression."""@en;
+	rdfs:subClassOf text-expression:Author.
+
+text-expression:CoAuthor
+	a rdfs:Class;
+	rdfs:label "co-author"@en, "KoauthorIn"@de, "co-auteure"@fr, "coautore"@it;
+	rdfs:comment """Role of a person being co-responsible for the creation of a text expression."""@en;
+	rdfs:subClassOf text-expression:Author.
+
+text-expression:ManOfLetters
+	a rdfs:Class;
+	rdfs:label "man of letters"@en, "Literat"@de, "homme de lettres"@fr, "uomo di lettere"@it;
+	rdfs:comment """Role of a man devoted to literary activity."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+text-expression:WomanOfLetters
+	a rdfs:Class;
+	rdfs:label "woman of letters"@en, "Literatin"@de, "femme de lettres"@fr, "donna di lettere"@it;
+	rdfs:comment """Role of a woman devoted to literary activity."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+text-expression:Vulgarizer
+	a rdfs:Class;
+	rdfs:label "text vulgarizer"@en, "Text-VulgarisatorIn"@de, "vulgarisat-eur/rice du texte"@fr;
+	rdfs:comment """Role of a person vulgarizing a text, e.g. a scientific one, or creating one using vulgarizing terminology."""@en;
+	rdfs:subClassOf human:Vulgarizer.
+
+text-expression:SentenceExpression
+	a rdfs:Class;
+	rdfs:label "sentence expression"@en, "Satz-Expression"@de, "expression de phrases"@fr, "espressione di frase"@it;
+	rdfs:comment """Text expression with sentence structure."""@en;
+	rdfs:subClassOf text-expression:Expression.
+
+text-expression:DiaryEntry
+	a rdfs:Class;
+	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione del diario"@it;
+	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:Expression, [
+		a owl:Restriction; owl:onProperty text-expression:isEntryOfDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isEntryInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Diary
+	a rdfs:Class;
+	rdfs:label "diary expression"@en, "Tagebuch-Expression"@de, "expression d'un journal"@fr, "expression del diario"@it;
+	rdfs:comment """Text expression with a diary content and possibly structure."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression, [
+		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Commentator
+	a rdfs:Class;
+	rdfs:label "commentator"@en, "KommentatorIn"@de;
+	rdfs:comment """Role of a person commenting on a text expression."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+text-expression:Commentary
+	a rdfs:Class;
+	rdfs:label "commentary"@en, "Kommentar"@de;
+	rdfs:comment """Text expression in the form of a set of comments as analysis, interpretation or explanation of one or more text expressions."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression, [
+		a owl:Restriction; owl:onProperty text-expression:isCommentaryOn; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Article
+	a rdfs:Class;
+	rdfs:label "article"@en, "Artikel"@de, "article"@fr, "articolo"@it;
+	rdfs:comment """Text expression about a defined (main) subject."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression, [
+		a owl:Restriction; owl:onProperty text-expression:isArticleAbout; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text-expression:Biography
+	a rdfs:Class;
+	rdfs:label "biography"@en, "Biographie"@de; #*
+	rdfs:comment """Text expression about a person's life."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression.
+
+text-expression:Manual
+	a rdfs:Class;
+	rdfs:label "manual"@en, "Handbuch"@de, "manuel"@fr, "manuale"@it;
+	rdfs:comment """Text expression providing procedural infromation."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression.
+
+text-expression:ScientificExpression
+	a rdfs:Class;
+	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
+	rdfs:comment """Text expression with scientific content."""@en;
+	rdfs:subClassOf text-expression:IndividualExpression.
+
+text-expression:VulgarizedScientificExpression
+	a rdfs:Class;
+	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de;
+	rdfs:comment """Text expression with vulgarized scientific content."""@en;
+	rdfs:subClassOf text-expression:ScientificExpression.
+
+text-expression:Dictionary
+	a rdfs:Class;
+	rdfs:label "dictionary"@en, "Wörterbuch"@de;
+	rdfs:comment """List of brief explanatory entries for terms of a human natural language, belonging to a certain domain, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-expression:IndividualExpression. # text-expression:ReferenceExpression
+
+#
+# PROPERTIES
+#
+
+text-expression:hasTitle
+	a owl:ObjectProperty;
+	rdfs:label "text expression has title"@en, "Textexpression hat Titel"@de;
+	rdfs:comment """Relating a text expression to a title it has."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf document:expressionHasTitle.
+
+text-expression:hasSubtitle
+	a owl:ObjectProperty;
+	rdfs:label "text expression has subtitle"@en, "Textexpression hat Untertitel"@de;
+	rdfs:comment """Relating a text expression to a subtitle it has."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf document:expressionHasSubtitle.
+
+text-expression:hasIncipit
+	a owl:ObjectProperty;
+	rdfs:label "has incipit"@en, "hat Incipit"@de;
+	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasText.
+
+text-expression:hasExplicit
+	a owl:ObjectProperty;
+	rdfs:label "has explicit"@en, "hat Explicit"@de;
+	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasText.
+
+text-expression:hasAuthor
+	a owl:ObjectProperty;
+	rdfs:label "text has author"@en, "Text hat Autor"@de;
+	rdfs:comment """Relating a text expression to a person who authored it."""@en;
+	skos:note """A text can have more than one author."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Author]];
+	rdfs:subPropertyOf creating:hasAuthor.
+
+text-expression:hasIdeationalExtent
+	a owl:ObjectProperty;
+	rdfs:label "has ideational extent"@en, "hat ideeller Umfang"@de;
+	rdfs:comment """Relating a text expression to a description of its ideational extent."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+text-expression:hasCommentator
+	a owl:ObjectProperty;
+	rdfs:label "text expression has commentator"@en, "Textexpression hat KommentatorIn"@de;
+	rdfs:comment "Relating a text expression to a person who commented on it."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Commentator]].
+
+text-expression:hasScientificEditor
+	a owl:ObjectProperty;
+	rdfs:label "text expression has scholarly editor"@en, "Textexpression hat wissenschaftliche Editor"@de;
+	rdfs:comment "Relating a text expression to a scholar who edited it scientifically."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:Editor]].
+
+text-expression:hasCriticalEditor
+	a owl:ObjectProperty;
+	rdfs:label "text expression has critical editor"@en, "Textexpression hat kritische Editor"@de;
+	rdfs:comment "Relating a text expression to a person who edited it critically."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:CriticalEditor]].
+
+text-expression:isDraftOf
+	a owl:ObjectProperty;
+	rdfs:label "is draft of text expression"@en, "ist Entwurf einer Textexpression"@de;
+	rdfs:comment "Relating a draft to its text expression."@en;
+	rdfs:domain text-expression:Draft;
+	rdfs:range text-expression:Expression.
+
+text-expression:hasMainAuthor
+	a owl:ObjectProperty;
+	rdfs:label "has main author"@en, "hat Hauptautor"@de;
+	rdfs:comment """Relating a poly-author text expression to its main author."""@en;
+	rdfs:domain text-expression:PolyAuthorExpression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:MainAuthor]].
+
+text-expression:isPartOfExpression
+	a owl:ObjectProperty;
+	rdfs:label "is part of text expression"@en, "ist Teil einer Textexpression"@de;
+	rdfs:comment """Relating a text expression part to an expression it is part of."""@en;
+	rdfs:domain text-expression:ExpressionPart;
+	rdfs:range text-expression:Expression;
+	rdfs:subPropertyOf concept:isPartOf.
+
+text-expression:isEntryOfDiary
+	a owl:ObjectProperty;
+	rdfs:label "is entry of diary expression"@en, "ist Eingabe einer Tagebuch-Expression"@de;
+	rdfs:comment """Relating a diary entry to its diary expression."""@en;
+	rdfs:domain text-expression:DiaryEntry;
+	rdfs:range text-expression:Diary;
+	rdfs:subPropertyOf concept:isPartOf.
+
+text-expression:isCommentaryOn
+	a owl:ObjectProperty;
+	rdfs:label "is commentary on"@en, "ist Kommentar zu"@de;
+	rdfs:comment """Relating a commentary to an expression it comments on."""@en;
+	rdfs:domain text-expression:Commentary;
+	rdfs:range document:Expression.
+
+text-expression:isArticleAbout
+	a owl:ObjectProperty;
+	rdfs:label "is article about"@en, "ist Artikel über"@de;
+	rdfs:comment """Relating an article to a subject it is about."""@en;
+	rdfs:domain text-expression:Article;
+	rdfs:range rdfs:Resource;
+	rdfs:subPropertyOf concept:informationHasSubject.

@@ -1,0 +1,77 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/event#>.
+@prefix agent: <http://www.nie.org/ontology/agent#>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix concept: <http://www.nie.org/ontology/concept#>.
+@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
+@prefix ling: <http://www.nie.org/ontology/linguistics#>.
+
+# @base <http://www.nie.org/ontology/logic>.
+@prefix logic: <http://www.nie.org/ontology/logic#>.
+
+<http://www.nie.org/ontology/logic>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about logic"@en;
+	dct:description """Formal description of logic, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+logic:Premise
+	a rdfs:Class;
+	rdfs:label "premise"@en, "Prämisse"@de;
+	rdfs:comment """Statement ... ."""@en;
+	rdfs:subClassOf ling:Statement, [
+		a owl:Restriction; owl:onProperty logic:isPremiseOfArgument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+logic:Conclusion
+	a rdfs:Class;
+	rdfs:label "conclusion"@en, "Konklusion"@de;
+	rdfs:comment """Statement ... ."""@en;
+	rdfs:subClassOf ling:Statement, [
+		a owl:Restriction; owl:onProperty logic:isConclusionOfArgument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+logic:Argument
+	a rdfs:Class;
+	rdfs:label "argument"@en, "Argument"@de;
+	rdfs:comment """Premise(s) presenting a reason for accepting a conclusion."""@en;
+	rdfs:subClassOf text-structure:Paragraph.
+
+logic:Syllogism
+	a rdfs:Class;
+	rdfs:label "syllogism"@en, "Syllogismus"@de;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf logic:Argument.
+
+#
+# PROPERTIES
+#
+
+logic:isPremiseOfArgument
+	a owl:ObjectProperty;
+	rdfs:label "is premise of argument"@en, "ist Prämisse eines Argumentes"@de;
+	rdfs:comment """Relating a premise to an argument it is part of."""@en;
+	rdfs:domain logic:Premise;
+	rdfs:range logic:Argument;
+	rdfs:subPropertyOf text-structure:isSentenceOfParagraph.
+
+logic:isConclusionOfArgument
+	a owl:ObjectProperty;
+	rdfs:label "is conclusion of argument"@en, "ist Konklusion eines Argumentes"@de;
+	rdfs:comment """Relating a conclusion to an argument it is part of."""@en;
+	rdfs:domain logic:Conclusion;
+	rdfs:range logic:Argument;
+	rdfs:subPropertyOf text-structure:isSentenceOfParagraph.

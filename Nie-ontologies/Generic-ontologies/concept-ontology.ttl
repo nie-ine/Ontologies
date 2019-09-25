@@ -1,0 +1,191 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/event#>.
+@prefix human: <http://www.nie.org/ontology/human#>.
+@prefix creating: <http://www.nie.org/ontology/creating#>.
+@prefix document: <http://www.nie.org/ontology/document#>.
+@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
+@prefix publish: <http://www.nie.org/ontology/publishing#>.
+
+# @base <http://www.nie.org/ontology/concept>.
+@prefix concept: <http://www.nie.org/ontology/concept#>.
+
+<http://www.nie.org/ontology/concept>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about concept"@en;
+	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+concept:ConceptualEntity
+	a rdfs:Class;
+	rdfs:label "conceptual entity"@en, "konzeptuelle Entität"@de;
+	rdfs:comment """Abstract idea created by a person, as product of cognition."""@en;
+	rdfs:subClassOf creating:Creation, frbroo:F6_Concept, [ # rdfs:subClassOf cidoc:E28_Conceptual_Object
+		a owl:Restriction; owl:onProperty concept:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:Set
+	a rdfs:Class;
+	rdfs:label "conceptual entity set"@en, "Reihe konzeptueller Entitäten"@de;
+	rdfs:comment """Set of conceptual entities."""@en;
+	rdfs:subClassOf concept:ConceptualEntity, creating:CreationSet.
+
+concept:Fiction
+	a rdfs:Class;
+	rdfs:label "fiction"@en, "Fiktion"@de;
+	rdfs:comment """Conceptual entity derived from imagination."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:Nonfiction
+	a rdfs:Class;
+	rdfs:label "nonfiction"@en, "sachliches Konzept"@de;
+	rdfs:comment """Conceptual entity based on fact."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:Commonplace
+	a rdfs:Class;
+	rdfs:label "commonplace"@en, "Gemeinplatz"@de, "lieu commun"@fr;
+	rdfs:comment """Conceptual entity generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:Motto
+	a rdfs:Class;
+	rdfs:label "motto"@en, "Motto"@de, "devise"@fr, "motto"@it;
+	rdfs:comment """Conceptual entity chosen as encapsulating an ideal, principle, belief or goal of an individual or group."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:SymbolicEntity
+	a rdfs:Class;
+	rdfs:label "symbolic entity"@en, "symbolische Entität"@de;
+	rdfs:comment """Conceptual entity represented by one or more symbols."""@en;
+	rdfs:subClassOf concept:ConceptualEntity, cidoc:E90_Symbolic_Object, [
+		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:Identifier
+	a rdfs:Class;
+	rdfs:label "identifier"@en, "Identifikator"@de;
+	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
+	rdfs:subClassOf concept:SymbolicEntity, cidoc:E42_Identifier. # rdfs:subClassOf cidoc:E41_Appellation
+
+concept:PropositionalEntity
+	a rdfs:Class;
+	rdfs:label "propositional entity"@en, "propositionale Entität"@de;
+	rdfs:comment """Conceptual entity represented by one or more propositions as bearers of a truth value."""@en;
+	skos:note """Different from a linguistic proposition."""@en;
+	rdfs:subClassOf concept:ConceptualEntity, cidoc:E89_Propositional_Object.
+
+concept:ThoughtBody
+	a rdfs:Class;
+	rdfs:label "body of thought"@en, "Gedankengut"@de;
+	rdfs:comment """Propositional entity comprising conceptually related propositions, without the necessity of being logically coherent."""@en;
+	skos:note """Related to belief system, related to school of thought, related to theory."""@en;
+	rdfs:subClassOf concept:PropositionalEntity.
+
+concept:Work
+	a rdfs:Class;
+	rdfs:label "conceptual work"@en, "konzeptuelles Werk"@de;
+	rdfs:comment """propositional entity as recognizable intellectual product, conform FRBROO."""@en;
+	rdfs:subClassOf concept:PropositionalEntity, frbroo:F1_Work, [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:IndividualWork
+	a rdfs:Class;
+	rdfs:label "individual work"@en, "individuelles Werk"@de;
+	rdfs:comment """Work as a complete whole realised in one self-contained expression."""@en;
+	rdfs:subClassOf concept:Work, frbroo:F14_Individual_Work, [
+		a owl:Restriction; owl:onProperty concept:isExpressedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:Information
+	a rdfs:Class;
+	rdfs:label "information"@en, "Information"@de;
+	rdfs:comment """Symbolic propositional entity resolving uncertainty."""@en;
+	rdfs:subClassOf concept:PropositionalEntity, concept:SymbolicEntity, cidoc:E73_Information_Object, [
+		a owl:Restriction; owl:onProperty concept:informationHasSubject; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:informationHasSubjectDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnElectronicCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:hasEncoder; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+concept:Procedure
+	a rdfs:Class;
+	rdfs:label "procedure"@en, "Vorgehen"@de;
+	rdfs:comment """Plan to perform an action in one or more steps, in a certain manner to obtain a certain output under certain circumstances."""@en;
+	rdfs:subClassOf concept:Information, cidoc:E29_Design_or_Procedure.
+
+concept:ThoughtMethod
+	a rdfs:Class;
+	rdfs:label "thought method"@en, "Methode des Denkens"@de;
+	rdfs:comment """Way of analysing facts to form a judgment."""@en;
+	rdfs:subClassOf concept:Information.
+
+#
+# PROPERTIES
+#
+
+concept:isPartOf
+	a owl:ObjectProperty, owl:TransitiveProperty;
+	rdfs:label "is part of conceptual entity"@en, "ist Teil einer symbolischen Entität"@de;
+	rdfs:comment "Relating a conceptual entity to another one it is part of."@en;
+	rdfs:domain concept:ConceptualEntity;
+	rdfs:range concept:ConceptualEntity;
+	rdfs:subPropertyOf cidoc:P106i_forms_part_of.
+
+concept:isExpressedIn
+	a owl:ObjectProperty;
+	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
+	rdfs:comment "Relating an individual work to an individual expression thereof."@en;
+	rdfs:domain concept:IndividualWork;
+	rdfs:range document:IndividualExpression;
+	rdfs:subPropertyOf frbroo:R9_is_realised_in.
+
+concept:informationHasSubject
+	a owl:ObjectProperty;
+	rdfs:label "information has subject"@en, "Information hat Thema"@de;
+	rdfs:comment """Relating information to a subject it is about."""@en;
+	rdfs:domain concept:Information;
+	rdfs:range rdfs:Resource.
+
+concept:informationHasSubjectDescription
+	a owl:ObjectProperty;
+	rdfs:label "information has subject description"@en, "Information hat Themabeschreibung"@de;
+	rdfs:comment """Relating information to a description of its subject."""@en;
+	rdfs:domain concept:Information;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+# frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
+
+concept:hasDedicatedTo #°
+	a owl:ObjectProperty;
+	rdfs:label "has dedicated to"@en, "hat gewidmet"@de;
+	rdfs:comment """Relating a person to another person to whom the former has dedicated something."""@en;
+	rdfs:domain human:Person;
+	rdfs:range human:Person.
+
+concept:hasLiteral
+	a owl:ObjectProperty;
+	rdfs:label "has literal"@en, "hat Literale"@de;
+	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
+	rdfs:domain concept:SymbolicEntity;
+	rdfs:range rdfs:Literal.
+
+concept:hasEncoder
+	a owl:ObjectProperty;
+	rdfs:label "information has encoder"@en, "Information hat Encoder"@de;
+	rdfs:comment "Relating information to a person who encoded it."@en;
+	rdfs:domain concept:Information;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]].

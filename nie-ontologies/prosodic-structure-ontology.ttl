@@ -1,0 +1,328 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix language: <http://www.nie.org/ontology/shared/language#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix math: <http://www.nie.org/ontology/shared/mathematics#>.
+@prefix document: <http://www.nie.org/ontology/shared/document#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-structure: <http://www.nie.org/ontology/shared/text-structure#>.
+@prefix textedit: <http://www.nie.org/ontology/shared/text-editing#>.
+@prefix publish: <http://www.nie.org/ontology/shared/publishing#>.
+@prefix litera: <http://www.nie.org/ontology/shared/literature#>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+@prefix lingmor: <http://www.nie.org/ontology/shared/linguistic-morphology#>.
+
+# @base <http://www.nie.org/ontology/shared/prosodic-structure>.
+@prefix prosodic-structure: <http://www.nie.org/ontology/shared/prosodic-structure#>.
+
+<http://www.nie.org/ontology/shared/prosodic-structure>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about prosodic structure"@en;
+	dct:description """Formal description of prosodic structure, subclasses, related classes, and properties."""@en;
+	skos:note """Extension of the text structure ontology"""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor
+		"Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en,
+		"Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+prosodic-structure:Structure
+	a rdfs:Class;
+	rdfs:label "prosodic text structure"@en, "prosodische Textstruktur"@de;
+	rdfs:comment """Text structure depending on prosody, i.e. syllable and/or metre as basic rhythmic structure and/or rhyme."""@en;
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
+
+prosodic-structure:Verse
+	a rdfs:Class;
+	rdfs:label "verse"@en, "Vers"@de;
+	rdfs:comment """Text with prosody."""@en;
+	rdfs:subClassOf prosodic-structure:Structure, [
+#		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfStrophe; owl:allValuesFrom prosodic-structure:Strophe], [ 
+		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+ 		a owl:Restriction; owl:onProperty prosodic-structure:verseHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:VerseIdentifier
+	a rdfs:Class;
+	rdfs:label "verse identifier"@en, "Versidentifikator"@de;
+	rdfs:comment """Identifier of a verse."""@en;
+	rdfs:subClassOf text-structure:Identifier.
+
+prosodic-structure:VerseNumber
+	a rdfs:Class;
+	rdfs:label "verse number"@en, "Versnummer"@de;
+	rdfs:comment """Number of a verse."""@en;
+	rdfs:subClassOf prosodic-structure:VerseIdentifier, math:NaturalNumber.
+
+prosodic-structure:HalfVerse
+	a rdfs:Class;
+	rdfs:label "half-verse"@en, "Halbvers"@de;
+#	ling:hasSynonym "hemistich"@en, "Hemistich"@de;
+	rdfs:comment """Half a verse."""@en;
+	rdfs:subClassOf prosodic-structure:Structure, [
+		a owl:Restriction; owl:onProperty prosodic-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:Strophe
+	a rdfs:Class;
+	rdfs:label "strophe"@en, "Strophe"@de;
+#	ling:hasSynonym "stanza"@en, "Stanze"@de;
+	rdfs:comment """Group of verses."""@en;
+	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
+	rdfs:subClassOf prosodic-structure:Structure, [
+#		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfSection; owl:allValuesFrom text:Text], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:StropheIdentifier
+	a rdfs:Class;
+	rdfs:label "strophe identifier"@en, "Stropheidentifikator"@de;
+	rdfs:comment """Identifier of a strophe."""@en;
+	rdfs:subClassOf text-structure:Identifier.
+
+prosodic-structure:StropheNumber
+	a rdfs:Class;
+	rdfs:label "strophe number"@en, "Strophenummer"@de;
+	rdfs:comment """Number of a strophe."""@en;
+	rdfs:subClassOf prosodic-structure:StropheIdentifier, math:NaturalNumber.
+
+prosodic-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :HalfStrophe
+	a rdfs:Class;
+	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
+	rdfs:comment """Half a strophe."""@en;
+	rdfs:subClassOf prosodic-structure:Structure, [
+		a owl:Restriction; owl:onProperty prosodic-structure:isHalfOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:VerseSection
+	a rdfs:Class;
+	rdfs:label "verse section"@en, "Versabschnitt"@de;
+#	ling:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
+	rdfs:comment """Group of strophes."""@en;
+	rdfs:subClassOf prosodic-structure:Structure, [
+#		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfPoem; owl:allValuesFrom text:Text], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfVerseNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:VerseSectionIdentifier
+	a rdfs:Class;
+	rdfs:label "verse section identifier"@en, "Versabschnittidentifikator"@de;
+	rdfs:comment """Identifier of a verse section."""@en;
+	rdfs:subClassOf text-structure:Identifier.
+
+prosodic-structure:VerseSectionNumber
+	a rdfs:Class;
+	rdfs:label "verse section number"@en, "Versabschnittnummer"@de;
+	rdfs:comment """Number of a verse section."""@en;
+	rdfs:subClassOf prosodic-structure:VerseSectionIdentifier, math:NaturalNumber.
+
+prosodic-structure:StrictVerse
+	a rdfs:Class;
+	rdfs:label "strict verse"@en, "strikte Vers"@de; #°
+	rdfs:comment """Verse with a recurring metrical entity."""@en;
+	rdfs:subClassOf prosodic-structure:Verse. #, [
+#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetric; owl:someValuesFrom text-structure:Metric], [ 
+#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetric; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetricValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+prosodic-structure:Meter
+	a rdfs:Class;
+	rdfs:label "meter"@en, ""@de;
+	rdfs:comment """Rhythmic structure of a verse, based on patterns of particular syllables, and often alternating in a particular order"""@en;
+	rdfs:subClassOf prosodic-structure:Structure.
+
+# syllable
+
+prosodic-structure:FreeVerse
+	a rdfs:Class;
+	rdfs:label "free verse"@en, "freie Vers"@de;
+	rdfs:comment """Verse without a recurring metrical entity."""@en;
+	rdfs:subClassOf prosodic-structure:Structure.
+
+prosodic-structure:RhymingVerse
+	a rdfs:Class;
+	rdfs:label "rhyming verse"@en, "gereimter Vers"@de;
+	rdfs:comment """Verse with a rhyme."""@en;
+	rdfs:subClassOf prosodic-structure:Verse, text-structure:Rhyme.
+
+prosodic-structure:NonRhymingVerse
+	a rdfs:Class;
+	rdfs:label "non-rhyming verse"@en, "nichtgereimter Vers"@de;
+	rdfs:comment """Verse without a rhyme."""@en;
+	rdfs:subClassOf prosodic-structure:Verse.
+
+prosodic-structure:RhythmicProse
+	a rdfs:Class;
+	rdfs:label "rhythmic prose"@en, "rhythmische Prosa"@de;
+	rdfs:comment """Prose structure with a meter."""@en;
+	rdfs:subClassOf text-structure:Prose, prosodic-structure:Structure.
+
+prosodic-structure:RhymingRhythmicProse
+	a rdfs:Class;
+	rdfs:label "rhyming rhythmic prose"@en, "gereimte rhythmische Prosa"@de;
+	rdfs:comment """Rhythmic prose with a rhyme."""@en;
+	rdfs:subClassOf prosodic-structure:RhythmicProse, text-structure:Rhyme.
+
+prosodic-structure:NonRhymingRhythmicProse
+	a rdfs:Class;
+	rdfs:label "non-rhyming rhythmic prose"@en, "nichtgereimte rhythmische Prosa"@de;
+	rdfs:comment """Rhythmic prose without a rhyme."""@en;
+	rdfs:subClassOf prosodic-structure:RhythmicProse.
+
+#
+# PROPERTIES
+#
+
+prosodic-structure:isWordOfVerse
+	a owl:ObjectProperty;
+	rdfs:label "is word of verse"@en, "ist Wort eines Verses"@de;
+	rdfs:comment """Relating a syntactic word to a verse it is part of."""@en;
+	rdfs:domain text-structure:SyntacticWord;
+	rdfs:range prosodic-structure:Verse;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isVerseOfStrophe
+	a owl:ObjectProperty;
+	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
+	rdfs:comment """Relating a verse to a strophe it is part of."""@en;
+	rdfs:domain prosodic-structure:Verse;
+	rdfs:range prosodic-structure:Strophe;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isVerseOfHalfStrophe
+	a owl:ObjectProperty;
+	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de;
+	rdfs:comment """Relating a verse to a half-strophe it is part of."""@en;
+	rdfs:domain prosodic-structure:Verse;
+	rdfs:range prosodic-structure:HalfStrophe;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:verseHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de;
+	rdfs:comment """Relating a verse to its identifier."""@en;
+	rdfs:domain prosodic-structure:Verse;
+	rdfs:range prosodic-structure:VerseIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
+prosodic-structure:verseHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "verse has number"@en, "Vers hat Nummer"@de;
+	rdfs:comment """Relating a verse to its number."""@en;
+	rdfs:domain prosodic-structure:Verse;
+	rdfs:range prosodic-structure:VerseNumber;
+	rdfs:subPropertyOf prosodic-structure:verseHasIdentifier.
+
+prosodic-structure:isHalfOfVerse
+	a owl:ObjectProperty;
+	rdfs:label "is half of verse"@en, "ist Hälfte eines Verses"@de;
+	rdfs:comment """Relating a half-verse to its verse."""@en;
+	rdfs:domain prosodic-structure:HalfVerse;
+	rdfs:range prosodic-structure:Verse;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isStropheOfSection
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of section"@en, "ist Strophe eines Versabschnittes"@de;
+	rdfs:comment """Relating a strophe to a section it is part of."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range prosodic-structure:VerseSection;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isStropheOfPoem
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of poem"@en, "ist Strophe eines Gedichtes"@de;
+	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range litera:VersePoem;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isStropheOfNovel
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of verse novel"@en, "ist Strophe eines Versromans"@de;
+	rdfs:comment """Relating a strophe to a verse novel it is part of."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range litera:VerseNovel;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:stropheHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de;
+	rdfs:comment """Relating a strophe to its identifier."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range prosodic-structure:StropheIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
+prosodic-structure:stropheHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "strophe has number"@en, "Strophe hat Nummer"@de;
+	rdfs:comment """Relating a strophe to its number."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range prosodic-structure:StropheNumber;
+	rdfs:subPropertyOf prosodic-structure:stropheHasIdentifier.
+
+prosodic-structure:isHalfOfStrophe
+	a owl:ObjectProperty;
+	rdfs:label "is half of strophe"@en, "ist Hälfte einer Strophe"@de;
+	rdfs:comment """Relating a half-strophe to its strophe."""@en;
+	rdfs:domain prosodic-structure:HalfStrophe;
+	rdfs:range prosodic-structure:Strophe;
+	rdfs:subPropertyOf concept:isPartOf.
+
+prosodic-structure:isVerseSectionOfPoem
+	a owl:ObjectProperty;
+	rdfs:label "is verse section of poem"@en, "ist Versabschnitt eines Gedichtes"@de;
+	rdfs:comment """Relating a verse section to a poem it is part of."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range litera:VersePoem;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
+
+prosodic-structure:isVerseSectionOfVerseNovel
+	a owl:ObjectProperty;
+	rdfs:label "is verse section of verse novel"@en, "ist Versabschnitt eines Versromans"@de;
+	rdfs:comment """Relating a verse section to a verse novel it is part of."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range litera:VerseNovel;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
+
+prosodic-structure:verseSectionHasTitle #°
+	a owl:ObjectProperty;
+	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de;
+	rdfs:comment """Relating a verse section to its title."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasTitle.
+
+prosodic-structure:verseSectionHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "verse section has identifier"@en, "Versabschnitt hat Identifikator"@de;
+	rdfs:comment """Relating a verse section to its identifier."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range prosodic-structure:VerseSectionIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
+prosodic-structure:verseSectionHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "verse section has number"@en, "Versabschnitt hat Nummer"@de;
+	rdfs:comment """Relating a verse section to its number."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range prosodic-structure:VerseSectionNumber;
+	rdfs:subPropertyOf prosodic-structure:verseSectionHasIdentifier.

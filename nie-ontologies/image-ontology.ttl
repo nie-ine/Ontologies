@@ -1,0 +1,97 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix document: <http://www.nie.org/ontology/shared/document#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix infocar: <http://www.nie.org/ontology/shared/information-carrier#>.
+
+# @base <http://www.nie.org/ontology/shared/image>.
+@prefix image: <http://www.nie.org/ontology/shared/image#>.
+
+<http://www.nie.org/ontology/shared/image>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about image"@en;
+	dct:description """Formal description of image as a visual resource in the broadest sense, its general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+image:Image
+	a rdfs:Class;
+	rdfs:label "image"@en,"Bild"@de;
+	rdfs:comment """Visual representation of something, abstracted from its carrier."""@en;
+	rdfs:subClassOf document:Document, cidoc:E38_Image, [
+		a owl:Restriction; owl:onProperty image:isImageOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty image:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+image:ImageExpression
+	a rdfs:Class;
+	rdfs:label "image expression"@en,"Bildexpression"@de;
+	rdfs:comment """Image as a document expression conform FRBROO."""@en;
+	rdfs:subClassOf document:Expression, image:Image.
+
+image:ImageCarrier
+	a rdfs:Class;
+	rdfs:label "image carrier"@en,"Bildträger"@de;
+	rdfs:comment """Image on a carrier."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+image:Photograph
+	a rdfs:Class;
+	rdfs:label "photograph"@en,"Foto"@de;
+	rdfs:comment """Image made by exposing a photosensitive surface to light."""@en;
+	rdfs:subClassOf image:Image, [
+		a owl:Restriction; owl:onProperty image:isPhotographOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# image:DigitalImage
+
+#
+# PROPERTIES
+#
+
+image:isImageOf
+	a owl:ObjectProperty;
+	rdfs:label "is image of", "ist Bild von"@de;
+	rdfs:comment """Relating an image to what it depicts."""@en;
+	rdfs:domain image:Image;
+	rdfs:range rdfs:Resource;
+	rdfs:subPropertyOf concept:informationHasSubject.
+
+image:isOnCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is image on carrier", "ist Bild auf Träger"@de;
+	rdfs:comment """Relating an image to a carrier it is on."""@en;
+	rdfs:domain image:Image;
+	rdfs:range image:ImageCarrier;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+image:isPhotographOf
+	a owl:ObjectProperty;
+	rdfs:label "is photograph of", "ist Foto von"@de;
+	rdfs:comment """Relating a photograph to what it depicts."""@en;
+	rdfs:domain image:Photograph;
+	rdfs:range rdfs:Resource;
+	rdfs:subPropertyOf image:isImageOf.
+
+image:hasPhotographIn
+	a owl:ObjectProperty;
+	rdfs:label "has photograph in", "hat Foto in"@de;
+	rdfs:comment """Relating something to something else containing a photograph of the former."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Resource.
+
+image:hasPhotographSourceDescription #°
+	a owl:ObjectProperty;
+	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
+	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.

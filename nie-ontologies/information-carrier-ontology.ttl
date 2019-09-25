@@ -1,0 +1,1015 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix physical: <http://www.nie.org/ontology/shared/physical-entity#>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix creating: <http://www.nie.org/ontology/shared/creating#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix document: <http://www.nie.org/ontology/shared/document#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-expression: <http://www.nie.org/ontology/shared/text-expression#>.
+@prefix device: <http://www.nie.org/ontology/shared/device#>.
+@prefix image: <http://www.nie.org/ontology/shared/image#>.
+@prefix letter-corresponding: <http://www.nie.org/ontology/shared/letter-corresponding#>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+
+# @base <http://www.nie.org/ontology/shared/information-carrier>.
+@prefix infocar: <http://www.nie.org/ontology/shared/information-carrier#>.
+
+<http://www.nie.org/ontology/shared/information-carrier>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about information carrier"@en;
+	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+infocar:Carrier
+ 	a rdfs:Class;
+ 	rdfs:label "information carrier"@en,"Informationsträger"@de, "support d'information"@fr;
+ 	rdfs:comment """Carrier of information created by a person."""@en;
+	skos:note """Includes both F4_Manifestation_Singleton and F5_Item as declared in FRBROO."""@en;
+	rdfs:subClassOf creating:PhysicalCreation, cidoc:E84_Information_Carrier, [
+		a owl:Restriction; owl:onProperty infocar:carrierHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isCarrierOfSet; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+ 		a owl:Restriction; owl:onProperty infocar:isCarrierOfCollection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingDateDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingDateAccuracyDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasSendingDateProof; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Fragment
+	a rdfs:Class;
+ 	rdfs:label "information carrier fragment"@en,"Informationsträgerfragment"@de; #, "support d'information"@fr;
+ 	rdfs:comment """Fragment of information on a carrier."""@en;
+ 	skos:note """Fragments can possibly be reassembled."""@en;
+	rdfs:subClassOf creating:PhysicalCreation, [
+		a owl:Restriction; owl:onProperty infocar:isFragmentOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Remnant
+	a rdfs:Class;
+ 	rdfs:label "information carrier remnant"@en,"Informationsträgerüberrest"@de; #, "support d'information"@fr;
+ 	rdfs:comment """Remnant of information on a carrier."""@en;
+	rdfs:subClassOf creating:PhysicalCreation, [
+		a owl:Restriction; owl:onProperty infocar:isRemnantOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Set
+	a rdfs:Class;
+	rdfs:label "information carrier set"@en, "Informationsträger-Reihe"@de, "ensemble des supports d'information"@fr;
+	rdfs:comment """Information carriers belonging together, e.g. a partitioned work, a nachlass."""@en;
+	rdfs:subClassOf creating:CreationSet, physical:Matter. #, [
+#		a owl:Restriction; owl:onProperty infocar:hasCarrierDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Collection
+	a rdfs:Class;
+	rdfs:label "information carrier collection"@en, "Informationsträger-Kollektion"@de, "collection des supports d'information"@fr;
+	rdfs:comment """Collection of information carriers, e.g. an archive."""@en;
+	rdfs:subClassOf creating:Collection, creating:PhysicalCreation, [
+		a owl:Restriction; owl:onProperty infocar:hasCarrierDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Draft
+	a rdfs:Class;
+	rdfs:label "information draft carrier"@en, "Informationsentwurfträger"@de;
+	rdfs:comment """Carrier with a draft of information."""@en;
+	rdfs:subClassOf infocar:Carrier, creating:UnfinishedCreation.
+
+infocar:Copy
+	a rdfs:Class;
+	rdfs:label "information copy carrier"@en, "Informationskopieträger"@de;
+	rdfs:comment """Carrier with a copy of information."""@en;
+	rdfs:subClassOf infocar:Carrier, creating:Copy, [
+		a owl:Restriction; owl:onProperty infocar:isCopyOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Photocopy
+	a rdfs:Class;
+	rdfs:label "photocopy"@en, "Fotokopie"@de;
+	rdfs:comment """Photographic information copy carrier."""@en;
+	rdfs:subClassOf infocar:Copy. # image:PhotographCarrier
+
+infocar:Compilation
+	a rdfs:Class;
+	rdfs:label "compilation"@en, "Zusammenstellung"@de;
+	rdfs:comment """Carrier with an assemblage of previously separate information."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+infocar:Leaf
+	a rdfs:Class;
+	rdfs:label "leaf"@en, "Blatt"@de;
+	rdfs:comment """Sheet of a writable substance, e.g. paper, parchment, treated plant leaf."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isLeafOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# folio, recto of, verso of, number
+# fold, Falte, cf. Gedicht Heinrich Heine
+
+infocar:Page
+	a rdfs:Class;
+	rdfs:label "page"@en, "Seite"@de;
+	rdfs:comment """One of the 2 surfaces of a leaf, e.g. a manuscript, or of a leaf as part of a bundled set of leafs, e.g. a book."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isPageOfLeaf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPageOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty letter-corresponding:isPageOfLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:pageHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Book
+	a rdfs:Class;
+	rdfs:label "book"@en, "Buch"@de;
+	rdfs:comment """Set of leafs, e.g. sheets of paper or parchment, binded together along one side, with a front and back cover."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+infocar:Binding
+	a rdfs:Class;
+	rdfs:label "binding"@en, "Einband"@de;
+	rdfs:comment """Material holding the leafs and covers of a book together."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isBindingOfBook; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:PartitionedWork
+	a rdfs:Class;
+	rdfs:label "partitioned work"@en, "partitioniertes Werk"@de;
+	rdfs:comment """Set of volumes carrying a common expression, e.g. a dictionary."""@en;
+	rdfs:subClassOf infocar:Set.
+
+infocar:Volume
+	a rdfs:Class;
+	rdfs:label "volume"@en, "Band"@de;
+	rdfs:comment """One of a set of books, carrying a part of the common expression of the set."""@en;
+	rdfs:subClassOf infocar:Book, [
+		a owl:Restriction; owl:onProperty infocar:isVolumeOfWork; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
+		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Nachlass
+	a rdfs:Class;
+	rdfs:label "nachlass"@en, "Nachlass"@de;
+	rdfs:comment """Set of information carriers as materialized expressions of a person as existing after the person's death, and unpublished during life."""@en;
+	rdfs:subClassOf infocar:Set, cidoc:E78_Collection.
+
+infocar:NachlassElement
+	a rdfs:Class;
+	rdfs:label "nachlass element"@en, "Nachlass-Element"@de;
+	rdfs:comment """Element of a nachlass."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isPartOfNachlass; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Archive # Library
+	a rdfs:Class;
+	rdfs:label "archive"@en, "Archiv"@de, "archive"@fr, "archivio"@it;
+	rdfs:comment """Set of information carriers ordered along a method."""@en;
+	rdfs:subClassOf infocar:Collection, cidoc:E78_Collection.
+
+infocar:ArchiveElement
+	a rdfs:Class;
+	rdfs:label "archive element"@en, "Archiv-Element"@de;
+	rdfs:comment """Element of an archive, which can be a single information carrier or a group."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isPartOfArchive; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hasArchiveSignature; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:WritingUtensil
+	a rdfs:Class;
+	rdfs:label "writing utensil"@en, "Schreibzeug"@de;
+	rdfs:comment """Device to write with."""@en;
+	rdfs:subClassOf device:Device.
+
+infocar:Pencil
+	a rdfs:Class;
+	rdfs:label "pencil"@en, "Bleistift"@de;
+	rdfs:comment """Elongated cylindrical(-like) utensil for writing or drawing, containing a thin rod of graphite."""@en;
+	rdfs:subClassOf infocar:WritingUtensil.
+
+infocar:ColouredPencil
+	a rdfs:Class;
+	rdfs:label "coloured pencil"@en, "Farbstift"@de, "crayon de couleur"@en, "matita colorata"@de;
+	rdfs:comment """Elongated cylindrical(-like) utensil for writing or drawing, containing a pigmented wax- or oil-based core."""@en;
+	rdfs:subClassOf infocar:WritingUtensil.
+
+infocar:Pen
+	a rdfs:Class;
+	rdfs:label "pen"@en, "Tintenstift"@de;
+	rdfs:comment """Elongated cylindrical(-like) hollow object containing ink for writing or drawing."""@en;
+	rdfs:subClassOf infocar:WritingUtensil.
+
+infocar:FountainPen
+	a rdfs:Class;
+	rdfs:label "fountain pen"@en, "Füller"@de;
+	rdfs:comment """Pen with refillable reservoir for fluid ink for feeding a metal nib."""@en;
+	rdfs:subClassOf infocar:Pen.
+
+infocar:Typewriter
+	a rdfs:Class;
+	rdfs:label "typewriter"@en, "Schreibmaschine"@de;
+	rdfs:comment """Writing device with moving parts for letter printing."""@en; # mechanical or electronic 
+	rdfs:subClassOf infocar:WritingUtensil.
+
+infocar:Manuscript
+	a rdfs:Class;
+	rdfs:label "manuscript"@en, "Manuskript"@de;
+	rdfs:comment """Carrier with a handwritten text."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
+		a owl:Restriction; owl:onProperty infocar:manuscriptHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isManuscriptOfCollection; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ManuscriptIdentifier
+	a rdfs:Class;
+	rdfs:label "manuscript identifier"@en, "Manuskript-Identifikator"@de;
+	rdfs:comment """Identifier of a manuscript, comprising its location name, preserving institution name, repository name, collection name, number, name, and alternative identifier."""@en;
+	rdfs:seeAlso <https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-msIdentifier.html>;
+	rdfs:subClassOf concept:Identifier, [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasLocationName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasInstitutionName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasRepositoryName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasCollectionName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasShelfMark; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasManuscriptNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasManuscriptName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:manuscriptIdentifierHasAlternative; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ManuscriptCollection
+	a rdfs:Class;
+	rdfs:label "manuscript collection"@en, "Manuskriptkollektion"@de, "collection des manuscrits"@fr;
+	rdfs:comment """Collection of manuscripts."""@en;
+	rdfs:subClassOf infocar:Collection.
+
+infocar:Codex
+	a rdfs:Class;
+	rdfs:label "codex"@en, "Kodex"@de;
+	rdfs:comment """Book as manuscript."""@en;
+	rdfs:subClassOf infocar:Book, infocar:Manuscript.
+
+infocar:CodicologicalPart
+	a rdfs:Class;
+	rdfs:label "codicological part"@en, "codicologisches Teil"@de;
+	rdfs:comment """Part taken from a codex, together with other ones forming a composite manuscript."""@en;
+	rdfs:subClassOf infocar:Manuscript, [
+		a owl:Restriction; owl:onProperty infocar:isPartOfCompositeManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:CompositeManuscript
+	a rdfs:Class;
+	rdfs:label "composite manuscript"@en, "zusammengesetztes Manuskript"@de;
+#	ling:hasSynonym "composite codex"@en, "zusammengesetzter Kodex"@de;
+	rdfs:comment """Codex reassembled from codicological parts."""@en;
+	rdfs:subClassOf infocar:Codex.
+
+infocar:CompiledManuscript
+	a rdfs:Class;
+	rdfs:label "compiled manuscript"@en, "zusammengestelltes Manuskript"@de;
+	rdfs:comment """Manuscript as a compilation."""@en;
+	rdfs:subClassOf infocar:Manuscript, infocar:Compilation.
+
+infocar:PalmLeafManuscript
+	a rdfs:Class;
+	rdfs:label "palm-leaf manuscript"@en, "Palmblattmanuskript"@de;
+	rdfs:comment """Palm leaf manuscript."""@en;
+	skos:note """Dried and smoke treated palm leaves were used as writing carrier in the Indian subcontinent and Southeast since at least the 5th century BC, possibly much earlier."""@en;
+	rdfs:subClassOf infocar:Leaf, infocar:Manuscript.
+
+infocar:NoteCarrier
+	a rdfs:Class;
+	rdfs:label "note carrier"@en,"Notizträger"@de;
+	rdfs:comment """Carrier whereon notes are written, e.g. a first registration of thoughts."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+infocar:Notebook
+	a rdfs:Class;
+	rdfs:label "notebook"@en,"Notizbuch"@de;
+	rdfs:comment """Book wherein notes are written."""@en;
+	rdfs:subClassOf infocar:Book, infocar:NoteCarrier.
+
+infocar:Typescript
+	a rdfs:Class;
+	rdfs:label "typescript"@en, "Typoskript"@de;
+	rdfs:comment """Carrier with a typewritten text."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+infocar:TextCopy
+	a rdfs:Class;
+	rdfs:label "text copy"@en, "Textkopie"@de;
+	rdfs:comment """Carrier with a copy of a text."""@en;
+	rdfs:subClassOf infocar:Copy.
+
+infocar:Transcript
+	a rdfs:Class;
+	rdfs:label "transcript"@en, "Transkript"@de;
+#	ling:hasSynonym "Abschrift"@de;
+	rdfs:comment """Text copy created by character, by any writing method, e.g. handwriting, typewriting, digitizing."""@en;
+	rdfs:subClassOf infocar:TextCopy, frbroo:F4_Manifestation_Singleton, [
+		a owl:Restriction; owl:onProperty infocar:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ManualTranscript
+	a rdfs:Class;
+	rdfs:label "manual transcript"@en, "manuelles Transkript"@de;
+	rdfs:comment """Handwritten transcript."""@en;
+	rdfs:subClassOf infocar:Transcript, infocar:Manuscript, [
+		a owl:Restriction; owl:onProperty infocar:hasScribe; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Printing
+	a rdfs:Class;
+	rdfs:label "printing"@en, "Drucken"@de;
+	rdfs:comment """Action of putting an expression on a carrier, e.g. with ink on paper."""@en;
+	rdfs:subClassOf human:Procedure, frbroo:F32_Carrier_Production_Event.
+
+infocar:AgentPrinter
+	a rdfs:Class;
+	rdfs:label "agent printer"@en, "Agent-Drucker"@de;
+	rdfs:comment """Role of a human agent, person or organization, printing an expression."""@en;
+	rdfs:subClassOf human:AgentRole.
+
+infocar:PersonPrinter
+	a rdfs:Class;
+	rdfs:label "person printer"@en, "Person-Drucker"@de;
+	rdfs:comment """Role of a person printing an expression."""@en;
+	rdfs:subClassOf creating:PersonCreator, infocar:AgentPrinter.
+
+infocar:Print
+	a rdfs:Class;
+	rdfs:label "print"@en, "Druck"@de;
+	rdfs:comment """Something printed on a carrier."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:hasPrinter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:printHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isPartOfPrintRun; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:PrintIdentifier
+	a rdfs:Class;
+	rdfs:label "print identifier"@en, "Druck-Identifikator"@de;
+	rdfs:comment """Identifier of a print, comprising its location, preserving organization, repository, collection, number, name, and alternative."""@en;
+	rdfs:subClassOf concept:Identifier, [
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasLocationName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasInstitutionName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #°°
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasRepositoryName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #°°
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasCollectionName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ #°°
+#		a owl:Restriction; owl:onProperty infocar:printIdentifierHasShelfMark; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasPrintNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasPrintName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:printIdentifierHasAlternative; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Incunabulum
+	a rdfs:Class;
+	rdfs:label "incunabulum"@en, "Inkunabel"@de;
+	rdfs:comment """Print created In Europe prior to 1501, during the earliest years of printing."""@en;
+	rdfs:subClassOf infocar:Print.
+
+infocar:PrintRun
+	a rdfs:Class;
+	rdfs:label "print run"@en, "Druckauflage"@de, "Tirage"@fr, "Tiratura"@it;
+	rdfs:comment """Set of prints of the same expression, created at one time."""@en;
+	skos:note """When applicable, all the prints have the same ISBN, but a different bar code."""@en;
+	rdfs:subClassOf infocar:Set.
+
+infocar:FirstPrint
+	a rdfs:Class;
+	rdfs:label "first print"@en, "Erstdruck"@de;
+	rdfs:comment """Earliest print of an expression."""@en;
+	rdfs:subClassOf infocar:Print.
+
+infocar:CompiledPrint
+	a rdfs:Class;
+	rdfs:label "compiled print"@en, "zusammengestellter Druck"@de;
+	rdfs:comment """Print as a compilation."""@en;
+	rdfs:subClassOf infocar:Print, infocar:Compilation.
+
+infocar:Diary
+	a rdfs:Class;
+	rdfs:label "diary"@en,"Tagebuch"@de;
+	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+infocar:PersonSender
+	a rdfs:Class;
+	rdfs:label "person sender"@en, "Person-Sender"@de;
+	rdfs:comment """Role of a person sending information on a carrier."""@en;
+	rdfs:subClassOf human:PersonSender.
+
+infocar:PersonReceiver
+	a rdfs:Class;
+	rdfs:label "person receiver"@en, "Person-Empfänger"@de;
+	rdfs:comment """Role of a person receiving information on carrier."""@en;
+	rdfs:subClassOf human:PersonReceiver.
+
+infocar:Postcard
+	a rdfs:Class;
+	rdfs:label "postcard"@en, "Postkarte"@de, "carte postale"@fr, "cartolina"@it;
+	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
+
+infocar:Convolute
+	a rdfs:Class;
+	rdfs:label "information carrier convolute"@en, "Informationsträger-Konvolut"@de;
+	rdfs:comment """Set of information carriers, e.g. handwritten drafts, manuscripts, typoscripts or prints, with a commonality, e.g. being of the same author."""@en;
+	rdfs:subClassOf infocar:Set, [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasOriginDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:convoluteHasContentRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:containsEarlierStagesOfPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:containsLaterStagesOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ConvoluteElement
+	a rdfs:Class;
+	rdfs:label "convolute element"@en, "Konvolut-Element"@de;
+	rdfs:comment """Element of an information carrier convolute."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isPartOfConvolute; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:ElectronicCarrier #° data or information storage device
+	a rdfs:Class;
+	rdfs:label "electronic information carrier"@en,"elektronischer Informationsträger"@de;
+	rdfs:comment """Electronic machine carrying electronic information."""@en;
+	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
+
+# infocar:Scan
+
+infocar:ElectronicBook
+	a rdfs:Class;
+	rdfs:label "electronic book"@en,"elektronisches Buch"@de;
+	rdfs:comment """Electronic information carrier with a text structure as in a book."""@en;
+	rdfs:subClassOf infocar:ElectronicCarrier.
+
+infocar:WebPage
+	a rdfs:Class;
+	rdfs:label "web page"@en, "Webseite"@de;
+	rdfs:comment """Electronic carrier page on the World Wide Web."""@en;
+	rdfs:subClassOf infocar:ElectronicCarrier, [
+		a owl:Restriction; owl:onProperty infocar:webPageHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:webPageHasURL; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+infocar:Hyperlink
+	a rdfs:Class;
+	rdfs:label "hyperlink"@en,"Hyperlink"@de;
+	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
+	rdfs:subClassOf rdfs:Resource, [ # software
+		a owl:Restriction; owl:onProperty infocar:hyperlinkHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:hyperlinkHasURL; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	# seqnum
+
+#
+# PROPERTIES
+#
+
+infocar:carrierHasDescription
+	a owl:ObjectProperty;
+	rdfs:label "carrier has description"@en, "Träger hat Beschreibung"@de;
+	rdfs:comment """Relating an information carrier to a description thereof."""@en;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:isCarrierOfSet
+	a owl:ObjectProperty;
+	rdfs:label "is carrier of set"@en, "ist Träger einer Reihe"@de;
+	rdfs:comment """Relating an information carrier to a set it is part of."""@en;
+	rdfs:domain infocar:Carrier;
+	rdfs:range infocar:Set;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isCarrierOfCollection
+	a owl:ObjectProperty;
+	rdfs:label "is carrier of collection"@en, "ist Träger einer Sammlung"@de;
+	rdfs:comment """Relating an information carrier to a collection it is part of."""@en;
+	rdfs:domain infocar:Carrier;
+	rdfs:range infocar:Collection;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:hasSender
+	a owl:ObjectProperty;
+	rdfs:label "has sender"@en, "hat Absender"@de;
+	rdfs:comment """Relating an information carrier to a human agent - a person or a group - that sent it."""@en;
+	rdfs:domain infocar:Carrier;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Sender]];
+	rdfs:subPropertyOf physical:hasSender.
+
+infocar:hasReceiver
+	a owl:ObjectProperty;
+	rdfs:label "has receiver"@en, "hat Empfänger"@de;
+	rdfs:comment """Relating an information carrier to a human agent - a person or a group - that received it."""@en;
+	rdfs:domain infocar:Carrier;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Receiver]];
+	rdfs:subPropertyOf physical:hasReceiver.
+
+infocar:hasSendingDateDescription
+	a owl:ObjectProperty;
+	rdfs:label "has sending date description"@en, "hat Absendedatumbeschreibung"@de;
+	rdfs:comment """Relating an information carrier to a description of its sending date."""@en;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:hasSendingDateAccuracyDescription
+	a owl:ObjectProperty;
+	rdfs:label "has sending date accuracy description"@en, "hat Absendedatumgenauigkeitbeschreibung"@de;
+	rdfs:comment """Relating an information carrier to a description of its sending date accuracy."""@en;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:hasSendingDateProof
+	a owl:ObjectProperty;
+	rdfs:label "has sending date proof"@en, "hat Absendedatumbeleg"@de;
+	rdfs:comment """Relating an information carrier to a proof of its sending date."""@en;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:isOnCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is information on carrier"@en, "ist Information auf Träger"@de;
+	rdfs:comment "Relating information to a carrier it is on."@en;
+	rdfs:domain concept:Information;
+	rdfs:range infocar:Carrier.
+
+infocar:isOnElectronicCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is on electronic carrier"@en, "ist auf elektronischen Träger"@de;
+	rdfs:comment "Relating information to an electronic carrier it is on."@en;
+	rdfs:domain concept:Information;
+	rdfs:range infocar:ElectronicCarrier;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isFragmentOf
+	a owl:ObjectProperty;
+	rdfs:label "is fragment of"@en, "ist Fragment von"@de;
+	rdfs:comment "Relating a fragment of an information carrier to its whole."@en;
+	rdfs:domain infocar:Fragment;
+	rdfs:range infocar:Carrier;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isRemnantOf
+	a owl:ObjectProperty;
+	rdfs:label "is remnant of"@en, "ist Überrest von"@de;
+	rdfs:comment "Relating a remnant of an information carrier to its whole."@en;
+	rdfs:domain infocar:Remnant;
+	rdfs:range infocar:Carrier;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:hasCarrierDescription
+	a owl:ObjectProperty;
+	rdfs:label "has information carrier description"@en, "hat Textträger-Beschreibung"@de;
+	rdfs:comment """Relating an information carrier collection to a description of an information carrier it contains."""@en;
+	rdfs:domain infocar:Collection;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:isCopyOf
+	a owl:ObjectProperty;
+	rdfs:label "is copy of"@en, "ist Kopie von"@de;
+	rdfs:comment """Relating a copy to its original information carrier."""@en;
+	rdfs:domain infocar:Copy;
+	rdfs:range infocar:Carrier.
+
+infocar:isLeafOfBook
+	a owl:ObjectProperty;
+	rdfs:label "is leaf of book"@en, "ist Blatt eines Buchs"@de;
+	rdfs:comment """Relating a leaf to a book it is part of."""@en;
+	rdfs:domain infocar:Leaf;
+	rdfs:range infocar:Book;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isPageOfLeaf
+	a owl:ObjectProperty;
+	rdfs:label "is page of leaf"@en, "ist Seite eines Blattes"@de;
+	rdfs:comment """Relating a page to its leaf, single or in a book."""@en;
+	rdfs:domain infocar:Page;
+	rdfs:range infocar:Leaf;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isPageOfBook
+	a owl:ObjectProperty;
+	rdfs:label "is page of book"@en, "ist Seite eines Buchs"@de;
+	rdfs:comment """Relating a page to a book its leaf is part of."""@en;
+	rdfs:domain infocar:Page;
+	rdfs:range infocar:Book;
+	rdfs:subPropertyOf physical:isPartOf. # owl:propertyChainAxiom (infocar:isPageOfLeaf infocar:isLeafOfBook)
+
+infocar:pageHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "page has number"@en, "Seite hat Nummer"@de;
+	rdfs:comment """Relating a page to a number it has."""@en;
+	rdfs:domain infocar:Page;
+	rdfs:range xsd:nonNegativeInteger.
+
+infocar:isPageOnCarrier
+	a owl:ObjectProperty;
+	rdfs:label "is page on carrier"@en, "ist Seite auf Träger"@de;
+	rdfs:comment """Relating a document page to a carrier page it is on."""@en;
+	rdfs:domain document:Page;
+	rdfs:range infocar:Page;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isTextOnPage
+	a owl:ObjectProperty;
+	rdfs:label "is text on page"@en, "ist Text auf Seite"@de;
+	rdfs:comment """Relating a text to a carrier page it is on."""@en;
+	rdfs:domain text:Text;
+	rdfs:range infocar:Page;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isBindingOfBook
+	a owl:ObjectProperty;
+	rdfs:label "is binding of book"@en, "ist Einband eines Buchs"@de;
+	rdfs:comment """Relating a binding to a book it is part of."""@en;
+	rdfs:domain infocar:Binding;
+	rdfs:range infocar:Book;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isVolumeOfWork
+	a owl:ObjectProperty;
+	rdfs:label "is volume of work"@en, "ist Band eines Werkes"@de;
+	rdfs:comment """Relating a volume to a work it is part of."""@en;
+	rdfs:domain infocar:Volume;
+	rdfs:range infocar:PartitionedWork;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:volumeHasNumber
+	a owl:ObjectProperty;
+	rdfs:label "volume has number"@en, "Band hat Nummer"@de;
+	rdfs:comment "Relating a volume to its sequence number."@en;
+	rdfs:domain infocar:Volume;
+	rdfs:range xsd:nonNegativeInteger.
+
+infocar:isPartOfNachlass
+	a owl:ObjectProperty;
+	rdfs:label "is part of nachlass"@en, "ist Teil eines Nachlasses"@de;
+	rdfs:comment """Relating an element of a nachlass to the nachlass."""@en;
+	rdfs:domain infocar:NachlassElement;
+	rdfs:range infocar:Nachlass;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isPartOfArchive
+	a owl:ObjectProperty;
+	rdfs:label "is part of archive"@en, "ist Teil eines Archivs"@de;
+	rdfs:comment """Relating an element of an archive to the archive."""@en;
+	rdfs:domain infocar:ArchiveElement;
+	rdfs:range infocar:Archive;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:hasArchiveSignature
+	a owl:ObjectProperty;
+	rdfs:label "has archive signature"@en, "hat Archivsignatur"@de;
+	rdfs:comment """Relating an element of an archive to its signature as identifier."""@en;
+	rdfs:domain infocar:ArchiveElement;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasIdentifier.
+
+infocar:isWrittenWith
+	a owl:ObjectProperty;
+	rdfs:label "is written with"@en, "ist geschrieben mit"@de;
+	rdfs:comment "Relating a text to a utensil it is written with."@en;
+	rdfs:domain text:WrittenText;
+	rdfs:range infocar:WritingUtensil.
+
+infocar:manuscriptHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "manuscript has identifier"@en, "Manuskript hat Identifikator"@de;
+	rdfs:comment """Relating a manuscript to its identifier."""@en;
+	rdfs:domain infocar:Manuscript;
+	rdfs:range infocar:ManuscriptIdentifier.
+
+infocar:isManuscriptOfCollection
+	a owl:ObjectProperty;
+	rdfs:label "is manuscript of collection"@en, "ist Manuskript einer Kollektion"@de;
+	rdfs:comment "Relating a manuscript to a collection it is part of."@en;
+	rdfs:domain infocar:Manuscript;
+	rdfs:range infocar:ManuscriptCollection;
+	rdfs:subPropertyOf infocar:isCarrierOfCollection.
+
+infocar:isInManuscript
+	a owl:ObjectProperty;
+	rdfs:label "is in manuscript"@en, "ist in Manuskript"@de;
+	rdfs:comment "Relating a handwritten text to the manuscript that carries it."@en;
+	rdfs:domain text:HandwrittenText;
+	rdfs:range infocar:Manuscript;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:manuscriptIdentifierHasLocationName
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has location name"@en, "Manuskriptidentifikator hat Ortsname"@de;
+	rdfs:comment """Relating a manuscript identifier to the name of the place where the manuscript is preserved."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal; # physical:PlaceName
+	rdfs:subPropertyOf text:hasName.
+
+infocar:manuscriptIdentifierHasInstitutionName
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has institution name"@en, "Manuskriptidentifikator hat Institutionsname"@de;
+	rdfs:comment """Relating a manuscript identifier to the name of the institution preserving the manuscript."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:manuscriptIdentifierHasRepositoryName
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has repository name"@en, "Manuskriptidentifikator hat Repositoriumname"@de;
+	rdfs:comment """Relating a manuscript identifier to the name of the repository where the manuscript is preserved."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:manuscriptIdentifierHasCollectionName
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has collection name"@en, "Manuskriptidentifikator hat Kollektionsname"@de;
+	rdfs:comment """Relating a manuscript identifier to the name of the collection of which the manuscript is a part."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:manuscriptIdentifierHasManuscriptNumber
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has manuscript number"@en, "Manuskriptidentifikator hat Manuskriptnummer"@de;
+	rdfs:comment """Relating a manuscript identifier to the manuscript's number."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal.
+
+infocar:manuscriptIdentifierHasManuscriptName
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has manuscript name"@en, "Manuskriptidentifikator hat Manuskriptname"@de;
+	rdfs:comment """Relating a manuscript identifier to the manuscript's name."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range rdfs:Literal.
+
+infocar:manuscriptIdentifierHasAlternative
+	a owl:ObjectProperty;
+	rdfs:label "manuscript identifier has alternative"@en, "Manuskriptidentifikator hat Alternative"@de;
+	rdfs:comment """Relating a manuscript identifier to an alternative."""@en;
+	rdfs:domain infocar:ManuscriptIdentifier;
+	rdfs:range infocar:ManuscriptIdentifier.
+
+infocar:isPartOfCompositeManuscript
+	a owl:ObjectProperty;
+	rdfs:label "is part of composite manuscript"@en, "ist Teil eines zusammengesetzten Manuskripts"@de;
+	rdfs:comment """Relating a codicological part to the composite manuscript it is part of."""@en;
+	rdfs:domain infocar:CodicologicalPart;
+	rdfs:range infocar:CompositeManuscript;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isInTypescript
+	a owl:ObjectProperty;
+	rdfs:label "is in typescript"@en, "ist in Typoskript"@de;
+	rdfs:comment "Relating a typewritten text to the typescript that carries it."@en;
+	rdfs:domain text:TypewrittenText;
+	rdfs:range infocar:Typescript;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isInTextCopy
+	a owl:ObjectProperty;
+	rdfs:label "is in text copy"@en, "ist in Textkopie"@de;
+	rdfs:comment "Relating a copied text to its carrier."@en;
+	rdfs:domain text:CopiedText;
+	rdfs:range infocar:TextCopy;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:hasTranscriber
+	a owl:ObjectProperty;
+	rdfs:label "has transcriber"@en, "hat TranskribiererIn"@de;
+	rdfs:comment """Relating a transcript to a person who created it."""@en;
+	rdfs:domain infocar:Transcript;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]];
+	rdfs:subPropertyOf creating:hasCreator.
+
+infocar:hasScribe
+	a owl:ObjectProperty;
+	rdfs:label "has scribe"@en, "hat TextKopistIn"@de;
+	rdfs:comment """Relating a manual transcript to a person who created it."""@en;
+	rdfs:domain infocar:ManualTranscript;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Scribe]];
+	rdfs:subPropertyOf infocar:hasTranscriber.
+
+infocar:isInTranscript
+	a owl:ObjectProperty;
+	rdfs:label "is in transcript"@en, "ist in Abschrift"@de;
+	rdfs:comment "Relating a transcribed text to the transcript that carries it."@en;
+	rdfs:domain text:TranscribedText;
+	rdfs:range infocar:Transcript;
+	rdfs:subPropertyOf infocar:isInTextCopy.
+
+infocar:isInCompilation
+	a owl:ObjectProperty;
+	rdfs:label "is in compilation"@en, "ist in Zusammenstellung"@de;
+	rdfs:comment "Relating a compiled text to the compilation that carries it."@en;
+	rdfs:domain text:CompiledText;
+	rdfs:range infocar:Compilation;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:hasPrinter
+	a owl:ObjectProperty;
+	rdfs:label "has printer"@en, "hat Drucker"@de;
+	rdfs:comment """Relating a print to its printer."""@en;
+	rdfs:domain infocar:Print;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:AgentPrinter]];
+	rdfs:subPropertyOf creating:hasCreator.
+
+infocar:printHasIdentifier
+	a owl:ObjectProperty;
+	rdfs:label "print has identifier"@en, "Druck hat Identifikator"@de;
+	rdfs:comment """Relating a print to its identifier."""@en;
+	rdfs:domain infocar:Print;
+	rdfs:range infocar:PrintIdentifier.
+
+infocar:printIdentifierHasLocationName
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has location name"@en, "Druckidentifikator hat Ortsname"@de;
+	rdfs:comment """Relating a print identifier to the name of the place where the print is preserved."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal; # physical:PlaceName
+	rdfs:subPropertyOf text:hasName.
+
+infocar:printIdentifierHasInstitutionName
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has institution name"@en, "Druckidentifikator hat Institutionsname"@de;
+	rdfs:comment """Relating a print identifier to the name of the institution preserving the print."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:printIdentifierHasRepositoryName
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has repository name"@en, "Druckidentifikator hat Repositoriumname"@de;
+	rdfs:comment """Relating a print identifier to the name of the repository where the print is preserved."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:printIdentifierHasCollectionName
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has collection name"@en, "Druckidentifikator hat Kollektionsname"@de;
+	rdfs:comment """Relating a print identifier to the name of the collection of which the print is a part."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:printIdentifierHasPrintNumber
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has print number"@en, "Druckidentifikator hat Drucknummer"@de;
+	rdfs:comment """Relating a print identifier to the print's number."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal.
+
+infocar:printIdentifierHasPrintName
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has print name"@en, "Druckidentifikator hat Druckname"@de;
+	rdfs:comment """Relating a print identifier to the print's name."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range rdfs:Literal.
+
+infocar:printIdentifierHasAlternative
+	a owl:ObjectProperty;
+	rdfs:label "print identifier has alternative"@en, "Druckidentifikator hat Alternative"@de;
+	rdfs:comment """Relating a print identifier to an alternative."""@en;
+	rdfs:domain infocar:PrintIdentifier;
+	rdfs:range infocar:PrintIdentifier.
+
+infocar:isPartOfPrintRun
+	a owl:ObjectProperty;
+	rdfs:label "is part of print run"@en, "ist Teil einer Druckauflage"@de;
+	rdfs:comment """Relating a print to the run it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:isInPrint
+	a owl:ObjectProperty;
+	rdfs:label "is in print"@en, "ist in Druck"@de;
+	rdfs:comment "Relating a printed text to a print that carries it."@en;
+	rdfs:domain text:PrintedText;
+	rdfs:range infocar:Print;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isTextInPhotocopy
+	a owl:ObjectProperty;
+	rdfs:label "is text in photocopy"@en, "ist Text in Fotokopie"@de;
+	rdfs:comment "Relating a photocopied text to a photocopy that carries it."@en;
+	rdfs:domain text:PhotocopiedText;
+	rdfs:range infocar:Photocopy;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:isEntryInDiary
+	a owl:ObjectProperty;
+	rdfs:label "is entry in diary"@en, "ist Eintrag in Tagebuch"@de;
+	rdfs:comment """Relating a diary entry to the diary it is in."""@en;
+	rdfs:domain text-expression:DiaryEntry;
+	rdfs:range infocar:Diary;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:hasDiaryEnteringDate
+	a owl:ObjectProperty;
+	rdfs:label "has diary entering date"@en, "hat Tagebucheintragsdatum"@de;
+	rdfs:comment """Relating a diary entry to its date of entering in a diary."""@en;
+	rdfs:subPropertyOf creating:creationHasDate.
+
+infocar:isInDiary
+	a owl:ObjectProperty;
+	rdfs:label "is in diary"@en, "ist in Tagebuch"@de;
+	rdfs:comment """Relating a diary expression to the physical diary it is in."""@en;
+	rdfs:domain text-expression:Diary;
+	rdfs:range infocar:Diary;
+	rdfs:subPropertyOf infocar:isOnCarrier.
+
+infocar:convoluteHasTitle
+	a owl:ObjectProperty;
+	rdfs:label "convolute has title"@en, "Konvolut hat Titel"@de;
+	rdfs:comment """Relating a convolute to its titel."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasTitle.
+
+infocar:convoluteHasDescription
+	a owl:ObjectProperty;
+	rdfs:label "convolute has description"@en, "Konvolut hat Beschreibung"@de;
+	rdfs:comment """Relating a convolute to a description thereof."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:convoluteHasSizeDescription
+	a owl:ObjectProperty;
+	rdfs:label "convolute has size description"@en, "Konvolutgrösse hat Beschreibung"@de;
+	rdfs:comment """Relating a convolute to a description of its size."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:convoluteHasOriginDescription
+	a owl:ObjectProperty;
+	rdfs:label "convolute has origin description"@en, "Konvolut hat Herkunftbeschreibung"@de;
+	rdfs:comment """Relating a text convolute to a description of its origin."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:convoluteHasContentRepresentation
+	a owl:ObjectProperty;
+	rdfs:label "convolute has content representation"@en, "Konvolut hat Inhaltrepräsentation"@de;
+	rdfs:comment """Relating a convolute to a description of its content representation."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasDescription.
+
+infocar:containsEarlierStagesOf
+	a owl:ObjectProperty; # , owl:TransitiveProperty;
+	rdfs:label "contains earlier stages of"@en, "enthält frühere Stufen von"@de;
+	rdfs:comment """Relating a convolute to another one whose information carriers bear later stages of the texts on the carriers of the former."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range infocar:Convolute.
+
+infocar:containsEarlierStagesOfPublication
+	a owl:ObjectProperty; # , owl:TransitiveProperty;
+	rdfs:label "contains earlier stages of publication"@en, "enthält frühere Stufen von Publikation"@de;
+	rdfs:comment """Relating a convolute to another one whose information carriers bear later publication stages of the texts on the carriers of the former."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range infocar:Convolute;
+	rdfs:subPropertyOf infocar:containsEarlierStagesOf.
+
+infocar:containsLaterStagesOf
+	a owl:ObjectProperty; # , owl:TransitiveProperty;
+	rdfs:label "contains later stages of"@en, "enthält spätere Stufen von"@de;
+	rdfs:comment """Relating a convolute to another one whose information carriers bear earlier stages of the texts on the carriers of the former."""@en;
+	rdfs:domain infocar:Convolute;
+	rdfs:range infocar:Convolute.
+
+infocar:isPartOfConvolute
+	a owl:ObjectProperty;
+	rdfs:label "is part of convolute"@en, "ist Teil eines Konvoluts"@de;
+	rdfs:comment """Relating an element of a convolute to the convolute."""@en;
+	rdfs:domain infocar:ConvoluteElement;
+	rdfs:range infocar:Convolute;
+	rdfs:subPropertyOf physical:isPartOf.
+
+infocar:webPageHasName
+	a owl:ObjectProperty;
+	rdfs:label "web page has name"@en, "Webseite hat Name"@de;
+	rdfs:comment """Relating a web page to a name it has."""@en;
+	rdfs:domain infocar:WebPage;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:webPageHasURL
+	a owl:ObjectProperty;
+	rdfs:label "web page has URL"@en, "Webseite hat URL"@de;
+	rdfs:comment """Relating a web page to a URL it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range xsd:anyURI.
+
+infocar:hasHyperlink
+	a owl:ObjectProperty;
+	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
+	rdfs:comment """Relating a document structure to a hyperlink it has on an electronic carrier."""@en;
+	rdfs:domain document:HypertextStructure;
+	rdfs:range infocar:Hyperlink.
+
+infocar:hyperlinkHasName
+	a owl:ObjectProperty;
+	rdfs:label "hyperlink has name"@en, "Hyperlink hat Name"@de;
+	rdfs:comment """Relating a hyperlink to a name it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+infocar:hyperlinkHasURL
+	a owl:ObjectProperty;
+	rdfs:label "hyperlink has URL"@en, "Hyperlink hat URL"@de;
+	rdfs:comment """Relating a hyperlink to a URL it has."""@en;
+	rdfs:domain infocar:Hyperlink;
+	rdfs:range xsd:anyURI.

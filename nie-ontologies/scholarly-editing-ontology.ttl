@@ -1,0 +1,646 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix creating: <http://www.nie.org/ontology/shared/creating#>.
+@prefix org: <http://www.nie.org/ontology/shared/organization#>.
+@prefix language: <http://www.nie.org/ontology/shared/language#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix document: <http://www.nie.org/ontology/shared/document#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-expression: <http://www.nie.org/ontology/shared/text-expression#>.
+@prefix text-structure: <http://www.nie.org/ontology/shared/text-structure#>.
+@prefix textedit: <http://www.nie.org/ontology/shared/text-editing#>.
+@prefix infocar: <http://www.nie.org/ontology/shared/information-carrier#>.
+@prefix publish: <http://www.nie.org/ontology/shared/publishing#>.
+@prefix litera: <http://www.nie.org/ontology/shared/literature#>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+
+# @base <http://www.nie.org/ontology/shared/scholarly-editing>.
+@prefix scholarly-editing: <http://www.nie.org/ontology/shared/scholarly-editing#>.
+
+<http://www.nie.org/ontology/shared/scholarly-editing>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about scientific editing"@en;
+	dct:description """Formal description of scientific editing, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+scholarly-editing:EditionScientist
+	a rdfs:Class;
+	rdfs:label "edition scientist"@en, "EditionswissenschaftlerIn"@de;
+	rdfs:comment """Role of a person practicing edition science."""@en;
+	rdfs:subClassOf human:Scientist.
+
+scholarly-editing:Editor
+	a rdfs:Class;
+	rdfs:label "scholarly editor"@en, "wissenschaftliche Editor"@de, "éditeur scientifique"@fr;
+	rdfs:comment """Role of a person editing a text expression scientifically."""@en; #°
+	skos:note """Different from an editor of scientific literature, who is not necessarily a scientist."""@en;
+	rdfs:subClassOf textedit:Editor, scholarly-editing:EditionScientist.
+
+scholarly-editing:OrganizationEditor
+	a rdfs:Class;
+	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de;
+	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
+	rdfs:subClassOf org:Creator.
+
+scholarly-editing:Edition
+	a rdfs:Class;
+	rdfs:label "scholarly edition"@en, "wissenschaftliche Edition"@de;
+	rdfs:comment """Derived text expression edited for scientific purpose."""@en;
+	rdfs:subClassOf textedit:DerivedTextExpression , [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Page
+	a rdfs:Class;
+	rdfs:label "scholarly edition text page"@en, "wissenschaftliche Editiontextseite"@de;
+	rdfs:comment """Page of a scholarly edition."""@en;
+	rdfs:subClassOf text-structure:Page, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isPageOfEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:EditorialSymbol
+	a rdfs:Class;
+	rdfs:label "editorial symbol"@en, "editorisches Zeichen"@de;
+	rdfs:comment """Symbol in a scholarly edition indicating a textual property of the original text."""@en;
+	rdfs:subClassOf concept:SymbolicEntity, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEditorialSymbolOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:PageIndicator
+	a rdfs:Class;
+	rdfs:label "page indicator"@en, "Seiteindikator"@de;
+	rdfs:comment """Editorial symbol indicating where a document page starts."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialSymbol, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isPageIndicatorOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:PageNumberIndicator
+	a rdfs:Class;
+	rdfs:label "page number indicator"@en, "Seitenummerindikator"@de;
+	rdfs:comment """Page indicator as number."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialSymbol, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isPageNumberIndicatorOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:ColumnIndicator
+	a rdfs:Class;
+	rdfs:label "column indicator"@en, "Spalteindikator"@de;
+	rdfs:comment """Editorial symbol indicating a textual property of the original text."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialSymbol, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isColumnIndicatorOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:DiplomaticTranscription
+	a rdfs:Class;
+	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
+#	ling:hasSynonym "Lesehilfe"@de;
+	rdfs:comment """Transcription of a text with editorial symbols indicating visual textual properties to describe the textual state."""@en;
+	skos:note """Mostly done for autographs or juridical text; without interpretation.""";
+	rdfs:subClassOf scholarly-editing:Edition, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# textedit:DiplomaticInterpretativeTranscription
+
+scholarly-editing:CriticalEditor
+	a rdfs:Class;
+	rdfs:label "critical editor"@en, "kritische Editor"@de;
+	rdfs:comment """Role of being a scholar editing a text expression in a critical scientific way."""@en;
+	rdfs:subClassOf human:Scientist, creating:PersonCreator.
+
+scholarly-editing:CriticalEdition
+	a rdfs:Class;
+	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
+	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, using a critical apparatus, allowing readers to assess the editor's choice."""@en;
+	rdfs:subClassOf scholarly-editing:Edition, [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# textedit:Variorum rdfs:subClassOf textedit:CriticalEdition
+
+scholarly-editing:GeneticEdition
+	a rdfs:Class;
+	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
+	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
+	rdfs:subClassOf scholarly-editing:CriticalEdition.
+
+scholarly-editing:ConstitutedEdition
+	a rdfs:Class;
+	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de;
+#	ling:hasSynonym "Lesetext"@de;
+	rdfs:comment """Plain text expression as endresult of critical editing of another text expression."""@en;
+	rdfs:subClassOf scholarly-editing:Edition.
+
+scholarly-editing:EditorialStructure
+	a rdfs:Class;
+	rdfs:label "editorial text structure"@en, "editorische Textstruktur"@de;
+	rdfs:comment """Scientific text structure depending on editorial purpose, e.g. an editing apparatus."""@en;
+	rdfs:subClassOf text-structure:ScientificStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasSiglumReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:SiglumReference
+	a rdfs:Class;
+	rdfs:label "siglum reference"@en, "Siglum-Referenz"@de; #, "siglum"@fr, "siglum"@it;
+	rdfs:comment """Reference to a siglum as expression identifier."""@en;
+	rdfs:subClassOf document:ExpressionReference, [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasSiglum; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Siglum
+	a rdfs:Class;
+	rdfs:label "siglum"@en, "Siglum"@de, "siglum"@fr, "siglum"@it;
+	rdfs:comment """One or more symbols as identifier of an expression as original or witness in a scholarly edition."""@en;
+	rdfs:subClassOf document:ExpressionIdentifier, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isSiglumOfEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Apparatus
+	a rdfs:Class;
+	rdfs:label "editing apparatus"@en, "Edierungsapparatus"@de, "apparatus editionis"@la;
+	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:ApparatusEntry
+	a rdfs:Class;
+	rdfs:label "editing apparatus entry"@en, "Edierungsapparateintrag"@de; #, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
+	rdfs:comment """Entry of an editing apparatus."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEntryOfApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:hasApparatusEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:DoctrinalApparatus
+	a rdfs:Class;
+	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de;
+#	ling:hasSynonym textedit:HistoricalApparatus;
+	rdfs:comment """Editing apparatus commmenting on the content of a scholarly edition in a historical and doctrinal context."""@en; # info about theory
+	rdfs:subClassOf scholarly-editing:Apparatus, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isDoctrinalApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:DoctrinalApparatusEntry
+	a rdfs:Class;
+	rdfs:label "doctrinal apparatus entry"@en, "doktrinaler Apparateintrag"@de; #, "entrée d'apparat doctrine"@fr, "iscrizione del apparato doctrino"@it;
+	rdfs:comment """Entry of a doctrinal apparatus."""@en;
+	rdfs:subClassOf scholarly-editing:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEntryOfDoctrinalApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:ApparatusFontium
+	a rdfs:Class;
+	rdfs:label "apparatus fontium"@en, "Apparatus Fontium"@de, "apparatus fontium"@la;
+	rdfs:comment """Editing apparatus containing references to one or more citations."""@en;
+	rdfs:subClassOf scholarly-editing:Apparatus, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isApparatusFontiumOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:ApparatusFontiumEntry
+	a rdfs:Class;
+	rdfs:label "apparatus fontium entry"@en, "Apparatus Fontium-Eintrag"@de; #, "entrée d'apparat "@fr, "iscrizione del apparato "@it;
+	rdfs:comment """Entry of an apparatus fontium."""@en;
+	rdfs:subClassOf scholarly-editing:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEntryOfApparatusFontium; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:CriticalApparatus
+	a rdfs:Class;
+	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparat critique"@fr, "apparato critico"@it, "apparatus criticus"@la;
+	rdfs:comment """Editing apparatus to a critical text edition providing information of textual versions."""@en;
+	rdfs:subClassOf scholarly-editing:Apparatus, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isCriticalApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:CriticalApparatusEntry
+	a rdfs:Class;
+	rdfs:label "critical apparatus entry"@en, "textkritischer Apparateintrag"@de, "entrée d'apparat critique"@fr, "iscrizione del apparato critico"@it;
+	rdfs:comment """Entry of critical apparatus."""@en;
+	rdfs:subClassOf scholarly-editing:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEntryOfCriticalApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:StructureApparatus
+	a rdfs:Class;
+	rdfs:label "text structure apparatus"@en, "Textstruktur-Apparat"@de;
+	rdfs:comment """Editing apparatus to a critical text edition providing information of text structure."""@en;
+	rdfs:subClassOf scholarly-editing:Apparatus, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isStructureApparatusOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:StructureApparatusEntry
+	a rdfs:Class;
+	rdfs:label "structure apparatus entry"@en, "Textstruktur-Apparateintrag"@de; #, "entrée d'apparat de structure"@fr, "iscrizione del apparato del "@it;
+	rdfs:comment """Entry of text structure apparatus."""@en;
+	rdfs:subClassOf scholarly-editing:ApparatusEntry, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isEntryOfStructureApparatus; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:StructureDescription
+	a rdfs:Class;
+	rdfs:label "text structure description"@en, "Textstrukturdeskription"@de;
+	rdfs:comment """Description of a text structure in a structure apparatus."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isStructureDescriptionOfEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Reading
+	a rdfs:Class;
+	rdfs:label "reading"@en, "Lesung"@de, "lezione"@it, "lectio"@la;
+	rdfs:comment """Copy of one or more words or phrases of an original or witness."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, text:CopiedText, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isReadingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Witness
+	a rdfs:Class;
+	rdfs:label "witness text"@en, "Textzeuge"@de;
+	rdfs:comment """Copy of a text studied in a critical edition, as comparison or proof of existance of the original by looking for features of originality, possibly enabling the original's reconstruction."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_w.aspx>;
+	rdfs:subClassOf text:CopiedText, text-expression:Expression, [
+		a owl:Restriction; owl:onProperty scholarly-editing:witnessHasSiglum; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:isWitnessOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:Lemma
+	a rdfs:Class;
+	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@fr, "lemma"@it;
+	rdfs:comment """Editorial structure in an apparatus entry with a copy of one or more words or phrases referring to its edition text, and as appearing in the original or a witness, or created by an editor, and judged by the editor to be authentic, accurate, and/or authoritative [, and possibly compaired with variants referring to other witnesses]"""@en;
+	skos:note """In an apparatus entry a lemma is mostly seperated from a variant or editorial explanation by a right square bracket ']'."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isLemmaOfCriticalEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:isLemmaOfDoctrinalEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:lemmaHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:lemmaHasVariant; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:lemmaHasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:WitnessedLemma
+	a rdfs:Class;
+	rdfs:label "witnessed lemma"@en, "bezeugtes Lemma"@de; #, "lemma"@fr, "lemma"@it;
+	rdfs:comment """Lemma with a witness."""@en;
+	rdfs:subClassOf scholarly-editing:Lemma, scholarly-editing:Reading.
+
+scholarly-editing:Conjecture
+	a rdfs:Class;
+	rdfs:label "conjecture"@en, "Konjektur"@de;
+	rdfs:comment """Witness-independent lemma expressly proposed to be of interest but absent in the main text of an edition."""@en;
+	rdfs:subClassOf scholarly-editing:Lemma.
+
+scholarly-editing:Emendation
+	a rdfs:Class;
+	rdfs:label "emendation"@en, "Emendation"@de, "émendation"@fr, "emendazione"@it;
+	rdfs:comment """Conjecture accepted by the editor in the main text of an edition."""@en;
+	rdfs:subClassOf scholarly-editing:Conjecture.
+
+scholarly-editing:Variant
+	a rdfs:Class;
+	rdfs:label "variant"@en, "Variant"@de, "variante"@fr, "variante"@it;
+	rdfs:comment """Reading in a critical apparatus entry, judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text, and as such varying from what the editor has judged to be the lemma."""@en;
+	skos:note """Absence in a witness of respective part is commented."""@en;
+	rdfs:subClassOf scholarly-editing:Reading, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isVariantOfEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:variantHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:variantHasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+scholarly-editing:EditorialComment
+	a rdfs:Class;
+	rdfs:label "editorial comment"@en, "editorische Kommentar"@de; #, ""@fr, ""@it;
+	rdfs:comment """Comment in a scholarly edition."""@en;
+	rdfs:subClassOf scholarly-editing:EditorialStructure, [
+		a owl:Restriction; owl:onProperty scholarly-editing:isCommentOn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:isCommentOfEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:isCommentOfEntry; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:commentHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty scholarly-editing:commentHasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+#
+# PROPERTIES
+#
+
+scholarly-editing:hasEdition
+	a owl:ObjectProperty;
+	rdfs:label "has scholarly edition"@en, "hat wissenschaftliche Textedition"@de;
+	rdfs:comment "Relating a text expression to a scholarly edition thereof."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf textedit:hasDerivedTextExpression.
+
+scholarly-editing:hasEditionPage
+	a owl:ObjectProperty;
+	rdfs:label "has scholarly edition page"@en, "hat wissenschaftliche Texteditionseite"@de;
+	rdfs:comment "Relating a text expression to a scholarly edition page thereof."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range scholarly-editing:Page.
+
+scholarly-editing:hasEditor
+	a owl:ObjectProperty;
+	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftliche Editor"@de;
+	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
+	rdfs:domain scholarly-editing:Edition;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom textedit:ScholarlyEditor]].
+	# textedit:hasEditor
+
+scholarly-editing:isPageOfEdition
+	a owl:ObjectProperty;
+	rdfs:label "is page of scholarly edition"@en, "ist Seite einer wissenschaftlichen Edition"@de;
+	rdfs:comment """Relating a page to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:Page;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf text-structure:isPageOfExpression.
+
+scholarly-editing:isEditorialSymbolOf
+	a owl:ObjectProperty;
+	rdfs:label "is editorial symbol of"@en, "ist editorisches Zeichen von"@de;
+	rdfs:comment """Relating an editorial symbol to its scholarly edition page."""@en;
+	rdfs:domain scholarly-editing:EditorialSymbol;
+	rdfs:range scholarly-editing:Page;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:isPageIndicatorOf
+	a owl:ObjectProperty;
+	rdfs:label "is page indicator of"@en, "ist Seiteindikator von"@de;
+	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
+	rdfs:domain scholarly-editing:PageIndicator;
+	rdfs:range scholarly-editing:Page;
+	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
+
+scholarly-editing:isPageNumberIndicatorOf
+	a owl:ObjectProperty;
+	rdfs:label "is page number indicator of"@en, "ist Seitenummerindikator von"@de;
+	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
+	rdfs:domain scholarly-editing:PageNumberIndicator;
+	rdfs:range scholarly-editing:Page;
+	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
+
+scholarly-editing:isColumnIndicatorOf
+	a owl:ObjectProperty;
+	rdfs:label "is column indicator of"@en, "ist Spalteindikator von"@de;
+	rdfs:comment """Relating a column indicator to its scholarly edition page."""@en;
+	rdfs:domain scholarly-editing:ColumnIndicator;
+	rdfs:range scholarly-editing:Page;
+	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
+
+scholarly-editing:hasDiplomaticTranscription
+	a owl:ObjectProperty;
+	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de;
+	rdfs:comment "Relating a text to a diplomatic transcription thereof."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range scholarly-editing:DiplomaticTranscription;
+	rdfs:subPropertyOf scholarly-editing:hasEdition.
+
+scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
+	a owl:ObjectProperty;
+	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Umschrift des Textes auf Seite"@de;
+	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
+	rdfs:domain scholarly-editing:DiplomaticTranscription;
+	rdfs:range infocar:Page.
+
+scholarly-editing:hasCriticalEdition
+	a owl:ObjectProperty;
+	rdfs:label "has critical text edition"@en, "hat kritische Textedition"@de;
+	rdfs:comment "Relating a text expression to a critical edition thereof."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range scholarly-editing:CriticalEdition;
+	rdfs:subPropertyOf scholarly-editing:hasEdition.
+
+scholarly-editing:hasCriticalEditor
+	a owl:ObjectProperty;
+	rdfs:label "has critical editor"@en, "hat kritische Editor"@de;
+	rdfs:comment "Relating a critical edition to a critical editor who created it."@en;
+	rdfs:domain scholarly-editing:CriticalEdition;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:CriticalEditor]];
+	rdfs:subPropertyOf scholarly-editing:hasEditor.
+
+scholarly-editing:hasSiglumReference
+	a owl:ObjectProperty;
+	rdfs:label "has siglum reference"@en, "hat Siglum-Referenz"@de;
+	rdfs:comment """Relating an editiorial text structure to its siglum reference."""@en;
+	rdfs:domain scholarly-editing:EditorialStructure;
+	rdfs:range scholarly-editing:SiglumReference;
+	rdfs:subPropertyOf document:hasExpressionReference.
+
+scholarly-editing:hasSiglum
+	a owl:ObjectProperty;
+	rdfs:label "has siglum"@en, "hat Siglum"@de;
+	rdfs:comment """Relating a siglum reference to its siglum."""@en;
+	rdfs:domain scholarly-editing:SiglumReference;
+	rdfs:range scholarly-editing:Siglum;
+	rdfs:subPropertyOf document:expressionReferenceHasIdentifier.
+
+scholarly-editing:isSiglumOfEdition
+	a owl:ObjectProperty;
+	rdfs:label "îs siglum of scholarly edition"@en, "ist Siglum einer wissenschaftliche Edition"@de;
+	rdfs:comment """Relating a siglum to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:Siglum;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf document:isStructureOfDocument.
+
+scholarly-editing:isApparatusOf
+	a owl:ObjectProperty;
+	rdfs:label "is apparatus of"@en, "ist Apparat von"@de;
+	rdfs:comment """Relating an editing apparatus to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:Apparatus;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
+
+scholarly-editing:isEntryOfApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of apparatus"@en, "ist Eintrag eines Apparates"@de;
+	rdfs:comment """Relating an entry to its editing apparatus."""@en;
+	rdfs:domain scholarly-editing:ApparatusEntry;
+	rdfs:range scholarly-editing:Apparatus;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:hasApparatusEnteringDate
+	a owl:ObjectProperty;
+	rdfs:label "has apparatus entering date"@en, "hat Apparatuseintragsdatum"@de;
+	rdfs:comment """Relating an entry to its date of entering in an apparatus."""@en;
+	rdfs:domain scholarly-editing:ApparatusEntry;
+	rdfs:range xsd:date; #°
+	rdfs:subPropertyOf creating:creationHasDate.
+
+scholarly-editing:isDoctrinalApparatusOf
+	a owl:ObjectProperty;
+	rdfs:label "is doctrinal apparatus of"@en, "ist doktrinaler Apparat von"@de;
+	rdfs:comment """Relating a doctrinal apparatus to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:DoctrinalApparatus;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
+
+scholarly-editing:isEntryOfDoctrinalApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of doctrinal apparatus"@en, "ist Eintrag eines doktrinalen Apparates"@de;
+	rdfs:comment """Relating an entry to its doctrinal apparatus."""@en;
+	rdfs:domain scholarly-editing:DoctrinalApparatusEntry;
+	rdfs:range scholarly-editing:DoctrinalApparatus;
+	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
+
+scholarly-editing:isApparatusFontiumOf
+	a owl:ObjectProperty;
+	rdfs:label "is apparatus fontium of"@en, "ist Apparatus Fontium von"@de;
+	rdfs:comment """Relating an apparatus fontium to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:ApparatusFontium;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
+
+scholarly-editing:isEntryOfApparatusFontium
+	a owl:ObjectProperty;
+	rdfs:label "is entry of apparatus fontium"@en, "ist Eintrag eines Apparatus Fontium"@de;
+	rdfs:comment """Relating an entry to its apparatus fontium."""@en;
+	rdfs:domain scholarly-editing:ApparatusFontiumEntry;
+	rdfs:range scholarly-editing:ApparatusFontium;
+	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
+
+scholarly-editing:isCriticalApparatusOf
+	a owl:ObjectProperty;
+	rdfs:label "is critical apparatus of"@en, "ist textkritischer Apparat von"@de;
+	rdfs:comment """Relating a critical apparatus to its edition."""@en;
+	rdfs:domain scholarly-editing:CriticalApparatus;
+	rdfs:range scholarly-editing:CriticalEdition;
+	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
+
+scholarly-editing:isEntryOfCriticalApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of critical apparatus"@en, "ist Eintrag eines textkritischen Apparates"@de;
+	rdfs:comment """Relating an entry to its critical apparatus."""@en;
+	rdfs:domain scholarly-editing:CriticalApparatusEntry;
+	rdfs:range scholarly-editing:CriticalApparatus;
+	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
+
+scholarly-editing:isStructureApparatusOf
+	a owl:ObjectProperty;
+	rdfs:label "is structure apparatus of"@en, "ist Strukturapparat von"@de;
+	rdfs:comment """Relating a structure apparatus to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:StructureApparatus;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
+
+scholarly-editing:isEntryOfStructureApparatus
+	a owl:ObjectProperty;
+	rdfs:label "is entry of text structure apparatus"@en, "ist Eintrag eines Textstruktur-Apparates"@de;
+	rdfs:comment """Relating an entry to its text structure apparatus."""@en;
+	rdfs:domain scholarly-editing:StructureApparatusEntry;
+	rdfs:range scholarly-editing:StructureApparatus;
+	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
+
+scholarly-editing:isStructureDescriptionOfEntry
+	a owl:ObjectProperty;
+	rdfs:label "is structure description of apparatus entry"@en, "ist Strukturbeschreibung eines Apparateintrages"@de;
+	rdfs:comment """Relating a text structure description to a text structure apparatus entry."""@en;
+	rdfs:domain scholarly-editing:StructureDescription;
+	rdfs:range scholarly-editing:StructureApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:isReadingOf
+	a owl:ObjectProperty;
+	rdfs:label "is reading of"@en, "ist Textinterpretation von"@de;
+	rdfs:comment """Relating a reading to its witness."""@en;
+	rdfs:domain scholarly-editing:Reading;
+	rdfs:range scholarly-editing:Witness.
+
+scholarly-editing:witnessHasSiglum
+	a owl:ObjectProperty;
+	rdfs:label "witness text has siglum"@en, "Textzeuge hat Siglum"@de;
+	rdfs:comment """Relating a witness text expression to its siglum."""@en;
+	rdfs:domain scholarly-editing:Witness;
+	rdfs:range scholarly-editing:Siglum;
+	rdfs:subPropertyOf document:expressionHasIdentifier.
+
+scholarly-editing:isWitnessOf
+	a owl:ObjectProperty;
+	rdfs:label "is witness of"@en, "ist Textzeuge von"@de;
+	rdfs:comment """Relating a witness text expression to its original."""@en;
+	rdfs:domain scholarly-editing:Witness;
+	rdfs:range text-expression:Expression.
+
+scholarly-editing:isLemmaOfCriticalEntry
+	a owl:ObjectProperty;
+	rdfs:label "is lemma of critical apparatus entry"@en, "ist Lemma eines textkritischen Apparateintrages"@de;
+	rdfs:comment """Relating a lemma to its critical apparatus entry."""@en;
+	rdfs:domain scholarly-editing:Lemma;
+	rdfs:range scholarly-editing:CriticalApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:isLemmaOfDoctrinalEntry
+	a owl:ObjectProperty;
+	rdfs:label "is lemma of doctrinal apparatus entry"@en, "ist Lemma eines doktrinalen Apparateintrages"@de;
+	rdfs:comment """Relating a lemma to its doctrinal apparatus entry."""@en;
+	rdfs:domain scholarly-editing:Lemma;
+	rdfs:range scholarly-editing:DoctrinalApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:lemmaHasReference
+	a owl:ObjectProperty;
+	rdfs:label "lemma has reference"@en, "Lemma hat Referenz"@de;
+	rdfs:comment """Relating a lemma to its reference."""@en;
+	rdfs:domain scholarly-editing:Lemma;
+	rdfs:range document:TextStructureReference;
+	rdfs:subPropertyOf document:hasTextReference.
+
+scholarly-editing:lemmaHasVariant
+	a owl:ObjectProperty;
+	rdfs:label "lemma has variant"@en, "Lemma hat Variant"@de;
+	rdfs:comment """Relating a lemma to a variant it has."""@en;
+	rdfs:domain scholarly-editing:Lemma;
+	rdfs:range scholarly-editing:Variant.
+
+scholarly-editing:lemmaHasComment
+	a owl:ObjectProperty;
+	rdfs:label "lemma has comment"@en, "Lemma hat Kommentar"@de;
+	rdfs:comment """Relating a lemma to a comment it has."""@en;
+	rdfs:domain scholarly-editing:Lemma;
+	rdfs:range scholarly-editing:EditorialComment.
+
+scholarly-editing:isVariantOfEntry
+	a owl:ObjectProperty;
+	rdfs:label "is variant of apparatus entry"@en, "ist Variant eines Apparateintrages"@de;
+	rdfs:comment """Relating a variant to its critical apparatus entry."""@en;
+	rdfs:domain scholarly-editing:Variant;
+	rdfs:range scholarly-editing:CriticalApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:variantHasReference
+	a owl:ObjectProperty;
+	rdfs:label "variant has text reference"@en, "Variant hat Textreferenz"@de;
+	rdfs:comment """Relating a variant to its text reference."""@en;
+	rdfs:domain scholarly-editing:Variant;
+	rdfs:range document:TextStructureReference;
+	rdfs:subPropertyOf document:hasTextReference.
+
+scholarly-editing:variantHasComment
+	a owl:ObjectProperty;
+	rdfs:label "variant has comment"@en, "Variant hat Kommentar"@de;
+	rdfs:comment """Relating a variant to an editorial comment."""@en;
+	rdfs:domain scholarly-editing:Variant;
+	rdfs:range scholarly-editing:EditorialComment.
+
+scholarly-editing:isCommentOn
+	a owl:ObjectProperty;
+	rdfs:label "is comment on"@en, "ist Kommentar zu"@de;
+	rdfs:comment """Relating an editorial comment to a text expression it is a comment on."""@en;
+	rdfs:domain scholarly-editing:EditorialComment;
+	rdfs:range text-expression:Expression.
+
+scholarly-editing:isCommentOfEdition
+	a owl:ObjectProperty;
+	rdfs:label "is comment of scholarly edition"@en, "ist Kommentar der wissenschaftlichen Edition"@de;
+	rdfs:comment """Relating an editorial comment to its scholarly edition."""@en;
+	rdfs:domain scholarly-editing:EditorialComment;
+	rdfs:range scholarly-editing:Edition;
+	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
+
+scholarly-editing:isCommentOfEntry
+	a owl:ObjectProperty;
+	rdfs:label "is comment of entry"@en, "ist Kommentar eines Eintrages"@de;
+	rdfs:comment """Relating an editorial comment to its apparatus entry."""@en;
+	rdfs:domain scholarly-editing:EditorialComment;
+	rdfs:range scholarly-editing:ApparatusEntry;
+	rdfs:subPropertyOf concept:isPartOf.
+
+scholarly-editing:commentHasReference
+	a owl:ObjectProperty;
+	rdfs:label "comment has text reference"@en, "Kommentar hat Textreferenz"@de;
+	rdfs:comment """Relating an editorial comment to its text reference."""@en;
+	rdfs:domain scholarly-editing:EditorialComment;
+	rdfs:range document:TextStructureReference;
+	rdfs:subPropertyOf document:hasTextReference.
+
+scholarly-editing:commentHasContent
+	a owl:ObjectProperty;
+	rdfs:label "editorial comment has content"@en, "editorischer Kommentar hat Inhalt"@de;
+	rdfs:comment """Relating an editorial comment to its content."""@en;
+	rdfs:domain scholarly-editing:EditorialComment;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf language:hasContent.

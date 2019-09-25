@@ -1,0 +1,183 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix creating: <http://www.nie.org/ontology/shared/creating#>.
+@prefix org: <http://www.nie.org/ontology/shared/organization#>.
+@prefix language: <http://www.nie.org/ontology/shared/language#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix document: <http://www.nie.org/ontology/shared/document#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-expression: <http://www.nie.org/ontology/shared/text-expression#>.
+@prefix text-structure: <http://www.nie.org/ontology/shared/text-structure#>.
+@prefix infocar: <http://www.nie.org/ontology/shared/information-carrier#>.
+@prefix publish: <http://www.nie.org/ontology/shared/publishing#>.
+@prefix litera: <http://www.nie.org/ontology/shared/literature#>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+
+# @base <http://www.nie.org/ontology/shared/text-editing>.
+@prefix textedit: <http://www.nie.org/ontology/shared/text-editing#>.
+
+<http://www.nie.org/ontology/shared/text-editing>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about text editing"@en;
+	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en;
+	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>.
+
+#
+# CLASSES
+#
+
+textedit:Editor
+	a rdfs:Class;
+	rdfs:label "text editor"@en, "Text-Editor"@de;
+	rdfs:comment """Role of a person changing a text."""@en;
+	rdfs:subClassOf creating:PersonCreator.
+
+textedit:Edition
+	a rdfs:Class;
+	rdfs:label "text edition"@en, "Text-Edition"@de;
+	rdfs:comment """Changed text as a result of editing."""@en;
+	rdfs:subClassOf text:Text , [ # creating:CreationVersion
+		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:Revisor
+	a rdfs:Class;
+	rdfs:label "text revisor"@en, "Text-Revisor"@de;
+	rdfs:comment """Role of a person revising a text."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Revision
+	a rdfs:Class;
+	rdfs:label "text revision"@en, "Textprüfung"@de;
+	rdfs:comment """Edited text as a result of revising."""@en;
+	rdfs:subClassOf textedit:Edition , [
+		a owl:Restriction; owl:onProperty textedit:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:Recension
+	a rdfs:Class;
+	rdfs:label "recension"@en, "Rezension"@de;
+	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_r.aspx>;
+	rdfs:subClassOf textedit:Revision , [
+		a owl:Restriction; owl:onProperty textedit:hasRecensor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:Annotator
+	a rdfs:Class;
+	rdfs:label "annotator"@en, "Annotator"@de, "annotator"@la;
+	rdfs:comment """Role of a person adding notes *annotations* to a text, creating an annotated edition."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Glossator
+	a rdfs:Class;
+	rdfs:label "glossator"@en, "Glossator"@de, "glossator"@la;
+	rdfs:comment """Role of a person adding glosses to a text."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Abbreviator
+	a rdfs:Class;
+	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la;
+	rdfs:comment """Editor shortening a text."""@en;
+	rdfs:subClassOf textedit:Editor.
+
+textedit:Abbreviation # derivative, depending on extent?
+	a rdfs:Class;
+	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
+	rdfs:comment """Shortened edition."""@en;
+	rdfs:subClassOf textedit:Edition, [
+		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+textedit:Paraphrase # derivative? # scientific?
+	a rdfs:Class;
+	rdfs:label "paraphrase"@en, "Paraphrase"@de;
+	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
+	rdfs:subClassOf textedit:Edition.
+
+textedit:LiteralExposition # derivative? # scientific?
+	a rdfs:Class;
+	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de;
+	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
+	rdfs:subClassOf textedit:Edition.
+
+textedit:Transliteration
+	a rdfs:Class;
+	rdfs:label "transliteration"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
+	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
+	skos:note """Primarily representing the symbols, not the sounds."""@en;
+	rdfs:subClassOf text:WrittenText, textedit:Edition.
+
+textedit:DerivedTextExpression
+	a rdfs:Class;
+	rdfs:label "derived text expression"@en, "abgeleitete Textexpression"@de;
+	rdfs:comment """Text expression derived from another text expression with content changed beyond a version."""@en;
+	rdfs:subClassOf text-expression:Expression, creating:CreationDerivative, textedit:Edition.
+
+#
+# PROPERTIES
+#
+
+textedit:hasEditor
+	a owl:ObjectProperty;
+	rdfs:label "edition has editor"@en, "Edition hat Editor"@de;
+	rdfs:comment """Relating an edition to a person who created it."""@en;
+	rdfs:domain textedit:Edition;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]].
+
+textedit:hasEdition
+	a owl:ObjectProperty;
+	rdfs:label "text has edition"@en, "Text hat Edition"@de;
+	rdfs:comment "Relating a text to an edition it has."@en;
+	rdfs:domain text:Text;
+	rdfs:range textedit:Edition.
+
+textedit:hasSameEditionAs
+	a owl:ObjectProperty;
+	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de;
+	rdfs:comment """Relating two texts with a same edition."""@en;
+	rdfs:domain text:Text;
+	rdfs:range text:Text.
+
+textedit:hasRevisor
+	a owl:ObjectProperty;
+	rdfs:label "text revision has revisor"@en, "Textprüfung hat Revisor"@de;
+	rdfs:comment """Relating a text revision to a person who created it."""@en;
+	rdfs:domain textedit:Revision;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
+
+textedit:hasRecensor
+	a owl:ObjectProperty;
+	rdfs:label "has recensor"@en, "hat Rezensor"@de;
+	rdfs:comment """Relating a recension to a person who created it."""@en;
+	rdfs:domain textedit:Recension;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Recensor]].
+
+textedit:hasTransliteration
+	a owl:ObjectProperty;
+	rdfs:label "has transliteration"@en, "hat Transliteration"@de;
+	rdfs:comment """Relating a text to a transliteration thereof."""@en;
+	rdfs:domain text:Text;
+	rdfs:range textedit:Transliteration.
+
+textedit:hasDerivedTextExpression
+	a owl:ObjectProperty;
+	rdfs:label "has derived text expression"@en, "hat abgeleitete Textexpression"@de;
+	rdfs:comment "Relating a text expression to another one derived from it."@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range textedit:DerivedTextExpression.
+
+textedit:hasAbbreviator
+	a owl:ObjectProperty;
+	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
+	rdfs:comment """Relating an abbreviation to a person who created it."""@en;
+	rdfs:domain textedit:Abbreviation;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Abbreviator]].

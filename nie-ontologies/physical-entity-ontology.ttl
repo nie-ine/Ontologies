@@ -1,0 +1,248 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix narespa: <http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#>.
+@prefix naproti: <http://sweet.jpl.nasa.gov/2.3/propTime.owl#>.
+@prefix naprospadi: <http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix phygeo: <http://www.nie.org/ontology/shared/physical-geography#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix humgeo: <http://www.nie.org/ontology/shared/human-geography#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+
+# @base <http://www.nie.org/ontology/shared/physical-entity>.
+@prefix physical: <http://www.nie.org/ontology/shared/physical-entity#>.
+
+<http://www.nie.org/ontology/shared/physical-entity>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title """Physical Entity"""@en;
+	dct:description """Formal description of physical entity in broadest sense, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+physical:Entity
+	a rdfs:Class;
+	rdfs:label "physical entity"@en, "physische Entität"@de;
+	rdfs:comment """."""@en; #°
+	rdfs:subClassOf rdfs:Resource, [ #° to link to cidoc
+		a owl:Restriction; owl:onProperty human:hasUse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasExistingState; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	# seqnum
+
+physical:ExistingState
+	a rdfs:Class;
+	rdfs:label "existing state"@en, "Existenzzustand"@de;
+	rdfs:comment """State of a physical entity existing, partially existing, or having existed."""@en;
+	rdfs:subClassOf event:State;
+	skos:note """To be stated with a time indicator"""@en.
+#	owl:oneOf (physical:Existing physical:Gone).
+
+physical:Existing
+	a rdfs:Class;
+	rdfs:label "existing"@en, "existierend"@de;
+	rdfs:comment """State of a physical entity existing."""@en;
+	rdfs:subClassOf physical:ExistingState.
+
+physical:Gone
+	a rdfs:Class;
+	rdfs:label "gone"@en, "weg"@de;
+	rdfs:comment """State of a physical entity not existing anymore."""@en;
+	rdfs:subClassOf physical:ExistingState.
+
+physical:Space
+	a rdfs:Class;
+	rdfs:label "space"@en, "Raum"@de;
+	rdfs:comment """."""@en; #°
+	rdfs:subClassOf physical:Entity, geo:SpatialThing, narespa:Space, [
+		a owl:Restriction; owl:onProperty physical:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSize; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasLength; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+physical:Time
+	a rdfs:Class;
+	rdfs:label "time"@en, "Zeit"@de;
+	rdfs:comment """."""@en; #°
+	rdfs:subClassOf physical:Entity, naproti:Time. # quantity
+
+physical:Place
+	a rdfs:Class;
+	rdfs:label "place"@en, "Platz"@de;
+	rdfs:comment """Specific space with a position reference, e.g. in a positioning reference system, e.g. the geodetic system of the Earth."""@en;
+	rdfs:subClassOf physical:Space, cidoc:E53_Place, [
+		a owl:Restriction; owl:onProperty physical:placeHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# physical:PlaceName SCO cidoc:E44_Place_Appellation
+
+physical:EarthPlace
+	a rdfs:Class;
+	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
+	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
+	rdfs:subClassOf physical:Place, [
+		a owl:Restriction; owl:onProperty phygeo:hasLatitude; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty phygeo:hasLongitude; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+# phygeo:hasAltitude
+
+physical:Point
+	a rdfs:Class;
+	rdfs:label "point"@en, "Punkt"@de;
+	rdfs:comment """Entity without dimension."""@en;
+	rdfs:subClassOf physical:Entity, geo:Point.
+
+physical:Size
+	a rdfs:Class;
+	rdfs:label "size"@en, "Grösse"@de;
+	rdfs:comment """Spatial extent having 1 to 3 dimensions."""@en;
+	rdfs:subClassOf naprospadi:Size, rdfs:Resource. # seqnum
+
+physical:Length
+	a rdfs:Class;
+	rdfs:label "length"@en, "Länge"@de;
+	rdfs:comment """Spatial quantity representing 1 dimension."""@en;
+	rdfs:subClassOf naprospadi:Length, rdfs:Resource. # seqnum.
+
+physical:Distance
+	a rdfs:Class;
+	rdfs:label "distance"@en, "Abstand"@de;
+	rdfs:comment """Length of the space between two points."""@en;
+	rdfs:subClassOf physical:Length, naprospadi:Distance.
+
+physical:Matter 
+	a rdfs:Class;
+	rdfs:label "matter"@en, "Materie"@de;
+	rdfs:comment """Physical entity having mass and volume."""@en;
+	skos:note """As in classical physics observed in everyday life."""@en;
+	rdfs:subClassOf physical:Space, dct:PhysicalResource, [
+		a owl:Restriction; owl:onProperty physical:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSendingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceivingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasReceiverPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty humgeo:hasReturnPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasPreserver; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+physical:Compound
+	a rdfs:Class;
+	rdfs:label "compound"@en, "Mischung"@de;
+	rdfs:comment """Physical entity composed of more than 1 type of substance."""@en;
+	skos:note """This can be anything, e.g. chemical compound containing more than 1 elementary substance."""@en;
+	rdfs:subClassOf physical:Matter.
+
+physical:Product
+	a rdfs:Class;
+	rdfs:label "product"@en, "Produkt"@de;
+	rdfs:comment """Matter as result of producing in broadest sense, e.g. honey produced by bees."""@en;
+	rdfs:subClassOf physical:Matter.
+
+#
+# PROPERTIES
+#
+
+physical:isPartOf
+	a owl:ObjectProperty; #, owl:TransitiveProperty;
+	rdfs:label "is part of"@en, "ist Teil von"@de;
+	rdfs:comment "Relating a space to another one it is part of."@en;
+	rdfs:domain physical:Space;
+	rdfs:range physical:Space.
+
+physical:hasSize
+	a owl:ObjectProperty;
+	rdfs:label "has size"@en, "hat Grösse"@de;
+	rdfs:comment "Relating a space to its size."@en;
+	rdfs:domain physical:Space;
+	rdfs:range physical:Size.
+
+physical:hasLength
+	a owl:ObjectProperty;
+	rdfs:label "has length"@en, "hat Länge"@de;
+	rdfs:comment "Relating a space to its length."@en;
+	rdfs:domain physical:Space;
+	rdfs:range physical:Length.
+
+physical:hasSizeDescription #°
+	a owl:ObjectProperty;
+	rdfs:label "has size description"@en, "hat Grössebeschreibung"@de;
+	rdfs:comment "Relating a space to a size description it has."@en;
+	rdfs:domain physical:Space;
+	rdfs:range rdfs:Literal.
+
+physical:hasLocation
+	a owl:ObjectProperty;
+	rdfs:label "has location"@en, "hat Ort"@de;
+	rdfs:comment """Relating something to its location."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf geo:location.
+
+physical:hasExistingState
+	a owl:ObjectProperty;
+	rdfs:label "has existing state"@en, "hat Existenzzustand"@de;
+	rdfs:comment """Relating something to its existing state."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range physical:ExistingState.
+
+physical:placeHasName #°
+	a owl:ObjectProperty;
+	rdfs:label "place has name"@en, "Platz hat Name"@de;
+	rdfs:comment """Relating a place to its name."""@en;
+	rdfs:domain physical:Place;
+	rdfs:range rdfs:Literal; #° physical:PlaceName
+	rdfs:subPropertyOf text:hasName.
+
+physical:hasSender
+	a owl:ObjectProperty;
+	rdfs:label "has sender"@en, "hat Absender"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Sender]];
+
+physical:hasReceiver
+	a owl:ObjectProperty;
+	rdfs:label "has receiver"@en, "hat Empfänger"@de;
+	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Receiver]];
+
+physical:hasSendingDate #°
+	a owl:ObjectProperty;
+	rdfs:label "has sending date"@en, "hat Absendedatum"@de;
+	rdfs:comment """Relating something material to a date it was sent on."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range xsd:date.
+
+physical:hasReceivingDate #°
+	a owl:ObjectProperty;
+	rdfs:label "has receiving date"@en, "hat Empfangsdatum"@de;
+	rdfs:comment """Relating something material to a date it was received on."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range xsd:date.
+
+physical:hasSendingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has sending location"@en, "hat Absendeort"@de;
+	rdfs:comment """Relating something material to a location it was sent from."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation.
+
+physical:hasReceivingLocation
+	a owl:ObjectProperty;
+	rdfs:label "has receiving location"@en, "hat Empfangort"@de;
+	rdfs:comment """Relating something material to a location it was sent to."""@en;
+	rdfs:domain physical:Matter;
+	rdfs:range physical:Place;
+	rdfs:subPropertyOf physical:hasLocation.

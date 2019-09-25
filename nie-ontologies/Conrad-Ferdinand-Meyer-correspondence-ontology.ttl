@@ -1,0 +1,134 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-expression: <http://www.nie.org/ontology/shared/text-expression#>.
+@prefix textedit: <http://www.nie.org/ontology/shared/text-editing#>.
+@prefix scholarly-editing: <http://www.nie.org/ontology/shared/scholarly-editing#>.
+@prefix infocar: <http://www.nie.org/ontology/shared/information-carrier#>.
+@prefix publish: <http://www.nie.org/ontology/shared/publishing#>.
+@prefix letter-corresponding: <http://www.nie.org/ontology/shared/letter-corresponding#>.
+
+# @base <http://www.nie.org/ontology/0062/meyer>.
+@prefix meyer: <http://www.nie.org/ontology/0062/meyer#>.
+
+<http://www.nie.org/ontology/0062/meyer>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about Conrad Ferdinand Meyer's correspondence"@en;
+	dct:description """Formal description of specific concepts in the critical edition of the correspondence of Conrad Ferdinand Meyer, 11 October 1825 – 28 November 1898."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+meyer:LetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter expression"@en, "Briefexpression Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Letter expression authored by Conrad Ferdinand Meyer or another person."""@en;
+	rdfs:subClassOf letter-corresponding:Expression, text:HandwrittenText.
+
+meyer:DraftLetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter expression draft"@en, "Briefexpressionentwurf Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Draft of a letter expression authored by Conrad Ferdinand Meyer or another person."""@en;
+	rdfs:subClassOf text-expression:Draft.
+
+meyer:CopiedLetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer copied letter expression"@en, "kopierte Briefexpression Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Copied text of a letter expression authored by Conrad Ferdinand Meyer or another person, and being a witness of the original."""@en;
+	rdfs:subClassOf scholarly-editing:Witness.
+
+meyer:TranscribedLetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer transcribed letter expression"@en, "transkribierte Briefexpression Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Transcribed text of a letter expression authored by Conrad Ferdinand Meyer or another person."""@en;
+	rdfs:subClassOf meyer:CopiedLetterExpression, text:TranscribedText.
+
+meyer:PrintedLetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer printed letter expression"@en, "gedruckte Briefexpression Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Printed text of a letter expression authored by Conrad Ferdinand Meyer or another person."""@en;
+	rdfs:subClassOf meyer:CopiedLetterExpression, text:PrintedText.
+
+meyer:PhotocopiedLetterExpression
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer photocopied letter expression"@en, "fotokopierte Briefexpression Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Photocopied text of a letter expression authored by Conrad Ferdinand Meyer or another person."""@en;
+	rdfs:subClassOf meyer:CopiedLetterExpression, text:PhotocopiedText.
+
+meyer:Letter
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter"@en, "Conrad Ferdinand Meyer-Brief"@de, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf letter-corresponding:Letter, infocar:ArchiveElement.
+
+meyer:PostcardLetter
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer postcard letter"@en, "Conrad Ferdinand Meyer-Postkartebrief"@de, "lettre carte postale de Conrad Ferdinand Meyer"@fr, "lettera cartolina di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Letter written on a postcard send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Postcard, meyer:Letter.
+
+meyer:DraftLetter
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer draft letter"@en, "Conrad Ferdinand Meyer-briefentwurf"@de;
+	rdfs:comment """Draft of a letter to be sent by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Draft, infocar:ArchiveElement.
+
+meyer:Copy
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter copy"@en, "Conrad Ferdinand Meyer-Briefkopie"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:TextCopy, infocar:ArchiveElement.
+
+meyer:Transcript
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter transcript"@en, "Conrad Ferdinand Meyer-Brieftranskript"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Transcribed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:ManualTranscript, meyer:Copy.
+
+meyer:Print
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter print"@en, "Conrad Ferdinand Meyer-Briefdruck"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Printed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Print, meyer:Copy.
+
+meyer:FirstPrint
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter first print"@en, "Conrad Ferdinand Meyer-Erstebriefdruck"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """First printed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:FirstPrint, meyer:Print.
+
+meyer:Photocopy
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter photocopy"@en, "Conrad Ferdinand Meyer-Brieffotokopie"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
+	rdfs:comment """Photocopy of a letter send by or to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Photocopy, meyer:Copy.
+
+meyer:Page
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter page"@en, "Seite eines Briefes Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Page of a letter of Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Page.
+
+meyer:LetterConvolute
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer letter convolute"@en,"Briefekonvolut Conrad Ferdinand Meyers"@de;
+	rdfs:comment """Convolute of letters send by and to Conrad Ferdinand Meyer."""@en;
+	rdfs:subClassOf infocar:Convolute, infocar:ArchiveElement.
+
+meyer:CriticalEdition
+	a rdfs:Class;
+	rdfs:label "Conrad Ferdinand Meyer critical edition"@en, "Conrad Ferdinand Meyers kritische Edition"@de;
+	rdfs:comment """Critically edited letter or draft authored by Conrad Ferdinand Meyer or another person, or of a copy thereof."""@en;
+	rdfs:subClassOf scholarly-editing:CriticalEdition, publish:Expression.
+
+#
+# PROPERTIES
+#

@@ -1,0 +1,272 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix agent: <http://www.nie.org/ontology/shared/agent#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix creating: <http://www.nie.org/ontology/shared/creating#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix device: <http://www.nie.org/ontology/shared/device#>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+
+
+# @base <http://www.nie.org/ontology/shared/language>.
+@prefix language: <http://www.nie.org/ontology/shared/language#>.
+
+<http://www.nie.org/ontology/shared/language>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about language"@en;
+	dct:description """Formal description of language, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+language:Language
+	a rdfs:Class;
+	rdfs:label "language"@en, "Sprache"@de;
+	rdfs:comment """Dynamic set of sensory carriers, e.g. a sign, symbol, word, including sound and gesture, to express meaning, and used along rules or grammar model, e.g. syntax for serialization."""@en;
+	rdfs:subClassOf dct:LinguisticSystem, rdfs:Resource.
+	# seqnum
+
+language:HumanLanguage
+	a rdfs:Class;
+	rdfs:label "human language"@en, "menschliche Sprache"@de;
+	rdfs:comment """Language of a human."""@en;
+	skos:note """Also formal language, e.g. computer programming language."""@en;
+	rdfs:subClassOf language:Language. #*, human:Ability.
+
+language:HumanNaturalLanguage
+	a rdfs:Class;
+	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
+	rdfs:comment """Language naturally evolved in humans."""@en;
+	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
+	rdfs:subClassOf language:HumanLanguage, [
+		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+#	owl:disjointWith language:FormalLanguage.
+
+language:GeneralHumanNaturalLanguage
+	a rdfs:Class;
+	rdfs:label "general human natural language"@en, "algemeine menschliche naturliche Sprache"@de;
+	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
+	rdfs:subClassOf language:HumanNaturalLanguage, [
+		a owl:Restriction; owl:onProperty language:hasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+language:English
+	a rdfs:Class;
+	rdfs:label "English"@en, "Englisch"@de;
+	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
+
+language:French
+	a rdfs:Class;
+	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
+	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
+
+language:German
+	a rdfs:Class;
+	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
+	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
+
+language:Italian
+	a rdfs:Class;
+	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
+	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
+
+language:SwissGerman
+	a rdfs:Class;
+	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
+	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
+		a owl:Restriction; owl:onProperty language:swissGermanHasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+language:HumanNaturalLanguageExpression
+	a rdfs:Class;
+	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
+	rdfs:comment """Expression in a human natural language."""@en;
+	skos:note """Different from the FRBROO based document:Expression."""@en;
+	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
+		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasPersonTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasMachineTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:hasTranslation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty language:isTranslatedInto; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty ling:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+language:Dialect
+	a rdfs:Class;
+	rdfs:label "dialect"@en, "Mundart"@de;
+	rdfs:comment """Regional variant of a standard human natural language."""@en;
+	rdfs:subClassOf language:HumanNaturalLanguage.
+
+language:BaselGerman
+	a rdfs:Class;
+	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
+	rdfs:comment """Dialect of the city of Basel, Switzerland."""@en;
+	rdfs:subClassOf language:Dialect.
+
+language:AgentTranslator
+	a rdfs:Class;
+	rdfs:label "agent translator"@en, "Agent-Übersetzer"@de;
+	rdfs:comment """Role of an agent, person or machine, transferring a human natural language expression in another natural language."""@en;
+	rdfs:subClassOf agent:Creator.
+
+language:PersonTranslator
+	a rdfs:Class;
+	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
+	rdfs:comment """Translator as role of a person."""@en;
+	rdfs:subClassOf language:AgentTranslator, creating:PersonCreator.
+
+language:MachineTranslator
+	a rdfs:Class;
+	rdfs:label "machine-translator"@en, "Maschine-Übersetzer"@de;
+	rdfs:comment """Translator as role of a machine."""@en;
+	rdfs:subClassOf language:AgentTranslator.
+
+language:Translation
+	a rdfs:Class;
+	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
+	rdfs:comment """Human natural language expression transferred from another natural language."""@en;
+	skos:note """Can follow the original to a degree, hence differ from another translation; e.g. a free translation gives a general meaning."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
+		a owl:Restriction; owl:onProperty language:translationHasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+language:PersonTranslation
+	a rdfs:Class;
+	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
+	rdfs:comment """Translation done by a person."""@en;
+	rdfs:subClassOf language:Translation, creating:CreationDerivative, [
+		a owl:Restriction; owl:onProperty language:translationHasPersonTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+language:MachineTranslation
+	a rdfs:Class;
+	rdfs:label "machine translation"@en, "Maschinenübersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
+	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
+	rdfs:subClassOf language:Translation.
+
+#
+# PROPERTIES
+#
+
+language:hasCode
+	a owl:ObjectProperty;
+	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
+	rdfs:comment """Relating a language to a code (object) representing that language."""@en;
+	rdfs:domain language:HumanNaturalLanguage;
+	rdfs:range skos:Concept;
+	rdfs:subPropertyOf skos:exactMatch. 
+
+language:hasContent
+	a owl:ObjectProperty;
+	rdfs:label "has content"@en, "hat Inhalt"@de;
+	rdfs:comment """Relating a human natural language expression to its content."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral.
+
+language:hasDialect
+	a owl:ObjectProperty;
+	rdfs:label "has dialect"@en, "hat Dialekt"@de;
+	rdfs:comment """Relating a human natural language to a dialect it has."""@en;
+	rdfs:domain language:HumanNaturalLanguage;
+	rdfs:range language:Dialect.
+
+language:swissGermanHasDialect
+	a owl:ObjectProperty;
+	rdfs:label "Swiss German has dialect"@en, "Schweizerdeutsch hat Dialekt"@de;
+	rdfs:comment """Relating Swiss German to a dialect it has."""@en;
+	rdfs:domain language:SwissGerman;
+	rdfs:range language:Dialect.
+
+language:expressedInNaturalLanguage
+	a owl:ObjectProperty;
+	rdfs:label "expressed in natural language"@en, "geäußert in naturlichen Sprache"@de;
+	rdfs:comment """Relating a human expression to a natural language wherein it is expressed."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range language:HumanNaturalLanguage;
+	rdfs:subPropertyOf cidoc:P72_has_language.
+
+language:expressedInDialect
+	a owl:ObjectProperty;
+	rdfs:label "expressed in dialect"@en, "geäußert in Mundart"@de;
+	rdfs:comment """Relating a human expression to a dialect it is expressed in."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range language:Dialect.
+
+language:hasTranslator
+	a owl:ObjectProperty;
+	rdfs:label "has translator"@en, "hat Übersetzer"@de;
+	rdfs:comment """Relating a natural language expression to an agent that translated it."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:AgentTranslator]].
+
+language:hasPersonTranslator
+	a owl:ObjectProperty;
+	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
+	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
+	rdfs:subPropertyOf language:hasTranslator.
+
+language:hasMachineTranslator
+	a owl:ObjectProperty;
+	rdfs:label "has machine-translator"@en, "hat Machine-Übersetzer"@de;
+	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:MachineTranslator]];
+	rdfs:subPropertyOf language:hasTranslator.
+
+language:translationHasTranslator
+	a owl:ObjectProperty;
+	rdfs:label "translation has translator"@en, "Übersetzung hat Übersetzer"@de;
+	rdfs:comment """Relating a translation to an agent that created it."""@en;
+	rdfs:domain language:Translation;
+	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:AgentTranslator]].
+
+language:translationHasPersonTranslator
+	a owl:ObjectProperty;
+	rdfs:label "translation has person-translator"@en, "Übersetzung hat Person-Übersetzer"@de;
+	rdfs:comment """Relating a translation to a person who created it."""@en;
+	rdfs:domain language:PersonTranslation;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
+	rdfs:subPropertyOf language:translationHasTranslator.
+
+language:translationHasMachineTranslator
+	a owl:ObjectProperty;
+	rdfs:label "translation has machine-translator"@en, "Übersetzung hat Machine-Übersetzer"@de;
+	rdfs:comment """Relating a translation to a machine that created it."""@en;
+	rdfs:domain language:MachineTranslation;
+	rdfs:range [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:MachineTranslator]];
+	rdfs:subPropertyOf language:translationHasTranslator.
+
+language:hasTranslation
+	a owl:ObjectProperty;
+	rdfs:label "has translation"@en, "hat Übersetzung"@de;
+	rdfs:comment """Relating a human natural language expression to another one in another natural language into which it is translated."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range language:Translation.
+
+language:isTranslatedInto
+	a owl:ObjectProperty;
+	rdfs:label "is translated in"@en, "ist übersetzt in"@de;
+	rdfs:comment """Relating a human natural language expression to the language it is translated in."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range language:HumanNaturalLanguage;
+	rdfs:subPropertyOf language:expressedInNaturalLanguage.

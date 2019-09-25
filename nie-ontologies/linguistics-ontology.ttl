@@ -1,0 +1,146 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix unicore: <http://purl.uniprot.org/core/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix event: <http://www.nie.org/ontology/shared/event#>.
+@prefix agent: <http://www.nie.org/ontology/shared/agent#>.
+@prefix human: <http://www.nie.org/ontology/shared/human#>.
+@prefix concept: <http://www.nie.org/ontology/shared/concept#>.
+@prefix language: <http://www.nie.org/ontology/shared/language#>.
+@prefix text: <http://www.nie.org/ontology/shared/text#>.
+@prefix text-structure: <http://www.nie.org/ontology/shared/text-structure#>.
+@prefix lingmor: <http://www.nie.org/ontology/shared/linguistic-morphology#>.
+
+
+# @base <http://www.nie.org/ontology/shared/linguistics>.
+@prefix ling: <http://www.nie.org/ontology/shared/linguistics#>.
+
+<http://www.nie.org/ontology/shared/linguistics>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about language"@en;
+	dct:description """Formal description of linguistics, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor
+		"Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en,
+		"Magdalena Plamada, PhD, Zürich University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+ling:Concept
+	a rdfs:Class;
+	rdfs:label "linguistic concept"@en, "linguistisches Konzept"@de;
+	rdfs:comment """Concept in the knowledge domain of linguistics."""@en;
+	rdfs:subClassOf concept:ConceptualEntity, [
+		a owl:Restriction; owl:onProperty ling:hasLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+ling:Lexeme 
+	a rdfs:Class;
+	rdfs:label "lexeme"@en, "Lexem"@de;
+	rdfs:comment """Linguistic concept as individual semantic entity in human natural language."""@en;
+	rdfs:subClassOf ling:Concept, language:HumanNaturalLanguageExpression, [
+#		a owl:Restriction; owl:onProperty ling:hasSemanticGender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty ling:hasSemanticGenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty ling:hasLemma; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+ling:Lemma
+	a rdfs:Class;
+	rdfs:label "lemma"@en, "Lemma"@de;
+	rdfs:comment """Dictionary entry of a lexeme."""@en;
+	rdfs:seeAlso <http://www.alphabit.net/ATL3Leunitadianalisi.pdf>, <http://www.dcuci.univr.it/documenti/OccorrenzaIns/matdid/matdid121824.pdf>;
+	rdfs:subClassOf ling:Concept, concept:SymbolicEntity.
+
+ling:Symbol
+	a rdfs:Class;
+	rdfs:label "language symbol"@en, "Sprache-Symbol"@de;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf text:WrittenText.
+
+ling:Literal
+	a rdfs:Class;
+	rdfs:label "literal"@en, "Literal"@de;
+	rdfs:comment """One or more language symbols of any kind."""@en;
+	skos:note """Not only letters; as also used in Information Technology, e.g. Resource Description Framework."""@en;
+	rdfs:subClassOf text:WrittenText.
+
+# speech acts
+
+ling:Statement
+	a rdfs:Class;
+	rdfs:label "statement"@en, "Aussage"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+ling:Command
+	a rdfs:Class;
+	rdfs:label "command"@en, "Befehl"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+ling:Question
+	a rdfs:Class;
+	rdfs:label "question"@en, "Frage"@de;
+	rdfs:comment """Sentence eliciting information."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+# request
+
+ling:Answer
+	a rdfs:Class;
+	rdfs:label "answer"@en, "Antwort"@de;
+	rdfs:comment """Sentence providing information on elicitation."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+ling:Promise
+	a rdfs:Class;
+	rdfs:label "promise"@en, "Versprechen"@de;
+	rdfs:comment """Sentence... ."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+ling:Evaluation
+	a rdfs:Class;
+	rdfs:label "evaluation"@en, "Evaluation"@de;
+	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
+	rdfs:subClassOf text-structure:Sentence.
+
+#
+# PROPERTIES
+#
+
+ling:hasSynonym
+	a owl:ObjectProperty;
+	rdfs:label "has synonym"@en, "hat Synonym"@de;
+	rdfs:comment """Relating a resource to a synonym of the name of the resource."""@en;
+	rdfs:domain rdfs:Resource; #°
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasName.
+
+ling:hasComment
+	a owl:ObjectProperty;
+	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
+	rdfs:comment """Relating a human natural language expression to a linguistic comment as a textual statement about the expression."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf text:hasComment.
+
+ling:hasLanguage
+	a owl:ObjectProperty;
+	rdfs:label "has language"@en, "hat Sprache"@de;
+	rdfs:comment "Relating a linguistic concept to its human natural language."@en;
+	rdfs:domain ling:Concept;
+	rdfs:range language:HumanNaturalLanguage.
+
+ling:hasLemma
+	a owl:ObjectProperty;
+	rdfs:label "has lemma"@en, "hat Lemma"@de;
+	rdfs:comment """Relating a lexeme to a lemma."""@en;
+	rdfs:domain ling:Lexeme;
+	rdfs:range ling:Lemma.

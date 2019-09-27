@@ -18,9 +18,9 @@ Note: the graphics are being updated to the current status of the ontologies.
 
 Four kinds of graphics are used to illustrate to the ontologies, to show classes and properties in different ways, and to explain the dependencies between the ontologies.  
 
-A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview, but allowing to focus on certain semantics while providing also the more general semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2).  
+A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview, but allowing to focus on certain semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2), while providing also the more general semantics.  
 
-A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’,  relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. They are created with https://app.gra.fo/.  
+A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’,  relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. These graphics are created with [Grafo](https://app.gra.fo/).  
  
 A third type of graphic (Figure 6) shows (a part of) an ontology, also representing the object properties as nodes. It was created with the open source SPARQL-visualizer1, filtering some ontological elements out (labels, comments and blank nodes). It is particularly suitable for terminology discussion with domain specialists.  
 Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).  

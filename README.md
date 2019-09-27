@@ -2,25 +2,35 @@
 
 In the [NIE-INE](http://www.nie-ine.ch) project an infrastructure is developed to ensure long-term storage of data of scientific edition projects in the Humanities at the Swiss Universities of Basel, Bern, Zürich, and Geneva.  
 
-Note: A similar library of reduced and adapted ontologies is also maintained for the platform [Knora](https://github.com/dhlab-basel/Knora) of the [Digital Humanities Lab](https://github.com/dhlab-basel), requiring application-specific semantics.
+Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora](https://github.com/dhlab-basel/Knora) platform of the [Digital Humanities Lab](https://github.com/dhlab-basel), requiring application-specific semantics.
 
 The essence of the infrastructure is that data, stored in e.g. an SQL relational database or an XML database, are converted to a different i.e. machine-readable format by making the semantics of the data explicit.  
 To enable data expression in this new format, a series of vocabularies or ontologies are created, representing [Semantic Web technology](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology), introduced on the wiki.  
 These semantic models adhere to the [model theory of W3C RDF, RDFS](https://www.w3.org/TR/2002/WD-rdf-mt-20020429/), and [OWL Full](https://www.w3.org/TR/owl-semantics/), and are declared in [Turtle syntax](https://www.w3.org/TR/turtle/). At the same time the ontologies are compliant to the semantic restrictions of Knora. They are directly accessable in the [nie-ontologies](https://github.com/nie-ine/Ontologies/tree/master/nie-ontologies) folder.  
-Whenever possible [ontologies developed by others (external)](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology#other-ontologies-used-in-humanities-and-publishing) are used to base on. Local copies of such ontologies, when not available in Turtle or RDF-XML, are in the [other-ontologies](https://github.com/nie-ine/Ontologies/tree/master/other-ontologies) folder.  
+Whenever possible [ontologies developed by others (external)](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology#other-ontologies-used-in-humanities-and-publishing) are used to base on. Local copies of such ontologies, when not available in Turtle or RDF-XML, are in the [Other-ontologies](https://github.com/nie-ine/Ontologies/tree/master/other-ontologies) folder.  
 NIE-ontologies are highly interdependent and represent a networked collection of namespaces, rather than a strongly hierarchical pyramidal structure. The granularity and specificity of the formalized terminology differs strongly among the vocabularies. A basic approach is to create a namespace that can be extended easily. Rarely ontological elements will be deprecated.  
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
 # Graphics
-Note: the graphics are being updated to the current status of the ontologies, and in this process the ones created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals), will be replaced by graphics created with https://app.gra.fo/ (class circles).  
+
+Note: the graphics are being updated to the current status of the ontologies.  
+
+Four kinds of graphics are used to illustrate to the ontologies, to show classes and properties in different ways, and to explain the dependencies between the ontologies.  
+
+A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview, but allowing to focus on certain semantics while providing also the more general semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2).  
+
+A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’,  relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. They are created with https://app.gra.fo/.  
+ 
+A third type of graphic (Figure 6) shows (a part of) an ontology, also representing the object properties as nodes. It was created with the open source SPARQL-visualizer1, filtering some ontological elements out (labels, comments and blank nodes). It is particularly suitable for terminology discussion with domain specialists.  
+Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).  
 They contain reduced representations of class and property declarations from external and NIE-ontologies and are meant to show dependencies between domain ontologies.  
 Old: RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  
 New: ontologies have an own color. External elements are/will be in light green. The subclass property is represented by a dotted arrow.
 
-Besides these graphics there are tree structures created with [Protégé](https://protege.stanford.edu/) to give a subsumption-based overview of 1 or more ontologies.
+A fourth type (Figures 7, 8, 12, 13, and 14) are created with [Protégé](https://protege.stanford.edu/), depicts a subsumption tree of a merged group of ontologies. It is very useful to get a quick and broad hierarchical overview during the modeling. In the example, four ontologies are merged and linked to CIDOC-CRM (the branches of ‘information’ in Figure 7 are not all shown here).
 
 Following external ontologies are used:  
 [CIDOC](http://www.cidoc-crm.org/)  
@@ -30,10 +40,6 @@ Following external ontologies are used:
 [NASA Space](http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#)  
 [NASA Time](http://sweet.jpl.nasa.gov/2.3/propTime.owl#)  
 [NASA Space Distance](http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#)  
-
-Following figures show graphical representations of triples from different ontologies concerning indicated concepts with related classes and properties.  
-&nbsp;  
-&nbsp;  
 
 <div align="center">
 

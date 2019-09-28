@@ -16,19 +16,18 @@ A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki
 
 Note: the graphics are being updated to the current status of the ontologies.  
 
-Four kinds of graphics are used to illustrate to the ontologies, to show classes and properties in different ways, and to explain the dependencies between the ontologies.  
+Four kinds of graphics are used to illustrate to the ontologies, to show classes, properties, and instances in different ways.  
 
-A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview, but allowing to focus on certain semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2), while providing also the more general semantics.  
+A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview to explain the dependencies between the ontologies, but allowing to focus on certain semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2), while providing also the more general semantics.  
 
-A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’,  relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. These graphics are created with [Grafo](https://app.gra.fo/).  
+A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’, relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. These graphics are created with [Grafo](https://app.gra.fo/). The subclass property is represented by a dotted arrow.  
  
-A third type of graphic (Figure 6) shows (a part of) an ontology, also representing the object properties as nodes. It was created with the open source SPARQL-visualizer1, filtering some ontological elements out (labels, comments and blank nodes). It is particularly suitable for terminology discussion with domain specialists.  
-Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).  
-They contain reduced representations of class and property declarations from external and NIE-ontologies and are meant to show dependencies between domain ontologies.  
-Old: RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
+A third type of graphic (Figure 6_2) shows (a part of) one or more ontologies, also representing properties as nodes. It is created with the open source [SPARQL-visualizer](https://github.com/MadsHolten/sparql-visualizer), by filtering some ontological elements out (labels, comments and blank nodes) to enhance readability. It is particularly suitable for terminology discussion with domain specialists.  
+
+Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).   
+RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  
-New: ontologies have an own color. External elements are/will be in light green. The subclass property is represented by a dotted arrow.
 
 A fourth type (Figures 7, 8, 12, 13, and 14) are created with [Protégé](https://protege.stanford.edu/), depicts a subsumption tree of a merged group of ontologies. It is very useful to get a quick and broad hierarchical overview during the modeling. In the example, four ontologies are merged and linked to CIDOC-CRM (the branches of ‘information’ in Figure 7 are not all shown here).
 

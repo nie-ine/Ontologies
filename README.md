@@ -142,7 +142,7 @@ See also: [Basic modeling pattern for text referencing](https://github.com/nie-i
 ##### Figure 19: Graphic representing classes and properties from different ontologies concerning 'print'
 &nbsp;  
 &nbsp;  
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter_DUO.svg)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter.svg)
 
 ##### Figure 20: Graphic representing classes and properties from different ontologies concerning 'letter'
 &nbsp;  

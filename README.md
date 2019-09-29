@@ -16,20 +16,20 @@ A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki
 
 Note: the graphics are being updated to the current status of the ontologies.  
 
-Four kinds of graphics are used to illustrate to the ontologies, to show classes, properties, and instances in different ways.  
+Four kinds of graphics are used to illustrate the ontologies, to show classes, properties, and instances in different ways.  
 
-A first manually created graphic type (Figures 1, 2, and 11) shows different core domain ontological elements in a simplified way, offering a broad overview to explain the dependencies between the ontologies, but allowing to focus on certain semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2), while providing also the more general semantics.  
+A first manually created graphic type (Figures 1, 2, and 12) shows different core domain ontological elements in a simplified way, offering a broad overview to explain the dependencies between the ontologies, but allowing to focus on certain semantics, e.g. on text and critical editing (Figure 1) and page (Figure 2), while providing also the more general semantics.  
 
-A second type of graphic centers 1 entity (Figures 3, 10, and 16), e.g. ‘event’, relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. These graphics are created with [Grafo](https://app.gra.fo/). The subclass property is represented by a dotted arrow.  
+A second type of graphic centers 1 entity (Figures 3, 11, and 17), e.g. ‘event’, relating it to elements from different domain ontologies, and adhering (in a reduced way) to the RDF structure, e.g. mentioning prefixes and full property names. Classes are represented by discs, properties by rectangles. Classes from external ontologies are colored orange in the upper part. These graphics are created with [Grafo](https://app.gra.fo/). The subclass property is represented by a dotted arrow.  
  
-A third type of graphic (Figure 6_2) shows (a part of) one or more ontologies, also representing properties as nodes. It is created with the open source [SPARQL-visualizer](https://github.com/MadsHolten/sparql-visualizer), by filtering some ontological elements out (labels, comments and blank nodes) to enhance readability. It is particularly suitable for terminology discussion with domain specialists.  
+A third type of graphic (Figure 7) focuses on (a part of) an ontology, also representing properties as nodes. It is created with the open source [SPARQL-visualizer](https://github.com/MadsHolten/sparql-visualizer), by filtering some ontological elements out (labels, comments and blank nodes) to enhance readability. It is particularly suitable for terminology discussion with domain specialists.  
 
 Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).   
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  
 
-A fourth type (Figures 7, 8, 12, 13, and 14) are created with [Protégé](https://protege.stanford.edu/), depicts a subsumption tree of a merged group of ontologies. It is very useful to get a quick and broad hierarchical overview during the modeling. In the example, four ontologies are merged and linked to CIDOC-CRM (the branches of ‘information’ in Figure 7 are not all shown here).
+A fourth type (Figures 8, 9, 13, 14, and 15), created with [Protégé](https://protege.stanford.edu/), depicts a subsumption tree of a merged group of ontologies. It is very useful to get a quick and broad hierarchical overview during the modeling. In the example, four ontologies are merged and linked to CIDOC-CRM.
 
 Following external ontologies are used:  
 [CIDOC](http://www.cidoc-crm.org/)  
@@ -72,107 +72,107 @@ Following external ontologies are used:
 ##### Figure 6: Graphic representing classes and properties from different ontologies concerning 'language'
 &nbsp;  
 &nbsp;  
-Figure 6_2 shows the concept-ontology, created with [SPARQL-visualizer | Intro-viz](https://github.com/MadsHolten/sparql-visualizer)  
+Figure 7 shows the concept-ontology, created with [SPARQL-visualizer | Intro-viz](https://github.com/MadsHolten/sparql-visualizer)  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/sparql-viz-graph_concept.svg)
 
-##### Figure 6_2: Graphic representing classes and properties from the concept-ontology
+##### Figure 7: Graphic representing classes and properties from the concept-ontology
 &nbsp;  
 &nbsp;  
-Figure 7 shows the subsumption tree of the class concept:Information, from the concept, document, text and text structure ontologies.  
+Figure 8 shows the subsumption tree of the class concept:Information, from the concept, document, text and text structure ontologies.  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_information.png)
 
-##### Figure 7: Tree representing classes from different ontologies concerning 'information'
+##### Figure 8: Tree representing classes from different ontologies concerning 'information'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_expression.png)
 
-##### Figure 8: Tree representing classes from different ontologies concerning 'expression'
+##### Figure 9: Tree representing classes from different ontologies concerning 'expression'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_expression.svg)
 
-##### Figure 9: Graphic representing classes and properties from different ontologies concerning 'expression'
+##### Figure 10: Graphic representing classes and properties from different ontologies concerning 'expression'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text.png)
 
-##### Figure 10: Graphic representing classes and properties from different ontologies concerning 'text'
+##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'text'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_reference.png)
 
-##### Figure 11: Graphic representing classes and properties from different ontologies concerning 'text referencing'
+##### Figure 12: Graphic representing classes and properties from different ontologies concerning 'text referencing'
 See also: [Basic modeling pattern for text referencing](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_basic-modeling-patterns/BMP_reference.png)
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure.png)
 
-##### Figure 12: Tree representing classes concerning 'text structure'
+##### Figure 13: Tree representing classes concerning 'text structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_note.png)
 
-##### Figure 13: Tree representing classes concerning 'note structure'
+##### Figure 14: Tree representing classes concerning 'note structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_text-structure_prosodicStructure.png)
 
-##### Figure 14: Tree representing classes concerning 'prosodic structure'
+##### Figure 15: Tree representing classes concerning 'prosodic structure'
 &nbsp;  
 &nbsp;  
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_edition.svg)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_Protege-hierarchy_scientific-structure.png)
 
-##### Figure 15: Graphic representing classes and properties from different ontologies concerning 'edition'
+##### Figure 16: Graphic representing classes and properties from different ontologies concerning 'scientific structure'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_apparatus.png)
 
-##### Figure 16: Graphic representing classes and properties from different ontologies concerning scientific edition and apparatus
+##### Figure 17: Graphic representing classes and properties from different ontologies concerning scientific edition and apparatus
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_information-carrier.svg)
 
-##### Figure 17: Graphic representing classes and properties from different ontologies concerning 'information carrier'
+##### Figure 18: Graphic representing classes and properties from different ontologies concerning 'information carrier'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_print.svg)
 
-##### Figure 18: Graphic representing classes and properties from different ontologies concerning 'print'
+##### Figure 19: Graphic representing classes and properties from different ontologies concerning 'print'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_letter_DUO.svg)
 
-##### Figure 19: Graphic representing classes and properties from different ontologies concerning 'letter'
+##### Figure 20: Graphic representing classes and properties from different ontologies concerning 'letter'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature_basis.svg)
 
-##### Figure 20: Graphic representing classes and properties from different ontologies providing a conceptual basis for 'literature'
+##### Figure 21: Graphic representing classes and properties from different ontologies providing a conceptual basis for 'literature'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_literature.svg)
 
-##### Figure 21: Graphic representing classes and properties from different ontologies concerning 'literature'
+##### Figure 22: Graphic representing classes and properties from different ontologies concerning 'literature'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_text-structure_poem.svg)
 
-##### Figure 22: Graphic representing classes and properties from different ontologies concerning 'text-structure' and 'poem'
+##### Figure 23: Graphic representing classes and properties from different ontologies concerning 'text-structure' and 'poem'
 &nbsp;  
 &nbsp;  
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE_publication.svg)
 
-##### Figure 23: Graphic representing classes and properties from different ontologies concerning 'publication'
+##### Figure 24: Graphic representing classes and properties from different ontologies concerning 'publication'
 </div>
 
-Figure 24 shows a graphical representation of the classes and properties from the external ontology [WGS84 Geo Positioning](http://www.w3.org/2003/01/geo/wgs84_pos#).  
+Figure 25 shows a graphical representation of the classes and properties from the external ontology [WGS84 Geo Positioning](http://www.w3.org/2003/01/geo/wgs84_pos#).  
 
 <div align="center">
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
 
-##### Figure 24: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
+##### Figure 25: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
 </div>
 

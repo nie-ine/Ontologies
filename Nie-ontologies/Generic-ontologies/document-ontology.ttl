@@ -39,10 +39,7 @@ document:Document
 	a rdfs:Class;
 	rdfs:label "document"@en, "Dokument"@de;
 	rdfs:comment """Identifiable, immaterial, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram, abstracted from its information carrier."""@en;
-	rdfs:subClassOf concept:Information, [ # , cidoc:E31_Document: proposition about reality: narrower
-#		a owl:Restriction; owl:onProperty document:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty document:hasContentValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEncoder; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf concept:Information. # , cidoc:E31_Document: proposition about reality: narrower
 
 document:Set
 	a rdfs:Class;
@@ -54,15 +51,13 @@ document:Element
 	a rdfs:Class;
 	rdfs:label "document element"@en, "Dokumentelement"@de;
 	rdfs:comment """Information as part of a document."""@en;
-	rdfs:subClassOf concept:Information, [
-		a owl:Restriction; owl:onProperty document:isElementOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf concept:Information.
 
 document:Structure
 	a rdfs:Class;
 	rdfs:label "document structure"@en, "Dokumentstruktur"@de;
 	rdfs:comment """Structural element of a document."""@en;
-	rdfs:subClassOf document:Element, [
-		a owl:Restriction; owl:onProperty document:isStructureOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Element.
 
 document:Layout
 	a rdfs:Class;
@@ -74,9 +69,7 @@ document:Space
 	a rdfs:Class;
 	rdfs:label "document space"@en, "Leerraum eines Dokumentes"@de;
 	rdfs:comment """Empty space between document content structures, e.g. lines, columns, paragraphs, sections, strophes, images."""@en;
-	rdfs:subClassOf document:Structure, [
-#		a owl:Restriction; owl:onProperty document:isSpaceOfDocument; owl:allValuesFrom document:Document], [
-		a owl:Restriction; owl:onProperty document:isSpaceOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Structure.
 
 document:VerticalSpace
 	a rdfs:Class;
@@ -96,13 +89,7 @@ document:ContentStructure
 	a rdfs:Class;
 	rdfs:label "document content structure"@en, "Dokumentinhaltstruktur"@de;
 	rdfs:comment """Content structure of a document."""@en;
-	rdfs:subClassOf document:Structure, [
-		a owl:Restriction; owl:onProperty document:contentStructureHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
- 		a owl:Restriction; owl:onProperty document:hasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
- 		a owl:Restriction; owl:onProperty document:hasTextReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasExpressionReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Structure.
 
 document:ContentStructureIdentifier
 	a rdfs:Class;
@@ -114,57 +101,43 @@ document:ContentStructureReference
 	a rdfs:Class;
 	rdfs:label "document content structure reference"@en, "Dokumentinhaltstrukturreferenz"@de;
 	rdfs:comment """Reference as a document structure, referring from one document content structure to another via the identifier, e.g. a footnote reference from a text or image to the footnote identifier. The reference is linked to and has the same literal representation as the identifier of the content structure it refers to."""@en;
-	rdfs:subClassOf document:Structure, concept:Identifier, [
-		a owl:Restriction; owl:onProperty document:hasContentStructureIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Structure, concept:Identifier.
 
 document:TextStructureReference
 	a rdfs:Class;
 	rdfs:label "text reference"@en, "Textreferenz"@de;
 	rdfs:comment """Reference to text, e.g. a footnote reference."""@en;
-	rdfs:subClassOf document:ContentStructureReference, [
-		a owl:Restriction; owl:onProperty document:hasTextStructureIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:ContentStructureReference.
 
 document:FootnoteReference
 	a rdfs:Class;
 	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
 	rdfs:comment """Reference to a footnote via the footnote identifier."""@en;
-	rdfs:subClassOf document:TextStructureReference, [
-		a owl:Restriction; owl:onProperty document:hasFootnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasFootnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:TextStructureReference.
 
 document:EndnoteReference
 	a rdfs:Class;
 	rdfs:label "endnote reference"@en, "Endnotereferenz"@de;
 	rdfs:comment """Reference to an endnote."""@en;
-	rdfs:subClassOf document:TextStructureReference, [
-		a owl:Restriction; owl:onProperty document:hasEndnoteIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:hasEndnoteNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:TextStructureReference.
 
 document:ExpressionReference
 	a rdfs:Class;
 	rdfs:label "document expression reference"@en, "Dokument-Expression-Referenz"@de;
 	rdfs:comment """Document structure referring from a document content structure to a document expression identifier, e.g. a siglum."""@en;
-	rdfs:subClassOf document:Structure, concept:Identifier, [
-		a owl:Restriction; owl:onProperty document:expressionReferenceHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Structure, concept:Identifier.
 
 document:Column
 	a rdfs:Class;
 	rdfs:label "column"@en, "Spalte"@de;
 	rdfs:comment """Content structure displaying information, e.g. text lines and graphs, as a column as part of a page."""@en;
-	rdfs:subClassOf document:ContentStructure, [
-#		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:allValuesFrom document:Page], [
-		a owl:Restriction; owl:onProperty document:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:ContentStructure.
 
 document:Page
 	a rdfs:Class;
 	rdfs:label "document page"@en, "Dokumentseite"@de;
 	rdfs:comment """Content structure with information, e.g. text lines and graphs, as a page as part of a document expression, on an information carrier page."""@en;
-	rdfs:subClassOf document:ContentStructure, [
-#		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:allValuesFrom document:Document], [
-		a owl:Restriction; owl:onProperty document:isPageOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:pageHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		
-		a owl:Restriction; owl:onProperty document:pageHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isPageOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:ContentStructure.
 
 document:PageIdentifier
 	a rdfs:Class;
@@ -194,44 +167,25 @@ document:Table #° tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a rdfs:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields or cell containing information and being part of a vertical column and a horizontal row, both with own identifier."""@en;
-	rdfs:subClassOf document:ContentStructure, [
-		a owl:Restriction; owl:onProperty document:isTableOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:ContentStructure.
 
 document:Expression
 	a rdfs:Class;
 	rdfs:label "document expression"@en, "Dokument-Expression"@de;
 	rdfs:comment """Document realisation of a work, conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
-	rdfs:subClassOf document:Document, frbroo:F2_Expression, [
-		a owl:Restriction; owl:onProperty document:expressionHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:expressionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty document:expressionHasSubtitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasElectronicPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasWebPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasFirstPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [	
-		a owl:Restriction; owl:onProperty publish:hasLastPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasLastAuthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasUnauthorizedRepublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPolyAuthorPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNachlassPublication; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNachlassPublicationDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Document, frbroo:F2_Expression.
 
 document:IndividualExpression
 	a rdfs:Class;
 	rdfs:label "individual document expression"@en, "individuelle Dokument-Expression"@de;
 	rdfs:comment """Document realisation of an individual work."""@en;
-	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression, [
-		a owl:Restriction; owl:onProperty document:isExpressionOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression.
 
 document:ExpressionPart
 	a rdfs:Class;
 	rdfs:label "document expression part"@en, "Dokument-Expressionsteil"@de;
 	rdfs:comment """Part of an individual document expression, considered as incomplete."""@en;
-	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment, [
-		a owl:Restriction; owl:onProperty document:isPartOfIndividualExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment.
 
 document:Draft
 	a rdfs:Class;
@@ -293,26 +247,17 @@ document:HypertextElement
 	a rdfs:Class;
 	rdfs:label "hypertext document element"@en, "Hypertext-Dokumentelement"@de;
 	rdfs:comment """Information as part of a hypertext document."""@en;
-	rdfs:subClassOf document:Element, [
-		a owl:Restriction; owl:onProperty document:isElementOfHypertextDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Element.
 
 document:HypertextStructure
 	a rdfs:Class;
 	rdfs:label "hypertext document structure"@en, "Hypertext-Dokumentstruktur"@de;
 	rdfs:comment """Structural element of a hypertext document."""@en;
-	rdfs:subClassOf document:HypertextElement, document:Structure, [
-		a owl:Restriction; owl:onProperty infocar:hasHyperlink; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:HypertextElement, document:Structure.
 
 #
 # PROPERTIES
 #
-
-document:hasEncoder
-	a owl:ObjectProperty;
-	rdfs:label "has encoder"@en, "hat Encoder"@de;
-	rdfs:comment "Relating a document to a person who encoded it."@en;
-	rdfs:domain document:Document;
-	rdfs:range human:Person. # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom document:Encoder]];
 
 document:isElementOfDocument
 	a owl:ObjectProperty;

@@ -32,10 +32,7 @@ event:Event
 	a rdfs:Class;
 	rdfs:label "event"@en, "Ereignis"@de;
 	rdfs:comment """Space-time occurrence."""@en;
-	rdfs:subClassOf physical:Space, physical:Time, [
-		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty event:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Space, physical:Time.
 
 event:Existence
 	a rdfs:Class;
@@ -53,32 +50,27 @@ event:Input
 	a rdfs:Class;
 	rdfs:label "input"@en, "Input"@de;
 	rdfs:comment """Precondition to change in a process."""@en;
-	rdfs:subClassOf rdfs:Resource, [
-		a owl:Restriction; owl:onProperty event:isInputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf rdfs:Resource.
 	# seqnum
 
 event:Output
 	a rdfs:Class;
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Postcondition to change in a process."""@en;
-	rdfs:subClassOf rdfs:Resource, [
-		a owl:Restriction; owl:onProperty event:isOutputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf rdfs:Resource.
 	# seqnum
-
 
 event:Action
 	a rdfs:Class;
 	rdfs:label "action"@en, "Aktion"@de;
 	rdfs:comment """Process involving one or more agents causing change."""@en;
-	rdfs:subClassOf event:Process, [
-		a owl:Restriction; owl:onProperty event:involvesRole; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf event:Process.
 
 event:Procedure
 	a rdfs:Class;
 	rdfs:label "procedure"@en, "Verfahren"@de;
 	rdfs:comment """Action executed in one or more sub-actions, in a certain manner, obtaining a certain output under certain circumstances."""@en;
-	rdfs:subClassOf event:Action, [
-		a owl:Restriction; owl:onProperty event:isSubProcedureOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf event:Action.
 
 event:State
 	a rdfs:Class;

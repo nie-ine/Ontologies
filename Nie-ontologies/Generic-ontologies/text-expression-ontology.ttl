@@ -43,35 +43,19 @@ text-expression:Expression
 	a rdfs:Class;
 	rdfs:label "text expression"@en, "Textexpression"@de, "expression textuelle"@fr, "espressione testuale"@it;
 	rdfs:comment """Document expression as text."""@en;
-	rdfs:subClassOf document:Expression, text:Text, [
-		a owl:Restriction; owl:onProperty text-expression:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasSubtitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasIdeationalExtent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasCommentator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasScientificEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-expression:hasCriticalEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasDerivedTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty scholarly-editing:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty scholarly-editing:hasEditionPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty scholarly-editing:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty scholarly-editing:hasCriticalEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Expression, text:Text.
 
 text-expression:Draft
 	a rdfs:Class;
 	rdfs:label "text expression draft"@en, "Textexpressionentwurf"@de;
 	rdfs:comment """Document draft as text expression."""@en;
-	rdfs:subClassOf text-expression:Expression, document:Draft, [
-		a owl:Restriction; owl:onProperty text-expression:isDraftOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:Expression, document:Draft.
 
 text-expression:PolyAuthorExpression
 	a rdfs:Class;
 	rdfs:label "poly-author text expression"@en, "Mehrautorentextexpression"@de;
 	rdfs:comment """Text expression by different authors."""@en;
-	rdfs:subClassOf text-expression:Expression, [
-		a owl:Restriction; owl:onProperty text-expression:hasMainAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:Expression, document:PolyAuthorExpression.
 
 text-expression:IndividualExpression
 	a rdfs:Class;
@@ -83,8 +67,7 @@ text-expression:ExpressionPart
 	a rdfs:Class;
 	rdfs:label "text expression part"@en, "Textexpressionsteil"@de;
 	rdfs:comment """Part of an individual text expression, considered as incomplete."""@en;
-	rdfs:subClassOf text-expression:Expression, document:ExpressionPart, [
-		a owl:Restriction; owl:onProperty text-expression:isPartOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:Expression, document:ExpressionPart.
 
 text-expression:Introduction
 	a rdfs:Class;
@@ -153,17 +136,13 @@ text-expression:DiaryEntry
 	a rdfs:Class;
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de, "entrée du journal"@fr, "iscrizione del diario"@it;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:Expression, [
-		a owl:Restriction; owl:onProperty text-expression:isEntryOfDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isEntryInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:Expression.
 
 text-expression:Diary
 	a rdfs:Class;
 	rdfs:label "diary expression"@en, "Tagebuch-Expression"@de, "expression d'un journal"@fr, "expression del diario"@it;
 	rdfs:comment """Text expression with a diary content and possibly structure."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression, [
-		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:Commentator
 	a rdfs:Class;
@@ -175,15 +154,13 @@ text-expression:Commentary
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Text expression in the form of a set of comments as analysis, interpretation or explanation of one or more text expressions."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression, [
-		a owl:Restriction; owl:onProperty text-expression:isCommentaryOn; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:Article
 	a rdfs:Class;
 	rdfs:label "article"@en, "Artikel"@de, "article"@fr, "articolo"@it;
 	rdfs:comment """Text expression about a defined (main) subject."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression, [
-		a owl:Restriction; owl:onProperty text-expression:isArticleAbout; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:Biography
 	a rdfs:Class;

@@ -37,8 +37,7 @@ cathorg:Person
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-organization#>;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
-	rdfs:subClassOf org:ReligiousPerson, [
-		a owl:Restriction; owl:onProperty cathorg:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf org:ReligiousPerson.
 
 cathorg:SecularClergy
 	a rdfs:Class;

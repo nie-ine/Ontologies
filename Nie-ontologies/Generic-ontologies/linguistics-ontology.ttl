@@ -39,17 +39,13 @@ ling:Concept
 	a rdfs:Class;
 	rdfs:label "linguistic concept"@en, "linguistisches Konzept"@de;
 	rdfs:comment """Concept in the knowledge domain of linguistics."""@en;
-	rdfs:subClassOf concept:ConceptualEntity, [
-		a owl:Restriction; owl:onProperty ling:hasLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf concept:ConceptualEntity.
 
 ling:Lexeme 
 	a rdfs:Class;
 	rdfs:label "lexeme"@en, "Lexem"@de;
 	rdfs:comment """Linguistic concept as individual semantic entity in human natural language."""@en;
-	rdfs:subClassOf ling:Concept, language:HumanNaturalLanguageExpression, [
-#		a owl:Restriction; owl:onProperty ling:hasSemanticGender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty ling:hasSemanticGenderValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty ling:hasLemma; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf ling:Concept, language:HumanNaturalLanguageExpression.
 
 ling:Lemma
 	a rdfs:Class;

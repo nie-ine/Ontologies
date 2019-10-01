@@ -34,15 +34,13 @@ logic:Premise
 	a rdfs:Class;
 	rdfs:label "premise"@en, "Prämisse"@de;
 	rdfs:comment """Statement ... ."""@en;
-	rdfs:subClassOf ling:Statement, [
-		a owl:Restriction; owl:onProperty logic:isPremiseOfArgument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf ling:Statement.
 
 logic:Conclusion
 	a rdfs:Class;
 	rdfs:label "conclusion"@en, "Konklusion"@de;
 	rdfs:comment """Statement ... ."""@en;
-	rdfs:subClassOf ling:Statement, [
-		a owl:Restriction; owl:onProperty logic:isConclusionOfArgument; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf ling:Statement.
 
 logic:Argument
 	a rdfs:Class;

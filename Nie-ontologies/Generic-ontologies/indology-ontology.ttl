@@ -39,9 +39,7 @@ indo:Veda
 	a rdfs:Class;
 	rdfs:label "Veda"@en, "Veda"@de;
 	rdfs:comment """Hindu text written in Vedic Sanskrit, in a period dated roughly from 1700 to 400 BC."""@en;
-	rdfs:subClassOf indo:Expression, [
-		a owl:Restriction; owl:onProperty indo:vedaHasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty indo:vedaHasRecitingStyle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf indo:Expression.
 
 indo:VedaLiterature
 	a rdfs:Class;

@@ -29,8 +29,7 @@ cathord:Person
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-orders#>;
 	rdfs:label "catholic order person"@en, "Person eines katholischen Ordens"@de; # "personne d'un ordre catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Catholic person belonging to an order."""@en;
-	rdfs:subClassOf cathorg:Person, [
-		a owl:Restriction; owl:onProperty cathord:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf cathorg:Person.
 
 cathord:Order
 	a rdfs:Class;

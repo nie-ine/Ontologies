@@ -46,9 +46,7 @@ text-structure:Structure
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Text as structure abstracted from its carrier, e.g. a word, sentence, text line, paragraph, section, verse, strophe."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
-	rdfs:subClassOf text:Text, document:ContentStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isPartOfTextExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Text, document:ContentStructure.
 
 text-structure:Identifier
 	a rdfs:Class;
@@ -102,24 +100,13 @@ text-structure:SyntacticWord
 	a rdfs:Class;
 	rdfs:label "syntactic word"@en, "syntaktisches Wort"@de;
 	rdfs:comment """Smallest independent syntactic structure composed of symbols that can be replaced in a sentence or verse."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure, ling:Concept, [
-#		a owl:Restriction; owl:onProperty concept:hasLiteral; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty ling:hasLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:syntacticWordHasForm; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isWordBeforePunctuation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isWordOfSentence; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty prosodic-structure:isWordOfVerse; owl:allValuesFrom prosodic-structure:Verse], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isWordOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:SyntacticStructure, ling:Concept.
 
 text-structure:Sentence
 	a rdfs:Class;
 	rdfs:label "sentence"@en, "Satz"@de;
 	rdfs:comment """Syntactic structure comprising one or more linked syntactic words, basically a subject and predicate."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure, text-structure:ContentStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isSentenceOfParagraph; owl:allValuesFrom text-structure:Paragraph], [
-		a owl:Restriction; owl:onProperty text-structure:isSentenceOfParagraph; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isSentenceOfProse; owl:allValuesFrom text-structure:Prose], [
-		a owl:Restriction; owl:onProperty text-structure:isSentenceOfProse; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:SyntacticStructure, text-structure:ContentStructure.
 
 text-structure:SurfaceSentence
 	a rdfs:Class;
@@ -132,39 +119,25 @@ text-structure:Prose
 	a rdfs:Class;
 	rdfs:label "prose"@en, "Prosa"@de;
 	rdfs:comment """Syntactic structure with a sentence as unit, in a natural flow of speech."""@en;
-	rdfs:subClassOf text-structure:SentenceStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isProseOfExpression; owl:allValuesFrom text:Text], [
-		a owl:Restriction; owl:onProperty text-structure:isProseOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:SentenceStructure.
 
 text-structure:Paragraph
 	a rdfs:Class;
 	rdfs:label "paragraph"@en, "Paragraf"@de;
 	rdfs:comment """Composition of sentences ending with a line break."""@en; #°
-	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isParagraphOfSection; owl:allValuesFrom text-structure:Section], [
-		a owl:Restriction; owl:onProperty text-structure:isParagraphOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:paragraphHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:paragraphHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
 text-structure:Section
 	a rdfs:Class;
 	rdfs:label "text section"@en, "Textabschnitt"@de;
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
-	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isSectionOfExpression; owl:allValuesFrom text-structure:Section], [
-		a owl:Restriction; owl:onProperty text-structure:isSectionOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:sectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:sectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
 text-structure:OrthographicWord
 	a rdfs:Class;
 	rdfs:label "orthographic word"@en, "orthographisches Wort"@de;
 	rdfs:comment """Smallest independent orthographic entity composed of symbols, surrounded by whitespace in a written text line."""@en;
-	rdfs:subClassOf text:WrittenText, ling:Concept, [
-#		a owl:Restriction; owl:onProperty text-structure:isWordBeforeSpace; owl:allValuesFrom text-structure:LineSpace], [
-		a owl:Restriction; owl:onProperty text-structure:isWordBeforeSpace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isWordOfLine; owl:allValuesFrom text-structure:Line], [
-		a owl:Restriction; owl:onProperty text-structure:isWordOfLine; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:WrittenText, ling:Concept.
 
 text-structure:OrthographoSyntacticWord
 	a rdfs:Class;
@@ -177,63 +150,45 @@ text-structure:LineSpace
 	a rdfs:Class;
 	rdfs:label "text line space"@en, "Leerzeichen einer Textzeile"@de;
 	rdfs:comment """Empty space between orthographic words in a text line."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isSpaceBeforeWord; owl:allValuesFrom text-structure:OrthographicWord], [
-		a owl:Restriction; owl:onProperty text-structure:isSpaceBeforeWord; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isSpaceOfLine; owl:allValuesFrom text-structure:Line], [
-		a owl:Restriction; owl:onProperty text-structure:isSpaceOfLine; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:Punctuation
 	a rdfs:Class;
 	rdfs:label "punctuation"@en, "Interpunktion"@de;
 	rdfs:comment """One or more language symbols in written text, different from a letter, to help interpret semantics of a sentence."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, text-structure:SyntacticStructure, ling:Symbol, [
-		a owl:Restriction; owl:onProperty text-structure:isPunctuationBeforeSpace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isPunctuationBeforeWord; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isPunctuationOfSentence; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:ReadabilityStructure, text-structure:SyntacticStructure, ling:Symbol.
 
 text-structure:Line
 	a rdfs:Class;
 	rdfs:label "text line"@en, "Textzeile"@de, "ligne de texte"@fr, "riga di testo"@it;
 	rdfs:comment """Text structured as a line, filling a two-dimensional space, with an orientation."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [
-		a owl:Restriction; owl:onProperty text-structure:lineHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:Column
 	a rdfs:Class;
 	rdfs:label "text column"@en, "Textspalte"@de, "colonne de texte"@fr, "colonna di testo"@it;
 	rdfs:comment """Text structured as a column."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [
-#		a owl:Restriction; owl:onProperty text-structure:isTextOfColumn; owl:allValuesFrom document:Column], [
-		a owl:Restriction; owl:onProperty text-structure:isTextOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text-structure:isColumnOfPage; owl:allValuesFrom document:Page], [
-		a owl:Restriction; owl:onProperty text-structure:isColumnOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:ColumnLine
 	a rdfs:Class;
 	rdfs:label "column text line"@en, "Text zeile einer Spalte"@de, "ligne de texte de colonne"@fr, "riga di testo di colonna"@it;
 	rdfs:comment """Text line of a text column."""@en;
 	skos:note """Maximum length of a column line equals the column width."""@en;
-	rdfs:subClassOf text-structure:Line, [
-#		a owl:Restriction; owl:onProperty text-structure:isLineOfColumn; owl:allValuesFrom document:Column], [
-		a owl:Restriction; owl:onProperty text-structure:isLineOfColumn; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:Line.
 
 text-structure:Page
 	a rdfs:Class;
 	rdfs:label "text page"@en, "Textseite"@de, "page de texte"@fr, "pagina di testo"@it;
 	rdfs:comment """Text structured as a page."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isTextOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text-structure:isPageOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:PageLine
 	a rdfs:Class;
 	rdfs:label "page text line"@en, "Textzeile einer Seite"@de, "ligne de texte de page"@fr, "riga di testo di pagina"@it;
 	rdfs:comment """Text line of a text page."""@en;
 #	skos:note """In case of a horizontal line, its maximum length equals the page width minus margins."""@en;
-	rdfs:subClassOf text-structure:Line, [
-#		a owl:Restriction; owl:onProperty text-structure:isLineOfColumn; owl:allValuesFrom document:Column], [
-		a owl:Restriction; owl:onProperty text-structure:isLineOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:Line.
 
 text-structure:Table #° tableHasTitle, tableHasField, tableHasRow, tableHasColumn
 	a rdfs:Class;
@@ -257,15 +212,13 @@ text-structure:Diary
 	a rdfs:Class;
 	rdfs:label "diary structure"@en, "Tagebuch-Struktur"@de;
 	rdfs:comment """Text with diary structure."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isDiaryStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 text-structure:Postcard
 	a rdfs:Class;
 	rdfs:label "postcard structure"@en, "Postkarte-Struktur"@de;
 	rdfs:comment """Text with postcard structure."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty text-structure:isPostcardStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 #
 # PROPERTIES

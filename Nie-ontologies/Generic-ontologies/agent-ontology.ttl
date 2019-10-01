@@ -30,10 +30,7 @@ agent:Agent
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "agent"@en, "Agent"@de;
 	rdfs:comment """Something performing in action."""@en;
-	rdfs:subClassOf foaf:Agent, physical:Entity, [
-		a owl:Restriction; owl:onProperty agent:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty agent:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty agent:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf foaf:Agent, physical:Entity.
 
 agent:Group
 	a rdfs:Class;
@@ -101,14 +98,6 @@ agent:UserCredential
 # PROPERTIES
 #
 
-# agent:hasAgent
-#	a owl:ObjectProperty;
-#	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
-#	rdfs:label "has agent"@en, "hat Agent"@de;
-#	rdfs:comment """Relating an action to an agent acting in it."""@en;
-#	rdfs:domain event:Action;
-#	rdfs:range agent:Agent.
-
 agent:actsIn
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
@@ -116,7 +105,6 @@ agent:actsIn
 	rdfs:comment """Relating an agent to an action the agent is acting in."""@en;
 	rdfs:domain agent:Agent;
 	rdfs:range event:Action.
-#	owl:inverseOf agent:hasAgent;
 
 agent:hasRole
 	a owl:ObjectProperty;

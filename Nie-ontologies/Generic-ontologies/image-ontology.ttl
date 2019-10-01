@@ -28,9 +28,7 @@ image:Image
 	a rdfs:Class;
 	rdfs:label "image"@en,"Bild"@de;
 	rdfs:comment """Visual representation of something, abstracted from its carrier."""@en;
-	rdfs:subClassOf document:Document, cidoc:E38_Image, [
-		a owl:Restriction; owl:onProperty image:isImageOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty image:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Document, cidoc:E38_Image.
 
 image:ImageExpression
 	a rdfs:Class;
@@ -48,8 +46,7 @@ image:Photograph
 	a rdfs:Class;
 	rdfs:label "photograph"@en,"Foto"@de;
 	rdfs:comment """Image made by exposing a photosensitive surface to light."""@en;
-	rdfs:subClassOf image:Image, [
-		a owl:Restriction; owl:onProperty image:isPhotographOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf image:Image.
 
 # image:DigitalImage
 

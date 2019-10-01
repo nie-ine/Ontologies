@@ -34,8 +34,7 @@ teach:Teaching
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "teaching"@en, "Unterricht"@de;
 	rdfs:comment """Person's action of communicating information in order to help another person to acquire knowledge, competence or value."""@en;
-	rdfs:subClassOf human:Procedure, [
-		a owl:Restriction; owl:onProperty teach:teachingBy; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Procedure.
 
 teach:Teacher
 	a rdfs:Class;
@@ -49,8 +48,7 @@ teach:Lecture
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "lecture"@en, "Vorlesung"@de;
 	rdfs:comment """Teaching by oral presentation about a particular subject."""@en;
-	rdfs:subClassOf teach:Teaching, [
-		a owl:Restriction; owl:onProperty teach:lectureBy; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf teach:Teaching.
 
 teach:Lecturer
 	a rdfs:Class;

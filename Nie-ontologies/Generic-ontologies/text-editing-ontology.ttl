@@ -48,8 +48,7 @@ textedit:Edition
 	a rdfs:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de;
 	rdfs:comment """Changed text as a result of editing."""@en;
-	rdfs:subClassOf text:Text , [ # creating:CreationVersion
-		a owl:Restriction; owl:onProperty textedit:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Text. # creating:CreationVersion
 
 textedit:Revisor
 	a rdfs:Class;
@@ -61,16 +60,14 @@ textedit:Revision
 	a rdfs:Class;
 	rdfs:label "text revision"@en, "Textprüfung"@de;
 	rdfs:comment """Edited text as a result of revising."""@en;
-	rdfs:subClassOf textedit:Edition , [
-		a owl:Restriction; owl:onProperty textedit:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf textedit:Edition.
 
 textedit:Recension
 	a rdfs:Class;
 	rdfs:label "recension"@en, "Rezension"@de;
 	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_r.aspx>;
-	rdfs:subClassOf textedit:Revision , [
-		a owl:Restriction; owl:onProperty textedit:hasRecensor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf textedit:Revision.
 
 textedit:Annotator
 	a rdfs:Class;
@@ -94,8 +91,7 @@ textedit:Abbreviation # derivative, depending on extent?
 	a rdfs:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
 	rdfs:comment """Shortened edition."""@en;
-	rdfs:subClassOf textedit:Edition, [
-		a owl:Restriction; owl:onProperty textedit:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf textedit:Edition.
 
 textedit:Paraphrase # derivative? # scientific?
 	a rdfs:Class;

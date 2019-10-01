@@ -38,11 +38,7 @@ human:Agent
 #	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
 	rdfs:label "human agent"@en, "menschliche Agent"@de;
 	rdfs:comment """Agent being one or more humans"""@en, """Agent einer oder mehrerer Menschen betreffend."""@de;
-	rdfs:subClassOf agent:Agent, cidoc:E39_Actor, [
-		a owl:Restriction; owl:onProperty human:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:agentHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasDomicile; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf agent:Agent, cidoc:E39_Actor.
 
 human:Human
 	a rdfs:Class;
@@ -51,37 +47,15 @@ human:Human
 	skos:note """A human lives but is not necessarily born, i.e. a human embryo or foetus."""@en;
 	unicore:scientificName "Homo sapiens sapiens"@en;
 	unicore:rank unicore:Subspecies;
-	rdfs:subClassOf human:Agent, unitax:9606, [ # rdfs:subClassOf species Homo sapiens
-		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:minCardinality "0"^^xsd:nonNegativeInteger]. # -> maxCardinality 1
+	rdfs:subClassOf human:Agent, unitax:9606, [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
 
 human:Person
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """A real born living human."""@en;
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property."""@en;
-	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person, [ # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
-		a owl:Restriction; owl:onProperty human:hasBirthdate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasBirthplace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasDeathDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasDeathplace; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasLife; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasFamilyName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasGivenName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasBiography; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:personHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasOccupationalRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:adheringToThought; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasFloruit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:isMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:isMemberOfAdministration; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:isMemberOfCompany; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:hasDedicatedTo; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person. # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
 
 human:PersonLike
 	a rdfs:Class;
@@ -94,16 +68,13 @@ human:Group
 	a rdfs:Class;
 	rdfs:label "group of humans"@en, "Menschengruppe"@de;
 	rdfs:comment """Group of humans."""@en;
-	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group, [ # rdfs:subClassOf cidoc:E39_Actor
-		a owl:Restriction; owl:onProperty human:groupHasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:groupIsMemberOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group. # rdfs:subClassOf cidoc:E39_Actor
 
 human:Action
 	a rdfs:Class;
 	rdfs:label "human action"@en, "menschliche Aktion"@de;
 	rdfs:comment """Action involving a human agent."""@en;
-	rdfs:subClassOf event:Action, [
-		a owl:Restriction; owl:onProperty human:hasSponsor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf event:Action.
 
 human:Procedure
 	a rdfs:Class;

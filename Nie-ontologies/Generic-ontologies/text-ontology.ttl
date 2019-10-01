@@ -43,31 +43,7 @@ text:Text
 	a rdfs:Class;
 	rdfs:label "text"@en, "Text"@de, "texte"@fr, "testo"@it;
 	rdfs:comment """Human natural language expression serialized in writable form."""@en; # coherent set of signs representing semantics in a language
-	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
-		a owl:Restriction; owl:onProperty text:isTextOfDocument; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasContentNature; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPageNumberDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasNumberOfPages; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasTranscriber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasVulgarizer; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCiter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCitationReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isCitedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasEditor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAnnotator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasGlossator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAbbreviator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isNormalizedAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasCompiler; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasSameEditionAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty textedit:hasTransliteration; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 text:ContentNature
 	a rdfs:Class;
@@ -91,8 +67,8 @@ text:Developing
 	a rdfs:Class;
 	rdfs:label "text developing"@en, "Textentwicklung"@de;
 	rdfs:comment """Action wherein a person(s) creates text resulting in different manifestation, e.g. from notebook to manuscript to typescript to published print."""@en;
-	rdfs:subClassOf creating:Creating, [
-		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf creating:Creating.
+	# hasStage
 
 text:SurfaceText
 	a rdfs:Class;
@@ -105,8 +81,7 @@ text:WrittenText
 	a rdfs:Class;
 	rdfs:label "written text"@en, "geschriebener Text"@de, "texte écrit"@fr, "testo scritto"@it;
 	rdfs:comment """Text written by symbol, by any method, e.g. manually, with a typewriter, or on a computer, abstracted from its carrier."""@en;
-	rdfs:subClassOf text:SurfaceText, [
-		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:SurfaceText.
 
 text:Handwriter
 	a rdfs:Class;
@@ -118,30 +93,25 @@ text:HandwrittenText
 	a rdfs:Class;
 	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de, "texte manuscrit"@fr, "testo scritto a mano"@it;
 	rdfs:comment """Text with symbols formed by hand, abstracted from its manuscript."""@en;
-	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty text:hasHandwriter; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInManuscript; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:WrittenText.
 
 text:TypewrittenText
 	a rdfs:Class;
 	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de, "texte dactylographié"@fr, "testo dattiloscritto"@it;
 	rdfs:comment """Text written with a typewriter."""@en;
-	rdfs:subClassOf text:WrittenText, [
-		a owl:Restriction; owl:onProperty infocar:isInTypescript; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:WrittenText.
 
 text:PrintedText
 	a rdfs:Class;
 	rdfs:label "printed text"@en, "gedruckter Text"@de, "texte imprimé"@fr, "testo stampato"@it;
 	rdfs:comment """Text printed by any method, abstracted from its carrier."""@en;
-	rdfs:subClassOf text:Text, [
-		a owl:Restriction; owl:onProperty infocar:isInPrint; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Text.
 
 text:CopiedText
 	a rdfs:Class;
 	rdfs:label "copied text"@en, "kopierter Text"@de, "texte copié"@fr, "testo copiato"@it;
 	rdfs:comment """Text copied by any method; text abstracted from its carrier."""@en;
-	rdfs:subClassOf text:Text, [
-		a owl:Restriction; owl:onProperty infocar:isInTextCopy; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Text.
 
 text:Transcriber
 	a rdfs:Class;
@@ -192,18 +162,13 @@ text:Citation
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
 	rdfs:comment """Copy of a text expression, mostly a part of it, in another text expression, with reference to the first expression."""@en;
 	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the source reference and the citation."""@en;
-	rdfs:subClassOf text:CopiedText, text-structure:ContentStructure, [
-		a owl:Restriction; owl:onProperty text:citationHasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:citationHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:citationHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:citationIsPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:CopiedText, text-structure:ContentStructure.
 
 text:CitationReference
 	a rdfs:Class;
 	rdfs:label "citation reference"@en, "Zitatreferenz"@de;
 	rdfs:comment """Reference of a citation to the referred."""@en;
-	rdfs:subClassOf document:TextStructureReference, [
-		a owl:Restriction; owl:onProperty text:hasCitationIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:TextStructureReference.
 
 text:CitationIdentifier
 	a rdfs:Class;
@@ -233,8 +198,7 @@ text:CompiledText
 	a rdfs:Class;
 	rdfs:label "compiled text"@en, "zusammengestellte Text"@de, "texte compilé"@fr, "testo compilato"@it;
 	rdfs:comment """Text assembled from previously separate texts."""@en;
-	rdfs:subClassOf text:Text, [
-		a owl:Restriction; owl:onProperty infocar:isInCompilation; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:Text.
 
 text:Translation
 	a rdfs:Class;

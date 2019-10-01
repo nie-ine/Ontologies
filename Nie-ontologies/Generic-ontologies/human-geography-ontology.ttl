@@ -130,13 +130,7 @@ humgeo:PostalAddress #* more general? # comprises cidoc:E45_Address and cidoc:E5
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/human-geography#>;
 	rdfs:label "postal address"@en, "Postanschrift"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf concept:SymbolicEntity, [
-		a owl:Restriction; owl:onProperty humgeo:hasAddressee; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasStreetName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasHouseNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasPostcode; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasTownName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasCountryName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf concept:SymbolicEntity.
 
 # domicile
 

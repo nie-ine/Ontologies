@@ -34,10 +34,7 @@ physical:Entity
 	a rdfs:Class;
 	rdfs:label "physical entity"@en, "physische Entität"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf rdfs:Resource, [ #° to link to cidoc
-		a owl:Restriction; owl:onProperty human:hasUse; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasExistingState; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf rdfs:Resource. #° to link to cidoc
 	# seqnum
 
 physical:ExistingState
@@ -45,8 +42,8 @@ physical:ExistingState
 	rdfs:label "existing state"@en, "Existenzzustand"@de;
 	rdfs:comment """State of a physical entity existing, partially existing, or having existed."""@en;
 	rdfs:subClassOf event:State;
-	skos:note """To be stated with a time indicator"""@en.
-#	owl:oneOf (physical:Existing physical:Gone).
+	skos:note """To be stated with a time indicator."""@en;
+	owl:oneOf (physical:Existing physical:Gone).
 
 physical:Existing
 	a rdfs:Class;
@@ -64,11 +61,7 @@ physical:Space
 	a rdfs:Class;
 	rdfs:label "space"@en, "Raum"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf physical:Entity, geo:SpatialThing, narespa:Space, [
-		a owl:Restriction; owl:onProperty physical:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasSize; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasLength; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasSizeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Entity, geo:SpatialThing, narespa:Space.
 
 physical:Time
 	a rdfs:Class;
@@ -80,8 +73,7 @@ physical:Place
 	a rdfs:Class;
 	rdfs:label "place"@en, "Platz"@de;
 	rdfs:comment """Specific space with a position reference, e.g. in a positioning reference system, e.g. the geodetic system of the Earth."""@en;
-	rdfs:subClassOf physical:Space, cidoc:E53_Place, [
-		a owl:Restriction; owl:onProperty physical:placeHasName; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Space, cidoc:E53_Place.
 
 # physical:PlaceName SCO cidoc:E44_Place_Appellation
 
@@ -89,9 +81,7 @@ physical:EarthPlace
 	a rdfs:Class;
 	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
 	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
-	rdfs:subClassOf physical:Place, [
-		a owl:Restriction; owl:onProperty phygeo:hasLatitude; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty phygeo:hasLongitude; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Place.
 
 # phygeo:hasAltitude
 
@@ -124,16 +114,7 @@ physical:Matter
 	rdfs:label "matter"@en, "Materie"@de;
 	rdfs:comment """Physical entity having mass and volume."""@en;
 	skos:note """As in classical physics observed in everyday life."""@en;
-	rdfs:subClassOf physical:Space, dct:PhysicalResource, [
-		a owl:Restriction; owl:onProperty physical:hasSender; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasSendingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasReceivingDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasSendingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty physical:hasReceivingLocation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasReceiverPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty humgeo:hasReturnPostalAddress; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasPreserver; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf physical:Space, dct:PhysicalResource.
 
 physical:Compound
 	a rdfs:Class;

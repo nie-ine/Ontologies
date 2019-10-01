@@ -34,8 +34,7 @@ math:Number
 	a rdfs:Class;
 	rdfs:label "number"@en, "Zahl"@de;
 	rdfs:comment """Mathematical object for counting, measuring and labeling."""@en; #* and ordering
-	rdfs:subClassOf math:MathematicalObject, concept:Identifier, [
-		a owl:Restriction; owl:onProperty math:hasNumeral; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf math:MathematicalObject, concept:Identifier.
 
 math:NaturalNumber
 	a rdfs:Class;

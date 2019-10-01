@@ -40,39 +40,31 @@ letter-corresponding:Exchanging
  	a rdfs:Class;
  	rdfs:label "exchanging"@en,"Auswechselen"@de;
  	rdfs:comment """Sending-receiving cycle in corresponding."""@en;
-	rdfs:subClassOf human:Procedure, [
-		a owl:Restriction; owl:onProperty letter-corresponding:isExchangingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Compiling
  	a rdfs:Class;
  	rdfs:label "compiling"@en,"Zusammenstellen"@de;
  	rdfs:comment """Preparing a letter for sending, mostly by putting it in an envelope, possibly adding an enclosure."""@en;
-	rdfs:subClassOf human:Procedure, [
-		a owl:Restriction; owl:onProperty letter-corresponding:isCompilingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Expression
 	a rdfs:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression, [
-		a owl:Restriction; owl:onProperty letter-corresponding:isInLetter; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Structure
 	a rdfs:Class;
 	rdfs:label "letter structure"@en, "Briefstruktur"@de;
 	rdfs:comment """Text with letter structure."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty letter-corresponding:isStructureOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 letter-corresponding:Letter
 	a rdfs:Class;
 	rdfs:label "letter"@en, "Brief"@de, "lettre"@fr, "lettera"@it;
 	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to (an)other one(s), e.g. through a postal system."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton, [
-		a owl:Restriction; owl:onProperty letter-corresponding:follows; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty letter-corresponding:hasEnvelope; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty letter-corresponding:hasEnvelopeDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty letter-corresponding:hasEnclosure; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 letter-corresponding:Envelope
 	a rdfs:Class;
@@ -84,8 +76,7 @@ letter-corresponding:EnclosureExpression
 	a rdfs:Class;
 	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de;
 	rdfs:comment """Text expression of a letter enclosure."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression, [
-		a owl:Restriction; owl:onProperty letter-corresponding:isTextInEnclosure; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Enclosure
 	a rdfs:Class;

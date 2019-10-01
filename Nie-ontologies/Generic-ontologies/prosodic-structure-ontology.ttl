@@ -49,12 +49,7 @@ prosodic-structure:Verse
 	a rdfs:Class;
 	rdfs:label "verse"@en, "Vers"@de;
 	rdfs:comment """Text with prosody."""@en;
-	rdfs:subClassOf prosodic-structure:Structure, [
-#		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfStrophe; owl:allValuesFrom prosodic-structure:Strophe], [ 
-		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
- 		a owl:Restriction; owl:onProperty prosodic-structure:verseHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:verseHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseIdentifier
 	a rdfs:Class;
@@ -73,8 +68,7 @@ prosodic-structure:HalfVerse
 	rdfs:label "half-verse"@en, "Halbvers"@de;
 #	ling:hasSynonym "hemistich"@en, "Hemistich"@de;
 	rdfs:comment """Half a verse."""@en;
-	rdfs:subClassOf prosodic-structure:Structure, [
-		a owl:Restriction; owl:onProperty prosodic-structure:isHalfOfVerse; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:Strophe
 	a rdfs:Class;
@@ -82,13 +76,7 @@ prosodic-structure:Strophe
 #	ling:hasSynonym "stanza"@en, "Stanze"@de;
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
-	rdfs:subClassOf prosodic-structure:Structure, [
-#		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfSection; owl:allValuesFrom text:Text], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isStropheOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:stropheHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:stropheHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:StropheIdentifier
 	a rdfs:Class;
@@ -106,21 +94,14 @@ prosodic-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be S
 	a rdfs:Class;
 	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
 	rdfs:comment """Half a strophe."""@en;
-	rdfs:subClassOf prosodic-structure:Structure, [
-		a owl:Restriction; owl:onProperty prosodic-structure:isHalfOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseSection
 	a rdfs:Class;
 	rdfs:label "verse section"@en, "Versabschnitt"@de;
 #	ling:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
 	rdfs:comment """Group of strophes."""@en;
-	rdfs:subClassOf prosodic-structure:Structure, [
-#		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfPoem; owl:allValuesFrom text:Text], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfPoem; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:isVerseSectionOfVerseNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty prosodic-structure:verseSectionHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseSectionIdentifier
 	a rdfs:Class;
@@ -138,10 +119,7 @@ prosodic-structure:StrictVerse
 	a rdfs:Class;
 	rdfs:label "strict verse"@en, "strikte Vers"@de; #°
 	rdfs:comment """Verse with a recurring metrical entity."""@en;
-	rdfs:subClassOf prosodic-structure:Verse. #, [
-#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetric; owl:someValuesFrom text-structure:Metric], [ 
-#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetric; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty prosodic-structure:hasMetricValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Verse.
 
 prosodic-structure:Meter
 	a rdfs:Class;

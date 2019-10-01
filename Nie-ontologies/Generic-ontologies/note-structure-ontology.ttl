@@ -43,8 +43,7 @@ note-structure:Note
 	a rdfs:Class;
 	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
 	rdfs:comment """Text with note structure, not necessarily having sentences or being syntactically correct; e.g. a first registration of thought, or a remark added to another text."""@en;
-	rdfs:subClassOf text-structure:CompositionalContentStructure, [
-		a owl:Restriction; owl:onProperty note-structure:isNoteOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 note-structure:MarginalNote
 	a rdfs:Class;
@@ -62,8 +61,7 @@ note-structure:Gloss
 	a rdfs:Class;
 	rdfs:label "gloss"@en, "Glosse"@de;
 	rdfs:comment """Explanatory note, e.g. interlinear or marginal."""@en;
-	rdfs:subClassOf note-structure:Note, [
-		a owl:Restriction; owl:onProperty note-structure:isGlossOfExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf note-structure:Note.
 
 note-structure:MarginalGloss
 	a rdfs:Class;
@@ -81,9 +79,7 @@ note-structure:Footnote
 	a rdfs:Class;
 	rdfs:label "footnote structure"@en, "Fussnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of that page, seperate from the main content."""@en;
-	rdfs:subClassOf note-structure:Note, [
-		a owl:Restriction; owl:onProperty note-structure:footnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty note-structure:footnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf note-structure:Note.
 
 note-structure:FootnoteIdentifier
 	a rdfs:Class;
@@ -101,9 +97,7 @@ note-structure:Endnote
 	a rdfs:Class;
 	rdfs:label "endnote structure"@en, "Endnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of the document, seperate from the main content."""@en;
-	rdfs:subClassOf note-structure:Note, [
-		a owl:Restriction; owl:onProperty note-structure:endnoteHasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty note-structure:endnoteHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf note-structure:Note.
 
 note-structure:EndnoteIdentifier
 	a rdfs:Class;

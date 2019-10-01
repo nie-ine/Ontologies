@@ -62,19 +62,7 @@ creating:Creation
 	a rdfs:Class;
 	rdfs:label "person's creation"@en, "Kreation einer Person"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
-	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
-		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:hasCreator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:creationHasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty agent:hasUser; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasSponsor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty creating:isCreationOfSet; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing.
 
 creating:CreationGroup
 	a rdfs:Class;

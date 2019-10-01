@@ -34,11 +34,8 @@ org:Organization
 	rdfs:label "person organization"@en, "Personensorganisation"@de; #*
 	rdfs:comment """Organized group of persons."""@en;
 	skos:note """An organization can be a legal person."""@en;
-#	owl:disjointWith human:Person; # from FOAF
-	rdfs:subClassOf human:Group, agent:Organization, foaf:Organization, frbroo:F11_Corporate_Body, [ # rdfs:subClassOf cidoc:E74_Group
-		a owl:Restriction; owl:onProperty org:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:actsIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty org:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Group, agent:Organization, foaf:Organization, frbroo:F11_Corporate_Body; # rdfs:subClassOf cidoc:E74_Group
+	owl:disjointWith human:Person. # from FOAF
 
 org:Role
 	a rdfs:Class;
@@ -71,8 +68,7 @@ org:ReligiousPerson
 	a rdfs:Class;
 	rdfs:label "religious person"@en, "religiöse Person"@de, "personne réligieuse"@fr; # "persona"@it;
 	rdfs:comment """Person having religious faith or believing."""@en;
-	rdfs:subClassOf human:Person, [
-		a owl:Restriction; owl:onProperty org:isMemberOfReligiousOrganization; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf human:Person.
 
 org:PoliticalOrganization
 	a rdfs:Class;

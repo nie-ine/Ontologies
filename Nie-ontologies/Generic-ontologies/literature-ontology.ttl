@@ -120,23 +120,19 @@ litera:Expression
 	a rdfs:Class;
 	rdfs:label "literary expression"@en, "literarische Expression"@de;
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
-	rdfs:subClassOf text-expression:Expression, [
-		a owl:Restriction; owl:onProperty litera:hasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:Expression.
 
 litera:Anthology
 	a rdfs:Class;
 	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
 	rdfs:comment """Collection of literary expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
-	rdfs:subClassOf text-expression:Expression, [
-		a owl:Restriction; owl:onProperty litera:hasExpression; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text-expression:Expression.
 
 litera:Poem
 	a rdfs:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
 	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de;
-	rdfs:subClassOf litera:Expression, [
-		a owl:Restriction; owl:onProperty litera:hasPoet; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:allValuesFrom litera:Poetry].
+	rdfs:subClassOf litera:Expression.
 
 litera:VersePoem
 	a rdfs:Class;
@@ -148,8 +144,7 @@ litera:VerseSong
 	a rdfs:Class;
 	rdfs:label "verse song"@en, "Verslied"@de;
 	rdfs:comment """Verse poem as lyrics of a song."""@en, """Versgedicht als Liedtext."""@de;
-	rdfs:subClassOf litera:VersePoem, [
-		a owl:Restriction; owl:onProperty litera:isPartOfVerseSongbook; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf litera:VersePoem.
 
 litera:VerseSongbook
 	a rdfs:Class;
@@ -161,8 +156,7 @@ litera:Hymn
 	a rdfs:Class;
 	rdfs:label "hymn"@en, "Hymne"@de, "hymnus"@la;
 	rdfs:comment """Verse song of adoration for a deity or prominent person."""@en;
-	rdfs:subClassOf litera:VerseSong, [
-		a owl:Restriction; owl:onProperty litera:isPartOfHymnal; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf litera:VerseSong.
 
 litera:Hymnal
 	a rdfs:Class;
@@ -262,7 +256,7 @@ litera:Prologue
 #	ling:hasSynonym "Vorwort"@de;
 	rdfs:comment """Introduction of a literary expression providing context and background, e.g. an earlier story that ties into the main one."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
-	rdfs:subClassOf text-expression:Introduction, text-expression:ExpressionPart.
+	rdfs:subClassOf text-expression:Introduction.
 
 litera:Epilogue
 	a rdfs:Class;
@@ -270,15 +264,14 @@ litera:Epilogue
 #	ling:hasSynonym "Nachwort"@de;
 	rdfs:comment """Conclusion of a literary expression or part of it."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
-	rdfs:subClassOf text-expression:Conclusion, text-expression:ExpressionPart.
+	rdfs:subClassOf text-expression:Conclusion.
 
 litera:Argument
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
-#	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
-	rdfs:subClassOf text-expression:Introduction, [ # text-expression:Summary.
-		a owl:Restriction; owl:onProperty litera:isArgumentOf; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:subClassOf text-expression:Introduction. # text-expression:Summary.
 
 #
 # PROPERTIES

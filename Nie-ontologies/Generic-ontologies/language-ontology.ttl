@@ -51,16 +51,14 @@ language:HumanNaturalLanguage
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
-	rdfs:subClassOf language:HumanLanguage, [
-		a owl:Restriction; owl:onProperty language:hasCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:HumanLanguage.
 #	owl:disjointWith language:FormalLanguage.
 
 language:GeneralHumanNaturalLanguage
 	a rdfs:Class;
 	rdfs:label "general human natural language"@en, "algemeine menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
-	rdfs:subClassOf language:HumanNaturalLanguage, [
-		a owl:Restriction; owl:onProperty language:hasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:English
 	a rdfs:Class;
@@ -90,24 +88,14 @@ language:SwissGerman
 	a rdfs:Class;
 	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
 	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
-		a owl:Restriction; owl:onProperty language:swissGermanHasDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
 
 language:HumanNaturalLanguageExpression
 	a rdfs:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
 	skos:note """Different from the FRBROO based document:Expression."""@en;
-	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
-		a owl:Restriction; owl:onProperty language:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:hasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:hasPersonTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:hasMachineTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:hasTranslation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty language:isTranslatedInto; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty ling:hasComment; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object.
 
 language:Dialect
 	a rdfs:Class;
@@ -145,15 +133,13 @@ language:Translation
 	rdfs:comment """Human natural language expression transferred from another natural language."""@en;
 	skos:note """Can follow the original to a degree, hence differ from another translation; e.g. a free translation gives a general meaning."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
-	rdfs:subClassOf language:HumanNaturalLanguageExpression, [
-		a owl:Restriction; owl:onProperty language:translationHasTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:PersonTranslation
 	a rdfs:Class;
 	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
 	rdfs:comment """Translation done by a person."""@en;
-	rdfs:subClassOf language:Translation, creating:CreationDerivative, [
-		a owl:Restriction; owl:onProperty language:translationHasPersonTranslator; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf language:Translation, creating:CreationDerivative.
 
 language:MachineTranslation
 	a rdfs:Class;

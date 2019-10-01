@@ -41,11 +41,7 @@ publish:Expression
 	a rdfs:Class;
 	rdfs:label "publication expression"@en, "Publikation-Expression"@de;
 	rdfs:comment """Document expression as abstracted from a publication carrier, conform FRBROO."""@en;
-	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression, [
-		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPublishedIn; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPublishedOnWeb; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression.
 
 publish:TextExpression
 	a rdfs:Class;
@@ -112,14 +108,7 @@ publish:Publication
 	a rdfs:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
 	rdfs:comment """An expression published on a carrier."""@en; # output of publishing
-	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
-		a owl:Restriction; owl:onProperty publish:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublisher; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:hasReference; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item.
 
 publish:PartitionedPublishing
 	a rdfs:Class;
@@ -131,15 +120,13 @@ publish:PartitionedPublication
 	a rdfs:Class;
 	rdfs:label "partitioned publication"@en, "partitionierte Publikation"@de;
 	rdfs:comment """Publication comprising the volumes of a partitioned work, e.g. a dictionary."""@en;
-	rdfs:subClassOf publish:Publication, infocar:PartitionedWork, [
-		a owl:Restriction; owl:onProperty publish:hasPartitionedPublishing; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf publish:Publication, infocar:PartitionedWork.
 
 publish:PrintedPublication
 	a rdfs:Class;
 	rdfs:label "printed publication"@en, "gedruckte Publikation"@de;
 	rdfs:comment """Publication as print."""@en;
-	rdfs:subClassOf infocar:Print, publish:Publication, [
-		a owl:Restriction; owl:onProperty publish:hasPrinterDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Print, publish:Publication.
 
 publish:ElectronicPublication
 	a rdfs:Class;
@@ -176,9 +163,7 @@ publish:Serial
 	rdfs:label "serial publication"@en, "Reihe-Ausgabe"@de; #, "publication sérielle"@fr, ""@it;
 	rdfs:comment """Successive publication with same title, usually numbered and/or dated, issued at a regular or irregular interval, without predetermined conclusion."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
-	rdfs:subClassOf publish:Publication, [
-		a owl:Restriction; owl:onProperty publish:hasExistence; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty publish:isPartOfVolume; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf publish:Publication.
 
 publish:Existence
 	a rdfs:Class;

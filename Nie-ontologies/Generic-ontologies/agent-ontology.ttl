@@ -60,14 +60,14 @@ agent:GroupRole
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "group role"@en;
 	rdfs:comment """Role of a group of agents."""@en;
-	rdfs:subClassOf agent:Role. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom agent:Group].
+	rdfs:subClassOf agent:Role.
 
 agent:OrganizationRole
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "organization role"@en;
 	rdfs:comment """Role of an Organization of agents."""@en;
-	rdfs:subClassOf agent:GroupRole. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom agent:Organization].
+	rdfs:subClassOf agent:GroupRole.
 
 # agent:Creation
 

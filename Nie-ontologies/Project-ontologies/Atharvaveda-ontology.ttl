@@ -53,24 +53,20 @@ athar:Kanda
 	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda Kanda"@de;
 	rdfs:comment """Kanda or verse section of the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains 20 Kandas."""@en;
-	rdfs:subClassOf prosodic-structure:VerseSection, indo:Expression, [
-		a owl:Restriction; owl:onProperty athar:isKandaOfAtharvaveda; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:VerseSection, indo:Expression.
 
 athar:Sukta
 	a rdfs:Class;
 	rdfs:label "Atharvaveda sūkta"@sa, "Atharvaveda sukta"@en, "Atharvaveda-Sukta"@de;
 	rdfs:comment """Sukta in the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains 730 Suktas."""@en;
-	rdfs:subClassOf litera:VerseSong, indo:Expression, text:HandwrittenText, [
-		a owl:Restriction; owl:onProperty athar:isSuktaOfKanda; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf litera:VerseSong, indo:Expression, text:HandwrittenText.
 
 athar:Strophe
 	a rdfs:Class;
 	rdfs:label "Atharvaveda strophe"@en, "Atharvaveda-Strophe"@de;
 	rdfs:comment """Group of verses or 2 half-strophes in the Atharvaveda."""@en;
-	rdfs:subClassOf prosodic-structure:Strophe, text-expression:ExpressionPart, [
-		a owl:Restriction; owl:onProperty indo:hasIndologicComment; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty athar:isStropheOfSukta; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Strophe, text-expression:ExpressionPart.
 
 athar:HalfStrophe
 	a rdfs:Class;
@@ -83,9 +79,7 @@ athar:Verse
 	rdfs:label "Atharvaveda pada"@sa, "Atharvaveda verse"@en, "Atharvaveda-Vers"@de;
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains about 6000 verses."""@en;
-	rdfs:subClassOf prosodic-structure:Verse, [
-		a owl:Restriction; owl:onProperty athar:isVerseOfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty athar:isVerseOfHalfStrophe; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Verse.
 
 #
 # PROPERTIES

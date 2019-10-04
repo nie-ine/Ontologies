@@ -42,9 +42,8 @@ lavater:Page
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter page"@en, "Seite eines Briefes Johann Caspar Lavaters"@de;
 	rdfs:comment """Page of a letter of Johann Caspar Lavater."""@en;
-	rdfs:subClassOf infocar:Page. #, [
-#		a owl:Restriction; owl:onProperty knora-base:hasRepresentation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty knora-base:hasRepresentationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf infocar:Page.
+#	hasRepresentation
 
 lavater:LetterConvolute
 	a rdfs:Class;

@@ -129,25 +129,20 @@ parzival:Verse
 	a rdfs:Class;
 	rdfs:label """edition verse of 'Parzival'"""@en, """Editionvers 'Parzivals'"""@de;
 	rdfs:comment """Verse of a scientific edition of a copy of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf prosodic-structure:Verse, [
-		a owl:Restriction; owl:onProperty parzival:isVerseOfDreissiger; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Verse.
 
 parzival:AddedVerse
 	a rdfs:Class;
 	rdfs:label """added edition verse of 'Parzival'"""@en, """hinzugefügter Editionvers 'Parzivals'"""@de;
 	rdfs:comment """Verse added to a dreissiger, of a scientific edition of a copy of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf prosodic-structure:Verse, [
-		a owl:Restriction; owl:onProperty parzival:isAddedToDreissiger; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:Verse.
 
 parzival:Dreissiger
 	a rdfs:Class;
 	rdfs:label "dreissiger"@en, "Dreissiger"@de, "dreissiger"@fr, "dreissiger"@it;
 	rdfs:comment """Set of about 30 verses in a scientific edition of a copy of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
 	rdfs:seeAlso """Bumke Joachim, "Wolfram von Eschenbach", Springer-Verlag, Stuttgart, 2004."""@en;
-	rdfs:subClassOf prosodic-structure:VerseSection, text-expression:ExpressionPart,  [
-		a owl:Restriction; owl:onProperty parzival:isDreissigerOfPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty parzival:isDreissigerOfSection; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty parzival:dreissigerHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:VerseSection, text-expression:ExpressionPart.
 
 parzival:DreissigerNumber
 	a rdfs:Class;
@@ -160,8 +155,7 @@ parzival:VerseSection
 	a rdfs:Class;
 	rdfs:label """verse section of 'Parzival'"""@en, """Versabschnitt von 'Parzival'"""@de;
 	rdfs:comment """Verse section of about 50 dreissiger in Wolfram Von Eschenbach's verse novel 'Parzival', or a version or derivative thereof."""@en;
-	rdfs:subClassOf prosodic-structure:VerseSection, [
-		a owl:Restriction; owl:onProperty parzival:isSectionOfNovel; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf prosodic-structure:VerseSection.
 
 parzival:CriticalEdition
 	a rdfs:Class;

@@ -59,8 +59,8 @@ publish:PublishingState
 	a rdfs:Class;
 	rdfs:label "publishing state"@en, "Publikationszustand"@de;
 	rdfs:comment """State of an expression having been published or not."""@en;
-	rdfs:subClassOf event:State.
-#	owl:oneOf (publish:Unpublished publish:Published).
+	rdfs:subClassOf event:State;
+	owl:oneOf (publish:Unpublished publish:Published).
 
 publish:Unpublished
 	a rdfs:Class;
@@ -107,8 +107,9 @@ publish:NewspaperPublisher
 publish:Publication
 	a rdfs:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
-	rdfs:comment """An expression published on a carrier."""@en; # output of publishing
-	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item.
+	rdfs:comment """An expression published on a carrier."""@en;
+	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing]. # OR :isPublicationOfPublishing
 
 publish:PartitionedPublishing
 	a rdfs:Class;
@@ -247,7 +248,7 @@ publish:hasPublishing
 	rdfs:comment """Relating an expression to its publishing."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:Publishing;
-	rdfs:subPropertyOf event:hasEvent. # event:isInputOf
+	rdfs:subPropertyOf event:isInputOf.
 
 publish:hasPublication
 	a owl:ObjectProperty;
@@ -363,7 +364,7 @@ publish:hasRedactor
 	rdfs:label "has redactor"@en, "hat Redakteur"@de;
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
 	rdfs:domain publish:Expression;
-	rdfs:range human:Person. # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]];
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]];
 
 publish:hasDescription #°
 	a owl:ObjectProperty;

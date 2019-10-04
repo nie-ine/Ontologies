@@ -95,8 +95,8 @@ org:CulturalHeritageInstitution
 	a rdfs:Class;
 	rdfs:label "cultural heritage institution"@en, "Kulturerbeinstitution"@de;
 	rdfs:comment """Organization having a role of preserving a repository of public knowledge, such as a library, an archive, museum, sites and monuments record, clearinghouse, a provider of a digital library, and a data aggregation service, which serve as memories for given societies or mankind."""@en;
-	rdfs:subClassOf org:Organization. #, [
-#		a owl:Restriction; owl:onProperty org:hasRole; owl:someValuesFrom org:Preserver].
+	rdfs:subClassOf org:Organization, [
+		a owl:Restriction; owl:onProperty org:hasRole; owl:someValuesFrom org:Preserver].
 
 org:Preserver
 	a rdfs:Class;
@@ -179,7 +179,7 @@ org:isMemberOfAdministration
 	rdfs:label "is member of administration"@en, "ist Mitglied einer Verwaltung"@de;
 	rdfs:comment """Relating a person to an administration organization the person is a member of."""@en;
 	rdfs:domain human:Person;
-	rdfs:range org:Organization; # [rdfs:subClassOf org:Organization, [a owl:Restriction; owl:onProperty org:hasRole; owl:someValuesFrom org:Administration]];
+	rdfs:range [rdfs:subClassOf org:Organization, [a owl:Restriction; owl:onProperty org:hasRole; owl:someValuesFrom org:Administration]];
 	rdfs:subPropertyOf org:isMemberOf.
 
 org:isMemberOfCompany

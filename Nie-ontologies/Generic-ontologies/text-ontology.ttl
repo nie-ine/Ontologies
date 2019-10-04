@@ -123,8 +123,7 @@ text:TranscribedText
 	a rdfs:Class;
 	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
 	rdfs:comment """Text copied by character by any writing method; text abstracted from its carrier."""@en;
-	rdfs:subClassOf text:CopiedText, [
-		a owl:Restriction; owl:onProperty infocar:isInTranscript; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:CopiedText.
 
 text:Scribe
 	a rdfs:Class;
@@ -136,8 +135,7 @@ text:PhotocopiedText
 	a rdfs:Class;
 	rdfs:label "photocopied text"@en, "fotokopierter Text"@de; #, "texte copié"@fr, "testo copiato"@it;
 	rdfs:comment """Text photocopied, abstracted from its carrier."""@en;
-	rdfs:subClassOf text:CopiedText, [
-		a owl:Restriction; owl:onProperty infocar:isTextInPhotocopy; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf text:CopiedText.
 
 text:AgentCiter
 	a rdfs:Class;

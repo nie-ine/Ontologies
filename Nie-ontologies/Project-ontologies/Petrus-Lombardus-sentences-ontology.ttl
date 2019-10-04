@@ -36,10 +36,7 @@ drcs:Person
 	a rdfs:Class;
 	rdfs:label "DRCS person"@en, "DRCS Person"@de, "personne de DRCS"@fr, "persona di DRCS"@it;
 	rdfs:comment """Person as subject in the scientific study of Commentaries on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf cathord:Person, [
-		a owl:Restriction; owl:onProperty drcs:hasStegmuellerPersonDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty philos:adheringToThought; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf cathord:Person.
 
 drcs:Scholastic
 	a rdfs:Class;
@@ -51,9 +48,7 @@ drcs:Commentary
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de, "commentarius"@la;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf schola:Commentary, [
-		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCommentaryDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty drcs:hasStegmuellerCode; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf schola:Commentary.
 
 drcs:LecturaCommentary
 	a rdfs:Class;

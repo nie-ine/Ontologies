@@ -189,14 +189,14 @@ physical:hasSender
 	rdfs:label "has sender"@en, "hat Absender"@de;
 	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
 	rdfs:domain physical:Matter;
-	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Sender]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSender]];
 
 physical:hasReceiver
 	a owl:ObjectProperty;
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
 	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
 	rdfs:domain physical:Matter;
-	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:Receiver]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentReceiver]];
 
 physical:hasSendingDate #°
 	a owl:ObjectProperty;

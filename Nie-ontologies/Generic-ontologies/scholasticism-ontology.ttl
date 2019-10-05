@@ -70,7 +70,7 @@ schola:ProceduralCommentary
 	rdfs:label "procedural scholastic commentary"@en, "prozeduraler scholastischer Kommentar"@de;
 	rdfs:comment """Scholastic commentary as result of a creation procedure."""@en;
 	rdfs:subClassOf schola:Commentary;
-	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary chola:ReportatioApprobataCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
+	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
 
 schola:CommentingProcedure
 	a rdfs:Class;
@@ -187,4 +187,4 @@ schola:commentaryHasProcedure
 	rdfs:label "commentary has reportator"@en, "Kommentar hat Reportator"@de;
 	rdfs:comment """Relating a reportatio commentary of a lecture to a scholastic who reported it."""@en;
 	rdfs:domain schola:ReportatioCommentary;
-	rdfs:range [rdfs:subClassOf schola:Scholastic, [a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Reportator].
+	rdfs:range [rdfs:subClassOf schola:Scholastic, [a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Reportator]].

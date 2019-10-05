@@ -323,7 +323,7 @@ publish:hasUnauthorizedRepublication
 publish:hasPolyAuthorPublication
 	a owl:ObjectProperty;
 	rdfs:label "has poly-author publication"@en, "hat Publikation mehrerer Autoren"@de;
-	rdfs:comment """Relating an expression to a publication thereof containing also expressions of other authors."""@en
+	rdfs:comment """Relating an expression to a publication thereof containing also expressions of other authors."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:PolyAuthorPublication;
 	rdfs:subPropertyOf publish:hasPublication.
@@ -364,7 +364,7 @@ publish:hasRedactor
 	rdfs:label "has redactor"@en, "hat Redakteur"@de;
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
 	rdfs:domain publish:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]];
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
 
 publish:hasDescription #°
 	a owl:ObjectProperty;

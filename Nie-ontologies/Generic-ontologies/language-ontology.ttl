@@ -16,7 +16,6 @@
 @prefix device: <http://www.nie.org/ontology/device#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 
-
 # @base <http://www.nie.org/ontology/language>.
 @prefix language: <http://www.nie.org/ontology/language#>.
 

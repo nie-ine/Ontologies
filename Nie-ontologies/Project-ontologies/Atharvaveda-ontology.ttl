@@ -34,6 +34,7 @@
 #
 
 athar:Atharvaveda
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda"@sa, "Atharvaveda"@en, "Atharvaveda"@de;
 	rdfs:comment """Fourth Veda, containing the knowledge of atharvāṇas, the procedures of beliefs and rituals addressing practical issues of daily life of the Vedic society in Hinduism, compiled about 1200 to 1000 BC."""@en;
@@ -41,6 +42,7 @@ athar:Atharvaveda
 	rdfs:subClassOf indo:Veda.
 
 athar:Paippalada-Samhita
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Paippalāda-Samhitā"@sa, "Paippalada-Samhita"@en, "Paippalada-Samhita"@de;
 	rdfs:comment """One of the nine recensions of the Atharvaveda, along the different shakhas or Hindu theological schools, specialized in learning Vedic texts. Only this one and the Shaunakiya recension are extent."""@en;
@@ -49,6 +51,7 @@ athar:Paippalada-Samhita
 		a owl:Restriction; owl:onProperty athar:paippaladaHasRecitingStyle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 athar:Kanda
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda Kanda"@de;
 	rdfs:comment """Kanda or verse section of the Atharvaveda."""@en;
@@ -56,6 +59,7 @@ athar:Kanda
 	rdfs:subClassOf prosodic-structure:VerseSection, indo:Expression.
 
 athar:Sukta
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda sūkta"@sa, "Atharvaveda sukta"@en, "Atharvaveda-Sukta"@de;
 	rdfs:comment """Sukta in the Atharvaveda."""@en;
@@ -63,18 +67,21 @@ athar:Sukta
 	rdfs:subClassOf litera:VerseSong, indo:Expression, text:HandwrittenText.
 
 athar:Strophe
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda strophe"@en, "Atharvaveda-Strophe"@de;
 	rdfs:comment """Group of verses or 2 half-strophes in the Atharvaveda."""@en;
 	rdfs:subClassOf prosodic-structure:Strophe, text-expression:ExpressionPart.
 
 athar:HalfStrophe
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda half-strophe"@en, "Atharvaveda-Halbstrophe"@de;
 	rdfs:comment """Half a strophe in the Atharvaveda."""@en;
 	rdfs:subClassOf prosodic-structure:HalfStrophe.
 
 athar:Verse
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda pada"@sa, "Atharvaveda verse"@en, "Atharvaveda-Vers"@de;
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
@@ -86,6 +93,7 @@ athar:Verse
 #
 
 athar:paippaladaHasGenre
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "Paippalada has genre"@en, "Paippalada hat Gattung"@de;
 	rdfs:comment """Relating a Paippalada to its genre."""@en;
@@ -94,6 +102,7 @@ athar:paippaladaHasGenre
 	rdfs:subPropertyOf indo:vedaHasGenre.
 
 athar:paippaladaHasRecitingStyle
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "Paippalada has reciting style"@en, "Paippalada hat Rezitationsstil"@de;
 	rdfs:comment """Relating a Paippalada to a reciting style it has."""@en;
@@ -102,6 +111,7 @@ athar:paippaladaHasRecitingStyle
 	rdfs:subPropertyOf indo:vedaHasRecitingStyle.
 
 athar:isKandaOfAtharvaveda
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is kanda of Atharvaveda"@en, "ist Kanda einer Atharvaveda"@de;
 	rdfs:comment """Relating a kanda to its Atharvaveda."""@en;
@@ -110,6 +120,7 @@ athar:isKandaOfAtharvaveda
 	rdfs:subPropertyOf concept:isPartOf.
 
 athar:isSuktaOfKanda
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sukta of kanda"@en, "ist Sukta einer Kanda"@de;
 	rdfs:comment """Relating an Atharvaveda sukta to its kanda."""@en;
@@ -118,6 +129,7 @@ athar:isSuktaOfKanda
 	rdfs:subPropertyOf concept:isPartOf.
 
 athar:isStropheOfSukta
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is strophe of sukta"@en, "ist Strophe einer Sukta"@de;
 	rdfs:comment """Relating an Atharvaveda strophe to its sukta."""@en;
@@ -126,6 +138,7 @@ athar:isStropheOfSukta
 	rdfs:subPropertyOf prosodic-structure:isStropheOfPoem.
 
 athar:isVerseOfStrophe
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
 	rdfs:comment """Relating an Atharvaveda verse to a strophe it is part of."""@en;
@@ -134,6 +147,7 @@ athar:isVerseOfStrophe
 	rdfs:subPropertyOf prosodic-structure:isVerseOfStrophe.
 
 athar:isVerseOfHalfStrophe
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de;
 	rdfs:comment """Relating an Atharvaveda verse to a half-strophe it is part of."""@en;

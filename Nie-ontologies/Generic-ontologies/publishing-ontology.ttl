@@ -32,30 +32,35 @@
 #
 
 publish:Publishing
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publishing"@en, "Publizieren"@de;
 	rdfs:comment """Procedure of making an expression public."""@en;
 	rdfs:subClassOf human:Procedure, frbroo:F30_Publication_Event.
 
 publish:Expression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication expression"@en, "Publikation-Expression"@de;
 	rdfs:comment """Document expression as abstracted from a publication carrier, conform FRBROO."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression.
 
 publish:TextExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication text expression"@en, "Publikation-Textexpression"@de;
 	rdfs:comment """Text as publication expression."""@en;
 	rdfs:subClassOf text-expression:Expression, publish:Expression.
 
 publish:Article
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication article"@en, "Publikation-Artikel"@de; #, "article"@fr, "articolo"@it;
 	rdfs:comment """Article as unit in a publication."""@en;
 	rdfs:subClassOf text-expression:Article, publish:TextExpression.
 
 publish:PublishingState
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publishing state"@en, "Publikationszustand"@de;
 	rdfs:comment """State of an expression having been published or not."""@en;
@@ -63,48 +68,56 @@ publish:PublishingState
 	owl:oneOf (publish:Unpublished publish:Published).
 
 publish:Unpublished
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "unpublished"@en, "unpubliziert"@de;
 	rdfs:comment """State of an expression not having been published."""@en;
 	rdfs:subClassOf publish:PublishingState.
 
 publish:Published
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "published"@en, "publiziert"@de;
 	rdfs:comment """State of an expression having been published."""@en;
 	rdfs:subClassOf publish:PublishingState.
 
 publish:Redactor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "redactor"@en, "Redaktor"@de;
 	rdfs:comment """Editor preparing an expression for publication."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 publish:AgentPublisher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "agent publisher"@en, "Agent-Herausgeber"@de;
 	rdfs:comment """Role of an agent, person or group, that is publishing."""@en;
 	rdfs:subClassOf creating:AgentCreator.
 
 publish:PersonPublisher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "person publisher"@en, "Person-HerausgeberIn"@de;
 	rdfs:comment """Publisher as role of a person."""@en;
 	rdfs:subClassOf publish:AgentPublisher, human:PersonRole.
 
 publish:OrganizationPublisher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "organization publisher"@en, "Organisation-Herausgeberin"@de;
 	rdfs:comment """Publisher as role of an organization."""@en;
 	rdfs:subClassOf publish:AgentPublisher, org:Role.
 
 publish:NewspaperPublisher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "newspaper publisher"@en, "Zeitungsverleger"@de;
 	rdfs:comment """Publisher of a newspaper."""@en;
 	rdfs:subClassOf publish:AgentPublisher.
 
 publish:Publication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication"@en, "Publikation"@de;
 	rdfs:comment """An expression published on a carrier."""@en;
@@ -112,54 +125,63 @@ publish:Publication
 		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing]. # OR :isPublicationOfPublishing
 
 publish:PartitionedPublishing
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "partitioned publishing"@en, "partitioniertes Publizieren"@de;
 	rdfs:comment """Publishing the volumes of a partitioned work, mostly consecutively."""@en;
 	rdfs:subClassOf publish:Publishing.
 
 publish:PartitionedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "partitioned publication"@en, "partitionierte Publikation"@de;
 	rdfs:comment """Publication comprising the volumes of a partitioned work, e.g. a dictionary."""@en;
 	rdfs:subClassOf publish:Publication, infocar:PartitionedWork.
 
 publish:PrintedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "printed publication"@en, "gedruckte Publikation"@de;
 	rdfs:comment """Publication as print."""@en;
 	rdfs:subClassOf infocar:Print, publish:Publication.
 
 publish:ElectronicPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "electronic publication"@en, "elektronische Publikation"@de;
 	rdfs:comment """Publication on an electronic carrier."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier, publish:Publication.
 
 publish:WebPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "web publication"@en, "Web-Publikation"@de;
 	rdfs:comment """Publication as Web page."""@en;
 	rdfs:subClassOf publish:ElectronicPublication, infocar:WebPage.
 
 publish:PolyAuthorPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "poly-author publication"@en, "Mehrautorenpublikation"@de;
 	rdfs:comment """Publication of different expressions by different authors."""@en;
 	rdfs:subClassOf publish:Publication.
 
 publish:FirstPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "first publication"@en, "Erstausgabe"@de;
 	rdfs:comment """Earliest publication of an expression."""@en;
 	rdfs:subClassOf publish:Publication. # creating:FirstVersion
 
 publish:LastPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "last publication"@en, "letzte Ausgabe"@de;
 	rdfs:comment """Last publication of an expression."""@en;
 	rdfs:subClassOf publish:Publication.
 
 publish:Serial
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial publication"@en, "Reihe-Ausgabe"@de; #, "publication sérielle"@fr, ""@it;
 	rdfs:comment """Successive publication with same title, usually numbered and/or dated, issued at a regular or irregular interval, without predetermined conclusion."""@en;
@@ -167,18 +189,21 @@ publish:Serial
 	rdfs:subClassOf publish:Publication.
 
 publish:Existence
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publishing existence"@en, "Publizierungexistenz"@de; #, ""@fr, ""@it;
 	rdfs:comment """The publishing from the first to the last issue of a serial."""@en;
 	rdfs:subClassOf event:Existence.
 
 publish:SerialVolume
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial volume"@en, "Reihe-Ausgabevolumen"@de; #, ""@fr, ""@it; # Jahrgang
 	rdfs:comment """Set of serials, e.g. the magazine issues of a coterminous year."""@en;
 	rdfs:subClassOf infocar:Set.
 
 publish:Newspaper
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "newspaper"@en, "Zeitung"@de, "journal"@fr, "giornale"@it;
 	rdfs:comment """Serial publication, mostly daily, with most recent event descriptions as core content."""@en;
@@ -186,6 +211,7 @@ publish:Newspaper
 	rdfs:subClassOf publish:Serial.
 
 publish:Periodical
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "periodical publication"@en, "Zeitschrift"@de, "périodique"@fr, "periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
@@ -193,6 +219,7 @@ publish:Periodical
 	rdfs:subClassOf publish:Serial. # infocar:Book
 
 publish:Magazine
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "magazine"@en, "Magazin"@de, "magazine"@fr; # ""@it;
 	rdfs:comment """Periodical publication with individual pagination."""@en;
@@ -200,6 +227,7 @@ publish:Magazine
 	rdfs:subClassOf infocar:Book, publish:Periodical.
 
 publish:Journal
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "journal"@en, "Journal"@de, "revue"@fr; #, ""@it;
 	rdfs:comment """Periodical publication with continuous pagination throughout its volume."""@en;
@@ -207,24 +235,28 @@ publish:Journal
 	rdfs:subClassOf infocar:Book, publish:Periodical.
 
 publish:NachlassPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "nachlass publication"@en, "Nachlassausgabe"@de;
 	rdfs:comment """Publication of a nachlass element."""@en;
 	rdfs:subClassOf publish:Publication, infocar:NachlassElement.
 
 publish:AuthorizedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "authorized publication"@en, "autorisierte Ausgabe"@de;
 	rdfs:comment """Publication with the author's authorization."""@en;
 	rdfs:subClassOf publish:Publication.
 
 publish:UnauthorizedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "unauthorized publication"@en, "nicht-autorisierte Ausgabe"@de;
 	rdfs:comment """Publication without the author's authorization."""@en;
 	rdfs:subClassOf publish:Publication.
 
 publish:Republication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "republication"@en, "Herausgabe"@de;
 	rdfs:comment """Publication of a previously published expression."""@en;
@@ -235,6 +267,7 @@ publish:Republication
 #
 
 publish:hasPublishingState
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publishing state"@en, "hat Publikationszustand"@de;
 	rdfs:comment """Relating an expression to a publishing state it has."""@en;
@@ -243,6 +276,7 @@ publish:hasPublishingState
 	rdfs:subPropertyOf event:hasState.
 
 publish:hasPublishing
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publishing"@en, "hat Herausgeben"@de;
 	rdfs:comment """Relating an expression to its publishing."""@en;
@@ -251,6 +285,7 @@ publish:hasPublishing
 	rdfs:subPropertyOf event:isInputOf.
 
 publish:hasPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication"@en, "hat Publikation"@de;
 	rdfs:comment """Relating an expression to a publication it has."""@en;
@@ -258,6 +293,7 @@ publish:hasPublication
 	rdfs:range publish:Publication.
 
 publish:hasElectronicPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has electronic publication"@en, "hat elektronische Publikation"@de;
 	rdfs:comment """Relating an expression to an electronic publication it has."""@en;
@@ -266,6 +302,7 @@ publish:hasElectronicPublication
 	rdfs:subPropertyOf infocar:isOnElectronicCarrier, publish:hasPublication.
 
 publish:hasWebPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has web publication"@en, "hat Web-Publikation"@de;
 	rdfs:comment """Relating an expression to a web publication it has."""@en;
@@ -274,6 +311,7 @@ publish:hasWebPublication
 	rdfs:subPropertyOf publish:hasElectronicPublication.
 
 publish:hasPublicationNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication number"@en, "hat Publikationsnummer"@de;
 	rdfs:comment """Relating a publication expression to its number in a publication."""@en;
@@ -281,6 +319,7 @@ publish:hasPublicationNumber
 	rdfs:range xsd:nonNegativeInteger.
 
 publish:hasFirstPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has first publication"@en, "hat erste Publikation"@de;
 	rdfs:comment """Relating an expression to its first publication."""@en;
@@ -289,6 +328,7 @@ publish:hasFirstPublication
 	rdfs:subPropertyOf publish:hasPublication.
 
 publish:hasLastPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has last publication"@en, "hat letzte Publikation"@de;
 	rdfs:comment """Relating an expression to its last publication."""@en;
@@ -297,6 +337,7 @@ publish:hasLastPublication
 	rdfs:subPropertyOf publish:hasPublication.
 
 publish:hasLastAuthorizedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has last authorized publication"@en, "hat letzte autorisierte Publikation"@de;
 	rdfs:comment """Relating an expression to its last publication with the author's authorization."""@en;
@@ -305,6 +346,7 @@ publish:hasLastAuthorizedPublication
 	rdfs:subPropertyOf publish:hasPublication.
 
 publish:hasUnauthorizedPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized publication"@en, "hat nicht-autorisierte Publikation"@de;
 	rdfs:comment """Relating an expression to a publication thereof without the author's authorization."""@en;
@@ -313,6 +355,7 @@ publish:hasUnauthorizedPublication
 	rdfs:subPropertyOf publish:hasPublication.
 
 publish:hasUnauthorizedRepublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized republication"@en, "hat nicht-autorisierte Wiederpublikation"@de;
 	rdfs:comment """Relating an expression to a republication thereof without the author's authorization."""@en;
@@ -321,6 +364,7 @@ publish:hasUnauthorizedRepublication
 	rdfs:subPropertyOf publish:hasUnauthorizedPublication.
 
 publish:hasPolyAuthorPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has poly-author publication"@en, "hat Publikation mehrerer Autoren"@de;
 	rdfs:comment """Relating an expression to a publication thereof containing also expressions of other authors."""@en;
@@ -329,6 +373,7 @@ publish:hasPolyAuthorPublication
 	rdfs:subPropertyOf publish:hasPublication.
 
 publish:hasNachlassPublication
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has nachlass publication"@en, "hat Nachlassausgabe"@de;
 	rdfs:comment """Relating an expression to a nachlass publication."""@en;
@@ -336,6 +381,7 @@ publish:hasNachlassPublication
 	rdfs:range publish:NachlassPublication.
 
 publish:hasNachlassPublicationDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has nachlass publication description"@en, "hat Nachlassausgabebeschreibung"@de;
 	rdfs:comment """Relating an expression to a description of its nachlass publication."""@en;
@@ -344,6 +390,7 @@ publish:hasNachlassPublicationDescription
 	rdfs:subPropertyOf text:hasDescription.
 
 publish:isPublishedIn
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is published in"@en, "ist publiziert in"@de;
 	rdfs:comment """Relating a publication expression to a publication thereof."""@en;
@@ -352,6 +399,7 @@ publish:isPublishedIn
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
 publish:isPublishedOnWeb
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is published on Web"@en, "ist Web-publiziert"@de;
 	rdfs:comment """Relating a publication expression to its publication as Web page."""@en;
@@ -360,6 +408,7 @@ publish:isPublishedOnWeb
 	rdfs:subPropertyOf publish:isPublishedIn, publish:hasWebPublication. #°
 
 publish:hasRedactor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has redactor"@en, "hat Redakteur"@de;
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
@@ -367,6 +416,7 @@ publish:hasRedactor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
 
 publish:hasDescription #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has description"@en, "Publikation hat beschreibung"@de;
 	rdfs:comment """Relating a publication to a description thereof."""@en;
@@ -375,6 +425,7 @@ publish:hasDescription #°
 	rdfs:subPropertyOf text:hasDescription.
 
 publish:hasDate
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has date"@en, "Publikation hat datum"@de;
 	rdfs:comment """Relating a publication to the date it is published on."""@en;
@@ -383,6 +434,7 @@ publish:hasDate
 	rdfs:subPropertyOf creating:creationHasDate.
 
 publish:hasPartitionedPublishing
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has partitioned publishing"@en, "Publikation hat partitioniertes Publizieren"@de;
 	rdfs:comment """Relating a partitioned publication to its publishing."""@en;
@@ -391,6 +443,7 @@ publish:hasPartitionedPublishing
 	rdfs:subPropertyOf event:isOutputOf.
 
 publish:hasTitle #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has title"@en, "Publikation hat titel"@de;
 	rdfs:comment """Relating a publication to its title."""@en;
@@ -399,6 +452,7 @@ publish:hasTitle #°
 	rdfs:subPropertyOf text:hasTitle.
 
 publish:hasNumber #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has number"@en, "Publikation hat Nummer"@de;
 	rdfs:comment """Relating a publication to its number."""@en;
@@ -406,6 +460,7 @@ publish:hasNumber #°
 	rdfs:range rdfs:Literal.
 
 publish:hasPublisher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publisher"@en, "hat Herausgeber"@de;
 	rdfs:comment """Relating a publication to its publisher."""@en;
@@ -414,6 +469,7 @@ publish:hasPublisher
 	rdfs:subPropertyOf creating:hasCreator.
 
 publish:hasPublisherDescription #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de;
 	rdfs:comment """Relating a publication to its publisher's description."""@en;
@@ -422,6 +478,7 @@ publish:hasPublisherDescription #°
 	rdfs:subPropertyOf text:hasDescription.
 
 publish:hasPrinterDescription #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de;
 	rdfs:comment """Relating a publication to its printer's description."""@en;
@@ -430,6 +487,7 @@ publish:hasPrinterDescription #°
 	rdfs:subPropertyOf text:hasDescription.
 
 publish:hasExistence
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publishing existence"@en, "hat Publizierungexistenz"@de;
 	rdfs:comment """Relating a serial to its publishing existence."""@en;
@@ -438,6 +496,7 @@ publish:hasExistence
 	rdfs:subPropertyOf event:hasExistence.
 
 publish:isPartOfVolume
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of volume"@en, "ist Teil eines Volumens"@de;
 	rdfs:comment """Relating a serial to a volume it is part of."""@en;
@@ -446,6 +505,7 @@ publish:isPartOfVolume
 	rdfs:subPropertyOf physical:isPartOf.
 
 publish:hasReference #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
 	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;

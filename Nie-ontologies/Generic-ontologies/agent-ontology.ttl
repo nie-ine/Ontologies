@@ -27,21 +27,21 @@
 
 agent:Agent
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "agent"@en, "Agent"@de;
 	rdfs:comment """Something performing in action."""@en;
 	rdfs:subClassOf foaf:Agent, physical:Entity.
 
 agent:Group
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "group of agents"@en;
 	rdfs:comment """Group of agents."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Group.
 
 agent:Organization
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "organization"@en;
 	rdfs:comment """Organized group of agents."""@en;
 	rdfs:subClassOf agent:Group;
@@ -49,7 +49,7 @@ agent:Organization
 
 agent:Role
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "agent's role"@en;
 	rdfs:comment """Specific function of an agent."""@en;
 	owl:disjointWith agent:Agent;
@@ -57,14 +57,14 @@ agent:Role
 
 agent:GroupRole
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "group role"@en;
 	rdfs:comment """Role of a group of agents."""@en;
 	rdfs:subClassOf agent:Role.
 
 agent:OrganizationRole
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "organization role"@en;
 	rdfs:comment """Role of an Organization of agents."""@en;
 	rdfs:subClassOf agent:GroupRole.
@@ -73,7 +73,7 @@ agent:OrganizationRole
 
 agent:Creator
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "creator"@en, "Erschaffer"@de;
 	rdfs:comment """Role of an agent creating something."""@en;
 	skos:note """Does not need to be a person."""@en;
@@ -81,7 +81,7 @@ agent:Creator
 
 agent:User
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "user"@en, "BenutzerIn"@de;
 	rdfs:comment """Role of an agent taking something into service or applying for a purpose."""@en;
 	skos:note """Does not need to be a person."""@en;
@@ -89,7 +89,7 @@ agent:User
 
 agent:UserCredential
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "user credential"@en, "Benutzeranmeldeinformationen"@de;
 	rdfs:comment """Convincible information as input to get user access, e.g. to a digital multiuser computer system."""@en;
 	rdfs:subClassOf event:Input.
@@ -100,7 +100,7 @@ agent:UserCredential
 
 agent:actsIn
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "acts in"@en, "agiert in"@de;
 	rdfs:comment """Relating an agent to an action the agent is acting in."""@en;
 	rdfs:domain agent:Agent;
@@ -108,7 +108,7 @@ agent:actsIn
 
 agent:hasRole
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "has role"@en, "hat Rolle"@de;
 	rdfs:comment """Relating an agent to a role it,s/he has."""@en;
 	rdfs:domain agent:Agent;
@@ -116,6 +116,7 @@ agent:hasRole
 
 agent:isMemberOf
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "is member of"@en, "ist Mitglied"@de;
 	rdfs:comment """Relating an agent to a group the agent is a member of."""@en;
 	rdfs:domain agent:Agent;
@@ -123,6 +124,7 @@ agent:isMemberOf
 
 agent:hasCreator
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
 	rdfs:comment """Relating something to an agent that created it."""@en;
 	rdfs:domain rdfs:Resource;
@@ -130,6 +132,7 @@ agent:hasCreator
 
 agent:hasUser
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "has user"@en, "hat Benutzer"@de;
 	rdfs:comment """Relating something to an agent using it."""@en;
 	rdfs:domain rdfs:Resource;

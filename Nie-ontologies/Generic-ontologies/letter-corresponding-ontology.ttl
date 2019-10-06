@@ -31,60 +31,70 @@
 #
 
 letter-corresponding:Corresponding
- 	a rdfs:Class;
+ 	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
+	a rdfs:Class;
  	rdfs:label "corresponding"@en,"Korrespondieren"@de;
  	rdfs:comment """Communicating by exchanging letters."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Exchanging
- 	a rdfs:Class;
+ 	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
+	a rdfs:Class;
  	rdfs:label "exchanging"@en,"Auswechselen"@de;
  	rdfs:comment """Sending-receiving cycle in corresponding."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Compiling
- 	a rdfs:Class;
+ 	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
+	a rdfs:Class;
  	rdfs:label "compiling"@en,"Zusammenstellen"@de;
  	rdfs:comment """Preparing a letter for sending, mostly by putting it in an envelope, possibly adding an enclosure."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Expression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
 	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Structure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "letter structure"@en, "Briefstruktur"@de;
 	rdfs:comment """Text with letter structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 letter-corresponding:Letter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "letter"@en, "Brief"@de, "lettre"@fr, "lettera"@it;
 	rdfs:comment """Written text, e.g. on a leaf, intended to be sent from (a) person(s) or (an) Organization(s) to (an)other one(s), e.g. through a postal system."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 letter-corresponding:Envelope
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "envelope"@en, "Umschlag"@de;
 	rdfs:comment """Flat paper container with a sealable flap for sending something, e.g. a letter, from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 letter-corresponding:EnclosureExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de;
 	rdfs:comment """Text expression of a letter enclosure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Enclosure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "letter enclosure"@en, "Briefbeilage"@de;
 	rdfs:comment """Something added to a letter being sent, e.g. another information carrier."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 letter-corresponding:InformationEnclosure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a rdfs:Class;
 	rdfs:label "information letter enclosure"@en, "Information-Briefbeilage"@de;
 	rdfs:comment """Information carrier as letter enclosure."""@en;
@@ -95,6 +105,7 @@ letter-corresponding:InformationEnclosure
 #
 
 letter-corresponding:isExchangingOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is exchanging of"@en, "ist Auswechselen von"@de;
 	rdfs:comment """Relating an exchanging to its corresponding it is a suprocedure of."""@en;
@@ -103,6 +114,7 @@ letter-corresponding:isExchangingOf
 	rdfs:subPropertyOf event:isSubProcedureOf.
 
 letter-corresponding:isCompilingOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is compiling of"@en, "ist Zusammenstellen von"@de;
 	rdfs:comment """Relating a compiling to its exchanging it is a suprocedure of."""@en;
@@ -111,6 +123,7 @@ letter-corresponding:isCompilingOf
 	rdfs:subPropertyOf event:isSubProcedureOf.
 
 letter-corresponding:isInLetter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is in letter"@en, "ist in Brief"@de;
 	rdfs:comment """Relating a letter expression to a letter it is in."""@en;
@@ -119,6 +132,7 @@ letter-corresponding:isInLetter
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
 letter-corresponding:isStructureOfExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de;
 	rdfs:comment """Relating a letter structure to a text expression it is part of."""@en;
@@ -127,6 +141,7 @@ letter-corresponding:isStructureOfExpression
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 letter-corresponding:follows
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "letter follows"@en, "Brief folgt"@de;
 	rdfs:comment """Relating a letter to a preceding letter."""@en;
@@ -134,6 +149,7 @@ letter-corresponding:follows
 	rdfs:range letter-corresponding:Letter.
 
 letter-corresponding:hasEnvelope
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "letter has envelope"@en, "Brief hat Umschlag"@de;
 	rdfs:comment """Relating a letter to an envelope it has."""@en;
@@ -141,6 +157,7 @@ letter-corresponding:hasEnvelope
 	rdfs:range letter-corresponding:Envelope.
 
 letter-corresponding:hasEnvelopeDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "letter has envelope description"@en, "Brief hat Umschlagbeschreibung"@de;
 	rdfs:comment """Relating a letter to a description of its envelope."""@en;
@@ -148,6 +165,7 @@ letter-corresponding:hasEnvelopeDescription
 	rdfs:range rdfs:Literal.
 
 letter-corresponding:hasEnclosure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "letter has enclosure"@en, "Brief hat Beilage"@de;
 	rdfs:comment """Relating a letter to an enclosure it has."""@en;
@@ -155,6 +173,7 @@ letter-corresponding:hasEnclosure
 	rdfs:range letter-corresponding:Enclosure.
 
 letter-corresponding:isPageOfLetter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page of letter"@en, "ist Seite eines Briefes"@de;
 	rdfs:comment """Relating a page to the letter it is part of."""@en;
@@ -163,6 +182,7 @@ letter-corresponding:isPageOfLetter
 	rdfs:subPropertyOf physical:isPartOf.
 
 letter-corresponding:isTextInEnclosure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
 	rdfs:label "is text expression in letter enclosure"@en, "ist Textexpression in Briefbeilage"@de;
 	rdfs:comment """Relating a text expression to a letter information enclosure it is in."""@en;

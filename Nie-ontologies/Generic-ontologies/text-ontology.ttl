@@ -40,30 +40,35 @@
 #
 
 text:Text
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text"@en, "Text"@de, "texte"@fr, "testo"@it;
 	rdfs:comment """Human natural language expression serialized in writable form."""@en; # coherent set of signs representing semantics in a language
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 text:ContentNature
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text content nature"@en, "textinhaltliche Art"@de;
 	rdfs:comment """Nature of the content of a text."""@en;
 	rdfs:subClassOf text:Text.
 
 text:Nonfiction
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "nonfiction text"@en, "Sachtext"@de;
 	rdfs:comment """Text having content based on fact."""@en;
 	rdfs:subClassOf text:ContentNature, concept:Nonfiction.
 
 text:Fiction
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "fiction text"@en, "Fiktiontext"@de;
 	rdfs:comment """Text having content derived from imagination."""@en;
 	rdfs:subClassOf text:ContentNature, concept:Fiction.
 
 text:Developing
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text developing"@en, "Textentwicklung"@de;
 	rdfs:comment """Action wherein a person(s) creates text resulting in different manifestation, e.g. from notebook to manuscript to typescript to published print."""@en;
@@ -71,6 +76,7 @@ text:Developing
 	# hasStage
 
 text:SurfaceText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "surface text"@en, "Flächetext"@de, "texte surfacique"@fr, "testo superficiale"@it;
 	rdfs:comment """Text applied to any surface in any way, abstracted from its carrier."""@en;
@@ -78,84 +84,98 @@ text:SurfaceText
 	rdfs:subClassOf text:Text.
 
 text:WrittenText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "written text"@en, "geschriebener Text"@de, "texte écrit"@fr, "testo scritto"@it;
 	rdfs:comment """Text written by symbol, by any method, e.g. manually, with a typewriter, or on a computer, abstracted from its carrier."""@en;
 	rdfs:subClassOf text:SurfaceText.
 
 text:Handwriter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "handwriter"@en, "Handschreiber"@de, "écrivain"@fr, "manoscrittore"@it;
 	rdfs:comment """Role of a person writing text symbols by hand."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 text:HandwrittenText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "handwritten text"@en, "handgeschriebener Text"@de, "texte manuscrit"@fr, "testo scritto a mano"@it;
 	rdfs:comment """Text with symbols formed by hand, abstracted from its manuscript."""@en;
 	rdfs:subClassOf text:WrittenText.
 
 text:TypewrittenText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "typewritten text"@en, "maschinengeschriebener Text"@de, "texte dactylographié"@fr, "testo dattiloscritto"@it;
 	rdfs:comment """Text written with a typewriter."""@en;
 	rdfs:subClassOf text:WrittenText.
 
 text:PrintedText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "printed text"@en, "gedruckter Text"@de, "texte imprimé"@fr, "testo stampato"@it;
 	rdfs:comment """Text printed by any method, abstracted from its carrier."""@en;
 	rdfs:subClassOf text:Text.
 
 text:CopiedText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "copied text"@en, "kopierter Text"@de, "texte copié"@fr, "testo copiato"@it;
 	rdfs:comment """Text copied by any method; text abstracted from its carrier."""@en;
 	rdfs:subClassOf text:Text.
 
 text:Transcriber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text transcriber"@en, "TexttranskribiererIn"@de, "scribe de texte"@fr, "scriba di testo"@it;
 	rdfs:comment """Role of a person copying a text by writing, creating a transcribed text in a transcript."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 text:TranscribedText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
 	rdfs:comment """Text copied by character by any writing method; text abstracted from its carrier."""@en;
 	rdfs:subClassOf text:CopiedText.
 
 text:Scribe
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "scribe"@en, "TextKopist"@de, "scribe"@fr, "scriba"@it, "scribes"@la;
 	rdfs:comment """Role of a person copying a text by handwriting, creating a transcribed text in a manual transcript."""@en;
 	rdfs:subClassOf text:Transcriber.
 
 text:PhotocopiedText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "photocopied text"@en, "fotokopierter Text"@de; #, "texte copié"@fr, "testo copiato"@it;
 	rdfs:comment """Text photocopied, abstracted from its carrier."""@en;
 	rdfs:subClassOf text:CopiedText.
 
 text:AgentCiter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "agent citer"@en, "Agent-Zitierer"@de;
 	rdfs:comment """Role of a human agent, person or group, citing a text."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 text:PersonCiter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "person citer"@en, "Person-ZitiererIn"@de;
 	rdfs:comment """Citer as role of a person."""@en;
 	rdfs:subClassOf text:AgentCiter, human:PersonRole.
 
 text:OrganizationCiter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "organization citer"@en, "Organisation-Zitiererin"@de;
 	rdfs:comment """Citer as role of an organization."""@en;
 	rdfs:subClassOf text:AgentCiter, org:Role.
 
 text:Citation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
 	rdfs:comment """Copy of a text expression, mostly a part of it, in another text expression, with reference to the first expression."""@en;
@@ -163,42 +183,49 @@ text:Citation
 	rdfs:subClassOf text:CopiedText, text-structure:ContentStructure.
 
 text:CitationReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation reference"@en, "Zitatreferenz"@de;
 	rdfs:comment """Reference of a citation to the referred."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 text:CitationIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation identifier"@en, "Zitatidentifikator"@de;
 	rdfs:comment """Identifier of a citation."""@en;
 	rdfs:subClassOf concept:Identifier, document:Structure.
 
 text:CitationNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation number"@en, "Zitatnummer"@de;
 	rdfs:comment """Number of a citation."""@en;
 	rdfs:subClassOf text:CitationIdentifier, math:Number.
 
 text:NormalizedDerivative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "normalized text derivative"@en, "normalisiertes Textderivat"@de;
 	rdfs:comment """Derivative of a text of which it is a normalization along a certain procedure."""@en;
 	rdfs:subClassOf text:Text, creating:CreationDerivative.
 
 text:Compiler
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "compiler"@en, "Kompilator"@de, "compilator"@la;
 	rdfs:comment """Role of a person assembling texts to a new whole."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 text:CompiledText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "compiled text"@en, "zusammengestellte Text"@de, "texte compilé"@fr, "testo compilato"@it;
 	rdfs:comment """Text assembled from previously separate texts."""@en;
 	rdfs:subClassOf text:Text.
 
 text:Translation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text translation"@en, "Textübersetzung"@de, "traduction de texte"@fr, "traduzione di testi"@it;
 	rdfs:comment """Translation from text to text."""@en;
@@ -209,6 +236,7 @@ text:Translation
 #
 
 text:hasText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has text"@en, "hat Text"@de;
 	rdfs:comment """Relating a resource to a text as a writable coherent set of signs representing semantics in a language."""@en;
@@ -216,72 +244,84 @@ text:hasText
 	rdfs:range rdfs:Literal. # text:Text
 
 text:hasName
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a resource to a name as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText. #° rdfs:label, foaf:name
 
 text:hasPreferredName
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
 	rdfs:comment """Relating a resource to a preferred name."""@en;
 	rdfs:subPropertyOf text:hasName.
 
 text:hasAlias
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
 	rdfs:comment """Relating a resource to an alias as an alternative name of the resource."""@en;
 	rdfs:subPropertyOf text:hasName.
 
 text:hasIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;
 	rdfs:comment """Relating a resource to an identifier as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subPropertyOf text:hasText. #° cf. dcterms:identifier
 
 text:hasTitle
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has title"@en, "hat Titel"@de;
 	rdfs:comment """Relating a resource to a title as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasSubtitle
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has subtitle"@en, "hat Untertitel"@de;
 	rdfs:comment """Relating a resource to a subtitle as additional, usually explanatory to the title."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasComment
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has comment"@en, "hat Kommentar"@de;
 	rdfs:comment """Relating a resource to a comment as a textual statement about the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description as a textual statement about features of the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasDefinition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has definition"@en, "hat Definition"@de;
 	rdfs:comment """Relating a resource to a definition as a textual statement about the essential features of the resource."""@en;
 	rdfs:subPropertyOf text:hasDescription.
 
 text:hasDetailDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has detail description"@en, "hat Detail-Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
 	rdfs:subPropertyOf text:hasDescription.
 
 text:hasSpecialDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has special description"@en, "hat Besonderes-Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description of (a) certain feature(s)."""@en;
 	rdfs:subPropertyOf text:hasDescription.
 
 text:isTextOfDocument
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "is text of document"@en, "ist Text eines Dokumentes"@de;
 	rdfs:comment "Relating a text to the document it is part of."@en;
@@ -290,6 +330,7 @@ text:isTextOfDocument
 	rdfs:subPropertyOf concept:isPartOf.
 
 text:hasContentNature
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has content nature"@en, "hat textinhaltliche Art"@de;
 	rdfs:comment """Relating a text to a content nature it has."""@en;
@@ -297,6 +338,7 @@ text:hasContentNature
 	rdfs:range text:ContentNature.
 
 text:hasLineNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de;
 	rdfs:comment """Relating a text to the number of a line of the text expression."""@en;
@@ -305,6 +347,7 @@ text:hasLineNumber
 	rdfs:subPropertyOf text:hasText.
 
 text:hasVersionIndicator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has version indicator"@en, "hat Version-Indikator"@de;
 	rdfs:comment """Relating a text to a textual element that indicates its version."""@en;
@@ -313,6 +356,7 @@ text:hasVersionIndicator
 	rdfs:subPropertyOf text:hasText.
 
 text:hasPageNumberDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has page number description"@en, "Text hat Seitennummerbeschreibung"@de;
 	rdfs:comment """Relating a text to a description of the number(s) of and possibly a location on (a) pages it is on; examples of the string of its value: "001-002", "01 recto", "O2 (bottom)"."""@en;
@@ -320,6 +364,7 @@ text:hasPageNumberDescription
 	rdfs:range rdfs:Literal.
 
 text:hasNumberOfPages
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has number of pages"@en, "hat Seitenanzahl"@de;
 	rdfs:comment """Relating a text to the number of pages it has."""@en;
@@ -327,6 +372,7 @@ text:hasNumberOfPages
 	rdfs:range xsd:integer.
 
 text:hasReferenceText
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has reference text"@en, "hat Bezugstext"@de;
 	rdfs:comment "Relating a text to another one as its reference."@en;
@@ -334,6 +380,7 @@ text:hasReferenceText
 	rdfs:range text:Text.
 
 text:hasTranscriber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has transcriber"@en, "hat TranskribiererIn"@de;
 	rdfs:comment """Relating a text to a person who transcribed it; text abstracted from its carrier."""@en;
@@ -341,6 +388,7 @@ text:hasTranscriber
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]].
 
 text:hasVulgarizer
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has vulgarizer"@en, "Text hat VulgarisatorIn"@de;
 	rdfs:comment """Relating a text to a person who vulgarized it."""@en;
@@ -348,6 +396,7 @@ text:hasVulgarizer
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Vulgarizer]].
 
 text:hasCiter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has citer"@en, "hat ZitiererIn"@de;
 	rdfs:comment """Relating a text to a human agent - person or group - citing it."""@en;
@@ -355,6 +404,7 @@ text:hasCiter
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
 
 text:hasCitation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has citation"@en, "hat Zitat"@de;
 	rdfs:comment "Relating a text to a citation thereof."@en;
@@ -362,6 +412,7 @@ text:hasCitation
 	rdfs:range text:Citation.
 
 text:hasCitationReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has citation reference"@en, "hat Zitatreferenz"@de;
 	rdfs:comment "Relating a text to a citation reference thereof."@en;
@@ -369,6 +420,7 @@ text:hasCitationReference
 	rdfs:range text:CitationReference.
 
 text:isCitedIn
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "is cited in"@en, "ist zitiert in"@de;
 	rdfs:comment "Relating a text to an expression wherein it is cited."@en;
@@ -376,6 +428,7 @@ text:isCitedIn
 	rdfs:range document:Expression.
 
 text:hasEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has editor"@en, "Text hat EditorIn"@de;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
@@ -383,6 +436,7 @@ text:hasEditor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]].
 
 text:hasHandwriter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has handwriter"@en, "hat Handschreiber"@de;
 	rdfs:comment """Relating a handwritten text to the person who wrote it."""@en;
@@ -390,6 +444,7 @@ text:hasHandwriter
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Handwriter]].
 
 text:citationHasReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "citation has reference"@en, "Zitat hat Referenz"@de;
 	rdfs:comment """Relating a citation to its reference."""@en;
@@ -398,6 +453,7 @@ text:citationHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 text:citationHasIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "citation has identifier"@en, "Zitat hat Identifikator"@de;
 	rdfs:comment """Relating a citation to its identifier."""@en;
@@ -406,6 +462,7 @@ text:citationHasIdentifier
 	# rdfs:subPropertyOf text-structure:hasIdentifier
 
 text:citationHasNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "citation has number"@en, "Zitat hat Nummer"@de;
 	rdfs:comment """Relating a citation to its number."""@en;
@@ -414,6 +471,7 @@ text:citationHasNumber
 	rdfs:subPropertyOf text:citationHasIdentifier.
 
 text:citationIsPartOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "citation is part of text expression"@en, "Zitat ist Teil einer Textexpression"@de;
 	rdfs:comment """Relating a citation to a text expression it is part of."""@en;
@@ -422,6 +480,7 @@ text:citationIsPartOf
 	rdfs:subPropertyOf concept:isPartOf.
 
 text:hasCitationIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has citation identifier"@en, "hat Zitatidentifikator"@de;
 	rdfs:comment """Relating a citation reference to its citation identifier."""@en;
@@ -430,6 +489,7 @@ text:hasCitationIdentifier
 	#° rdfs:subPropertyOf
 
 text:hasRevisor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has revisor"@en, "Text hat Revisor"@de;
 	rdfs:comment """Relating a text to a person who revised it."""@en;
@@ -437,6 +497,7 @@ text:hasRevisor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
 
 text:hasAnnotator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has annotator"@en, "Text hat AnnotatorIn"@de;
 	rdfs:comment """Relating a text to a person who annotated it."""@en;
@@ -444,6 +505,7 @@ text:hasAnnotator
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Annotator]].
 
 text:hasGlossator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has glossator"@en, "hat Glossator"@de;
 	rdfs:comment """Relating a text to a person who glossed it."""@en;
@@ -451,6 +513,7 @@ text:hasGlossator
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Glossator]].
 
 text:hasAbbreviator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
 	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
@@ -458,6 +521,7 @@ text:hasAbbreviator
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Abbreviator]].
 
 text:isNormalizedAs
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "is normalized as"@en, "ist normalisiert als"@de;
 	rdfs:comment """Relating a text to a normalized derivative."""@en;
@@ -465,6 +529,7 @@ text:isNormalizedAs
 	rdfs:range text:NormalizedDerivative.
 
 text:hasCompiler
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has compiler"@en, "Text hat KompilatorIn"@de;
 	rdfs:comment """Relating a text to a person who compiled it."""@en;

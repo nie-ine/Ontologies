@@ -25,18 +25,21 @@
 #
 
 math:MathematicalObject
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical object"@en, "mathematisches Objekt"@de;
 	rdfs:comment """Symbolic entity in mathematics."""@en;
 	rdfs:subClassOf concept:SymbolicEntity.
 
 math:Number
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Zahl"@de;
 	rdfs:comment """Mathematical object for counting, measuring and labeling."""@en; #* and ordering
 	rdfs:subClassOf math:MathematicalObject, concept:Identifier.
 
 math:NaturalNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
 	rdfs:comment """Non-negative whole number."""@en;
@@ -44,6 +47,7 @@ math:NaturalNumber
 	rdfs:subClassOf math:Number.
 
 math:Set
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical set"@en, "mathematische Sammlung"@de;
 	rdfs:comment """Set of mathematical objects."""@en;
@@ -54,6 +58,7 @@ math:Set
 #
 
 math:hasNumeral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a owl:ObjectProperty; # -> a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numerale"@de;
 	rdfs:comment """Relating a number to a numeral."""@en;

@@ -25,24 +25,28 @@
 #
 
 image:Image
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image"@en,"Bild"@de;
 	rdfs:comment """Visual representation of something, abstracted from its carrier."""@en;
 	rdfs:subClassOf document:Document, cidoc:E38_Image.
 
 image:ImageExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image expression"@en,"Bildexpression"@de;
 	rdfs:comment """Image as a document expression conform FRBROO."""@en;
 	rdfs:subClassOf document:Expression, image:Image.
 
 image:ImageCarrier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image carrier"@en,"Bildträger"@de;
 	rdfs:comment """Image on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
 image:Photograph
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "photograph"@en,"Foto"@de;
 	rdfs:comment """Image made by exposing a photosensitive surface to light."""@en;
@@ -55,6 +59,7 @@ image:Photograph
 #
 
 image:isImageOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "is image of", "ist Bild von"@de;
 	rdfs:comment """Relating an image to what it depicts."""@en;
@@ -63,6 +68,7 @@ image:isImageOf
 	rdfs:subPropertyOf concept:informationHasSubject.
 
 image:isOnCarrier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "is image on carrier", "ist Bild auf Träger"@de;
 	rdfs:comment """Relating an image to a carrier it is on."""@en;
@@ -71,6 +77,7 @@ image:isOnCarrier
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
 image:isPhotographOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "is photograph of", "ist Foto von"@de;
 	rdfs:comment """Relating a photograph to what it depicts."""@en;
@@ -79,6 +86,7 @@ image:isPhotographOf
 	rdfs:subPropertyOf image:isImageOf.
 
 image:hasPhotographIn
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "has photograph in", "hat Foto in"@de;
 	rdfs:comment """Relating something to something else containing a photograph of the former."""@en;
@@ -86,6 +94,7 @@ image:hasPhotographIn
 	rdfs:range rdfs:Resource.
 
 image:hasPhotographSourceDescription #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
 	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;

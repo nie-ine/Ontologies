@@ -1,8 +1,7 @@
 # Ontologies
 
-In the [NIE-INE](http://www.nie-ine.ch) project an infrastructure is developed to ensure long-term storage of data of scientific edition projects in the Humanities at the Swiss Universities of Basel, Bern, Zürich, and Geneva.  
-
-Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora](https://github.com/dhlab-basel/Knora) platform of the [Digital Humanities Lab](https://github.com/dhlab-basel), requiring application-specific semantics.
+In the [NIE-INE](http://www.nie-ine.ch)-project we develop an infrastructure to enable scholarly edition projects in the Humanities to express their data in an enriched format, adhering to the FAIR-principles, and ensuring long-term storage of the data.  
+The project runs at the Swiss Universities of Basel, Bern, Zürich, and Geneva until end of 2020.
 
 The essence of the infrastructure is that data, stored in e.g. an SQL relational database or an XML database, are converted to a different i.e. machine-readable format by making the semantics of the data explicit.  
 To enable data expression in this new format, a series of vocabularies or ontologies are created, representing [Semantic Web technology](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology), introduced on the wiki.  
@@ -12,9 +11,13 @@ NIE-ontologies are highly interdependent and represent a networked collection of
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
+Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora](https://github.com/dhlab-basel/Knora) platform of the [Digital Humanities Lab](https://github.com/dhlab-basel), requiring application-specific semantics.
+
 # Graphics
 
-Note: the graphics are being updated to the current status of the ontologies.  
+Note:
+The graphics are being updated to the current status of the ontologies.  
+They can be enlarged in the Google Chrome browser, but currently not in the Firefox browser.
 
 Four kinds of graphics are used to illustrate the ontologies, to show classes, properties, and instances in different ways.  
 
@@ -24,7 +27,7 @@ A second type of graphic centers 1 entity (Figures 3, 11, and 17), e.g. ‘event
  
 A third type of graphic (Figure 7) focuses on (a part of) an ontology, also representing properties as nodes. It is created with the open source [SPARQL-visualizer](https://github.com/MadsHolten/sparql-visualizer), by filtering some ontological elements out (labels, comments and blank nodes) to enhance readability. It is particularly suitable for terminology discussion with domain specialists.  
 
-Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (class ovals).   
+Similar graphics are created with [EasyRDF ](http://www.easyrdf.org/converter) (Figures 4, 5, 6, 10, 18, 19, 21-25).   
 RDF/S and OWL classes and properties, and xsd datatypes are represented by brown ellipses and arrows resp., except subclass and subproperty properties, which are represented by green arrows.  
 External ontology classes and properties are represented by purple ellipses and arrows resp.  
 NIE classes and properties are represented by blue ellipses and arrows resp.  

@@ -36,18 +36,21 @@
 #
 
 ling:Concept
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "linguistic concept"@en, "linguistisches Konzept"@de;
 	rdfs:comment """Concept in the knowledge domain of linguistics."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 ling:Lexeme 
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "lexeme"@en, "Lexem"@de;
 	rdfs:comment """Linguistic concept as individual semantic entity in human natural language."""@en;
 	rdfs:subClassOf ling:Concept, language:HumanNaturalLanguageExpression.
 
 ling:Lemma
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "lemma"@en, "Lemma"@de;
 	rdfs:comment """Dictionary entry of a lexeme."""@en;
@@ -55,12 +58,14 @@ ling:Lemma
 	rdfs:subClassOf ling:Concept, concept:SymbolicEntity.
 
 ling:Symbol
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "language symbol"@en, "Sprache-Symbol"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf text:WrittenText.
 
 ling:Literal
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "literal"@en, "Literal"@de;
 	rdfs:comment """One or more language symbols of any kind."""@en;
@@ -70,18 +75,21 @@ ling:Literal
 # speech acts
 
 ling:Statement
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "statement"@en, "Aussage"@de;
 	rdfs:comment """Sentence... ."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Command
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "command"@en, "Befehl"@de;
 	rdfs:comment """Sentence... ."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Question
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "question"@en, "Frage"@de;
 	rdfs:comment """Sentence eliciting information."""@en;
@@ -90,18 +98,21 @@ ling:Question
 # request
 
 ling:Answer
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "answer"@en, "Antwort"@de;
 	rdfs:comment """Sentence providing information on elicitation."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Promise
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "promise"@en, "Versprechen"@de;
 	rdfs:comment """Sentence... ."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Evaluation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "evaluation"@en, "Evaluation"@de;
 	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
@@ -112,6 +123,7 @@ ling:Evaluation
 #
 
 ling:hasSynonym
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has synonym"@en, "hat Synonym"@de;
 	rdfs:comment """Relating a resource to a synonym of the name of the resource."""@en;
@@ -120,6 +132,7 @@ ling:hasSynonym
 	rdfs:subPropertyOf text:hasName.
 
 ling:hasComment
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
 	rdfs:comment """Relating a human natural language expression to a linguistic comment as a textual statement about the expression."""@en;
@@ -128,6 +141,7 @@ ling:hasComment
 	rdfs:subPropertyOf text:hasComment.
 
 ling:hasLanguage
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has language"@en, "hat Sprache"@de;
 	rdfs:comment "Relating a linguistic concept to its human natural language."@en;
@@ -135,6 +149,7 @@ ling:hasLanguage
 	rdfs:range language:HumanNaturalLanguage.
 
 ling:hasLemma
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has lemma"@en, "hat Lemma"@de;
 	rdfs:comment """Relating a lexeme to a lemma."""@en;

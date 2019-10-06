@@ -34,12 +34,14 @@
 #
 
 schola:Scholasticism
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
 	rdfs:subClassOf concept:ThoughtMethod.
 
 schola:Scholastic
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic"@en, "ScholastikerIn"@de;
 	rdfs:comment """An adherent of Scholasticism."""@en;
@@ -47,18 +49,21 @@ schola:Scholastic
 	rdfs:subClassOf human:Person.
 
 schola:Role
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic role"@en;
 	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 schola:Reportator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportator"@en, "Reportator"@de, "reportator"@la;
 	rdfs:comment """Role of a scholastic - e.g. a student, secretary or lecturer - recording the content of a lecture."""@en;
 	rdfs:subClassOf schola:Role.
 
 schola:Commentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic commentary"@en, "scholastischer Kommentar"@de, "commentarius scholasticus"@la;
 	rdfs:comment """Commentary made by a scholastic."""@en;
@@ -66,6 +71,7 @@ schola:Commentary
 	owl:unionOf (schola:GlossCommentary schola:VerseCommentary schola:TableCommentary schola:QuaestioCommentary schola:ConclusioCommentary schola:SyllogismusCommentary schola:AbbreviationCommentary schola:ParaphraseCommentary schola:LiteralExpositionCommentary).
 
 schola:ProceduralCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "procedural scholastic commentary"@en, "prozeduraler scholastischer Kommentar"@de;
 	rdfs:comment """Scholastic commentary as result of a creation procedure."""@en;
@@ -73,90 +79,105 @@ schola:ProceduralCommentary
 	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
 
 schola:CommentingProcedure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic commenting procedure"@en, "scholastische Kommentierungsprozedur"@de;
 	rdfs:comment """Commenting procedure wherein a scholastic commentary is created."""@en;
 	rdfs:subClassOf human:Procedure.
 
 schola:LecturaCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "lectura commentary"@en, "Lectura-Kommentar"@de;
 	rdfs:comment """Scholastic commentary on a text expression, as presented by its author in a lecture."""@en;
 	rdfs:subClassOf schola:ProceduralCommentary.
 
 schola:LecturaRevisaCommentary # after Lectura
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "lectura revisa commentary"@en, "Lectura Revisa-Kommentar"@de;
 	rdfs:comment """Scholastic commentary on a text expression, as revised by its author after its presentation in a lecture."""@en;
 	rdfs:subClassOf schola:ProceduralCommentary.
 
 schola:ReportatioCommentary #* after LecturaRevisa
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportatio commentary"@en, "Reportatio-Kommentar"@de, "reportatio"@la;
 	rdfs:comment """Scholastic commentary on a text expression, as reported by an auditor, e.g. a student, in a lecture."""@en;
 	rdfs:subClassOf schola:ProceduralCommentary.
 
 schola:ReportatioApprobataCommentary #* after Reportatio
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportatio approbata commentary"@en, "Reportatio Approbata-Kommentar"@de, "reportatio approbata"@la;
 	rdfs:comment """Scholastic commentary on a text expression, as recorded by an auditor, e.g. a student, in a lecture, and approved by the lecturer or author."""@en;
 	rdfs:subClassOf schola:ReportatioCommentary.
 
 schola:OrdinatioCommentary #* after ReportatioApprobata
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "ordinatio commentary"@en, "Ordinatio-Kommentar"@de, "ordinatio"@la;
 	rdfs:comment """Scholastic commentary on a text expression as composed for publication."""@en;
 	rdfs:subClassOf schola:ProceduralCommentary.
 
 schola:GlossCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "gloss commentary"@en, "Glosse-Kommentar"@de;
 	rdfs:comment """Scholastic commentary containing glosses."""@en;
 	rdfs:subClassOf schola:Commentary. # hasGloss, hasDiscussion
 
 schola:VerseCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "verse commentary"@en, "Vers-Kommentar"@de;
 	rdfs:comment """Scholastic commentary containing verses."""@en;
 	rdfs:subClassOf schola:Commentary. # hasVerse, hasDiscussion
 
 schola:TableCommentary #** only text?
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "table commentary"@en, "Tabelle-Kommentar"@de;
 	rdfs:comment """Scholastic commentary containing a table."""@en;
 	rdfs:subClassOf schola:Commentary. # hasTable, hasDiscussion
 
 schola:QuaestioCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "quaestio commentary"@en, "Quaestio-Kommentar"@de, "quaestio"@la;
 	rdfs:comment """Scholastic commentary containing questions."""@en; # initiated?
 	rdfs:subClassOf schola:Commentary. # hasQuestion, hasAnswer, hasDiscussion
 
 schola:ConclusioCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "conclusio commentary"@en, "Conclusio-Kommentar"@de, "conclusio"@la;
 	rdfs:comment """Scholastic commentary containing conclusions."""@en;
 	rdfs:subClassOf schola:Commentary. # hasConclusion, hasDiscussion
 
 schola:SyllogismusCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "syllogismus commentary"@en, "Syllogismus-Kommentar"@de, "syllogismus"@la;
 	rdfs:comment """Scholastic commentary containing syllogisms."""@en;
 	rdfs:subClassOf schola:Commentary. # hasSyllogism, hasDiscussion
 
 schola:AbbreviationCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation commentary"@en, "Kurzfassung-Kommentar"@de, "abbreviatio"@la;
 	rdfs:comment """Scholastic commentary as abbreviation."""@en;
 	rdfs:subClassOf schola:Commentary, textedit:Abbreviation.
 
 schola:ParaphraseCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase commentary"@en, "Paraphrase-Kommentar"@de;
 	rdfs:comment """Scholastic commentary as paraphrase."""@en;
 	rdfs:subClassOf schola:Commentary. # has textedit:Paraphrase
 
 schola:LiteralExpositionCommentary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition commentary"@en, "wörtliche Auslegung-Kommentar"@de;
 	rdfs:comment """Scholastic commentary as literal exposition."""@en;
@@ -167,6 +188,7 @@ schola:LiteralExpositionCommentary
 #
 
 schola:hasRole
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
 	rdfs:comment """Relating a scholastic to a role he has."""@en;
@@ -175,6 +197,7 @@ schola:hasRole
 	rdfs:subPropertyOf human:personHasRole.
 
 schola:commentaryHasProcedure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "commentary has procedure"@en, "Kommentar hat Prozedur"@de;
 	rdfs:comment """Relating a scholastic commentary to a procedure it is created in."""@en;
@@ -183,6 +206,7 @@ schola:commentaryHasProcedure
 	rdfs:subPropertyOf event:isOutputOf.
 
  schola:commentaryHasReportator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "commentary has reportator"@en, "Kommentar hat Reportator"@de;
 	rdfs:comment """Relating a reportatio commentary of a lecture to a scholastic who reported it."""@en;

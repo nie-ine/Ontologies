@@ -30,6 +30,7 @@
 #
 
 teach:Teaching
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "teaching"@en, "Unterricht"@de;
@@ -37,6 +38,7 @@ teach:Teaching
 	rdfs:subClassOf human:Procedure.
 
 teach:Teacher
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "teacher"@en, "LehrerIn"@de;
@@ -44,6 +46,7 @@ teach:Teacher
 	rdfs:subClassOf human:PersonRole.
 
 teach:Lecture
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "lecture"@en, "Vorlesung"@de;
@@ -51,6 +54,7 @@ teach:Lecture
 	rdfs:subClassOf teach:Teaching.
 
 teach:Lecturer
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "lecturer"@en, "VorleserIn"@de;
@@ -58,6 +62,7 @@ teach:Lecturer
 	rdfs:subClassOf teach:Teacher.
 
 teach:Manual
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a rdfs:Class;
 	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr; #, "manuale"@it; # schoolbook
 	rdfs:comment """Manual for teaching purposes."""@en;
@@ -68,6 +73,7 @@ teach:Manual
 #
 
 teach:teachingBy
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "teaching by"@en, "Unterricht von"@de;
@@ -77,6 +83,7 @@ teach:teachingBy
 	rdfs:subPropertyOf agent:hasAgent.
 
 teach:lectureBy
+	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
 	rdfs:label "lecture by"@en, "Vorlesung von"@de;

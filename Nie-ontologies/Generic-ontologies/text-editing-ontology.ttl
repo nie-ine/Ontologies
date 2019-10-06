@@ -39,30 +39,35 @@
 #
 
 textedit:Editor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text editor"@en, "Text-Editor"@de;
 	rdfs:comment """Role of a person changing a text."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 textedit:Edition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de;
 	rdfs:comment """Changed text as a result of editing."""@en;
 	rdfs:subClassOf text:Text. # creating:CreationVersion
 
 textedit:Revisor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text revisor"@en, "Text-Revisor"@de;
 	rdfs:comment """Role of a person revising a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
 textedit:Revision
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text revision"@en, "Textprüfung"@de;
 	rdfs:comment """Edited text as a result of revising."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Recension
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "recension"@en, "Rezension"@de;
 	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
@@ -70,42 +75,49 @@ textedit:Recension
 	rdfs:subClassOf textedit:Revision.
 
 textedit:Annotator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "annotator"@en, "Annotator"@de, "annotator"@la;
 	rdfs:comment """Role of a person adding notes *annotations* to a text, creating an annotated edition."""@en;
 	rdfs:subClassOf textedit:Editor.
 
 textedit:Glossator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "glossator"@en, "Glossator"@de, "glossator"@la;
 	rdfs:comment """Role of a person adding glosses to a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
 textedit:Abbreviator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la;
 	rdfs:comment """Editor shortening a text."""@en;
 	rdfs:subClassOf textedit:Editor.
 
 textedit:Abbreviation # derivative, depending on extent?
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de;
 	rdfs:comment """Shortened edition."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Paraphrase # derivative? # scientific?
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase"@en, "Paraphrase"@de;
 	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:LiteralExposition # derivative? # scientific?
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de;
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Transliteration
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "transliteration"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
 	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
@@ -113,6 +125,7 @@ textedit:Transliteration
 	rdfs:subClassOf text:WrittenText, textedit:Edition.
 
 textedit:DerivedTextExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "derived text expression"@en, "abgeleitete Textexpression"@de;
 	rdfs:comment """Text expression derived from another text expression with content changed beyond a version."""@en;
@@ -123,6 +136,7 @@ textedit:DerivedTextExpression
 #
 
 textedit:hasEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "edition has editor"@en, "Edition hat Editor"@de;
 	rdfs:comment """Relating an edition to a person who created it."""@en;
@@ -130,6 +144,7 @@ textedit:hasEditor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]].
 
 textedit:hasEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has edition"@en, "Text hat Edition"@de;
 	rdfs:comment "Relating a text to an edition it has."@en;
@@ -137,6 +152,7 @@ textedit:hasEdition
 	rdfs:range textedit:Edition.
 
 textedit:hasSameEditionAs
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de;
 	rdfs:comment """Relating two texts with a same edition."""@en;
@@ -144,6 +160,7 @@ textedit:hasSameEditionAs
 	rdfs:range text:Text.
 
 textedit:hasRevisor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "text revision has revisor"@en, "Textprüfung hat Revisor"@de;
 	rdfs:comment """Relating a text revision to a person who created it."""@en;
@@ -151,6 +168,7 @@ textedit:hasRevisor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
 
 textedit:hasRecensor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has recensor"@en, "hat Rezensor"@de;
 	rdfs:comment """Relating a recension to a person who created it."""@en;
@@ -158,6 +176,7 @@ textedit:hasRecensor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Recensor]].
 
 textedit:hasTransliteration
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has transliteration"@en, "hat Transliteration"@de;
 	rdfs:comment """Relating a text to a transliteration thereof."""@en;
@@ -165,6 +184,7 @@ textedit:hasTransliteration
 	rdfs:range textedit:Transliteration.
 
 textedit:hasDerivedTextExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has derived text expression"@en, "hat abgeleitete Textexpression"@de;
 	rdfs:comment "Relating a text expression to another one derived from it."@en;
@@ -172,6 +192,7 @@ textedit:hasDerivedTextExpression
 	rdfs:range textedit:DerivedTextExpression.
 
 textedit:hasAbbreviator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de;
 	rdfs:comment """Relating an abbreviation to a person who created it."""@en;

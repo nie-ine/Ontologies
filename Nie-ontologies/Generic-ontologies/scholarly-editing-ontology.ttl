@@ -39,12 +39,14 @@
 #
 
 scholarly-editing:EditionScientist
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "edition scientist"@en, "EditionswissenschaftlerIn"@de;
 	rdfs:comment """Role of a person practicing edition science."""@en;
 	rdfs:subClassOf human:Scientist.
 
 scholarly-editing:Editor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly editor"@en, "wissenschaftliche Editor"@de, "éditeur scientifique"@fr;
 	rdfs:comment """Role of a person editing a text expression scientifically."""@en; #°
@@ -52,48 +54,56 @@ scholarly-editing:Editor
 	rdfs:subClassOf textedit:Editor, scholarly-editing:EditionScientist.
 
 scholarly-editing:OrganizationEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
 	rdfs:subClassOf org:Creator.
 
 scholarly-editing:Edition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition"@en, "wissenschaftliche Edition"@de;
 	rdfs:comment """Derived text expression edited for scientific purpose."""@en;
 	rdfs:subClassOf textedit:DerivedTextExpression.
 
 scholarly-editing:Page
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition text page"@en, "wissenschaftliche Editiontextseite"@de;
 	rdfs:comment """Page of a scholarly edition."""@en;
 	rdfs:subClassOf text-structure:Page.
 
 scholarly-editing:EditorialSymbol
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial symbol"@en, "editorisches Zeichen"@de;
 	rdfs:comment """Symbol in a scholarly edition indicating a textual property of the original text."""@en;
 	rdfs:subClassOf concept:SymbolicEntity.
 
 scholarly-editing:PageIndicator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "page indicator"@en, "Seiteindikator"@de;
 	rdfs:comment """Editorial symbol indicating where a document page starts."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:PageNumberIndicator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "page number indicator"@en, "Seitenummerindikator"@de;
 	rdfs:comment """Page indicator as number."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:ColumnIndicator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "column indicator"@en, "Spalteindikator"@de;
 	rdfs:comment """Editorial symbol indicating a textual property of the original text."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:DiplomaticTranscription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
 #	ling:hasSynonym "Lesehilfe"@de;
@@ -104,12 +114,14 @@ scholarly-editing:DiplomaticTranscription
 # textedit:DiplomaticInterpretativeTranscription
 
 scholarly-editing:CriticalEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical editor"@en, "kritische Editor"@de;
 	rdfs:comment """Role of being a scholar editing a text expression in a critical scientific way."""@en;
 	rdfs:subClassOf human:Scientist, creating:PersonCreator.
 
 scholarly-editing:CriticalEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de;
 	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, using a critical apparatus, allowing readers to assess the editor's choice."""@en;
@@ -118,12 +130,14 @@ scholarly-editing:CriticalEdition
 # textedit:Variorum rdfs:subClassOf textedit:CriticalEdition
 
 scholarly-editing:GeneticEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
 	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
 	rdfs:subClassOf scholarly-editing:CriticalEdition.
 
 scholarly-editing:ConstitutedEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de;
 #	ling:hasSynonym "Lesetext"@de;
@@ -131,36 +145,42 @@ scholarly-editing:ConstitutedEdition
 	rdfs:subClassOf scholarly-editing:Edition.
 
 scholarly-editing:EditorialStructure
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial text structure"@en, "editorische Textstruktur"@de;
 	rdfs:comment """Scientific text structure depending on editorial purpose, e.g. an editing apparatus."""@en;
 	rdfs:subClassOf text-structure:ScientificStructure.
 
 scholarly-editing:SiglumReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "siglum reference"@en, "Siglum-Referenz"@de; #, "siglum"@fr, "siglum"@it;
 	rdfs:comment """Reference to a siglum as expression identifier."""@en;
 	rdfs:subClassOf document:ExpressionReference.
 
 scholarly-editing:Siglum
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "siglum"@en, "Siglum"@de, "siglum"@fr, "siglum"@it;
 	rdfs:comment """One or more symbols as identifier of an expression as original or witness in a scholarly edition."""@en;
 	rdfs:subClassOf document:ExpressionIdentifier.
 
 scholarly-editing:Apparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editing apparatus"@en, "Edierungsapparatus"@de, "apparatus editionis"@la;
 	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:ApparatusEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editing apparatus entry"@en, "Edierungsapparateintrag"@de; #, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
 	rdfs:comment """Entry of an editing apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:DoctrinalApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de;
 #	ling:hasSynonym textedit:HistoricalApparatus;
@@ -168,60 +188,70 @@ scholarly-editing:DoctrinalApparatus
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:DoctrinalApparatusEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "doctrinal apparatus entry"@en, "doktrinaler Apparateintrag"@de; #, "entrée d'apparat doctrine"@fr, "iscrizione del apparato doctrino"@it;
 	rdfs:comment """Entry of a doctrinal apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:ApparatusFontium
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "apparatus fontium"@en, "Apparatus Fontium"@de, "apparatus fontium"@la;
 	rdfs:comment """Editing apparatus containing references to one or more citations."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:ApparatusFontiumEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "apparatus fontium entry"@en, "Apparatus Fontium-Eintrag"@de; #, "entrée d'apparat "@fr, "iscrizione del apparato "@it;
 	rdfs:comment """Entry of an apparatus fontium."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:CriticalApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparat critique"@fr, "apparato critico"@it, "apparatus criticus"@la;
 	rdfs:comment """Editing apparatus to a critical text edition providing information of textual versions."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:CriticalApparatusEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical apparatus entry"@en, "textkritischer Apparateintrag"@de, "entrée d'apparat critique"@fr, "iscrizione del apparato critico"@it;
 	rdfs:comment """Entry of critical apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:StructureApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "text structure apparatus"@en, "Textstruktur-Apparat"@de;
 	rdfs:comment """Editing apparatus to a critical text edition providing information of text structure."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:StructureApparatusEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "structure apparatus entry"@en, "Textstruktur-Apparateintrag"@de; #, "entrée d'apparat de structure"@fr, "iscrizione del apparato del "@it;
 	rdfs:comment """Entry of text structure apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:StructureDescription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "text structure description"@en, "Textstrukturdeskription"@de;
 	rdfs:comment """Description of a text structure in a structure apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure.
 
 scholarly-editing:Reading
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "reading"@en, "Lesung"@de, "lezione"@it, "lectio"@la;
 	rdfs:comment """Copy of one or more words or phrases of an original or witness."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text:CopiedText.
 
 scholarly-editing:Witness
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "witness text"@en, "Textzeuge"@de;
 	rdfs:comment """Copy of a text studied in a critical edition, as comparison or proof of existance of the original by looking for features of originality, possibly enabling the original's reconstruction."""@en;
@@ -229,6 +259,7 @@ scholarly-editing:Witness
 	rdfs:subClassOf text:CopiedText, text-expression:Expression.
 
 scholarly-editing:Lemma
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@fr, "lemma"@it;
 	rdfs:comment """Editorial structure in an apparatus entry with a copy of one or more words or phrases referring to its edition text, and as appearing in the original or a witness, or created by an editor, and judged by the editor to be authentic, accurate, and/or authoritative [, and possibly compaired with variants referring to other witnesses]"""@en;
@@ -236,24 +267,28 @@ scholarly-editing:Lemma
 	rdfs:subClassOf scholarly-editing:EditorialStructure.
 
 scholarly-editing:WitnessedLemma
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "witnessed lemma"@en, "bezeugtes Lemma"@de; #, "lemma"@fr, "lemma"@it;
 	rdfs:comment """Lemma with a witness."""@en;
 	rdfs:subClassOf scholarly-editing:Lemma, scholarly-editing:Reading.
 
 scholarly-editing:Conjecture
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "conjecture"@en, "Konjektur"@de;
 	rdfs:comment """Witness-independent lemma expressly proposed to be of interest but absent in the main text of an edition."""@en;
 	rdfs:subClassOf scholarly-editing:Lemma.
 
 scholarly-editing:Emendation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "emendation"@en, "Emendation"@de, "émendation"@fr, "emendazione"@it;
 	rdfs:comment """Conjecture accepted by the editor in the main text of an edition."""@en;
 	rdfs:subClassOf scholarly-editing:Conjecture.
 
 scholarly-editing:Variant
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "variant"@en, "Variant"@de, "variante"@fr, "variante"@it;
 	rdfs:comment """Reading in a critical apparatus entry, judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text, and as such varying from what the editor has judged to be the lemma."""@en;
@@ -261,6 +296,7 @@ scholarly-editing:Variant
 	rdfs:subClassOf scholarly-editing:Reading.
 
 scholarly-editing:EditorialComment
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial comment"@en, "editorische Kommentar"@de; #, ""@fr, ""@it;
 	rdfs:comment """Comment in a scholarly edition."""@en;
@@ -271,6 +307,7 @@ scholarly-editing:EditorialComment
 #
 
 scholarly-editing:hasEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has scholarly edition"@en, "hat wissenschaftliche Textedition"@de;
 	rdfs:comment "Relating a text expression to a scholarly edition thereof."@en;
@@ -279,6 +316,7 @@ scholarly-editing:hasEdition
 	rdfs:subPropertyOf textedit:hasDerivedTextExpression.
 
 scholarly-editing:hasEditionPage
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has scholarly edition page"@en, "hat wissenschaftliche Texteditionseite"@de;
 	rdfs:comment "Relating a text expression to a scholarly edition page thereof."@en;
@@ -286,6 +324,7 @@ scholarly-editing:hasEditionPage
 	rdfs:range scholarly-editing:Page.
 
 scholarly-editing:hasEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftliche Editor"@de;
 	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
@@ -294,6 +333,7 @@ scholarly-editing:hasEditor
 	# textedit:hasEditor
 
 scholarly-editing:isPageOfEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page of scholarly edition"@en, "ist Seite einer wissenschaftlichen Edition"@de;
 	rdfs:comment """Relating a page to its scholarly edition."""@en;
@@ -302,6 +342,7 @@ scholarly-editing:isPageOfEdition
 	rdfs:subPropertyOf text-structure:isPageOfExpression.
 
 scholarly-editing:isEditorialSymbolOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is editorial symbol of"@en, "ist editorisches Zeichen von"@de;
 	rdfs:comment """Relating an editorial symbol to its scholarly edition page."""@en;
@@ -310,6 +351,7 @@ scholarly-editing:isEditorialSymbolOf
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isPageIndicatorOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page indicator of"@en, "ist Seiteindikator von"@de;
 	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
@@ -318,6 +360,7 @@ scholarly-editing:isPageIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:isPageNumberIndicatorOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page number indicator of"@en, "ist Seitenummerindikator von"@de;
 	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
@@ -326,6 +369,7 @@ scholarly-editing:isPageNumberIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:isColumnIndicatorOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is column indicator of"@en, "ist Spalteindikator von"@de;
 	rdfs:comment """Relating a column indicator to its scholarly edition page."""@en;
@@ -334,6 +378,7 @@ scholarly-editing:isColumnIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:hasDiplomaticTranscription
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de;
 	rdfs:comment "Relating a text to a diplomatic transcription thereof."@en;
@@ -342,6 +387,7 @@ scholarly-editing:hasDiplomaticTranscription
 	rdfs:subPropertyOf scholarly-editing:hasEdition.
 
 scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Umschrift des Textes auf Seite"@de;
 	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
@@ -349,6 +395,7 @@ scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
 	rdfs:range infocar:Page.
 
 scholarly-editing:hasCriticalEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has critical text edition"@en, "hat kritische Textedition"@de;
 	rdfs:comment "Relating a text expression to a critical edition thereof."@en;
@@ -357,6 +404,7 @@ scholarly-editing:hasCriticalEdition
 	rdfs:subPropertyOf scholarly-editing:hasEdition.
 
 scholarly-editing:hasCriticalEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has critical editor"@en, "hat kritische Editor"@de;
 	rdfs:comment "Relating a critical edition to a critical editor who created it."@en;
@@ -365,6 +413,7 @@ scholarly-editing:hasCriticalEditor
 	rdfs:subPropertyOf scholarly-editing:hasEditor.
 
 scholarly-editing:hasSiglumReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has siglum reference"@en, "hat Siglum-Referenz"@de;
 	rdfs:comment """Relating an editiorial text structure to its siglum reference."""@en;
@@ -373,6 +422,7 @@ scholarly-editing:hasSiglumReference
 	rdfs:subPropertyOf document:hasExpressionReference.
 
 scholarly-editing:hasSiglum
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has siglum"@en, "hat Siglum"@de;
 	rdfs:comment """Relating a siglum reference to its siglum."""@en;
@@ -381,6 +431,7 @@ scholarly-editing:hasSiglum
 	rdfs:subPropertyOf document:expressionReferenceHasIdentifier.
 
 scholarly-editing:isSiglumOfEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "îs siglum of scholarly edition"@en, "ist Siglum einer wissenschaftliche Edition"@de;
 	rdfs:comment """Relating a siglum to its scholarly edition."""@en;
@@ -389,6 +440,7 @@ scholarly-editing:isSiglumOfEdition
 	rdfs:subPropertyOf document:isStructureOfDocument.
 
 scholarly-editing:isApparatusOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus of"@en, "ist Apparat von"@de;
 	rdfs:comment """Relating an editing apparatus to its scholarly edition."""@en;
@@ -397,6 +449,7 @@ scholarly-editing:isApparatusOf
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 scholarly-editing:isEntryOfApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of apparatus"@en, "ist Eintrag eines Apparates"@de;
 	rdfs:comment """Relating an entry to its editing apparatus."""@en;
@@ -405,6 +458,7 @@ scholarly-editing:isEntryOfApparatus
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:hasApparatusEnteringDate
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has apparatus entering date"@en, "hat Apparatuseintragsdatum"@de;
 	rdfs:comment """Relating an entry to its date of entering in an apparatus."""@en;
@@ -413,6 +467,7 @@ scholarly-editing:hasApparatusEnteringDate
 	rdfs:subPropertyOf creating:creationHasDate.
 
 scholarly-editing:isDoctrinalApparatusOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is doctrinal apparatus of"@en, "ist doktrinaler Apparat von"@de;
 	rdfs:comment """Relating a doctrinal apparatus to its scholarly edition."""@en;
@@ -421,6 +476,7 @@ scholarly-editing:isDoctrinalApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfDoctrinalApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of doctrinal apparatus"@en, "ist Eintrag eines doktrinalen Apparates"@de;
 	rdfs:comment """Relating an entry to its doctrinal apparatus."""@en;
@@ -429,6 +485,7 @@ scholarly-editing:isEntryOfDoctrinalApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isApparatusFontiumOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus fontium of"@en, "ist Apparatus Fontium von"@de;
 	rdfs:comment """Relating an apparatus fontium to its scholarly edition."""@en;
@@ -437,6 +494,7 @@ scholarly-editing:isApparatusFontiumOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfApparatusFontium
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of apparatus fontium"@en, "ist Eintrag eines Apparatus Fontium"@de;
 	rdfs:comment """Relating an entry to its apparatus fontium."""@en;
@@ -445,6 +503,7 @@ scholarly-editing:isEntryOfApparatusFontium
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isCriticalApparatusOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is critical apparatus of"@en, "ist textkritischer Apparat von"@de;
 	rdfs:comment """Relating a critical apparatus to its edition."""@en;
@@ -453,6 +512,7 @@ scholarly-editing:isCriticalApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfCriticalApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of critical apparatus"@en, "ist Eintrag eines textkritischen Apparates"@de;
 	rdfs:comment """Relating an entry to its critical apparatus."""@en;
@@ -461,6 +521,7 @@ scholarly-editing:isEntryOfCriticalApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isStructureApparatusOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is structure apparatus of"@en, "ist Strukturapparat von"@de;
 	rdfs:comment """Relating a structure apparatus to its scholarly edition."""@en;
@@ -469,6 +530,7 @@ scholarly-editing:isStructureApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfStructureApparatus
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of text structure apparatus"@en, "ist Eintrag eines Textstruktur-Apparates"@de;
 	rdfs:comment """Relating an entry to its text structure apparatus."""@en;
@@ -477,6 +539,7 @@ scholarly-editing:isEntryOfStructureApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isStructureDescriptionOfEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is structure description of apparatus entry"@en, "ist Strukturbeschreibung eines Apparateintrages"@de;
 	rdfs:comment """Relating a text structure description to a text structure apparatus entry."""@en;
@@ -485,6 +548,7 @@ scholarly-editing:isStructureDescriptionOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isReadingOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is reading of"@en, "ist Textinterpretation von"@de;
 	rdfs:comment """Relating a reading to its witness."""@en;
@@ -492,6 +556,7 @@ scholarly-editing:isReadingOf
 	rdfs:range scholarly-editing:Witness.
 
 scholarly-editing:witnessHasSiglum
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "witness text has siglum"@en, "Textzeuge hat Siglum"@de;
 	rdfs:comment """Relating a witness text expression to its siglum."""@en;
@@ -500,6 +565,7 @@ scholarly-editing:witnessHasSiglum
 	rdfs:subPropertyOf document:expressionHasIdentifier.
 
 scholarly-editing:isWitnessOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is witness of"@en, "ist Textzeuge von"@de;
 	rdfs:comment """Relating a witness text expression to its original."""@en;
@@ -507,6 +573,7 @@ scholarly-editing:isWitnessOf
 	rdfs:range text-expression:Expression.
 
 scholarly-editing:isLemmaOfCriticalEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is lemma of critical apparatus entry"@en, "ist Lemma eines textkritischen Apparateintrages"@de;
 	rdfs:comment """Relating a lemma to its critical apparatus entry."""@en;
@@ -515,6 +582,7 @@ scholarly-editing:isLemmaOfCriticalEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isLemmaOfDoctrinalEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is lemma of doctrinal apparatus entry"@en, "ist Lemma eines doktrinalen Apparateintrages"@de;
 	rdfs:comment """Relating a lemma to its doctrinal apparatus entry."""@en;
@@ -523,6 +591,7 @@ scholarly-editing:isLemmaOfDoctrinalEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:lemmaHasReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has reference"@en, "Lemma hat Referenz"@de;
 	rdfs:comment """Relating a lemma to its reference."""@en;
@@ -531,6 +600,7 @@ scholarly-editing:lemmaHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:lemmaHasVariant
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has variant"@en, "Lemma hat Variant"@de;
 	rdfs:comment """Relating a lemma to a variant it has."""@en;
@@ -538,6 +608,7 @@ scholarly-editing:lemmaHasVariant
 	rdfs:range scholarly-editing:Variant.
 
 scholarly-editing:lemmaHasComment
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has comment"@en, "Lemma hat Kommentar"@de;
 	rdfs:comment """Relating a lemma to a comment it has."""@en;
@@ -545,6 +616,7 @@ scholarly-editing:lemmaHasComment
 	rdfs:range scholarly-editing:EditorialComment.
 
 scholarly-editing:isVariantOfEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is variant of apparatus entry"@en, "ist Variant eines Apparateintrages"@de;
 	rdfs:comment """Relating a variant to its critical apparatus entry."""@en;
@@ -553,6 +625,7 @@ scholarly-editing:isVariantOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:variantHasReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "variant has text reference"@en, "Variant hat Textreferenz"@de;
 	rdfs:comment """Relating a variant to its text reference."""@en;
@@ -561,6 +634,7 @@ scholarly-editing:variantHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:variantHasComment
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "variant has comment"@en, "Variant hat Kommentar"@de;
 	rdfs:comment """Relating a variant to an editorial comment."""@en;
@@ -568,6 +642,7 @@ scholarly-editing:variantHasComment
 	rdfs:range scholarly-editing:EditorialComment.
 
 scholarly-editing:isCommentOn
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment on"@en, "ist Kommentar zu"@de;
 	rdfs:comment """Relating an editorial comment to a text expression it is a comment on."""@en;
@@ -575,6 +650,7 @@ scholarly-editing:isCommentOn
 	rdfs:range text-expression:Expression.
 
 scholarly-editing:isCommentOfEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment of scholarly edition"@en, "ist Kommentar der wissenschaftlichen Edition"@de;
 	rdfs:comment """Relating an editorial comment to its scholarly edition."""@en;
@@ -583,6 +659,7 @@ scholarly-editing:isCommentOfEdition
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 scholarly-editing:isCommentOfEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment of entry"@en, "ist Kommentar eines Eintrages"@de;
 	rdfs:comment """Relating an editorial comment to its apparatus entry."""@en;
@@ -591,6 +668,7 @@ scholarly-editing:isCommentOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:commentHasReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "comment has text reference"@en, "Kommentar hat Textreferenz"@de;
 	rdfs:comment """Relating an editorial comment to its text reference."""@en;
@@ -599,6 +677,7 @@ scholarly-editing:commentHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:commentHasContent
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "editorial comment has content"@en, "editorischer Kommentar hat Inhalt"@de;
 	rdfs:comment """Relating an editorial comment to its content."""@en;

@@ -26,12 +26,14 @@
 #
 
 dietrich:DiaryEntry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/dietrich#>;
 	a rdfs:Class;
 	rdfs:label "diary entry by father Joseph Dietrich"@en, "Tagebucheintrag des Paters Joseph Dietrich"@de;
 	rdfs:comment """Diary entry authored by father Joseph Dietrich."""@en;
 	rdfs:subClassOf text:HandwrittenText, text-expression:DiaryEntry.
 
 dietrich:DiaryVolume
+	rdfs:isDefinedBy <http://www.nie.org/ontology/dietrich#>;
 	a rdfs:Class;
 	rdfs:label "diary volume by father Joseph Dietrich"@en, "Tagebuch-Band des Paters Joseph Dietrich"@de;
 	rdfs:comment """Diary volume written and authored by father Joseph Dietrich."""@en;

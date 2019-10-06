@@ -27,18 +27,21 @@
 #
 
 lavater:LetterExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter expression"@en, "Brief-Expression Johann Caspar Lavaters"@de;
 	rdfs:comment """Letter expression either authored by or written to by Johann Caspar Lavater."""@en;
 	rdfs:subClassOf letter-corresponding:Expression, text:HandwrittenText.
 
 lavater:Letter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter"@en, "Johann Caspar Lavater-Brief"@de, "lettre de Johann Caspar Lavater"@fr, "lettera di Johann Caspar Lavater"@it;
 	rdfs:comment """Letter send by or to Johann Caspar Lavater."""@en;
 	rdfs:subClassOf letter-corresponding:Letter, infocar:ConvoluteElement, infocar:ArchiveElement.
 
 lavater:Page
+	rdfs:isDefinedBy <http://www.nie.org/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter page"@en, "Seite eines Briefes Johann Caspar Lavaters"@de;
 	rdfs:comment """Page of a letter of Johann Caspar Lavater."""@en;
@@ -46,12 +49,14 @@ lavater:Page
 #	hasRepresentation
 
 lavater:LetterConvolute
+	rdfs:isDefinedBy <http://www.nie.org/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter convolute"@en,"Briefekonvolut Johann Caspar Lavaters"@de;
 	rdfs:comment """Convolute of letters send by and to Johann Caspar Lavater."""@en;
 	rdfs:subClassOf infocar:Convolute, infocar:ArchiveElement.
 
 lavater:EditedLetter
+	rdfs:isDefinedBy <http://www.nie.org/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "edited Johann Caspar Lavater letter expression"@en, "edierter Brief-Expression Johann Caspar Lavaters"@de;
 	rdfs:comment """Letter expression either authored or received by Johann Caspar Lavater, and critically edited."""@en;

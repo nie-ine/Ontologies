@@ -34,6 +34,7 @@
 #
 
 lingmor:SyntacticWordForm
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "syntactic word form"@en, "syntaktische Wortform"@de;
 	rdfs:comment """Linguistic concept unifying occurrences of syntactic words with identical literal and grammemes."""@en;
@@ -41,30 +42,35 @@ lingmor:SyntacticWordForm
 	rdfs:subClassOf ling:Concept.
 
 lingmor:Morpheme
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "morpheme"@en, "Morphem"@de;
 	rdfs:comment """Linguistic concept as the smallest entity in human natural language with a grammatical function, inflectable, free or bound."""@en;
 	rdfs:subClassOf ling:Concept.
 
 lingmor:Root
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "root morpheme"@en, "Wortwurzel"@de;
 	rdfs:comment """Individual or free morpheme with own semantics."""@en;
 	rdfs:subClassOf lingmor:Morpheme.
 
 lingmor:Affix
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "affix"@en, "Affix"@de;
 	rdfs:comment """Bound morpheme without own semantics, depending on a root; part of a word, complement of a word stem."""@en;
 	rdfs:subClassOf lingmor:Morpheme.
 
 lingmor:Suffix # derivational e.g. '-ship' in 'friendship', inflectional suffix -s e.g. '-s' in 'friendships'
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "suffix"@en, "Suffix"@de;
 	rdfs:comment """Affix at the end of a word, e.g. 'ship' in 'friendship'."""@en;
 	rdfs:subClassOf lingmor:Affix.
 
 lingmor:GrammaticalGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "grammatical gender"@en, "grammatisches Genus"@de; #° Geschlecht
 	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en; #°
@@ -72,6 +78,7 @@ lingmor:GrammaticalGender
 #	owl:oneOf (lingmor:MasculineGrammaticalGender lingmor:FeminineGrammaticalGender lingmor:NeuterGrammaticalGender).
 
 lingmor:MasculineGrammaticalGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "masculine grammatical gender"@en, "grammatisches Maskulinum"@de;
 	rdfs:comment """Grammatical gender being masculine."""@en;
@@ -80,6 +87,7 @@ lingmor:MasculineGrammaticalGender
 	rdfs:subClassOf lingmor:GrammaticalGender.
 	
 lingmor:FeminineGrammaticalGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "feminine grammatical gender"@en, "grammatisches Femininum"@de;
 	rdfs:comment """Grammatical gender being feminine."""@en;
@@ -88,6 +96,7 @@ lingmor:FeminineGrammaticalGender
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:NeuterGrammaticalGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "neuter grammatical gender"@en, "grammatisches Neutrum"@de;
 	rdfs:comment """Grammatical gender being neuter."""@en;
@@ -96,30 +105,35 @@ lingmor:NeuterGrammaticalGender
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:ComparisonDegree
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "comparison degree"@en, "Komparationsstufe"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:Positive
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "positive"@en, "Positiv"@de;
 	rdfs:comment """Base degree of adjective comparison."""@en;
 	rdfs:subClassOf lingmor:ComparisonDegree.
 	
 lingmor:Comparative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "comparative"@en, "Komparativ"@de;
 	rdfs:comment """Degree of adjective comparison that sets two or more entities into relation."""@en;
 	rdfs:subClassOf lingmor:ComparisonDegree.
 	
 lingmor:Superlative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "superlative"@en, "Superlativ"@de;
 	rdfs:comment """Degree of adjective comparison that lies at the end of the scale."""@en;
 	rdfs:subClassOf lingmor:ComparisonDegree.
 
 lingmor:VerbalVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verbal voice"@en, "Diathese"@de;
 	rdfs:comment """Property of verb forms that specifies the roles of the dependent entities."""@en;
@@ -127,6 +141,7 @@ lingmor:VerbalVoice
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:ActiveVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "active voice"@en, "aktiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the agent."""@en;
@@ -134,6 +149,7 @@ lingmor:ActiveVoice
 	rdfs:subClassOf lingmor:VerbalVoice.
 	
 lingmor:PassiveVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "passive voice"@en, "passiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the patient."""@en;
@@ -141,66 +157,77 @@ lingmor:PassiveVoice
 	rdfs:subClassOf lingmor:VerbalVoice.
 	
 lingmor:MedialVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "medial voice"@en, "medial"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf lingmor:VerbalVoice.
 	
 lingmor:StaticVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "static voice"@en, "statisch"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf lingmor:VerbalVoice.
 
 lingmor:VerbalMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verbal mood"@en, "verbaler Modus"@de;
 	rdfs:comment """Property of verbs indicating real or hypothetic utterances."""@en;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:ConditionalMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "conditional mood"@en, "Konditional"@de;
 	rdfs:comment """Verbal mood expressiong conditions."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:ImperativeMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "imperative mood"@en, "Imperativ"@de;
 	rdfs:comment """Verbal mood expressing orders."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:IndicativeMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indicative mood"@en, "Indikativ"@de;
 	rdfs:comment """Verbal mood for stating facts."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.	
 	
 lingmor:InjuncitveMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "injunctive mood"@en, "Injunktiv"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
 lingmor:OptativeMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "optative mood"@en, "Optativ"@de;
 	rdfs:comment """Verbal mood indicating wishes."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:PrecativeMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "precative mood"@en, "Präkativ"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:SubjunctiveMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
 lingmor:Tense
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "tense"@en, "Tempus"@de;
 	rdfs:comment """..."""@en;
@@ -208,12 +235,14 @@ lingmor:Tense
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:Aorist
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "aorist"@en, "Aorist"@de;
 	rdfs:comment """..."""@en;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Future
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "future"@en, "Futur"@de;
 	rdfs:comment """..."""@en;
@@ -221,12 +250,14 @@ lingmor:Future
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Imperfect
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "imperfect"@en, "Imperfekt"@de;
 	rdfs:comment """..."""@en;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Perfect
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "perfect"@en, "Perfekt"@de;
 	rdfs:comment """..."""@en;
@@ -234,6 +265,7 @@ lingmor:Perfect
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Pluperfect
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "pluperfect"@en, "Plusquamperfekt"@de;
 	rdfs:comment """..."""@en;
@@ -241,6 +273,7 @@ lingmor:Pluperfect
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Present
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "present"@en, "Präsens"@de;
 	rdfs:comment """..."""@en;
@@ -248,6 +281,7 @@ lingmor:Present
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Person
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de;
 	rdfs:comment """Property indicating the relation between an entity in an utterance and the speaker."""@en;
@@ -255,6 +289,7 @@ lingmor:Person
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:FirstPerson
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "1st person"@en, "1. Person"@de;
 	rdfs:comment """Mentioned entitiy overlaps with speaker."""@en;
@@ -262,6 +297,7 @@ lingmor:FirstPerson
 	rdfs:subClassOf lingmor:Person.
 	
 lingmor:SecondPerson
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "2nd person"@en, "2. Person"@de;
 	rdfs:comment """Mentioned entity overlaps with listener."""@en;
@@ -269,6 +305,7 @@ lingmor:SecondPerson
 	rdfs:subClassOf lingmor:Person.
 	
 lingmor:ThirdPerson
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "3rd person"@en, "3. Person"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
@@ -276,6 +313,7 @@ lingmor:ThirdPerson
 	rdfs:subClassOf lingmor:Person.
 
 lingmor:Case
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "grammatical case"@en, "Kasus"@de;
 	rdfs:comment """Grammatical declension of a noun, pronoun, adjective, participle, article, or numeral, expressing its grammatical function, hence its semantic relation to other words in a sentence, clause or phrase."""@en;
@@ -283,6 +321,7 @@ lingmor:Case
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:NomintativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "nominative case"@en, "Nominative"@de;
 	rdfs:comment """Grammatical case indicating the agent in an accusative language."""@en; #° subject
@@ -290,6 +329,7 @@ lingmor:NomintativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:VocativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "vocative case"@en, "Vokativ"@de;
 	rdfs:comment """Grammatical case of a noun or pronoun used to address a person in grammatical sense."""@en;
@@ -297,6 +337,7 @@ lingmor:VocativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:AccusativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "accusative case"@en, "Akkusativ"@de;
 	rdfs:comment """Grammatical case indicating the object in an accusative language."""@en;
@@ -304,6 +345,7 @@ lingmor:AccusativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:DativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "dative case"@en, "Dativ"@de;
 	rdfs:comment """Grammatical case indicating an indirect object."""@en;
@@ -311,6 +353,7 @@ lingmor:DativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:GenitiveCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "genitive case"@en, "Genitiv"@de;
 	rdfs:comment """Grammatical case indicating possession and similar relations."""@en; #°
@@ -318,6 +361,7 @@ lingmor:GenitiveCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:AblativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "ablative case"@en, "Ablativ"@de;
 	rdfs:comment """Grammatical case specifying a separation."""@en;
@@ -325,6 +369,7 @@ lingmor:AblativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:InstrumentalCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "instrumental case"@en, "Instrumental"@de;
 	rdfs:comment """Grammatical case indicating an instrument or a tool for an action."""@en;
@@ -332,6 +377,7 @@ lingmor:InstrumentalCase
 	rdfs:subClassOf lingmor:Case.
 	
 lingmor:LocativeCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "locative case"@en, "Lokativ"@de;
 	rdfs:comment """Grammatical case indicating a position."""@en; #° location
@@ -339,6 +385,7 @@ lingmor:LocativeCase
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:GermanCase # exemplary
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "German case"@en, "deutscher Kasus"@de;
 	rdfs:comment """German case form of a word."""@en;
@@ -346,6 +393,7 @@ lingmor:GermanCase # exemplary
 #	owl:oneOf (lingmor:nominative lingmor:accusative lingmor:dativ lingmor:genitive). # instances
 
 lingmor:Number
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Numerus"@de;
 	rdfs:comment """Grammatical declension of a word expressing a number of a word."""@en; #°
@@ -354,6 +402,7 @@ lingmor:Number
 #	owl:oneOf (lingmor:singular lingmor:plural). # instances
 
 lingmor:Singular
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "singular"@en, "Singular"@de;
 	rdfs:comment """Number of a word indicating a singularity."""@en;
@@ -361,6 +410,7 @@ lingmor:Singular
 	rdfs:subClassOf lingmor:Number.
 
 lingmor:Dual
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "dual"@en, "Dual"@de;
 	rdfs:comment """Number of a word indicating a duality."""@en;
@@ -368,6 +418,7 @@ lingmor:Dual
 	rdfs:subClassOf lingmor:Number.
 	
 lingmor:Plural
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "plural"@en, "Plural"@de;
 	rdfs:comment """Number of a word indicating a plurality."""@en;
@@ -375,6 +426,7 @@ lingmor:Plural
 	rdfs:subClassOf lingmor:Number.
 
 lingmor:SemanticGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "semantic gender"@en, "semantisches Genus"@de;
 	rdfs:comment """Semantic gender of a lexeme."""@en;
@@ -382,12 +434,14 @@ lingmor:SemanticGender
 #	owl:oneOf (lingmor:MasculineSemanticGender lingmor:FeminineSemanticGender lingmor:NeuterSemanticGender).
 
 lingmor:PartOfSpeech
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "part of speech"@en, "Wortart"@de;
 	rdfs:comment """Word with certain grammatical properties and syntactic role in the structure of a sentence."""@en;
 	rdfs:subClassOf ling:Concept. 
 
 lingmor:Noun # EAGLES: Noun;
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "noun"@en;
 	rdfs:comment """Part of speech representing a class or instance."""@en;
@@ -396,6 +450,7 @@ lingmor:Noun # EAGLES: Noun;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:CommonNoun # EAGLES: Noun: Common
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "common noun"@en, "Substantiv"@de;
 	rdfs:comment """Part of speech representing a concept or class."""@en;
@@ -403,6 +458,7 @@ lingmor:CommonNoun # EAGLES: Noun: Common
 	rdfs:subClassOf lingmor:Noun.
 
 lingmor:ProperNoun # EAGLES: Noun: Proper
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "proper noun"@en, "Eigenname"@de;
 	rdfs:comment """Part of speech representing an instance."""@en;
@@ -410,132 +466,154 @@ lingmor:ProperNoun # EAGLES: Noun: Proper
 	rdfs:subClassOf lingmor:Noun.
 
 lingmor:Verb # EAGLES: Verb
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verb"@en, "Verb"@de;
 	rdfs:comment """Part of speech governing a sentences by introducing existence, change, action, and linking a subject and object."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:Adjective # EAGLES: Adjective
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adjective"@en, "Adjektiv"@de;
 	rdfs:comment """Part of speech describing an object."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:Pronoun # EAGLES: Pronoun/Determiner
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class; 
 	rdfs:label "pronoun"@en, "Pronomen"@de; # determiner, Begleiter
 	rdfs:comment """Part of speech quantifying or replacing an object."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:DemonstrativePronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "demonstrative pronoun"@en, "Demonstrativpronomen"@de;
 	rdfs:comment """Pronoun used to point."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 
 lingmor:IndefinitePronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indefinite pronoun"@en, "Indefinitpronomen"@de;
 	rdfs:comment """Pronoun stating an undefined entity."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 
 lingmor:InterrogativePronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "interrogative pronoun"@en, "Interrogativpronomen"@de;
 	rdfs:comment """Pronoun introducing a question."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 	
 lingmor:PersonalPronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "personal pronoun"@en, "Personalpronomen"@de;
 	rdfs:comment """Pronoun referring to a person, and declined by person, gender, number, case and formality."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 
 lingmor:ReciprocalPronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "reciprocal pronoun"@en, "Reziprokpronomen"@de;
 	rdfs:comment """Pronoun pointing to the different members of the group as subject of the sentence, e.g. 'each other'."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 	
 lingmor:ReflexivePronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "reflexive pronoun"@en, "Reflexivpronomen"@de;
 	rdfs:comment """Pronoun pointing back to the subject of the sentence, e.g. 'yourself'."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 	
 lingmor:RelativePronoun
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "relative pronoun"@en, "Relativpronomen"@de;
 	rdfs:comment """Pronoun introducing a relative clause."""@en;
 	rdfs:subClassOf lingmor:Pronoun.
 
 lingmor:Article # EAGLES: Article
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "article"@en, "Artikel"@de;
 	rdfs:comment """Part of speech specifying grammatical definiteness, i.e. indicating if an object is known or newly introduced."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:DefiniteArticle # EAGLES: Article: Definite
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "definite article"@en, "bestimmter Artikel"@de;
 	rdfs:comment """Article indicating that an object is known."""@en;
 	rdfs:subClassOf lingmor:Article.
 	
 lingmor:IndefiniteArticle # EAGLES: Article: Indefinite
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indefinite article"@en, "unbestimmter Artikel"@de;
 	rdfs:comment """Article indicating that an object is newly introduced."""@en;
 	rdfs:subClassOf lingmor:Article.
 
 lingmor:Adverb # EAGLES: Adverb 
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adverb"@en, "Adverb"@de;
 	rdfs:comment """Part of speech modifying a verb (e.g. describing an action), adjective, pronoun, clause, preposition, or sentence."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:Adposition # EAGLES: Adposition 
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adposition"@en, "Adposition"@de;
 	rdfs:comment """Part of speech indicating a relationship to objects."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:Preposition # EAGLES: Adposition: Preposition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "preposition"@en, "Präposition"@de;
 	rdfs:comment """Part of speech indicating relationship to objects, standing before them."""@en;
 	rdfs:subClassOf lingmor:Adposition.
 	
 lingmor:Postposition # EAGLES: Adposition: Postposition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "postposition"@en, "Postposition"@de;
 	rdfs:comment """Part of speech indicating relationship to objects, standing after them."""@en;
 	rdfs:subClassOf lingmor:Adposition.
 
 lingmor:Conjunction #  EAGLES: Conjunction
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class; 
 	rdfs:label "conjunction"@en, "Konjunktion"@de;
 	rdfs:comment """Part of speech linking syntactic entities."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:CoordinatingConjunction #  EAGLES: Conjunction: Coordinating
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "coordinating conjunction"@en, "nebenordnende Konjunktion"@de;
 	rdfs:comment """Part of speech that links syntactic entities on the same level."""@en;
 	rdfs:subClassOf lingmor:Conjunction.
 	
 lingmor:SubordinatingConjunction #  EAGLES: Conjunction: Subordinating
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "subordinating conjunction"@en, "unterordnende Konjunktion, Subjunktion"@de;
 	rdfs:comment """Part of speech that orders one syntactic entity under another."""@en;
 	rdfs:subClassOf lingmor:Conjunction.
 
 lingmor:Numeral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "numeral"@en, "Numerale"@de;
 	rdfs:comment """Part of speech designating a number."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:CardinalNumeral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	#  EAGLES: Numeral: Cardinal 
 	rdfs:label "cardinal numeral"@en, "Kardinalzahl"@de;
@@ -543,6 +621,7 @@ lingmor:CardinalNumeral
 	rdfs:subClassOf lingmor:Numeral.
 	
 lingmor:OrdinalNumeral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	#  EAGLES: Numeral: Ordinal 
 	rdfs:label "ordinal numeral"@en, "Ordinalzahl"@de;
@@ -550,6 +629,7 @@ lingmor:OrdinalNumeral
 	rdfs:subClassOf lingmor:Numeral.
 	
 lingmor:Interjection
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Interjection
 	rdfs:label "interjection"@en, "Interjektion"@de;
@@ -557,6 +637,7 @@ lingmor:Interjection
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:NegativeParticle
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "negative particle"@en, "Negationspartikel"@de;
@@ -564,6 +645,7 @@ lingmor:NegativeParticle
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:ExistentialParticle
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "existential particle"@en, "..."@de;
@@ -571,6 +653,7 @@ lingmor:ExistentialParticle
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
 lingmor:InfinitiveMarker
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "infinitive marker"@en, "Infinitivpartikel"@de;
@@ -578,6 +661,7 @@ lingmor:InfinitiveMarker
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:Residual
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Residual
 	rdfs:label "residual"@en, "Residual"@de;
@@ -585,6 +669,7 @@ lingmor:Residual
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
 lingmor:Punctuation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "punctuation"@en, "Interpunktion"@de;
 	rdfs:comment """Part of speech describing the non letter or number based parts of a sentence."""@en;
@@ -595,6 +680,7 @@ lingmor:Punctuation
 #
 
 lingmor:hasLexeme
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has lexeme"@en, "hat Lexem"@de;
 	rdfs:comment """Relating a syntactic word form to its lexeme."""@en;
@@ -602,6 +688,7 @@ lingmor:hasLexeme
 	rdfs:range ling:Lexeme.
 
 lingmor:hasPartOfSpeech
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has part of speech"@en, "hat Wortart"@de;
 	rdfs:comment """Relating a syntactic word form to its part of speech."""@en;
@@ -609,6 +696,7 @@ lingmor:hasPartOfSpeech
 	rdfs:range lingmor:PartOfSpeech.
 
 lingmor:hasGrammaticalGender
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has grammatical gender"@en, "hat grammatisches Genus"@de;
 	rdfs:comment """Relating a syntactic word form to its grammatical gender."""@en;
@@ -616,6 +704,7 @@ lingmor:hasGrammaticalGender
 	rdfs:range lingmor:GrammaticalGender.
 
 lingmor:hasNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "syntactic word form has number"@en, "syntactische Wortform hat Numerus"@de;
 	rdfs:comment """Relating a syntactic word to its number."""@en;
@@ -623,6 +712,7 @@ lingmor:hasNumber
 	rdfs:range lingmor:Number.
 
 lingmor:hasCase
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has grammatical case"@en, "hat Kasus"@de;
 	rdfs:comment """Relating a syntactic word form to its grammatical case."""@en;
@@ -630,6 +720,7 @@ lingmor:hasCase
 	rdfs:range lingmor:Case.
 
 lingmor:hasComparisonDegree
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has comparison degree"@en, "hat Komparationsstufe"@de;
 	rdfs:comment """Relating a wordform to a comparison degree."""@en;
@@ -637,6 +728,7 @@ lingmor:hasComparisonDegree
 	rdfs:range lingmor:ComparisonDegree.
 
 lingmor:hasTense
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has tense"@en, "hat Tempus"@de;
 	rdfs:comment """Relating a verbform to tense."""@en;
@@ -644,6 +736,7 @@ lingmor:hasTense
 	rdfs:range lingmor:Tense.
 
 lingmor:hasPerson
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has person"@en, "hat Person"@de;
 	rdfs:comment """Relating a wordform to a person property."""@en;
@@ -651,6 +744,7 @@ lingmor:hasPerson
 	rdfs:range lingmor:Person.
 
 lingmor:hasVerbalVoice
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has verbal voice"@en, "hat Diathese"@de;
 	rdfs:comment """Relating a verbform to a voice."""@en;
@@ -658,6 +752,7 @@ lingmor:hasVerbalVoice
 	rdfs:range lingmor:VerbalVoice.
 
 lingmor:hasVerbalMood
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has verbal mode"@en, "hat Modus"@de;
 	rdfs:comment """Relating a verbform to mood."""@en;
@@ -665,6 +760,7 @@ lingmor:hasVerbalMood
 	rdfs:range lingmor:VerbalMood.
 
 lingmor:hasTag
+	rdfs:isDefinedBy <http://www.nie.org/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has tag"@en, "hat Tag"@de;
 	rdfs:comment """Relating a part of speech ."""@en;

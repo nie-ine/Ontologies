@@ -27,36 +27,42 @@
 #
 
 litera:Literature
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "literature"@en, "Literatur"@de;
 	rdfs:comment """Text distinctively written with certain expressive quality, considered as art."""@en;
 	rdfs:subClassOf text:WrittenText, text:ContentNature.
 
 litera:Fiction
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "literary fiction"@en, "literarische Fiktion"@de;
 	rdfs:comment """Literature having content derived from imagination."""@en;
 	rdfs:subClassOf litera:Literature, text:Fiction.
 
 litera:Nonfiction
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "literary nonfiction"@en, "sachliche Literatur"@de;
 	rdfs:comment """Literature having content based on fact."""@en;
 	rdfs:subClassOf litera:Literature, text:Nonfiction.
 
 litera:Narrative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "literary narrative"@en, "literarische Narration"@de; # synonym: prose - Prosa, different from the structural prose text:Prose
 	rdfs:comment """Storytelling literature."""@en;
 	rdfs:subClassOf litera:Literature.
 
 litera:EpicNarrative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "epic narrative"@en, "epische Narration"@de;
 	rdfs:comment """Narrative about heroism."""@en;
 	rdfs:subClassOf litera:Narrative.
 
 litera:Poetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "poetry"@en, "Poetik"@de;
 	rdfs:comment """Literature expressing imagination in text structure through prosody, besides content."""@en;
@@ -64,72 +70,84 @@ litera:Poetry
 	owl:unionOf (litera:LyricPoetry litera:NarrativePoetry litera:EpicPoetry litera:DramaticPoetry litera:DescriptivePoetry litera:ScientificPoetry litera:PoesieFugitive).
 
 litera:LyricPoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "lyric poetry"@en, "lyrische Poetik"@de;
 	rdfs:comment """Poetry expressing emotion."""@en;
 	rdfs:subClassOf litera:Poetry.
 
 litera:NarrativePoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "narrative poetry"@en, "narrative Poetik"@de;
 	rdfs:comment """Poetry expressed in a narrative."""@en;
 	rdfs:subClassOf litera:Poetry, litera:Narrative.
 
 litera:EpicPoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "epic poetry"@en, "epische Poetik"@de;
 	rdfs:comment """Poetry expressed in an epic narrative."""@en;
 	rdfs:subClassOf litera:NarrativePoetry, litera:EpicNarrative.
 
 litera:DramaticPoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "dramatic poetry"@en, "dramatische Poetik"@de;
 	rdfs:comment """Poetry expressed in drama."""@en;
 	rdfs:subClassOf litera:Poetry, litera:Drama.
 
 litera:DescriptivePoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "descriptive poetry"@en, "deskriptive Poetik"@de;
 	rdfs:comment """Poetry expressed in a didactic or demonstrative description."""@en;
 	rdfs:subClassOf litera:Poetry, litera:Nonfiction, litera:DescriptiveLiterature.
 
 litera:ScientificPoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "scientific poetry"@en, "wissenschaftliche Poetik"@de;
 	rdfs:comment """Poetry expressed in a scientific description."""@en;
 	rdfs:subClassOf litera:DescriptivePoetry.
 
 litera:PoesieFugitive
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "poésie fugitive"@en, "Poésie fugitive"@de;
 	rdfs:comment """Poetry of the Rococo  in seventeenth century France."""@en;
 	rdfs:subClassOf litera:Poetry.
 
 litera:Drama
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "drama"@en, "Dramatik"@de;
 	rdfs:comment """Literature for oral performance."""@en; #* spoken OR sung # dialogical sequence
 	rdfs:subClassOf litera:Literature.
 
 litera:DescriptiveLiterature
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "descriptive literature"@en, "deskriptive Literatur"@de;
 	rdfs:comment """Literature expressed in a descriptive way."""@en;
 	rdfs:subClassOf litera:Literature.
 
 litera:Expression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "literary expression"@en, "literarische Expression"@de;
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
 	rdfs:subClassOf text-expression:Expression.
 
 litera:Anthology
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
 	rdfs:comment """Collection of literary expressions or parts thereof, by one or more authors, selected along certain criteria."""@en;
 	rdfs:subClassOf text-expression:Expression.
 
 litera:Poem
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
 	rdfs:comment """Poetic expression."""@en, """Poetische Expression."""@de;
@@ -137,42 +155,49 @@ litera:Poem
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:someValuesFrom litera:Poetry].
 
 litera:VersePoem
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "verse poem"@en, "Versgedicht"@de;
 	rdfs:comment """Poem written in verse."""@en, """Gedicht ausgedruckt in Vers."""@de;
 	rdfs:subClassOf litera:Poem.
 
 litera:VerseSong
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "verse song"@en, "Verslied"@de;
 	rdfs:comment """Verse poem as lyrics of a song."""@en, """Versgedicht als Liedtext."""@de;
 	rdfs:subClassOf litera:VersePoem.
 
 litera:VerseSongbook
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "verse songbook"@en, "Versgesangbuch"@de;
 	rdfs:comment """Collection of verse songs."""@en;
 	rdfs:subClassOf litera:Expression.
 
 litera:Hymn
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "hymn"@en, "Hymne"@de, "hymnus"@la;
 	rdfs:comment """Verse song of adoration for a deity or prominent person."""@en;
 	rdfs:subClassOf litera:VerseSong.
 
 litera:Hymnal
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "hymnal"@en, "Gesangbuch"@de;
 	rdfs:comment """Collection of hymns."""@en;
 	rdfs:subClassOf litera:Expression.
 
 litera:ProsePoem
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "prose poem"@en, "Prosagedicht"@de;
 	rdfs:comment """Poem written in prose."""@en, """Gedicht in Prosa geschrieben."""@de;
 	rdfs:subClassOf litera:Poem, text-expression:SentenceExpression.
 
 #litera:EpicPoem
+#	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 #	a rdfs:Class;
 #	rdfs:label "epic poem"@en, "Heldengedicht"@de;
 #	rdfs:comment """Poem with novel-length written in an epic narrative fiction in verse."""@en;
@@ -180,6 +205,7 @@ litera:ProsePoem
 #		a owl:Restriction; owl:onProperty litera:hasPoetry; owl:someValuesFrom litera:EpicPoetry].
 
 litera:VerseNovel
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
 	rdfs:comment """Narrative fiction expression in verse - possibly partially - and with novel-length, wherein character development and plot are more important than poetry."""@en;
@@ -188,6 +214,7 @@ litera:VerseNovel
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:someValuesFrom litera:Narrative].
 
 litera:Novel
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Narrative fiction expression in prose."""@en;
@@ -196,6 +223,7 @@ litera:Novel
 		a owl:Restriction; owl:onProperty litera:hasGenre; owl:someValuesFrom litera:Narrative].
 
 litera:NonfictionNovel
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "nonfiction novel"@en, "sachliche Roman"@de;
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
@@ -207,12 +235,14 @@ litera:NonfictionNovel
 # play
 
 litera:Poet
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "poet"@en, "Dichter"@de, "poète"@fr, "poeta"@it;
 	rdfs:comment """Author of a poem."""@en;
 	rdfs:subClassOf text-expression:Author.
 
 litera:Novelist
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "novelist"@en, "Romanschriftsteller"@de, "romancier"@fr, "novelliere"@it;
 	rdfs:comment """Author of a novel."""@en;
@@ -222,6 +252,7 @@ litera:Novelist
 # back matter: conclusion, postface, afterword
 
 litera:Foreword
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "foreword"@en, "Einleitung"@de, "préface"@fr, "preambolo"@it;
 	rdfs:comment """Text expression preceding a literary expression, usually written by a person other than the (main) author, about the relation with the author or the literary expression, and possibly rewritten to alert the reader to changes in the literary expression."""@en;
@@ -231,6 +262,7 @@ litera:Foreword
 # afterword
 
 litera:Preface
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "preface"@en, "Vorwort"@de, "avant-propos"@fr, "prefazione"@it;
 	rdfs:comment """Text expression preceding a literary expression, usually written by the (main) author, stating the origin of the literary expression, its scope, purpose, plan, and intended audience, and including any afterthoughts and acknowledgments of assistance; possibly rewritten to alert the reader to changes in the literary expression."""@en;
@@ -238,6 +270,7 @@ litera:Preface
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart. # front matter
 
 litera:Motto
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "motto"@en, "Motto"@de;
 	rdfs:comment """Citation prefacing a literary expression or part of it."""@en;
@@ -245,6 +278,7 @@ litera:Motto
 	rdfs:subClassOf text:Citation, litera:Preface.
 
 litera:Postface
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "postface"@en, "Nachwort"@de, "postface"@fr, "postfazione"@it;
 	rdfs:comment """Text expression following a literary expression, usually written by the (main) author."""@en;
@@ -252,6 +286,7 @@ litera:Postface
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart. # back matter
 
 litera:Prologue
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "prologue"@en, "Prolog"@de;
 #	ling:hasSynonym "Vorwort"@de;
@@ -260,6 +295,7 @@ litera:Prologue
 	rdfs:subClassOf text-expression:Introduction.
 
 litera:Epilogue
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "epilogue"@en, "Epilog"@de;
 #	ling:hasSynonym "Nachwort"@de;
@@ -268,6 +304,7 @@ litera:Epilogue
 	rdfs:subClassOf text-expression:Conclusion.
 
 litera:Argument
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
@@ -279,6 +316,7 @@ litera:Argument
 #
 
 litera:hasGenre
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has literary genre"@en, "hat literarische Gattung"@de;
 	rdfs:comment """Relating a literary expression to a genre it has."""@en;
@@ -286,6 +324,7 @@ litera:hasGenre
 	rdfs:range litera:Literature.
 
 litera:hasExpression
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has expression"@en, "hat Expression"@de;
 	rdfs:comment """Relating an anthology to a literary expression it has."""@en;
@@ -293,6 +332,7 @@ litera:hasExpression
 	rdfs:range litera:Expression.
 
 litera:isPartOfVerseSongbook
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of VerseSongbook"@en, "ist teil eines Versgesangbuches"@de;
 	rdfs:comment """Relating a verse song to a book it is part of."""@en;
@@ -301,6 +341,7 @@ litera:isPartOfVerseSongbook
 	rdfs:subPropertyOf concept:isPartOf.
 
 litera:hasPoet
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
@@ -309,6 +350,7 @@ litera:hasPoet
 	rdfs:subPropertyOf text-expression:hasAuthor.
 
 litera:hasNovelist
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has novelist"@en, "hat RomanautorIn"@de;
 	rdfs:comment """Relating a novel to a person who authored it."""@en;
@@ -317,6 +359,7 @@ litera:hasNovelist
 	rdfs:subPropertyOf text-expression:hasAuthor.
 
 litera:isPartOfHymnal
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of hymnal"@en, "ist teil eines Gesangbuches"@de;
 	rdfs:comment """Relating a hymn to a hymnal it is part of."""@en;
@@ -325,6 +368,7 @@ litera:isPartOfHymnal
 	rdfs:subPropertyOf concept:isPartOf.
 
 litera:isArgumentOf
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "is argument of"@en, "ist Argument von"@de;
 	rdfs:comment """Relating an argument to a literary expression it is part of."""@en;

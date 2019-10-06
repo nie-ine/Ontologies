@@ -31,24 +31,28 @@
 #
 
 logic:Premise
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "premise"@en, "Prämisse"@de;
 	rdfs:comment """Statement ... ."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Conclusion
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "conclusion"@en, "Konklusion"@de;
 	rdfs:comment """Statement ... ."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Argument
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Premise(s) presenting a reason for accepting a conclusion."""@en;
 	rdfs:subClassOf text-structure:Paragraph.
 
 logic:Syllogism
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "syllogism"@en, "Syllogismus"@de;
 	rdfs:comment """."""@en;
@@ -59,6 +63,7 @@ logic:Syllogism
 #
 
 logic:isPremiseOfArgument
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a owl:ObjectProperty;
 	rdfs:label "is premise of argument"@en, "ist Prämisse eines Argumentes"@de;
 	rdfs:comment """Relating a premise to an argument it is part of."""@en;
@@ -67,6 +72,7 @@ logic:isPremiseOfArgument
 	rdfs:subPropertyOf text-structure:isSentenceOfParagraph.
 
 logic:isConclusionOfArgument
+	rdfs:isDefinedBy <http://www.nie.org/ontology/logic#>;
 	a owl:ObjectProperty;
 	rdfs:label "is conclusion of argument"@en, "ist Konklusion eines Argumentes"@de;
 	rdfs:comment """Relating a conclusion to an argument it is part of."""@en;

@@ -35,66 +35,77 @@
 #
 
 creating:AgentCreator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "agent creator"@en, "Agent-ErschafferIn"@de;
 	rdfs:comment """Role of a human agent, i.e. person or group, creating something."""@en;
 	rdfs:subClassOf human:AgentRole, agent:Creator.
 
 creating:PersonCreator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person creator"@en, "Person-ErschafferIn"@de;
 	rdfs:comment """Creator as role of a person."""@en;
 	rdfs:subClassOf human:PersonRole, creating:AgentCreator.
 
 creating:Author
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
 	rdfs:comment """Role of a person being responsible for a creation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 creating:Creating
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person creating"@en, "Person-Kreierung"@de;
 	rdfs:comment """Creating as a person action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 
 creating:Creation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person creation"@en, "Person-Kreation"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing.
 
 creating:CreationGroup
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person creation group"@en, "Person-Kreationsgruppe"@de;
 	rdfs:comment """Group of person creations."""@en;
 	rdfs:subClassOf rdfs:Resource.
 
 creating:CreationSet
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person creation set"@en, "Person-Kreationsreihe"@de;
 	rdfs:comment """Group of person creations belonging together."""@en;
 	rdfs:subClassOf creating:CreationGroup.
 
 creating:Collection
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "collection"@en, "Sammlung"@de;
 	rdfs:comment """Things brought together as a person creation."""@en;
 	rdfs:subClassOf creating:Creation.
 
 creating:PhysicalCreation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "physical person creation"@en, "physische Person-Kreation"@de;
 	rdfs:comment """Person creation as a physical resource."""@en;
 	rdfs:subClassOf creating:Creation, physical:Matter, cidoc:E24_Physical_Man-Made_Thing. # rdfs:subClassOf cidoc:E72_Legal_Object
 
 creating:Copy
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "copy"@en, "Kopie"@de;
 	rdfs:comment """Reproduction of a person's creation."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 creating:CreationVersion
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation version"@en, "Version einer Kreation"@de;
 	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
@@ -102,30 +113,35 @@ creating:CreationVersion
 	rdfs:subClassOf creating:Creation.
 
 creating:UnfinishedCreation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "unfinished creation"@en, "unfertige Kreation"@de;
 	rdfs:comment """Creation in a state of not having all envisioned features."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:FirstVersion
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "first version"@en, "Erstversion"@de;
 	rdfs:comment """Person's creation as first version."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:FinalVersion
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "final version"@en, "Endversion"@de;
 	rdfs:comment """Person's creation as last version."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:IntendedFinalVersion
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "intended final version"@en, "beabsichtigte Endversion"@de;
 	rdfs:comment """Person's creation as intended last version, e.g. of a development."""@en;
 	rdfs:subClassOf creating:FinalVersion.
 
 creating:CreationDerivative
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation derivative"@en, "Derivat einer Kreation"@de;
 	rdfs:comment """Derivative of a person's creation, e.g. a translation."""@en;
@@ -133,12 +149,14 @@ creating:CreationDerivative
 #	owl:disjointWith creating:CreationVersion.
 
 creating:Building
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "building"@en, "Gebäude"@de;
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf creating:PhysicalCreation.
 
 creating:Relic
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "relic"@en, "Relikt"@de;
 	rdfs:comment """Preserved remaining of interest of a person or of a person's belongings."""@en;
@@ -149,6 +167,7 @@ creating:Relic
 #
 
 creating:hasCreator
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
 	rdfs:comment """Relating a creation to a human agent - a person or a group - that created it."""@en;
@@ -157,6 +176,7 @@ creating:hasCreator
 	rdfs:subPropertyOf agent:hasCreator.
 
 creating:hasAuthor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has author"@en, "hat Autor"@de;
 	rdfs:comment """Relating a creation to a person who authored it."""@en;
@@ -165,12 +185,14 @@ creating:hasAuthor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom human:Author]].
 
 creating:hasCreating
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has creating"@en, "hat Kreierung"@de;
 	rdfs:comment """Relating a creation by a person to the creating thereof."""@en;
 	rdfs:subPropertyOf event:isOutputOf.
 
 creating:creationHasDate
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "creation has date"@en, "Kreation hat Datum"@de;
 	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
@@ -179,6 +201,7 @@ creating:creationHasDate
 #	owl:propertyChainAxiom (event:isOutputOf time:hasEndDate).
 
 creating:hasModificationDate
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
 	rdfs:comment """Relating a human creation to its modification date."""@en;
@@ -187,6 +210,7 @@ creating:hasModificationDate
 #	owl:propertyChainAxiom (event:isOutputOf event:hasEndDate)
 
 creating:isCreationOfSet #°
+	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "is creation of set"@en, "ist Kreation einer Reihe"@de;
 	rdfs:comment """Relating a creation to a set it is part of."""@en;

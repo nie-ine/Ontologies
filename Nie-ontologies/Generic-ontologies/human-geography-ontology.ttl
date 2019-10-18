@@ -4,9 +4,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix narespa: <http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#>.
-@prefix naproti: <http://sweet.jpl.nasa.gov/2.3/propTime.owl#Time>.
-@prefix naprospadi: <http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix physical: <http://www.nie.org/ontology/physical-entity#>.
 @prefix human: <http://www.nie.org/ontology/human#>.

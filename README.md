@@ -1,5 +1,4 @@
 # Ontologies
-
 In the [NIE-INE](http://www.nie-ine.ch)-project we develop an infrastructure to enable scholarly edition projects in the Humanities to express their data in an enriched format, adhering to the FAIR-principles, and ensuring long-term storage of the data.  
 The project runs at the Swiss Universities of Basel, Bern, Zürich, and Geneva until end of 2020.
 
@@ -11,10 +10,9 @@ NIE-ontologies are highly interdependent and represent a networked collection of
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
-Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora](https://github.com/dhlab-basel/Knora) platform of the [Digital Humanities Lab](https://github.com/dhlab-basel), requiring application-specific semantics.
+Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab at the Basel University (DHL)](https://dhlab.philhist.unibas.ch/en/home/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/3.-DHL-Knora-ontologies)).
 
 # Graphics
-
 Note:
 The graphics are being updated to the current status of the ontologies.  
 They can be enlarged in the Google Chrome browser, but currently not in the Firefox browser.
@@ -35,13 +33,13 @@ NIE classes and properties are represented by blue ellipses and arrows resp.
 A fourth type (Figures 8, 9, 13, 14, and 15), created with [Protégé](https://protege.stanford.edu/), depicts a subsumption tree of a merged group of ontologies. It is very useful to get a quick and broad hierarchical overview during the modeling. In the example, four ontologies are merged and linked to CIDOC-CRM.
 
 Following external ontologies are used:  
-[CIDOC](http://www.cidoc-crm.org/)  
+[CIDOC-CRM](http://www.cidoc-crm.org/)  
 [Dublin Core Terms](http://purl.org/dc/terms/)  
 [FOAF](http://xmlns.com/foaf/0.1/)  
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
-[NASA Space](http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#)  
-[NASA Time](http://sweet.jpl.nasa.gov/2.3/propTime.owl#)  
-[NASA Space Distance](http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#)  
+[SWEET Space](http://sweetontology.net/reprSpace/)  
+[SWEET Time](http://sweetontology.net/propTime/)  
+[SWEET Space Distance](http://sweetontology.net/propSpaceDistance/)  
 
 <div align="center">
 

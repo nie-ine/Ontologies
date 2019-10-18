@@ -5,9 +5,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix narespa: <http://sweet.jpl.nasa.gov/2.3/reprSpace.owl#>.
-@prefix naproti: <http://sweet.jpl.nasa.gov/2.3/propTime.owl#>.
-@prefix naprospadi: <http://sweet.jpl.nasa.gov/2.3/propSpaceDistance.owl#>.
+@prefix soreps: <http://sweetontology.net/reprSpace/>.
+@prefix sopropti: <http://sweetontology.net/propTime/>.
+@prefix sopropsdis: <http://sweetontology.net/propSpaceDistance/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix event: <http://www.nie.org/ontology/event#>.
 @prefix phygeo: <http://www.nie.org/ontology/physical-geography#>.
@@ -66,14 +66,14 @@ physical:Space
 	a rdfs:Class;
 	rdfs:label "space"@en, "Raum"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf physical:Entity, geo:SpatialThing, narespa:Space.
+	rdfs:subClassOf physical:Entity, geo:SpatialThing, soreps:Space.
 
 physical:Time
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "time"@en, "Zeit"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf physical:Entity, naproti:Time. # quantity
+	rdfs:subClassOf physical:Entity, sopropti:Time. # quantity
 
 physical:Place
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
@@ -105,21 +105,21 @@ physical:Size
 	a rdfs:Class;
 	rdfs:label "size"@en, "Grösse"@de;
 	rdfs:comment """Spatial extent having 1 to 3 dimensions."""@en;
-	rdfs:subClassOf naprospadi:Size, rdfs:Resource. # seqnum
+	rdfs:subClassOf sopropsdis:Size, rdfs:Resource. # seqnum
 
 physical:Length
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "length"@en, "Länge"@de;
 	rdfs:comment """Spatial quantity representing 1 dimension."""@en;
-	rdfs:subClassOf naprospadi:Length, rdfs:Resource. # seqnum.
+	rdfs:subClassOf sopropsdis:Length, rdfs:Resource. # seqnum.
 
 physical:Distance
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "distance"@en, "Abstand"@de;
 	rdfs:comment """Length of the space between two points."""@en;
-	rdfs:subClassOf physical:Length, naprospadi:Distance.
+	rdfs:subClassOf physical:Length, sopropsdis:Distance.
 
 physical:Matter 
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;

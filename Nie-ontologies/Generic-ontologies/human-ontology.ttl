@@ -10,7 +10,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.nie.org/ontology/event#>.
 @prefix physical: <http://www.nie.org/ontology/physical-entity#>.
-@prefix time: <http://eulersharp.sourceforge.net/2003/03swap/time#>.
+@prefix time: <http://www.nie.org/ontology/time#>.
 @prefix agent: <http://www.nie.org/ontology/agent#>.
 @prefix humgeo: <http://www.nie.org/ontology/human-geography#>.
 @prefix org: <http://www.nie.org/ontology/organization#>.

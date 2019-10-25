@@ -1,4 +1,4 @@
-# Ontologies
+# OWL-ontologies
 In the [NIE-INE](http://www.nie-ine.ch)-project we develop an infrastructure to enable scholarly edition projects in the Humanities to express their data in an enriched format, adhering to the FAIR-principles, and ensuring long-term storage of the data.  
 The project runs at the Swiss Universities of Basel, Bern, Zürich, and Geneva until end of 2020.
 
@@ -10,12 +10,11 @@ NIE-ontologies are highly interdependent and represent a networked collection of
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
-Note: A similar library of reduced and adapted ontologies is also maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab at the Basel University (DHL)](https://dhlab.philhist.unibas.ch/en/home/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/3.-DHL-Knora-ontologies)).
+Note: Also a similar library of reduced and adapted ontologies is maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab at the Basel University (DHL)](https://dhlab.philhist.unibas.ch/en/home/) and the [Data and Service Center for humanities (DaSCH)](https://dasch.swiss/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/3.-DHL-Knora-ontologies)).
 
 # Graphics
 Note:
 The graphics are being updated to the current status of the ontologies.  
-They can be enlarged in the Google Chrome browser, but currently not in the Firefox browser.
 
 Four kinds of graphics are used to illustrate the ontologies, to show classes, properties, and instances in different ways.  
 

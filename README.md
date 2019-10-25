@@ -10,7 +10,7 @@ NIE-ontologies are highly interdependent and represent a networked collection of
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
 
-Note: Also a similar library of reduced and adapted ontologies is maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab at the Basel University (DHL)](https://dhlab.philhist.unibas.ch/en/home/) and the [Data and Service Center for humanities (DaSCH)](https://dasch.swiss/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/3.-DHL-Knora-ontologies)).
+Note: Also a similar library of reduced and adapted ontologies is maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab (DHL)](https://dhlab.philhist.unibas.ch/en/home/) at the University of Basel and the [Data and Service Center for humanities (DaSCH)](https://dasch.swiss/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/3.-DHL-Knora-ontologies)).
 
 # Graphics
 Note:

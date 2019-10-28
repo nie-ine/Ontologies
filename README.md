@@ -18,12 +18,10 @@ There are 2 series: generic and project ontologies. The former are grosso modo f
 
 ##### Figure 1: A simplified representation of the NIE-INE web of ontologies
 &nbsp;  
-&nbsp;  
 
 ![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE-ontologies_numbers.png)
 
-##### Table 1: NIE ontologies in numbers
-&nbsp;  
+##### Table 1: NIE ontologies in numbers at end of September 2019
 &nbsp;  
 </div>
 

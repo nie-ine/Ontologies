@@ -63,41 +63,6 @@ language:GeneralHumanNaturalLanguage
 	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
-language:English
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "English"@en, "Englisch"@de;
-	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
-
-language:French
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
-	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
-
-language:German
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
-	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
-
-language:Italian
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
-	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
-
-language:SwissGerman
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
-	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage.
-
 language:HumanNaturalLanguageExpression
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
 	a rdfs:Class;
@@ -112,13 +77,6 @@ language:Dialect
 	rdfs:label "dialect"@en, "Mundart"@de;
 	rdfs:comment """Regional variant of a standard human natural language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
-
-language:BaselGerman
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a rdfs:Class;
-	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
-	rdfs:comment """Dialect of the city of Basel, Switzerland."""@en;
-	rdfs:subClassOf language:Dialect.
 
 language:AgentTranslator
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;

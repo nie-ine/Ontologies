@@ -44,7 +44,7 @@ math:NaturalNumber
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
 	rdfs:comment """Non-negative whole number."""@en;
 	skos:note """Conform ISO 80000-2:2009."""@en;
-	rdfs:subClassOf math:Number.
+	rdfs:subClassOf math:Number. # owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger.
 
 math:Set
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;

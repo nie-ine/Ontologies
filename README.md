@@ -14,13 +14,13 @@ There are 2 series: generic and project ontologies. The former are grosso modo f
 
 <div align="center">
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE-ontologies-network.png)
 
 ##### Figure 1: A simplified representation of the NIE-INE web of ontologies
 &nbsp;  
 &nbsp;  
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/NIE-ontologies_numbers.png)
 
 ##### Table 1: NIE ontologies in numbers
 &nbsp;  

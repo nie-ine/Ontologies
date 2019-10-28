@@ -14,13 +14,13 @@ There are 2 series: generic and project ontologies. The former are grosso modo f
 
 <div align="center">
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)     !!!!!
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)
 
 ##### Figure 1: A simplified representation of the NIE-INE web of ontologies
 &nbsp;  
 &nbsp;  
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)     !!!!!
+![figure](https://github.com/nie-ine/Ontologies/blob/master/NIE_ontology_graphics/XXX)
 
 ##### Table 1: NIE ontologies in numbers
 &nbsp;  
@@ -37,29 +37,29 @@ The “general Humanities ontologies” comprise the core concepts for scholarly
 ### Text
 This ontology describes text as a human natural language expression serialized in writeable form (see figure 11 in 'Graphics'). It contains all kinds of text forms (e.g. written, typewritten, transcribed, and printed) and roles of persons processing text (e.g. editor, annotator, and citer). It serves as basis for all text-related ontologies: text-expression, text-structure, text-editing, and literature ontology.
 
-###Text expression
+### Text expression
 The eponymous core concept bases (via the document-ontology) on FRBROO, as text abstracted from its carrier (see Figure 9 in 'Graphics'). The ontology declares further related roles (e.g. author and commentator) and general expression types (e.g. draft and commentary). It provides the basis for the literature- and scholarly-editing-ontology.
 
-###Text structure
+### Text structure
 This ontology describes all kinds of textual structures (see figure 13 in 'Graphics'), e.g. syntactic, compositional, content, scientific, readability. They form an upper layer to enable more flexible and extensive search, as well as machine reasoning. More specific entities are: word, sentence, paragraph, section, line, and text column. Extensions of this ontology are the note-structure- (see figure 14 in 'Graphics') and the prosodic-structure-ontology (see figure 15 in 'Graphics'), containing entities such as marginal note and gloss, and verse and strophe respectively. An important relation between structures is ‘part of’, which, by its transitive nature, enables searching and machine reasoning in a way that do not require to explicitly state all possible relations between structures in the data, since they can be inferred via transitivity.
 
-###Text editing and Scholarly editing
+### Text editing and Scholarly editing
 Both describe the necessary semantics for editing, the latter extending the former with specific scholarly entities, e.g. diplomatic transcription, critical edition, different types of apparatus, lemma, variant, editorial comment, witness, siglum and more alike. Also related roles are declared, e.g. editor, glossator, and critical text editor. An extensive set of properties relates these entities to each other, as well as to text, text structure and expression elements (see figures 1, 9, 16, and 17 in 'Graphics').
 
-###Publishing
+### Publishing
 This ontology describes classes and properties related to publishing, e.g. publication and its subclasses, e.g. printed and web publication, serial like newspaper, periodical, or magazine. There is a substantial set of properties relating expressions and other entities to elements in this ontology.
 
-###Literature
+### Literature
 This ontology describes literary genres such as narrative and different kinds of poetry, and further different types of literary expressions (e.g. poem, hymn, novel) and their subclasses. It also contains related roles, e.g. poet and novelist. Different types of literary structures are declared, e.g. foreword, preface, prologue, and epilogue, and related properties (see figures 1, 9, 21, and 22 in 'Graphics').
 
-##Specific Humanities ontologies
+## Specific Humanities ontologies
 This series comprises more specific entities as used in different specialized domains in the Humanities, e.g. about scholasticism. Some ontologies are an onset (e.g. ‘indology’, ‘catholic organization’ and ‘philosophy’), providing the more general concepts as needed for the current projects, but they will be extended. ‘Catholic orders’ and ‘philosophies’ describe subclasses of classes in aforementioned ontologies, also to be extended.
 Although the scope of these ontologies is narrower, i.e. more project-oriented, the entities can be reused in another context, if applicable, meaning that they do not need to be restricted to a specific project.
 
-##External terminology systems ontology
+## External terminology systems ontology
 This ontology contains formal descriptions of datatypes, functioning as link between terminology or coding systems, and OWL ontologies. Such coding systems in the Humanities are general ISO1 standards (e.g. for languages), more specific ISO standards such as OAIS2, and GND3 for the DACH countries. It is also planned to use SKOS schemes and properties for this purpose in the near future.
 
-##Project ontologies
+## Project ontologies
 These ontologies contain entities linked to the specific subjects of the projects, but they are still usable outside the respective projects, if applicable. For example, another national or international project about a same author could reuse some elements in order to be linkable with one of the projects supported by NIE-INE. It then would be possible to query the two different SPARQL endpoints simultaneously, which is essential for research since the triple stores can contain complementary information on the same subject. This is actually the case for the DRCS project, a project dealing with the commentaries on the Sentences of Peter Lombard, which is linked to another project of the University of Baltimore, U.S.. This case demonstrates the added value of semantic interoperability between disparate databases, facilitated by the use of the same external ontologies CIDOC-CRM and FRBROO.
 
 Note: a similar library of reduced and adapted ontologies is maintained for the [Knora server application](https://www.knora.org/), developed by the [DHLab (DHL)](https://dhlab.philhist.unibas.ch/en/home/) at the University of Basel and the [Data and Service Center for humanities (DaSCH)](https://dasch.swiss/) (see also on the [wiki](https://github.com/nie-ine/Ontologies/wiki/Note:-DHL-Knora-ontologies)).

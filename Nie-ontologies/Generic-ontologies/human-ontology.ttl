@@ -94,8 +94,8 @@ human:BiologicalSex
 	a rdfs:Class;
 	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
 	rdfs:comment """Biological trait of a human based on reproductive functions."""@en;
-	rdfs:subClassOf rdfs:Resource. # seqnum
-#	owl:disjointUnionOf (human:FemaleSex human:MaleSex human:Intersexual).
+	rdfs:subClassOf rdfs:Resource; # seqnum
+	owl:disjointUnionOf (human:Female human:Male human:Intersexual).
 
 human:Female
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;

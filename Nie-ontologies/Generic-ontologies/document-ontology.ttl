@@ -1,7 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -328,7 +327,8 @@ document:contentStructureHasIdentifier
 	rdfs:label "document content structure has identifier"@en, "Dokumentinhaltstruktur hat Identifikator"@de;
 	rdfs:comment """Relating a document content structure to its identifier."""@en;
 	rdfs:domain document:ContentStructure;
-	rdfs:range document:ContentStructureIdentifier.
+	rdfs:range document:ContentStructureIdentifier;
+	rdfs:subPropertyOf concept:hasIdentifier.
 
 document:hasReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;
@@ -478,7 +478,7 @@ document:expressionHasIdentifier
 	rdfs:comment """Relating a document expression to its identifier."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range document:ExpressionIdentifier.
-#	rdfs:subPropertyOf
+	rdfs:subPropertyOf concept:hasIdentifier.
 
 document:expressionHasTitle #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;
@@ -522,8 +522,8 @@ document:expressionReferenceHasIdentifier
 	rdfs:label "expression reference has identifier"@en, "Expression-Referenz hat Identifikator"@de;
 	rdfs:comment """Relating a document expression reference to its identifier."""@en;
 	rdfs:domain document:ExpressionReference;
-	rdfs:range document:ExpressionIdentifier.
-#	rdfs:subPropertyOf
+	rdfs:range document:ExpressionIdentifier;
+	rdfs:subPropertyOf concept:hasIdentifier.
 
 document:isElementOfHypertextDocument
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;

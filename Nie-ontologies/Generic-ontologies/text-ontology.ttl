@@ -1,6 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -19,7 +19,6 @@
 @prefix textedit: <http://www.nie.org/ontology/text-editing#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
 
 # @base <http://www.nie.org/ontology/text>.
 @prefix text: <http://www.nie.org/ontology/text#>.
@@ -369,7 +368,7 @@ text:hasNumberOfPages
 	rdfs:label "has number of pages"@en, "hat Seitenanzahl"@de;
 	rdfs:comment """Relating a text to the number of pages it has."""@en;
 	rdfs:domain text:Text;
-	rdfs:range xsd:integer.
+	rdfs:range xs:integer.
 
 text:hasReferenceText
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;

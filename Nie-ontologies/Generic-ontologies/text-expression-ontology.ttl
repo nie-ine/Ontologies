@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -20,7 +19,6 @@
 @prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
 
 # @base <http://www.nie.org/ontology/text-expression>.
 @prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
@@ -45,6 +43,13 @@ text-expression:Expression
 	rdfs:label "text expression"@en, "Textexpression"@de, "expression textuelle"@fr, "espressione testuale"@it;
 	rdfs:comment """Document expression as text."""@en;
 	rdfs:subClassOf document:Expression, text:Text.
+
+text-expression:Identifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
+	a rdfs:Class;
+	rdfs:label "text expression identifier"@en, "Textexpressionsidentifikator"@de;
+	rdfs:comment """Identifier of a text expression."""@en;
+	rdfs:subClassOf document:ExpressionIdentifier.
 
 text-expression:Draft
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
@@ -257,6 +262,14 @@ text-expression:hasExplicit
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText.
+
+text-expression:hasIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
+	a owl:ObjectProperty;
+	rdfs:label "text expression has identifier"@en, "Textexpression hat Identifikator"@de;
+	rdfs:comment """Relating a text expression to its identifier."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range text-expression:Identifier.
 
 text-expression:hasAuthor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;

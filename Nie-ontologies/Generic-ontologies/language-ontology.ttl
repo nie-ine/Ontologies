@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -122,18 +121,26 @@ language:MachineTranslation
 	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
 	rdfs:subClassOf language:Translation.
 
+language:Code
+	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	a rdfs:Class;
+	rdfs:label "language code"@en, "Sprache-Kode"@de; # , "code de langue"@fr, ""@it;
+	rdfs:comment """Code in a coding system, attributed to a human natural language, e.g. ISO 639."""@en;
+	rdfs:seeAlso <http://www.nie.org/ontology/languages#>;
+	rdfs:subClassOf concept:Code.
+
 #
 # PROPERTIES
 #
 
 language:hasCode
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a owl:ObjectProperty;
+	a owl:InverseFunctionalProperty;
 	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
-	rdfs:comment """Relating a language to a code (object) representing that language."""@en;
+	rdfs:comment """Relating a language to a system code representing that language."""@en;
 	rdfs:domain language:HumanNaturalLanguage;
-	rdfs:range skos:Concept;
-	rdfs:subPropertyOf skos:exactMatch. 
+	rdfs:range language:Code; # skos:Concept;
+	rdfs:subPropertyOf concept:hasCode. # skos:exactMatch.
 
 language:hasContent
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
@@ -144,21 +151,13 @@ language:hasContent
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasLiteral.
 
-language:hasDialect
+language:isDialectOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "has dialect"@en, "hat Dialekt"@de;
-	rdfs:comment """Relating a human natural language to a dialect it has."""@en;
-	rdfs:domain language:HumanNaturalLanguage;
-	rdfs:range language:Dialect.
-
-language:swissGermanHasDialect
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
-	a owl:ObjectProperty;
-	rdfs:label "Swiss German has dialect"@en, "Schweizerdeutsch hat Dialekt"@de;
-	rdfs:comment """Relating Swiss German to a dialect it has."""@en;
-	rdfs:domain language:SwissGerman;
-	rdfs:range language:Dialect.
+	rdfs:label "is dialect of"@en, "ist Dialekt von"@de;
+	rdfs:comment """Relating a dialect to its human natural language."""@en;
+	rdfs:domain language:Dialect;
+	rdfs:range language:HumanNaturalLanguage.
 
 language:expressedInNaturalLanguage
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;

@@ -1,0 +1,143 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix language: <http://www.nie.org/ontology/language#>.
+
+# @base <http://www.nie.org/ontology/languages>.
+@prefix languages: <http://www.nie.org/ontology/languages#>.
+
+<http://www.nie.org/ontology/languages>
+	a owl:Ontology;
+	dct:title "An ontology about languages"@en;
+	dct:description """Formal description of human natural languages, referring to the ISO 639 standards."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+#	dct:hasVersion .
+
+#
+# LANGUAGE CODE SYSTEM AND DATATYPE INSTANCES
+#
+
+languages:iso639System
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class, language:CodeSystem; #skos:ConceptSystem;
+	rdfs:label "ISO 639"@en;
+	rdfs:comment """International standard for codes for the representation of names of languages."""@en;
+	rdfs:seeAlso <https://www.iso.org/iso-639-language-codes.html>.
+
+languages:iso639-1System
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class, language:CodeSystem; #skos:ConceptSystem;
+	rdfs:label "ISO 639-1"@en;
+	rdfs:comment """ISO 639 part 1: alpha-2 (two-letter) codes."""@en;
+	rdfs:subClassOf languages:iso639System;
+	dct:hasVersion "ISO 639-1:2002";
+	languages:hasDataType languages:iso639-1Datatype;
+	rdfs:seeAlso <http://www.infoterm.info/standardization/iso_639_1_2002.php>.
+
+languages:iso639-1Datatype
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Datatype;
+	rdfs:label "ISO 639-1 datatype"@en;
+	rdfs:comment """Datatype to type an ISO 639-1 alpha-2 code."""@en;
+	rdfs:subClassOf xsd:string.
+
+languages:iso639-2System # B and T codes for 20 languages, T codes favoured
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class, language:CodeSystem; #skos:ConceptSystem;
+	rdfs:label "ISO 639-2"@en;
+	rdfs:comment """ISO 639 part 2: alpha-3 (three-letter) codes."""@en;
+	rdfs:subClassOf languages:iso639;
+	dct:hasVersion "ISO 639-2:1998";
+	languages:hasDataType languages:iso639-2Datatype;
+	rdfs:seeAlso <http://www.loc.gov/standards/iso639-2/>.
+
+languages:iso639-2Datatype
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Datatype;
+	rdfs:label "ISO 639-2 datatype"@en;
+	rdfs:comment """Datatype to type an ISO 639-2 alpha-3 code."""@en;
+	rdfs:subClassOf xsd:string.
+
+languages:iso639-3System
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class, language:CodeSystem; #skos:ConceptSystem;
+	rdfs:label "ISO 639-3"@en;
+	rdfs:comment """ISO 639 part 3: alpha-3 (three-letter) codes for comprehensive coverage of languages."""@en;
+	rdfs:subClassOf languages:iso639;
+	dct:hasVersion "ISO 639-3:2007";
+	languages:hasDataType languages:iso639-3Datatype;
+	rdfs:seeAlso <http://www-01.sil.org/iso639-3/>.
+
+languages:iso639-3Datatype
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Datatype;
+	rdfs:label "ISO 639-3 datatype"@en;
+	rdfs:comment """Datatype to type an ISO 639-3 alpha-3 code."""@en;
+	rdfs:subClassOf xsd:string.
+
+#
+# LANGUAGE INSTANCES
+#
+
+languages:English
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "English"@en, "Englisch"@de, "anglais"@fr, "inglese"@it;
+	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "en"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "eng"^^languages:iso639-2Datatype].
+
+languages:French
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
+	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "fr"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "fre"^^languages:iso639-2Datatype, "fra"^^languages:iso639-2Datatype].
+
+languages:German
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
+	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "de"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "ger"^^languages:iso639-2Datatype, "deu"^^languages:iso639-2Datatype].
+
+languages:Italian
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
+	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "it"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "ita"^^languages:iso639-2Datatype].
+
+languages:SwissGerman
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
+	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
+		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].
+
+languages:BaselGerman
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
+	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
+	rdfs:subClassOf language:SwissGerman.
+
+languages:Sanskrit
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Sanskrit"@en, "Sanskrit"@de, "sanskrit"@fr, "sanscrito"@it;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "sa"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "san"^^languages:iso639-2Datatype].

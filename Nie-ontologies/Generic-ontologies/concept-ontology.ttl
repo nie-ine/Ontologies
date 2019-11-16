@@ -1,7 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -87,6 +87,13 @@ concept:Identifier
 	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subClassOf concept:SymbolicEntity, cidoc:E42_Identifier. # rdfs:subClassOf cidoc:E41_Appellation
 
+° concept:Code
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "code"@en, "Kode"@de;
+	rdfs:comment """Identifier belonging to a specific coding system, formed by any kind of symbols, e.g. alphanumeric."""@en;
+	rdfs:subClassOf concept:Identifier.
+
 concept:PropositionalEntity
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
 	a rdfs:Class;
@@ -152,9 +159,25 @@ concept:isPartOf
 	rdfs:range concept:ConceptualEntity;
 	rdfs:subPropertyOf cidoc:P106i_forms_part_of.
 
-concept:hasLiteral
+concept:hasIdentifier
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
 	a owl:ObjectProperty;
+	rdfs:label "has identifier"@en, "hat Identifikator"@de;
+	rdfs:comment "Relating a resource to its identifier."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range concept:Identifier.
+
+° concept:hasCode
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a owl:ObjectProperty;
+	rdfs:label "has code"@en, "hat Kode"@de;
+	rdfs:comment "Relating a resource to its code."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range concept:Code.
+
+concept:hasLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a owl:DatatypeProperty;
 	rdfs:label "has literal"@en, "hat Literale"@de;
 	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
 	rdfs:domain concept:SymbolicEntity;

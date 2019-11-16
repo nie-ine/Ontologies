@@ -1,6 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.nie.org/ontology/human#>.
@@ -44,7 +44,7 @@ math:NaturalNumber
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
 	rdfs:comment """Non-negative whole number."""@en;
 	skos:note """Conform ISO 80000-2:2009."""@en;
-	rdfs:subClassOf math:Number. # owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger.
+	rdfs:subClassOf math:Number. # owl:onProperty math:hasNumeral; owl:allValuesFrom xs:nonNegativeInteger.
 
 math:Set
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
@@ -59,8 +59,25 @@ math:Set
 
 math:hasNumeral
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
-	a owl:ObjectProperty; # -> a owl:DatatypeProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numerale"@de;
 	rdfs:comment """Relating a number to a numeral."""@en;
+	skos:note """Number is reified."""@en;
 	rdfs:domain math:Number;
-	rdfs:range xsd:integer.
+	rdfs:range xs:integer.
+
+math:hasSequenceLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has sequence literal"@en, "hat Reihenfolge-Literale"@de;
+	rdfs:comment """Relating a resource to its position in a sequence, expressed by a literal."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal.
+
+math:hasSequenceNumeral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has sequence numeral"@en, "hat Reihenfolge-Numerale"@de;
+	rdfs:comment """Relating a resource to its position in a sequence, expressed by a numeral."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range xs:nonNegativeInteger.

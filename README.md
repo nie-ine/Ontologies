@@ -221,7 +221,7 @@ Figure 25 shows a graphical representation of the classes and properties from th
 
 <div align="center">
 
-![figure](https://github.com/nie-ine/Ontologies/blob/master/other-ontologies/geo_reduced.svg)
+![figure](https://github.com/nie-ine/Ontologies/blob/master/Other-ontologies/geo_reduced.svg)
 
 ##### Figure 25: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
 </div>

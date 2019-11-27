@@ -477,7 +477,7 @@ document:expressionHasIdentifier
 	rdfs:label "expression has identifier"@en, "Expression hat Identifikator"@de;
 	rdfs:comment """Relating a document expression to its identifier."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range document:ExpressionIdentifier.
+	rdfs:range document:ExpressionIdentifier;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
 document:expressionHasTitle #°

@@ -239,8 +239,9 @@ language:hasTranslation
 language:isTranslatedInto
 	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "is translated in"@en, "ist übersetzt in"@de;
-	rdfs:comment """Relating a human natural language expression to the language it is translated in."""@en;
+	rdfs:label "is translated into"@en, "ist übersetzt in"@de;
+	rdfs:comment """Relating a human natural language expression to the language it is translated into."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range language:HumanNaturalLanguage;
-	rdfs:subPropertyOf language:expressedInNaturalLanguage.
+	rdfs:subPropertyOf language:expressedInNaturalLanguage;
+	owl:propertyChainAxiom (language:hasTranslation language:expressedInNaturalLanguage).

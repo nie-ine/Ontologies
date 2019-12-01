@@ -11,7 +11,7 @@
 @prefix textedit: <http://www.nie.org/ontology/text-editing#>.
 @prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
+@prefix literature: <http://www.nie.org/ontology/literature#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 @prefix indo: <http://www.nie.org/ontology/indology#>.
 
@@ -46,17 +46,15 @@ athar:Paippalada-Samhita
 	a rdfs:Class;
 	rdfs:label "Paippalāda-Samhitā"@sa, "Paippalada-Samhita"@en, "Paippalada-Samhita"@de;
 	rdfs:comment """One of the nine recensions of the Atharvaveda, along the different shakhas or Hindu theological schools, specialized in learning Vedic texts. Only this one and the Shaunakiya recension are extent."""@en;
-	rdfs:subClassOf athar:Atharvaveda, textedit:Edition, [
-		a owl:Restriction; owl:onProperty athar:paippaladaHasGenre; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty athar:paippaladaHasRecitingStyle; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:subClassOf athar:Atharvaveda, textedit:Recension.
 
 athar:Kanda
 	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda Kanda"@de;
-	rdfs:comment """Kanda or verse section of the Atharvaveda."""@en;
+	rdfs:comment """Kanda of the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains 20 Kandas."""@en;
-	rdfs:subClassOf prosodic-structure:VerseSection, indo:Expression.
+	rdfs:subClassOf literature:VerseSongCollection, indo:Expression.
 
 athar:Sukta
 	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
@@ -64,7 +62,7 @@ athar:Sukta
 	rdfs:label "Atharvaveda sūkta"@sa, "Atharvaveda sukta"@en, "Atharvaveda-Sukta"@de;
 	rdfs:comment """Sukta in the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains 730 Suktas."""@en;
-	rdfs:subClassOf litera:VerseSong, indo:Expression, text:HandwrittenText.
+	rdfs:subClassOf literature:VerseSong, indo:Expression, text:HandwrittenText.
 
 athar:Strophe
 	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
@@ -87,6 +85,13 @@ athar:Verse
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
 	skos:note """The Atharvaveda contains about 6000 verses."""@en;
 	rdfs:subClassOf prosodic-structure:Verse.
+
+athar:Padapatha
+	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	a rdfs:Class;
+	rdfs:label "Normalized Padapatha"@en, "Normalisierte Padapatha"@de;
+	rdfs:comment """Padapatha normalized from a Samhitapatha."""@en;
+ 	rdfs:subClassOf indo:Padapatha, text:Normalization.
 
 #
 # PROPERTIES
@@ -126,7 +131,7 @@ athar:isSuktaOfKanda
 	rdfs:comment """Relating an Atharvaveda sukta to its kanda."""@en;
 	rdfs:domain athar:Sukta;
 	rdfs:range athar:Kanda;
-	rdfs:subPropertyOf concept:isPartOf.
+	rdfs:subPropertyOf literature:isVerseSongOfCollection.
 
 athar:isStropheOfSukta
 	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
@@ -154,3 +159,11 @@ athar:isVerseOfHalfStrophe
 	rdfs:domain athar:Verse;
 	rdfs:range athar:HalfStrophe;
 	rdfs:subPropertyOf prosodic-structure:isVerseOfHalfStrophe.
+
+athar:isNormalizationOf
+	a owl:ObjectProperty;
+	rdfs:label "is normalization of"@en, "ist Normalisierung von"@de;
+	rdfs:comment """Relating a normalized Padapatha to its Samhitapatha."""@en;
+	rdfs:domain athar:Padapatha;
+	rdfs:range indo:Samhitapatha;
+	rdfs:subPropertyOf text:isNormalizationOf.

@@ -1,6 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.nie.org/ontology/human#>.
@@ -18,7 +18,8 @@
 	dct:title "An ontology about mathematics"@en;
 	dct:description """Formal description of general concepts in mathematics."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:publisher "University of Basel, Switzerland"@en.
+	dct:publisher "University of Basel, Switzerland"@en;
+	rdfs:seeAlso <http://eulersharp.sourceforge.net/2003/03swap/xsd-rules#>.
 
 #
 # CLASSES
@@ -28,23 +29,31 @@ math:MathematicalObject
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical object"@en, "mathematisches Objekt"@de;
-	rdfs:comment """Symbolic entity in mathematics."""@en;
-	rdfs:subClassOf concept:SymbolicEntity.
+	rdfs:comment """Conceptual entity in mathematics."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
 
 math:Number
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Zahl"@de;
-	rdfs:comment """Mathematical object for counting, measuring and labeling."""@en; #* and ordering
-	rdfs:subClassOf math:MathematicalObject, concept:Identifier.
+	rdfs:comment """Mathematical object used for counting, measuring, ordering, labeling, and coding."""@en;
+	rdfs:subClassOf math:MathematicalObject, concept:SymbolicEntity.
 
 math:NaturalNumber
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
-	rdfs:comment """Non-negative whole number."""@en;
+	rdfs:comment """Non-negative whole number used for counting and ordering."""@en;
 	skos:note """Conform ISO 80000-2:2009."""@en;
-	rdfs:subClassOf math:Number. # owl:onProperty math:hasNumeral; owl:allValuesFrom xs:nonNegativeInteger.
+	rdfs:subClassOf math:Number, [
+		a owl:Restriction; owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
+
+math:OrdinalNumber
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a rdfs:Class;
+	rdfs:label "ordinal number"@en, "Ordinalzahl"@de;
+	rdfs:comment """Natural number used to order, i.e. denoting the position of something in a sequence."""@en;
+	rdfs:subClassOf math:NaturalNumber, concept:Identifier.
 
 math:Set
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
@@ -61,23 +70,42 @@ math:hasNumeral
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numerale"@de;
-	rdfs:comment """Relating a number to a numeral."""@en;
-	skos:note """Number is reified."""@en;
+	rdfs:comment """Relating a number to its representing numeral."""@en;
 	rdfs:domain math:Number;
-	rdfs:range xs:integer.
+ 	rdfs:range xsd:decimal.
 
-math:hasSequenceLiteral
+math:hasOrdinalSymbol
+ 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a owl:ObjectProperty;
+	rdfs:label "has ordinal symbol"@en, "hat Ordinalsymbol"@de;
+	rdfs:comment """Relating something to the symbolic entity denoting its position in a sequence."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range concept:SymbolicEntity.
+
+math:hasOrdinalNumber
+ 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a owl:ObjectProperty;
+	rdfs:label "has ordinal number"@en, "hat Ordinalzahl"@de;
+	rdfs:comment """Relating something to the number denoting its position in a sequence."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range math:OrdinalNumber;
+	rdfs:subPropertyOf math:hasOrdinalSymbol.
+
+math:hasOrdinalLiteral
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has sequence literal"@en, "hat Reihenfolge-Literale"@de;
-	rdfs:comment """Relating a resource to its position in a sequence, expressed by a literal."""@en;
+	rdfs:label "has ordinal literal"@en, "hat Ordinalliterale"@de;
+	rdfs:comment """Relating something to the literal denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Literal.
+	rdfs:range rdfs:Literal;
+	owl:propertyChainAxiom (math:hasOrdinalSymbol concept:hasLiteral).
 
-math:hasSequenceNumeral
+math:hasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has sequence numeral"@en, "hat Reihenfolge-Numerale"@de;
-	rdfs:comment """Relating a resource to its position in a sequence, expressed by a numeral."""@en;
+	rdfs:label "has ordinal numeral"@en, "hat Ordinalnumerale"@de;
+	rdfs:comment """Relating something to the numeral denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range xs:nonNegativeInteger.
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalLiteral;
+ 	owl:propertyChainAxiom (math:hasOrdinalNumber math:hasNumeral).

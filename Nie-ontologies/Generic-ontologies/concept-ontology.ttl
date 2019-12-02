@@ -1,7 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -36,7 +35,8 @@ concept:ConceptualEntity
 	a rdfs:Class;
 	rdfs:label "conceptual entity"@en, "konzeptuelle Entität"@de;
 	rdfs:comment """Abstract idea created by a person, as product of cognition."""@en;
-	rdfs:subClassOf creating:Creation, frbroo:F6_Concept. # rdfs:subClassOf cidoc:E28_Conceptual_Object
+	rdfs:subClassOf creating:Creation, frbroo:F6_Concept; # rdfs:subClassOf cidoc:E28_Conceptual_Object
+	owl:disjointWith physical:Entity.
 
 concept:Set
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;

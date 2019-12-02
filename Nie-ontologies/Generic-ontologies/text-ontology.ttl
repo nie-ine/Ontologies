@@ -1,6 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -202,10 +202,10 @@ text:CitationNumber
 	rdfs:comment """Number of a citation."""@en;
 	rdfs:subClassOf text:CitationIdentifier, math:Number.
 
-text:NormalizedDerivative
+text:Normalization
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "normalized text derivative"@en, "normalisiertes Textderivat"@de;
+	rdfs:label "text normalization"@en, "Textnormalisation"@de;
 	rdfs:comment """Derivative of a text of which it is a normalization along a certain procedure."""@en;
 	rdfs:subClassOf text:Text, creating:CreationDerivative.
 
@@ -236,7 +236,7 @@ text:Translation
 
 text:hasText
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has text"@en, "hat Text"@de;
 	rdfs:comment """Relating a resource to a text as a writable coherent set of signs representing semantics in a language."""@en;
 	rdfs:domain rdfs:Resource;
@@ -244,77 +244,77 @@ text:hasText
 
 text:hasName
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a resource to a name as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText. #° rdfs:label, foaf:name
 
 text:hasPreferredName
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
 	rdfs:comment """Relating a resource to a preferred name."""@en;
 	rdfs:subPropertyOf text:hasName.
 
 text:hasAlias
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
 	rdfs:comment """Relating a resource to an alias as an alternative name of the resource."""@en;
 	rdfs:subPropertyOf text:hasName.
 
 text:hasIdentifier
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has identifier"@en, "hat Kennzeichen"@de;
 	rdfs:comment """Relating a resource to an identifier as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subPropertyOf text:hasText. #° cf. dcterms:identifier
 
 text:hasTitle
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has title"@en, "hat Titel"@de;
 	rdfs:comment """Relating a resource to a title as a textual identifier of the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasSubtitle
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has subtitle"@en, "hat Untertitel"@de;
 	rdfs:comment """Relating a resource to a subtitle as additional, usually explanatory to the title."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasComment
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has comment"@en, "hat Kommentar"@de;
 	rdfs:comment """Relating a resource to a comment as a textual statement about the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasDescription
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description as a textual statement about features of the resource."""@en;
 	rdfs:subPropertyOf text:hasText.
 
 text:hasDefinition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has definition"@en, "hat Definition"@de;
 	rdfs:comment """Relating a resource to a definition as a textual statement about the essential features of the resource."""@en;
 	rdfs:subPropertyOf text:hasDescription.
 
 text:hasDetailDescription
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has detail description"@en, "hat Detail-Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
 	rdfs:subPropertyOf text:hasDescription.
 
 text:hasSpecialDescription
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has special description"@en, "hat Besonderes-Beschreibung"@de;
 	rdfs:comment """Relating a resource to a description of (a) certain feature(s)."""@en;
 	rdfs:subPropertyOf text:hasDescription.
@@ -368,7 +368,7 @@ text:hasNumberOfPages
 	rdfs:label "has number of pages"@en, "hat Seitenanzahl"@de;
 	rdfs:comment """Relating a text to the number of pages it has."""@en;
 	rdfs:domain text:Text;
-	rdfs:range xs:integer.
+	rdfs:range xsd:integer.
 
 text:hasReferenceText
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
@@ -519,13 +519,13 @@ text:hasAbbreviator
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Abbreviator]].
 
-text:isNormalizedAs
+text:isNormalizationOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "is normalized as"@en, "ist normalisiert als"@de;
-	rdfs:comment """Relating a text to a normalized derivative."""@en;
-	rdfs:domain text:Text;
-	rdfs:range text:NormalizedDerivative.
+	rdfs:label "is Normalization of text"@en, "ist Normalisation eines Textes"@de;
+	rdfs:comment """Relating a normalized text derivative to its source text."""@en;
+	rdfs:domain text:Normalization;
+	rdfs:range text:Text.
 
 text:hasCompiler
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;

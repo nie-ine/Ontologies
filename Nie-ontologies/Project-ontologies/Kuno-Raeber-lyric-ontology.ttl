@@ -18,7 +18,7 @@
 @prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
 @prefix image: <http://www.nie.org/ontology/image#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
+@prefix literature: <http://www.nie.org/ontology/literature#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
 @prefix letter-corresponding: <http://www.nie.org/ontology/letter-corresponding#>.
 
@@ -70,7 +70,7 @@ kuno-raeber:Preface
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber preface"@en, "Vorwort Kuno Raebers"@de;
 	rdfs:comment """Preface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf litera:Preface, text:Nonfiction, kuno-raeber:Text.
+	rdfs:subClassOf literature:Preface, text:Nonfiction, kuno-raeber:Text.
 
 kuno-raeber:DraftHandwrittenPreface
 	rdfs:isDefinedBy <http://www.nie.org/ontology/kuno-raeber#>;
@@ -98,7 +98,7 @@ kuno-raeber:Postface
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber postface"@en, "Nachwort Kuno Raebers"@de;
 	rdfs:comment """Postface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf litera:Postface, text:Nonfiction, kuno-raeber:Text.
+	rdfs:subClassOf literature:Postface, text:Nonfiction, kuno-raeber:Text.
 
 kuno-raeber:TypewrittenPostface
 	rdfs:isDefinedBy <http://www.nie.org/ontology/kuno-raeber#>;
@@ -112,14 +112,14 @@ kuno-raeber:PublicationMotto
 	a rdfs:Class;
 	rdfs:label "publication motto"@en, "Publikation-Motto"@de;
 	rdfs:comment """Publication motto authored by Kuno Raeber."""@en;
-	rdfs:subClassOf litera:Motto, publish:Expression, kuno-raeber:Text.
+	rdfs:subClassOf literature:Motto, publish:Expression, kuno-raeber:Text.
 
 kuno-raeber:Poem
 	rdfs:isDefinedBy <http://www.nie.org/ontology/kuno-raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem"@en, "Gedicht Kuno Raebers"@de;
 	rdfs:comment """Poem authored by Kuno Raeber."""@en;
-	rdfs:subClassOf litera:Poem, kuno-raeber:Text.
+	rdfs:subClassOf literature:Poem, kuno-raeber:Text.
 
 kuno-raeber:ScholarlyEdition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/kuno-raeber#>;

@@ -343,7 +343,7 @@ literature:isVerseSongOfCollection
 literature:isHymnOfCollection
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "is hymnal of collection"@en, "ist Hymne einer Sammlung"@de;
+	rdfs:label "is hymn of collection"@en, "ist Hymne einer Sammlung"@de;
 	rdfs:comment """Relating a hymn to a collection it is part of."""@en;
 	rdfs:domain literature:Hymn;
 	rdfs:range literature:HymnCollection;

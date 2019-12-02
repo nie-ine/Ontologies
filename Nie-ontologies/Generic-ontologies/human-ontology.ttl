@@ -419,6 +419,7 @@ human:hasBirthdate  #°
 	skos:note """It is possible to find different birthdates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:dateTime.
+	# rdfs:subPropertyOf
 
 human:hasEarliestBirthdate  #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
@@ -427,6 +428,7 @@ human:hasEarliestBirthdate  #°
 	rdfs:comment """Relating a person to a rule-calculated earliest possible birthdate, based on a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:dateTime.
+	# rdfs:subPropertyOf
 
 human:hasBirthplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
@@ -445,6 +447,7 @@ human:hasDeathDate  #°
 	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:dateTime.
+	# rdfs:subPropertyOf
 
 human:hasLatestDeathDate  #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
@@ -453,6 +456,7 @@ human:hasLatestDeathDate  #°
 	rdfs:comment """Relating a person to a rule-calculated latest death date, based on a set maximum lifespan of a person, in absence of the death date of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:dateTime.
+	# rdfs:subPropertyOf
 
 human:hasDeathplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;

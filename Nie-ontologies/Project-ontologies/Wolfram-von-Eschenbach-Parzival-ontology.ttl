@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix concept: <http://www.nie.org/ontology/concept#>.
@@ -14,7 +13,7 @@
 @prefix prosodic-structure: <http://www.nie.org/ontology/prosodic-structure#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
+@prefix literature: <http://www.nie.org/ontology/literature#>.
 
 # @base <http://www.nie.org/ontology/parzival>.
 @prefix parzival: <http://www.nie.org/ontology/parzival#>.
@@ -40,14 +39,14 @@ parzival:VerseNovel
 	a rdfs:Class;
 	rdfs:label """version of 'Parzival'"""@en, """Version 'Parzivals'"""@de;
 	rdfs:comment """Any version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf litera:VerseNovel.
+	rdfs:subClassOf literature:VerseNovel.
 
 parzival:CopiedVerseNovel
 	rdfs:isDefinedBy <http://www.nie.org/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """copied version of 'Parzival'"""@en, """kopierte Version 'Parzivals'"""@de;
 	rdfs:comment """Copied version of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf text:CopiedText, litera:VerseNovel, scholarly-editing:Witness.
+	rdfs:subClassOf text:CopiedText, literature:VerseNovel, scholarly-editing:Witness.
 
 parzival:HandwrittenTranscribedVerseNovel
 	rdfs:isDefinedBy <http://www.nie.org/ontology/parzival#>;

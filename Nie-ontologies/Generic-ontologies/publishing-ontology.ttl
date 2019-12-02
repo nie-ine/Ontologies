@@ -465,7 +465,7 @@ publish:hasPublisher
 	rdfs:label "has publisher"@en, "hat Herausgeber"@de;
 	rdfs:comment """Relating a publication to its publisher."""@en;
 	rdfs:domain publish:Publication;
-	rdfs:range human:Agent; # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:AgentPublisher]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:AgentPublisher]];
 	rdfs:subPropertyOf creating:hasCreator.
 
 publish:hasPublisherDescription #°

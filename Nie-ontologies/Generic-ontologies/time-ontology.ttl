@@ -6,7 +6,6 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
 # @prefix tzont: <http://www.w3.org/2006/timezone#>.
-@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix event: <http://www.nie.org/ontology/event#>.
 
 # @base <http://www.nie.org/ontology/time>.

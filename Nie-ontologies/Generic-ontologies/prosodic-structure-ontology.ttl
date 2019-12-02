@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -16,7 +15,7 @@
 @prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
 @prefix textedit: <http://www.nie.org/ontology/text-editing#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
+@prefix literature: <http://www.nie.org/ontology/literature#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 @prefix lingmor: <http://www.nie.org/ontology/linguistic-morphology#>.
 
@@ -258,7 +257,7 @@ prosodic-structure:isStropheOfPoem
 	rdfs:label "is strophe of poem"@en, "ist Strophe eines Gedichtes"@de;
 	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
 	rdfs:domain prosodic-structure:Strophe;
-	rdfs:range litera:VersePoem;
+	rdfs:range literature:VersePoem;
 	rdfs:subPropertyOf concept:isPartOf.
 
 prosodic-structure:isStropheOfNovel
@@ -267,7 +266,7 @@ prosodic-structure:isStropheOfNovel
 	rdfs:label "is strophe of verse novel"@en, "ist Strophe eines Versromans"@de;
 	rdfs:comment """Relating a strophe to a verse novel it is part of."""@en;
 	rdfs:domain prosodic-structure:Strophe;
-	rdfs:range litera:VerseNovel;
+	rdfs:range literature:VerseNovel;
 	rdfs:subPropertyOf concept:isPartOf.
 
 prosodic-structure:stropheHasIdentifier
@@ -303,7 +302,7 @@ prosodic-structure:isVerseSectionOfPoem
 	rdfs:label "is verse section of poem"@en, "ist Versabschnitt eines Gedichtes"@de;
 	rdfs:comment """Relating a verse section to a poem it is part of."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
-	rdfs:range litera:VersePoem;
+	rdfs:range literature:VersePoem;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 prosodic-structure:isVerseSectionOfVerseNovel
@@ -312,7 +311,7 @@ prosodic-structure:isVerseSectionOfVerseNovel
 	rdfs:label "is verse section of verse novel"@en, "ist Versabschnitt eines Versromans"@de;
 	rdfs:comment """Relating a verse section to a verse novel it is part of."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
-	rdfs:range litera:VerseNovel;
+	rdfs:range literature:VerseNovel;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 prosodic-structure:verseSectionHasTitle #°

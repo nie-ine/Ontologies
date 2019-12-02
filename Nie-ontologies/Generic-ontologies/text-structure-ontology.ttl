@@ -16,7 +16,6 @@
 @prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
 @prefix prosodic-structure: <http://www.nie.org/ontology/prosodic-structure#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 @prefix lingmor: <http://www.nie.org/ontology/linguistic-morphology#>.
 

@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -17,7 +16,6 @@
 @prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
 @prefix textedit: <http://www.nie.org/ontology/text-editing#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 @prefix lingmor: <http://www.nie.org/ontology/linguistic-morphology#>.
 

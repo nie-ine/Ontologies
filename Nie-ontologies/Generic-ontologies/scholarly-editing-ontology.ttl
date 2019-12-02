@@ -19,7 +19,6 @@
 @prefix textedit: <http://www.nie.org/ontology/text-editing#>.
 @prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
 @prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix litera: <http://www.nie.org/ontology/literature#>.
 @prefix ling: <http://www.nie.org/ontology/linguistics#>.
 
 # @base <http://www.nie.org/ontology/scholarly-editing>.

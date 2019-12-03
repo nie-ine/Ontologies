@@ -4,8 +4,8 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
 @prefix physical: <http://www.nie.org/ontology/physical-entity#>.
+@prefix event: <http://www.nie.org/ontology/event#>.
 
 # @base <http://www.nie.org/ontology/agent>.
 @prefix agent: <http://www.nie.org/ontology/agent#>.
@@ -26,7 +26,7 @@ agent:Agent
 	a rdfs:Class;
 	rdfs:isDefinedBy <http://www.nie.org/ontology/agent#>;
 	rdfs:label "agent"@en, "Agent"@de;
-	rdfs:comment """Something performing in action."""@en;
+	rdfs:comment """Something performing in an action."""@en;
 	rdfs:subClassOf foaf:Agent, physical:Entity.
 
 agent:Group

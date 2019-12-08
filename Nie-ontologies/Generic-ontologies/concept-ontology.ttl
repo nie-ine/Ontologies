@@ -160,6 +160,31 @@ concept:isPartOf
 	rdfs:range concept:ConceptualEntity;
 	rdfs:subPropertyOf cidoc:P106i_forms_part_of.
 
+concept:hasSymbolicEntity
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a owl:ObjectProperty;
+	rdfs:label "has symbolic entity"@en, "hat symbolische Entität"@de;
+	rdfs:comment "Relating something to a symbolic entity."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range concept:SymbolicEntity.
+
+concept:symbolicEntityHasLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "symbolic entity has literal"@en, "symbolische Entität hat Literale"@de;
+	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
+	rdfs:domain concept:SymbolicEntity;
+	rdfs:range rdfs:Literal.
+
+concept:hasLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has literal"@en, "hat Literale"@de;
+	rdfs:comment """Relating something to the literal of a symbolic entity that the literal expresses."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	owl:propertyChainAxiom (concept:hasSymbolicEntity concept:symbolicEntityHasLiteral).
+
 concept:hasIdentifier
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
 	a owl:ObjectProperty;
@@ -176,13 +201,7 @@ concept:hasCode
 	rdfs:domain rdfs:Resource;
 	rdfs:range concept:Code.
 
-concept:hasLiteral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has literal"@en, "hat Literale"@de;
-	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
-	rdfs:domain concept:SymbolicEntity;
-	rdfs:range rdfs:Literal.
+# frbroo:R3_is_realised_in: more general: rdfs:domain frbroo:F1_Work; rdfs:range frbroo:F22_Self-Contained_Expression
 
 concept:isExpressedIn
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
@@ -209,8 +228,6 @@ concept:informationHasSubjectDescription
 	rdfs:domain concept:Information;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription.
-
-# frbroo:R3_is_realised_in: more general: frbroo:F1_Work - frbroo:F22_Self-Contained_Expression
 
 concept:hasEncoder
 	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;

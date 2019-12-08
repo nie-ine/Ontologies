@@ -84,13 +84,6 @@ physical:Place
 
 # physical:PlaceName SCO cidoc:E44_Place_Appellation
 
-physical:EarthPlace
-	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
-	a rdfs:Class;
-	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
-	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
-	rdfs:subClassOf physical:Place.
-
 # phygeo:hasAltitude
 
 physical:Point

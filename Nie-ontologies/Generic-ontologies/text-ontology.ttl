@@ -173,19 +173,26 @@ text:OrganizationCiter
 	rdfs:comment """Citer as role of an organization."""@en;
 	rdfs:subClassOf text:AgentCiter, org:Role.
 
+text:CitationReference
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
+	a rdfs:Class;
+	rdfs:label "citation reference"@en, "Zitatreferenz"@de;
+	rdfs:comment """Reference of a text to a citation thereof via the citation identifier."""@en;
+	rdfs:subClassOf document:TextStructureReference.
+
 text:Citation
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation"@en, "Zitat"@de, "citation"@fr, "citazione"@it;
 	rdfs:comment """Copy of a text expression, mostly a part of it, in another text expression, with reference to the first expression."""@en;
-	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the source reference and the citation."""@en;
+	skos:note """A citation can also be referred to from the source text, having an identifier linked to both the citation reference of the source and the citation."""@en;
 	rdfs:subClassOf text:CopiedText, text-structure:ContentStructure.
 
-text:CitationReference
+text:CitationSourceReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "citation reference"@en, "Zitatreferenz"@de;
-	rdfs:comment """Reference of a citation to the referred."""@en;
+	rdfs:label "citation source reference"@en, "Zitatquellereferenz"@de;
+	rdfs:comment """Reference of a citation to the source text."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 text:CitationIdentifier
@@ -408,7 +415,8 @@ text:hasCitation
 	rdfs:label "has citation"@en, "hat Zitat"@de;
 	rdfs:comment "Relating a text to a citation thereof."@en;
 	rdfs:domain text:Text;
-	rdfs:range text:Citation.
+	rdfs:range text:Citation;
+	owl:propertyChainAxiom (text:hasCitationReference text:hasCitationIdentifier text:isIdentifierOfCitation).
 
 text:hasCitationReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
@@ -418,13 +426,23 @@ text:hasCitationReference
 	rdfs:domain text:Text;
 	rdfs:range text:CitationReference.
 
+text:hasCitationIdentifier
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "has citation identifier"@en, "hat Zitatidentifikator"@de;
+	rdfs:comment """Relating a citation reference to its citation identifier."""@en;
+	rdfs:domain text:CitationReference;
+	rdfs:range text:CitationIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
 text:isCitedIn
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "is cited in"@en, "ist zitiert in"@de;
 	rdfs:comment "Relating a text to an expression wherein it is cited."@en;
 	rdfs:domain text:Text;
-	rdfs:range document:Expression.
+	rdfs:range text-expression:Expression;
+	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
 
 text:hasEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
@@ -442,13 +460,13 @@ text:hasHandwriter
 	rdfs:domain text:HandwrittenText;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Handwriter]].
 
-text:citationHasReference
+text:citationHasSourceReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "citation has reference"@en, "Zitat hat Referenz"@de;
-	rdfs:comment """Relating a citation to its reference."""@en;
+	rdfs:label "citation has source reference"@en, "Zitat hat Quellereferenz"@de;
+	rdfs:comment """Relating a citation to its source reference."""@en;
 	rdfs:domain text:Citation;
-	rdfs:range document:TextStructureReference;
+	rdfs:range text:CitationSourceReference;
 	rdfs:subPropertyOf document:hasTextReference.
 
 text:citationHasIdentifier
@@ -457,8 +475,17 @@ text:citationHasIdentifier
 	rdfs:label "citation has identifier"@en, "Zitat hat Identifikator"@de;
 	rdfs:comment """Relating a citation to its identifier."""@en;
 	rdfs:domain text:Citation;
-	rdfs:range text:CitationIdentifier.
-	# rdfs:subPropertyOf text-structure:hasIdentifier
+	rdfs:range text:CitationIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
+text:isIdentifierOfCitation
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "is identifier of citation"@en, "ist Identifikator eines Zitats"@de;
+	rdfs:comment """Relating an identifier to its citation."""@en;
+	rdfs:domain text:CitationIdentifier;
+	rdfs:range text:Citation;
+	owl:inverseOf text:citationHasIdentifier.
 
 text:citationHasNumber
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
@@ -477,15 +504,6 @@ text:citationIsPartOf
 	rdfs:domain text:Citation;
 	rdfs:range text-expression:Expression;
 	rdfs:subPropertyOf concept:isPartOf.
-
-text:hasCitationIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "has citation identifier"@en, "hat Zitatidentifikator"@de;
-	rdfs:comment """Relating a citation reference to its citation identifier."""@en;
-	rdfs:domain text:CitationReference;
-	rdfs:range text:CitationIdentifier.
-	#° rdfs:subPropertyOf
 
 text:hasRevisor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;

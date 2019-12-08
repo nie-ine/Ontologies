@@ -16,12 +16,20 @@
 	dct:title """Physical Geography"""@en;
 	dct:description """Formal description of physical geography, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Dominique Steinbach, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/World_Geodetic_System>.
 
 #
 # CLASSES
 #
+
+phygeo:EarthPlace
+	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-geography#>;
+	a rdfs:Class;
+	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
+	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
+	rdfs:subClassOf physical:Place.
 
 #
 # PROPERTIES
@@ -33,7 +41,7 @@ phygeo:hasLatitude #°
 	rdfs:label "has latitude"@en;
 	rdfs:comment """Relating a place of a point or space on the Earth's surface to a geographic coordinate specifying the north–south position of that point, based on the World Geodetic System (WGS) standard. The coordinate is expressed as the angle between the equatorial plane and the normal, for a sphere from the center, to the surface at that point."""@en;
 	skos:note """Points with the same latitude lie on a circle around the Earth parallel to its equator. There are different latitudes, depending on the abstracted shape of the earth as spherical or ellipsoid, and other aspects. The decimal value can be converted to a sexagesimal using an N3 rule stating: [decimal degrees - (decimal degrees modulus (%) 1)]° [decimal degrees % 1 x 60 - decimal degrees % 1 x 60 % 1]' + [decimal degrees % 1 * 60 % 1 * 60]''"""@en;
-	rdfs:domain physical:EarthPlace;
+	rdfs:domain phygeo:EarthPlace;
 	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf geo:lat.
 
@@ -43,7 +51,7 @@ phygeo:hasLongitude #°
 	rdfs:label "has longitude"@en;
 	rdfs:comment """Relating a place of a point or space on the Earth's surface to a geographic coordinate specifying the east-west position of that point, based on the World Geodetic System (WGS) standard. The coordinate is expressed as the angle in the equatorial plane between a meridian plane containing the surface point and a by convention allocated prime meridian plane at 0 degrees longitude. The IERS Reference Meridian is used here as prime meridian."""@en;
 	skos:note """Points with the same longitude lie on a meridian or semi-circle between the poles. There are different longitudes, depending on the abstracted shape of the earth as spherical or ellipsoid, and other aspects. The decimal value can be converted to a sexagesimal using an N3 rule stating: [decimal degrees - (decimal degrees modulus (%) 1)]° [decimal degrees % 1 x 60 - decimal degrees % 1 x 60 % 1]' + [decimal degrees % 1 * 60 % 1 * 60]''"""@en;
-	rdfs:domain physical:EarthPlace;
+	rdfs:domain phygeo:EarthPlace;
 	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf geo:long.
 

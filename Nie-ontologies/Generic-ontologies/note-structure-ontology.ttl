@@ -170,6 +170,15 @@ note-structure:endnoteHasIdentifier
 	rdfs:range note-structure:EndnoteIdentifier;
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
+note-structure:isIdentifierOfEndnote
+	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	a owl:ObjectProperty;
+	rdfs:label "is identifier of endnote"@en, "ist Identifikator einer Endnote"@de;
+	rdfs:comment """Relating an identifier to its endnote."""@en;
+	rdfs:domain note-structure:EndnoteIdentifier;
+	rdfs:range note-structure:Endnote;
+	owl:inverseOf note-structure:endnoteHasIdentifier.
+
 note-structure:endnoteHasNumber
 	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
 	a owl:ObjectProperty;

@@ -445,15 +445,6 @@ time:hasSnapshotDate
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
 
-time:hasTimeZone #° deprecated
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a time zone of something."""@en;
-	rdfs:comment """Time zone extracted from an xsd:date, xsd:dateTime or xsd:time typed literal with rif builtin functions."""@en;
-	rdfs:seeAlso <http://eulersharp.sourceforge.net/2006/02swap/rif-plugin.yap>, <http://eulersharp.sourceforge.net/2007/07test/rifP.n3>;
-	skos:note """Used in N3 rules calculating with date and duration using Unix Epoch time."""@en;
-	rdfs:range xsd:dayTimeDuration.
-
 time:dateLiteralToPeriod #° + time zone
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
@@ -502,55 +493,6 @@ time:hasEndPeriodMargin
 	a owl:ObjectProperty;
 	skos:definition """Linking an event to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it ends."""@en;
 	rdfs:domain event:Event;
-	rdfs:range rdf:List.
-
-time:hasObtainingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is obtained."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:List.
-
-time:hasPerformingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking an action to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein the action is performed."""@en;
-	rdfs:domain event:Action;
-	rdfs:range rdf:List.
-
-time:hasObservingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is observed."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:List.
-
-time:hasExaminingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is examined."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:List.
-
-time:hasEvaluatingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is evaluated."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:List.
-
-time:hasDiagnosingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is diagnosed."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range rdf:List.
-
-time:hasTreatingPeriodMargin # TRANSFER
-	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty;
-	skos:definition """Linking something to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it is treated."""@en;
-	rdfs:domain rdfs:Resource;
 	rdfs:range rdf:List.
 
 time:hasAge

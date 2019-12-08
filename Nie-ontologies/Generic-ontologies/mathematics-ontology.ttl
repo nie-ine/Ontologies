@@ -48,6 +48,13 @@ math:NaturalNumber
 	rdfs:subClassOf math:Number, [
 		a owl:Restriction; owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
 
+math:OrdinalSymbol
+	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	a rdfs:Class;
+	rdfs:label "ordinal symbol"@en, "Ordinalsymbol"@de;
+	rdfs:comment """Symbol used to order, i.e. denoting the position of something in a sequence, e.g. the letters of an alphabet with literals a to z or A to Z."""@en;
+	rdfs:subClassOf concept:Identifier.
+
 math:OrdinalNumber
 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
 	a rdfs:Class;
@@ -80,7 +87,7 @@ math:hasOrdinalSymbol
 	rdfs:label "has ordinal symbol"@en, "hat Ordinalsymbol"@de;
 	rdfs:comment """Relating something to the symbolic entity denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:SymbolicEntity.
+	rdfs:range math:OrdinalSymbol.
 
 math:hasOrdinalNumber
  	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;

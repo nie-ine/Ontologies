@@ -504,11 +504,32 @@ publish:isPartOfVolume
 	rdfs:range publish:SerialVolume;
 	rdfs:subPropertyOf physical:isPartOf.
 
-publish:hasReference #°
+publish:hasReferenceLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de;
+	rdfs:comment """Relating a publication to the literal of a bibliographic reference of the publication."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral.
+#	rdfs:subPropertyOf text:hasDescription.
+
+publish:hasReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
 	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;
 	rdfs:domain publish:Publication;
+	rdfs:range publish:Reference;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
+#
+
+publish:referenceHasLiteral # SPO concept:symbolicEntityHasLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
+	a owl:DatatypeProperty;
+	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de;
+	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
+	rdfs:domain publish:Reference;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
+#

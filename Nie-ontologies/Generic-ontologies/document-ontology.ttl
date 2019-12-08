@@ -124,14 +124,14 @@ document:FootnoteReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
-	rdfs:comment """Reference to a footnote via the footnote identifier."""@en;
+	rdfs:comment """Reference of a document content structure to a footnote via the footnote identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 document:EndnoteReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "endnote reference"@en, "Endnotereferenz"@de;
-	rdfs:comment """Reference to an endnote."""@en;
+	rdfs:comment """Reference of a document content structure to an endnote via the endnote identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 document:ExpressionReference
@@ -355,6 +355,15 @@ document:hasFootnoteReference
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:FootnoteReference;
 	rdfs:subPropertyOf document:hasTextReference.
+
+document:hasEndnote
+	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;
+	a owl:ObjectProperty;
+	rdfs:label "has endnote"@en, "hat Endnote"@de;
+	rdfs:comment """Relating a document content structure to an endnote it has."""@en;
+	rdfs:domain document:ContentStructure;
+	rdfs:range document:Endnote;
+	owl:propertyChainAxiom (document:hasEndnoteReference document:hasEndnoteIdentifier note-structure:isIdentifierOfEndnote).
 
 document:hasEndnoteReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/document#>;

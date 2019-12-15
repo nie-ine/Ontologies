@@ -36,12 +36,26 @@
 # CLASSES
 #
 
-textedit:Editor
+textedit:AgentEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text editor"@en, "Text-Editor"@de;
+	rdfs:comment """Role of a human agent—person or organization—changing a text."""@en;
+	rdfs:subClassOf creating:AgentCreator.
+
+textedit:PersonEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
+	a rdfs:Class;
+	rdfs:label "person-text editor"@en, "Person-Text-Editor"@de;
 	rdfs:comment """Role of a person changing a text."""@en;
 	rdfs:subClassOf creating:PersonCreator.
+
+textedit:OrganizationEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
+	a rdfs:Class;
+	rdfs:label "organization-text editor"@en, "Organisation-Text-Editor"@de;
+	rdfs:comment """Role of an organization changing a text."""@en;
+	rdfs:subClassOf org:Creator.
 
 textedit:Edition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
@@ -55,7 +69,7 @@ textedit:Revisor
 	a rdfs:Class;
 	rdfs:label "text revisor"@en, "Text-Revisor"@de;
 	rdfs:comment """Role of a person revising a text."""@en;
-	rdfs:subClassOf textedit:Editor.
+	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Revision
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
@@ -77,21 +91,21 @@ textedit:Annotator
 	a rdfs:Class;
 	rdfs:label "annotator"@en, "Annotator"@de, "annotator"@la;
 	rdfs:comment """Role of a person adding notes *annotations* to a text, creating an annotated edition."""@en;
-	rdfs:subClassOf textedit:Editor.
+	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Glossator
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "glossator"@en, "Glossator"@de, "glossator"@la;
 	rdfs:comment """Role of a person adding glosses to a text."""@en;
-	rdfs:subClassOf textedit:Editor.
+	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Abbreviator
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la;
 	rdfs:comment """Editor shortening a text."""@en;
-	rdfs:subClassOf textedit:Editor.
+	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Abbreviation # derivative, depending on extent?
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
@@ -137,9 +151,9 @@ textedit:hasEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "edition has editor"@en, "Edition hat Editor"@de;
-	rdfs:comment """Relating an edition to a person who created it."""@en;
+	rdfs:comment """Relating an edition to a human agent—person or organization—that created it."""@en;
 	rdfs:domain textedit:Edition;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]].
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom textedit:AgentEditor]].
 
 textedit:hasEdition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-editing#>;

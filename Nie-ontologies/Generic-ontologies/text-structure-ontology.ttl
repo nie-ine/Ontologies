@@ -44,7 +44,7 @@ text-structure:Structure
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
-	rdfs:comment """Text as structure abstracted from its carrier, e.g. a word, sentence, text line, paragraph, section, verse, strophe."""@en;
+	rdfs:comment """Text as structure abstracted from its carrier, e.g. a word, sentence, text line, paragraph, section, verse, strophe, citation."""@en;
 	skos:note """Making up a text expression, without necessarily being one itself."""@en;
 	rdfs:subClassOf text:Text, document:ContentStructure.
 

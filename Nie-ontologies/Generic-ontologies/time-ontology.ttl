@@ -543,3 +543,12 @@ time:beginsSameAsEndOf
 	owl:inverseOf time:endsSameAsBeginningOf;
 	rdfs:domain event:Event;
 	rdfs:range event:Event.
+
+# time:hasTimeZone
+#	a owl:DatatypeProperty, owl:FunctionalProperty;
+#	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+#	skos:definition """Specifying a time zone of something."""@en;
+#	rdfs:comment """Time zone extracted from an xsd:date, xsd:dateTime or xsd:time typed literal with rif builtin functions."""@en;
+#	rdfs:seeAlso <http://eulersharp.sourceforge.net/2006/02swap/rif-plugin.yap>, <http://eulersharp.sourceforge.net/2007/07test/rifP.n3>;
+#	skos:note """Used in N3 rules calculating with date and duration using Unix Epoch time."""@en;
+#	rdfs:range xsd:dayTimeDuration.

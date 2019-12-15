@@ -44,20 +44,27 @@ scholarly-editing:EditionScientist
 	rdfs:comment """Role of a person practicing edition science."""@en;
 	rdfs:subClassOf human:Scientist.
 
-scholarly-editing:Editor
+scholarly-editing:AgentEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly editor"@en, "wissenschaftliche Editor"@de, "éditeur scientifique"@fr;
-	rdfs:comment """Role of a person editing a text expression scientifically."""@en; #°
+	rdfs:comment """Role of a human agent—person or organization—editing a text expression scientifically."""@en;
+	rdfs:subClassOf textedit:AgentEditor.
+
+scholarly-editing:PersonEditor
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
+	a rdfs:Class;
+	rdfs:label "scholarly person-editor"@en, "wissenschaftliche Person-Editor"@de, "éditeur personnel scientifique"@fr;
+	rdfs:comment """Role of a person editing a text expression scientifically."""@en;
 	skos:note """Different from an editor of scientific literature, who is not necessarily a scientist."""@en;
-	rdfs:subClassOf textedit:Editor, scholarly-editing:EditionScientist.
+	rdfs:subClassOf textedit:PersonEditor, scholarly-editing:EditionScientist.
 
 scholarly-editing:OrganizationEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
-	rdfs:subClassOf org:Creator.
+	rdfs:subClassOf textedit:OrganizationEditor.
 
 scholarly-editing:Edition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
@@ -328,8 +335,8 @@ scholarly-editing:hasEditor
 	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftliche Editor"@de;
 	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
 	rdfs:domain scholarly-editing:Edition;
-	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom textedit:ScholarlyEditor]].
-	# textedit:hasEditor
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom scholarly-editing:AgentEditor]].
+	# rdfs:subPropertyOf textedit:hasEditor
 
 scholarly-editing:isPageOfEdition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;

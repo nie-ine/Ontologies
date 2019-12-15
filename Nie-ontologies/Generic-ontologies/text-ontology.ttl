@@ -192,7 +192,7 @@ text:CitationSourceReference
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "citation source reference"@en, "Zitatquellereferenz"@de;
-	rdfs:comment """Reference of a citation to the source text."""@en;
+	rdfs:comment """Reference of a citation to the source text via the text identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 text:CitationIdentifier
@@ -393,14 +393,6 @@ text:hasTranscriber
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]].
 
-text:hasVulgarizer
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "text has vulgarizer"@en, "Text hat VulgarisatorIn"@de;
-	rdfs:comment """Relating a text to a person who vulgarized it."""@en;
-	rdfs:domain text:Text;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Vulgarizer]].
-
 text:hasCiter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text#>;
 	a owl:ObjectProperty;
@@ -414,7 +406,7 @@ text:hasCitation
 	a owl:ObjectProperty;
 	rdfs:label "has citation"@en, "hat Zitat"@de;
 	rdfs:comment "Relating a text to a citation thereof."@en;
-	rdfs:domain text:Text;
+	rdfs:domain text-structure:Structure;
 	rdfs:range text:Citation;
 	owl:propertyChainAxiom (text:hasCitationReference text:hasCitationIdentifier text:isIdentifierOfCitation).
 
@@ -423,7 +415,7 @@ text:hasCitationReference
 	a owl:ObjectProperty;
 	rdfs:label "has citation reference"@en, "hat Zitatreferenz"@de;
 	rdfs:comment "Relating a text to a citation reference thereof."@en;
-	rdfs:domain text:Text;
+	rdfs:domain text-structure:Structure;
 	rdfs:range text:CitationReference.
 
 text:hasCitationIdentifier
@@ -440,7 +432,7 @@ text:isCitedIn
 	a owl:ObjectProperty;
 	rdfs:label "is cited in"@en, "ist zitiert in"@de;
 	rdfs:comment "Relating a text to an expression wherein it is cited."@en;
-	rdfs:domain text:Text;
+	rdfs:domain text-structure:Structure;
 	rdfs:range text-expression:Expression;
 	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
 

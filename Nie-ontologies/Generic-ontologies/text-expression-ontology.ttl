@@ -110,6 +110,14 @@ text-expression:Author
 	skos:note """Often an author is also the creator of a text expression."""@en;
 	rdfs:subClassOf creating:Author.
 
+# person author
+
+# corporate author
+
+# attributed author
+
+# suppositious author
+
 text-expression:MainAuthor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
 	a rdfs:Class;
@@ -142,7 +150,7 @@ text-expression:Vulgarizer
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
 	a rdfs:Class;
 	rdfs:label "text vulgarizer"@en, "Text-VulgarisatorIn"@de, "vulgarisat-eur/rice du texte"@fr;
-	rdfs:comment """Role of a person vulgarizing a text, e.g. a scientific one, or creating one using vulgarizing terminology."""@en;
+	rdfs:comment """Role of a person vulgarizing a text expression, e.g. a scientific one, or creating one using vulgarizing terminology."""@en;
 	rdfs:subClassOf human:Vulgarizer.
 
 text-expression:SentenceExpression
@@ -329,6 +337,14 @@ text-expression:hasMainAuthor
 	rdfs:comment """Relating a poly-author text expression to its main author."""@en;
 	rdfs:domain text-expression:PolyAuthorExpression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:MainAuthor]].
+
+text-expression:hasVulgarizer
+	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;
+	a owl:ObjectProperty;
+	rdfs:label "text expression has vulgarizer"@en, "Textexpression hat VulgarisatorIn"@de;
+	rdfs:comment """Relating a text expression to a person who vulgarized it."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Vulgarizer]].
 
 text-expression:isPartOfExpression
 	rdfs:isDefinedBy <http://www.nie.org/ontology/text-expression#>;

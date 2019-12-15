@@ -107,7 +107,7 @@ literature:DescriptivePoetry
 literature:ScientificPoetry
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "scientific poetry"@en, "wissenschaftliche Poetik"@de;
+	rdfs:label "scientific poetry"@en, "wissenschaftliche Poetik"@de, "poésie scientifique"@fr;
 	rdfs:comment """Poetry expressed in a scientific description."""@en;
 	rdfs:subClassOf literature:DescriptivePoetry.
 
@@ -207,10 +207,10 @@ literature:ProsePoem
 literature:VerseNovel
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "verse novel"@en, "Versroman"@de; #* Versepos
+	rdfs:label "verse novel"@en, "Versroman"@de;
+#	ling:hasSynonym "Versepos"@de;
 	rdfs:comment """Narrative fiction expression in verse - possibly partially - and with novel-length, wherein character development and plot are more important than poetry."""@en;
 	rdfs:subClassOf literature:Expression, [
-		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Fiction], [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Narrative].
 
 literature:Novel
@@ -323,7 +323,15 @@ literature:hasGenre
 	rdfs:domain literature:Expression;
 	rdfs:range literature:Literature.
 
-literature:hasExpression
+literature:hasPoetry
+	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
+	a owl:ObjectProperty;
+	rdfs:label "has poetry"@en, "hat Poetik"@de;
+	rdfs:comment """Relating a poem to its kind of poetry."""@en;
+	rdfs:domain literature:Poem;
+	rdfs:range literature:Poetry.
+
+literature:anthologyHasExpression
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has expression"@en, "hat Expression"@de;

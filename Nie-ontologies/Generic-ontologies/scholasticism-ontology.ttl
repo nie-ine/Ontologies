@@ -75,7 +75,7 @@ schola:ProceduralCommentary
 	rdfs:label "procedural scholastic commentary"@en, "prozeduraler scholastischer Kommentar"@de;
 	rdfs:comment """Scholastic commentary as result of a creation procedure."""@en;
 	rdfs:subClassOf schola:Commentary;
-	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
+	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
 
 schola:CommentingProcedure
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholasticism#>;

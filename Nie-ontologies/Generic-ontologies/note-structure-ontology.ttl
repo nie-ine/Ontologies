@@ -183,7 +183,16 @@ note-structure:endnoteHasNumber
 	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "endnote has number"@en, "Endnote hat Nummer"@de;
-	rdfs:comment """Relating an endnote to a number (as resource) it has."""@en;
+	rdfs:comment """Relating an endnote to its number."""@en;
 	rdfs:domain note-structure:Endnote;
 	rdfs:range note-structure:EndnoteNumber;
 	rdfs:subPropertyOf note-structure:endnoteHasIdentifier.
+
+note-structure:isNumberOfEndnote
+	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	a owl:ObjectProperty;
+	rdfs:label "is number of endnote"@en, "ist Nummer einer Endnote"@de;
+	rdfs:comment """Relating a number to its endnote."""@en;
+	rdfs:domain note-structure:EndnoteNumber;
+	rdfs:range note-structure:Endnote;
+	owl:inverseOf note-structure:endnoteHasNumber.

@@ -82,11 +82,27 @@ languages:iso639-3Datatype
 # LANGUAGE INSTANCES
 #
 
+languages:BaselGerman
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
+	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
+	rdfs:subClassOf language:SwissGerman.
+
+languages:Dutch
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Dutch"@en, "Niederländisch"@de, "Néerlandais"@fr, "olandese"@it, "Nederlands"@nl;
+	rdfs:comment """The language developed and spoken in The Netherlands as the official language, and in the Flemish part of Belgium as one of the 3 official languages, and spoken in other parts of the world: in Suriname, Aruba, Curaçao, and Sint Maarten as official language; France, Germany, Indonesia, United States, Canada and Australia. It is also an official language of the European Union."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "nl"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "dut"^^languages:iso639-2Datatype].
+
 languages:English
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "English"@en, "Englisch"@de, "anglais"@fr, "inglese"@it;
-	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world."""@en;
+	rdfs:label "English"@en, "Englisch"@de, "Anglais"@fr, "inglese"@it;
+	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "en"^^languages:iso639-1Datatype];
 	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "eng"^^languages:iso639-2Datatype].
@@ -94,8 +110,8 @@ languages:English
 languages:French
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "French"@en, "Französisch"@de, "français"@fr, "francese"@it;
-	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world."""@en;
+	rdfs:label "French"@en, "Französisch"@de, "Français"@fr, "francese"@it;
+	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "fr"^^languages:iso639-1Datatype];
 	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "fre"^^languages:iso639-2Datatype, "fra"^^languages:iso639-2Datatype].
@@ -103,35 +119,66 @@ languages:French
 languages:German
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "German"@en, "Deutsch"@de, "allemand"@fr, "tedesco"@it;
-	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world."""@en;
+	rdfs:label "German"@en, "Deutsch"@de, "Allemand"@fr, "tedesco"@it;
+	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "de"^^languages:iso639-1Datatype];
 	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "ger"^^languages:iso639-2Datatype, "deu"^^languages:iso639-2Datatype].
 
+languages:Hungarian
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Hungarian"@en, "Ungarisch"@de, "Hongrois"@fr, "ungherese"@it;
+	rdfs:comment """The language developed and spoken in Hungary, and parts of several neighbouring countries, and an official language of the European Union."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "hu"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "hun"^^languages:iso639-2Datatype].
+
 languages:Italian
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "Italian"@en, "Italienisch"@de, "italien"@fr, "italiana"@it;
-	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world."""@en;
+	rdfs:label "Italian"@en, "Italienisch"@de, "Italien"@fr, "italiana"@it;
+	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "it"^^languages:iso639-1Datatype];
 	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "ita"^^languages:iso639-2Datatype].
 
-languages:SwissGerman
+languages:Latin
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
-	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
-		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].
+	rdfs:label "Latin"@en, "Latein"@de, "Latin"@fr, "latino"@it;
+	rdfs:comment """The language developed and spoken originally in Latium (the area around Rome), subsequently in Italy as the dominant language, and in the western Roman Empire. Classical language belonging to the Italic branch of the Indo-European languages. The largest organisation retaining Latin in official and quasi-official contexts is the Catholic Church."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "la"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "lat"^^languages:iso639-2Datatype].
 
-languages:BaselGerman
+languages:Polish
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
 	a rdfs:Class;
-	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
-	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
-	rdfs:subClassOf language:SwissGerman.
+	rdfs:label "Polish"@en, "Polnisch"@de, "polonais"@fr, "Polacco"@it, "Polski"@pl;
+	rdfs:comment """The language developed and spoken in Poland. It is also an official language of the European Union."""@en; #°
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "pl"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "pol"^^languages:iso639-2Datatype].
+
+languages:Portuguese
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Portuguese"@en, "Portugiesisch"@de, "Portugais"@fr, "portoghese"@it;
+	rdfs:comment """The language developed and spoken in Portugal. It is also an official language of the European Union."""@en; #°
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "pt"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "por"^^languages:iso639-2Datatype].
+
+languages:Russian
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Russian"@en, "Russisch"@de, "Russe"@fr, "russo"@it;
+	rdfs:comment """The language developed and spoken in Russia."""@en; #°
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "ru"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "rus"^^languages:iso639-2Datatype].
+
 
 languages:Sanskrit
 	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
@@ -141,3 +188,20 @@ languages:Sanskrit
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "sa"^^languages:iso639-1Datatype];
 	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "san"^^languages:iso639-2Datatype].
+
+languages:Spanish
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Spanish"@en, "Spanisch"@de, "Espagnol"@fr, "spagnola"@it;
+	rdfs:comment """The language developed and spoken in Spain."""@en; #°
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
+	language:hasCode [language:codeHasSystem languages:iso639-1System; language:codeHasValue "sa"^^languages:iso639-1Datatype];
+	language:hasCode [language:codeHasSystem languages:iso639-2System; language:codeHasValue "san"^^languages:iso639-2Datatype].
+
+languages:SwissGerman
+	rdfs:isDefinedBy <http://www.nie.org/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
+	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
+	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
+		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].

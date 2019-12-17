@@ -321,7 +321,8 @@ literature:hasGenre
 	rdfs:label "has literary genre"@en, "hat literarische Gattung"@de;
 	rdfs:comment """Relating a literary expression to a genre it has."""@en;
 	rdfs:domain literature:Expression;
-	rdfs:range literature:Literature.
+	rdfs:range literature:Literature;
+	rdfs:subPropertyOf text:hasContentNature.
 
 literature:hasPoetry
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;

@@ -155,7 +155,7 @@ publish:ElectronicPublication
 publish:WebPublication
 	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "web publication"@en, "Web-Publikation"@de;
+	rdfs:label "web publication"@en, "Web-Publikation"@de, "publication Web"@fr;
 	rdfs:comment """Publication as Web page."""@en;
 	rdfs:subClassOf publish:ElectronicPublication, infocar:WebPage.
 

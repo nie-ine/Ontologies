@@ -31,6 +31,7 @@
 	dct:description """Formal description of scientific editing, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Prof. Dr. Hugues Marchal, French Linguistics and Literary Studies, Department of Languages and Literatures, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #
@@ -57,14 +58,14 @@ scholarly-editing:PersonEditor
 	rdfs:label "scholarly person-editor"@en, "wissenschaftliche Person-Editor"@de, "éditeur personnel scientifique"@fr;
 	rdfs:comment """Role of a person editing a text expression scientifically."""@en;
 	skos:note """Different from an editor of scientific literature, who is not necessarily a scientist."""@en;
-	rdfs:subClassOf textedit:PersonEditor, scholarly-editing:EditionScientist.
+	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:PersonEditor, scholarly-editing:EditionScientist.
 
 scholarly-editing:OrganizationEditor
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
-	rdfs:subClassOf textedit:OrganizationEditor.
+	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:OrganizationEditor.
 
 scholarly-editing:Edition
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
@@ -107,6 +108,14 @@ scholarly-editing:ColumnIndicator
 	rdfs:label "column indicator"@en, "Spalteindikator"@de;
 	rdfs:comment """Editorial symbol indicating a textual property of the original text."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
+
+scholarly-editing:InverseEdition
+	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;
+	a rdfs:Class;
+	rdfs:label "inverse scholarly edition"@en, "inverse wissenschaftliche Edition"@de;
+	rdfs:comment """Scholarly edition studying a reference of a source."""@en;
+	skos:note """E.g. a scientific edition about a poem studying the citations of verses of the poem in contemporary publications."""@en;
+	rdfs:subClassOf scholarly-editing:Edition.
 
 scholarly-editing:DiplomaticTranscription
 	rdfs:isDefinedBy <http://www.nie.org/ontology/scholarly-editing#>;

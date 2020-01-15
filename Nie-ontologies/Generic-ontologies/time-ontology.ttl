@@ -32,93 +32,137 @@
 
 time:hasStartDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its start date time."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its start date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasEarliestStartDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its N3-rule-calculated earliest possible start date time, based on a set maximum event duration, in absence of the start date time."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its N3-rule-calculated earliest possible start date time, based on a set maximum event duration, in absence of the start date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasStartDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its start date."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its start date."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
 
 time:hasEndDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its end date time."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its end date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasLatestEndDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its N3-rule-calculated latest possible end date time, based on a set maximum event duration, in absence of the end date time."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its N3-rule-calculated latest possible end date time, based on a set maximum event duration, in absence of the end date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasEndDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Relating an event to its end date."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Relating an event to its end date."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
 
 time:hasDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a point in time of something with a date time."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Specifying a point in time of something with a date time."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:dateTime.
 
 time:hasDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a date of something."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has date"@en;
+	rdfs:comment """Relating something to its date."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:date.
 
 time:hasOutputDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a date time at which a process has an output."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has output date-time"@en;
+	rdfs:comment """Relating a process to its output date-time."""@en;
 	rdfs:domain event:Process;
 	rdfs:range xsd:dateTime.
 
+time:hasYearLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has year literal"@en;
+	rdfs:comment """Relating something to its year represented by an integer."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range xsd:integer.
+
+time:hasYearMonthLiteralList
+	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has year-month literal list"@en;
+	rdfs:comment """Relating something to its year-month represented by a list of 2 integers."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdf:List.
+
+time:hasDateLiteralList
+	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has date literal list"@en;
+	rdfs:comment """Relating something to its date represented by a list of 3 integers."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdf:List.
+
+time:hasYearPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has year period"@en;
+	rdfs:comment """Relating something to its year period."""@en;
+	skos:note """Used in an N3-rule to convert a calendar-specific year to a period of that year in that calendar with the start and end date represented by a list of 3 integers."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range event:Event.
+
+time:hasMonthPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
+	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	rdfs:label "has month period"@en;
+	rdfs:comment """Relating something to its month period."""@en;
+	skos:note """Used in an N3-rule to convert a calendar-specific year-month to a period of that month in that calendar with the start and end date represented by a list of 3 integers."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range event:Event.
+
 time:hasDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a duration of an event."""@en;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	rdfs:comment """Specifying a duration of an event."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:duration.
 
 time:hasMaxDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
+	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
 	rdfs:label "has maximum duration"@en, "hat maximale Dauer"@de;
-	skos:definition """Relating an event to its maximum duration."""@en;
+	rdfs:comment """Relating an event to its maximum duration."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:duration.
 
 time:hasDurationDescription
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a duration description for a temporal entity of something."""@en;
+	a owl:DatatypeProperty;
+	rdfs:comment """Specifying a duration description for a temporal entity of something."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Resource. #any temporal descriptive URI
+	rdfs:range rdfs:Literal. # any temporal descriptive URI
 
 time:calculatingDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:DatatypeProperty;
-	skos:definition """Relating an event to its calculated duration."""@en;
+	rdfs:comment """Relating an event to its calculated duration."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule calculating an event's duration in premise and returning the duration."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:duration.
@@ -126,7 +170,7 @@ time:calculatingDuration
 time:timeRelatedTo
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Relating 2 events in time."""@en;
+	rdfs:comment """Relating 2 events in time."""@en;
 	owl:oneOf (time:beginsBefore time:beginsBeforeEndOf time:hasSameBeginningAs time:beginsDuring time:beginsAfter time:endsBefore time:hasSameEndAs time:endsDuring time:endsAfter time:before time:after time:overlaps time:hasSameTimeAs time:during time:includes time:hasSameDurationAs time:takesLongerThan time:takesLessLongThan);
 	rdfs:domain event:Event;
 	rdfs:range event:Event.
@@ -134,7 +178,7 @@ time:timeRelatedTo
 time:beginsBefore
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking an earlier beginning to a later beginning event."""@en;
+	rdfs:comment """Linking an earlier beginning to a later beginning event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -143,7 +187,7 @@ time:beginsBefore
 time:calculatingBeginsBefore
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event begins before second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event begins before second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -151,7 +195,7 @@ time:calculatingBeginsBefore
 time:beginsBeforeEndOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking a beginning event to a later ending of another event."""@en;
+	rdfs:comment """Linking a beginning event to a later ending of another event."""@en;
 	skos:note """Used in an N3 rule conclusion."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:propertyChainAxiom (time:beginsDuring time:endsBefore);
@@ -161,7 +205,7 @@ time:beginsBeforeEndOf
 time:endsAfterBeginningOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking an ending event to an earlier beginning of another event."""@en;
+	rdfs:comment """Linking an ending event to an earlier beginning of another event."""@en;
 	skos:note """Used in an N3 rule conclusion."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:propertyChainAxiom (time:endsDuring time:beginsAfter);
@@ -171,7 +215,7 @@ time:endsAfterBeginningOf
 time:hasSameBeginningAs	#	to be varied with accuracy setting, e.g. year, month, weak, day, hour, minute, second
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:SymmetricProperty;
-	skos:definition """Linking 2 events beginning on the same moment."""@en;
+	rdfs:comment """Linking 2 events beginning on the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -180,7 +224,7 @@ time:hasSameBeginningAs	#	to be varied with accuracy setting, e.g. year, month, 
 time:calculatingSameBeginning #	to be varied with accuracy setting, e.g. year, month, weak, day, hour, minute, second
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and events beginning at a same time-point."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events beginning at a same time-point."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -188,7 +232,7 @@ time:calculatingSameBeginning #	to be varied with accuracy setting, e.g. year, m
 time:beginsDuring
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Specifying an event during which another event begins."""@en;
+	rdfs:comment """Specifying an event during which another event begins."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
 	rdfs:range event:Event.
@@ -196,7 +240,7 @@ time:beginsDuring
 time:beginsAfter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a later beginning to an earlier beginning event."""@en;
+	rdfs:comment """Linking a later beginning to an earlier beginning event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:beginsBefore;
@@ -206,7 +250,7 @@ time:beginsAfter
 time:calculatingBeginsAfter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event begins after second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event begins after second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -214,7 +258,7 @@ time:calculatingBeginsAfter
 time:endsBefore
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking an earlier ending to a later ending event."""@en;
+	rdfs:comment """Linking an earlier ending to a later ending event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -223,7 +267,7 @@ time:endsBefore
 time:calculatingEndsBefore
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event ends before second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event ends before second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -231,7 +275,7 @@ time:calculatingEndsBefore
 time:hasSameEndAs	#	to be redeclared with accuracy setting, e.g. year, month, weak, day, hour, minute, second
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:SymmetricProperty;
-	skos:definition """Linking 2 events ending on the same moment."""@en;
+	rdfs:comment """Linking 2 events ending on the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -240,7 +284,7 @@ time:hasSameEndAs	#	to be redeclared with accuracy setting, e.g. year, month, we
 time:calculatingSameEnd
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and events ending at a same time-point."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events ending at a same time-point."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -248,7 +292,7 @@ time:calculatingSameEnd
 time:endsDuring
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Specifying an event during which another event ends."""@en;
+	rdfs:comment """Specifying an event during which another event ends."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
 	rdfs:range event:Event.
@@ -256,7 +300,7 @@ time:endsDuring
 time:endsAfter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a later ending to an earlier ending event."""@en;
+	rdfs:comment """Linking a later ending to an earlier ending event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:endsBefore;
@@ -266,7 +310,7 @@ time:endsAfter
 time:calculatingEndsAfter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event ends after second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event ends after second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -274,7 +318,7 @@ time:calculatingEndsAfter
 time:before
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking an earlier to a later event."""@en;
+	rdfs:comment """Linking an earlier to a later event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -283,7 +327,7 @@ time:before
 time:calculatingBefore
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens before second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens before second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -291,7 +335,7 @@ time:calculatingBefore
 time:after
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a later to an earlier event."""@en;
+	rdfs:comment """Linking a later to an earlier event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:before;
@@ -301,7 +345,7 @@ time:after
 time:calculatingAfter
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens after second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens after second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -309,7 +353,7 @@ time:calculatingAfter
 time:overlaps
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:SymmetricProperty;
-	skos:definition """Specifying an event overlapping another event."""@en;
+	rdfs:comment """Specifying an event overlapping another event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -318,7 +362,7 @@ time:overlaps
 time:calculatingOverlaps
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and events overlap each other."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events overlap each other."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -326,7 +370,7 @@ time:calculatingOverlaps
 time:hasSameTimeAs	#	to be redeclared with accuracy setting, e.g. year, month, weak, day, our, minute, second
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:SymmetricProperty;
-	skos:definition """Linking 2 events happening at the same time."""@en;
+	rdfs:comment """Linking 2 events happening at the same time."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -335,7 +379,7 @@ time:hasSameTimeAs	#	to be redeclared with accuracy setting, e.g. year, month, w
 time:calculatingSameTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and events happen during same time."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events happen during same time."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -343,7 +387,7 @@ time:calculatingSameTime
 time:during
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Specifying an event during which another event happens."""@en;
+	rdfs:comment """Specifying an event during which another event happens."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -352,7 +396,7 @@ time:during
 time:calculatingDuring
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens during second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens during second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -360,7 +404,7 @@ time:calculatingDuring
 time:includes
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Specifying an event happening during another event."""@en;
+	rdfs:comment """Specifying an event happening during another event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:during;
@@ -370,7 +414,7 @@ time:includes
 time:calculatingIncludes
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event includes second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event includes second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -378,7 +422,7 @@ time:calculatingIncludes
 time:hasSameDurationAs # to be redeclared with accuracy setting, e.g. year, month, weak, day, our, minute, second
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:SymmetricProperty;
-	skos:definition """Linking 2 events having the same duration."""@en;
+	rdfs:comment """Linking 2 events having the same duration."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -387,7 +431,7 @@ time:hasSameDurationAs # to be redeclared with accuracy setting, e.g. year, mont
 time:calculatingSameDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and events having same duration."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events having same duration."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -395,7 +439,7 @@ time:calculatingSameDuration
 time:takesLongerThan
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a longer to a shorter event."""@en;
+	rdfs:comment """Linking a longer to a shorter event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -404,7 +448,7 @@ time:takesLongerThan
 time:calculatingTakesLongerThan
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes longer than second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes longer than second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
@@ -412,7 +456,7 @@ time:calculatingTakesLongerThan
 time:takesLessLongThan
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a shorter to a longer event."""@en;
+	rdfs:comment """Linking a shorter to a longer event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:takesLongerThan;
@@ -422,15 +466,15 @@ time:takesLessLongThan
 time:calculatingTakesLessLongThan
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes less long than second."""@en;
+	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes less long than second."""@en;
 	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
 time:hasSnapshotDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a snapshot event's date and time."""@en;
+	a owl:DatatypeProperty; #, owl:FunctionalProperty;
+	rdfs:comment """Specifying a snapshot event's date and time."""@en;
 	rdfs:comment """A snapshot is an event with coinciding beginning and end."""@en;
 	skos:note """Used in N3 rules calculating with date time and duration using Unix Epoch time."""@en;
 	rdfs:domain event:Event;
@@ -438,8 +482,8 @@ time:hasSnapshotDateTime
 
 time:hasSnapshotDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Specifying a snapshot event's date."""@en;
+	a owl:DatatypeProperty; #, owl:FunctionalProperty;
+	rdfs:comment """Specifying a snapshot event's date."""@en;
 	rdfs:comment """A snapshot is an event with coinciding beginning and end."""@en;
 	skos:note """Used in N3 rules calculating with date and duration using Unix Epoch time."""@en;
 	rdfs:domain event:Event;
@@ -448,7 +492,7 @@ time:hasSnapshotDate
 time:dateLiteralToPeriod #° + time zone
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking a list with 3 literals, resp representing number of years, number of months and number of days, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
+	rdfs:comment """Linking a list with 3 literals, resp representing number of years, number of months and number of days, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
 	rdfs:comment """Used in an N3 rule triple to invoke a backward N3 rule converting a date described by 3 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a day margin."""@en;
 	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral ?dayLiteral) time:dateLiteralToPeriod (?beginning ?end)."""@en;
 	rdfs:domain rdf:List;
@@ -457,7 +501,7 @@ time:dateLiteralToPeriod #° + time zone
 time:yearMonthLiteralToPeriod #° + time zone
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking a list with 2 literals, resp representing number of years and number of months, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a month."""@en;
+	rdfs:comment """Linking a list with 2 literals, resp representing number of years and number of months, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a month."""@en;
 	rdfs:comment """Used in an N3 rule triple to invoke a backward N3 rule converting 2 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a month margin."""@en;
 	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral) time:yearMonthLiteralToPeriod (?beginning ?end); at runtime this will generate e.g. subject ("2010" "3") and object (."""@en;
 	rdfs:domain rdf:List;
@@ -466,7 +510,7 @@ time:yearMonthLiteralToPeriod #° + time zone
 time:yearLiteralToPeriod #° + time zone
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking a literal representing number of years to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a year."""@en;
+	rdfs:comment """Linking a literal representing number of years to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a year."""@en;
 	rdfs:comment """Used in a triple to invoke a backward N3 rule converting a literal to a period described by beginning and end date time, in this way explicitly stating the implicit period of a year margin."""@en;
 	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: ?yearLiteral time:yearLiteralToPeriod (?beginning ?end)."""@en;
 	rdfs:domain rdf:List;
@@ -475,7 +519,7 @@ time:yearLiteralToPeriod #° + time zone
 time:dateToPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking an xsd:date typed literal to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
+	rdfs:comment """Linking an xsd:date typed literal to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
 	rdfs:comment """Used in a triple to invoke a backward N3 rule converting an xsd:date typed literal to a period described by beginning and end date time, in this way explicitly stating the implicit time period margin."""@en;
 	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: ?date time:dateToPeriod (?beginning ?end)."""@en;
 	rdfs:domain xsd:date;
@@ -484,35 +528,35 @@ time:dateToPeriod
 time:hasBeginningPeriodMargin
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking an event to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it begins."""@en;
+	rdfs:comment """Linking an event to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it begins."""@en;
 	rdfs:domain event:Event;
 	rdfs:range rdf:List.
 
 time:hasEndPeriodMargin
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	skos:definition """Linking an event to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it ends."""@en;
+	rdfs:comment """Linking an event to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a period wherein it ends."""@en;
 	rdfs:domain event:Event;
 	rdfs:range rdf:List.
 
 time:hasAge
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:FunctionalProperty;
-	skos:definition """Specifying an age in years of something."""@en;
+	rdfs:comment """Specifying an age in years of something."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range e:Number.
 
 time:hasAges
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:FunctionalProperty;
-	skos:definition """Linking a group of something to a list of its members' ages in years."""@en;
+	rdfs:comment """Linking a group of something to a list of its members' ages in years."""@en;
 	rdfs:domain rdfs:Class;
 	rdfs:range rdf:List.
 
 time:calculatingAge
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:FunctionalProperty;
-	skos:definition """Specifying a calculated age in years for a list of something and a reference date time."""@en;
+	rdfs:comment """Specifying a calculated age in years for a list of something and a reference date time."""@en;
 	skos:note """Triggering in an N3 rule a backward N3 rule to calculate an age of something depending on a reference date time."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range e:Number.
@@ -520,14 +564,14 @@ time:calculatingAge
 time:hasMedianAge
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:DatatypeProperty, owl:FunctionalProperty;
-	skos:definition """Linking a class to the median age of its members."""@en;
+	rdfs:comment """Linking a class to the median age of its members."""@en;
 	rdfs:domain rdfs:Class;
 	rdfs:range e:Number.
 
 time:endsSameAsBeginningOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking an ending event to another event beginning at the same moment."""@en;
+	rdfs:comment """Linking an ending event to another event beginning at the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:beginsSameAsEndOf;
@@ -537,7 +581,7 @@ time:endsSameAsBeginningOf
 time:beginsSameAsEndOf
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
-	skos:definition """Linking a beginning event to another event ending at the same moment."""@en;
+	rdfs:comment """Linking a beginning event to another event ending at the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.nie.org/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	owl:inverseOf time:endsSameAsBeginningOf;
@@ -547,7 +591,7 @@ time:beginsSameAsEndOf
 # time:hasTimeZone
 #	a owl:DatatypeProperty, owl:FunctionalProperty;
 #	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-#	skos:definition """Specifying a time zone of something."""@en;
+#	rdfs:comment """Specifying a time zone of something."""@en;
 #	rdfs:comment """Time zone extracted from an xsd:date, xsd:dateTime or xsd:time typed literal with rif builtin functions."""@en;
 #	rdfs:seeAlso <http://eulersharp.sourceforge.net/2006/02swap/rif-plugin.yap>, <http://eulersharp.sourceforge.net/2007/07test/rifP.n3>;
 #	skos:note """Used in N3 rules calculating with date and duration using Unix Epoch time."""@en;

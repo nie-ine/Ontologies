@@ -23,7 +23,7 @@
 	dct:description """Formal description of elements in Scholasticism."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, University of Basel, Switzerland"@en;
 	dct:contributor
-		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
+		"Prof. Dr. Ueli Zahnd, Institut D'histoire De La Réformation, University of Geneva, Switzerland"@en,
 		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en,
 		"Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.

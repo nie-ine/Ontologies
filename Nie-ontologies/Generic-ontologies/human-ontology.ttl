@@ -8,9 +8,9 @@
 @prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
 @prefix physical: <http://www.nie.org/ontology/physical-entity#>.
 @prefix time: <http://www.nie.org/ontology/time#>.
+@prefix event: <http://www.nie.org/ontology/event#>.
 @prefix agent: <http://www.nie.org/ontology/agent#>.
 @prefix humgeo: <http://www.nie.org/ontology/human-geography#>.
 @prefix org: <http://www.nie.org/ontology/organization#>.
@@ -411,24 +411,34 @@ human:agentHasRole
 	rdfs:range human:AgentRole;
 	rdfs:subPropertyOf agent:hasRole.
 
-human:hasBirthdate  #°
+human:hasBirthdate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has birthdate"@en, "hat Geburtsdatum"@de;
 	rdfs:comment """Relating a person to the birthdate of that person."""@en;
 	skos:note """It is possible to find different birthdates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:dateTime.
+	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
-human:hasEarliestBirthdate  #°
+human:hasEarliestBirthdate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has earliest birthdate"@en, "hat frühestes Geburtsdatum"@de;
-	rdfs:comment """Relating a person to a rule-calculated earliest possible birthdate, based on a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
+	rdfs:comment """Relating a person to an N3-rule-calculated earliest possible birthdate, based on the death date and a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:dateTime.
+	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
+
+human:hasBirthYearLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has birth year literal"@en, "hat Geburtsjahrliterale"@de;
+	rdfs:comment """Relating a person to  the person's birth year expressed as a plain literal."""@en;
+	skos:note """A birth year literal is converted to a year period with an xsd:date typed start and end literal to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf time:hasYearLiteral.
 
 human:hasBirthplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
@@ -439,24 +449,34 @@ human:hasBirthplace
 	rdfs:domain human:Person;
 	rdfs:range physical:EarthPlace.
 
-human:hasDeathDate  #°
+human:hasDeathDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has death date"@en, "hat Todesdatum"@de;
 	rdfs:comment """Relating a person to the death date of that person."""@en;
 	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:dateTime.
+	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
-human:hasLatestDeathDate  #°
+human:hasLatestDeathDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has latest death date"@en, "hat spätestes Todesdatum"@de;
-	rdfs:comment """Relating a person to a rule-calculated latest death date, based on a set maximum lifespan of a person, in absence of the death date of that person."""@en;
+	rdfs:comment """Relating a person to an N3-rule-calculated latest death date, based on the birthdate and a set maximum lifespan of a person, in absence of the death date of that person."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:dateTime.
+	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
+
+human:hasDeathYearLiteral
+	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has death year literal"@en, "hat Todesjahrliterale"@de;
+	rdfs:comment """Relating a person to the person's death year expressed as a plain literal."""@en;
+	skos:note """A death year literal is converted to a year period with an xsd:date typed start and end literal to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf time:hasYearLiteral.
 
 human:hasDeathplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;

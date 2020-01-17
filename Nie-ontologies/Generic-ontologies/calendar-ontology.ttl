@@ -37,8 +37,14 @@ calendar:JulianCalendar
 	rdfs:label "Julian calendar"@en, "julianischer Kalender"@de, "calendrier julien"@fr, "calendario juliano"@it;
 	rdfs:comment """Calendar introduced in 46 BC in Rome by Julius Caesar. It is based on a solar year of 365 days. There are 12 months of 30 or 31 days, except for February, which has 28 days with the exception of every leap year when it has 29 days. Every fourth year and centenary year is a leap year of 366 days. The beginning of a year is not fixed on January 1. It was replaced by the Gregorian calendar in 1582 AD."""@en;
 	skos:note """Has 365.25 days/year."""@en;
-	skos:note """There is no Julian year 0. Year 1 BC is followed by year 1 AD."""@en;
 	skos:note """A year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is."""@en.
+
+calendar:ProlepticJulianCalendar
+	rdfs:isDefinedBy <http://www.nie.org/ontology/calendar#>;
+	a rdfs:Class, calendar:Calendar;
+	rdfs:label "proleptic Julian calendar"@en, "proleptischer julianischer Kalender"@de, "calendrier julien proleptique"@fr, "calendario juliano proleptico"@it;
+	rdfs:comment """Produced by extending the Julian calendar backward to dates preceding its use in stable form from 4 AD on."""@en;
+	skos:note """There is no proleptic Julian year 0. Year 1 BC is followed by year 1 AD."""@en.
 
 calendar:GregorianCalendar
 	rdfs:isDefinedBy <http://www.nie.org/ontology/calendar#>;
@@ -47,14 +53,12 @@ calendar:GregorianCalendar
 	rdfs:comment """Calendar introduced on 15 October 1582 AD by Pope Gregory XIII, and a correction of the Julian calendar. It is based on a solar year of 365 days. Every fourth year is a leap year of 366 days except for centenary years not evenly divisible by 400."""@en;
 	skos:note """Has 365.2425 days/year or or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
 
-calendar:ProlepticGregorianCalendar #°
+calendar:ProlepticGregorianCalendar
 	rdfs:isDefinedBy <http://www.nie.org/ontology/calendar#>;
 	a rdfs:Class, calendar:Calendar;
 	rdfs:label "proleptic Gregorian calendar"@en, "proleptischer gregorianischer Kalender"@de, "calendrier grégorien proleptique"@fr, "calendario gregoriano proleptico"@it;
 	rdfs:comment """Produced by extending the Gregorian calendar backward to dates preceding its introduction on 15 October 1582."""@en;
 	skos:note """There is no proleptic Gregorian year 0. Year 1 BC is followed by year 1 AD."""@en.
-
-#° calendar:ProlepticJulianCalendar #°
 
 #
 # PROPERTIES

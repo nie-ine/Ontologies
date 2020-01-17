@@ -35,7 +35,7 @@ physical:Entity
 	a rdfs:Class;
 	rdfs:label "physical entity"@en, "physische Entität"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf rdfs:Resource. #° to link to cidoc
+	rdfs:subClassOf event:Output. #rdfs:Resource. #° to link to cidoc
 	# seqnum
 
 physical:ExistingState
@@ -65,14 +65,14 @@ physical:Space
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "space"@en, "Raum"@de;
-	rdfs:comment """."""@en; #°
+	rdfs:comment """Physical entity."""@en; #°
 	rdfs:subClassOf physical:Entity, geo:SpatialThing, soreps:Space.
 
 physical:Time
 	rdfs:isDefinedBy <http://www.nie.org/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "time"@en, "Zeit"@de;
-	rdfs:comment """."""@en; #°
+	rdfs:comment """Physical entity."""@en; #°
 	rdfs:subClassOf physical:Entity, sopropti:Time. # quantity
 
 physical:Place

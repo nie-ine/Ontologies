@@ -73,7 +73,7 @@ calendar:hasGregorianDateList
 	a owl:ObjectProperty;
 	rdfs:label "has Gregorian date list"@en;
 	rdfs:comment """Relating something to its Gregorian date as a list of integers."""@en;
-	skos:note """Used in an N3-rule to convert a Gregorian date list to a typed date literal and to a start Julian Day Number."""@en;
+	skos:note """Used in an N3-rule to convert a Gregorian date list to a typed date literal and to a Julian Day Number."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdf:List.
 
@@ -127,6 +127,7 @@ calendar:hasGregorianYear
 	a owl:DatatypeProperty;
 	rdfs:label "has Gregorian year"@en;
 	rdfs:comment """Relating a Gregorian date list to its year."""@en;
+	skos:note """Used in an N3-rule to derive the year from a Gregorian date or start date list."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range xsd:positiveInteger.
 
@@ -186,6 +187,7 @@ calendar:hasJulianYear
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian year"@en;
 	rdfs:comment """Relating a Julian date list to its year."""@en;
+	skos:note """Used in an N3-rule to derive the year from a Julian date or start date list."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range xsd:positiveInteger.
 
@@ -245,6 +247,7 @@ calendar:hasProlepticJulianYear
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian year"@en;
 	rdfs:comment """Relating a proleptic Julian date list to its year."""@en;
+	skos:note """Used in an N3-rule to derive the year from a proleptic Julian date or start date list."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range xsd:positiveInteger.
 

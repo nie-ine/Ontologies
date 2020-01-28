@@ -63,6 +63,7 @@ event:Output
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Postcondition to change in a process."""@en;
 	rdfs:subClassOf rdfs:Resource.
+	# owl:propertyChainAxiom (event:isOutputOf time:hasOutputDateTime)
 	# seqnum
 
 event:Action
@@ -120,20 +121,6 @@ event:Creating
 #
 # PROPERTIES
 #
-
-# event:hasStartDate #°
-#	a owl:ObjectProperty;
-#	rdfs:label "has start date"@en, "hat Anfangsdatum"@de;
-#	rdfs:comment """Relating an event to its start date."""@en;
-#	rdfs:domain event:Event;
-#	rdfs:range xsd:date.
-
-# event:hasEndDate #°
-#	a owl:ObjectProperty;
-#	rdfs:label "has end date"@en, "hat Enddatum"@de;
-#	rdfs:comment """Relating an event to its end date."""@en;
-#	rdfs:domain event:Event;
-#	rdfs:range xsd:date.
 
 event:hasName #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
@@ -201,6 +188,15 @@ event:involvesRole
 	rdfs:comment """Relating an action to a role it involves."""@en;
 	rdfs:domain event:Action;
 	rdfs:range agent:Role.
+
+event:outputInvolvesRole
+	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	a owl:ObjectProperty;
+	rdfs:label "output involves role"@en, "Output involviert Rolle"@de;
+	rdfs:comment """Relating an output of an action to a role it involves."""@en;
+	rdfs:domain event:Output;
+	rdfs:range agent:Role;
+	owl:propertyChainAxiom (event:isOutputOf event:involvesRole).
 
 event:hasStage
 	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;

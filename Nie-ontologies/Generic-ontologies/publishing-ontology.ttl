@@ -426,12 +426,31 @@ publish:hasDescription #°
 
 publish:hasDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "publication has date"@en, "Publikation hat datum"@de;
 	rdfs:comment """Relating a publication to the date it is published on."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf creating:creationHasDate.
+
+publish:hasYearPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "publication has year period"@en, "Publikation hat Jahrperiode"@de;
+	rdfs:comment """Relating a publication to the year period it is published in."""@en;
+	skos:note """Through a series of N3-rules a publication year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range event:Event.
+#	rdfs:subPropertyOf creating:creationHasYearPeriod.
+
+publish:hasYearMonthPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "publication has year-month period"@en, "Publikation hat Jahr-Monatperiode"@de;
+	rdfs:comment """Relating a publication to the year-month period it is published in."""@en;
+	skos:note """Through a series of N3-rules a publication year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain publish:Publication;
+	rdfs:range event:Event.
 
 publish:hasPartitionedPublishing
 	rdfs:isDefinedBy <http://www.nie.org/ontology/publishing#>;

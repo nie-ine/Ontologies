@@ -49,7 +49,7 @@ prosodic-structure:Verse
 	rdfs:isDefinedBy <http://www.nie.org/ontology/prosodic-structure#>;
 	a rdfs:Class;
 	rdfs:label "verse"@en, "Vers"@de;
-	rdfs:comment """Text with prosody."""@en;
+	rdfs:comment """Text with prosody as unit."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseIdentifier

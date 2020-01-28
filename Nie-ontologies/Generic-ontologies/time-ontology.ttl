@@ -127,16 +127,16 @@ time:hasYearPeriod
 	a owl:ObjectProperty;
 	rdfs:label "has year period"@en;
 	rdfs:comment """Relating something to its year period."""@en;
-	skos:note """Used in the conclusion of an N3-rule to convert a year literal to the period of that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
+	skos:note """Through a series of N3-rules a year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range event:Event.
 
-time:hasMonthPeriod
+time:hasYearMonthPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
 	a owl:ObjectProperty;
-	rdfs:label "has month period"@en;
-	rdfs:comment """Relating something to its month period."""@en;
-	skos:note """Used in the conclusion of an N3-rule to convert a year-month literal list to the period of that month in that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
+	rdfs:label "has year-month period"@en;
+	rdfs:comment """Relating something to its year-month period."""@en;
+	skos:note """Through a series of N3-rules a year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range event:Event.
 

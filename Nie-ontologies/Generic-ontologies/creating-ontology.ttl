@@ -193,7 +193,7 @@ creating:hasCreating
 
 creating:creationHasDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "creation has date"@en, "Kreation hat Datum"@de;
 	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
 	rdfs:domain creating:Creation;
@@ -202,7 +202,7 @@ creating:creationHasDate
 
 creating:hasModificationDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/creating#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
 	rdfs:comment """Relating a human creation to its modification date."""@en;
 	rdfs:domain creating:Creation;

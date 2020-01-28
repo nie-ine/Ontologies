@@ -320,17 +320,19 @@ literature:hasGenre
 	a owl:ObjectProperty;
 	rdfs:label "has literary genre"@en, "hat literarische Gattung"@de;
 	rdfs:comment """Relating a literary expression to a genre it has."""@en;
+	skos:note """A literary expression can have more than one genre."""@en;
 	rdfs:domain literature:Expression;
 	rdfs:range literature:Literature;
 	rdfs:subPropertyOf text:hasContentNature.
 
-literature:hasPoetry
+literature:hasPoetryGenre
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;
 	a owl:ObjectProperty;
 	rdfs:label "has poetry"@en, "hat Poetik"@de;
-	rdfs:comment """Relating a poem to its kind of poetry."""@en;
+	rdfs:comment """Relating a poem to its genre of poetry."""@en;
 	rdfs:domain literature:Poem;
-	rdfs:range literature:Poetry.
+	rdfs:range literature:Poetry;
+	rdfs:subPropertyOf literature:hasGenre.
 
 literature:anthologyHasExpression
 	rdfs:isDefinedBy <http://www.nie.org/ontology/literature#>;

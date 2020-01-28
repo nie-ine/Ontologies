@@ -32,56 +32,56 @@
 
 time:hasStartDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its start date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasEarliestStartDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its N3-rule-calculated earliest possible start date time, based on a set maximum event duration, in absence of the start date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasStartDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its start date."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
 
 time:hasEndDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its end date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasLatestEndDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its N3-rule-calculated latest possible end date time, based on a set maximum event duration, in absence of the end date time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
 
 time:hasEndDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Relating an event to its end date."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
 
 time:hasDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Specifying a point in time of something with a date time."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:dateTime.
 
 time:hasDate
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has date"@en;
 	rdfs:comment """Relating something to its date."""@en;
 	rdfs:domain rdfs:Resource;
@@ -89,64 +89,67 @@ time:hasDate
 
 time:hasOutputDateTime
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has output date-time"@en;
 	rdfs:comment """Relating a process to its output date-time."""@en;
 	rdfs:domain event:Process;
 	rdfs:range xsd:dateTime.
 
-time:hasYearLiteral
+time:hasYearLiteral #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has year literal"@en;
-	rdfs:comment """Relating something to its year represented by an integer."""@en;
+	rdfs:comment """Relating something to its year represented by a literal."""@en;
+	skos:note """Used in the premise of an N3-rule to convert a year literal to a period of that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range xsd:integer.
+	rdfs:range rdfs:Literal.
 
-time:hasYearMonthLiteralList
+time:hasYearMonthLiteralList #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	a owl:ObjectProperty;
 	rdfs:label "has year-month literal list"@en;
-	rdfs:comment """Relating something to its year-month represented by a list of 2 integers."""@en;
+	rdfs:comment """Relating something to its year-month represented by a list of 2 literals."""@en;
+	skos:note """Used in the premise of an N3-rule to convert a year-month to a period of that month in that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdf:List.
 
-time:hasDateLiteralList
+time:hasDateLiteralList #°
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	a owl:ObjectProperty;
 	rdfs:label "has date literal list"@en;
-	rdfs:comment """Relating something to its date represented by a list of 3 integers."""@en;
+	rdfs:comment """Relating something to its date represented by a list of 3 literals."""@en;
+	skos:note """Used in the premise of an N3-rule to convert a date literal list to the respective calendar date represented by a list of 3 literals."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdf:List.
 
 time:hasYearPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	a owl:ObjectProperty;
 	rdfs:label "has year period"@en;
 	rdfs:comment """Relating something to its year period."""@en;
-	skos:note """Used in an N3-rule to convert a calendar-specific year to a period of that year in that calendar with the start and end date represented by a list of 3 integers."""@en;
+	skos:note """Used in the conclusion of an N3-rule to convert a year literal to the period of that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range event:Event.
 
 time:hasMonthPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:ObjectProperty; #, owl:InverseFunctionalProperty;
+	a owl:ObjectProperty;
 	rdfs:label "has month period"@en;
 	rdfs:comment """Relating something to its month period."""@en;
-	skos:note """Used in an N3-rule to convert a calendar-specific year-month to a period of that month in that calendar with the start and end date represented by a list of 3 integers."""@en;
+	skos:note """Used in the conclusion of an N3-rule to convert a year-month literal list to the period of that month in that year in the respective calendar with the start and end date represented by a list of 3 literals."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range event:Event.
 
 time:hasDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:comment """Specifying a duration of an event."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:duration.
 
 time:hasMaxDuration
 	rdfs:isDefinedBy <http://www.nie.org/ontology/time#>;
-	a owl:DatatypeProperty; #, owl:InverseFunctionalProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has maximum duration"@en, "hat maximale Dauer"@de;
 	rdfs:comment """Relating an event to its maximum duration."""@en;
 	rdfs:domain event:Event;

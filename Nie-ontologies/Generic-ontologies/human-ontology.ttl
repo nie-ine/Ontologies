@@ -430,15 +430,24 @@ human:hasEarliestBirthdate
 	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
-human:hasBirthYearLiteral
+human:hasBirthYearPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has birth year literal"@en, "hat Geburtsjahrliterale"@de;
-	rdfs:comment """Relating a person to  the person's birth year expressed as a plain literal."""@en;
-	skos:note """A birth year literal is converted to a year period with an xsd:date typed start and end literal to enable interval calculus for temporal reasoning."""@en;
+	a owl:ObjectProperty;
+	rdfs:label "has birth year period"@en, "hat Geburtsjahrperiode"@de;
+	rdfs:comment """Relating a person to the person's birth year period."""@en;
+	skos:note """Through a series of N3-rules a birth year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain human:Person;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf time:hasYearLiteral.
+	rdfs:range event:Event.
+#	rdfs:subPropertyOf time:hasYearPeriod.
+
+human:hasBirthYearMonthPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has birth year-month period"@en, "hat Geburtsjahr-monatperiode"@de;
+	rdfs:comment """Relating a person to the person's birth year-month period."""@en;
+	skos:note """Through a series of N3-rules a birth year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
 
 human:hasBirthplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
@@ -468,15 +477,24 @@ human:hasLatestDeathDate
 	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
-human:hasDeathYearLiteral
+human:hasDeathYearPeriod
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has death year literal"@en, "hat Todesjahrliterale"@de;
-	rdfs:comment """Relating a person to the person's death year expressed as a plain literal."""@en;
-	skos:note """A death year literal is converted to a year period with an xsd:date typed start and end literal to enable interval calculus for temporal reasoning."""@en;
+	a owl:ObjectProperty;
+	rdfs:label "has death year period"@en, "hat Todesjahrperiode"@de;
+	rdfs:comment """Relating a person to the person's death year period."""@en;
+	skos:note """Through a series of N3-rules a death year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain human:Person;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf time:hasYearLiteral.
+	rdfs:range event:Event.
+#	rdfs:subPropertyOf time:hasYearPeriod.
+
+human:hasDeathYearMonthPeriod
+	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has death year-month period"@en, "hat Todesjahr-monatperiode"@de;
+	rdfs:comment """Relating a person to the person's death year-month period."""@en;
+	skos:note """Through a series of N3-rules a death year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
 
 human:hasDeathplace
 	rdfs:isDefinedBy <http://www.nie.org/ontology/human#>;

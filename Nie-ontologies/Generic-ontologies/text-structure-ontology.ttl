@@ -6,23 +6,23 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix language: <http://www.nie.org/ontology/language#>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
-@prefix math: <http://www.nie.org/ontology/mathematics#>.
-@prefix document: <http://www.nie.org/ontology/document#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
-@prefix prosodic-structure: <http://www.nie.org/ontology/prosodic-structure#>.
-@prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix ling: <http://www.nie.org/ontology/linguistics#>.
-@prefix lingmor: <http://www.nie.org/ontology/linguistic-morphology#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix language: <http://www.e-editiones.ch/ontology/language#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
+@prefix document: <http://www.e-editiones.ch/ontology/document#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
+@prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
+@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
+@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
-# @base <http://www.nie.org/ontology/text-structure>.
-@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
+# @base <http://www.e-editiones.ch/ontology/text-structure>.
+@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 
-<http://www.nie.org/ontology/text-structure>
+<http://www.e-editiones.ch/ontology/text-structure>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about text structure"@en;
@@ -41,7 +41,7 @@
 #
 
 text-structure:Structure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text structure"@en, "Textstruktur"@de;
 	rdfs:comment """Text as structure abstracted from its carrier, e.g. a word, sentence, text line, paragraph, section, verse, strophe, citation."""@en;
@@ -49,77 +49,77 @@ text-structure:Structure
 	rdfs:subClassOf text:Text, document:ContentStructure.
 
 text-structure:Identifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text structure identifier"@en, "Textstrukturidentifikator"@de;
 	rdfs:comment """Identifier of a text structure."""@en;
 	rdfs:subClassOf document:ContentStructureIdentifier.
 
 text-structure:SyntacticStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "syntactic text structure"@en, "syntaktische Textstruktur"@de;
 	rdfs:comment """Text structure depending on natural language-specific syntax, e.g. a word, sentence."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
 text-structure:CompositionalStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "compositional text structure"@en, "kompositionelle Textstruktur"@de;
 	rdfs:comment """Text structure depending on text composition in a two-dimensional plane, e.g. a line, paragraph, section, page."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
 text-structure:ContentStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "content text structure"@en, "inhaltliche Textstruktur"@de;
 	rdfs:comment """Text structure depending on text content, e.g. a paragraph, section, prose, citation."""@en;
 	rdfs:subClassOf text-structure:Structure.
 
 text-structure:SentenceStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "sentence structure"@en, "Satzstruktur"@de;
 	rdfs:comment """Content structure depending on sentences, e.g. a paragraph, section, prose"""@en;
 	rdfs:subClassOf text-structure:ContentStructure.
 
 text-structure:CompositionalContentStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "compositional content text structure"@en, "kompositionelle inhaltliche Textstruktur"@de;
 	rdfs:comment """Content text structure depending on text composition, e.g. a paragraph, section."""@en;
 	rdfs:subClassOf text-structure:ContentStructure, text-structure:CompositionalStructure.
 
 text-structure:ScientificStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "scientific text structure"@en, "wissenschaftliche Textstruktur"@de;
 	rdfs:comment """Content text structure depending on scientific purpose, e.g. a critical apparatus."""@en;
 	rdfs:subClassOf text-structure:ContentStructure.
 
 text-structure:ReadabilityStructure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text readability structure"@en, "Textlesbarkeitstruktur"@de;
 	rdfs:comment """Compositional text structure providing text readability, e.g. a line, column, page."""@en;
 	rdfs:subClassOf text:SurfaceText, text-structure:CompositionalStructure.
 
 text-structure:SyntacticWord
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "syntactic word"@en, "syntaktisches Wort"@de;
 	rdfs:comment """Smallest independent syntactic structure composed of symbols that can be replaced in a sentence or verse."""@en;
 	rdfs:subClassOf text-structure:SyntacticStructure, ling:Concept.
 
 text-structure:Sentence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "sentence"@en, "Satz"@de;
 	rdfs:comment """Syntactic structure comprising one or more linked syntactic words, basically a subject and predicate."""@en;
 	rdfs:subClassOf text-structure:SyntacticStructure, text-structure:ContentStructure.
 
 text-structure:SurfaceSentence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "surface sentence"@en, "Flächesatz"@de;
 	rdfs:comment """Sentence expressed on a surface."""@en;
@@ -127,35 +127,35 @@ text-structure:SurfaceSentence
 	rdfs:subClassOf text-structure:Sentence, text-structure:Line.
 
 text-structure:Prose
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "prose"@en, "Prosa"@de;
 	rdfs:comment """Syntactic structure with a sentence as unit, in a natural flow of speech."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure.
 
 text-structure:Paragraph
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "paragraph"@en, "Paragraf"@de;
 	rdfs:comment """Composition of sentences ending with a line break."""@en; #°
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
 text-structure:Section
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text section"@en, "Textabschnitt"@de;
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
 text-structure:OrthographicWord
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "orthographic word"@en, "orthographisches Wort"@de;
 	rdfs:comment """Smallest independent orthographic entity composed of symbols, surrounded by whitespace in a written text line."""@en;
 	rdfs:subClassOf text:WrittenText, ling:Concept.
 
 text-structure:OrthographoSyntacticWord
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "orthographo-syntactic word"@en, "orthographosyntaktisches Wort"@de;
 	rdfs:comment """Word being orthographic and syntactic."""@en;
@@ -163,35 +163,35 @@ text-structure:OrthographoSyntacticWord
 	rdfs:subClassOf text-structure:OrthographicWord, text-structure:SyntacticWord.
 
 text-structure:LineSpace
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text line space"@en, "Leerzeichen einer Textzeile"@de;
 	rdfs:comment """Empty space between orthographic words in a text line."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:Punctuation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "punctuation"@en, "Interpunktion"@de;
 	rdfs:comment """One or more language symbols in written text, different from a letter, to help interpret semantics of a sentence."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure, text-structure:SyntacticStructure, ling:Symbol.
 
 text-structure:Line
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text line"@en, "Textzeile"@de, "ligne de texte"@fr, "riga di testo"@it;
 	rdfs:comment """Text structured as a line, filling a two-dimensional space, with an orientation."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:Column
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text column"@en, "Textspalte"@de, "colonne de texte"@fr, "colonna di testo"@it;
 	rdfs:comment """Text structured as a column."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:ColumnLine
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "column text line"@en, "Text zeile einer Spalte"@de, "ligne de texte de colonne"@fr, "riga di testo di colonna"@it;
 	rdfs:comment """Text line of a text column."""@en;
@@ -199,14 +199,14 @@ text-structure:ColumnLine
 	rdfs:subClassOf text-structure:Line.
 
 text-structure:Page
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text page"@en, "Textseite"@de, "page de texte"@fr, "pagina di testo"@it;
 	rdfs:comment """Text structured as a page."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure.
 
 text-structure:PageLine
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "page text line"@en, "Textzeile einer Seite"@de, "ligne de texte de page"@fr, "riga di testo di pagina"@it;
 	rdfs:comment """Text line of a text page."""@en;
@@ -214,35 +214,35 @@ text-structure:PageLine
 	rdfs:subClassOf text-structure:Line.
 
 text-structure:Table #° tableHasTitle, tableHasField, tableHasRow, tableHasColumn
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text table"@en, "Texttabelle"@de;
 	rdfs:comment """Two-dimensional structure composed of one or more fields containing text, and  being part of a vertical column and a horizontal row, both with own identifier."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, document:Table.
 
 text-structure:Rhyme
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "rhyme"@en, "Reim"@de;
 	rdfs:comment """Words or phrases with whole or end corresponding sound, especially when involving the last stressed vowel and all succeeding sounds."""@en;
 	rdfs:subClassOf text-structure:ContentStructure.
 
 text-structure:Dialogue
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "dialogue"@en, "Dialog"@de;
 	rdfs:comment """Text with dialogue structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 text-structure:Diary
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "diary structure"@en, "Tagebuch-Struktur"@de;
 	rdfs:comment """Text with diary structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 text-structure:Postcard
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "postcard structure"@en, "Postkarte-Struktur"@de;
 	rdfs:comment """Text with postcard structure."""@en;
@@ -253,7 +253,7 @@ text-structure:Postcard
 #
 
 text-structure:isPartOfTextExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of text expression"@en, "ist Teil einer Textexpression"@de;
 	rdfs:comment """Relating a text structure to a text expression it is part of."""@en;
@@ -262,7 +262,7 @@ text-structure:isPartOfTextExpression
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:hasIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "text structure has identifier"@en, "Textstruktur hat Identifikator"@de;
 	rdfs:comment """Relating a text structure to its identifier."""@en;
@@ -271,7 +271,7 @@ text-structure:hasIdentifier
 	rdfs:subPropertyOf document:contentStructureHasIdentifier.
 
 text-structure:syntacticWordHasForm
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "syntactic word has form"@en, "syntaktisches Wort hat Form"@de;
 	rdfs:comment """Relating a syntactic word to its form."""@en;
@@ -279,7 +279,7 @@ text-structure:syntacticWordHasForm
 	rdfs:range lingmor:SyntacticWordForm.
 
 text-structure:isWordBeforePunctuation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is word before punctuation"@en, "ist Wort vor einer Interpunktion"@de;
 	rdfs:comment """Relating a syntactic word to the punctuation it precedes."""@en;
@@ -287,7 +287,7 @@ text-structure:isWordBeforePunctuation
 	rdfs:range text-structure:Punctuation.
 
 text-structure:isWordOfSentence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is word of sentence"@en, "ist Wort eines Satzes"@de;
 	rdfs:comment """Relating a syntactic word to the sentence it is part of."""@en;
@@ -296,7 +296,7 @@ text-structure:isWordOfSentence
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isSentenceOfParagraph
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sentence of paragraph"@en, "ist Satz eines Paragrafen"@de;
 	rdfs:comment """Relating a sentence to a paragraph it is part of."""@en;
@@ -305,7 +305,7 @@ text-structure:isSentenceOfParagraph
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isSentenceOfProse
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sentence of prose"@en, "ist Satz einer Prosa"@de;
 	rdfs:comment """Relating a sentence to a prose it is part of."""@en;
@@ -314,7 +314,7 @@ text-structure:isSentenceOfProse
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isProseOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is prose of sentence expression"@en, "ist Prosa einer Satz-Expression"@de;
 	rdfs:comment """Relating a prose to a sentence expression it is part of."""@en;
@@ -323,7 +323,7 @@ text-structure:isProseOfExpression
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 text-structure:isParagraphOfSection
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is paragraph of section"@en, "ist Paragraf eines Textabschnittes"@de;
 	rdfs:comment """Relating a paragraph to a section it is part of."""@en;
@@ -332,7 +332,7 @@ text-structure:isParagraphOfSection
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:paragraphHasTitle
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "paragraph has title"@en, "Paragraf hat Titel"@de;
 	rdfs:comment """Relating a paragraph to its title."""@en;
@@ -341,7 +341,7 @@ text-structure:paragraphHasTitle
 	rdfs:subPropertyOf text:hasTitle.
 
 text-structure:paragraphHasNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "paragraph has number"@en, "Paragraf hat Nummer"@de;
 	rdfs:comment """Relating a paragraph to its number."""@en;
@@ -349,7 +349,7 @@ text-structure:paragraphHasNumber
 	rdfs:range xsd:nonNegativeInteger.
 
 text-structure:isSectionOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is section of sentence expression"@en, "ist Textabschnitt eines Satz-Expression"@de;
 	rdfs:comment """Relating a section to a sentence expression it is part of."""@en;
@@ -358,7 +358,7 @@ text-structure:isSectionOfExpression
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 text-structure:sectionHasTitle
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "section has title"@en, "Textabschnitt hat Titel"@de;
 	rdfs:comment """Relating a section to its title."""@en;
@@ -367,7 +367,7 @@ text-structure:sectionHasTitle
 	rdfs:subPropertyOf text:hasTitle.
 
 text-structure:sectionHasNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "section has number"@en, "Textabschnitt hat Nummer"@de;
 	rdfs:comment """Relating a section to its number."""@en;
@@ -375,7 +375,7 @@ text-structure:sectionHasNumber
 	rdfs:range xsd:nonNegativeInteger.
 
 text-structure:isWordBeforeSpace
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is word before space"@en, "ist Wort vor einem Leerzeichen"@de;
 	rdfs:comment """Relating an orthographic word to the text line space it precedes."""@en;
@@ -383,7 +383,7 @@ text-structure:isWordBeforeSpace
 	rdfs:range text-structure:LineSpace.
 
 text-structure:isWordOfLine
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is word of line"@en, "ist Wort einer Zeile"@de;
 	rdfs:comment """Relating an orthographic word to the text line it is part of."""@en;
@@ -392,7 +392,7 @@ text-structure:isWordOfLine
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isSpaceBeforeWord
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is space before word"@en, "ist Leerzeichen vor einem Wort"@de;
 	rdfs:comment """Relating a text line space to the orthographic word it precedes."""@en;
@@ -400,7 +400,7 @@ text-structure:isSpaceBeforeWord
 	rdfs:range text-structure:OrthographicWord.
 
 text-structure:isSpaceOfLine
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is space of line"@en, "ist Leerzeichen einer Zeile"@de;
 	rdfs:comment """Relating a space to a text line it is part of."""@en;
@@ -409,7 +409,7 @@ text-structure:isSpaceOfLine
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isPunctuationBeforeSpace
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is punctuation before space"@en, "ist Interpunktion vor einem Leerzeichen"@de;
 	rdfs:comment """Relating a punctuation to the space it precedes."""@en;
@@ -417,7 +417,7 @@ text-structure:isPunctuationBeforeSpace
 	rdfs:range text-structure:LineSpace.
 
 text-structure:isPunctuationBeforeWord
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is punctuation before word"@en, "ist Interpunktion vor einem Wort"@de;
 	rdfs:comment """Relating a punctuation to the word it precedes."""@en;
@@ -425,7 +425,7 @@ text-structure:isPunctuationBeforeWord
 	rdfs:range text-structure:SyntacticWord.
 
 text-structure:isPunctuationOfSentence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is punctuation of sentence"@en, "ist Interpunktion eines Satzes"@de;
 	rdfs:comment """Relating a punctuation to the sentence it is part of."""@en;
@@ -434,7 +434,7 @@ text-structure:isPunctuationOfSentence
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:lineHasNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "line has number"@en, "Linie hat Nummer"@de;
 	rdfs:comment """Relating a line to a number it has."""@en;
@@ -442,7 +442,7 @@ text-structure:lineHasNumber
 	rdfs:range xsd:nonNegativeInteger.
 
 text-structure:isLineOfColumn
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is line of column"@en, "ist Zeile einer Spalte"@de;
 	rdfs:comment """Relating a text line to a column it is part of."""@en;
@@ -451,7 +451,7 @@ text-structure:isLineOfColumn
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isTextOfColumn
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is text of column"@en, "ist Text einer Spalte"@de;
 	rdfs:comment """Relating text to a column it is part of."""@en;
@@ -460,7 +460,7 @@ text-structure:isTextOfColumn
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isColumnOfPage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is column of text page"@en, "ist Spalte einer Textseite"@de;
 	rdfs:comment """Relating a column to a text page it is part of."""@en;
@@ -469,7 +469,7 @@ text-structure:isColumnOfPage
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isTextOfPage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is text of page"@en, "ist Text einer Seite"@de;
 	rdfs:comment """Relating a text page to a document page it is part of."""@en;
@@ -478,7 +478,7 @@ text-structure:isTextOfPage
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isPageOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page of text expression"@en, "ist Seite einer Textexpression"@de;
 	rdfs:comment """Relating a text page to a text expression it is part of."""@en;
@@ -487,7 +487,7 @@ text-structure:isPageOfExpression
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isLineOfPage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is line of page"@en, "ist Zeile einer Seite"@de;
 	rdfs:comment """Relating a text line to a page it is part of."""@en;
@@ -496,7 +496,7 @@ text-structure:isLineOfPage
 	rdfs:subPropertyOf concept:isPartOf.
 
 text-structure:isPostcardStructureOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is postcard structure of expression"@en, "ist Postkarte-Struktur einer Expression"@de;
 	rdfs:comment """Relating a postcard structure to a text expression it is part of."""@en;
@@ -505,7 +505,7 @@ text-structure:isPostcardStructureOfExpression
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 text-structure:isDiaryStructureOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/text-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is diary structure of expression"@en, "ist Tagebuch-Struktur einer Expression"@de;
 	rdfs:comment """Relating a diary structure to a text expression it is part of."""@en;

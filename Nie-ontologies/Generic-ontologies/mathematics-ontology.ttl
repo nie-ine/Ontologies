@@ -3,16 +3,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
-@prefix ling: <http://www.nie.org/ontology/linguistics#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
 
-# @base <http://www.nie.org/ontology/mathematics>.
-@prefix math: <http://www.nie.org/ontology/mathematics#>.
+# @base <http://www.e-editiones.ch/ontology/mathematics>.
+@prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 
-<http://www.nie.org/ontology/mathematics>
+<http://www.e-editiones.ch/ontology/mathematics>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about mathematics"@en;
@@ -26,21 +26,21 @@
 #
 
 math:MathematicalObject
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical object"@en, "mathematisches Objekt"@de;
 	rdfs:comment """Conceptual entity in mathematics."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 math:Number
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Zahl"@de;
 	rdfs:comment """Mathematical object used for counting, measuring, ordering, labeling, and coding."""@en;
 	rdfs:subClassOf math:MathematicalObject, concept:SymbolicEntity.
 
 math:NaturalNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
 	rdfs:comment """Non-negative whole number used for counting and ordering."""@en;
@@ -49,21 +49,21 @@ math:NaturalNumber
 		a owl:Restriction; owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
 
 math:OrdinalSymbol
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "ordinal symbol"@en, "Ordinalsymbol"@de;
 	rdfs:comment """Symbol used to order, i.e. denoting the position of something in a sequence, e.g. the letters of an alphabet with literals a to z or A to Z."""@en;
 	rdfs:subClassOf concept:Identifier.
 
 math:OrdinalNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "ordinal number"@en, "Ordinalzahl"@de;
 	rdfs:comment """Natural number used to order, i.e. denoting the position of something in a sequence."""@en;
 	rdfs:subClassOf math:NaturalNumber, concept:Identifier.
 
 math:Set
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical set"@en, "mathematische Sammlung"@de;
 	rdfs:comment """Set of mathematical objects."""@en;
@@ -74,7 +74,7 @@ math:Set
 #
 
 math:hasNumeral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numerale"@de;
 	rdfs:comment """Relating a number to its representing numeral."""@en;
@@ -82,7 +82,7 @@ math:hasNumeral
  	rdfs:range xsd:decimal.
 
 math:hasOrdinalSymbol
- 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+ 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has ordinal symbol"@en, "hat Ordinalsymbol"@de;
 	rdfs:comment """Relating something to the symbolic entity denoting its position in a sequence."""@en;
@@ -90,7 +90,7 @@ math:hasOrdinalSymbol
 	rdfs:range math:OrdinalSymbol.
 
 math:hasOrdinalNumber
- 	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+ 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has ordinal number"@en, "hat Ordinalzahl"@de;
 	rdfs:comment """Relating something to the number denoting its position in a sequence."""@en;
@@ -99,7 +99,7 @@ math:hasOrdinalNumber
 	rdfs:subPropertyOf math:hasOrdinalSymbol.
 
 math:hasOrdinalLiteral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has ordinal literal"@en, "hat Ordinalliterale"@de;
 	rdfs:comment """Relating something to the literal denoting its position in a sequence."""@en;
@@ -108,7 +108,7 @@ math:hasOrdinalLiteral
 	owl:propertyChainAxiom (math:hasOrdinalSymbol concept:hasLiteral).
 
 math:hasOrdinalNumeral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/mathematics#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has ordinal numeral"@en, "hat Ordinalnumerale"@de;
 	rdfs:comment """Relating something to the numeral denoting its position in a sequence."""@en;

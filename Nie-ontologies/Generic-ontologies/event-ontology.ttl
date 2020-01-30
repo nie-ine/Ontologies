@@ -8,14 +8,14 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix schema: <http://schema.org/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://www.nie.org/ontology/physical-entity#>.
-@prefix agent: <http://www.nie.org/ontology/agent#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
+@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
+@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.nie.org/ontology/event>.
-@prefix event: <http://www.nie.org/ontology/event#>.
+# @base <http://www.e-editiones.ch/ontology/event>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
 
-<http://www.nie.org/ontology/event>
+<http://www.e-editiones.ch/ontology/event>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about 'event'"@en;
@@ -29,28 +29,28 @@
 #
 
 event:Event
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "event"@en, "Ereignis"@de;
 	rdfs:comment """Space-time occurrence."""@en;
 	rdfs:subClassOf physical:Space, physical:Time.
 
 event:Existence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "existence"@en, "Existenz"@de;
 	rdfs:comment """Event of being."""@en;
 	rdfs:subClassOf event:Event.
 	
 event:Process
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "process"@en, "Verfahren"@de;
 	rdfs:comment """Event implying change, with an input and an output, in one or more steps."""@en;
 	rdfs:subClassOf event:Event.
 
 event:Input
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "input"@en, "Input"@de;
 	rdfs:comment """Precondition to change in a process."""@en;
@@ -58,7 +58,7 @@ event:Input
 	# seqnum
 
 event:Output
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Postcondition to change in a process."""@en;
@@ -67,21 +67,21 @@ event:Output
 	# seqnum
 
 event:Action
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "action"@en, "Aktion"@de;
 	rdfs:comment """Process involving one or more agents causing change."""@en;
 	rdfs:subClassOf event:Process.
 
 event:Procedure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "procedure"@en, "Verfahren"@de;
 	rdfs:comment """Action executed in one or more sub-actions, in a certain manner, obtaining a certain output under certain circumstances."""@en;
 	rdfs:subClassOf event:Action.
 
 event:State
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "state"@en, "Zustand"@de;
 	rdfs:comment """Mode of being."""@en;
@@ -89,7 +89,7 @@ event:State
 	# seqnum
 
 event:Stage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "stage"@en, "Stufe"@de;
 	rdfs:comment """Extent of a process."""@en;
@@ -97,14 +97,14 @@ event:Stage
 	# seqnum
 
 event:Staging
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "staging"@en, "Staging"@de;
 	rdfs:comment """Determining the extent of a process."""@en;
 	rdfs:subClassOf event:Action.
 
 event:Intent
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "intent"@en, "Absicht"@de;
 	rdfs:comment """Purpose of an action."""@en;
@@ -112,7 +112,7 @@ event:Intent
 	# seqnum
 
 event:Creating
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "creating"@en, "Kreierung"@de;
 	rdfs:comment """Changing matter and or energy."""@en; # Bringing into existence
@@ -123,7 +123,7 @@ event:Creating
 #
 
 event:hasName #°
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating an event to its name."""@en;
@@ -132,7 +132,7 @@ event:hasName #°
 	rdfs:subPropertyOf text:hasName.
 
 event:isSubEventOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sub-event of"@en, "ist Subereignis von"@de;
 	rdfs:comment "Relating an event to another one it is part of."@en;
@@ -141,7 +141,7 @@ event:isSubEventOf
 	rdfs:subPropertyOf physical:isPartOf, schema:subEvent.
 
 event:hasEvent
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has event"@en, "hat Ereignis"@de;
 	rdfs:comment """Relating someone or something - eg. an organization, event, procedure - to an event."""@en;
@@ -149,7 +149,7 @@ event:hasEvent
 	rdfs:range event:Event.
 
 event:hasExistence
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has existence"@en, "hat Existenz"@de;
 	rdfs:comment """Relating someone or something to her/his/its existence."""@en;
@@ -158,7 +158,7 @@ event:hasExistence
 	rdfs:subPropertyOf event:hasEvent.
 
 event:hasState
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has state"@en, "hat Zustand"@de;
 	rdfs:comment """Relating a resource to a state."""@en;
@@ -166,7 +166,7 @@ event:hasState
 	rdfs:range event:State.
 
 event:isInputOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "is input of"@en, "ist Input von"@de;
 	rdfs:comment """Relating an input to a process."""@en;
@@ -174,7 +174,7 @@ event:isInputOf
 	rdfs:range event:Process.
 
 event:isOutputOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "is output of"@en, "ist Output von"@de;
 	rdfs:comment """Relating an output to a process."""@en;
@@ -182,7 +182,7 @@ event:isOutputOf
 	rdfs:range event:Process.
 
 event:involvesRole
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "involves role"@en, "involviert Rolle"@de;
 	rdfs:comment """Relating an action to a role it involves."""@en;
@@ -190,7 +190,7 @@ event:involvesRole
 	rdfs:range agent:Role.
 
 event:outputInvolvesRole
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "output involves role"@en, "Output involviert Rolle"@de;
 	rdfs:comment """Relating an output of an action to a role it involves."""@en;
@@ -199,7 +199,7 @@ event:outputInvolvesRole
 	owl:propertyChainAxiom (event:isOutputOf event:involvesRole).
 
 event:hasStage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has stage"@en, "hat Stufe"@de;
 	rdfs:comment """Relating a process to a stage thereof."""@en;
@@ -207,7 +207,7 @@ event:hasStage
 	rdfs:range event:Stage.
 
 event:isSubProcedureOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sub-procedure of"@en, "ist Subverfahren von"@de;
 	rdfs:comment """Relating a procedure to another one it is part of."""@en;
@@ -216,7 +216,7 @@ event:isSubProcedureOf
 	rdfs:subPropertyOf event:isSubEventOf.
 
 event:hasGenesisDescription #°
-	rdfs:isDefinedBy <http://www.nie.org/ontology/event#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "has genesis description"@en, "hat Genesis-Beschreibung"@de;
 	rdfs:comment """Relating something to a description of the genesis thereof."""@en;

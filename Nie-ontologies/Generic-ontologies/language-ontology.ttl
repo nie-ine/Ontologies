@@ -6,19 +6,19 @@
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix agent: <http://www.nie.org/ontology/agent#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix creating: <http://www.nie.org/ontology/creating#>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix device: <http://www.nie.org/ontology/device#>.
-@prefix ling: <http://www.nie.org/ontology/linguistics#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix device: <http://www.e-editiones.ch/ontology/device#>.
+@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.nie.org/ontology/language>.
-@prefix language: <http://www.nie.org/ontology/language#>.
+# @base <http://www.e-editiones.ch/ontology/language>.
+@prefix language: <http://www.e-editiones.ch/ontology/language#>.
 
-<http://www.nie.org/ontology/language>
+<http://www.e-editiones.ch/ontology/language>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about language"@en;
@@ -31,7 +31,7 @@
 #
 
 language:Language
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "language"@en, "Sprache"@de;
 	rdfs:comment """Dynamic set of sensory carriers, e.g. a sign, symbol, word, including sound and gesture, to express meaning, and used along rules or grammar model, e.g. syntax for serialization."""@en;
@@ -39,7 +39,7 @@ language:Language
 	# seqnum
 
 language:HumanLanguage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "human language"@en, "menschliche Sprache"@de;
 	rdfs:comment """Language of a human."""@en;
@@ -47,7 +47,7 @@ language:HumanLanguage
 	rdfs:subClassOf language:Language. #*, human:Ability.
 
 language:HumanNaturalLanguage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
@@ -56,14 +56,14 @@ language:HumanNaturalLanguage
 #	owl:disjointWith language:FormalLanguage.
 
 language:GeneralHumanNaturalLanguage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "general human natural language"@en, "algemeine menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:HumanNaturalLanguageExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
@@ -71,35 +71,35 @@ language:HumanNaturalLanguageExpression
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object.
 
 language:Dialect
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "dialect"@en, "Mundart"@de;
 	rdfs:comment """Regional variant of a standard human natural language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:AgentTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "agent translator"@en, "Agent-Übersetzer"@de;
 	rdfs:comment """Role of an agent, person or machine, transferring a human natural language expression in another natural language."""@en;
 	rdfs:subClassOf agent:Creator.
 
 language:PersonTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
 	rdfs:comment """Translator as role of a person."""@en;
 	rdfs:subClassOf language:AgentTranslator, creating:PersonCreator.
 
 language:MachineTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "machine-translator"@en, "Maschine-Übersetzer"@de;
 	rdfs:comment """Translator as role of a machine."""@en;
 	rdfs:subClassOf language:AgentTranslator.
 
 language:Translation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
 	rdfs:comment """Human natural language expression transferred from another natural language."""@en;
@@ -108,25 +108,25 @@ language:Translation
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:PersonTranslation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
 	rdfs:comment """Translation done by a person."""@en;
 	rdfs:subClassOf language:Translation, creating:CreationDerivative.
 
 language:MachineTranslation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "machine translation"@en, "Maschinenübersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
 	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
 	rdfs:subClassOf language:Translation.
 
 language:Code
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "language code"@en, "Sprache-Kode"@de; # , "code de langue"@fr, ""@it;
 	rdfs:comment """Code in a coding system, attributed to a human natural language, e.g. ISO 639."""@en;
-	rdfs:seeAlso <http://www.nie.org/ontology/languages#>;
+	rdfs:seeAlso <http://www.e-editiones.ch/ontology/languages#>;
 	rdfs:subClassOf concept:Code.
 
 #
@@ -134,7 +134,7 @@ language:Code
 #
 
 language:hasCode
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:InverseFunctionalProperty;
 	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
 	rdfs:comment """Relating a language to a system code representing that language."""@en;
@@ -143,7 +143,7 @@ language:hasCode
 	rdfs:subPropertyOf concept:hasCode. # skos:exactMatch.
 
 language:hasContent
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "has content"@en, "hat Inhalt"@de;
 	rdfs:comment """Relating a human natural language expression to its content."""@en;
@@ -152,7 +152,7 @@ language:hasContent
 	rdfs:subPropertyOf concept:hasLiteral.
 
 language:isDialectOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "is dialect of"@en, "ist Dialekt von"@de;
 	rdfs:comment """Relating a dialect to its human natural language."""@en;
@@ -160,7 +160,7 @@ language:isDialectOf
 	rdfs:range language:HumanNaturalLanguage.
 
 language:expressedInNaturalLanguage
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "expressed in natural language"@en, "geäußert in naturlichen Sprache"@de;
 	rdfs:comment """Relating a human expression to a natural language wherein it is expressed."""@en;
@@ -169,7 +169,7 @@ language:expressedInNaturalLanguage
 	rdfs:subPropertyOf cidoc:P72_has_language.
 
 language:expressedInDialect
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "expressed in dialect"@en, "geäußert in Mundart"@de;
 	rdfs:comment """Relating a human expression to a dialect it is expressed in."""@en;
@@ -177,7 +177,7 @@ language:expressedInDialect
 	rdfs:range language:Dialect.
 
 language:hasTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "has translator"@en, "hat Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to an agent that translated it."""@en;
@@ -185,7 +185,7 @@ language:hasTranslator
 	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:AgentTranslator]].
 
 language:hasPersonTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
@@ -194,7 +194,7 @@ language:hasPersonTranslator
 	rdfs:subPropertyOf language:hasTranslator.
 
 language:hasMachineTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "has machine-translator"@en, "hat Machine-Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
@@ -203,7 +203,7 @@ language:hasMachineTranslator
 	rdfs:subPropertyOf language:hasTranslator.
 
 language:translationHasTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "translation has translator"@en, "Übersetzung hat Übersetzer"@de;
 	rdfs:comment """Relating a translation to an agent that created it."""@en;
@@ -211,7 +211,7 @@ language:translationHasTranslator
 	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:AgentTranslator]].
 
 language:translationHasPersonTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "translation has person-translator"@en, "Übersetzung hat Person-Übersetzer"@de;
 	rdfs:comment """Relating a translation to a person who created it."""@en;
@@ -220,7 +220,7 @@ language:translationHasPersonTranslator
 	rdfs:subPropertyOf language:translationHasTranslator.
 
 language:translationHasMachineTranslator
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "translation has machine-translator"@en, "Übersetzung hat Machine-Übersetzer"@de;
 	rdfs:comment """Relating a translation to a machine that created it."""@en;
@@ -229,7 +229,7 @@ language:translationHasMachineTranslator
 	rdfs:subPropertyOf language:translationHasTranslator.
 
 language:hasTranslation
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "has translation"@en, "hat Übersetzung"@de;
 	rdfs:comment """Relating a human natural language expression to another one in another natural language into which it is translated."""@en;
@@ -237,7 +237,7 @@ language:hasTranslation
 	rdfs:range language:Translation.
 
 language:isTranslatedInto
-	rdfs:isDefinedBy <http://www.nie.org/ontology/language#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
 	rdfs:label "is translated into"@en, "ist übersetzt in"@de;
 	rdfs:comment """Relating a human natural language expression to the language it is translated into."""@en;

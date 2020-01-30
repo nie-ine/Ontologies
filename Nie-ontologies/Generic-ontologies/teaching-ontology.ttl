@@ -6,16 +6,16 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix agent: <http://www.nie.org/ontology/agent#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
 
-# @base <http://www.nie.org/ontology/teaching>.
-@prefix teach: <http://www.nie.org/ontology/teaching#>.
+# @base <http://www.e-editiones.ch/ontology/teaching>.
+@prefix teach: <http://www.e-editiones.ch/ontology/teaching#>.
 
-<http://www.nie.org/ontology/teaching>
+<http://www.e-editiones.ch/ontology/teaching>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about teaching:"@en;
@@ -28,39 +28,39 @@
 #
 
 teach:Teaching
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teaching"@en, "Unterricht"@de;
 	rdfs:comment """Person's action of communicating information in order to help another person to acquire knowledge, competence or value."""@en;
 	rdfs:subClassOf human:Procedure.
 
 teach:Teacher
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teacher"@en, "LehrerIn"@de;
 	rdfs:comment """Role of a person who teaches."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 teach:Lecture
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecture"@en, "Vorlesung"@de;
 	rdfs:comment """Teaching by oral presentation about a particular subject."""@en;
 	rdfs:subClassOf teach:Teaching.
 
 teach:Lecturer
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecturer"@en, "VorleserIn"@de;
 	rdfs:comment """Role of a person who lectures."""@en;
 	rdfs:subClassOf teach:Teacher.
 
 teach:Manual
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
 	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr; #, "manuale"@it; # schoolbook
 	rdfs:comment """Manual for teaching purposes."""@en;
@@ -71,9 +71,9 @@ teach:Manual
 #
 
 teach:teachingBy
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teaching by"@en, "Unterricht von"@de;
 	rdfs:comment """Relating a teaching to a person having the teacher role."""@en;
 	rdfs:domain teach:Teaching;
@@ -81,9 +81,9 @@ teach:teachingBy
 	rdfs:subPropertyOf agent:hasAgent.
 
 teach:lectureBy
-	rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/teaching#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecture by"@en, "Vorlesung von"@de;
 	rdfs:comment """Relating a lecture to a person having the lecturer role."""@en;
 	rdfs:domain teach:Lecture;

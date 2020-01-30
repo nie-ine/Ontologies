@@ -2,15 +2,15 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix org: <http://www.nie.org/ontology/organization#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix org: <http://www.e-editiones.ch/ontology/organization#>.
 
 
-# @base <http://www.nie.org/ontology/catholic-organization>.
-@prefix cathorg: <http://www.nie.org/ontology/catholic-organization#>.
+# @base <http://www.e-editiones.ch/ontology/catholic-organization>.
+@prefix cathorg: <http://www.e-editiones.ch/ontology/catholic-organization#>.
 
-<http://www.nie.org/ontology/catholic-organization>
+<http://www.e-editiones.ch/ontology/catholic-organization>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about catholic organization"@en;
@@ -26,21 +26,21 @@
 
 cathorg:Organization
 	a rdfs:Class;
-	rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-organization#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
 	rdfs:label "catholic organization"@en;
 	rdfs:comment """Organization representing a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousOrganization.
 
 cathorg:Person
 	a rdfs:Class;
-	rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-organization#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousPerson.
 
 cathorg:SecularClergy
 	a rdfs:Class;
-	rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-organization#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
 	rdfs:label "secular clergy"@en;
 	rdfs:comment """Catholic organization whose member does not take religious vows and does not live in an institution."""@en;
 	rdfs:subClassOf cathorg:Organization.
@@ -51,7 +51,7 @@ cathorg:SecularClergy
 
 cathorg:isMemberOf
 	a owl:ObjectProperty;
-	rdfs:isDefinedBy <http://www.nie.org/ontology/catholic-organization#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
 	rdfs:label "is member of catholic organization"@en, "ist Mitglied einer katholischen Organization"@de;
 	rdfs:comment """Relating a person to a catholic organization the person is a member of."""@en;
 	rdfs:domain cathorg:Person;

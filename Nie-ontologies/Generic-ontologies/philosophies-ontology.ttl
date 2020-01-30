@@ -2,13 +2,13 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix philo: <http://www.nie.org/ontology/philosophy#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix philo: <http://www.e-editiones.ch/ontology/philosophy#>.
 
-# @base <http://www.nie.org/ontology/philosophies>.
-@prefix philos: <http://www.nie.org/ontology/philosophies#>.
+# @base <http://www.e-editiones.ch/ontology/philosophies>.
+@prefix philos: <http://www.e-editiones.ch/ontology/philosophies#>.
 
-<http://www.nie.org/ontology/philosophies>
+<http://www.e-editiones.ch/ontology/philosophies>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about philosophies"@en;
@@ -23,41 +23,41 @@
 #
 
 philos:Albertism
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Albertism"@en;
 	rdfs:comment """Philosophy and theology based on the ideas of Albertus Magnus (before 1200 - 1280-11-15)."""@en;
 	rdfs:subClassOf philo:Philosophy. # :Theology
 
 philos:Humanism
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Humanism"@en;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf philo:Philosophy.
 
 philos:Nominalism
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Nominalism"@en;
 	rdfs:comment """Philosophy stating that only individual things exist, denying the existence of universals and abstract objects."""@en;
 	rdfs:subClassOf philo:Metaphysics.
 
 philos:Scotism
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Scotism"@en;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf philo:Philosophy.
 
 philos:Thomism
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Thomism"@en;
 	rdfs:comment """Philosophy based on the work of Thomas Aquinas (1225 - 1274-O3-O7)."""@en;
 	rdfs:subClassOf philo:Philosophy. # :Theology
@@ -67,7 +67,7 @@ philos:Thomism
 #
 
 philos:adheringToThought
-	rdfs:isDefinedBy <http://www.nie.org/ontology/philosophies#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophies#>;
 	a owl:ObjectProperty;
 	rdfs:label "adhering to philosophy"@en, "ist Anhänger von Philosophie"@de;
 	rdfs:comment """Relating a person to a philosophy the person adheres to."""@en;

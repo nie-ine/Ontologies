@@ -6,19 +6,19 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://www.nie.org/ontology/physical-entity#>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix creating: <http://www.nie.org/ontology/creating#>.
-@prefix document: <http://www.nie.org/ontology/document#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
-@prefix publish: <http://www.nie.org/ontology/publishing#>.
+@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
+@prefix document: <http://www.e-editiones.ch/ontology/document#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
+@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 
-# @base <http://www.nie.org/ontology/concept>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
+# @base <http://www.e-editiones.ch/ontology/concept>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 
-<http://www.nie.org/ontology/concept>
+<http://www.e-editiones.ch/ontology/concept>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about concept"@en;
@@ -32,7 +32,7 @@
 #
 
 concept:ConceptualEntity
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "conceptual entity"@en, "konzeptuelle Entität"@de;
 	rdfs:comment """Abstract idea created by a person, as product of cognition."""@en;
@@ -40,63 +40,63 @@ concept:ConceptualEntity
 	owl:disjointWith physical:Entity.
 
 concept:Set
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "conceptual entity set"@en, "Reihe konzeptueller Entitäten"@de;
 	rdfs:comment """Set of conceptual entities."""@en;
 	rdfs:subClassOf concept:ConceptualEntity, creating:CreationSet.
 
 concept:Fiction
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "fiction"@en, "Fiktion"@de;
 	rdfs:comment """Conceptual entity derived from imagination."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 concept:Nonfiction
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "nonfiction"@en, "sachliches Konzept"@de;
 	rdfs:comment """Conceptual entity based on fact."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 concept:Commonplace
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "commonplace"@en, "Gemeinplatz"@de, "lieu commun"@fr;
 	rdfs:comment """Conceptual entity generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 concept:Motto
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "motto"@en, "Motto"@de, "devise"@fr, "motto"@it;
 	rdfs:comment """Conceptual entity chosen as encapsulating an ideal, principle, belief or goal of an individual or group."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
 concept:SymbolicEntity
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "symbolic entity"@en, "symbolische Entität"@de;
 	rdfs:comment """Conceptual entity represented by one or more symbols."""@en;
 	rdfs:subClassOf concept:ConceptualEntity, cidoc:E90_Symbolic_Object.
 
 concept:Identifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "identifier"@en, "Identifikator"@de;
 	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subClassOf concept:SymbolicEntity, cidoc:E42_Identifier. # rdfs:subClassOf cidoc:E41_Appellation
 
 concept:Code
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "code"@en, "Kode"@de;
 	rdfs:comment """Identifier belonging to a specific coding system, formed by any kind of symbols, e.g. alphanumeric."""@en;
 	rdfs:subClassOf concept:Identifier.
 
 concept:PropositionalEntity
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "propositional entity"@en, "propositionale Entität"@de;
 	rdfs:comment """Conceptual entity represented by one or more propositions as bearers of a truth value."""@en;
@@ -104,7 +104,7 @@ concept:PropositionalEntity
 	rdfs:subClassOf concept:ConceptualEntity, cidoc:E89_Propositional_Object.
 
 concept:ThoughtBody
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "body of thought"@en, "Gedankengut"@de;
 	rdfs:comment """Propositional entity comprising conceptually related propositions, without the necessity of being logically coherent."""@en;
@@ -112,7 +112,7 @@ concept:ThoughtBody
 	rdfs:subClassOf concept:PropositionalEntity.
 
 concept:Work
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "conceptual work"@en, "konzeptuelles Werk"@de;
 	rdfs:comment """propositional entity as recognizable intellectual product, conform FRBROO."""@en;
@@ -120,28 +120,28 @@ concept:Work
 	# text:hasTitle
 
 concept:IndividualWork
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "individual work"@en, "individuelles Werk"@de;
 	rdfs:comment """Work as a complete whole realised in one self-contained expression."""@en;
 	rdfs:subClassOf concept:Work, frbroo:F14_Individual_Work.
 
 concept:Information
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "information"@en, "Information"@de;
 	rdfs:comment """Symbolic propositional entity resolving uncertainty."""@en;
 	rdfs:subClassOf concept:PropositionalEntity, concept:SymbolicEntity, cidoc:E73_Information_Object.
 
 concept:Procedure
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "procedure"@en, "Vorgehen"@de;
 	rdfs:comment """Plan to perform an action in one or more steps, in a certain manner to obtain a certain output under certain circumstances."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E29_Design_or_Procedure.
 
 concept:ThoughtMethod
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "thought method"@en, "Methode des Denkens"@de;
 	rdfs:comment """Way of analysing facts to form a judgment."""@en;
@@ -152,7 +152,7 @@ concept:ThoughtMethod
 #
 
 concept:isPartOf
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty, owl:TransitiveProperty;
 	rdfs:label "is part of conceptual entity"@en, "ist Teil einer symbolischen Entität"@de;
 	rdfs:comment "Relating a conceptual entity to another one it is part of."@en;
@@ -161,7 +161,7 @@ concept:isPartOf
 	rdfs:subPropertyOf cidoc:P106i_forms_part_of.
 
 concept:hasSymbolicEntity
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "has symbolic entity"@en, "hat symbolische Entität"@de;
 	rdfs:comment "Relating something to a symbolic entity."@en;
@@ -169,7 +169,7 @@ concept:hasSymbolicEntity
 	rdfs:range concept:SymbolicEntity.
 
 concept:symbolicEntityHasLiteral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
 	rdfs:label "symbolic entity has literal"@en, "symbolische Entität hat Literale"@de;
 	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
@@ -177,7 +177,7 @@ concept:symbolicEntityHasLiteral
 	rdfs:range rdfs:Literal.
 
 concept:hasLiteral
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has literal"@en, "hat Literale"@de;
 	rdfs:comment """Relating something to the literal of a symbolic entity that the literal expresses."""@en;
@@ -186,7 +186,7 @@ concept:hasLiteral
 	owl:propertyChainAxiom (concept:hasSymbolicEntity concept:symbolicEntityHasLiteral).
 
 concept:hasIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Identifikator"@de;
 	rdfs:comment "Relating a resource to its identifier."@en;
@@ -194,7 +194,7 @@ concept:hasIdentifier
 	rdfs:range concept:Identifier.
 
 concept:hasCode
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "has code"@en, "hat Kode"@de;
 	rdfs:comment "Relating a resource to its code."@en;
@@ -204,7 +204,7 @@ concept:hasCode
 # frbroo:R3_is_realised_in: more general: rdfs:domain frbroo:F1_Work; rdfs:range frbroo:F22_Self-Contained_Expression
 
 concept:isExpressedIn
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
 	rdfs:comment "Relating an individual work to an individual expression thereof."@en;
@@ -213,7 +213,7 @@ concept:isExpressedIn
 	rdfs:subPropertyOf frbroo:R9_is_realised_in.
 
 concept:informationHasSubject
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "information has subject"@en, "Information hat Thema"@de;
 	rdfs:comment """Relating information to a subject it is about."""@en;
@@ -221,7 +221,7 @@ concept:informationHasSubject
 	rdfs:range rdfs:Resource.
 
 concept:informationHasSubjectDescription
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "information has subject description"@en, "Information hat Themabeschreibung"@de;
 	rdfs:comment """Relating information to a description of its subject."""@en;
@@ -230,7 +230,7 @@ concept:informationHasSubjectDescription
 	rdfs:subPropertyOf text:hasDescription.
 
 concept:hasEncoder
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "information has encoder"@en, "Information hat Encoder"@de;
 	rdfs:comment "Relating information to a person who encoded it."@en;
@@ -238,7 +238,7 @@ concept:hasEncoder
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]].
 
 concept:hasDedicatedTo #°
-	rdfs:isDefinedBy <http://www.nie.org/ontology/concept#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
 	rdfs:label "has dedicated to"@en, "hat gewidmet"@de;
 	rdfs:comment """Relating a person to another person to whom the former has dedicated something."""@en;

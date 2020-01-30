@@ -3,23 +3,23 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix language: <http://www.nie.org/ontology/language#>.
-@prefix teach: <http://www.nie.org/ontology/teaching#>.
-@prefix document: <http://www.nie.org/ontology/document#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
-@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
-@prefix prosodic-structure: <http://www.nie.org/ontology/prosodic-structure#>.
-@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
-@prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
-@prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix literature: <http://www.nie.org/ontology/literature#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix language: <http://www.e-editiones.ch/ontology/language#>.
+@prefix teach: <http://www.e-editiones.ch/ontology/teaching#>.
+@prefix document: <http://www.e-editiones.ch/ontology/document#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
+@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
+@prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
+@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
+@prefix scholarly-editing: <http://www.e-editiones.ch/ontology/scholarly-editing#>.
+@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
+@prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
-# @base <http://www.nie.org/ontology/delille>.
-@prefix delille: <http://www.nie.org/ontology/delille#>.
+# @base <http://www.e-editiones.ch/ontology/delille>.
+@prefix delille: <http://www.e-editiones.ch/ontology/delille#>.
 
-<http://www.nie.org/ontology/delille>
+<http://www.e-editiones.ch/ontology/delille>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
@@ -33,77 +33,77 @@
 #
 
 delille:VersePoem
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille verse poem"@en, "Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:VersePoem, publish:TextExpression.
 
 delille:TranslatedVersePoem
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Translated Jacques Delille verse poem"@en, "übersetzter gereimter Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Translated Jacques Delille verse poem."""@en;
 	rdfs:subClassOf delille:VersePoem, language:PersonTranslation, text:Translation.
 
 delille:EditedVersePoem
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
 	rdfs:subClassOf delille:VersePoem, textedit:Edition.
 
 delille:Canto
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille canto"@en, "Canto Jacques Delilles"@de, "chant de Jacques Delille"@fr, "canto di Jacques Delille"@it;
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf prosodic-structure:VerseSection, text-expression:ExpressionPart.
 
 delille:Dictionary
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing dictionary"@en, "zitierendes Wörterbuch"@de; #, ""@fr, ""@it;
 	rdfs:comment """Dictionary citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:Dictionary, publish:TextExpression.
 
 delille:AnthologyOrManual
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing anthology or teaching manual"@en, "zitierende/s Anthologie oder Lehrbuch"@de; #, ""@fr, ""@it;
 	rdfs:comment """Anthology or teaching manual citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf publish:TextExpression.
 
 delille:LiteraryExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing literary publication expression"@en, "zitierende literarische Publikationsexpression"@de; #, ""@fr, ""@it;
 	rdfs:comment """Literary publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Expression, publish:TextExpression.
 
 delille:PoemOrVersePlay
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing poem or verse play"@en, "zitierendes Gedicht oder Vers-Theaterstück"@de, "poème ou pièce de théâtre en vers citante"@fr; #, ""@it;
 	rdfs:comment """Poem or verse play citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf delille:LiteraryExpression.
 
 delille:Novel
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing novel"@en, "zitierender Roman"@de; #, "récit fictionnel"@fr, ""@it;
 	rdfs:comment """Novel citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Novel, delille:LiteraryExpression.
 
 delille:EssayOrPanoramicLiteraryOrPhilisophicOrHumanitiesExpression # mix of literary and scientific expressions?
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing essay, or panoramic literary, philisophic or Humanities expression"@en, "zitierendes Essay, oder panoramisch literarisch, philosophisch oder geisteswissenschaftliche Expression"@de, "essai citant , ou expression littéraire panoramique et pittoresque, philosophique ou scientifique humaines"@fr; #, ""@it;
 	rdfs:comment """Essay, or panoramic literary, philisophic or Humanities publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf delille:LiteraryExpression.
 
 delille:LiteraryNonfictionExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing literary nonfiction expression"@en, "zitierende sachliche literarische Expression"@de, "expression littéraire non-fiction citante"@fr; #, ""@it;
 	rdfs:comment """Literary nonfiction expression citing one or more verses of a poem authored by Jacques Delille, being a memoir, biography, history, anecdote, or correspondence."""@en;
@@ -111,21 +111,21 @@ delille:LiteraryNonfictionExpression
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
 
 delille:LiteraryScientificExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing literary scientific expression"@en, "zitierende Literaturwissenschaftliche Expression"@de, "expression scientifique littéraire citante"@fr; #, ""@it;
 	rdfs:comment """Literary scientific publication expression in esthetics, poetry and literary history, citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:ScientificExpression, publish:TextExpression.
 
 delille:ScientificOrVulgarizedExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing scientific or vulgarized publication expression"@en, "zitierende wissenschaftliche oder vulgarisierte Publikation-Expression"@de;
 	rdfs:comment """Scientific or vulgarized publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:ScientificExpression, publish:TextExpression.
 
 delille:Catalogue
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing catalogue"@en, "zitierende Katalog"@de;
 	rdfs:comment """Catalogue citing one or more verses of a poem authored by Jacques Delille."""@en;
@@ -136,21 +136,21 @@ delille:Catalogue
 #° delille:Image
 
 delille:Commentary
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:Commentary, text-expression:ScientificExpression, publish:TextExpression.
 
 delille:Argument
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Argument of a commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Argument, publish:TextExpression.
 
 delille:Non-Artist-ManOfLetters-Vulgarizer
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "non-artist-man of letters-vulgarizer"@en, "Non-KünstlerIn-Literat-VulgarisatorIn"@de;
 	rdfs:comment """Role of a person which is not an artist, a man of letters, and/or a vulgarizer."""@en;
@@ -158,7 +158,7 @@ delille:Non-Artist-ManOfLetters-Vulgarizer
 	owl:disjointWith human:Artist, text-expression:ManOfLetters, text-expression:Vulgarizer.
 
 delille:ScholarlyEdition
-	rdfs:isDefinedBy <http://www.nie.org/ontology/delille#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille verse poem scholarly edition"@en, "wissenschaftliche Edition eines Versgedichtes Jacques Delilles"@de;
 	rdfs:comment """Scholarly edition of a verse poem authored by Jacques Delille."""@en;

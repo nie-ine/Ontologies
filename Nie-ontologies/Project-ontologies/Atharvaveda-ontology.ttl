@@ -3,22 +3,22 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
-@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
-@prefix prosodic-structure: <http://www.nie.org/ontology/prosodic-structure#>.
-@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
-@prefix scholarly-editing: <http://www.nie.org/ontology/scholarly-editing#>.
-@prefix infocar: <http://www.nie.org/ontology/information-carrier#>.
-@prefix literature: <http://www.nie.org/ontology/literature#>.
-@prefix ling: <http://www.nie.org/ontology/linguistics#>.
-@prefix indo: <http://www.nie.org/ontology/indology#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
+@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
+@prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
+@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
+@prefix scholarly-editing: <http://www.e-editiones.ch/ontology/scholarly-editing#>.
+@prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
+@prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
+@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix indo: <http://www.e-editiones.ch/ontology/indology#>.
 
-# @base <http://www.nie.org/ontology/atharvaveda>.
-@prefix athar: <http://www.nie.org/ontology/atharvaveda#>.
+# @base <http://www.e-editiones.ch/ontology/atharvaveda>.
+@prefix athar: <http://www.e-editiones.ch/ontology/atharvaveda#>.
 
-<http://www.nie.org/ontology/atharvaveda>
+<http://www.e-editiones.ch/ontology/atharvaveda>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Atharvaveda"@en;
@@ -34,7 +34,7 @@
 #
 
 athar:Atharvaveda
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda"@sa, "Atharvaveda"@en, "Atharvaveda"@de;
 	rdfs:comment """Fourth Veda, containing the knowledge of atharvāṇas, the procedures of beliefs and rituals addressing practical issues of daily life of the Vedic society in Hinduism, compiled about 1200 to 1000 BC."""@en;
@@ -42,14 +42,14 @@ athar:Atharvaveda
 	rdfs:subClassOf indo:Veda.
 
 athar:Paippalada-Samhita
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Paippalāda-Samhitā"@sa, "Paippalada-Samhita"@en, "Paippalada-Samhita"@de;
 	rdfs:comment """One of the nine recensions of the Atharvaveda, along the different shakhas or Hindu theological schools, specialized in learning Vedic texts. Only this one and the Shaunakiya recension are extent."""@en;
 	rdfs:subClassOf athar:Atharvaveda, textedit:Recension.
 
 athar:Kanda
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda kāṇḍa"@sa, "Atharvaveda kanda"@en, "Atharvaveda Kanda"@de;
 	rdfs:comment """Kanda of the Atharvaveda."""@en;
@@ -57,7 +57,7 @@ athar:Kanda
 	rdfs:subClassOf literature:VerseSongCollection, indo:Expression.
 
 athar:Sukta
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda sūkta"@sa, "Atharvaveda sukta"@en, "Atharvaveda-Sukta"@de;
 	rdfs:comment """Sukta in the Atharvaveda."""@en;
@@ -65,21 +65,21 @@ athar:Sukta
 	rdfs:subClassOf literature:VerseSong, indo:Expression, text:HandwrittenText.
 
 athar:Strophe
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda strophe"@en, "Atharvaveda-Strophe"@de;
 	rdfs:comment """Group of verses or 2 half-strophes in the Atharvaveda."""@en;
 	rdfs:subClassOf prosodic-structure:Strophe, text-expression:ExpressionPart.
 
 athar:HalfStrophe
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda half-strophe"@en, "Atharvaveda-Halbstrophe"@de;
 	rdfs:comment """Half a strophe in the Atharvaveda."""@en;
 	rdfs:subClassOf prosodic-structure:HalfStrophe.
 
 athar:Verse
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Atharvaveda pada"@sa, "Atharvaveda verse"@en, "Atharvaveda-Vers"@de;
 	rdfs:comment """Verse as part of a strophe in the Atharvaveda."""@en;
@@ -87,7 +87,7 @@ athar:Verse
 	rdfs:subClassOf prosodic-structure:Verse.
 
 athar:Padapatha
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a rdfs:Class;
 	rdfs:label "Normalized Padapatha"@en, "Normalisierte Padapatha"@de;
 	rdfs:comment """Padapatha normalized from a Samhitapatha."""@en;
@@ -98,7 +98,7 @@ athar:Padapatha
 #
 
 athar:paippaladaHasGenre
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "Paippalada has genre"@en, "Paippalada hat Gattung"@de;
 	rdfs:comment """Relating a Paippalada to its genre."""@en;
@@ -107,7 +107,7 @@ athar:paippaladaHasGenre
 	rdfs:subPropertyOf indo:vedaHasGenre.
 
 athar:paippaladaHasRecitingStyle
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "Paippalada has reciting style"@en, "Paippalada hat Rezitationsstil"@de;
 	rdfs:comment """Relating a Paippalada to a reciting style it has."""@en;
@@ -116,7 +116,7 @@ athar:paippaladaHasRecitingStyle
 	rdfs:subPropertyOf indo:vedaHasRecitingStyle.
 
 athar:isKandaOfAtharvaveda
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is kanda of Atharvaveda"@en, "ist Kanda einer Atharvaveda"@de;
 	rdfs:comment """Relating a kanda to its Atharvaveda."""@en;
@@ -125,7 +125,7 @@ athar:isKandaOfAtharvaveda
 	rdfs:subPropertyOf concept:isPartOf.
 
 athar:isSuktaOfKanda
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is sukta of kanda"@en, "ist Sukta einer Kanda"@de;
 	rdfs:comment """Relating an Atharvaveda sukta to its kanda."""@en;
@@ -134,7 +134,7 @@ athar:isSuktaOfKanda
 	rdfs:subPropertyOf literature:isVerseSongOfCollection.
 
 athar:isStropheOfSukta
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is strophe of sukta"@en, "ist Strophe einer Sukta"@de;
 	rdfs:comment """Relating an Atharvaveda strophe to its sukta."""@en;
@@ -143,7 +143,7 @@ athar:isStropheOfSukta
 	rdfs:subPropertyOf prosodic-structure:isStropheOfPoem.
 
 athar:isVerseOfStrophe
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
 	rdfs:comment """Relating an Atharvaveda verse to a strophe it is part of."""@en;
@@ -152,7 +152,7 @@ athar:isVerseOfStrophe
 	rdfs:subPropertyOf prosodic-structure:isVerseOfStrophe.
 
 athar:isVerseOfHalfStrophe
-	rdfs:isDefinedBy <http://www.nie.org/ontology/atharvaveda#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/atharvaveda#>;
 	a owl:ObjectProperty;
 	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de;
 	rdfs:comment """Relating an Atharvaveda verse to a half-strophe it is part of."""@en;

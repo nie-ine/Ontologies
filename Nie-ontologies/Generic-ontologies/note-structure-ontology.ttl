@@ -5,24 +5,24 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.nie.org/ontology/event#>.
-@prefix human: <http://www.nie.org/ontology/human#>.
-@prefix language: <http://www.nie.org/ontology/language#>.
-@prefix concept: <http://www.nie.org/ontology/concept#>.
-@prefix math: <http://www.nie.org/ontology/mathematics#>.
-@prefix document: <http://www.nie.org/ontology/document#>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-expression: <http://www.nie.org/ontology/text-expression#>.
-@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
-@prefix textedit: <http://www.nie.org/ontology/text-editing#>.
-@prefix publish: <http://www.nie.org/ontology/publishing#>.
-@prefix ling: <http://www.nie.org/ontology/linguistics#>.
-@prefix lingmor: <http://www.nie.org/ontology/linguistic-morphology#>.
+@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix language: <http://www.e-editiones.ch/ontology/language#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
+@prefix document: <http://www.e-editiones.ch/ontology/document#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
+@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
+@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
+@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
+@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
-# @base <http://www.nie.org/ontology/note-structure>.
-@prefix note-structure: <http://www.nie.org/ontology/note-structure#>.
+# @base <http://www.e-editiones.ch/ontology/note-structure>.
+@prefix note-structure: <http://www.e-editiones.ch/ontology/note-structure#>.
 
-<http://www.nie.org/ontology/note-structure>
+<http://www.e-editiones.ch/ontology/note-structure>
 	a owl:Ontology;
 	dct:title "An ontology about note structure"@en;
 	dct:description """Formal description of note structure, subclasses, related classes, and properties."""@en;
@@ -38,84 +38,84 @@
 #
 
 note-structure:Note
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "note structure"@en, "Notiz-Struktur"@de;
 	rdfs:comment """Text with note structure, not necessarily having sentences or being syntactically correct; e.g. a first registration of thought, or a remark added to another text."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 note-structure:MarginalNote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "marginal note"@en, "Marginale Notiz"@de;
 	rdfs:comment """Note written besides a text in the margin of a carrier."""@en;
 	rdfs:subClassOf note-structure:Note, text:WrittenText, document:Marginal.
 
 note-structure:InterlinearNote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "interlinear note"@en, "interlineare Notiz"@de;
 	rdfs:comment """Note written between text lines."""@en;
 	rdfs:subClassOf note-structure:Note, text:WrittenText.
 
 note-structure:Gloss
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "gloss"@en, "Glosse"@de;
 	rdfs:comment """Explanatory note, e.g. interlinear or marginal."""@en;
 	rdfs:subClassOf note-structure:Note.
 
 note-structure:MarginalGloss
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "marginal gloss"@en, "marginale Glosse"@de;
 	rdfs:comment """Gloss as a marginal note."""@en;
 	rdfs:subClassOf note-structure:Gloss, note-structure:MarginalNote.
 
 note-structure:InterlinearGloss
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "interlinear gloss"@en, "interlineare Glosse"@de;
 	rdfs:comment """Gloss as an interlinear note."""@en;
 	rdfs:subClassOf note-structure:Gloss, note-structure:InterlinearNote.
 
 note-structure:Footnote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "footnote structure"@en, "Fussnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of that page, seperate from the main content."""@en;
 	rdfs:subClassOf note-structure:Note.
 
 note-structure:FootnoteIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "footnote identifier"@en, "Fussnoteidentifikator"@de;
 	rdfs:comment """Identifier of a footnote."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 note-structure:FootnoteNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "footnote number"@en, "Fussnotenummer"@de;
 	rdfs:comment """Number of a footnote."""@en;
 	rdfs:subClassOf note-structure:FootnoteIdentifier, math:Number.
 
 note-structure:Endnote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "endnote structure"@en, "Endnotestruktur"@de;
 	rdfs:comment """Note on information on a page at the end of the document, seperate from the main content."""@en;
 	rdfs:subClassOf note-structure:Note.
 
 note-structure:EndnoteIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "endnote identifier"@en, "Endnoteidentifikator"@de;
 	rdfs:comment """Identifier of an endnote."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 note-structure:EndnoteNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
 	rdfs:label "endnote number"@en, "Endnotenummer"@de;
 	rdfs:comment """Number of an endnote."""@en;
@@ -126,7 +126,7 @@ note-structure:EndnoteNumber
 #
 
 note-structure:isNoteOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is note structure of expression"@en, "ist Notiz-Struktur einer Expression"@de;
 	rdfs:comment """Relating a note structure to a text expression it is part of."""@en;
@@ -135,7 +135,7 @@ note-structure:isNoteOfExpression
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 note-structure:isGlossOfExpression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is gloss of expression"@en, "ist Glosse einer Expression"@de;
 	rdfs:comment """Relating a gloss to a text expression it is part of."""@en;
@@ -144,7 +144,7 @@ note-structure:isGlossOfExpression
 	rdfs:subPropertyOf note-structure:isNoteOfExpression.
 
 note-structure:footnoteHasIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "footnote has identifier"@en, "Fussnote hat Identifikator"@de;
 	rdfs:comment """Relating a footnote to an identifier (as resource) it has."""@en;
@@ -153,7 +153,7 @@ note-structure:footnoteHasIdentifier
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
 note-structure:footnoteHasNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "footnote has number"@en, "Fussnote hat Nummer"@de;
 	rdfs:comment """Relating a footnote to a natural number (as resource) it has."""@en;
@@ -162,7 +162,7 @@ note-structure:footnoteHasNumber
 	rdfs:subPropertyOf note-structure:footnoteHasIdentifier.
 
 note-structure:endnoteHasIdentifier
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "endnote has identifier"@en, "Endnote hat Identifikator"@de;
 	rdfs:comment """Relating an endnote to an identifier (as resource) it has."""@en;
@@ -171,7 +171,7 @@ note-structure:endnoteHasIdentifier
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
 note-structure:isIdentifierOfEndnote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is identifier of endnote"@en, "ist Identifikator einer Endnote"@de;
 	rdfs:comment """Relating an identifier to its endnote."""@en;
@@ -180,7 +180,7 @@ note-structure:isIdentifierOfEndnote
 	owl:inverseOf note-structure:endnoteHasIdentifier.
 
 note-structure:endnoteHasNumber
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "endnote has number"@en, "Endnote hat Nummer"@de;
 	rdfs:comment """Relating an endnote to its number."""@en;
@@ -189,7 +189,7 @@ note-structure:endnoteHasNumber
 	rdfs:subPropertyOf note-structure:endnoteHasIdentifier.
 
 note-structure:isNumberOfEndnote
-	rdfs:isDefinedBy <http://www.nie.org/ontology/note-structure#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
 	rdfs:label "is number of endnote"@en, "ist Nummer einer Endnote"@de;
 	rdfs:comment """Relating a number to its endnote."""@en;

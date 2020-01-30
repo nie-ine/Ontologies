@@ -2,14 +2,14 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix text: <http://www.nie.org/ontology/text#>.
-@prefix text-structure: <http://www.nie.org/ontology/text-structure#>.
-@prefix literature: <http://www.nie.org/ontology/literature#>.
+@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
+@prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
-# @base <http://www.nie.org/ontology/indology>.
-@prefix indo: <http://www.nie.org/ontology/indology#>.
+# @base <http://www.e-editiones.ch/ontology/indology>.
+@prefix indo: <http://www.e-editiones.ch/ontology/indology#>.
 
-<http://www.nie.org/ontology/indology>
+<http://www.e-editiones.ch/ontology/indology>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Indology"@en;
@@ -23,28 +23,28 @@
 #
 
 indo:Literature
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
  	rdfs:label "Indian literature"@en, "indische Literatur"@de; # check
 	rdfs:comment """Literature in Indian culture."""@en;
 	rdfs:subClassOf literature:Literature.
 
 indo:Expression
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
 	rdfs:label "Indian literary expression"@en, "indische literarische Expression"@de;
 	rdfs:comment """Literary expression created in Indian culture."""@en, """Literarische Expression in indischer Kultur kreiert."""@de;
 	rdfs:subClassOf literature:Expression.
 
 indo:Veda
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
 	rdfs:label "Veda"@en, "Veda"@de;
 	rdfs:comment """Hindu text written in Vedic Sanskrit, in a period dated roughly from 1700 to 400 BC."""@en;
 	rdfs:subClassOf indo:Expression.
 
 indo:VedaLiterature
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
 	rdfs:label "Veda literature"@en, "vedische indische Literatur"@de;
 	rdfs:comment """Indian literature in a Veda."""@en;
@@ -52,13 +52,13 @@ indo:VedaLiterature
 	owl:oneOf (indo:Samhita indo:Aranyaka indo:Brahmana indo:Upanishad). # OR owl:disjointUnionOf
 
 indo:Samhita
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class, indo:VedaLiterature;
 	rdfs:label "Samhita"@sa, "Samhita"@en, "Samhita"@de;
 	rdfs:comment """One of the four text styles, and the oldest part, in a Veda, wherein text or verses are methodically put together."""@en.
 
 indo:Patha
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
 	rdfs:label "pāṭha"@sa, "patha"@en, "Patha"@de;
 	rdfs:comment """Style to recite or chant a Vedic mantra in the oral tradition of the Vedas, enabling its memorization."""@en;
@@ -67,13 +67,13 @@ indo:Patha
 	owl:oneOf (indo:Samhitapatha indo:Padapatha indo:Kramapatha indo:Jatapatha indo:Maalaapatha indo:Sikhapatha indo:Rekhapatha indo:Dhwajapatha indo:Dandapatha indo:Rathaapatha indo:Ghanapatha). # OR owl:disjointUnionOf
 
 indo:Samhitapatha
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class, indo:Patha;
 	rdfs:label "Samhita-pāṭha"@sa, "Samhitapatha"@en, "Samhitapatha"@de;
 	rdfs:comment """One of the eleven Pathas, with continuous recitation of Sanskrit words bound by the phonetic rules of euphonic combination."""@en.
 
 indo:Padapatha
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a rdfs:Class, indo:Patha;
 	rdfs:label "Pada-pāṭha"@sa, "Padapatha"@en, "Padapatha"@de;
 	rdfs:comment """One of the eleven Pathas, with a word by word recitation, marked by a conscious pause after every word, and after any special grammatical code embedded in the text; suppresses euphonic combination and restores each word in its original intended form."""@en.
@@ -83,7 +83,7 @@ indo:Padapatha
 #
 
 indo:hasIndologicComment
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has Indological comment"@en, "hat indologischer Kommentar"@de;
 	rdfs:comment """Relating something to an Indological comment as a textual statement about that something."""@en;
@@ -92,7 +92,7 @@ indo:hasIndologicComment
 	rdfs:subPropertyOf text:hasComment.
 
 indo:vedaHasGenre
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a owl:ObjectProperty;
 	rdfs:label "Veda has literary genre"@en, "Veda hat literarische Gattung"@de;
 	rdfs:comment """Relating a Veda to a genre it has."""@en;
@@ -101,7 +101,7 @@ indo:vedaHasGenre
 	rdfs:subPropertyOf literature:hasGenre.
 
 indo:vedaHasRecitingStyle
-	rdfs:isDefinedBy <http://www.nie.org/ontology/indology#>;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/indology#>;
 	a owl:ObjectProperty;
 	rdfs:label "Veda has reciting style"@en, "Veda hat Rezitationsstil"@de;
 	rdfs:comment """Relating a Veda to a reciting style it has."""@en;

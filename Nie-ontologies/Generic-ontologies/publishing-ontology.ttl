@@ -55,7 +55,7 @@ publish:TextExpression
 publish:Article
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "publication article"@en, "Publikation-Artikel"@de; #, "article"@fr, "articolo"@it;
+	rdfs:label "publication article"@en, "Publikationsartikel"@de, "article de publication"@fr, "articolo pubblicazione"@it;
 	rdfs:comment """Article as unit in a publication."""@en;
 	rdfs:subClassOf text-expression:Article, publish:TextExpression.
 
@@ -310,7 +310,7 @@ publish:hasWebPublication
 	rdfs:range publish:WebPublication;
 	rdfs:subPropertyOf publish:hasElectronicPublication.
 
-publish:hasPublicationNumber
+publish:hasPublicationNumber #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication number"@en, "hat Publikationsnummer"@de;
@@ -528,7 +528,7 @@ publish:hasReferenceLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de;
 	rdfs:comment """Relating a publication to the literal of a bibliographic reference of the publication."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publish:Publication; # expr.
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasLiteral.
 #	rdfs:subPropertyOf text:hasDescription.

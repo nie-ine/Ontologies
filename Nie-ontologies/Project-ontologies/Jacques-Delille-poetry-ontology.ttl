@@ -60,26 +60,33 @@ delille:Canto
 	rdfs:comment """Group of strophes in a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf prosodic-structure:VerseSection, text-expression:ExpressionPart.
 
+delille:CitingExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "citing text expression"@en, "zitierende Textexpression"@de; #, ""@fr, ""@it;
+	rdfs:comment """Text expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf publish:TextExpression.
+
 delille:Dictionary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing dictionary"@en, "zitierendes Wörterbuch"@de; #, ""@fr, ""@it;
 	rdfs:comment """Dictionary citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:Dictionary, publish:TextExpression.
+	rdfs:subClassOf text-expression:Dictionary, delille:CitingExpression.
 
 delille:AnthologyOrManual
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing anthology or teaching manual"@en, "zitierende/s Anthologie oder Lehrbuch"@de; #, ""@fr, ""@it;
 	rdfs:comment """Anthology or teaching manual citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf publish:TextExpression.
+	rdfs:subClassOf delille:CitingExpression.
 
 delille:LiteraryExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing literary publication expression"@en, "zitierende literarische Publikationsexpression"@de; #, ""@fr, ""@it;
 	rdfs:comment """Literary publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf literature:Expression, publish:TextExpression.
+	rdfs:subClassOf literature:Expression, delille:CitingExpression.
 
 delille:PoemOrVersePlay
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -115,21 +122,21 @@ delille:LiteraryScientificExpression
 	a rdfs:Class;
 	rdfs:label "citing literary scientific expression"@en, "zitierende Literaturwissenschaftliche Expression"@de, "expression scientifique littéraire citante"@fr; #, ""@it;
 	rdfs:comment """Literary scientific publication expression in esthetics, poetry and literary history, citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:ScientificExpression, publish:TextExpression.
+	rdfs:subClassOf text-expression:ScientificExpression, delille:CitingExpression.
 
 delille:ScientificOrVulgarizedExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing scientific or vulgarized publication expression"@en, "zitierende wissenschaftliche oder vulgarisierte Publikation-Expression"@de;
 	rdfs:comment """Scientific or vulgarized publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:ScientificExpression, publish:TextExpression.
+	rdfs:subClassOf text-expression:ScientificExpression, delille:CitingExpression.
 
 delille:Catalogue
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing catalogue"@en, "zitierende Katalog"@de;
 	rdfs:comment """Catalogue citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf document:Catalogue, publish:TextExpression.
+	rdfs:subClassOf document:Catalogue, delille:CitingExpression.
 
 #° delille:Engraving
 

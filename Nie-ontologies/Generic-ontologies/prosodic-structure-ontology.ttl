@@ -59,12 +59,12 @@ prosodic-structure:VerseIdentifier
 	rdfs:comment """Identifier of a verse."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
-prosodic-structure:VerseNumber
+prosodic-structure:VerseOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse number"@en, "Versnummer"@de;
-	rdfs:comment """Number of a verse."""@en;
-	rdfs:subClassOf prosodic-structure:VerseIdentifier, math:NaturalNumber.
+	rdfs:label "verse ordinal number"@en, "Versordinalzahl"@de;
+	rdfs:comment """Ordinal number of a verse."""@en;
+	rdfs:subClassOf prosodic-structure:VerseIdentifier, math:OrdinalNumber.
 
 prosodic-structure:HalfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -90,12 +90,12 @@ prosodic-structure:StropheIdentifier
 	rdfs:comment """Identifier of a strophe."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
-prosodic-structure:StropheNumber
+prosodic-structure:StropheOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strophe number"@en, "Strophenummer"@de;
-	rdfs:comment """Number of a strophe."""@en;
-	rdfs:subClassOf prosodic-structure:StropheIdentifier, math:NaturalNumber.
+	rdfs:label "strophe ordinal number"@en, "Stropheordinalzahl"@de;
+	rdfs:comment """Ordinal number of a strophe."""@en;
+	rdfs:subClassOf prosodic-structure:StropheIdentifier, math:OrdinalNumber.
 
 prosodic-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :HalfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -119,12 +119,12 @@ prosodic-structure:VerseSectionIdentifier
 	rdfs:comment """Identifier of a verse section."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
-prosodic-structure:VerseSectionNumber
+prosodic-structure:VerseSectionOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse section number"@en, "Versabschnittnummer"@de;
-	rdfs:comment """Number of a verse section."""@en;
-	rdfs:subClassOf prosodic-structure:VerseSectionIdentifier, math:NaturalNumber.
+	rdfs:label "verse section ordinal number"@en, "Versabschnittordinalzahl"@de;
+	rdfs:comment """Ordinal number of a verse section."""@en;
+	rdfs:subClassOf prosodic-structure:VerseSectionIdentifier, math:OrdinalNumber.
 
 prosodic-structure:StrictVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -224,14 +224,24 @@ prosodic-structure:verseHasIdentifier
 	rdfs:range prosodic-structure:VerseIdentifier;
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
-prosodic-structure:verseHasNumber
+prosodic-structure:verseHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse has number"@en, "Vers hat Nummer"@de;
-	rdfs:comment """Relating a verse to its number."""@en;
+	rdfs:label "verse has ordinal number"@en, "Vers hat Ordinalzahl"@de;
+	rdfs:comment """Relating a verse to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:Verse;
-	rdfs:range prosodic-structure:VerseNumber;
+	rdfs:range prosodic-structure:VerseOrdinalNumber;
 	rdfs:subPropertyOf prosodic-structure:verseHasIdentifier.
+
+prosodic-structure:verseHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has ordinal numeral"@en, "Vers hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a verse to its ordinal numeral."""@en;
+	rdfs:domain prosodic-structure:Verse;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (prosodic-structure:verseHasOrdinalNumber math:hasNumeral).
 
 prosodic-structure:isHalfOfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -278,14 +288,24 @@ prosodic-structure:stropheHasIdentifier
 	rdfs:range prosodic-structure:StropheIdentifier;
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
-prosodic-structure:stropheHasNumber
+prosodic-structure:stropheHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "strophe has number"@en, "Strophe hat Nummer"@de;
-	rdfs:comment """Relating a strophe to its number."""@en;
+	rdfs:label "strophe has ordinal number"@en, "Strophe hat Ordinalzahl"@de;
+	rdfs:comment """Relating a strophe to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:Strophe;
-	rdfs:range prosodic-structure:StropheNumber;
+	rdfs:range prosodic-structure:StropheOrdinalNumber;
 	rdfs:subPropertyOf prosodic-structure:stropheHasIdentifier.
+
+prosodic-structure:stropheHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
+	a owl:DatatypeProperty;
+	rdfs:label "strophe has ordinal numeral"@en, "Strophe hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a strophe to its ordinal numeral."""@en;
+	rdfs:domain prosodic-structure:Strophe;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (prosodic-structure:stropheHasOrdinalNumber math:hasNumeral).
 
 prosodic-structure:isHalfOfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -332,11 +352,21 @@ prosodic-structure:verseSectionHasIdentifier
 	rdfs:range prosodic-structure:VerseSectionIdentifier;
 	rdfs:subPropertyOf text-structure:hasIdentifier.
 
-prosodic-structure:verseSectionHasNumber
+prosodic-structure:verseSectionHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse section has number"@en, "Versabschnitt hat Nummer"@de;
-	rdfs:comment """Relating a verse section to its number."""@en;
+	rdfs:label "verse section has ordinal number"@en, "Versabschnitt hat Ordinalzahl"@de;
+	rdfs:comment """Relating a verse section to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
-	rdfs:range prosodic-structure:VerseSectionNumber;
-	rdfs:subPropertyOf prosodic-structure:verseSectionHasIdentifier.
+	rdfs:range prosodic-structure:VerseSectionOrdinalNumber;
+	rdfs:subPropertyOf prosodic-structure:verseSectionHasIdentifier, math:hasOrdinalNumber.
+
+prosodic-structure:verseSectionHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse section has ordinal numeral"@en, "Versabschnitt hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a verse section to its ordinal numeral."""@en;
+	rdfs:domain prosodic-structure:VerseSection;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (prosodic-structure:verseSectionHasOrdinalNumber math:hasNumeral).

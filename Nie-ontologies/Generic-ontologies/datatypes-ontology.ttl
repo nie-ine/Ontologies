@@ -27,7 +27,7 @@ datatypes:gndScheme
 	rdfs:seeAlso <https://www.dnb.de/EN/Standardisierung/GND/gnd_node.html>;
 	rdfs:subClassOf rdfs:Resource.
 
-datatypes:gndDatatype
+datatypes:gnd
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/datatypes#>;
 	a rdfs:Class, rdfs:Datatype;
 	rdfs:label "GND-datatype"@en;

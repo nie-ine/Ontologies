@@ -194,7 +194,7 @@ calendar:hasJulianStartDate
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian start date"@en;
 	rdfs:comment """Relating something to its Julian start date."""@en;
-	rdfs:domain rdfs:Resource;
+	rdfs:domain event:Event;
 	rdfs:range calendar:julianDate.
 
 calendar:hasJulianEndDate
@@ -202,7 +202,7 @@ calendar:hasJulianEndDate
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian end date"@en;
 	rdfs:comment """Relating something to its Julian end date."""@en;
-	rdfs:domain rdfs:Resource;
+	rdfs:domain event:Event;
 	rdfs:range calendar:julianDate.
 
 calendar:julianListToDate
@@ -245,7 +245,7 @@ calendar:hasProlepticJulianStartDate
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian start date"@en;
 	rdfs:comment """Relating something to its proleptic Julian start date."""@en;
-	rdfs:domain rdfs:Resource;
+	rdfs:domain event:Event;
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:hasProlepticJulianEndDate
@@ -253,7 +253,7 @@ calendar:hasProlepticJulianEndDate
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian end date"@en;
 	rdfs:comment """Relating something to its proleptic Julian end date."""@en;
-	rdfs:domain rdfs:Resource;
+	rdfs:domain event:Event;
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:prolepticJulianListToDate

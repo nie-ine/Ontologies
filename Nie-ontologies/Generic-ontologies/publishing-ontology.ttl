@@ -59,6 +59,20 @@ publish:Article
 	rdfs:comment """Article as unit in a publication."""@en;
 	rdfs:subClassOf text-expression:Article, publish:TextExpression.
 
+publish:NewsArticle
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a rdfs:Class;
+	rdfs:label "news article"@en, "Nachrichtenartikel"@de, "article d'actualité"@fr, "articolo di giornale"@it;
+	rdfs:comment """Publication article containing most recent information about something."""@en;
+	rdfs:subClassOf publish:Article.
+
+publish:ReviewArticle;
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a rdfs:Class;
+	rdfs:label "review article"@en, "Rezensionsartikel"@de, "article de revue"@fr, "articolo di revisione"@it;
+	rdfs:comment """Publication article containing a review of something."""@en;
+	rdfs:subClassOf publish:Article.
+
 publish:PublishingState
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
@@ -122,7 +136,7 @@ publish:Publication
 	rdfs:label "publication"@en, "Publikation"@de;
 	rdfs:comment """An expression published on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
-		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing]. # OR :isPublicationOfPublishing
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing]. # OR :isOutputOfPublishing
 
 publish:PartitionedPublishing
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -193,7 +207,7 @@ publish:Existence
 	a rdfs:Class;
 	rdfs:label "publishing existence"@en, "Publizierungexistenz"@de; #, ""@fr, ""@it;
 	rdfs:comment """The publishing from the first to the last issue of a serial."""@en;
-	rdfs:subClassOf event:Existence.
+	rdfs:subClassOf event:Existence, publish:Publishing.
 
 publish:SerialVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -266,6 +280,15 @@ publish:Republication
 # PROPERTIES
 #
 
+publish:isReviewOf
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "is review of"@en, "ist Rezension zu"@de;
+	rdfs:comment """Relating a review article to the reviewed."""@en;
+	rdfs:domain publish:ReviewArticle;
+	rdfs:range rdfs:Resource;
+	rdfs:subPropertyOf text-expression:isArticleAbout.
+
 publish:hasPublishingState
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
@@ -310,7 +333,7 @@ publish:hasWebPublication
 	rdfs:range publish:WebPublication;
 	rdfs:subPropertyOf publish:hasElectronicPublication.
 
-publish:hasPublicationNumber #°
+publish:hasPublicationNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication number"@en, "hat Publikationsnummer"@de;
@@ -415,6 +438,35 @@ publish:hasRedactor
 	rdfs:domain publish:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
 
+publish:hasReferenceLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de;
+	rdfs:comment """Relating a publication expression to the literal of a bibliographic reference of the publication expression."""@en;
+	rdfs:domain publish:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral.
+#	PCA
+#	rdfs:subPropertyOf text:hasDescription.
+
+publish:hasReference
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
+	rdfs:comment """Relating a publication expression to a bibliographic reference thereof."""@en;
+	rdfs:domain publish:Expression;
+	rdfs:range publish:Reference;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
+
+publish:referenceHasLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:DatatypeProperty;
+	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de;
+	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
+	rdfs:domain publish:Reference;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
+
 publish:hasDescription #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
@@ -450,6 +502,24 @@ publish:hasYearMonthPeriod
 	rdfs:comment """Relating a publication to the year-month period it is published in."""@en;
 	skos:note """Through a series of N3-rules a publication year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain publish:Publication;
+	rdfs:range event:Event.
+
+publish:hasStartYearPeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "partitioned publishing has start year period"@en, "partitioniertes Publizieren hat Startjahrperiode"@de;
+	rdfs:comment """Relating a partitioned publishing to the year—as a period—the first volume is published in."""@en;
+	skos:note """Through a series of N3-rules a year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain publish:Publishing;
+	rdfs:range event:Event.
+
+publish:hasEndYearPeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "partitioned publishing has year period"@en, "partitioniertes Publizieren hat EndeJahrperiode"@de;
+	rdfs:comment """Relating a partitioned publishing to the year—as a period—the last volume is published in."""@en;
+	skos:note """Through a series of N3-rules a year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain publish:Publishing;
 	rdfs:range event:Event.
 
 publish:hasPartitionedPublishing
@@ -522,33 +592,3 @@ publish:isPartOfVolume
 	rdfs:domain publish:Serial;
 	rdfs:range publish:SerialVolume;
 	rdfs:subPropertyOf physical:isPartOf.
-
-publish:hasReferenceLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de;
-	rdfs:comment """Relating a publication to the literal of a bibliographic reference of the publication."""@en;
-	rdfs:domain publish:Publication; # expr.
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf concept:hasLiteral.
-#	rdfs:subPropertyOf text:hasDescription.
-
-publish:hasReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
-	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de;
-	rdfs:comment """Relating a publication to a bibliographic reference thereof."""@en;
-	rdfs:domain publish:Publication;
-	rdfs:range publish:Reference;
-	rdfs:subPropertyOf concept:hasSymbolicEntity.
-#
-
-publish:referenceHasLiteral # SPO concept:symbolicEntityHasLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:DatatypeProperty;
-	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de;
-	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
-	rdfs:domain publish:Reference;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
-#

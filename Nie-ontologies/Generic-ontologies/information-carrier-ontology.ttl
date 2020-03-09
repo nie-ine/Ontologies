@@ -445,6 +445,7 @@ infocar:WebPage
 	rdfs:label "web page"@en, "Webseite"@de;
 	rdfs:comment """Electronic carrier page on the World Wide Web."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
+	# is part of website
 
 infocar:Hyperlink
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;

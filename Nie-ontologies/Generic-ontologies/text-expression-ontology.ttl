@@ -192,7 +192,7 @@ text-expression:Article
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
 	rdfs:label "article"@en, "Artikel"@de, "article"@fr, "articolo"@it;
-	rdfs:comment """Text expression about a defined (main) subject."""@en;
+	rdfs:comment """Text expression about a defined main subject."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:Biography

@@ -51,7 +51,7 @@ calendar:gregorianCalendar
 	a rdfs:Class, calendar:Calendar;
 	rdfs:label "Gregorian calendar"@en, "gregorianischer Kalender"@de, "calendrier grégorien"@fr, "calendario gregoriano"@it;
 	rdfs:comment """Calendar introduced on 15 October 1582 AD by Pope Gregory XIII, and a correction of the Julian calendar. It is based on a solar year of 365 days. Every fourth year is a leap year of 366 days except for centenary years not evenly divisible by 400."""@en;
-	skos:note """Has 365.2425 days/year or or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
+	skos:note """Has 365.2425 days/year or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
 
 calendar:prolepticGregorianCalendar
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
@@ -126,7 +126,26 @@ calendar:yearMonthLiteralToPeriod
 	a owl:ObjectProperty;
 	rdfs:label "year month literal to period"@en;
 	rdfs:comment """Relating a calendar year-month literal list to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the month."""@en;
-	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a year-month literal list to the described list, making explicit the start and end of the month for interval calculus in temporal reasoning."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a year-month literal list to the described object list, making explicit the start and end of the month for interval calculus in temporal reasoning."""@en;
+	rdfs:domain rdf:List;
+	rdfs:range rdf:List.
+
+calendar:yearLiteralToDecadePeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	a owl:ObjectProperty;
+	rdfs:label "year literal to decade period"@en;
+	rdfs:comment """Relating a list with a decade start year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the decade."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a decade start year literal to the described object list, making explicit the start and end of the decade for interval calculus in temporal reasoning."""@en;
+	rdfs:domain rdf:List;
+	rdfs:range rdf:List.
+
+calendar:yearLiteralToCenturyPeriod #°
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	a owl:ObjectProperty;
+	rdfs:label "year literal to century period"@en;
+	rdfs:comment """Relating a list with a century start year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the century."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a century start year literal to the described object list, making explicit the start and end of the decade for interval calculus in temporal reasoning."""@en;
+	skos:note """Used in case of an accuracy of a century for an event time indicator, e.g. death year '14..'."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 

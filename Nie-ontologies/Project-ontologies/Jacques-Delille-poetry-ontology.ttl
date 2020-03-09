@@ -23,7 +23,7 @@
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
-	dct:description """Formal description of specific concepts in the scientific study of citation of poetry of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
+	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des Champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en.
@@ -42,9 +42,16 @@ delille:VersePoem
 delille:TranslatedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
-	rdfs:label "Translated Jacques Delille verse poem"@en, "übersetzter gereimter Versgedicht Jacques Delilles"@de;
+	rdfs:label "translated Jacques Delille verse poem"@en, "übersetzter Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Translated Jacques Delille verse poem."""@en;
 	rdfs:subClassOf delille:VersePoem, language:PersonTranslation, text:Translation.
+
+delille:Non-VersePoem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "Jacques Delille non-verse poem"@en, "Non-Versgedicht Jacques Delilles"@de;
+	rdfs:comment """Other expression of Jacques Delille than a verse poem."""@en;
+	rdfs:subClassOf publish:TextExpression.
 
 delille:EditedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -74,12 +81,27 @@ delille:Dictionary
 	rdfs:comment """Dictionary citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:Dictionary, delille:CitingExpression.
 
+delille:Manual
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr, "manuale di testo"@it;
+	rdfs:comment """Teaching manual as in the scientific edition about Jacques Delille's poetry citation."""@en;
+	rdfs:subClassOf teach:Manual.
+
+delille:Anthology
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "anthology"@en, "Anthologie"@de, "anthologie"@fr, "antologia"@it;
+	rdfs:comment """Anthology as in the scientific edition about Jacques Delille's poetry citation."""@en;
+	rdfs:subClassOf literature:Anthology.
+
 delille:AnthologyOrManual
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing anthology or teaching manual"@en, "zitierende/s Anthologie oder Lehrbuch"@de; #, ""@fr, ""@it;
 	rdfs:comment """Anthology or teaching manual citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf delille:CitingExpression.
+	rdfs:subClassOf delille:CitingExpression;
+	owl:disjointUnionOf (delille:Anthology delille:Manual).
 
 delille:LiteraryExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -102,7 +124,7 @@ delille:Novel
 	rdfs:comment """Novel citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Novel, delille:LiteraryExpression.
 
-delille:EssayOrPanoramicLiteraryOrPhilisophicOrHumanitiesExpression # mix of literary and scientific expressions?
+delille:EssayOrPanoramicLiteraryOrPhilisophicOrHumanitiesExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing essay, or panoramic literary, philisophic or Humanities expression"@en, "zitierendes Essay, oder panoramisch literarisch, philosophisch oder geisteswissenschaftliche Expression"@de, "essai citant , ou expression littéraire panoramique et pittoresque, philosophique ou scientifique humaines"@fr; #, ""@it;
@@ -113,7 +135,7 @@ delille:LiteraryNonfictionExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing literary nonfiction expression"@en, "zitierende sachliche literarische Expression"@de, "expression littéraire non-fiction citante"@fr; #, ""@it;
-	rdfs:comment """Literary nonfiction expression citing one or more verses of a poem authored by Jacques Delille, being a memoir, biography, history, anecdote, or correspondence."""@en;
+	rdfs:comment """Literary nonfiction expression, e.g. historical, citing one or more verses of a poem authored by Jacques Delille, being a memoir, biography, history, anecdote, or correspondence."""@en;
 	rdfs:subClassOf delille:LiteraryExpression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
 
@@ -128,7 +150,7 @@ delille:ScientificOrVulgarizedExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "citing scientific or vulgarized publication expression"@en, "zitierende wissenschaftliche oder vulgarisierte Publikation-Expression"@de;
-	rdfs:comment """Scientific or vulgarized publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:comment """Natural scientific or vulgarized publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf text-expression:ScientificExpression, delille:CitingExpression.
 
 delille:Catalogue
@@ -137,6 +159,13 @@ delille:Catalogue
 	rdfs:label "citing catalogue"@en, "zitierende Katalog"@de;
 	rdfs:comment """Catalogue citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf document:Catalogue, delille:CitingExpression.
+
+delille:Article
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "citing article"@en, "zitierender Artikel"@de;
+	rdfs:comment """Publication article citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf publish:Article, delille:CitingExpression.
 
 #° delille:Engraving
 
@@ -174,3 +203,19 @@ delille:ScholarlyEdition
 #
 # PROPERTIES
 #
+
+delille:hasExternalResource
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a owl:ObjectProperty;
+	rdfs:label "has external resource"@en, "hat externe Ressource"@de;
+	rdfs:comment """Relating a Delille-project data element to an external, i.e. non-Delille-project data element."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Resource.
+
+delille:externalResourceHasURL
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a owl:ObjectProperty;
+	rdfs:label "external resource has URL"@en, "externe Ressource hat URL"@de;
+	rdfs:comment """Relating a non-Delille-project data element to its URL."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range xsd:anyURI.

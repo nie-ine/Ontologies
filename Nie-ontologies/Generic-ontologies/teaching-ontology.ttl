@@ -59,12 +59,19 @@ teach:Lecturer
 	rdfs:comment """Role of a person who lectures."""@en;
 	rdfs:subClassOf teach:Teacher.
 
+teach:PedagogicExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
+	a rdfs:Class;
+	rdfs:label "pedagogic text expression"@en, "pedagogische Textexpression"@de, "expression textuelle pédagogique"@fr, "espressione testuale pedagogico"@it;
+	rdfs:comment """Text expression for teaching purposes."""@en;
+	rdfs:subClassOf text-expression:Expression.
+
 teach:Manual
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr; #, "manuale"@it; # schoolbook
+	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr, "manuale di testo"@it;
 	rdfs:comment """Manual for teaching purposes."""@en;
-	rdfs:subClassOf text-expression:Manual.
+	rdfs:subClassOf text-expression:Manual, teach:PedagogicExpression.
 
 #
 # PROPERTIES

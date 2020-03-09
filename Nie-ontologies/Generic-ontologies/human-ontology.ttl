@@ -430,6 +430,14 @@ human:hasEarliestBirthdate
 	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
+human:hasBirthday
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has birthday"@en, "hat Geburtstag"@de;
+	rdfs:comment """Relating a person to the birthday of that person, as an event."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
+
 human:hasBirthYearPeriod
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
@@ -477,6 +485,14 @@ human:hasLatestDeathDate
 	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
 
+human:hasDeathDay
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has death day"@en, "hat Totestag"@de;
+	rdfs:comment """Relating a person to the death day of that person, as an event."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
+
 human:hasDeathYearPeriod
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
@@ -493,6 +509,15 @@ human:hasDeathYearMonthPeriod
 	rdfs:label "has death year-month period"@en, "hat Todesjahr-monatperiode"@de;
 	rdfs:comment """Relating a person to the person's death year-month period."""@en;
 	skos:note """Through a series of N3-rules a death year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
+
+human:hasDeathDecadePeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has death decade period"@en, "hat Todesjahrzehntperiode"@de;
+	rdfs:comment """Relating a person to the person's death decade period."""@en;
+	skos:note """Through a series of N3-rules a death year literal with unknown year digit is converted to its decade period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
 	rdfs:domain human:Person;
 	rdfs:range event:Event.
 

@@ -18,7 +18,7 @@ s@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title """Human Geography"""@en;
 	dct:description """Formal description of human geography, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #

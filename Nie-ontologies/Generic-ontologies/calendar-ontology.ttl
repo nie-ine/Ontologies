@@ -17,7 +17,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "calendar-ontology"@en;
 	dct:description """Formal description of calendar, subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #
@@ -139,13 +139,23 @@ calendar:yearLiteralToDecadePeriod
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
-calendar:yearLiteralToCenturyPeriod #°
+calendar:startYearLiteralToCenturyPeriod
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
-	rdfs:label "year literal to century period"@en;
+	rdfs:label "start year literal to century period"@en;
 	rdfs:comment """Relating a list with a century start year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the century."""@en;
-	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a century start year literal to the described object list, making explicit the start and end of the decade for interval calculus in temporal reasoning."""@en;
-	skos:note """Used in case of an accuracy of a century for an event time indicator, e.g. death year '14..'."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a century start year literal to the described object list, making explicit the start and end of the century for interval calculus in temporal reasoning."""@en;
+	skos:note """Used in case of an accuracy of a century for an event time indicator, e.g. Gregorian death year '14..'."""@en;
+	rdfs:domain rdf:List;
+	rdfs:range rdf:List.
+
+calendar:endYearLiteralToCenturyPeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	a owl:ObjectProperty;
+	rdfs:label "end year literal to century period"@en;
+	rdfs:comment """Relating a list with a century end year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the century."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the backward N3-rule converting a century end year literal to the described object list, making explicit the start and end of the century for interval calculus in temporal reasoning."""@en;
+	skos:note """Used in case of an accuracy of a century for an event time indicator, e.g. Gregorian death year '14..'."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 

@@ -24,8 +24,8 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
 	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des Champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en.
 
 #
@@ -136,8 +136,7 @@ delille:LiteraryNonfictionExpression
 	a rdfs:Class;
 	rdfs:label "citing literary nonfiction expression"@en, "zitierende sachliche literarische Expression"@de, "expression littéraire non-fiction citante"@fr; #, ""@it;
 	rdfs:comment """Literary nonfiction expression, e.g. historical, citing one or more verses of a poem authored by Jacques Delille, being a memoir, biography, history, anecdote, or correspondence."""@en;
-	rdfs:subClassOf delille:LiteraryExpression, [
-		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
+	rdfs:subClassOf delille:LiteraryExpression, literature:NonfictionExpression.
 
 delille:LiteraryScientificExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;

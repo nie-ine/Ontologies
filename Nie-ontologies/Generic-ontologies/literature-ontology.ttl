@@ -19,8 +19,8 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about literature"@en;
 	dct:description """Formal description of literature, its general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, and software developer, NIE-INE, University of Basel, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #
@@ -140,6 +140,22 @@ literature:Expression
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
 	rdfs:subClassOf text-expression:Expression.
 
+literature:FictionExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/literature#>;
+	a rdfs:Class;
+	rdfs:label "literary fiction expression"@en, "literarische Fiktion-Expression"@de;
+	rdfs:comment """Literary expression having the fiction genre."""@en;
+	rdfs:subClassOf literature:Expression, [
+		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Fiction].
+
+literature:NonfictionExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/literature#>;
+	a rdfs:Class;
+	rdfs:label "literary nonfiction expression"@en, "sachliche literarische Expression"@de;
+	rdfs:comment """Literary expression having the nonfiction genre."""@en;
+	rdfs:subClassOf literature:Expression, [
+		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
+
 literature:Anthology
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
@@ -219,8 +235,7 @@ literature:Novel
 	a rdfs:Class;
 	rdfs:label "novel"@en, "Roman"@de;
 	rdfs:comment """Narrative fiction expression in prose."""@en;
-	rdfs:subClassOf literature:Expression, text-expression:SentenceExpression, [
-		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Fiction], [
+	rdfs:subClassOf literature:FictionExpression, text-expression:SentenceExpression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Narrative].
 
 literature:NonfictionNovel
@@ -229,8 +244,7 @@ literature:NonfictionNovel
 	rdfs:label "nonfiction novel"@en, "sachliche Roman"@de;
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
 	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
-	rdfs:subClassOf literature:Expression, text-expression:SentenceExpression, [
-		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction], [
+	rdfs:subClassOf literature:NonfictionExpression, text-expression:SentenceExpression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Narrative].
 
 # play
@@ -247,6 +261,13 @@ literature:Novelist
 	a rdfs:Class;
 	rdfs:label "novelist"@en, "Romanschriftsteller"@de, "romancier"@fr, "novelliere"@it;
 	rdfs:comment """Author of a novel."""@en;
+	rdfs:subClassOf text-expression:Author.
+
+literature:Playwright
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/literature#>;
+	a rdfs:Class;
+	rdfs:label "playwright"@en, "DramatikerIn"@de, "dramaturge"@fr, "drammaturgo"@it;
+	rdfs:comment """Author of a play."""@en;
 	rdfs:subClassOf text-expression:Author.
 
 # front matter: dedication, foreword, preface, introduction: seperate pagination usually numbered in lowercase Roman numerals

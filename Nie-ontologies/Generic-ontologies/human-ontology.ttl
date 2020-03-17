@@ -25,8 +25,8 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about human"@en;
 	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #
@@ -521,6 +521,15 @@ human:hasDeathDecadePeriod
 	rdfs:domain human:Person;
 	rdfs:range event:Event.
 
+human:hasDeathCenturyPeriod
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has death century period"@en, "hat Todesjahrhundertperiode"@de;
+	rdfs:comment """Relating a person to the person's death century period."""@en;
+	skos:note """Through a series of N3-rules a death year literal with unknown year digit is converted to its century period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
+	rdfs:domain human:Person;
+	rdfs:range event:Event.
+
 human:hasDeathplace
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
@@ -701,7 +710,7 @@ human:hasUser
 	rdfs:label "has user"@en, "hat Benutzerin"@de;
 	rdfs:comment """Relating something to an agent - a person or a group - using it."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range human:Agent; # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom human:User]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentUser]];
 	rdfs:subPropertyOf agent:hasUser.
 
 human:hasOwner
@@ -710,7 +719,7 @@ human:hasOwner
 	rdfs:label "has owner"@en, "hat EignerIn"@de;
 	rdfs:comment """Relating something to a human agent - a person or a group - owning it."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentOwner]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentOwner]].
 
 human:hasSponsor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
@@ -718,7 +727,7 @@ human:hasSponsor
 	rdfs:label "has sponsor"@en, "hat Sponsor"@de;
 	rdfs:comment """Relating something to a human agent - a person or a group - sponsoring it."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSponsor]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSponsor]].
 
 human:hasPreserver
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
@@ -726,4 +735,4 @@ human:hasPreserver
 	rdfs:label "has preserver"@en, "hat Erhalter"@de;
 	rdfs:comment """Relating a material resoruce to a human agent - a person or a group - preserving it."""@en;
 	rdfs:domain physical:Matter;
-	rdfs:range human:Agent. # [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentPreserver]];
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentPreserver]].

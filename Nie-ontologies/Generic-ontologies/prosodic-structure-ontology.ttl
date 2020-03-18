@@ -20,7 +20,6 @@
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 @prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
-# @base <http://www.e-editiones.ch/ontology/prosodic-structure>.
 @prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
 
 <http://www.e-editiones.ch/ontology/prosodic-structure>
@@ -29,10 +28,10 @@
 	dct:title "An ontology about prosodic structure"@en;
 	dct:description """Formal description of prosodic structure, subclasses, related classes, and properties."""@en;
 	skos:note """Extension of the text structure ontology"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor
-		"Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en,
-		"Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+		"Roberta Padlina, tool coordinator and software developer, Basel University, Switzerland"@en,
+		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #

@@ -15,10 +15,10 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about catholic organization"@en;
 	dct:description """Formal description of catholic organization, general subclasses, related classes, properties, and instances."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
-		"Roberta Padlina, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en.
+		"Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en.
 
 #
 # CLASSES

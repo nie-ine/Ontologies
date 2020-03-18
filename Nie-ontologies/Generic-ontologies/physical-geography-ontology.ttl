@@ -15,8 +15,8 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title """Physical Geography"""@en;
 	dct:description """Formal description of physical geography, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Dominique Steinbach, tool coordinator and software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Dominique Steinbach, tool coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/World_Geodetic_System>.
 

@@ -29,8 +29,8 @@
 	dct:title "An ontology about text"@en;
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
 	skos:note """Text structure, text editing, and text roles are described in respective ontologies"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	skos:note """Representation of text as object instead of literal data element, enabling relating it to other things"""@en.
 

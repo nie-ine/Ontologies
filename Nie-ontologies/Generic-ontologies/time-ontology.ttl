@@ -16,7 +16,7 @@
 	dct:title "An ontology about time relations"@en;
 	dct:description """Formal description of time relations."""@en;
 	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change and/or act, in a certain way."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	skos:note """For formal temporal reasoning, using e.g. the Unix Epoch time."""@en;
 	skos:note """There are properties with list as range. A list keeps things together in a better way than a blank node and improves reasoning performance. List content is tripled when needed, e.g. to permit SPARQL querying."""@en;

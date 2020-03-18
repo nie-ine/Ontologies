@@ -29,8 +29,8 @@
 	dct:title "An ontology about text expression"@en;
 	dct:description """Formal description of text expression, based on FRBROO, in broadest sense, with general subclasses, related classes, and properties."""@en;
 	skos:note """Text, text structure, prosodic structure, note structure, text editing, and scientific editing are described in respective ontologies"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
 
 #

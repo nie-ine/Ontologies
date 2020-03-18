@@ -27,8 +27,8 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about text editing"@en;
 	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en;
 	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>.
 

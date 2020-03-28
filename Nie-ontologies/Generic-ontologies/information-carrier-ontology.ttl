@@ -28,7 +28,7 @@
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES
@@ -144,6 +144,13 @@ infocar:Volume
 	rdfs:label "volume"@en, "Band"@de;
 	rdfs:comment """One of a set of books, carrying a part of the common expression of the set."""@en;
 	rdfs:subClassOf infocar:Book.
+
+infocar:VolumeOrdinalNumber
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "volume ordinal number"@en, "Bandordinalzahl"@de;
+	rdfs:comment """Ordinal number of a volume."""@en;
+	rdfs:subClassOf math:OrdinalNumber. # identifier
 
 infocar:Nachlass
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -385,7 +392,7 @@ infocar:Diary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
 	rdfs:label "diary"@en,"Tagebuch"@de;
-	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
+	rdfs:comment """Information carrier with periodically, usually daily, described personal experiences and observations."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
 infocar:PersonSender
@@ -439,13 +446,19 @@ infocar:ElectronicBook
 	rdfs:comment """Electronic information carrier with a text structure as in a book."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
 
-infocar:WebPage
+infocar:Webpage
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
-	rdfs:label "web page"@en, "Webseite"@de;
+	rdfs:label "webpage"@en, "Webseite"@de;
 	rdfs:comment """Electronic carrier page on the World Wide Web."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier.
-	# is part of website
+
+infocar:Website
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "website"@en, "Website"@de;
+	rdfs:comment """Set of interconnected webpages, under a single domain name, usually including a homepage, generally located on the same server, and prepared and maintained as information by a person, group, or organization."""@en;
+	rdfs:subClassOf infocar:ElectronicCarrier, infocar:Set.
 
 infocar:Hyperlink
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -453,7 +466,6 @@ infocar:Hyperlink
 	rdfs:label "hyperlink"@en,"Hyperlink"@de;
 	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
 	rdfs:subClassOf rdfs:Resource. # software
-	# seqnum
 
 #
 # PROPERTIES
@@ -608,7 +620,8 @@ infocar:isPageOfBook
 	rdfs:comment """Relating a page to a book its leaf is part of."""@en;
 	rdfs:domain infocar:Page;
 	rdfs:range infocar:Book;
-	rdfs:subPropertyOf physical:isPartOf. # owl:propertyChainAxiom (infocar:isPageOfLeaf infocar:isLeafOfBook)
+	rdfs:subPropertyOf physical:isPartOf;
+	owl:propertyChainAxiom (infocar:isPageOfLeaf infocar:isLeafOfBook).
 
 infocar:pageHasNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -627,12 +640,12 @@ infocar:isPageOnCarrier
 	rdfs:range infocar:Page;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
-infocar:isTextOnPage
+° infocar:isTextOnPage
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:ObjectProperty;
 	rdfs:label "is text on page"@en, "ist Text auf Seite"@de;
 	rdfs:comment """Relating a text to a carrier page it is on."""@en;
-	rdfs:domain text:Text;
+	rdfs:domain text:Text; #°
 	rdfs:range infocar:Page;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
@@ -654,13 +667,23 @@ infocar:isVolumeOfWork
 	rdfs:range infocar:PartitionedWork;
 	rdfs:subPropertyOf physical:isPartOf.
 
-infocar:volumeHasNumber
+infocar:volumeHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
-	a owl:ObjectProperty;
-	rdfs:label "volume has number"@en, "Band hat Nummer"@de;
-	rdfs:comment "Relating a volume to its sequence number."@en;
+	a owl:DatatypeProperty;
+	rdfs:label "volume has ordinal number"@en, "Band hat Ordinalzahl"@de;
+	rdfs:comment "Relating a volume to its ordinal number."@en;
 	rdfs:domain infocar:Volume;
-	rdfs:range xsd:nonNegativeInteger.
+	rdfs:range infocar:VolumeOrdinalNumber.
+
+infocar:volumeHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a owl:DatatypeProperty;
+	rdfs:label "volume has ordinal numeral"@en, "Band hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a volume to its ordinal numeral."""@en;
+	rdfs:domain infocar:Volume;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (infocar:volumeHasOrdinalNumber math:hasNumeral).
 
 infocar:isPartOfNachlass
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -956,7 +979,7 @@ infocar:isEntryInDiary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry in diary"@en, "ist Eintrag in Tagebuch"@de;
-	rdfs:comment """Relating a diary entry to the diary it is in."""@en;
+	rdfs:comment """Relating a diary entry to its diary."""@en;
 	rdfs:domain text-expression:DiaryEntry;
 	rdfs:range infocar:Diary;
 	rdfs:subPropertyOf infocar:isOnCarrier.
@@ -965,7 +988,9 @@ infocar:hasDiaryEnteringDate
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:ObjectProperty;
 	rdfs:label "has diary entering date"@en, "hat Tagebucheintragsdatum"@de;
-	rdfs:comment """Relating a diary entry to its date of entering in a diary."""@en;
+	rdfs:comment """Relating a diary entry to its date of entering in its diary."""@en;
+	rdfs:domain text-expression:DiaryEntry;
+	rdfs:range xsd:date;
 	rdfs:subPropertyOf creating:creationHasDate.
 
 infocar:isInDiary
@@ -1056,22 +1081,31 @@ infocar:isPartOfConvolute
 	rdfs:range infocar:Convolute;
 	rdfs:subPropertyOf physical:isPartOf.
 
-infocar:webPageHasName
+infocar:webpageHasName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:ObjectProperty;
-	rdfs:label "web page has name"@en, "Webseite hat Name"@de;
-	rdfs:comment """Relating a web page to a name it has."""@en;
-	rdfs:domain infocar:WebPage;
+	rdfs:label "webpage has name"@en, "Webseite hat Name"@de;
+	rdfs:comment """Relating a webpage to its name."""@en;
+	rdfs:domain infocar:Webpage;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-infocar:webPageHasURL
+infocar:webpageHasURL
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:ObjectProperty;
-	rdfs:label "web page has URL"@en, "Webseite hat URL"@de;
-	rdfs:comment """Relating a web page to a URL it has."""@en;
-	rdfs:domain infocar:Hyperlink;
+	rdfs:label "webpage has URL"@en, "Webseite hat URL"@de;
+	rdfs:comment """Relating a webpage to its URL."""@en;
+	rdfs:domain infocar:Webpage;
 	rdfs:range xsd:anyURI.
+
+infocar:isWebpageOfSite
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a owl:ObjectProperty;
+	rdfs:label "is page of website"@en, "ist seite einer Website"@de;
+	rdfs:comment """Relating a page to its website."""@en;
+	rdfs:domain infocar:Webpage;
+	rdfs:range infocar:WebSite;
+	rdfs:subPropertyOf physical:isPartOf.
 
 infocar:hasHyperlink
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;

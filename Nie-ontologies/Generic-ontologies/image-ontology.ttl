@@ -23,35 +23,50 @@
 # CLASSES
 #
 
-image:Image
+image:ImageCarrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "image"@en,"Bild"@de;
-	rdfs:comment """Visual representation of something, abstracted from its carrier."""@en;
+	rdfs:label "image carrier"@en,"Bildträger"@de;
+	rdfs:comment """Visual representation of something on a carrier."""@en;
+	rdfs:subClassOf infocar:Carrier.
+
+image:ImageAbstract
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a rdfs:Class;
+	rdfs:label "image abstract"@en,"Bildabstrakt"@de;
+	rdfs:comment """Image abstracted from its carrier."""@en;
 	rdfs:subClassOf document:Document, cidoc:E38_Image.
 
 image:ImageExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image expression"@en,"Bildexpression"@de;
-	rdfs:comment """Image as a document expression conform FRBROO."""@en;
-	rdfs:subClassOf document:Expression, image:Image.
+	rdfs:comment """Image as a document expression."""@en;
+	rdfs:subClassOf document:Expression, image:ImageAbstract.
 
-image:ImageCarrier
+image:PhotographCarrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "image carrier"@en,"Bildträger"@de;
-	rdfs:comment """Image on a carrier."""@en;
-	rdfs:subClassOf infocar:Carrier.
+	rdfs:label "photograph carrier"@en,"Fototräger"@de;
+	rdfs:comment """2-dimensional image carrier made by exposing a photosensitive surface to light."""@en;
+	rdfs:subClassOf  image:ImageCarrier.
 
-image:Photograph
+image:PhotographAbstract
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "photograph"@en,"Foto"@de;
-	rdfs:comment """Image made by exposing a photosensitive surface to light."""@en;
-	rdfs:subClassOf image:Image.
+	rdfs:label "photograph abstract"@en,"Fotoabstrakt"@de;
+	rdfs:comment """Photograph abstracted from its carrier."""@en;
+	rdfs:subClassOf image:ImageAbstract.
 
-# image:DigitalImage
+image:PhotographExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a rdfs:Class;
+	rdfs:label "photograph expression"@en,"Fotoexpression"@de;
+	rdfs:comment """Photograph as a document expression."""@en;
+	rdfs:subClassOf image:ImageExpression.
+
+# image:DigitalImage rdfs:subClassOf image:ImageCarrier.
+# image:DigitalPhotograph rdfs:subClassOf image:PhotographCarrier.
 
 #
 # PROPERTIES
@@ -61,8 +76,8 @@ image:isImageOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "is image of", "ist Bild von"@de;
-	rdfs:comment """Relating an image to what it depicts."""@en;
-	rdfs:domain image:Image;
+	rdfs:comment """Relating an image abstract to what it depicts."""@en;
+	rdfs:domain image:ImageAbstract;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf concept:informationHasSubject.
 
@@ -71,7 +86,7 @@ image:isOnCarrier
 	a owl:ObjectProperty;
 	rdfs:label "is image on carrier", "ist Bild auf Träger"@de;
 	rdfs:comment """Relating an image to a carrier it is on."""@en;
-	rdfs:domain image:Image;
+	rdfs:domain image:ImageAbstract;
 	rdfs:range image:ImageCarrier;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
@@ -79,10 +94,14 @@ image:isPhotographOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "is photograph of", "ist Foto von"@de;
-	rdfs:comment """Relating a photograph to what it depicts."""@en;
-	rdfs:domain image:Photograph;
+	rdfs:comment """Relating a photograph abstract to what it depicts."""@en;
+	rdfs:domain image:PhotographAbstract;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf image:isImageOf.
+
+# image:photographHasQualityLevel
+# image:hasWidth
+# image:hasHeight
 
 image:hasPhotographIn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
@@ -92,7 +111,7 @@ image:hasPhotographIn
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Resource.
 
-image:hasPhotographSourceDescription #°
+image:hasPhotographSourceDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
 	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;

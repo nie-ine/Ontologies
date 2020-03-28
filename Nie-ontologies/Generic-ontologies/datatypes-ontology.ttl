@@ -13,7 +13,7 @@
 	dct:title "An ontology about datatypes"@en;
 	dct:description """Formal description of datatypes, functioning as link between terminology and coding systems and OWL ontologies."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # SKOS SCHEME AND DATATYPE INSTANCES

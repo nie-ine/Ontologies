@@ -13,7 +13,7 @@
 	dct:title "An ontology about languages"@en;
 	dct:description """Formal description of human natural languages, referring to the ISO 639 standards."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 #	dct:hasVersion .
 
 #

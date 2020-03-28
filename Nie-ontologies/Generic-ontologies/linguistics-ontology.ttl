@@ -28,7 +28,7 @@
 	dct:contributor
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en,
 		"Magdalena Plamada, PhD, Zürich University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

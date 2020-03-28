@@ -17,7 +17,7 @@
 	dct:description """Formal description of specific concepts in the scientific study of Friedrich Nietzsches late work."""@en;
 	dct:creator "Dominique Steinbach, tool coordinator/software developer, NIE-INE/digital edition of der späte Nietzsche, Basel University, Switzerland"@en;
 	dct:contributor "Christian Steiner, software developer, digital edition of der späte Nietzsche, University of Zürich, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

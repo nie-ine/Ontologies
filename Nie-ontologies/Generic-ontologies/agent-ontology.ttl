@@ -16,7 +16,7 @@
 	dct:title "An ontology about agent"@en;
 	dct:description """Formal description of an agent, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

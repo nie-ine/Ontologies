@@ -18,7 +18,7 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
-		"Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en.
+		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en.
 
 #
 # CLASSES

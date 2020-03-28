@@ -28,8 +28,8 @@
 	dct:title "An ontology about text editing"@en;
 	dct:description """Formal description of text editing, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator, Basel University, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	rdfs:seeAlso <https://digitallatin.github.io/guidelines/LDLT-Guidelines.html>.
 
 #

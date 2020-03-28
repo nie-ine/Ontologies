@@ -30,9 +30,9 @@
 	skos:note """Extension of the text structure ontology"""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor
-		"Roberta Padlina, tool coordinator and software developer, Basel University, Switzerland"@en,
+		"Roberta Padlina, project coordinator and software developer, Basel University, Switzerland"@en,
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

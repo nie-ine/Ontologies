@@ -25,8 +25,8 @@
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Institut D'histoire De La Réformation, University of Geneva, Switzerland"@en,
 		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en,
-		"Roberta Padlina, tool coordinator and software developer, Basel University, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+		"Roberta Padlina, project coordinator and software developer, Basel University, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

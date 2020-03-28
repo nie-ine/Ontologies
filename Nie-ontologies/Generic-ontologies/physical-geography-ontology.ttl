@@ -17,7 +17,7 @@
 	dct:description """Formal description of physical geography, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Dominique Steinbach, tool coordinator and software developer, University of Basel, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/World_Geodetic_System>.
 
 #

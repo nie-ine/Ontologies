@@ -19,7 +19,7 @@
 	dct:description """Formal description of specific concepts in the scientific study "Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704"."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Reinhard Priber, tool coordinator and software developer, University of Bern, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

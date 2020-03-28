@@ -17,7 +17,7 @@
 	dct:description """Formal description of specific concepts in the scientific study "Heinrich Wölfflins gesammelte Werke"."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

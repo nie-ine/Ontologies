@@ -20,8 +20,8 @@
 	dct:title "An ontology about literature"@en;
 	dct:description """Formal description of literature, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, and software developer, University of Basel, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES

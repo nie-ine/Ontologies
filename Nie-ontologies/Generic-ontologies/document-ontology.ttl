@@ -27,8 +27,8 @@
 	dct:title "An ontology about document"@en;
 	dct:description """Formal description of document, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en.
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
 
 #
 # CLASSES
@@ -160,14 +160,16 @@ document:PageIdentifier
 	a rdfs:Class;
 	rdfs:label "document page identifier"@en, "Dokumentseiteidentifikator"@de;
 	rdfs:comment """Identifier of a document page."""@en;
+	skos:note """The document page identifier is a reification."""@en;
 	rdfs:subClassOf document:ContentStructureIdentifier.
 
-document:PageNumber
+document:PageOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document page number"@en, "Dokumentseitenummer"@de;
-	rdfs:comment """Number of a document page."""@en;
-	rdfs:subClassOf document:PageIdentifier, math:NaturalNumber.
+	rdfs:label "document page ordinal number"@en, "Dokumentseiteordinalzahl"@de;
+	rdfs:comment """Ordinal number of a document page."""@en;
+	skos:note """The document page ordinal number is a reification."""@en;
+	rdfs:subClassOf document:PageIdentifier, math:OrdinalNumber.
 
 document:TitlePage
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
@@ -447,7 +449,7 @@ document:isColumnOfPage
 document:isPageOfExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is page of expression"@en, "ist Seite einer Expression"@de;
+	rdfs:label "is page of document expression"@en, "ist Seite einer Dokumentexpression"@de;
 	rdfs:comment """Relating a document page to a document expression it is part of."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:Expression;
@@ -456,20 +458,30 @@ document:isPageOfExpression
 document:pageHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "page has identifier"@en, "Seite hat Identifikator"@de;
+	rdfs:label "document page has identifier"@en, "Dokumentseite hat Identifikator"@de;
 	rdfs:comment """Relating a document page to its identifier."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:PageIdentifier;
 	rdfs:subPropertyOf document:contentStructureHasIdentifier.
 
-document:pageHasNumber
+document:pageHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "page has number"@en, "Seite hat Nummer"@de;
-	rdfs:comment """Relating a document page to its number."""@en;
+	rdfs:label "document page has ordinal number"@en, "Dokumentseite hat Ordinalzahl"@de;
+	rdfs:comment """Relating a document page to its ordinal number."""@en;
 	rdfs:domain document:Page;
-	rdfs:range document:PageNumber;
+	rdfs:range document:PageOrdinalNumber;
 	rdfs:subPropertyOf document:pageHasIdentifier.
+
+document:pageHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
+	a owl:DatatypeProperty;
+	rdfs:label "page has ordinal numeral"@en, "Seite hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a page to its ordinal numeral."""@en;
+	rdfs:domain document:Page;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (document:pageHasOrdinalNumber math:hasNumeral).
 
 document:isTableOfColumn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
@@ -537,8 +549,17 @@ document:expressionReferenceHasIdentifier
 document:isElementOfHypertextDocument
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is element of hypertext  document"@en, "ist Element eines Hypertext-Dokumentes"@de;
+	rdfs:label "is element of hypertext document"@en, "ist Element eines Hypertext-Dokumentes"@de;
 	rdfs:comment """Relating a hypertext document element to a hypertext document it is part of."""@en;
 	rdfs:domain document:HypertextElement;
 	rdfs:range document:HypertextDocument;
 	rdfs:subPropertyOf concept:isPartOf.
+
+document:isOnWebpage
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
+	a owl:ObjectProperty;
+	rdfs:label "is hypertext document on webpage"@en, "ist Hypertext-Dokument auf Webseite"@de;
+	rdfs:comment """Relating a hypertext document to the webpage it is on."""@en;
+	rdfs:domain document:HypertextDocument;
+	rdfs:range infocar:Webpage;
+	rdfs:subPropertyOf infocar:isOnCarrier.

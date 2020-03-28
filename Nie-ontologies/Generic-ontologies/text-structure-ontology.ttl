@@ -31,9 +31,9 @@
 	skos:note """Prosodic structure and note structure are described in other ontologies"""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor
-		"Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en,
+		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
-	dct:publisher "Basel University, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	rdfs:seeAlso <https://files.ifi.uzh.ch/cl/siclemat/lehre/hs09/ecl1/script/html/script.html>.
 
 #
@@ -203,14 +203,14 @@ text-structure:Page
 	a rdfs:Class;
 	rdfs:label "text page"@en, "Textseite"@de, "page de texte"@fr, "pagina di testo"@it;
 	rdfs:comment """Text structured as a page."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure.
+	rdfs:subClassOf document:Page, text-structure:ReadabilityStructure.
 
 text-structure:PageLine
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "page text line"@en, "Textzeile einer Seite"@de, "ligne de texte de page"@fr, "riga di testo di pagina"@it;
 	rdfs:comment """Text line of a text page."""@en;
-#	skos:note """In case of a horizontal line, its maximum length equals the page width minus margins."""@en;
+	skos:note """In case of a horizontal line, its maximum length equals the page width minus margins."""@en;
 	rdfs:subClassOf text-structure:Line.
 
 text-structure:Table #° tableHasTitle, tableHasField, tableHasRow, tableHasColumn
@@ -436,7 +436,7 @@ text-structure:isPunctuationOfSentence
 text-structure:lineHasNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "line has number"@en, "Linie hat Nummer"@de;
+	rdfs:label "textline has number"@en, "Textzeile hat Nummer"@de;
 	rdfs:comment """Relating a line to a number it has."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range xsd:nonNegativeInteger.

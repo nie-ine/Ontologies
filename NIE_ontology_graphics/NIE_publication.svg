@@ -123,16 +123,16 @@
 <polygon fill="blue" stroke="blue" points="1410.55,-212.816 1419.36,-206.924 1408.8,-206.038 1410.55,-212.816"/>
 <text text-anchor="middle" x="1661.5" y="-329.3" font-family="Times,serif" font-size="14.00">publish:hasUnauthorizedRepublication</text>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#publish:WebPage -->
-<g id="node7" class="node"><title>Rhttp://www.w3.org/2002/07/owl#publish:WebPage</title>
-<g id="a_node7"><a xlink:href="http://www.w3.org/2002/07/owl#publish:WebPage" xlink:title="publish:WebPage">
+<!-- Rhttp://www.w3.org/2002/07/owl#publish:Webpage -->
+<g id="node7" class="node"><title>Rhttp://www.w3.org/2002/07/owl#publish:Webpage</title>
+<g id="a_node7"><a xlink:href="http://www.w3.org/2002/07/owl#publish:Webpage" xlink:title="publish:Webpage">
 <ellipse fill="none" stroke="blue" cx="1780" cy="-387" rx="109.381" ry="18"/>
-<text text-anchor="middle" x="1780" y="-383.3" font-family="Times,serif" font-size="14.00">publish:WebPage</text>
+<text text-anchor="middle" x="1780" y="-383.3" font-family="Times,serif" font-size="14.00">publish:Webpage</text>
 </a>
 </g>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#concept:Expression&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:WebPage -->
-<g id="edge11" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#concept:Expression&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:WebPage</title>
+<!-- Rhttp://www.w3.org/2002/07/owl#concept:Expression&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Webpage -->
+<g id="edge11" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#concept:Expression&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:Webpage</title>
 <path fill="none" stroke="blue" d="M1601.38,-457.012C1637.75,-442.958 1690.8,-422.465 1729.63,-407.461"/>
 <polygon fill="blue" stroke="blue" points="1731.11,-410.641 1739.18,-403.772 1728.59,-404.112 1731.11,-410.641"/>
 <text text-anchor="middle" x="1792" y="-426.8" font-family="Times,serif" font-size="14.00">publish:isPublishedOnline</text>
@@ -259,8 +259,8 @@
 </a>
 </g>
 </g>
-<!-- Rhttp://www.w3.org/2002/07/owl#publish:WebPage&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication -->
-<g id="edge27" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#publish:WebPage&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication</title>
+<!-- Rhttp://www.w3.org/2002/07/owl#publish:Webpage&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication -->
+<g id="edge27" class="edge"><title>Rhttp://www.w3.org/2002/07/owl#publish:Webpage&#45;&gt;Rhttp://www.w3.org/2002/07/owl#publish:ElectronicPublication</title>
 <path fill="none" stroke="green" d="M1805.57,-369.391C1811.39,-364.253 1816.8,-358.058 1820,-351 1826.61,-336.43 1830.71,-326.89 1820,-315 1818.22,-313.023 1709.55,-301.859 1616.84,-292.663"/>
 <polygon fill="green" stroke="green" points="1617.07,-289.169 1606.77,-291.666 1616.38,-296.135 1617.07,-289.169"/>
 <text text-anchor="middle" x="1884.5" y="-329.3" font-family="Times,serif" font-size="14.00">rdfs:subClassOf</text>

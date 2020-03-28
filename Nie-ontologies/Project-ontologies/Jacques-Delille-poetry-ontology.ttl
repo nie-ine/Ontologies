@@ -25,7 +25,7 @@
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
 	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des Champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en.
 
 #
@@ -124,11 +124,11 @@ delille:Novel
 	rdfs:comment """Novel citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Novel, delille:LiteraryExpression.
 
-delille:EssayOrPanoramicLiteraryOrPhilisophicOrHumanitiesExpression
+delille:EssayOrPanoramicLiteraryOrPhilosophicOrHumanitiesExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
-	rdfs:label "citing essay, or panoramic literary, philisophic or Humanities expression"@en, "zitierendes Essay, oder panoramisch literarisch, philosophisch oder geisteswissenschaftliche Expression"@de, "essai citant , ou expression littéraire panoramique et pittoresque, philosophique ou scientifique humaines"@fr; #, ""@it;
-	rdfs:comment """Essay, or panoramic literary, philisophic or Humanities publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
+	rdfs:label "citing essay, or panoramic literary, philosophic or Humanities expression"@en, "zitierendes Essay, oder panoramisch literarisch, philosophisch oder geisteswissenschaftliche Expression"@de, "essai citant , ou expression littéraire panoramique et pittoresque, philosophique ou scientifique humaines"@fr; #, ""@it;
+	rdfs:comment """Essay, or panoramic literary, philosophic or Humanities publication expression citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf delille:LiteraryExpression.
 
 delille:LiteraryNonfictionExpression
@@ -207,7 +207,7 @@ delille:hasExternalResource
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a owl:ObjectProperty;
 	rdfs:label "has external resource"@en, "hat externe Ressource"@de;
-	rdfs:comment """Relating a Delille-project data element to an external, i.e. non-Delille-project data element."""@en;
+	rdfs:comment """Relating a Delille-project resource to an external, i.e. non-Delille-project resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Resource.
 
@@ -215,6 +215,6 @@ delille:externalResourceHasURL
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a owl:ObjectProperty;
 	rdfs:label "external resource has URL"@en, "externe Ressource hat URL"@de;
-	rdfs:comment """Relating a non-Delille-project data element to its URL."""@en;
+	rdfs:comment """Relating a non-Delille-project resource to its URL."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:anyURI.

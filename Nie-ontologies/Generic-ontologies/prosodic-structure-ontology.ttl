@@ -20,6 +20,7 @@
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 @prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
+# @base <http://www.e-editiones.ch/ontology/prosodic-structure>.
 @prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
 
 <http://www.e-editiones.ch/ontology/prosodic-structure>
@@ -28,11 +29,11 @@
 	dct:title "An ontology about prosodic structure"@en;
 	dct:description """Formal description of prosodic structure, subclasses, related classes, and properties."""@en;
 	skos:note """Extension of the text structure ontology"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor
-		"Roberta Padlina, project coordinator and software developer, Basel University, Switzerland"@en,
-		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
-	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
+		"Roberta Padlina, tool coordinator and software developer, NIE-INE, Basel University, Switzerland"@en,
+		"Reto Baumgartner, tool coordinator and software developer, NIE-INE, University of Zürich, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -41,35 +42,35 @@
 prosodic-structure:Structure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "prosodic text structure"@en, "prosodische Textstruktur"@de;
+	rdfs:label "prosodic text structure"@en, "prosodische Textstruktur"@de, "structure de texte prosodique"@fr, "struttura del testo prosodica"@it;
 	rdfs:comment """Text structure depending on prosody, i.e. syllable and/or metre as basic rhythmic structure and/or rhyme."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 prosodic-structure:Verse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse"@en, "Vers"@de;
+	rdfs:label "verse"@en, "Vers"@de, "verset"@fr, "versetto"@it;
 	rdfs:comment """Text with prosody as unit."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse identifier"@en, "Versidentifikator"@de;
+	rdfs:label "verse identifier"@en, "Versidentifikator"@de, "identifiant de verset"@fr, "identificatore del versetto"@it;
 	rdfs:comment """Identifier of a verse."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 prosodic-structure:VerseOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse ordinal number"@en, "Versordinalzahl"@de;
+	rdfs:label "verse ordinal number"@en, "Versordinalzahl"@de, "nombre ordinal de verset"@fr, "numero ordinale del versetto"@it;
 	rdfs:comment """Ordinal number of a verse."""@en;
 	rdfs:subClassOf prosodic-structure:VerseIdentifier, math:OrdinalNumber.
 
 prosodic-structure:HalfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "half-verse"@en, "Halbvers"@de;
+	rdfs:label "half-verse"@en, "Halbvers"@de, "demi-verset"@fr, "mezzo-versetto"@it;
 #	ling:hasSynonym "hemistich"@en, "Hemistich"@de;
 	rdfs:comment """Half a verse."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
@@ -77,7 +78,7 @@ prosodic-structure:HalfVerse
 prosodic-structure:Strophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strophe"@en, "Strophe"@de;
+	rdfs:label "strophe"@en, "Strophe"@de, "strophe"@fr, "strofa"@it;
 #	ling:hasSynonym "stanza"@en, "Stanze"@de;
 	rdfs:comment """Group of verses."""@en;
 	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
@@ -86,28 +87,28 @@ prosodic-structure:Strophe
 prosodic-structure:StropheIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strophe identifier"@en, "Stropheidentifikator"@de;
+	rdfs:label "strophe identifier"@en, "Stropheidentifikator"@de, "identifiant de strophe"@fr, "identificatore di strofa"@it;
 	rdfs:comment """Identifier of a strophe."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 prosodic-structure:StropheOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strophe ordinal number"@en, "Stropheordinalzahl"@de;
+	rdfs:label "strophe ordinal number"@en, "Stropheordinalzahl"@de, "nombre ordinal de strophe"@fr, "numero ordinale di strofa"@it;
 	rdfs:comment """Ordinal number of a strophe."""@en;
 	rdfs:subClassOf prosodic-structure:StropheIdentifier, math:OrdinalNumber.
 
 prosodic-structure:HalfStrophe # NOT hemistich! = half-verse # :Distich can be SCO :HalfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "half-strophe"@en, "Halbstrophe"@de;
+	rdfs:label "half-strophe"@en, "Halbstrophe"@de, "demi-strophe"@fr, "mezza-strofa"@it;
 	rdfs:comment """Half a strophe."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:VerseSection
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse section"@en, "Versabschnitt"@de;
+	rdfs:label "verse section"@en, "Versabschnitt"@de, "section de verset"@fr, "sezione del versetto"@it;
 #	ling:hasSynonym "canto"@en, "Canto"@de, "chant"@fr, "canto"@it;
 	rdfs:comment """Group of strophes."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
@@ -115,28 +116,28 @@ prosodic-structure:VerseSection
 prosodic-structure:VerseSectionIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse section identifier"@en, "Versabschnittidentifikator"@de;
+	rdfs:label "verse section identifier"@en, "Versabschnittidentifikator"@de, "identifiant de section de verset"@fr, "identificatore della sezione del versetto"@it;
 	rdfs:comment """Identifier of a verse section."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 prosodic-structure:VerseSectionOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "verse section ordinal number"@en, "Versabschnittordinalzahl"@de;
+	rdfs:label "verse section ordinal number"@en, "Versabschnittordinalzahl"@de, "nombre ordinal de section de verset"@fr, "numero ordinale della sezione del versetto"@it;
 	rdfs:comment """Ordinal number of a verse section."""@en;
 	rdfs:subClassOf prosodic-structure:VerseSectionIdentifier, math:OrdinalNumber.
 
 prosodic-structure:StrictVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strict verse"@en, "strikte Vers"@de; #°
+	rdfs:label "strict verse"@en, "strikte Vers"@de, "verset strict"@fr, "versetto rigoroso"@it; #°
 	rdfs:comment """Verse with a recurring metrical entity."""@en;
 	rdfs:subClassOf prosodic-structure:Verse.
 
 prosodic-structure:Meter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "meter"@en, ""@de;
+	rdfs:label "meter"@en, ""@de, "mètre"@fr, "metro"@it;
 	rdfs:comment """Rhythmic structure of a verse, based on patterns of particular syllables, and often alternating in a particular order"""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
@@ -145,42 +146,42 @@ prosodic-structure:Meter
 prosodic-structure:FreeVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "free verse"@en, "freie Vers"@de;
+	rdfs:label "free verse"@en, "freie Vers"@de, "verset libre"@fr, "versetto libero"@it;
 	rdfs:comment """Verse without a recurring metrical entity."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
 prosodic-structure:RhymingVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "rhyming verse"@en, "gereimter Vers"@de;
+	rdfs:label "rhyming verse"@en, "gereimter Vers"@de, "verset de rimes"@fr, "versetto in rima"@it;
 	rdfs:comment """Verse with a rhyme."""@en;
 	rdfs:subClassOf prosodic-structure:Verse, text-structure:Rhyme.
 
 prosodic-structure:NonRhymingVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "non-rhyming verse"@en, "nichtgereimter Vers"@de;
+	rdfs:label "non-rhyming verse"@en, "nichtgereimter Vers"@de, "verset sans rime"@fr, "versetto non in rima"@it;
 	rdfs:comment """Verse without a rhyme."""@en;
 	rdfs:subClassOf prosodic-structure:Verse.
 
 prosodic-structure:RhythmicProse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "rhythmic prose"@en, "rhythmische Prosa"@de;
+	rdfs:label "rhythmic prose"@en, "rhythmische Prosa"@de, "prose rythmée"@fr, "prosa ritmica"@it;
 	rdfs:comment """Prose structure with a meter."""@en;
 	rdfs:subClassOf text-structure:Prose, prosodic-structure:Structure.
 
 prosodic-structure:RhymingRhythmicProse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "rhyming rhythmic prose"@en, "gereimte rhythmische Prosa"@de;
+	rdfs:label "rhyming rhythmic prose"@en, "gereimte rhythmische Prosa"@de, "prose rythmée rimante"@fr, "prosa ritmica in rima"@it;
 	rdfs:comment """Rhythmic prose with a rhyme."""@en;
 	rdfs:subClassOf prosodic-structure:RhythmicProse, text-structure:Rhyme.
 
 prosodic-structure:NonRhymingRhythmicProse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "non-rhyming rhythmic prose"@en, "nichtgereimte rhythmische Prosa"@de;
+	rdfs:label "non-rhyming rhythmic prose"@en, "nichtgereimte rhythmische Prosa"@de, "prose rythmée sans rime"@fr, "prosa ritmica non in rima"@it;
 	rdfs:comment """Rhythmic prose without a rhyme."""@en;
 	rdfs:subClassOf prosodic-structure:RhythmicProse.
 
@@ -191,7 +192,7 @@ prosodic-structure:NonRhymingRhythmicProse
 prosodic-structure:isWordOfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is word of verse"@en, "ist Wort eines Verses"@de;
+	rdfs:label "is word of verse"@en, "ist Wort eines Verses"@de, "est un mot de verset"@fr, "è parola di versetto"@it;
 	rdfs:comment """Relating a syntactic word to a verse it is part of."""@en;
 	rdfs:domain text-structure:SyntacticWord;
 	rdfs:range prosodic-structure:Verse;
@@ -200,7 +201,7 @@ prosodic-structure:isWordOfVerse
 prosodic-structure:isVerseOfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de;
+	rdfs:label "is verse of strophe"@en, "ist Vers einer Strophe"@de, "est un verset de strophe"@fr, "è un versetto di strofa"@it;
 	rdfs:comment """Relating a verse to a strophe it is part of."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range prosodic-structure:Strophe;
@@ -209,7 +210,7 @@ prosodic-structure:isVerseOfStrophe
 prosodic-structure:isVerseOfHalfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de;
+	rdfs:label "is verse of half-strophe"@en, "ist Vers einer Halbstrophe"@de, "est un verset de demi-strophe"@fr, "è un versetto di mezza-strofa"@it;
 	rdfs:comment """Relating a verse to a half-strophe it is part of."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range prosodic-structure:HalfStrophe;
@@ -218,7 +219,7 @@ prosodic-structure:isVerseOfHalfStrophe
 prosodic-structure:verseHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de;
+	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de, "verset a un identifiant"@fr, "versetto ha un identificatore"@it;
 	rdfs:comment """Relating a verse to its identifier."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range prosodic-structure:VerseIdentifier;
@@ -227,7 +228,7 @@ prosodic-structure:verseHasIdentifier
 prosodic-structure:verseHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse has ordinal number"@en, "Vers hat Ordinalzahl"@de;
+	rdfs:label "verse has ordinal number"@en, "Vers hat Ordinalzahl"@de, "verset a un nombre ordinal"@fr, "versetto ha un numero ordinale"@it;
 	rdfs:comment """Relating a verse to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range prosodic-structure:VerseOrdinalNumber;
@@ -236,7 +237,7 @@ prosodic-structure:verseHasOrdinalNumber
 prosodic-structure:verseHasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse has ordinal numeral"@en, "Vers hat Ordinalnumerale"@de;
+	rdfs:label "verse has ordinal numeral"@en, "Vers hat Ordinalnumerale"@de, "verset a un numéral ordinal"@fr, "versetto ha un numerale ordinale"@it;
 	rdfs:comment """Relating a verse to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range xsd:nonNegativeInteger;
@@ -246,7 +247,7 @@ prosodic-structure:verseHasOrdinalNumeral
 prosodic-structure:isHalfOfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is half of verse"@en, "ist Hälfte eines Verses"@de;
+	rdfs:label "is half of verse"@en, "ist Hälfte eines Verses"@de, "est la moitié d'un verst"@fr, "è la metà di un versetto"@it;
 	rdfs:comment """Relating a half-verse to its verse."""@en;
 	rdfs:domain prosodic-structure:HalfVerse;
 	rdfs:range prosodic-structure:Verse;
@@ -255,7 +256,7 @@ prosodic-structure:isHalfOfVerse
 prosodic-structure:isStropheOfSection
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is strophe of section"@en, "ist Strophe eines Versabschnittes"@de;
+	rdfs:label "is strophe of section"@en, "ist Strophe eines Versabschnittes"@de, "est une strophe d'une section"@fr, "è la strofa di una sezione"@it;
 	rdfs:comment """Relating a strophe to a section it is part of."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range prosodic-structure:VerseSection;
@@ -264,7 +265,7 @@ prosodic-structure:isStropheOfSection
 prosodic-structure:isStropheOfPoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is strophe of poem"@en, "ist Strophe eines Gedichtes"@de;
+	rdfs:label "is strophe of poem"@en, "ist Strophe eines Gedichtes"@de, "est une strophe d'un poème"@fr, "è una strofa di una poesia"@it;
 	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range literature:VersePoem;
@@ -273,7 +274,7 @@ prosodic-structure:isStropheOfPoem
 prosodic-structure:isStropheOfNovel
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is strophe of verse novel"@en, "ist Strophe eines Versromans"@de;
+	rdfs:label "is strophe of verse novel"@en, "ist Strophe eines Versromans"@de, "est une strophe d'un roman en vers"@fr, "è la strofa di un romanzo in versi"@it;
 	rdfs:comment """Relating a strophe to a verse novel it is part of."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range literature:VerseNovel;
@@ -282,7 +283,7 @@ prosodic-structure:isStropheOfNovel
 prosodic-structure:stropheHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de;
+	rdfs:label "strophe has identifier"@en, "Strophe hat Identifikator"@de, "strophe a un identifiant"@fr, "strofa ha un identificatore"@it;
 	rdfs:comment """Relating a strophe to its identifier."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range prosodic-structure:StropheIdentifier;
@@ -291,7 +292,7 @@ prosodic-structure:stropheHasIdentifier
 prosodic-structure:stropheHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "strophe has ordinal number"@en, "Strophe hat Ordinalzahl"@de;
+	rdfs:label "strophe has ordinal number"@en, "Strophe hat Ordinalzahl"@de, "strophe a un nombre ordinal"@fr, "strofa ha un numero ordinale"@it;
 	rdfs:comment """Relating a strophe to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range prosodic-structure:StropheOrdinalNumber;
@@ -300,7 +301,7 @@ prosodic-structure:stropheHasOrdinalNumber
 prosodic-structure:stropheHasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "strophe has ordinal numeral"@en, "Strophe hat Ordinalnumerale"@de;
+	rdfs:label "strophe has ordinal numeral"@en, "Strophe hat Ordinalnumerale"@de, "strophe a un numéral ordinal"@fr, "strofa ha un numerale ordinale"@it;
 	rdfs:comment """Relating a strophe to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range xsd:nonNegativeInteger;
@@ -310,7 +311,7 @@ prosodic-structure:stropheHasOrdinalNumeral
 prosodic-structure:isHalfOfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is half of strophe"@en, "ist Hälfte einer Strophe"@de;
+	rdfs:label "is half of strophe"@en, "ist Hälfte einer Strophe"@de, "est la moitié d'une strophe"@fr, "è la metà di una strofa"@it;
 	rdfs:comment """Relating a half-strophe to its strophe."""@en;
 	rdfs:domain prosodic-structure:HalfStrophe;
 	rdfs:range prosodic-structure:Strophe;
@@ -319,7 +320,7 @@ prosodic-structure:isHalfOfStrophe
 prosodic-structure:isVerseSectionOfPoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse section of poem"@en, "ist Versabschnitt eines Gedichtes"@de;
+	rdfs:label "is verse section of poem"@en, "ist Versabschnitt eines Gedichtes"@de, "est une section de verset d'un poème"@fr, "è una sezione in versi di una poesia"@it;
 	rdfs:comment """Relating a verse section to a poem it is part of."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range literature:VersePoem;
@@ -328,7 +329,7 @@ prosodic-structure:isVerseSectionOfPoem
 prosodic-structure:isVerseSectionOfVerseNovel
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse section of verse novel"@en, "ist Versabschnitt eines Versromans"@de;
+	rdfs:label "is verse section of verse novel"@en, "ist Versabschnitt eines Versromans"@de, "est une section de verset d'un roman en vers"@fr, "è una sezione in versi di un romanzo in versi"@it;
 	rdfs:comment """Relating a verse section to a verse novel it is part of."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range literature:VerseNovel;
@@ -337,7 +338,7 @@ prosodic-structure:isVerseSectionOfVerseNovel
 prosodic-structure:verseSectionHasTitle #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de;
+	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de, "section de verset a un titre"@fr, "sezione del versetto ha un titolo"@it;
 	rdfs:comment """Relating a verse section to its title."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range rdfs:Literal;
@@ -346,7 +347,7 @@ prosodic-structure:verseSectionHasTitle #°
 prosodic-structure:verseSectionHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse section has identifier"@en, "Versabschnitt hat Identifikator"@de;
+	rdfs:label "verse section has identifier"@en, "Versabschnitt hat Identifikator"@de, "section de verset a un identifiant"@fr, "sezione del versetto ha un identificatore"@it;
 	rdfs:comment """Relating a verse section to its identifier."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range prosodic-structure:VerseSectionIdentifier;
@@ -355,7 +356,7 @@ prosodic-structure:verseSectionHasIdentifier
 prosodic-structure:verseSectionHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse section has ordinal number"@en, "Versabschnitt hat Ordinalzahl"@de;
+	rdfs:label "verse section has ordinal number"@en, "Versabschnitt hat Ordinalzahl"@de, "section de verset a un nombre ordinal"@fr, "sezione del versetto ha un numero ordinale"@it;
 	rdfs:comment """Relating a verse section to its ordinal number."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range prosodic-structure:VerseSectionOrdinalNumber;
@@ -364,7 +365,7 @@ prosodic-structure:verseSectionHasOrdinalNumber
 prosodic-structure:verseSectionHasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse section has ordinal numeral"@en, "Versabschnitt hat Ordinalnumerale"@de;
+	rdfs:label "verse section has ordinal numeral"@en, "Versabschnitt hat Ordinalnumerale"@de, "section de verset a un numéral ordinal"@fr, "sezione del versetto ha un numerale ordinale"@it;
 	rdfs:comment """Relating a verse section to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range xsd:nonNegativeInteger;

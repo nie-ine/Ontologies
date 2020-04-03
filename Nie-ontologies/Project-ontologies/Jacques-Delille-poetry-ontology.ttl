@@ -38,6 +38,7 @@ delille:VersePoem
 	rdfs:label "Jacques Delille verse poem"@en, "Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:VersePoem, publish:TextExpression.
+#	hasAuthor Delille
 
 delille:TranslatedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -50,8 +51,9 @@ delille:Non-VersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille non-verse poem"@en, "Non-Versgedicht Jacques Delilles"@de;
-	rdfs:comment """Other expression of Jacques Delille than a verse poem."""@en;
+	rdfs:comment """Expression other than a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf publish:TextExpression.
+#	hasAuthor Delille
 
 delille:EditedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;

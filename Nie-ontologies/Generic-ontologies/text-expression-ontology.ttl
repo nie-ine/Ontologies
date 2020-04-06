@@ -185,7 +185,7 @@ text-expression:Commentary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
-	rdfs:comment """Text expression in the form of a set of comments as analysis, interpretation or explanation of one or more text expressions."""@en;
+	rdfs:comment """Text expression in the form of a set of comments as analysis, interpretation or explanation of something."""@en; # one or more text expressions
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:Article
@@ -368,9 +368,9 @@ text-expression:isCommentaryOn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
 	rdfs:label "is commentary on"@en, "ist Kommentar zu"@de;
-	rdfs:comment """Relating a commentary to an expression it comments on."""@en;
+	rdfs:comment """Relating a commentary to something it comments on."""@en; # an expression
 	rdfs:domain text-expression:Commentary;
-	rdfs:range document:Expression.
+	rdfs:range rdfs:Resource. # document:Expression.
 
 text-expression:isArticleAbout
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;

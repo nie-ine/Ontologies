@@ -147,6 +147,15 @@ text-structure:Section
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
+° text-structure:SectionIdentifier
+
+° text-structure:SectionOrdinalNumber
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a rdfs:Class;
+	rdfs:label "text section ordinal number"@en, "Textabschnittordinalzahl"@de;
+	rdfs:comment """Ordinal number of a section."""@en;
+	rdfs:subClassOf text-structure:SectionIdentifier, math:OrdinalNumber.
+
 text-structure:OrthographicWord
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
@@ -351,8 +360,8 @@ text-structure:paragraphHasNumber
 text-structure:isSectionOfExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is section of sentence expression"@en, "ist Textabschnitt eines Satz-Expression"@de;
-	rdfs:comment """Relating a section to a sentence expression it is part of."""@en;
+	rdfs:label "is text section of sentence expression"@en, "ist Textabschnitt eines Satz-Expression"@de;
+	rdfs:comment """Relating a text section to a sentence expression it is part of."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range text-expression:SentenceExpression;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
@@ -360,19 +369,29 @@ text-structure:isSectionOfExpression
 text-structure:sectionHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "section has title"@en, "Textabschnitt hat Titel"@de;
-	rdfs:comment """Relating a section to its title."""@en;
+	rdfs:label "text section has title"@en, "Textabschnitt hat Titel"@de;
+	rdfs:comment """Relating a text section to its title."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle.
 
-text-structure:sectionHasNumber
+text-structure:sectionHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "section has number"@en, "Textabschnitt hat Nummer"@de;
-	rdfs:comment """Relating a section to its number."""@en;
+	rdfs:label "text section has ordinal number"@en, "Textabschnitt hat Ordinalzahl"@de;
+	rdfs:comment """Relating a text section to its ordinal number."""@en;
 	rdfs:domain text-structure:Section;
-	rdfs:range xsd:nonNegativeInteger.
+	rdfs:range text-structure:SectionOrdinalNumber.
+
+text-structure:sectionHasOrdinalNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a owl:DatatypeProperty;
+	rdfs:label "text section has ordinal numeral"@en, "Textabschnitt hat Ordinalnumerale"@de;
+	rdfs:comment """Relating a text section to its ordinal numeral."""@en;
+	rdfs:domain text-structure:Section;
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (text-structure:sectionHasOrdinalNumber math:hasNumeral).
 
 text-structure:isWordBeforeSpace
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;

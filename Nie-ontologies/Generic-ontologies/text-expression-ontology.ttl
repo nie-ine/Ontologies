@@ -186,7 +186,7 @@ text-expression:Commentary
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Text expression in the form of a set of comments as analysis, interpretation or explanation of something."""@en; # one or more text expressions
-	rdfs:subClassOf text-expression:IndividualExpression.
+	rdfs:subClassOf text-expression:Expression.
 
 text-expression:Article
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;

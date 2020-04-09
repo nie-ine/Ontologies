@@ -460,6 +460,22 @@ infocar:Website
 	rdfs:comment """Set of interconnected webpages, under a single domain name, usually including a homepage, generally located on the same server, and prepared and maintained as information by a person, group, or organization."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier, infocar:Set.
 
+infocar:Wiki
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "wiki"@en, "Wiki"@de;
+	rdfs:comment """Knowledge base website on which users collaboratively modify and structure content directly from a web browser; it is ran by wiki software."""@en;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Wiki>;
+	rdfs:subClassOf infocar:Website.
+
+infocar:DokuWiki
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "DokuWiki"@en, "DokuWiki"@de;
+	rdfs:comment """Wiki ran by DokuWiki software."""@en;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/DokuWiki>;
+	rdfs:subClassOf infocar:Wiki.
+
 infocar:Hyperlink
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;

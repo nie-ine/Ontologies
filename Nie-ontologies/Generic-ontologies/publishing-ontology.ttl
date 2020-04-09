@@ -167,12 +167,19 @@ publish:ElectronicPublication
 	rdfs:comment """Publication on an electronic carrier."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier, publish:Publication.
 
-publish:WebPublication
+publish:WebpagePublication
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "web publication"@en, "Web-Publikation"@de, "publication Web"@fr;
+	rdfs:label "webpage publication"@en, "Webseite-Publikation"@de, "publication de page Web"@fr;
 	rdfs:comment """Publication as webpage."""@en;
 	rdfs:subClassOf publish:ElectronicPublication, infocar:Webpage.
+
+publish:WebsitePublication
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a rdfs:Class;
+	rdfs:label "website publication"@en, "Website-Publikation"@de, "publication du site Web"@fr;
+	rdfs:comment """Publication as website."""@en;
+	rdfs:subClassOf publish:ElectronicPublication, infocar:Website.
 
 publish:PolyAuthorPublication
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;

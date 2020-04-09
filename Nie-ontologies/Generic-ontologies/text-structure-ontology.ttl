@@ -264,7 +264,7 @@ text-structure:Postcard
 text-structure:isPartOfTextExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is part of text expression"@en, "ist Teil einer Textexpression"@de;
+	rdfs:label "text structure is part of text expression"@en, "Textstruktur ist Teil einer Textexpression"@de;
 	rdfs:comment """Relating a text structure to a text expression it is part of."""@en;
 	rdfs:domain text-structure:Structure;
 	rdfs:range text-expression:Expression;

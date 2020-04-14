@@ -170,7 +170,7 @@ publish:ElectronicPublication
 publish:WebpagePublication
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "webpage publication"@en, "Webseite-Publikation"@de, "publication de page Web"@fr;
+	rdfs:label "webpage publication"@en, "Webseite-Publikation"@de, "publication de page Web"@fr, "pubblicazione della pagina web"@it;
 	rdfs:comment """Publication as webpage."""@en;
 	rdfs:subClassOf publish:ElectronicPublication, infocar:Webpage.
 
@@ -213,7 +213,7 @@ publish:Serial
 publish:SerialVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "serial volume"@en, "Reihe-Ausgabevolumen"@de; #, ""@fr, ""@it; # Jahrgang
+	rdfs:label "serial volume"@en, "Reihe-Ausgabevolumen"@de, "volume série"@fr, "volume seriale"@it;
 	rdfs:comment """Set of serials, e.g. the magazine issues of a coterminous year, or all the issues ever published."""@en;
 	rdfs:subClassOf infocar:Set.
 
@@ -586,7 +586,7 @@ publish:hasPrinterDescription
 publish:isSerialOfVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is serial of volume"@en, "ist Reihe-Ausgabe eines Volumens"@de;
+	rdfs:label "is serial of volume"@en, "ist Reihe-Ausgabe eines Volumens"@de, "est publication sérielle du volume"@fr, "è pubblicazione seriale del volume"@it;
 	rdfs:comment """Relating a serial to a volume it is part of."""@en;
 	rdfs:domain publish:Serial;
 	rdfs:range publish:SerialVolume;
@@ -595,7 +595,7 @@ publish:isSerialOfVolume
 publish:serialVolumeHasExistence
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "serial volume has publishing existence"@en, "Reihe-Ausgabevolumen hat Publizierungexistenz"@de;
+	rdfs:label "serial volume has publishing existence"@en, "Reihe-Ausgabevolumen hat Publizierungexistenz"@de, "volume série a existence de publier"@fr, "volume seriale ha esistenza del Pubblicare"@it;
 	rdfs:comment """Relating a serial volume to its publishing existence."""@en;
 	rdfs:domain publish:SerialVolume;
 	rdfs:range publish:SerialVolumeExistence;

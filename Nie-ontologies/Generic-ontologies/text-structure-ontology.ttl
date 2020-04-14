@@ -264,7 +264,7 @@ text-structure:Postcard
 text-structure:isPartOfTextExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "text structure is part of text expression"@en, "Textstruktur ist Teil einer Textexpression"@de;
+	rdfs:label "text structure is part of text expression"@en, "Textstruktur ist Teil einer Textexpression"@de, "la structure du texte fait partie de l'expression de texte"@fr, "la struttura del testo fa parte dell'espressione del testo"@it;
 	rdfs:comment """Relating a text structure to a text expression it is part of."""@en;
 	rdfs:domain text-structure:Structure;
 	rdfs:range text-expression:Expression;
@@ -360,8 +360,8 @@ text-structure:paragraphHasNumber
 text-structure:isSectionOfExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is text section of sentence expression"@en, "ist Textabschnitt eines Satz-Expression"@de;
-	rdfs:comment """Relating a text section to a sentence expression it is part of."""@en;
+	rdfs:label "is section of sentence expression"@en, "ist Abschnitt eines Satz-Expression"@de, "est une section d'expression de phrase"@fr, "è una sezione dell'espressione della frase"@it;
+	rdfs:comment """Relating a section to the sentence expression it is part of."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range text-expression:SentenceExpression;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
@@ -369,7 +369,7 @@ text-structure:isSectionOfExpression
 text-structure:sectionHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "text section has title"@en, "Textabschnitt hat Titel"@de;
+	rdfs:label "text section has title"@en, "Textabschnitt hat Titel"@de, "section de texte a un titre"@fr, "sezione di testo ha titolo"@it;
 	rdfs:comment """Relating a text section to its title."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range rdfs:Literal;
@@ -378,7 +378,7 @@ text-structure:sectionHasTitle
 text-structure:sectionHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "text section has ordinal number"@en, "Textabschnitt hat Ordinalzahl"@de;
+	rdfs:label "text section has ordinal number"@en, "Textabschnitt hat Ordinalzahl"@de, "section de texte a numéro"@fr, "sezione di testo ha numero"@it;
 	rdfs:comment """Relating a text section to its ordinal number."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range text-structure:SectionOrdinalNumber.

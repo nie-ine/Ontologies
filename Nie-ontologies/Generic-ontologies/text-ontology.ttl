@@ -393,6 +393,15 @@ text:hasTranscriber
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]].
 
+text:isReferredToIn
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "is referred to in"@en, "ist referenziert in"@de;
+	rdfs:comment "Relating a text to an expression wherein it is referred to."@en;
+	rdfs:domain text-structure:Structure;
+	rdfs:range text-expression:Expression.
+#	owl:propertyChainAxiom (text:hasReference text:referenceIsPartOf).
+
 text:hasCiter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
@@ -434,7 +443,38 @@ text:isCitedIn
 	rdfs:comment "Relating a text to an expression wherein it is cited."@en;
 	rdfs:domain text-structure:Structure;
 	rdfs:range text-expression:Expression;
+	rdfs:subPropertyOf text:isReferredToIn;
 	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
+
+text:isAlludedToIn
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "is alluded to in"@en, "ist angespielt auf in"@de;
+	rdfs:comment "Relating a text to an expression wherein it is alluded to."@en;
+	rdfs:domain text-structure:Structure;
+	rdfs:range text-expression:Expression;
+	rdfs:subPropertyOf text:isReferredToIn.
+#	owl:propertyChainAxiom (text:hasAllusion text:allusionIsPartOf).
+
+text:hasPasticheIn
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "has pastiche in"@en, "hat Pastiche in"@de;
+	rdfs:comment "Relating a text to an expression wherein it has a pastiche."@en;
+	rdfs:domain text-structure:Structure;
+	rdfs:range text-expression:Expression;
+	rdfs:subPropertyOf text:isReferredToIn.
+#	owl:propertyChainAxiom (text:hasPastiche text:pasticheIsPartOf).
+
+text:isPlagiarisedIn
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "is plagiarised in"@en, "ist plagiiert in"@de;
+	rdfs:comment "Relating a text to an expression wherein it is plagiarised."@en;
+	rdfs:domain text-structure:Structure;
+	rdfs:range text-expression:Expression;
+	rdfs:subPropertyOf text:isReferredToIn.
+#	owl:propertyChainAxiom (text:hasPlagiarism text:plagiarismIsPartOf).
 
 text:hasEditor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;

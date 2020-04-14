@@ -38,6 +38,7 @@ delille:VersePoem
 	rdfs:label "Jacques Delille verse poem"@en, "Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:VersePoem, publish:TextExpression.
+#	hasAuthor Delille
 
 delille:TranslatedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -50,8 +51,9 @@ delille:Non-VersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille non-verse poem"@en, "Non-Versgedicht Jacques Delilles"@de;
-	rdfs:comment """Other expression of Jacques Delille than a verse poem."""@en;
+	rdfs:comment """Expression other than a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf publish:TextExpression.
+#	hasAuthor Delille
 
 delille:EditedVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -170,13 +172,6 @@ delille:Article
 
 #° delille:Image
 
-delille:Commentary
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
-	a rdfs:Class;
-	rdfs:label "commentary"@en, "Kommentar"@de;
-	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:Commentary, text-expression:ScientificExpression, publish:TextExpression.
-
 delille:Argument
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
@@ -199,6 +194,13 @@ delille:ScholarlyEdition
 	rdfs:comment """Scholarly edition of a verse poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf scholarly-editing:Edition, publish:TextExpression.
 
+delille:Commentary
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "commentary"@en, "Kommentar"@de;
+	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
+	rdfs:subClassOf text-expression:Commentary, text-expression:ScientificExpression, publish:TextExpression.
+
 #
 # PROPERTIES
 #
@@ -210,11 +212,3 @@ delille:hasExternalResource
 	rdfs:comment """Relating a Delille-project resource to an external, i.e. non-Delille-project resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Resource.
-
-delille:externalResourceHasURL
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
-	a owl:ObjectProperty;
-	rdfs:label "external resource has URL"@en, "externe Ressource hat URL"@de;
-	rdfs:comment """Relating a non-Delille-project resource to its URL."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range xsd:anyURI.

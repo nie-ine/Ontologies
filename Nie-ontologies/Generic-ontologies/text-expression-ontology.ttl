@@ -47,42 +47,42 @@ text-expression:Expression
 text-expression:Identifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text expression identifier"@en, "Textexpressionsidentifikator"@de;
+	rdfs:label "text expression identifier"@en, "Textexpressionsidentifikator"@de, "identificateur d'expression de texte"@fr, "identificatore di espressioni di testo"@it;
 	rdfs:comment """Identifier of a text expression."""@en;
 	rdfs:subClassOf document:ExpressionIdentifier.
 
 text-expression:Draft
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text expression draft"@en, "Textexpressionentwurf"@de;
+	rdfs:label "text expression draft"@en, "Textexpressionentwurf"@de, "brouillon d'expression de texte"@fr, "bozza di espressione di testo"@it;
 	rdfs:comment """Document draft as text expression."""@en;
 	rdfs:subClassOf text-expression:Expression, document:Draft.
 
 text-expression:PolyAuthorExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "poly-author text expression"@en, "Mehrautorentextexpression"@de;
+	rdfs:label "poly-author text expression"@en, "Mehrautorentextexpression"@de, "expression de texte poly-auteur"@fr, "espressione di testo poli autore"@it;
 	rdfs:comment """Text expression by different authors."""@en;
 	rdfs:subClassOf text-expression:Expression, document:PolyAuthorExpression.
 
 text-expression:IndividualExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "individual text expression"@en, "individuelle Textexpression"@de;
+	rdfs:label "individual text expression"@en, "individuelle Textexpression"@de, "expression de texte individuelle"@fr, "espressione di testo individuale"@it;
 	rdfs:comment """Text as individual expression."""@en;
 	rdfs:subClassOf text-expression:Expression, document:IndividualExpression.
 
 text-expression:ExpressionPart
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text expression part"@en, "Textexpressionsteil"@de;
+	rdfs:label "text expression part"@en, "Textexpressionsteil"@de, "partie d'expression de texte"@fr, "parte di espressione di testo"@it;
 	rdfs:comment """Part of an individual text expression, considered as incomplete."""@en;
 	rdfs:subClassOf text-expression:Expression, document:ExpressionPart.
 
 text-expression:Introduction
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text introduction"@en, "Texteinleitung"@de;
+	rdfs:label "text introduction"@en, "Texteinleitung"@de, "introduction du texte"@fr, "introduzione al testo"@it;
 	rdfs:comment """Beginning section of a text expression, usually written by the (main) author, stating e.g. the subject, purpose and limits of its main section; usually remaining unchanged."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
@@ -90,7 +90,7 @@ text-expression:Introduction
 text-expression:Body
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text body"@en, "Texthauptteil"@de;
+	rdfs:label "text body"@en, "Texthauptteil"@de, "corps du texte"@fr, "corpo del testo"@it;
 	rdfs:comment """Main section of a text expression, e.g. including footnotes and illustrations but excluding the front matter and back matter."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
@@ -98,7 +98,7 @@ text-expression:Body
 text-expression:Conclusion
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text conclusion"@en, "Textkonklusion"@de;
+	rdfs:label "text conclusion"@en, "Textkonklusion"@de, "conclusion du texte"@fr, "conclusione del testo"@it;
 	rdfs:comment """Concluding section of a text expression."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
 
@@ -121,7 +121,7 @@ text-expression:Author
 text-expression:MainAuthor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "main text author"@en, "Haupttextautor"@de; # , "auteur du texte"@fr, "autore di testo"@it;
+	rdfs:label "main text author"@en, "Haupttextautor"@de , "auteur du texte"@fr, "autore di testo"@it;
 	rdfs:comment """Role of a person being the main responsible person for the creation of a text expression."""@en;
 	rdfs:subClassOf text-expression:Author.
 
@@ -149,7 +149,7 @@ text-expression:WomanOfLetters
 text-expression:Vulgarizer
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text vulgarizer"@en, "Text-VulgarisatorIn"@de, "vulgarisat-eur/rice du texte"@fr;
+	rdfs:label "text vulgarizer"@en, "Text-VulgarisatorIn"@de, "vulgarisat-eur/rice du texte"@fr, "volgarizzatore di testo"@it;
 	rdfs:comment """Role of a person vulgarizing a text expression, e.g. a scientific one, or creating one using vulgarizing terminology."""@en;
 	rdfs:subClassOf human:Vulgarizer.
 
@@ -177,7 +177,7 @@ text-expression:Diary
 text-expression:Commentator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "commentator"@en, "KommentatorIn"@de;
+	rdfs:label "commentator"@en, "KommentatorIn"@de, "commentateur"@fr, "commentatore"@it;
 	rdfs:comment """Role of a person commenting on a text expression."""@en;
 	rdfs:subClassOf human:PersonRole.
 
@@ -198,7 +198,7 @@ text-expression:Article
 text-expression:Biography
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "biography"@en, "Biographie"@de; #*
+	rdfs:label "biography"@en, "Biographie"@de, "biographie"@fr, "biografia"@it;
 	rdfs:comment """Text expression about a person's life."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
@@ -212,21 +212,21 @@ text-expression:Manual
 text-expression:ScientificExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de;
+	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de, "expression scientifique"@fr, "espressione scientifica"@it;
 	rdfs:comment """Text expression with scientific content."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 text-expression:VulgarizedScientificExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de;
+	rdfs:label "vulgarized scientific expression"@en, "vulgarisierte wissenschaftliche Expression"@de, "expression scientifique vulgarisée"@fr, "espressione scientifica volgarizzata"@it;
 	rdfs:comment """Text expression with vulgarized scientific content."""@en;
 	rdfs:subClassOf text-expression:ScientificExpression.
 
 text-expression:Dictionary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "dictionary"@en, "Wörterbuch"@de;
+	rdfs:label "dictionary"@en, "Wörterbuch"@de, "dictionnaire"@fr, "dizionario"@it;
 	rdfs:comment """List of brief explanatory entries for terms of a human natural language, belonging to a certain domain, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-expression:IndividualExpression. # text-expression:ReferenceExpression
@@ -238,7 +238,7 @@ text-expression:Dictionary
 text-expression:hasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has title"@en, "Textexpression hat Titel"@de;
+	rdfs:label "text expression has title"@en, "Textexpression hat Titel"@de, "l'expression de texte a un titre"@fr, "espressione di testo ha titolo"@it;
 	rdfs:comment """Relating a text expression to a title it has."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
@@ -247,7 +247,7 @@ text-expression:hasTitle
 text-expression:hasSubtitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has subtitle"@en, "Textexpression hat Untertitel"@de;
+	rdfs:label "text expression has subtitle"@en, "Textexpression hat Untertitel"@de, "l'expression de texte a un sous-titre"@fr, "espressione di testo ha sottotitoli"@it;
 	rdfs:comment """Relating a text expression to a subtitle it has."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
@@ -256,7 +256,7 @@ text-expression:hasSubtitle
 text-expression:hasIncipit
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "has incipit"@en, "hat Incipit"@de;
+	rdfs:label "has incipit"@en, "hat Incipit"@de, "a un incipit"@fr, "ha inizia"@it;
 	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
@@ -265,7 +265,7 @@ text-expression:hasIncipit
 text-expression:hasExplicit
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "has explicit"@en, "hat Explicit"@de;
+	rdfs:label "has explicit"@en, "hat Explicit"@de, "a explicite"@fr, "ha esplicito"@it;
 	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
@@ -274,7 +274,7 @@ text-expression:hasExplicit
 text-expression:hasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has identifier"@en, "Textexpression hat Identifikator"@de;
+	rdfs:label "text expression has identifier"@en, "Textexpression hat Identifikator"@de, "l'expression de texte a un identifiant"@fr, "l'espressione di testo ha un identificatore"@it;
 	rdfs:comment """Relating a text expression to its identifier."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range text-expression:Identifier.
@@ -282,7 +282,7 @@ text-expression:hasIdentifier
 text-expression:hasAuthor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has author"@en, "Text hat Autor"@de;
+	rdfs:label "text has author"@en, "Text hat Autor"@de, ""@fr, ""@it;
 	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text-expression:Expression;
@@ -292,7 +292,7 @@ text-expression:hasAuthor
 text-expression:hasIdeationalExtent
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "has ideational extent"@en, "hat ideeller Umfang"@de;
+	rdfs:label "has ideational extent"@en, "hat ideeller Umfang"@de, "a une étendue idéationnelle"@fr, "ha estensione ideazionale"@it;
 	rdfs:comment """Relating a text expression to a description of its ideational extent."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
@@ -301,7 +301,7 @@ text-expression:hasIdeationalExtent
 text-expression:hasCommentator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has commentator"@en, "Textexpression hat KommentatorIn"@de;
+	rdfs:label "text expression has commentator"@en, "Textexpression hat KommentatorIn"@de, "l'expression de texte a un commentateur"@fr, "espressione di testo ha commentatore"@it;
 	rdfs:comment "Relating a text expression to a person who commented on it."@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Commentator]].
@@ -309,7 +309,7 @@ text-expression:hasCommentator
 text-expression:hasScientificEditor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has scholarly editor"@en, "Textexpression hat wissenschaftliche Editor"@de;
+	rdfs:label "text expression has scholarly editor"@en, "Textexpression hat wissenschaftliche Editor"@de, "l'expression de texte a un éditeur savant"@fr, "l'espressione testuale ha un editore accademico"@it;
 	rdfs:comment "Relating a text expression to a scholar who edited it scientifically."@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:Editor]].
@@ -317,7 +317,7 @@ text-expression:hasScientificEditor
 text-expression:hasCriticalEditor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has critical editor"@en, "Textexpression hat kritische Editor"@de;
+	rdfs:label "text expression has critical editor"@en, "Textexpression hat kritische Editor"@de, "l'expression de texte a un éditeur critique"@fr, "espressione di testo ha editor critico"@it;
 	rdfs:comment "Relating a text expression to a person who edited it critically."@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:CriticalEditor]].
@@ -325,7 +325,7 @@ text-expression:hasCriticalEditor
 text-expression:isDraftOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "is draft of text expression"@en, "ist Entwurf einer Textexpression"@de;
+	rdfs:label "is draft of text expression"@en, "ist Entwurf einer Textexpression"@de, "est un brouillon d'expression de texte"@fr, "è una bozza di espressione di testo"@it;
 	rdfs:comment "Relating a draft to its text expression."@en;
 	rdfs:domain text-expression:Draft;
 	rdfs:range text-expression:Expression.
@@ -333,7 +333,7 @@ text-expression:isDraftOf
 text-expression:hasMainAuthor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "has main author"@en, "hat Hauptautor"@de;
+	rdfs:label "has main author"@en, "hat Hauptautor"@de, "a l'auteur principal"@fr, "ha l'autore principale"@it;
 	rdfs:comment """Relating a poly-author text expression to its main author."""@en;
 	rdfs:domain text-expression:PolyAuthorExpression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:MainAuthor]].
@@ -341,7 +341,7 @@ text-expression:hasMainAuthor
 text-expression:hasVulgarizer
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text expression has vulgarizer"@en, "Textexpression hat VulgarisatorIn"@de;
+	rdfs:label "text expression has vulgarizer"@en, "Textexpression hat VulgarisatorIn"@de, "l'expression de texte a vulgarisateur"@fr, "l'espressione del testo ha volgarizzatore"@it;
 	rdfs:comment """Relating a text expression to a person who vulgarized it."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Vulgarizer]].
@@ -349,7 +349,7 @@ text-expression:hasVulgarizer
 text-expression:isPartOfExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "is part of text expression"@en, "ist Teil einer Textexpression"@de;
+	rdfs:label "is part of text expression"@en, "ist Teil einer Textexpression"@de, "fait partie de l'expression de texte"@fr, "fa parte dell'espressione del testo"@it;
 	rdfs:comment """Relating a text expression part to an expression it is part of."""@en;
 	rdfs:domain text-expression:ExpressionPart;
 	rdfs:range text-expression:Expression;
@@ -358,7 +358,7 @@ text-expression:isPartOfExpression
 text-expression:isEntryOfDiary
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "is entry of diary expression"@en, "ist Eingabe einer Tagebuch-Expression"@de;
+	rdfs:label "is entry of diary expression"@en, "ist Eingabe einer Tagebuch-Expression"@de, "est l'entrée de l'expression du journal"@fr, "è la voce dell'espressione del diario"@it;
 	rdfs:comment """Relating a diary entry to its diary expression."""@en;
 	rdfs:domain text-expression:DiaryEntry;
 	rdfs:range text-expression:Diary;
@@ -375,7 +375,7 @@ text-expression:isCommentaryOn
 text-expression:isArticleAbout
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "is article about"@en, "ist Artikel über"@de;
+	rdfs:label "is article about"@en, "ist Artikel über"@de, "est un article sur"@fr, "è un articolo su"@it;
 	rdfs:comment """Relating an article to a subject it is about."""@en;
 	rdfs:domain text-expression:Article;
 	rdfs:range rdfs:Resource;

@@ -32,35 +32,35 @@
 letter-corresponding:Corresponding
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
- 	rdfs:label "corresponding"@en,"Korrespondieren"@de;
+ 	rdfs:label "corresponding"@en,"Korrespondieren"@de, "correspondre"@fr, "corrispondere"@it;
  	rdfs:comment """Communicating by exchanging letters."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Exchanging
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
- 	rdfs:label "exchanging"@en,"Auswechselen"@de;
+ 	rdfs:label "exchanging"@en,"Auswechselen"@de, "échanger"@fr, "scambiare"@it;
  	rdfs:comment """Sending-receiving cycle in corresponding."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Compiling
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
- 	rdfs:label "compiling"@en,"Zusammenstellen"@de;
+ 	rdfs:label "compiling"@en,"Zusammenstellen"@de, "compiler"@fr, "compilare"@it;
  	rdfs:comment """Preparing a letter for sending, mostly by putting it in an envelope, possibly adding an enclosure."""@en;
 	rdfs:subClassOf human:Procedure.
 
 letter-corresponding:Expression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter expression"@en, "Brief-Expression"@de;
+	rdfs:label "letter expression"@en, "Brief-Expression"@de, "expression de lettre"@fr, "espressione letterale"@it;
 	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Structure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter structure"@en, "Briefstruktur"@de;
+	rdfs:label "letter structure"@en, "Briefstruktur"@de, "structure de lettre"@fr, "struttura della lettera"@it;
 	rdfs:comment """Text with letter structure."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
@@ -74,28 +74,28 @@ letter-corresponding:Letter
 letter-corresponding:Envelope
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "envelope"@en, "Umschlag"@de;
+	rdfs:label "envelope"@en, "Umschlag"@de, "enveloppe"@fr, "busta"@it;
 	rdfs:comment """Flat paper container with a sealable flap for sending something, e.g. a letter, from (a) person(s) or (an) Organization(s) to another one, e.g. through a postal system."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 letter-corresponding:EnclosureExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de;
+	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de, "expression de texte d'une pièce jointe d'une lettre"@fr, "espressione di testo allegato lettera"@it;
 	rdfs:comment """Text expression of a letter enclosure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
 letter-corresponding:Enclosure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter enclosure"@en, "Briefbeilage"@de;
+	rdfs:label "letter enclosure"@en, "Briefbeilage"@de, "pièce jointe d'une lettre"@fr, "allegato di una lettera"@it;
 	rdfs:comment """Something added to a letter being sent, e.g. another information carrier."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 letter-corresponding:InformationEnclosure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "information letter enclosure"@en, "Information-Briefbeilage"@de;
+	rdfs:label "information letter enclosure"@en, "Information-Briefbeilage"@de, "information annexe à une lettre"@fr, "allegato lettera informativa"@it;
 	rdfs:comment """Information carrier as letter enclosure."""@en;
 	rdfs:subClassOf letter-corresponding:Enclosure, infocar:Carrier.
 
@@ -106,7 +106,7 @@ letter-corresponding:InformationEnclosure
 letter-corresponding:isExchangingOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is exchanging of"@en, "ist Auswechselen von"@de;
+	rdfs:label "is exchanging of"@en, "ist Auswechselen von"@de, "est un échange de"@fr, "è uno scambio di"@it;
 	rdfs:comment """Relating an exchanging to its corresponding it is a suprocedure of."""@en;
 	rdfs:domain letter-corresponding:Exchanging;
 	rdfs:range letter-corresponding:Corresponding;
@@ -115,7 +115,7 @@ letter-corresponding:isExchangingOf
 letter-corresponding:isCompilingOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is compiling of"@en, "ist Zusammenstellen von"@de;
+	rdfs:label "is compiling of"@en, "ist Zusammenstellen von"@de, "est la compilation de"@fr, "è la compilazione di"@it;
 	rdfs:comment """Relating a compiling to its exchanging it is a suprocedure of."""@en;
 	rdfs:domain letter-corresponding:Compiling;
 	rdfs:range letter-corresponding:Exchanging;
@@ -124,7 +124,7 @@ letter-corresponding:isCompilingOf
 letter-corresponding:isInLetter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is in letter"@en, "ist in Brief"@de;
+	rdfs:label "is in letter"@en, "ist in Brief"@de, "est en lettre"@fr, "è nella lettera"@it;
 	rdfs:comment """Relating a letter expression to a letter it is in."""@en;
 	rdfs:domain letter-corresponding:Expression;
 	rdfs:range letter-corresponding:Letter;
@@ -133,7 +133,7 @@ letter-corresponding:isInLetter
 letter-corresponding:isStructureOfExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de;
+	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de, "est la structure de lettre d'une expression"@fr, "è la struttura delle lettere di un'espressione"@it;
 	rdfs:comment """Relating a letter structure to a text expression it is part of."""@en;
 	rdfs:domain letter-corresponding:Structure;
 	rdfs:range letter-corresponding:Expression;
@@ -142,7 +142,7 @@ letter-corresponding:isStructureOfExpression
 letter-corresponding:follows
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "letter follows"@en, "Brief folgt"@de;
+	rdfs:label "letter follows"@en, "Brief folgt"@de, "lettre suivant de"@fr, "lettera successiva a"@it;
 	rdfs:comment """Relating a letter to a preceding letter."""@en;
 	rdfs:domain letter-corresponding:Letter;
 	rdfs:range letter-corresponding:Letter.
@@ -150,7 +150,7 @@ letter-corresponding:follows
 letter-corresponding:hasEnvelope
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "letter has envelope"@en, "Brief hat Umschlag"@de;
+	rdfs:label "letter has envelope"@en, "Brief hat Umschlag"@de, "lettre a une enveloppe"@fr,  "lettera ha una busta"@it;
 	rdfs:comment """Relating a letter to an envelope it has."""@en;
 	rdfs:domain letter-corresponding:Letter;
 	rdfs:range letter-corresponding:Envelope.
@@ -158,7 +158,7 @@ letter-corresponding:hasEnvelope
 letter-corresponding:hasEnvelopeDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "letter has envelope description"@en, "Brief hat Umschlagbeschreibung"@de;
+	rdfs:label "letter has envelope description"@en, "Brief hat Umschlagbeschreibung"@de, "lettre a une description de l'enveloppe"@fr, "lettera ha una descrizione della busta"@it;
 	rdfs:comment """Relating a letter to a description of its envelope."""@en;
 	rdfs:domain letter-corresponding:Letter;
 	rdfs:range rdfs:Literal.
@@ -166,7 +166,7 @@ letter-corresponding:hasEnvelopeDescription
 letter-corresponding:hasEnclosure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "letter has enclosure"@en, "Brief hat Beilage"@de;
+	rdfs:label "letter has enclosure"@en, "Brief hat Beilage"@de, "lettre a une pièce jointe"@fr, "lettera ha un allegato"@it;
 	rdfs:comment """Relating a letter to an enclosure it has."""@en;
 	rdfs:domain letter-corresponding:Letter;
 	rdfs:range letter-corresponding:Enclosure.
@@ -174,7 +174,7 @@ letter-corresponding:hasEnclosure
 letter-corresponding:isPageOfLetter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is page of letter"@en, "ist Seite eines Briefes"@de;
+	rdfs:label "is page of letter"@en, "ist Seite eines Briefes"@de, "est une page d'une lettre"@fr, "è una pagina di una lettera"@it;
 	rdfs:comment """Relating a page to the letter it is part of."""@en;
 	rdfs:domain infocar:Page;
 	rdfs:range letter-corresponding:Letter;
@@ -183,7 +183,7 @@ letter-corresponding:isPageOfLetter
 letter-corresponding:isTextInEnclosure
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is text expression in letter enclosure"@en, "ist Textexpression in Briefbeilage"@de;
+	rdfs:label "is text expression in letter enclosure"@en, "ist Textexpression in Briefbeilage"@de, "est une expression textuelle dans une pièce-jointe à une lettre"@fr, "è un'espressione di testo in un allegato di lettera"@it;
 	rdfs:comment """Relating a text expression to a letter information enclosure it is in."""@en;
 	rdfs:domain letter-corresponding:EnclosureExpression;
 	rdfs:range letter-corresponding:InformationEnclosure;

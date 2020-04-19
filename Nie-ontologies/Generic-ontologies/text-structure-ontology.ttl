@@ -342,7 +342,7 @@ text-structure:isParagraphOfSection
 
 text-structure:paragraphHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "paragraph has title"@en, "Paragraf hat Titel"@de, "le paragraphe a un titre"@fr, "il paragrafo ha titolo"@it;
 	rdfs:comment """Relating a paragraph to its title."""@en;
 	rdfs:domain text-structure:Paragraph;
@@ -351,7 +351,7 @@ text-structure:paragraphHasTitle
 
 text-structure:paragraphHasNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "paragraph has number"@en, "Paragraf hat Nummer"@de, "le paragraphe a un numéro"@fr, "il paragrafo ha un numero"@it;
 	rdfs:comment """Relating a paragraph to its number."""@en;
 	rdfs:domain text-structure:Paragraph;
@@ -368,7 +368,7 @@ text-structure:isSectionOfExpression
 
 text-structure:sectionHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "text section has title"@en, "Textabschnitt hat Titel"@de, "section de texte a un titre"@fr, "sezione di testo ha titolo"@it;
 	rdfs:comment """Relating a text section to its title."""@en;
 	rdfs:domain text-structure:Section;
@@ -454,7 +454,7 @@ text-structure:isPunctuationOfSentence
 
 text-structure:lineHasNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "textline has number"@en, "Textzeile hat Nummer"@de, "la ligne de texte a un numéro"@fr, "la riga di testo ha un numero"@it;
 	rdfs:comment """Relating a line to a number it has."""@en;
 	rdfs:domain text-structure:Line;

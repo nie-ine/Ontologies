@@ -222,7 +222,7 @@ concept:informationHasSubject
 
 concept:informationHasSubjectDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "information has subject description"@en, "Information hat Themabeschreibung"@de;
 	rdfs:comment """Relating information to a description of its subject."""@en;
 	rdfs:domain concept:Information;

@@ -167,36 +167,36 @@ humgeo:hasReturnPostalAddress
 	rdfs:domain physical:Matter;
 	rdfs:range humgeo:PostalAddress.
 
-humgeo:hasAddressee #°
+humgeo:hasAddressee
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has addressee"@en, "hat AdressatIn"@de;
 	rdfs:comment """Relating a postal address to an addressee."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-humgeo:hasStreetName #°
+humgeo:hasStreetName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has street name"@en, "hat Strassenname"@de;
 	rdfs:comment """Relating a postal address to the name of the street."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-humgeo:hasHouseNumber #°
+humgeo:hasHouseNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has house number"@en, "hat Hausnummer"@de;
 	rdfs:comment """Relating a postal address to the nummer of the house."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-humgeo:hasPostcode #°
+humgeo:hasPostcode
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has postcode"@en, "hat Postleitzahl"@de;
 #	ling:hasSynonym "has zip code"@en;
 	rdfs:comment """Relating a postal address to its postcode."""@en;
@@ -204,18 +204,18 @@ humgeo:hasPostcode #°
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText.
 
-humgeo:hasTownName #°
+humgeo:hasTownName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has town name"@en, "hat Ortsname"@de;
 	rdfs:comment """Relating a postal address to its town name."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-humgeo:hasCountryName #°
+humgeo:hasCountryName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human-geography#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has country name"@en, "hat Ländername"@de;
 	rdfs:comment """Relating a postal address to its country name."""@en;
 	rdfs:domain humgeo:PostalAddress;

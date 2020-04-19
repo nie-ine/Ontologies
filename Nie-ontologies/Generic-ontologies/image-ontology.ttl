@@ -23,26 +23,40 @@
 # CLASSES
 #
 
-image:ImageCarrier
+image:Carrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image carrier"@en,"Bildträger"@de;
 	rdfs:comment """Visual representation of something on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
-image:ImageAbstract
+image:Abstract
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image abstract"@en,"Bildabstrakt"@de;
 	rdfs:comment """Image abstracted from its carrier."""@en;
 	rdfs:subClassOf document:Document, cidoc:E38_Image.
 
-image:ImageExpression
+image:Expression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "image expression"@en,"Bildexpression"@de;
 	rdfs:comment """Image as a document expression."""@en;
-	rdfs:subClassOf document:Expression, image:ImageAbstract.
+	rdfs:subClassOf document:Expression, image:Abstract.
+
+image:EngravingCarrier
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a rdfs:Class;
+	rdfs:label "engraving carrier"@en,"Gravurträger"@de;
+	rdfs:comment """Engraving as a print on a carrier."""@en;
+	rdfs:subClassOf image:Carrier.
+
+image:EngravingExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a rdfs:Class;
+	rdfs:label "engraving expression"@en,"Gravurexpression"@de;
+	rdfs:comment """engraving  as an image expression."""@en;
+	rdfs:subClassOf image:Expression.
 
 image:PhotographCarrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
@@ -63,7 +77,7 @@ image:PhotographExpression
 	a rdfs:Class;
 	rdfs:label "photograph expression"@en,"Fotoexpression"@de;
 	rdfs:comment """Photograph as a document expression."""@en;
-	rdfs:subClassOf image:ImageExpression.
+	rdfs:subClassOf image:Expression.
 
 # image:DigitalImage rdfs:subClassOf image:ImageCarrier.
 # image:DigitalPhotograph rdfs:subClassOf image:PhotographCarrier.
@@ -71,6 +85,15 @@ image:PhotographExpression
 #
 # PROPERTIES
 #
+
+image:expressionHasTitle
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a owl:DatatypeProperty;
+	rdfs:label "image expression has title", "Bildexpression hat Titel"@de;
+	rdfs:comment """Relating an image expression to its title."""@en;
+	rdfs:domain image:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf document:expressionHasTitle.
 
 image:isImageOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
@@ -99,6 +122,15 @@ image:isPhotographOf
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf image:isImageOf.
 
+image:isPartOf
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a owl:ObjectProperty;
+	rdfs:label "image is part of", "Bild ist teil von"@de;
+	rdfs:comment """Relating an image to a document it is part of."""@en;
+	rdfs:domain image:Abstract;
+	rdfs:range document:Document.
+#	rdfs:subPropertyOf .
+
 # image:photographHasQualityLevel
 # image:hasWidth
 # image:hasHeight
@@ -113,7 +145,7 @@ image:hasPhotographIn
 
 image:hasPhotographSourceDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
 	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;
 	rdfs:domain rdfs:Resource;

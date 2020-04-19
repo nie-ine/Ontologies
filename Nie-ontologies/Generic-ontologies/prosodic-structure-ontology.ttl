@@ -335,9 +335,9 @@ prosodic-structure:isVerseSectionOfVerseNovel
 	rdfs:range literature:VerseNovel;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
-prosodic-structure:verseSectionHasTitle #°
+prosodic-structure:verseSectionHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de, "section de verset a un titre"@fr, "sezione del versetto ha un titolo"@it;
 	rdfs:comment """Relating a verse section to its title."""@en;
 	rdfs:domain prosodic-structure:VerseSection;

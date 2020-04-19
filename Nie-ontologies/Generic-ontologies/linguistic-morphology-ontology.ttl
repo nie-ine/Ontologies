@@ -760,7 +760,7 @@ lingmor:hasVerbalMood
 
 lingmor:hasTag
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistic-morphology#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has tag"@en, "hat Tag"@de;
 	rdfs:comment """Relating a part of speech ."""@en;
 	rdfs:domain lingmor:PartOfSpeech;

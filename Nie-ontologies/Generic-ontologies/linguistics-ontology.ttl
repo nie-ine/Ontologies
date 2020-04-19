@@ -123,7 +123,7 @@ ling:Evaluation
 
 ling:hasSynonym
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistics#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has synonym"@en, "hat Synonym"@de;
 	rdfs:comment """Relating a resource to a synonym of the name of the resource."""@en;
 	rdfs:domain rdfs:Resource; #°
@@ -132,7 +132,7 @@ ling:hasSynonym
 
 ling:hasComment
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistics#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
 	rdfs:comment """Relating a human natural language expression to a linguistic comment as a textual statement about the expression."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;

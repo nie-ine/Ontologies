@@ -63,14 +63,14 @@ image:PhotographCarrier
 	a rdfs:Class;
 	rdfs:label "photograph carrier"@en,"Fototräger"@de;
 	rdfs:comment """2-dimensional image carrier made by exposing a photosensitive surface to light."""@en;
-	rdfs:subClassOf  image:ImageCarrier.
+	rdfs:subClassOf  image:Carrier.
 
 image:PhotographAbstract
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "photograph abstract"@en,"Fotoabstrakt"@de;
 	rdfs:comment """Photograph abstracted from its carrier."""@en;
-	rdfs:subClassOf image:ImageAbstract.
+	rdfs:subClassOf image:Abstract.
 
 image:PhotographExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
@@ -100,7 +100,7 @@ image:isImageOf
 	a owl:ObjectProperty;
 	rdfs:label "is image of", "ist Bild von"@de;
 	rdfs:comment """Relating an image abstract to what it depicts."""@en;
-	rdfs:domain image:ImageAbstract;
+	rdfs:domain image:Abstract;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf concept:informationHasSubject.
 
@@ -109,8 +109,8 @@ image:isOnCarrier
 	a owl:ObjectProperty;
 	rdfs:label "is image on carrier", "ist Bild auf Träger"@de;
 	rdfs:comment """Relating an image to a carrier it is on."""@en;
-	rdfs:domain image:ImageAbstract;
-	rdfs:range image:ImageCarrier;
+	rdfs:domain image:Abstract;
+	rdfs:range image:Carrier;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
 image:isPhotographOf

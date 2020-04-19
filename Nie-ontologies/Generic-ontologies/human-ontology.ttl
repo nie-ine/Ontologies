@@ -573,26 +573,26 @@ human:hasLife # living
 	rdfs:range human:PersonLife;
 	rdfs:subPropertyOf event:hasExistence, human:actsIn.
 
-human:hasName #°
+human:hasName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a person to a name of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasName.
 
-human:hasFamilyName #°
+human:hasFamilyName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has family name"@en, "hat Nachname"@de;
 	rdfs:comment """Relating a person to a family name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
 	rdfs:subPropertyOf text:hasName.
 
-human:hasGivenName #°
+human:hasGivenName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has given name"@en, "hat Vorname"@de;
 	rdfs:comment """Relating a person to a given name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his given name legally changed."""@en;
@@ -600,39 +600,39 @@ human:hasGivenName #°
 
 # name parts, e.g. middle name, compound given name
 
-human:hasPreferredName #°
+human:hasPreferredName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
 	rdfs:comment """Relating a person to a preferred name of that person."""@en;
 	rdfs:subPropertyOf human:hasName, text:hasPreferredName.
 
-human:hasAlias #°
+human:hasAlias
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has alias"@en, "hat Alias"@de;
 	rdfs:comment """Relating a person to an alias of that person."""@en;
 	rdfs:subPropertyOf human:hasName, text:hasAlias.
 
-human:hasTitle #°
+human:hasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has title"@en, "hat Titel"@de;
 	rdfs:comment """Relating a person to a title of that person."""@en;
 	rdfs:subPropertyOf text:hasName.
 
-human:hasDescription #°
+human:hasDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has description"@en, "hat Beschreibung"@de;
 	rdfs:comment """Relating a person to a description of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription.
 
-human:hasBiography #°
+human:hasBiography
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has biography"@en, "hat Biografie"@de;
 	rdfs:comment """Relating a person to a biography of the person."""@en;
 	rdfs:domain human:Person;

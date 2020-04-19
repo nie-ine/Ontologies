@@ -8,6 +8,7 @@
 @prefix teach: <http://www.e-editiones.ch/ontology/teaching#>.
 @prefix document: <http://www.e-editiones.ch/ontology/document#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix image: <http://www.e-editiones.ch/ontology/image#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix prosodic-structure: <http://www.e-editiones.ch/ontology/prosodic-structure#>.
@@ -23,7 +24,7 @@
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
-	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des Champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
+	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en.
@@ -47,11 +48,11 @@ delille:TranslatedVersePoem
 	rdfs:comment """Translated Jacques Delille verse poem."""@en;
 	rdfs:subClassOf delille:VersePoem, language:PersonTranslation, text:Translation.
 
-delille:Non-VersePoem
+delille:NonVersePoem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "Jacques Delille non-verse poem"@en, "Non-Versgedicht Jacques Delilles"@de;
-	rdfs:comment """Expression other than a verse poem authored by Jacques Delille."""@en;
+	rdfs:comment """Expression other than a verse poem, authored by Jacques Delille."""@en;
 	rdfs:subClassOf publish:TextExpression.
 #	hasAuthor Delille
 
@@ -168,9 +169,12 @@ delille:Article
 	rdfs:comment """Publication article citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf publish:Article, delille:CitingExpression.
 
-#° delille:Engraving
-
-#° delille:Image
+delille:NonOriginalEngraving
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
+	a rdfs:Class;
+	rdfs:label "non-original engraving expression"@en,"nicht-originale Gravurexpression"@de;
+	rdfs:comment """Image that is not an original engraving, as part of a Delille citing text expression. This image can be a painting, drawing, or engraving different from the original."""@en;
+	rdfs:subClassOf image:Expression.
 
 delille:Argument
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
@@ -179,11 +183,11 @@ delille:Argument
 	rdfs:comment """Argument of a commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf literature:Argument, publish:TextExpression.
 
-delille:Non-Artist-ManOfLetters-Vulgarizer
+delille:NonArtist-ManOfLetters-Vulgarizer
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "non-artist-man of letters-vulgarizer"@en, "Non-KünstlerIn-Literat-VulgarisatorIn"@de;
-	rdfs:comment """Role of a person which is not an artist, a man of letters, and/or a vulgarizer."""@en;
+	rdfs:comment """Role of a person which is not artist, man of letters, or vulgarizer."""@en;
 	rdfs:subClassOf human:PersonRole;
 	owl:disjointWith human:Artist, text-expression:ManOfLetters, text-expression:Vulgarizer.
 

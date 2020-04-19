@@ -630,11 +630,11 @@ human:hasDescription
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription.
 
-human:hasBiography
+human:hasBiographyLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has biography"@en, "hat Biografie"@de;
-	rdfs:comment """Relating a person to a biography of the person."""@en;
+	rdfs:label "has biography literal"@en, "hat Biografieliterale"@de;
+	rdfs:comment """Relating a person to a biography of the person, as literal."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription.

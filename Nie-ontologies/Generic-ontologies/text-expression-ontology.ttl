@@ -237,7 +237,7 @@ text-expression:Dictionary
 
 text-expression:hasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "text expression has title"@en, "Textexpression hat Titel"@de, "l'expression de texte a un titre"@fr, "espressione di testo ha titolo"@it;
 	rdfs:comment """Relating a text expression to a title it has."""@en;
 	rdfs:domain text-expression:Expression;
@@ -246,7 +246,7 @@ text-expression:hasTitle
 
 text-expression:hasSubtitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "text expression has subtitle"@en, "Textexpression hat Untertitel"@de, "l'expression de texte a un sous-titre"@fr, "espressione di testo ha sottotitoli"@it;
 	rdfs:comment """Relating a text expression to a subtitle it has."""@en;
 	rdfs:domain text-expression:Expression;
@@ -255,7 +255,7 @@ text-expression:hasSubtitle
 
 text-expression:hasIncipit
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has incipit"@en, "hat Incipit"@de, "a un incipit"@fr, "ha inizia"@it;
 	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
 	rdfs:domain text-expression:Expression;
@@ -264,7 +264,7 @@ text-expression:hasIncipit
 
 text-expression:hasExplicit
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has explicit"@en, "hat Explicit"@de, "a explicite"@fr, "ha esplicito"@it;
 	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
 	rdfs:domain text-expression:Expression;

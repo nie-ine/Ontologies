@@ -140,9 +140,9 @@ org:MasonicLodge
 # PROPERTIES
 #
 
-org:hasName #°
+org:hasName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/organization#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "person organization has name"@en, "Personensorganisation hat Name"@de;
 	rdfs:comment """Relating a person organization to a name of that organization."""@en;
 	rdfs:domain org:Organization;

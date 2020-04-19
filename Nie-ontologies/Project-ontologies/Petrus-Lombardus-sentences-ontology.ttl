@@ -203,18 +203,18 @@ drcs:CompiledPrintedCommentary
 # PROPERTIES
 #
 
-drcs:hasStegmuellerPersonDescription #°
+drcs:hasStegmuellerPersonDescription
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
  	rdfs:label "has Stegmüller's person description"@en;
  	rdfs:comment """Relating a person to a Stegmüller's description thereof."""@en;
  	rdfs:domain drcs:Person;
 	rdfs:range rdfs:Literal;
  	rdfs:subPropertyOf human:hasDescription.
 
-drcs:hasStegmuellerCommentaryDescription #°
+drcs:hasStegmuellerCommentaryDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's commentary description"@en;
 	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description thereof."""@en;
  	rdfs:domain drcs:Commentary;
@@ -223,7 +223,7 @@ drcs:hasStegmuellerCommentaryDescription #°
 
 drcs:hasStegmuellerCode
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's code"@en;
 	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's code thereof."""@en;
  	rdfs:domain drcs:Commentary;

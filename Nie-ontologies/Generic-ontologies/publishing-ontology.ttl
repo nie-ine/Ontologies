@@ -413,7 +413,7 @@ publish:hasNachlassPublication
 
 publish:hasNachlassPublicationDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has nachlass publication description"@en, "hat Nachlassausgabebeschreibung"@de, "a une description d'une publication nachlass"@fr, "ha una descrizione di pubblicazione nachlass"@it;
 	rdfs:comment """Relating an expression to a description of its nachlass publication."""@en;
 	rdfs:domain document:Expression;
@@ -475,9 +475,9 @@ publish:referenceHasLiteral
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
 
-publish:hasDescription #°
+publish:hasDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "publication has description"@en, "Publikation hat beschreibung"@de, "publication a une description"@fr, "pubblicazione ha una descrizione"@it;
 	rdfs:comment """Relating a publication to a description thereof."""@en;
 	rdfs:domain publish:Publication;
@@ -541,7 +541,7 @@ publish:hasPartitionedPublishing
 
 publish:hasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "publication has title"@en, "Publikation hat titel"@de, "publication a un titre"@fr, "pubblicazione ha titolo"@it;
 	rdfs:comment """Relating a publication to its title."""@en;
 	rdfs:domain publish:Publication;
@@ -567,7 +567,7 @@ publish:hasPublisher
 
 publish:hasPublisherDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de, "a une description d'éditeur"@fr, "ha una descrizione dell'editore"@it;
 	rdfs:comment """Relating a publication to its publisher's description."""@en;
 	rdfs:domain publish:Publication;
@@ -576,7 +576,7 @@ publish:hasPublisherDescription
 
 publish:hasPrinterDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de, "a une description de l'imprimante"@fr, "ha una descrizione della stampante"@it;
 	rdfs:comment """Relating a publication to its printer's description."""@en;
 	rdfs:domain publish:Publication;

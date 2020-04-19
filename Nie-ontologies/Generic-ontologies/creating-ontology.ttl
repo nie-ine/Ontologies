@@ -189,13 +189,15 @@ creating:hasAuthor
 	rdfs:comment """Relating a creation to a person who authored it."""@en;
 	skos:note """A creation can have more than one author."""@en;
 	rdfs:domain creating:Creation;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom human:Author]].
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom creating:Author]].
 
 creating:hasCreating
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has creating"@en, "hat Kreierung"@de;
 	rdfs:comment """Relating a creation by a person to the creating thereof."""@en;
+	rdfs:domain creating:Creation;
+	rdfs:range creating:Creating;
 	rdfs:subPropertyOf event:isOutputOf.
 
 creating:creationHasDate
@@ -207,7 +209,7 @@ creating:creationHasDate
 	rdfs:range xsd:date. #°
 #	owl:propertyChainAxiom (event:isOutputOf time:hasEndDate).
 
-creating:hasModificationDate
+creating:hasModificationDate # modification
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;

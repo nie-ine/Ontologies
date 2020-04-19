@@ -190,9 +190,9 @@ physical:hasExistingState
 	rdfs:domain rdfs:Resource;
 	rdfs:range physical:ExistingState.
 
-physical:placeHasName #°
+physical:placeHasName
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "place has name"@en, "Platz hat Name"@de;
 	rdfs:comment """Relating a place to its name."""@en;
 	rdfs:domain physical:Place;

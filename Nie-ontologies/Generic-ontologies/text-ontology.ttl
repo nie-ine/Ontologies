@@ -345,7 +345,7 @@ text:hasContentNature
 
 text:hasLineNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has line number"@en, "hat Liniennummer"@de, "a un numéro de ligne"@fr, "ha un numero di riga"@it;
 	rdfs:comment """Relating a text to the number of a line of the text expression."""@en;
 	rdfs:domain text:Text;
@@ -354,7 +354,7 @@ text:hasLineNumber
 
 text:hasVersionIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has version indicator"@en, "hat Version-Indikator"@de, "a un indicateur de version"@fr, "ha un indicatore di versione"@it;
 	rdfs:comment """Relating a text to a textual element that indicates its version."""@en;
 	rdfs:domain text:Text;
@@ -363,7 +363,7 @@ text:hasVersionIndicator
 
 text:hasPageNumberDescription
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "text has page number description"@en, "Text hat Seitennummerbeschreibung"@de, "le texte a une description de numéro de page"@fr, "il testo ha una descrizione del numero di pagina"@it;
 	rdfs:comment """Relating a text to a description of the number(s) of and possibly a location on (a) pages it is on; examples of the string of its value: "001-002", "01 recto", "O2 (bottom)"."""@en;
 	rdfs:domain text:Text;
@@ -371,7 +371,7 @@ text:hasPageNumberDescription
 
 text:hasNumberOfPages
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has number of pages"@en, "hat Seitenanzahl"@de, "a un nombre de pages"@fr, "ha un numero di pagine"@it;
 	rdfs:comment """Relating a text to the number of pages it has."""@en;
 	rdfs:domain text:Text;

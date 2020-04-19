@@ -351,7 +351,7 @@ kuno-raeber:NachlassPublication
 
 kuno-raeber:poemHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "poem has title"@en, "Gedicht hat Titel"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a title it has."""@en;
 	rdfs:domain kuno-raeber:Poem;
@@ -360,7 +360,7 @@ kuno-raeber:poemHasTitle
 
 kuno-raeber:hasPageIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has page indicator"@en, "hat Seite-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by by Kuno Raeber to an editorial symbol indicating where a page starts."""@en;
 	rdfs:domain kuno-raeber:ScholarlyEdition;
@@ -368,7 +368,7 @@ kuno-raeber:hasPageIndicator
 
 kuno-raeber:hasPageNumberIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has page number indicator"@en, "hat Seitennummer-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by Kuno Raeber to an editorial symbol indicating the number of a page."""@en;
 	rdfs:domain kuno-raeber:ScholarlyEdition;
@@ -376,7 +376,7 @@ kuno-raeber:hasPageNumberIndicator
 
 kuno-raeber:hasColumnIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "has column indicator"@en, "hat Spalte-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by Kuno Raeber to an editorial symbol indicating where on a page a column starts."""@en;
 	rdfs:domain kuno-raeber:ScholarlyEdition;

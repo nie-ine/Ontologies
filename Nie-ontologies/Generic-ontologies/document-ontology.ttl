@@ -490,7 +490,7 @@ document:isTableOfColumn
 	rdfs:comment """Relating a table to a column it is part of."""@en;
 	rdfs:domain document:Table;
 	rdfs:range document:Column;
-	rdfs:subPropertyOf concept:isPartOf. #°
+	rdfs:subPropertyOf concept:isPartOf.
 
 document:expressionHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
@@ -501,18 +501,18 @@ document:expressionHasIdentifier
 	rdfs:range document:ExpressionIdentifier;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
-document:expressionHasTitle #°
+document:expressionHasTitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "expression has title"@en, "Expression hat Titel"@de;
-	rdfs:comment """Relating an expression to a title it has."""@en;
+	rdfs:comment """Relating an expression to its title."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitle.
 
-document:expressionHasSubtitle #°
+document:expressionHasSubtitle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
-	a owl:ObjectProperty;
+	a owl:DatatypeProperty;
 	rdfs:label "expression has subtitle"@en, "Expression hat Untertitel"@de;
 	rdfs:comment """Relating an expression to a subtitle it has."""@en;
 	rdfs:domain document:Expression;

@@ -202,11 +202,11 @@ publish:LastPublication
 	rdfs:comment """Last publication of an expression."""@en;
 	rdfs:subClassOf publish:Publication.
 
-publish:Serial
+publish:SerialIssue
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "serial publication"@en, "Reihe-Ausgabe"@de, "publication sérielle"@fr, "pubblicazione seriale"@it;
-	rdfs:comment """Successive publication with same title, usually numbered and/or dated, issued at a regular or irregular interval, without predetermined conclusion."""@en;
+	rdfs:label "serial issue"@en, "Reihe-Ausgabe"@de, "publication sérielle"@fr, "pubblicazione seriale"@it;
+	rdfs:comment """Successive publication with same title, usually numbered and/or dated, at a regular or irregular interval, without predetermined conclusion."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
 	rdfs:subClassOf publish:Publication.
 
@@ -214,7 +214,7 @@ publish:SerialVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial volume"@en, "Reihe-Ausgabevolumen"@de, "volume série"@fr, "volume seriale"@it;
-	rdfs:comment """Set of serials, e.g. the magazine issues of a coterminous year, or all the issues ever published."""@en;
+	rdfs:comment """Set of serial issues, e.g. of a coterminous year, or all the issues ever published."""@en;
 	rdfs:subClassOf infocar:Set.
 
 publish:SerialVolumeExistence
@@ -230,7 +230,7 @@ publish:Newspaper
 	rdfs:label "newspaper"@en, "Zeitung"@de, "journal"@fr, "giornale"@it;
 	rdfs:comment """Serial publication, mostly daily, with most recent event descriptions as core content."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
-	rdfs:subClassOf publish:Serial.
+	rdfs:subClassOf publish:SerialIssue.
 
 publish:Periodical
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -238,7 +238,7 @@ publish:Periodical
 	rdfs:label "periodical publication"@en, "Zeitschrift"@de, "périodique"@fr, "periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
-	rdfs:subClassOf publish:Serial. # infocar:Book
+	rdfs:subClassOf publish:SerialIssue. # infocar:Book
 
 publish:Magazine
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;

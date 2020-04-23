@@ -583,12 +583,12 @@ publish:hasPrinterDescription
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescription.
 
-publish:isSerialOfVolume
+publish:isSerialIssueOfVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is serial of volume"@en, "ist Reihe-Ausgabe eines Volumens"@de, "est publication sérielle du volume"@fr, "è pubblicazione seriale del volume"@it;
 	rdfs:comment """Relating a serial to a volume it is part of."""@en;
-	rdfs:domain publish:Serial;
+	rdfs:domain publish:SerialIssue;
 	rdfs:range publish:SerialVolume;
 	rdfs:subPropertyOf infocar:isCarrierOfSet.
 

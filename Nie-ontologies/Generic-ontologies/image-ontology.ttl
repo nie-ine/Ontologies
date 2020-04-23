@@ -44,6 +44,13 @@ image:Expression
 	rdfs:comment """Image as a document expression."""@en;
 	rdfs:subClassOf document:Expression, image:Abstract.
 
+image:Original
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
+	a rdfs:Class;
+	rdfs:label "original image expression"@en,"originale Bildexpression"@de;
+	rdfs:comment """Image expression having its claim of originality supported by its features and history."""@en;
+	rdfs:subClassOf image:Expression.
+
 image:EngravingCarrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a rdfs:Class;

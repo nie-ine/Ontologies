@@ -147,13 +147,18 @@ text-structure:Section
 	rdfs:comment """Composition of paragraphs, mostly about a certain topic."""@en;
 	rdfs:subClassOf text-structure:SentenceStructure, text-structure:CompositionalContentStructure.
 
-° text-structure:SectionIdentifier
+text-structure:SectionIdentifier
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a rdfs:Class;
+	rdfs:label "text section identifier"@en, "Textabschnittidentifikator"@de;
+	rdfs:comment """Identifier of a text section."""@en;
+	rdfs:subClassOf text-structure:Identifier.
 
-° text-structure:SectionOrdinalNumber
+text-structure:SectionOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "text section ordinal number"@en, "Textabschnittordinalzahl"@de;
-	rdfs:comment """Ordinal number of a section."""@en;
+	rdfs:comment """Ordinal number of a text section."""@en;
 	rdfs:subClassOf text-structure:SectionIdentifier, math:OrdinalNumber.
 
 text-structure:OrthographicWord

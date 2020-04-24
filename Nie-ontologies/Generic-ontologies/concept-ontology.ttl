@@ -93,7 +93,15 @@ concept:Code
 	a rdfs:Class;
 	rdfs:label "code"@en, "Kode"@de;
 	rdfs:comment """Identifier belonging to a specific coding system, formed by any kind of symbols, e.g. alphanumeric."""@en;
-	rdfs:subClassOf concept:Identifier.
+	rdfs:subClassOf concept:Identifier, skos:Concept;
+	owl:disjointWith document:Code.
+
+concept:CodingSystem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "code system"@en, "Kodierungssystem"@de;
+	rdfs:comment """System providing a code for something along certain criteria, e.g. the ISO 639 for natural languages."""@en;
+	rdfs:subClassOf skos:ConceptScheme.
 
 concept:PropositionalEntity
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -199,7 +207,32 @@ concept:hasCode
 	rdfs:label "has code"@en, "hat Kode"@de;
 	rdfs:comment "Relating a resource to its code."@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code.
+	rdfs:range concept:Code;
+	rdfs:subPropertyOf concept:hasIdentifier.
+
+concept:codeHasSystem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:ObjectProperty;
+	rdfs:label "code has system"@en, "Kode hat System"@de;
+	rdfs:comment "Relating a code to the coding system it belongs to."@en;
+	rdfs:domain concept:Code;
+	rdfs:range concept:CodingSystem.
+
+concept:codeHasValue
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "code has value"@en, "Kode hat Wert"@de;
+	rdfs:comment "Relating a code to its literal value."@en;
+	rdfs:domain concept:Code;
+	rdfs:range rdfs:Literal.
+
+concept:codingSystemHasDataType
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:ObjectProperty;
+	rdfs:label "coding system has data type"@en, "Kodierungssystem hat Datentyp"@de;
+	rdfs:comment "Relating a code to the coding system it belongs to."@en;
+	rdfs:domain concept:CodingSystem;
+	rdfs:range rdfs:Datatype.
 
 # frbroo:R3_is_realised_in: more general: rdfs:domain frbroo:F1_Work; rdfs:range frbroo:F22_Self-Contained_Expression
 

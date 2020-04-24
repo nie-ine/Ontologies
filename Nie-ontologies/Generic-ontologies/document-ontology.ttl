@@ -268,7 +268,7 @@ document:Code
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "code document"@en,"Kode-Dokument"@de;
-	rdfs:comment """Document as code."""@en;
+	rdfs:comment """Document as code, e.g. in any programming language."""@en;
 	rdfs:subClassOf document:Document.
 
 document:HypertextDocument

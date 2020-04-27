@@ -758,11 +758,11 @@ lingmor:hasVerbalMood
 	rdfs:domain lingmor:SyntacticWordForm;
 	rdfs:range lingmor:VerbalMood.
 
-lingmor:hasTag
+lingmor:hasTagLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has tag"@en, "hat Tag"@de;
-	rdfs:comment """Relating a part of speech ."""@en;
+	rdfs:label "has tag literal"@en, "hat Tagliterale"@de;
+	rdfs:comment """Relating a part of speech to a tag literal."""@en;
 	rdfs:domain lingmor:PartOfSpeech;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.

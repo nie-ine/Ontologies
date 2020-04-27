@@ -122,14 +122,14 @@ event:Creating
 # PROPERTIES
 #
 
-event:hasName
+event:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating an event to its name."""@en;
 	rdfs:domain event:Event;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 event:isSubEventOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
@@ -215,11 +215,11 @@ event:isSubProcedureOf
 	rdfs:range event:Procedure;
 	rdfs:subPropertyOf event:isSubEventOf.
 
-event:hasGenesisDescription
+event:hasGenesisDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has genesis description"@en, "hat Genesis-Beschreibung"@de;
-	rdfs:comment """Relating something to a description of the genesis thereof."""@en;
+	rdfs:label "has genesis description literal"@en, "hat Genesis-Beschreibungliterale"@de;
+	rdfs:comment """Relating something to a description literal of the genesis thereof."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.

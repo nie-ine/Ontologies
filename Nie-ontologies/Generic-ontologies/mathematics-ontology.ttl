@@ -46,7 +46,7 @@ math:NaturalNumber
 	rdfs:comment """Non-negative whole number used for counting and ordering."""@en;
 	skos:note """Conform ISO 80000-2:2009."""@en;
 	rdfs:subClassOf math:Number, [
-		a owl:Restriction; owl:onProperty math:hasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty math:numberHasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
 
 math:OrdinalSymbol
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
@@ -60,7 +60,7 @@ math:OrdinalNumber
 	a rdfs:Class;
 	rdfs:label "ordinal number"@en, "Ordinalzahl"@de;
 	rdfs:comment """Natural number used to order, i.e. denoting the position of something in a sequence."""@en;
-	rdfs:subClassOf math:NaturalNumber, concept:Identifier.
+	rdfs:subClassOf math:NaturalNumber, math:OrdinalSymbol.
 
 math:Set
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
@@ -73,13 +73,34 @@ math:Set
 # PROPERTIES
 #
 
+math:hasNumber
+ 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
+	a owl:ObjectProperty;
+	rdfs:label "has number"@en, "hat Zahl"@de;
+	rdfs:comment """Relating something to a number."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range math:Number;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
+
+math:numberHasNumeral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
+	a owl:DatatypeProperty;
+	rdfs:label "number has numeral"@en, "Nummer hat Numerale"@de;
+	rdfs:comment """Relating a number to its representing numeral."""@en;
+	rdfs:domain math:Number;
+ 	rdfs:range xsd:decimal;
+ 	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
+
 math:hasNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numerale"@de;
-	rdfs:comment """Relating a number to its representing numeral."""@en;
-	rdfs:domain math:Number;
- 	rdfs:range xsd:decimal.
+	rdfs:comment """Relating something to a numeral."""@en;
+	skos:note """A reification of a numeral, i.e. a number, can always be interposed, see property chain axiom."""@en;
+	rdfs:domain rdfs:Resource;
+ 	rdfs:range xsd:decimal;
+	rdfs:subPropertyOf concept:hasLiteral;
+ 	owl:propertyChainAxiom (math:hasNumber math:numberHasNumeral).
 
 math:hasOrdinalSymbol
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
@@ -87,7 +108,8 @@ math:hasOrdinalSymbol
 	rdfs:label "has ordinal symbol"@en, "hat Ordinalsymbol"@de;
 	rdfs:comment """Relating something to the symbolic entity denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range math:OrdinalSymbol.
+	rdfs:range math:OrdinalSymbol;
+	rdfs:subPropertyOf concept:hasIdentifier.
 
 math:hasOrdinalNumber
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
@@ -105,7 +127,8 @@ math:hasOrdinalLiteral
 	rdfs:comment """Relating something to the literal denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
-	owl:propertyChainAxiom (math:hasOrdinalSymbol concept:hasLiteral).
+	rdfs:subPropertyOf concept:hasLiteral;
+	owl:propertyChainAxiom (math:hasOrdinalSymbol concept:symbolicEntityHasLiteral).
 
 math:hasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/mathematics#>;
@@ -115,4 +138,4 @@ math:hasOrdinalNumeral
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalLiteral;
- 	owl:propertyChainAxiom (math:hasOrdinalNumber math:hasNumeral).
+ 	owl:propertyChainAxiom (math:hasOrdinalNumber math:numberHasNumeral).

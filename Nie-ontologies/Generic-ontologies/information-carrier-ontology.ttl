@@ -11,6 +11,7 @@
 @prefix human: <http://www.e-editiones.ch/ontology/human#>.
 @prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://www.e-editiones.ch/ontology/document#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
@@ -487,14 +488,14 @@ infocar:Hyperlink
 # PROPERTIES
 #
 
-infocar:carrierHasDescription
+infocar:carrierHasDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "carrier has description"@en, "Träger hat Beschreibung"@de;
-	rdfs:comment """Relating an information carrier to a description thereof."""@en;
+	rdfs:label "carrier has description literal"@en, "Träger hat Beschreibungliterale"@de;
+	rdfs:comment """Relating an information carrier to a description literal thereof."""@en;
 	rdfs:domain infocar:Carrier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 infocar:isCarrierOfSet
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -532,32 +533,32 @@ infocar:hasReceiver
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom infocar:Receiver]];
 	rdfs:subPropertyOf physical:hasReceiver.
 
-infocar:hasSendingDateDescription
+infocar:hasSendingDateDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has sending date description"@en, "hat Absendedatumbeschreibung"@de;
-	rdfs:comment """Relating an information carrier to a description of its sending date."""@en;
+	rdfs:label "has sending date description literal"@en, "hat Absendedatumbeschreibungliterale"@de;
+	rdfs:comment """Relating an information carrier to a description literal of its sending date."""@en;
 	rdfs:domain infocar:Carrier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-infocar:hasSendingDateAccuracyDescription
+infocar:hasSendingDateAccuracyDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has sending date accuracy description"@en, "hat Absendedatumgenauigkeitbeschreibung"@de;
-	rdfs:comment """Relating an information carrier to a description of its sending date accuracy."""@en;
+	rdfs:label "has sending date accuracy description literal"@en, "hat Absendedatumgenauigkeitbeschreibungliterale"@de;
+	rdfs:comment """Relating an information carrier to a description literal of its sending date accuracy."""@en;
 	rdfs:domain infocar:Carrier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-infocar:hasSendingDateProof
+infocar:hasSendingDateProofLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has sending date proof"@en, "hat Absendedatumbeleg"@de;
-	rdfs:comment """Relating an information carrier to a proof of its sending date."""@en;
+	rdfs:label "has sending date proof literal"@en, "hat Absendedatumbelegliterale"@de;
+	rdfs:comment """Relating an information carrier to the literal of a proof of its sending date."""@en;
 	rdfs:domain infocar:Carrier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 infocar:isOnCarrier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -594,14 +595,14 @@ infocar:isRemnantOf
 	rdfs:range infocar:Carrier;
 	rdfs:subPropertyOf physical:isPartOf.
 
-infocar:hasCarrierDescription
+infocar:hasCarrierDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has information carrier description"@en, "hat Textträger-Beschreibung"@de;
-	rdfs:comment """Relating an information carrier collection to a description of an information carrier it contains."""@en;
+	rdfs:label "has information carrier description literal"@en, "hat Textträger-Beschreibungliterale"@de;
+	rdfs:comment """Relating an information carrier collection to a description literal of an information carrier it contains."""@en;
 	rdfs:domain infocar:Collection;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 infocar:isCopyOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -719,14 +720,14 @@ infocar:isPartOfArchive
 	rdfs:range infocar:Archive;
 	rdfs:subPropertyOf physical:isPartOf.
 
-infocar:hasArchiveSignature
+infocar:hasArchiveSignatureLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has archive signature"@en, "hat Archivsignatur"@de;
-	rdfs:comment """Relating an element of an archive to its signature as identifier."""@en;
+	rdfs:label "has archive signature literal"@en, "hat Archivsignaturliterale"@de;
+	rdfs:comment """Relating an element of an archive to its signature literal."""@en;
 	rdfs:domain infocar:ArchiveElement;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasIdentifier.
+	rdfs:subPropertyOf concept:hasIdentifierLiteral.
 
 infocar:isWrittenWith
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -762,57 +763,57 @@ infocar:isInManuscript
 	rdfs:range infocar:Manuscript;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
-infocar:manuscriptIdentifierHasLocationName
+infocar:manuscriptIdentifierHasLocationNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has location name"@en, "Manuskriptidentifikator hat Ortsname"@de;
-	rdfs:comment """Relating a manuscript identifier to the name of the place where the manuscript is preserved."""@en;
+	rdfs:label "manuscript identifier has location name literal"@en, "Manuskriptidentifikator hat Ortsnameliterale"@de;
+	rdfs:comment """Relating a manuscript identifier to the literal of the name of the place where the manuscript is preserved."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal; # physical:PlaceName
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:manuscriptIdentifierHasInstitutionName
+infocar:manuscriptIdentifierHasInstitutionNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has institution name"@en, "Manuskriptidentifikator hat Institutionsname"@de;
-	rdfs:comment """Relating a manuscript identifier to the name of the institution preserving the manuscript."""@en;
+	rdfs:label "manuscript identifier has institution name literal"@en, "Manuskriptidentifikator hat Institutionsnameliterale"@de;
+	rdfs:comment """Relating a manuscript identifier to the literal of the name of the institution preserving the manuscript."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:manuscriptIdentifierHasRepositoryName
+infocar:manuscriptIdentifierHasRepositoryNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has repository name"@en, "Manuskriptidentifikator hat Repositoriumname"@de;
-	rdfs:comment """Relating a manuscript identifier to the name of the repository where the manuscript is preserved."""@en;
+	rdfs:label "manuscript identifier has repository name literal"@en, "Manuskriptidentifikator hat Repositoriumname literale"@de;
+	rdfs:comment """Relating a manuscript identifier to the literal of the name of the repository where the manuscript is preserved."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:manuscriptIdentifierHasCollectionName
+infocar:manuscriptIdentifierHasCollectionNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has collection name"@en, "Manuskriptidentifikator hat Kollektionsname"@de;
-	rdfs:comment """Relating a manuscript identifier to the name of the collection of which the manuscript is a part."""@en;
+	rdfs:label "manuscript identifier has collection name literal"@en, "Manuskriptidentifikator hat Kollektionsnameliterale"@de;
+	rdfs:comment """Relating a manuscript identifier to the literal of the name of the collection of which the manuscript is a part."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 # infocar:manuscriptIdentifierHasShelfMark
 
-infocar:manuscriptIdentifierHasManuscriptNumber
+infocar:manuscriptIdentifierHasLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has manuscript number"@en, "Manuskriptidentifikator hat Manuskriptnummer"@de;
-	rdfs:comment """Relating a manuscript identifier to the manuscript's number."""@en;
+	rdfs:label "manuscript identifier has literal"@en, "Manuskriptidentifikator hat literale"@de;
+	rdfs:comment """Relating a manuscript identifier to its literal."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal.
 
-infocar:manuscriptIdentifierHasManuscriptName
+infocar:manuscriptIdentifierHasManuscriptNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "manuscript identifier has manuscript name"@en, "Manuskriptidentifikator hat Manuskriptname"@de;
-	rdfs:comment """Relating a manuscript identifier to the manuscript's name."""@en;
+	rdfs:label "manuscript identifier has manuscript name literal"@en, "Manuskriptidentifikator hat Manuskriptnameliterale"@de;
+	rdfs:comment """Relating a manuscript identifier to the literal of the manuscript's name."""@en;
 	rdfs:domain infocar:ManuscriptIdentifier;
 	rdfs:range rdfs:Literal.
 
@@ -904,57 +905,57 @@ infocar:printHasIdentifier
 	rdfs:domain infocar:Print;
 	rdfs:range infocar:PrintIdentifier.
 
-infocar:printIdentifierHasLocationName
+infocar:printIdentifierHasLocationNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has location name"@en, "Druckidentifikator hat Ortsname"@de;
-	rdfs:comment """Relating a print identifier to the name of the place where the print is preserved."""@en;
+	rdfs:label "print identifier has location name literal"@en, "Druckidentifikator hat Ortsnameliterale"@de;
+	rdfs:comment """Relating a print identifier to the literal of the name of the place where the print is preserved."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal; # physical:PlaceName
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:printIdentifierHasInstitutionName
+infocar:printIdentifierHasInstitutionNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has institution name"@en, "Druckidentifikator hat Institutionsname"@de;
-	rdfs:comment """Relating a print identifier to the name of the institution preserving the print."""@en;
+	rdfs:label "print identifier has institution name literal"@en, "Druckidentifikator hat Institutionsnameliterale"@de;
+	rdfs:comment """Relating a print identifier to the literal of the name of the institution preserving the print."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:printIdentifierHasRepositoryName
+infocar:printIdentifierHasRepositoryNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has repository name"@en, "Druckidentifikator hat Repositoriumname"@de;
-	rdfs:comment """Relating a print identifier to the name of the repository where the print is preserved."""@en;
+	rdfs:label "print identifier has repository name literal"@en, "Druckidentifikator hat Repositoriumnameliterale"@de;
+	rdfs:comment """Relating a print identifier to the literal of the name of the repository where the print is preserved."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-infocar:printIdentifierHasCollectionName
+infocar:printIdentifierHasCollectionNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has collection name"@en, "Druckidentifikator hat Kollektionsname"@de;
-	rdfs:comment """Relating a print identifier to the name of the collection of which the print is a part."""@en;
+	rdfs:label "print identifier has collection name literal"@en, "Druckidentifikator hat Kollektionsnameliterale"@de;
+	rdfs:comment """Relating a print identifier to the literal of the name of the collection of which the print is a part."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 # infocar:printIdentifierHasShelfMark
 
-infocar:printIdentifierHasPrintNumber
+infocar:printIdentifierHasLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has print number"@en, "Druckidentifikator hat Drucknummer"@de;
-	rdfs:comment """Relating a print identifier to the print's number."""@en;
+	rdfs:label "print identifier has literal"@en, "Druckidentifikator hat Literale"@de;
+	rdfs:comment """Relating a print identifier to its literal."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal.
 
-infocar:printIdentifierHasPrintName
+infocar:printIdentifierHasPrintNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "print identifier has print name"@en, "Druckidentifikator hat Druckname"@de;
-	rdfs:comment """Relating a print identifier to the print's name."""@en;
+	rdfs:label "print identifier has print name literal"@en, "Druckidentifikator hat Drucknameliterale"@de;
+	rdfs:comment """Relating a print identifier to the literal of the print's name."""@en;
 	rdfs:domain infocar:PrintIdentifier;
 	rdfs:range rdfs:Literal.
 
@@ -1018,50 +1019,50 @@ infocar:isInDiary
 	rdfs:range infocar:Diary;
 	rdfs:subPropertyOf infocar:isOnCarrier.
 
-infocar:convoluteHasTitle
+infocar:convoluteHasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "convolute has title"@en, "Konvolut hat Titel"@de;
-	rdfs:comment """Relating a convolute to its titel."""@en;
+	rdfs:label "convolute has title literal"@en, "Konvolut hat Titelliterale"@de;
+	rdfs:comment """Relating a convolute to its titel literal."""@en;
 	rdfs:domain infocar:Convolute;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle.
+	rdfs:subPropertyOf text:hasTitleLiteral.
 
-infocar:convoluteHasDescription
+infocar:convoluteHasDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "convolute has description"@en, "Konvolut hat Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description thereof."""@en;
+	rdfs:label "convolute has description literal"@en, "Konvolut hat Beschreibungliterale"@de;
+	rdfs:comment """Relating a convolute to a description literal thereof."""@en;
 	rdfs:domain infocar:Convolute;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-infocar:convoluteHasSizeDescription
+infocar:convoluteHasSizeDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "convolute has size description"@en, "Konvolutgrösse hat Beschreibung"@de;
-	rdfs:comment """Relating a convolute to a description of its size."""@en;
+	rdfs:label "convolute has size description literal"@en, "Konvolutgrösse hat Beschreibungliterale"@de;
+	rdfs:comment """Relating a convolute to a description literal of its size."""@en;
 	rdfs:domain infocar:Convolute;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-infocar:convoluteHasOriginDescription
+infocar:convoluteHasOriginDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "convolute has origin description"@en, "Konvolut hat Herkunftbeschreibung"@de;
-	rdfs:comment """Relating a text convolute to a description of its origin."""@en;
+	rdfs:label "convolute has origin description literal"@en, "Konvolut hat Herkunftbeschreibungliterale"@de;
+	rdfs:comment """Relating a text convolute to a description literal of its origin."""@en;
 	rdfs:domain infocar:Convolute;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-infocar:convoluteHasContentRepresentation
+infocar:convoluteHasContentRepresentationLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "convolute has content representation"@en, "Konvolut hat Inhaltrepräsentation"@de;
-	rdfs:comment """Relating a convolute to a description of its content representation."""@en;
+	rdfs:label "convolute has content representation literal"@en, "Konvolut hat Inhaltrepräsentationliterale"@de;
+	rdfs:comment """Relating a convolute to a description literal of its content representation."""@en;
 	rdfs:domain infocar:Convolute;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 infocar:containsEarlierStagesOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -1097,14 +1098,14 @@ infocar:isPartOfConvolute
 	rdfs:range infocar:Convolute;
 	rdfs:subPropertyOf physical:isPartOf.
 
-infocar:webpageHasName
+infocar:webpageHasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "webpage has name"@en, "Webseite hat Name"@de;
-	rdfs:comment """Relating a webpage to its name."""@en;
+	rdfs:label "webpage has name literal"@en, "Webseite hat Nameliterale"@de;
+	rdfs:comment """Relating a webpage to its name literal."""@en;
 	rdfs:domain infocar:Webpage;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 infocar:webpageHasURL
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
@@ -1131,14 +1132,14 @@ infocar:hasHyperlink
 	rdfs:domain document:HypertextStructure;
 	rdfs:range infocar:Hyperlink.
 
-infocar:hyperlinkHasName
+infocar:hyperlinkHasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;
 	a owl:DatatypeProperty;
-	rdfs:label "hyperlink has name"@en, "Hyperlink hat Name"@de;
-	rdfs:comment """Relating a hyperlink to a name it has."""@en;
+	rdfs:label "hyperlink has name literal"@en, "Hyperlink hat Nameliterale"@de;
+	rdfs:comment """Relating a hyperlink to a name literal it has."""@en;
 	rdfs:domain infocar:Hyperlink;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 infocar:hyperlinkHasURL
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/information-carrier#>;

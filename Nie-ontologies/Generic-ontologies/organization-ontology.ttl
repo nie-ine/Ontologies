@@ -140,14 +140,14 @@ org:MasonicLodge
 # PROPERTIES
 #
 
-org:hasName
+org:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/organization#>;
 	a owl:DatatypeProperty;
-	rdfs:label "person organization has name"@en, "Personensorganisation hat Name"@de;
-	rdfs:comment """Relating a person organization to a name of that organization."""@en;
+	rdfs:label "person organization has name literal"@en, "Personensorganisation hat Nameliterale"@de;
+	rdfs:comment """Relating a person organization to the literal of a name of that organization."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 org:actsIn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/organization#>;

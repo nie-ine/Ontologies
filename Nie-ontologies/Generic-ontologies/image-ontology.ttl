@@ -93,14 +93,14 @@ image:PhotographExpression
 # PROPERTIES
 #
 
-image:expressionHasTitle
+image:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a owl:DatatypeProperty;
-	rdfs:label "image expression has title", "Bildexpression hat Titel"@de;
-	rdfs:comment """Relating an image expression to its title."""@en;
+	rdfs:label "image expression has title literal", "Bildexpression hat Titelliterale"@de;
+	rdfs:comment """Relating an image expression to its title literal."""@en;
 	rdfs:domain image:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf document:expressionHasTitle.
+	rdfs:subPropertyOf document:expressionHasTitleLiteral.
 
 image:isImageOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
@@ -150,11 +150,11 @@ image:hasPhotographIn
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Resource.
 
-image:hasPhotographSourceDescription
+image:hasPhotographSourceDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/image#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has photograph source description"@en, "hat Fotoquelle-Beschreibung"@de;
-	rdfs:comment """Relating something to a description of a source of a photograph of that something."""@en;
+	rdfs:label "has photograph source description literal"@en, "hat Fotoquelle-Beschreibungliterale"@de;
+	rdfs:comment """Relating something to a description literal of a source of a photograph of that something."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.

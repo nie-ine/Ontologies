@@ -185,7 +185,7 @@ document:Marginal
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, illuminations."""@en;
 	rdfs:subClassOf document:ContentStructure.
 
-document:Table #° tableHasTitle, tableHasField, tableHasRow, tableHasColumn
+document:Table #° tableHasTitleLiteral, tableHasField, tableHasRow, tableHasColumn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
@@ -501,23 +501,23 @@ document:expressionHasIdentifier
 	rdfs:range document:ExpressionIdentifier;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
-document:expressionHasTitle
+document:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has title"@en, "Expression hat Titel"@de;
-	rdfs:comment """Relating an expression to its title."""@en;
+	rdfs:label "expression has title literal"@en, "Expression hat Titelliterale"@de;
+	rdfs:comment """Relating an expression to its title literal."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle.
+	rdfs:subPropertyOf text:hasTitleLiteral.
 
-document:expressionHasSubtitle
+document:expressionHasSubtitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has subtitle"@en, "Expression hat Untertitel"@de;
-	rdfs:comment """Relating an expression to a subtitle it has."""@en;
+	rdfs:label "expression has subtitle literal"@en, "Expression hat Untertitelliterale"@de;
+	rdfs:comment """Relating an expression to a subtitle literal it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasSubtitle.
+	rdfs:subPropertyOf text:hasSubtitleLiteral.
 
 document:isExpressionOfCycle
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;

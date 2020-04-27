@@ -42,7 +42,7 @@ text:Text
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "text"@en, "Text"@de, "texte"@fr, "testo"@it;
-	rdfs:comment """Human natural language expression serialized in writable form."""@en; # coherent set of signs representing semantics in a language
+	rdfs:comment """Human natural language expression serialized in writable form with a set of signs representing semantics."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 text:ContentNature
@@ -241,90 +241,84 @@ text:Translation
 # PROPERTIES
 #
 
-text:hasText
+text:hasTextLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has text"@en, "hat Text"@de, "a le text"@fr, "ha un testo"@it;
-	rdfs:comment """Relating a resource to a text as a writable coherent set of signs representing semantics in a language."""@en;
+	rdfs:label "has text literal"@en, "hat Textliterale"@de, "a littéral du text"@fr, "ha letterale del testo"@it;
+	rdfs:comment """Relating a resource to a text literal."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range rdfs:Literal. # text:Text
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral.
 
-text:hasName
+text:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has name"@en, "hat Name"@de, "a le nom"@fr, "ha il nome"@it;
-	rdfs:comment """Relating a resource to a name as a textual identifier of the resource."""@en;
-	rdfs:subPropertyOf text:hasText. #° rdfs:label, foaf:name
+	rdfs:label "has name literal"@en, "hat Nameliterale"@de, "a littéral du nom"@fr, "ha letterale del nome"@it;
+	rdfs:comment """Relating a resource to a name as a textual appelation of the resource."""@en;
+	rdfs:subPropertyOf text:hasTextLiteral, rdfs:label, foaf:name.
 
-text:hasPreferredName
+text:hasPreferredNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de, "a le nom préféré"@fr, "ha il nome preferito"@it;
-	rdfs:comment """Relating a resource to a preferred name."""@en;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de, "a littéral du nom préféré"@fr, "ha letterale del nome preferito"@it;
+	rdfs:comment """Relating a resource to a preferred name literal."""@en;
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-text:hasAlias
+text:hasAliasLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has alias"@en, "hat Alias"@de, "a un nom d'emprunt"@fr, "ha il falso nome"@it;
-	rdfs:comment """Relating a resource to an alias as an alternative name of the resource."""@en;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de, "a littéral du nom d'emprunt"@fr, "ha letterale del falso nome"@it;
+	rdfs:comment """Relating a resource to the literal of an alias as an alternative name of the resource."""@en;
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-text:hasIdentifier
+text:hasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has identifier"@en, "hat Kennzeichen"@de, "a l'identifiant"@fr, "ha un identificatore"@it;
-	rdfs:comment """Relating a resource to an identifier as a unique and permanent textual reference to the resource within a given context, and conforming to a formal identification system."""@en;
-	rdfs:subPropertyOf text:hasText. #° cf. dcterms:identifier
+	rdfs:label "has title literal"@en, "hat Titelliterale"@de, "a littéral du titre"@fr, "ha letterale del titolo"@it;
+	rdfs:comment """Relating a resource to the literal of a title as a textual appelation of the resource."""@en;
+	rdfs:subPropertyOf text:hasTextLiteral.
 
-text:hasTitle
+text:hasSubtitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has title"@en, "hat Titel"@de, "intitulé"@fr, "ha titolo"@it;
-	rdfs:comment """Relating a resource to a title as a textual identifier of the resource."""@en;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:label "has subtitle literal"@en, "hat Untertitelliterale"@de, "a littéral du sous-titre"@fr, "ha letterale del sottotitolo"@it;
+	rdfs:comment """Relating a resource to the literal of a subtitle as additional, usually explanatory to the title."""@en;
+	rdfs:subPropertyOf text:hasTextLiteral.
 
-text:hasSubtitle
+text:hasCommentLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has subtitle"@en, "hat Untertitel"@de, "a un sous-titre"@fr, "ha i sottotitoli"@it;
-	rdfs:comment """Relating a resource to a subtitle as additional, usually explanatory to the title."""@en;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:label "has comment literal"@en, "hat Kommentarliterale"@de, "a littéral du commentaire"@fr, "ha letterale del commento"@it;
+	rdfs:comment """Relating a resource to the literal of a comment as a textual statement about the resource."""@en;
+	rdfs:subPropertyOf text:hasTextLiteral.
 
-text:hasComment
+text:hasDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has comment"@en, "hat Kommentar"@de, "a le commentaire"@fr, "ha un commento"@it;
-	rdfs:comment """Relating a resource to a comment as a textual statement about the resource."""@en;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de, "a littéral d'une description"@fr, "ha letterale della descrizione"@it;
+	rdfs:comment """Relating a resource to the literal of a description as a textual statement about features of the resource."""@en;
+	rdfs:subPropertyOf text:hasTextLiteral.
 
-text:hasDescription
+text:hasDefinitionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has description"@en, "hat Beschreibung"@de, "a une description"@fr, "ha una descrizione"@it;
-	rdfs:comment """Relating a resource to a description as a textual statement about features of the resource."""@en;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:label "has definition literal"@en, "hat Definition"@de, "a littéral d'une définition"@fr, "ha letterale della definizione"@it;
+	rdfs:comment """Relating a resource to the literal of a definition as a textual statement about the essential features of the resource."""@en;
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-text:hasDefinition
+text:hasDetailDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has definition"@en, "hat Definition"@de, "a une définition"@fr, "ha una definizione"@it;
-	rdfs:comment """Relating a resource to a definition as a textual statement about the essential features of the resource."""@en;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:label "has detail description literal"@en, "hat Detail-Beschreibungliterale"@de, "a littéral d'une description détaillée"@fr, "ha letterale della descrizione dettagliata"@it;
+	rdfs:comment """Relating a resource to the literal of a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-text:hasDetailDescription
+text:hasSpecialDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has detail description"@en, "hat Detail-Beschreibung"@de, "a une description détaillée"@fr, "ha una descrizione dettagliata"@it;
-	rdfs:comment """Relating a resource to a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
-	rdfs:subPropertyOf text:hasDescription.
-
-text:hasSpecialDescription
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has special description"@en, "hat Besonderes-Beschreibung"@de, "a une description spéciale"@fr, "ha una descrizione speciale"@it;
-	rdfs:comment """Relating a resource to a description of (a) certain feature(s)."""@en;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:label "has special description literal"@en, "hat Besonderes-Beschreibungliterale"@de, "a littéral d'une description spéciale"@fr, "ha letterale della descrizione speciale"@it;
+	rdfs:comment """Relating a resource to the literal of a description of (a) certain feature(s)."""@en;
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 text:isTextOfDocument
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;

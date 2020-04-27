@@ -235,41 +235,41 @@ text-expression:Dictionary
 # PROPERTIES
 #
 
-text-expression:hasTitle
+text-expression:hasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:DatatypeProperty;
-	rdfs:label "text expression has title"@en, "Textexpression hat Titel"@de, "l'expression de texte a un titre"@fr, "espressione di testo ha titolo"@it;
-	rdfs:comment """Relating a text expression to a title it has."""@en;
+	rdfs:label "text expression has title literal"@en, "Textexpression hat Titelliterale"@de, "l'expression de texte a littéral du titre"@fr, "espressione di testo ha letterale del titolo"@it;
+	rdfs:comment """Relating a text expression to a title literal it has."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf document:expressionHasTitle.
+	rdfs:subPropertyOf document:expressionHasTitleLiteral.
 
-text-expression:hasSubtitle
+text-expression:hasSubtitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:DatatypeProperty;
-	rdfs:label "text expression has subtitle"@en, "Textexpression hat Untertitel"@de, "l'expression de texte a un sous-titre"@fr, "espressione di testo ha sottotitoli"@it;
-	rdfs:comment """Relating a text expression to a subtitle it has."""@en;
+	rdfs:label "text expression has subtitle literal"@en, "Textexpression hat Untertitelliterale"@de, "l'expression de texte a littéral du sous-titre"@fr, "espressione di testo ha letterale del sottotitoli"@it;
+	rdfs:comment """Relating a text expression to a subtitle literal it has."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf document:expressionHasSubtitle.
+	rdfs:subPropertyOf document:expressionHasSubtitleLiteral.
 
-text-expression:hasIncipit
+text-expression:hasIncipitLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has incipit"@en, "hat Incipit"@de, "a un incipit"@fr, "ha inizia"@it;
-	rdfs:comment """Relating an untitled text expression to a beginning part thereof to identify the text."""@en;
+	rdfs:label "has incipit literal"@en, "hat Incipitliterale"@de, "a littéral d'un incipit"@fr, "ha letterale del inizio"@it;
+	rdfs:comment """Relating an untitled text expression to the literal of a beginning part thereof as identifier of the text."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:subPropertyOf text:hasTextLiteral, text-expression:hasIdentifierLiteral.
 
-text-expression:hasExplicit
+text-expression:hasExplicitLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has explicit"@en, "hat Explicit"@de, "a explicite"@fr, "ha esplicito"@it;
-	rdfs:comment """Relating an untitled text expression to an end part thereof to identify the text."""@en;
+	rdfs:label "has explicit literal"@en, "hat Explicitliteralz"@de, "a littéral d'un explicite"@fr, "ha letterale del esplicito"@it;
+	rdfs:comment """Relating an untitled text expression to the literal of an end part thereof as identifier of the text."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:subPropertyOf text:hasTextLiteral, text-expression:hasIdentifierLiteral.
 
 text-expression:hasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
@@ -279,24 +279,34 @@ text-expression:hasIdentifier
 	rdfs:domain text-expression:Expression;
 	rdfs:range text-expression:Identifier.
 
+text-expression:hasIdentifierLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
+	a owl:DatatypeProperty;
+	rdfs:label "text expression has identifier literal"@en, "Textexpression hat Identifikatorliterale"@de, "l'expression de texte a littéral d'un identifiant"@fr, "l'espressione di testo ha letterale del identificatore"@it;
+	rdfs:comment """Relating a text expression to its identifier literal."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasIdentifierLiteral;
+	owl:propertyChainAxiom (text-expression:hasIdentifier concept:identifierHasLiteral).
+
 text-expression:hasAuthor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has author"@en, "Text hat Autor"@de, ""@fr, ""@it;
+	rdfs:label "text expression has author"@en, "Textexpression hat Autor"@de, "l'expression de texte a auteur"@fr, "l'espressione di testo ha autore"@it;
 	rdfs:comment """Relating a text expression to a person who authored it."""@en;
 	skos:note """A text can have more than one author."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text-expression:Author]];
 	rdfs:subPropertyOf creating:hasAuthor.
 
-text-expression:hasIdeationalExtent
+text-expression:hasIdeationalExtentLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;
-	a owl:ObjectProperty;
-	rdfs:label "has ideational extent"@en, "hat ideeller Umfang"@de, "a une étendue idéationnelle"@fr, "ha estensione ideazionale"@it;
-	rdfs:comment """Relating a text expression to a description of its ideational extent."""@en;
+	a owl:DatatypeProperty;
+	rdfs:label "has ideational extent description literal"@en, "hat ideeller Umfangbeschreibungliterale"@de, "a littéral d'une description d'une étendue idéationnelle"@fr, "ha letterale della descrizione della estensione ideazionale"@it;
+	rdfs:comment """Relating a text expression to a description literal of its ideational extent."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 text-expression:hasCommentator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-expression#>;

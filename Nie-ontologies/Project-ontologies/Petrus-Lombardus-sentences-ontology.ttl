@@ -4,6 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 @prefix language: <http://www.e-editiones.ch/ontology/language#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
@@ -200,32 +201,59 @@ drcs:CompiledPrintedCommentary
 	rdfs:subClassOf drcs:Commentary, text:PrintedText, text:CompiledText.
 
 #
+# CODE SYSTEM AND DATATYPE INSTANCE
+#
+
+drcs:stegmuellerSystem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
+	a rdfs:Class, concept:CodingSystem;
+	rdfs:label "Stegmüller-system"@en;
+	rdfs:comment """The Stegmüller-system for coding a commentary on Petrus Lombardus' Sentences."""@en.
+
+drcs:stegmuellerDatatype
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
+	a rdfs:Class, rdfs:Datatype;
+	rdfs:label "Stegmüller-datatype"@en;
+	rdfs:comment """Datatype to type a Stegmüller's code."""@en.
+
+#
 # PROPERTIES
 #
 
-drcs:hasStegmuellerPersonDescription
+drcs:hasStegmuellerPersonDescriptionLiteral
  	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
 	a owl:DatatypeProperty;
- 	rdfs:label "has Stegmüller's person description"@en;
- 	rdfs:comment """Relating a person to a Stegmüller's description thereof."""@en;
+ 	rdfs:label "has Stegmüller's person description literal"@en;
+ 	rdfs:comment """Relating a person to a Stegmüller's description literal thereof."""@en;
  	rdfs:domain drcs:Person;
 	rdfs:range rdfs:Literal;
- 	rdfs:subPropertyOf human:hasDescription.
+ 	rdfs:subPropertyOf human:hasDescriptionLiteral.
 
-drcs:hasStegmuellerCommentaryDescription
+drcs:hasStegmuellerCommentaryDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has Stegmüller's commentary description"@en;
-	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description thereof."""@en;
+	rdfs:label "has Stegmüller's commentary description literal"@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description literal thereof."""@en;
  	rdfs:domain drcs:Commentary;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 drcs:hasStegmuellerCode
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
-	a owl:DatatypeProperty;
+	a owl:FunctionalProperty;
 	rdfs:label "has Stegmüller's code"@en;
-	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's code thereof."""@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to its Stegmüller's code."""@en;
+	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCode [concept:codeHasSystem drcs:stegmuellerSystem; concept:codeHasValue "x"^^drcs:stegmuellerDatatype]"""@en;
  	rdfs:domain drcs:Commentary;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasText.
+	rdfs:range drcs:stegmuellerCode;
+	rdfs:subPropertyOf concept:hasCode.
+
+drcs:hasStegmuellerCodeValue
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has Stegmüller's code value"@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to its Stegmüller's code value."""@en;
+	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCodeValue "x"^^drcs:stegmuellerDatatype]"""@en;
+ 	rdfs:domain drcs:Commentary;
+	rdfs:range drcs:stegmuellerDatatype;
+	rdfs:subPropertyOf concept:hasCodeValue.

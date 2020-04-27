@@ -335,14 +335,14 @@ prosodic-structure:isVerseSectionOfVerseNovel
 	rdfs:range literature:VerseNovel;
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
-prosodic-structure:verseSectionHasTitle
+prosodic-structure:verseSectionHasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse section has title"@en, "Versabschnitt hat Titel"@de, "section de verset a un titre"@fr, "sezione del versetto ha un titolo"@it;
-	rdfs:comment """Relating a verse section to its title."""@en;
+	rdfs:label "verse section has title literal"@en, "Versabschnitt hat Titelliterale"@de, "section de verset a littéral du titre"@fr, "sezione del versetto ha letterale del titolo"@it;
+	rdfs:comment """Relating a verse section to its title literal."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle.
+	rdfs:subPropertyOf text:hasTitleLiteral.
 
 prosodic-structure:verseSectionHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;

@@ -190,14 +190,14 @@ physical:hasExistingState
 	rdfs:domain rdfs:Resource;
 	rdfs:range physical:ExistingState.
 
-physical:placeHasName
+physical:placeHasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
 	a owl:DatatypeProperty;
-	rdfs:label "place has name"@en, "Platz hat Name"@de;
-	rdfs:comment """Relating a place to its name."""@en;
+	rdfs:label "place has name literal"@en, "Platz hat Nameliterale"@de;
+	rdfs:comment """Relating a place to its name literal."""@en;
 	rdfs:domain physical:Place;
 	rdfs:range rdfs:Literal; #° physical:PlaceName
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 physical:hasSender
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;

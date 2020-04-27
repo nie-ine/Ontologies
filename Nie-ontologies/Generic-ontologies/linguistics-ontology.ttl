@@ -121,23 +121,23 @@ ling:Evaluation
 # PROPERTIES
 #
 
-ling:hasSynonym
+ling:hasSynonymLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has synonym"@en, "hat Synonym"@de;
-	rdfs:comment """Relating a resource to a synonym of the name of the resource."""@en;
+	rdfs:label "has synonym literal"@en, "hat Synonymliterale"@de;
+	rdfs:comment """Relating a resource to the literal of a synonym of the name of the resource."""@en;
 	rdfs:domain rdfs:Resource; #°
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-ling:hasComment
+ling:hasCommentLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has linguistic comment"@en, "hat linguistischer Kommentar"@de;
-	rdfs:comment """Relating a human natural language expression to a linguistic comment as a textual statement about the expression."""@en;
+	rdfs:label "has linguistic comment literal"@en, "hat linguistischer Kommentarliterale"@de;
+	rdfs:comment """Relating a human natural language expression to the literal of a linguistic comment as a textual statement about the expression."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasComment.
+	rdfs:subPropertyOf text:hasCommentLiteral.
 
 ling:hasLanguage
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/linguistics#>;

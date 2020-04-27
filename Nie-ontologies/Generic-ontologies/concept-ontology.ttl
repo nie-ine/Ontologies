@@ -36,8 +36,8 @@ concept:ConceptualEntity
 	a rdfs:Class;
 	rdfs:label "conceptual entity"@en, "konzeptuelle Entität"@de;
 	rdfs:comment """Abstract idea created by a person, as product of cognition."""@en;
-	rdfs:subClassOf creating:Creation, frbroo:F6_Concept; # rdfs:subClassOf cidoc:E28_Conceptual_Object
-	owl:disjointWith physical:Entity.
+	rdfs:subClassOf creating:Creation, frbroo:F6_Concept. # rdfs:subClassOf cidoc:E28_Conceptual_Object
+#	owl:disjointWith physical:Entity.
 
 concept:Set
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -125,7 +125,7 @@ concept:Work
 	rdfs:label "conceptual work"@en, "konzeptuelles Werk"@de;
 	rdfs:comment """propositional entity as recognizable intellectual product, conform FRBROO."""@en;
 	rdfs:subClassOf concept:PropositionalEntity, frbroo:F1_Work.
-	# text:hasTitle
+	# text:hasTitleLiteral
 
 concept:IndividualWork
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -189,6 +189,7 @@ concept:hasLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has literal"@en, "hat Literale"@de;
 	rdfs:comment """Relating something to the literal of a symbolic entity that the literal expresses."""@en;
+	skos:note """A reification of a literal, i.e. a symbolic entity, can always be interposed, see property chain axiom."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	owl:propertyChainAxiom (concept:hasSymbolicEntity concept:symbolicEntityHasLiteral).
@@ -198,8 +199,29 @@ concept:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Identifikator"@de;
 	rdfs:comment "Relating a resource to its identifier."@en;
+	skos:note """A sub-property can be inverse functional, e.g. more than one ISO-code identifying the same natural language, or functional, e.g. a person identified by the social security number."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Identifier.
+	rdfs:range concept:Identifier;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
+
+concept:identifierHasLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "identifier has literal"@en, "Identifikator hat Literale"@de;
+	rdfs:comment "Relating an identifier to its literal."@en;
+	rdfs:domain concept:Identifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral.
+
+concept:hasIdentifierLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has identifier literal"@en, "hat Identifikatorliterale"@de;
+	rdfs:comment "Relating a resource to its identifier literal."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral;
+	owl:propertyChainAxiom (concept:hasIdentifier concept:identifierHasLiteral).
 
 concept:hasCode
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -208,7 +230,7 @@ concept:hasCode
 	rdfs:comment "Relating a resource to its code."@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range concept:Code;
-	rdfs:subPropertyOf concept:hasIdentifier.
+	rdfs:subPropertyOf concept:hasIdentifier, skos:exactMatch.
 
 concept:codeHasSystem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -224,7 +246,17 @@ concept:codeHasValue
 	rdfs:label "code has value"@en, "Kode hat Wert"@de;
 	rdfs:comment "Relating a code to its literal value."@en;
 	rdfs:domain concept:Code;
-	rdfs:range rdfs:Literal.
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:identifierHasLiteral.
+
+concept:hasCodeValue
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has code value"@en, "hat Kodewert"@de;
+	rdfs:comment "Relating a resource to its code value."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasIdentifierLiteral.
 
 concept:codingSystemHasDataType
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
@@ -253,14 +285,14 @@ concept:informationHasSubject
 	rdfs:domain concept:Information;
 	rdfs:range rdfs:Resource.
 
-concept:informationHasSubjectDescription
+concept:informationHasSubjectDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "information has subject description"@en, "Information hat Themabeschreibung"@de;
-	rdfs:comment """Relating information to a description of its subject."""@en;
+	rdfs:label "information has subject description literal"@en, "Information hat Themabeschreibungliterale"@de;
+	rdfs:comment """Relating information to a description literal of its subject."""@en;
 	rdfs:domain concept:Information;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 concept:hasEncoder
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;

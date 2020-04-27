@@ -573,71 +573,71 @@ human:hasLife # living
 	rdfs:range human:PersonLife;
 	rdfs:subPropertyOf event:hasExistence, human:actsIn.
 
-human:hasName
+human:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has name"@en, "hat Name"@de;
-	rdfs:comment """Relating a person to a name of that person."""@en;
+	rdfs:label "has name literal"@en, "hat Nameliterale"@de;
+	rdfs:comment """Relating a person to the literal of a name of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-human:hasFamilyName
+human:hasFamilyNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has family name"@en, "hat Nachname"@de;
-	rdfs:comment """Relating a person to a family name of that person."""@en;
+	rdfs:label "has family name literal"@en, "hat Nachnameliterale"@de;
+	rdfs:comment """Relating a person to the literal of a family name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-human:hasGivenName
+human:hasGivenNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has given name"@en, "hat Vorname"@de;
-	rdfs:comment """Relating a person to a given name of that person."""@en;
+	rdfs:label "has given name literal"@en, "hat Vornameliterale"@de;
+	rdfs:comment """Relating a person to the literal of a given name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his given name legally changed."""@en;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:subPropertyOf text:hasNameLiteral.
 
 # name parts, e.g. middle name, compound given name
 
-human:hasPreferredName
+human:hasPreferredNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
-	rdfs:comment """Relating a person to a preferred name of that person."""@en;
-	rdfs:subPropertyOf human:hasName, text:hasPreferredName.
+	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de;
+	rdfs:comment """Relating a person to the literal of a preferred name of that person."""@en;
+	rdfs:subPropertyOf human:hasNameLiteral, text:hasPreferredNameLiteral.
 
-human:hasAlias
+human:hasAliasLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has alias"@en, "hat Alias"@de;
-	rdfs:comment """Relating a person to an alias of that person."""@en;
-	rdfs:subPropertyOf human:hasName, text:hasAlias.
+	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de;
+	rdfs:comment """Relating a person to the literal of an alias of that person."""@en;
+	rdfs:subPropertyOf human:hasNameLiteral, text:hasAliasLiteral.
 
-human:hasTitle
+human:hasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has title"@en, "hat Titel"@de;
-	rdfs:comment """Relating a person to a title of that person."""@en;
-	rdfs:subPropertyOf text:hasName.
+	rdfs:label "has title literal"@en, "hat Titelliterale"@de;
+	rdfs:comment """Relating a person to the literal of a title of that person."""@en;
+	rdfs:subPropertyOf text:hasNameLiteral.
 
-human:hasDescription
+human:hasDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has description"@en, "hat Beschreibung"@de;
-	rdfs:comment """Relating a person to a description of that person."""@en;
+	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de;
+	rdfs:comment """Relating a person to the literal of a description of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 human:hasBiographyLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has biography literal"@en, "hat Biografieliterale"@de;
-	rdfs:comment """Relating a person to a biography of the person, as literal."""@en;
+	rdfs:comment """Relating a person to the literal of a biography of the person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 # hagiography
 

@@ -13,6 +13,7 @@
 @prefix org: <http://www.e-editiones.ch/ontology/organization#>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://www.e-editiones.ch/ontology/document#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
@@ -411,14 +412,14 @@ publish:hasNachlassPublication
 	rdfs:domain document:Expression;
 	rdfs:range publish:NachlassPublication.
 
-publish:hasNachlassPublicationDescription
+publish:hasNachlassPublicationDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has nachlass publication description"@en, "hat Nachlassausgabebeschreibung"@de, "a une description d'une publication nachlass"@fr, "ha una descrizione di pubblicazione nachlass"@it;
-	rdfs:comment """Relating an expression to a description of its nachlass publication."""@en;
+	rdfs:label "has nachlass publication description literal"@en, "hat Nachlassausgabebeschreibungliterale"@de, "a littéral d'une description d'une publication nachlass"@fr, "ha letterale della descrizione di pubblicazione nachlass"@it;
+	rdfs:comment """Relating an expression to a description literal of its nachlass publication."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 publish:isPublishedIn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -446,17 +447,6 @@ publish:hasRedactor
 	rdfs:domain publish:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
 
-publish:hasReferenceLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
-	rdfs:comment """Relating a publication expression to the literal of a bibliographic reference of the publication expression."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf concept:hasLiteral.
-#	PCA
-#	rdfs:subPropertyOf text:hasDescription.
-
 publish:hasReference
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
@@ -475,14 +465,24 @@ publish:referenceHasLiteral
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
 
-publish:hasDescription
+publish:hasReferenceLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "publication has description"@en, "Publikation hat beschreibung"@de, "publication a une description"@fr, "pubblicazione ha una descrizione"@it;
-	rdfs:comment """Relating a publication to a description thereof."""@en;
+	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
+	rdfs:comment """Relating a publication expression to the literal of a bibliographic reference of the publication expression."""@en;
+	rdfs:domain publish:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral;
+	owl:propertyChainAxiom (math:hasReference math:referenceHasLiteral).
+
+publish:hasDescriptionLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
+	a owl:DatatypeProperty;
+	rdfs:label "publication has description literal"@en, "Publikation hat beschreibungliterale"@de, "publication a littéral d'une description"@fr, "pubblicazione ha letterale della descrizione"@it;
+	rdfs:comment """Relating a publication to a description literal thereof."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 publish:hasDate
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -539,22 +539,23 @@ publish:hasPartitionedPublishing
 	rdfs:range publish:PartitionedPublishing;
 	rdfs:subPropertyOf event:isOutputOf.
 
-publish:hasTitle
+publish:hasTitleLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "publication has title"@en, "Publikation hat titel"@de, "publication a un titre"@fr, "pubblicazione ha titolo"@it;
-	rdfs:comment """Relating a publication to its title."""@en;
+	rdfs:label "publication has title literal"@en, "Publikation hat Titelliterale"@de, "publication a littéral du titre"@fr, "pubblicazione ha letterale del titolo"@it;
+	rdfs:comment """Relating a publication to its title literal."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle.
+	rdfs:subPropertyOf text:hasTitleLiteral.
 
-publish:hasNumber
+publish:hasNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "publication has number"@en, "Publikation hat Nummer"@de, "publication a un nombre"@fr, "pubblicazione ha un numero"@it;
-	rdfs:comment """Relating a publication to its number."""@en;
+	rdfs:label "publication has numeral"@en, "Publikation hat Numerale"@de, "publication a numéral"@fr, "pubblicazione ha cifra"@it;
+	rdfs:comment """Relating a publication to its numeral."""@en;
 	rdfs:domain publish:Publication;
-	rdfs:range rdfs:Literal.
+	rdfs:range xsd:positiveInteger;
+	rdfs:subPropertyOf math:hasNumeral.
 
 publish:hasPublisher
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
@@ -565,23 +566,23 @@ publish:hasPublisher
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:AgentPublisher]];
 	rdfs:subPropertyOf creating:hasCreator.
 
-publish:hasPublisherDescription
+publish:hasPublisherDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has publisher description"@en, "hat Herausgeberbeschreibung"@de, "a une description d'éditeur"@fr, "ha una descrizione dell'editore"@it;
-	rdfs:comment """Relating a publication to its publisher's description."""@en;
+	rdfs:label "has publisher description literal"@en, "hat Herausgeberbeschreibungliterale"@de, "a littéral d'une description d'éditeur"@fr, "ha letterale della descrizione dell'editore"@it;
+	rdfs:comment """Relating a publication to its publisher's description literal."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-publish:hasPrinterDescription
+publish:hasPrinterDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has printer description"@en, "hat Druckerbeschreibung"@de, "a une description de l'imprimante"@fr, "ha una descrizione della stampante"@it;
-	rdfs:comment """Relating a publication to its printer's description."""@en;
+	rdfs:label "has printer description literal"@en, "hat Druckerbeschreibungliterale"@de, "a littéral d'une description de l'imprimante"@fr, "ha letterale della descrizione della stampante"@it;
+	rdfs:comment """Relating a publication to its printer's description literal."""@en;
 	rdfs:domain publish:Publication;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasDescription.
+	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 publish:isSerialIssueOfVolume
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/publishing#>;

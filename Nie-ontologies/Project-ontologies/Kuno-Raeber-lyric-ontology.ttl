@@ -349,14 +349,14 @@ kuno-raeber:NachlassPublication
 # PROPERTIES
 #
 
-kuno-raeber:poemHasTitle
+kuno-raeber:poemHasTitleLiteral #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
 	a owl:DatatypeProperty;
 	rdfs:label "poem has title"@en, "Gedicht hat Titel"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a title it has."""@en;
 	rdfs:domain kuno-raeber:Poem;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text-expression:hasTitle.
+	rdfs:subPropertyOf text-expression:hasTitleLiteral.
 
 kuno-raeber:hasPageIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
@@ -540,14 +540,14 @@ kuno-raeber:hasReferencePoem
 	rdfs:range kuno-raeber:Poem;
 	rdfs:subPropertyOf text:hasReferenceText.
 
-kuno-raeber:hasReferenceTitle
+kuno-raeber:hasReferenceTitleLiteral #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "has reference title"@en, "hat Bezugstitel"@de;
 	rdfs:comment """Relating a poem to a title of a reference poem."""@en;
 	rdfs:domain kuno-raeber:Poem;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasTitle.
+	rdfs:subPropertyOf text:hasTitleLiteral.
 
 kuno-raeber:hasContentPartInPolyAuthorPublicationConvolute
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;

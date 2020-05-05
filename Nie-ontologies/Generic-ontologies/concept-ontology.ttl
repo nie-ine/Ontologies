@@ -81,6 +81,8 @@ concept:SymbolicEntity
 	rdfs:comment """Conceptual entity represented by one or more symbols."""@en;
 	rdfs:subClassOf concept:ConceptualEntity, cidoc:E90_Symbolic_Object.
 
+# concept:Appellation rdfs:subClassOf cidoc:E41_Appellation
+
 concept:Identifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;

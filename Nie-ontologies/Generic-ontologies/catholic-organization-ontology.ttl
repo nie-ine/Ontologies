@@ -25,22 +25,22 @@
 #
 
 cathorg:Organization
-	a rdfs:Class;
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
+	a rdfs:Class;
 	rdfs:label "catholic organization"@en;
 	rdfs:comment """Organization representing a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousOrganization.
 
 cathorg:Person
-	a rdfs:Class;
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
+	a rdfs:Class;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousPerson.
 
 cathorg:SecularClergy
-	a rdfs:Class;
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
+	a rdfs:Class;
 	rdfs:label "secular clergy"@en;
 	rdfs:comment """Catholic organization whose member does not take religious vows and does not live in an institution."""@en;
 	rdfs:subClassOf cathorg:Organization.
@@ -50,8 +50,8 @@ cathorg:SecularClergy
 #
 
 cathorg:isMemberOf
-	a owl:ObjectProperty;
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/catholic-organization#>;
+	a owl:ObjectProperty;
 	rdfs:label "is member of catholic organization"@en, "ist Mitglied einer katholischen Organization"@de;
 	rdfs:comment """Relating a person to a catholic organization the person is a member of."""@en;
 	rdfs:domain cathorg:Person;

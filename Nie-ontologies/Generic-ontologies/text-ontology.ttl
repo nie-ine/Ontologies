@@ -238,6 +238,18 @@ text:Translation
 	rdfs:subClassOf text:Text, language:Translation.
 
 #
+# INSTANCES
+#
+
+text:characterSize
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
+	a rdfs:Datatype;
+	rdfs:label "character size datatype"@en;
+	rdfs:comment """Datatype to type a character literal's size."""@en.
+	skos:note """E.g. “10”^^sa:characterSize. Used in combination with other other character features."""@en;
+	rdfs:subClassOf xsd:positiveInteger.
+
+#
 # PROPERTIES
 #
 
@@ -255,6 +267,8 @@ text:hasNameLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has name literal"@en, "hat Nameliterale"@de, "a littéral du nom"@fr, "ha letterale del nome"@it;
 	rdfs:comment """Relating a resource to a name as a textual appelation of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral, rdfs:label, foaf:name.
 
 text:hasPreferredNameLiteral
@@ -262,6 +276,8 @@ text:hasPreferredNameLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de, "a littéral du nom préféré"@fr, "ha letterale del nome preferito"@it;
 	rdfs:comment """Relating a resource to a preferred name literal."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 text:hasAliasLiteral
@@ -269,6 +285,8 @@ text:hasAliasLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de, "a littéral du nom d'emprunt"@fr, "ha letterale del falso nome"@it;
 	rdfs:comment """Relating a resource to the literal of an alias as an alternative name of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 text:hasTitleLiteral
@@ -276,6 +294,8 @@ text:hasTitleLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has title literal"@en, "hat Titelliterale"@de, "a littéral du titre"@fr, "ha letterale del titolo"@it;
 	rdfs:comment """Relating a resource to the literal of a title as a textual appelation of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral.
 
 text:hasSubtitleLiteral
@@ -283,6 +303,8 @@ text:hasSubtitleLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has subtitle literal"@en, "hat Untertitelliterale"@de, "a littéral du sous-titre"@fr, "ha letterale del sottotitolo"@it;
 	rdfs:comment """Relating a resource to the literal of a subtitle as additional, usually explanatory to the title."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral.
 
 text:hasCommentLiteral
@@ -290,6 +312,8 @@ text:hasCommentLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has comment literal"@en, "hat Kommentarliterale"@de, "a littéral du commentaire"@fr, "ha letterale del commento"@it;
 	rdfs:comment """Relating a resource to the literal of a comment as a textual statement about the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral.
 
 text:hasDescriptionLiteral
@@ -297,6 +321,8 @@ text:hasDescriptionLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de, "a littéral d'une description"@fr, "ha letterale della descrizione"@it;
 	rdfs:comment """Relating a resource to the literal of a description as a textual statement about features of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral.
 
 text:hasDefinitionLiteral
@@ -304,6 +330,8 @@ text:hasDefinitionLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has definition literal"@en, "hat Definition"@de, "a littéral d'une définition"@fr, "ha letterale della definizione"@it;
 	rdfs:comment """Relating a resource to the literal of a definition as a textual statement about the essential features of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 text:hasDetailDescriptionLiteral
@@ -311,6 +339,8 @@ text:hasDetailDescriptionLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has detail description literal"@en, "hat Detail-Beschreibungliterale"@de, "a littéral d'une description détaillée"@fr, "ha letterale della descrizione dettagliata"@it;
 	rdfs:comment """Relating a resource to the literal of a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 text:hasSpecialDescriptionLiteral
@@ -318,6 +348,8 @@ text:hasSpecialDescriptionLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has special description literal"@en, "hat Besonderes-Beschreibungliterale"@de, "a littéral d'une description spéciale"@fr, "ha letterale della descrizione speciale"@it;
 	rdfs:comment """Relating a resource to the literal of a description of (a) certain feature(s)."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 text:isTextOfDocument

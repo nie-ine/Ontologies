@@ -1,3 +1,4 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
@@ -6,6 +7,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
+@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
 @prefix event: <http://www.e-editiones.ch/ontology/event#>.
 @prefix human: <http://www.e-editiones.ch/ontology/human#>.
 @prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
@@ -15,6 +17,7 @@
 @prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix document: <http://www.e-editiones.ch/ontology/document#>.
+@prefix dt: <http://www.e-editiones.ch/ontology/datatypes#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
@@ -48,7 +51,7 @@ sa:Tag
 	rdfs:label "stand-off tag"@en, "Stand-off-Tag"@de;
 	rdfs:comment """Digital tag annotating a text literal."""@en;
 	skos:note """A stand-off tag does not contain a document element literal itself, e.g. a text literal or an HTML literal, but is a semantic hub describing the different meanings attributed to the literal it refers to."""@en;
-	rdfs:subClassOf concept:SymbolicEntity; cidoc:E41_Appellation.
+	rdfs:subClassOf concept:SymbolicEntity, cidoc:E41_Appellation.
 
 sa:CaseTag
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/standoff-annotation#>;
@@ -83,7 +86,7 @@ sa:ColorTag
 	a rdfs:Class;
 	rdfs:label "color stand-off tag"@en, "Farbe-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's character color."""@en;
-	rdfs:subClassOf
+	rdfs:subClassOf sa:Tag.
 
 sa:CharacterColorTag
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/standoff-annotation#>;
@@ -97,6 +100,7 @@ sa:CharacterTiltTag
 	a rdfs:Class;
 	rdfs:label "character tilt stand-off tag"@en, "Zeichenneigungswinkel-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's character tilt."""@en;
+	rdfs:subClassOf sa:Tag.
 
 sa:ItalicTag
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/standoff-annotation#>;
@@ -605,6 +609,14 @@ sa:hasEndCharacterOrdinalNumeral
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral.
 
+sa:hasContentSubject
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/standoff-annotation#>;
+	a owl:ObjectProperty;
+	rdfs:label "stand-off tag has content subject"@en, "Stand-off-Tag hat Inhaltsthema"@de;
+	rdfs:comment """Relating a stand-off annotation tag to the content subject of the text literal it tags."""@en;
+	rdfs:domain sa:Tag;
+	rdfs:range rdfs:Resource.
+
 # sa:hasCase rdfs:domain sa:CaseTag; rdfs:range x:Case.
 
 sa:hasCharacterSize
@@ -642,7 +654,7 @@ sa:hasColorCodeValue
 	rdfs:label "stand-off tag has color code value"@en, "Stand-off-Tag hat Farbekodewert"@de;
 	rdfs:comment """Relating a stand-off tag to the code of the color of the text literal it tags."""@en;
 	rdfs:domain sa:NameTag;
-	rdfs:range rdfs:Literal;
+	rdfs:range rdfs:Literal.
 
 # Following properties needed to link to the text appearance resources.
 
@@ -710,7 +722,7 @@ sa:hasWeather
 	rdfs:label "weather stand-off tag has weather"@en, "Wetter-Stand-off-Tag hat Wetter"@de;
 	rdfs:comment """Relating a weather stand-off tag to a weather described by the text literal it refers to."""@en;
 	rdfs:domain sa:WeatherTag;
-	rdfs:range weather:Weather. # To do, e.g. weather:BlueSky rdfs:subClassOf weather:Weather;
+#	rdfs:range weather:Weather. # To do, e.g. weather:BlueSky rdfs:subClassOf weather:Weather;
 	skos:note """
 		example:tagX # All text literals having 'weather' as content subject are colored blue.
 			a sa:CharacterColorTag, sa:WeatherTag;

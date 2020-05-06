@@ -245,7 +245,7 @@ text:characterSize
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a rdfs:Datatype;
 	rdfs:label "character size datatype"@en;
-	rdfs:comment """Datatype to type a character literal's size."""@en.
+	rdfs:comment """Datatype to type a character literal's size."""@en;
 	skos:note """E.g. “10”^^sa:characterSize. Used in combination with other other character features."""@en;
 	rdfs:subClassOf xsd:positiveInteger.
 

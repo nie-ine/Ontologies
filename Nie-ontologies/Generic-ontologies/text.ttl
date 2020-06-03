@@ -266,7 +266,7 @@ text:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has name literal"@en, "hat Nameliterale"@de, "a littéral du nom"@fr, "ha letterale del nome"@it;
-	rdfs:comment """Relating a resource to a name as a textual appelation of the resource."""@en;
+	rdfs:comment """Relating a resource to a name literal as a textual appelation of the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTextLiteral, rdfs:label, foaf:name.
@@ -387,7 +387,7 @@ text:hasVersionIndicator
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText.
 
-text:hasPageNumberDescription
+text:hasPageNumberDescriptionLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
 	rdfs:label "text has page number description"@en, "Text hat Seitennummerbeschreibung"@de, "le texte a une description de numéro de page"@fr, "il testo ha una descrizione del numero di pagina"@it;

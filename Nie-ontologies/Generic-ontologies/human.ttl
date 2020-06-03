@@ -588,6 +588,8 @@ human:hasFamilyNameLiteral
 	rdfs:label "has family name literal"@en, "hat Nachnameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a family name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 human:hasGivenNameLiteral
@@ -596,6 +598,8 @@ human:hasGivenNameLiteral
 	rdfs:label "has given name literal"@en, "hat Vornameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a given name of that person."""@en;
 	skos:note """Further restriction given along specific law; e.g. a person can have her/his given name legally changed."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 # name parts, e.g. middle name, compound given name
@@ -605,6 +609,8 @@ human:hasPreferredNameLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a preferred name of that person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf human:hasNameLiteral, text:hasPreferredNameLiteral.
 
 human:hasAliasLiteral
@@ -612,6 +618,8 @@ human:hasAliasLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de;
 	rdfs:comment """Relating a person to the literal of an alias of that person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf human:hasNameLiteral, text:hasAliasLiteral.
 
 human:hasTitleLiteral
@@ -619,6 +627,8 @@ human:hasTitleLiteral
 	a owl:DatatypeProperty;
 	rdfs:label "has title literal"@en, "hat Titelliterale"@de;
 	rdfs:comment """Relating a person to the literal of a title of that person."""@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 human:hasDescriptionLiteral

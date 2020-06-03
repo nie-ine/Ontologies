@@ -146,7 +146,7 @@ delille:LiteraryScientificExpression
 	a rdfs:Class;
 	rdfs:label "citing literary scientific expression"@en, "zitierende Literaturwissenschaftliche Expression"@de, "expression scientifique littéraire citante"@fr; #, ""@it;
 	rdfs:comment """Literary scientific publication expression in esthetics, poetry and literary history, citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:ScientificExpression, delille:CitingExpression.
+	rdfs:subClassOf delille:LiteraryExpression, text-expression:ScientificExpression, delille:CitingExpression.
 
 delille:ScientificOrVulgarizedExpression
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/delille#>;

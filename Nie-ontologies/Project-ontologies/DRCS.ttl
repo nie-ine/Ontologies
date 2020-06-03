@@ -25,7 +25,8 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Institut D'histoire De La Réformation, University of Geneva, Switzerland"@en,
-		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
+		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en,
+		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
 	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>.
 
 #
@@ -200,6 +201,13 @@ drcs:CompiledPrintedCommentary
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as compiled printed text."""@en;
 	rdfs:subClassOf drcs:Commentary, text:PrintedText, text:CompiledText.
 
+drcs:StegmuellerCode
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/drcs#>;
+	a rdfs:Class;
+	rdfs:label "Stegmueller code"@en, "Stegmueller-Kode"@de;
+	rdfs:comment """Identifier belonging to the Stegmüller-system."""@en;
+	rdfs:subClassOf concept:Code.
+
 #
 # CODE SYSTEM AND DATATYPE INSTANCE
 #
@@ -245,7 +253,7 @@ drcs:hasStegmuellerCode
 	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to its Stegmüller's code."""@en;
 	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCode [concept:codeHasSystem drcs:stegmuellerSystem; concept:codeHasValue "x"^^drcs:stegmuellerDatatype]"""@en;
  	rdfs:domain drcs:Commentary;
-	rdfs:range drcs:stegmuellerCode;
+	rdfs:range drcs:StegmuellerCode;
 	rdfs:subPropertyOf concept:hasCode.
 
 drcs:hasStegmuellerCodeValue

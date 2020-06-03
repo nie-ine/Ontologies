@@ -22,10 +22,10 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 
-# @base <http://www.e-editiones.ch/ontology/kuno-raeber>.
-@prefix kuno-raeber: <http://www.e-editiones.ch/ontology/kuno-raeber#>.
+# @base <http://www.e-editiones.ch/ontology/raeber>.
+@prefix raeber: <http://www.e-editiones.ch/ontology/raeber#>.
 
-<http://www.e-editiones.ch/ontology/kuno-raeber>
+<http://www.e-editiones.ch/ontology/raeber>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about the lyric of Kuno Raeber"@en;
@@ -36,310 +36,310 @@
 # CLASSES
 #
 
-kuno-raeber:Work
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Work
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber work"@en, "Werk Kuno Raebers"@de;
 	rdfs:comment """Work by Kuno Raeber."""@en;
 	rdfs:subClassOf concept:IndividualWork.
 
-kuno-raeber:Text
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Text
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber text expression"@en, "Textexpression Kuno Raebers"@de;
 	rdfs:comment """Text expression authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 	# seqnum
 
-kuno-raeber:PublicationTextPart
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PublicationTextPart
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber publication text expression part"@en, "Publikation-Textexpressionsteil Kuno Raebers"@de;
 	rdfs:comment """Part of a publication text expression authored by Kuno Raeber."""@en;
 	rdfs:subClassOf text-expression:ExpressionPart, publish:Expression.
 
-kuno-raeber:TypewrittenCommentary
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypewrittenCommentary
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typewritten commentary"@en, "maschinengeschriebener Kommentar Kuno Raebers"@de;
 	rdfs:comment """Typewritten commentary authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text-expression:Commentary, text:TypewrittenText, text:Nonfiction, kuno-raeber:Text.
+	rdfs:subClassOf text-expression:Commentary, text:TypewrittenText, text:Nonfiction, raeber:Text.
 
-kuno-raeber:Preface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Preface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber preface"@en, "Vorwort Kuno Raebers"@de;
 	rdfs:comment """Preface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf literature:Preface, text:Nonfiction, kuno-raeber:Text.
+	rdfs:subClassOf literature:Preface, text:Nonfiction, raeber:Text.
 
-kuno-raeber:DraftHandwrittenPreface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:DraftHandwrittenPreface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber handwritten preface draft"@en, "handgeschriebener Vorwort-Entwurf Kuno Raebers"@de;
 	rdfs:comment """Draft handwritten preface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Preface, text:HandwrittenText, text-expression:Draft.
+	rdfs:subClassOf raeber:Preface, text:HandwrittenText, text-expression:Draft.
 
-kuno-raeber:TypewrittenPreface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypewrittenPreface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typewritten preface"@en, "maschinengeschriebener Vorwort Kuno Raebers"@de;
 	rdfs:comment """Typewritten preface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Preface, text:TypewrittenText.
+	rdfs:subClassOf raeber:Preface, text:TypewrittenText.
 
-kuno-raeber:PublicationPreface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PublicationPreface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber publication preface"@en, "Publikationsvorwort Kuno Raebers"@de;
 	rdfs:comment """Publication preface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Preface, publish:Expression.
+	rdfs:subClassOf raeber:Preface, publish:Expression.
 
-kuno-raeber:Postface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Postface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber postface"@en, "Nachwort Kuno Raebers"@de;
 	rdfs:comment """Postface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf literature:Postface, text:Nonfiction, kuno-raeber:Text.
+	rdfs:subClassOf literature:Postface, text:Nonfiction, raeber:Text.
 
-kuno-raeber:TypewrittenPostface
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypewrittenPostface
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typewritten postface"@en, "maschinengeschriebener Nachwort Kuno Raebers"@de;
 	rdfs:comment """Typewritten postface authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Postface, text:TypewrittenText.
+	rdfs:subClassOf raeber:Postface, text:TypewrittenText.
 
-kuno-raeber:PublicationMotto
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PublicationMotto
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "publication motto"@en, "Publikation-Motto"@de;
 	rdfs:comment """Publication motto authored by Kuno Raeber."""@en;
-	rdfs:subClassOf literature:Motto, publish:Expression, kuno-raeber:Text.
+	rdfs:subClassOf literature:Motto, publish:Expression, raeber:Text.
 
-kuno-raeber:Poem
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Poem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem"@en, "Gedicht Kuno Raebers"@de;
 	rdfs:comment """Poem authored by Kuno Raeber."""@en;
-	rdfs:subClassOf literature:Poem, kuno-raeber:Text.
+	rdfs:subClassOf literature:Poem, raeber:Text.
 
-kuno-raeber:ScholarlyEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:ScholarlyEdition
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "scholarly Kuno Raeber text edition"@en, "wissenschaftliche Edition eines Kuno Raeber Textes"@de;
 	rdfs:comment """Scholarly edition of a text authored by Kuno Raeber."""@en, """Wissenschaftliche Edition eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf scholarly-editing:Edition.
 
-kuno-raeber:DiplomaticTranscription
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:DiplomaticTranscription
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber text diplomatic transcription"@en, "diplomatische Umschrift eines Kuno Raeber Textes"@de;
 	rdfs:comment """Diplomatic transcription of a text authored by Kuno Raeber."""@en, """Diplomatische Umschrift eines von Kuno Raeber verfassten Texts."""@de;
 	rdfs:subClassOf scholarly-editing:DiplomaticTranscription.
 	# seqnum
 
-kuno-raeber:HandwrittenPoem
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:HandwrittenPoem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber handwritten poem"@en, "handgeschriebenes Gedicht Kuno Raebers"@de;
 	rdfs:comment """Handwritten poem authored by Kuno Raeber."""@en, """Handgeschriebenes Gedicht Kuno Raebers."""@de;
-	rdfs:subClassOf kuno-raeber:Poem, text:HandwrittenText.
+	rdfs:subClassOf raeber:Poem, text:HandwrittenText.
 
-kuno-raeber:PoemNote
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemNote
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem note"@en, "Gedichtnotiz Kuno Raebers"@de;
 	rdfs:comment """Poem note authored by Kuno Raeber."""@en, """Gedichtnotiz Kuno Raebers."""@de;
-	rdfs:subClassOf kuno-raeber:HandwrittenPoem, creating:FirstVersion.
+	rdfs:subClassOf raeber:HandwrittenPoem, creating:FirstVersion.
 
-kuno-raeber:PostcardPoem
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PostcardPoem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber postcard poem"@en, "Postkarten-Gedicht Kuno Raebers"@de;
 	rdfs:comment """Postcard poem authored by Kuno Raeber."""@en, """Postkarten-Gedicht Kuno Raebers."""@de;
-	rdfs:subClassOf kuno-raeber:HandwrittenPoem.
+	rdfs:subClassOf raeber:HandwrittenPoem.
 
-kuno-raeber:TypewrittenPoem
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypewrittenPoem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typewritten poem"@en, "maschinengeschriebenes Gedicht Kuno Raebers"@de;
 	rdfs:comment """Typewritten poem authored by Kuno Raeber."""@en, """Maschinengeschriebenes Gedicht Kuno Raebers."""@de;
-	rdfs:subClassOf kuno-raeber:Poem, text:TypewrittenText.
+	rdfs:subClassOf raeber:Poem, text:TypewrittenText.
 
-kuno-raeber:PublicationPoem
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PublicationPoem
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber publication poem"@en, "Publikation-Gedicht Kuno Raebers"@de;
 	rdfs:comment """Poem authored by Kuno Raeber, as published."""@en, """Gedicht Kuno Raebers wie publiziert."""@de;
-	rdfs:subClassOf kuno-raeber:Poem, publish:Expression.
+	rdfs:subClassOf raeber:Poem, publish:Expression.
 
-kuno-raeber:DiaryEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:DiaryEntry
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber diary entry"@en, "Tagebucheintrag Kuno Raebers"@de;
 	rdfs:comment """Diary entry authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text-expression:DiaryEntry, kuno-raeber:Text.
+	rdfs:subClassOf text-expression:DiaryEntry, raeber:Text.
 
-kuno-raeber:DraftLetterExpression
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:DraftLetterExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber draft letter expression"@en,"Briefentwurf-Expression Kuno Raebers"@de;
 	rdfs:comment """Draft letter expression authored by Kuno Raeber."""@en;
-	rdfs:subClassOf text:HandwrittenText, kuno-raeber:Text, text-expression:Draft. # infocar:ArchiveElement.
+	rdfs:subClassOf text:HandwrittenText, raeber:Text, text-expression:Draft. # infocar:ArchiveElement.
 
-kuno-raeber:LetterExpression
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:LetterExpression
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber letter expression"@en, "Brief-Expression Kuno Raebers"@de;
 	rdfs:comment """Letter expression written by Kuno Raeber."""@en;
-	rdfs:subClassOf letter-corresponding:Expression, text:WrittenText, kuno-raeber:Text.
+	rdfs:subClassOf letter-corresponding:Expression, text:WrittenText, raeber:Text.
 
-kuno-raeber:Page
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Page
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber page"@en, "Seite Kuno Raebers"@de;
 	rdfs:comment """Page with a handwritten poem by Kuno Raeber."""@en, """Seite mit einem handgeschriebenen Gedicht Kuno Raebers."""@de;
 	rdfs:subClassOf infocar:Page.
 	# hasRepresentation
 
-kuno-raeber:Convolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Convolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber convolute"@en, "Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of which the elements are authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Convolute.
 
-kuno-raeber:ConvoluteElement
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:ConvoluteElement
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber convolute element"@en, "Element eines Kuno Raeber-Konvoluts"@de;
 	rdfs:comment """Element of a Kuno Raeber convolute."""@en;
 	rdfs:subClassOf infocar:ConvoluteElement.
 
-kuno-raeber:PoemNotebook
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemNotebook
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem notebook"@en, "Gedichten-Notizbuch Kuno Raebers"@de;
 	rdfs:comment """Notebook with poem notes authored by Kuno Raeber."""@en;
-	rdfs:subClassOf infocar:Manuscript, infocar:Notebook, kuno-raeber:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf infocar:Manuscript, infocar:Notebook, raeber:Convolute, infocar:ArchiveElement.
 	# hasRepresentation.
 
-kuno-raeber:Manuscript
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Manuscript
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber manuscript"@en, "Manuskript Kuno Raebers"@de;
 	rdfs:comment """Manuscript authored by Kuno Raeber."""@en;
-	rdfs:subClassOf infocar:Leaf, infocar:Manuscript, kuno-raeber:ConvoluteElement, infocar:ArchiveElement.
+	rdfs:subClassOf infocar:Leaf, infocar:Manuscript, raeber:ConvoluteElement, infocar:ArchiveElement.
 
-kuno-raeber:PoemManuscript
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemManuscript
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem manuscript"@en, "Gedichtmanuskript Kuno Raebers"@de;
 	rdfs:comment """Manuscript with a poem authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Manuscript.
+	rdfs:subClassOf raeber:Manuscript.
 
-kuno-raeber:ManuscriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:ManuscriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber manuscript convolute"@en, "Manuskriptenkonvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute with manuscripts authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf raeber:Convolute, infocar:ArchiveElement.
 
-kuno-raeber:PoemPostcard
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemPostcard
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem postcard"@en, "Gedicht-Postkarte Kuno Raebers"@de;
 	rdfs:comment """Postcard with a poem authored by Kuno Raeber."""@en;
 	rdfs:subClassOf infocar:Manuscript, infocar:Postcard, infocar:ArchiveElement, infocar:ConvoluteElement.
 
-kuno-raeber:PoemPostcardConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemPostcardConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem postcard convolute"@en, "Gedicht-Postkartenkonvolut Kuno Raebers"@de;
 	rdfs:comment """Poem postcard convolute with poems authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute.
+	rdfs:subClassOf raeber:Convolute.
 	# hasRepresentation.
 
-kuno-raeber:Typescript
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Typescript
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typescript"@en, "Typoskript Kuno Raebers"@de;
 	rdfs:comment """Typescript by Kuno Raeber."""@en;
-	rdfs:subClassOf infocar:Leaf, infocar:Typescript, kuno-raeber:ConvoluteElement, infocar:ArchiveElement.
+	rdfs:subClassOf infocar:Leaf, infocar:Typescript, raeber:ConvoluteElement, infocar:ArchiveElement.
 
-kuno-raeber:PoemTypescript
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PoemTypescript
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poem typescript"@en, "Gedichttyposkript Kuno Raebers"@de;
 	rdfs:comment """Poem typescript by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Typescript.
+	rdfs:subClassOf raeber:Typescript.
 
-kuno-raeber:TypescriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypescriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typescript convolute"@en, "Typoskriptenconvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute with typescripts authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf raeber:Convolute, infocar:ArchiveElement.
 
-kuno-raeber:TypescriptConvoluteWithImage
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:TypescriptConvoluteWithImage
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber typescript convolute with image"@en, "Typoskriptenconvolut Kuno Raebers mit Bild"@de;
 	rdfs:comment """Typescript convolute with poems authored by Kuno Raeber, mit bild."""@en;
-	rdfs:subClassOf kuno-raeber:TypescriptConvolute.
+	rdfs:subClassOf raeber:TypescriptConvolute.
 	# hasRepresentation.
 
-kuno-raeber:PrintedPoemBookPublication
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PrintedPoemBookPublication
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber printed poem book publication"@en, "gedruckte Gedichtenbuchausgabe Kuno Raebers"@de;
 	rdfs:comment """Printed publication of a book  with poems authored by Kuno Raeber."""@en;
-	rdfs:subClassOf infocar:Book, publish:PrintedPublication, kuno-raeber:Convolute.
+	rdfs:subClassOf infocar:Book, publish:PrintedPublication, raeber:Convolute.
 	# hasRepresentation.
 
-kuno-raeber:PolyAuthorPublication
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PolyAuthorPublication
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poly-author publication"@en, "Mehrautorenpublikationen Kuno Raebers"@de;
 	rdfs:comment """Publication with a poem authored by Kuno Raeber among expressions by other authors."""@en;
 	rdfs:subClassOf publish:PolyAuthorPublication, infocar:ArchiveElement.
 
-kuno-raeber:PolyAuthorPublicationConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:PolyAuthorPublicationConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber poly-author publication convolute"@en, "Mehrautorenpublikationen-Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of poems authored by Kuno Raeber as published among expressions by other authors."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute.
+	rdfs:subClassOf raeber:Convolute.
 
-kuno-raeber:Diary
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Diary
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber diary"@en,"Tagebuch Kuno Raebers"@de;
 	rdfs:comment """Diary with entries authored by Kuno Raeber."""@en;
-	skos:note """Different from kuno-raeber:DiaryConvolute - in contrast to kuno-raeber:PoemNotebook - because only selections from different diaries are published online."""@en;
+	skos:note """Different from raeber:DiaryConvolute - in contrast to raeber:PoemNotebook - because only selections from different diaries are published online."""@en;
 	rdfs:subClassOf infocar:Diary, infocar:Manuscript, infocar:Book, infocar:ArchiveElement.
 
-kuno-raeber:DiaryConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:DiaryConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber diary convolute"@en,"Tagebuch-Konvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of diaries with entries authored by Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf raeber:Convolute, infocar:ArchiveElement.
 
-kuno-raeber:Letter
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:Letter
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber letter"@en,"Brief Kuno Raebers"@de;
 	rdfs:comment """Letter written by or to Kuno Raeber."""@en;
 	rdfs:subClassOf letter-corresponding:Letter, infocar:ArchiveElement.
 
-kuno-raeber:LetterConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:LetterConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber letter convolute"@en,"Briefekonvolut Kuno Raebers"@de;
 	rdfs:comment """Convolute of letters written by and to Kuno Raeber."""@en;
-	rdfs:subClassOf kuno-raeber:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf raeber:Convolute, infocar:ArchiveElement.
 
-kuno-raeber:NachlassPublication
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:NachlassPublication
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a rdfs:Class;
 	rdfs:label "Kuno Raeber nachlass publication"@en, "Nachlass-Publication Kuno Raebers"@de;
 	rdfs:comment """Publication of a Nachlass of Kuno Raeber."""@en;
@@ -349,242 +349,242 @@ kuno-raeber:NachlassPublication
 # PROPERTIES
 #
 
-kuno-raeber:poemHasTitleLiteral #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:poemHasTitleLiteral #°
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:DatatypeProperty;
 	rdfs:label "poem has title"@en, "Gedicht hat Titel"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a title it has."""@en;
-	rdfs:domain kuno-raeber:Poem;
+	rdfs:domain raeber:Poem;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text-expression:hasTitleLiteral.
 
-kuno-raeber:hasPageIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasPageIndicator
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has page indicator"@en, "hat Seite-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by by Kuno Raeber to an editorial symbol indicating where a page starts."""@en;
-	rdfs:domain kuno-raeber:ScholarlyEdition;
+	rdfs:domain raeber:ScholarlyEdition;
 	rdfs:range rdfs:Literal.
 
-kuno-raeber:hasPageNumberIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasPageNumberIndicator
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has page number indicator"@en, "hat Seitennummer-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by Kuno Raeber to an editorial symbol indicating the number of a page."""@en;
-	rdfs:domain kuno-raeber:ScholarlyEdition;
+	rdfs:domain raeber:ScholarlyEdition;
 	rdfs:range rdfs:Literal.
 
-kuno-raeber:hasColumnIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasColumnIndicator
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has column indicator"@en, "hat Spalte-Indikator"@de;
 	rdfs:comment """Relating a scholarly edition of an expression by Kuno Raeber to an editorial symbol indicating where on a page a column starts."""@en;
-	rdfs:domain kuno-raeber:ScholarlyEdition;
+	rdfs:domain raeber:ScholarlyEdition;
 	rdfs:range rdfs:Literal.
 
-kuno-raeber:isOnPage
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isOnPage
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is on page"@en, "ist auf Seite"@de;
 	rdfs:comment """Relating a handwritten poem by Kuno Raeber to a carrier page it is on."""@en;
-	rdfs:domain kuno-raeber:HandwrittenPoem;
-	rdfs:range kuno-raeber:Page;
+	rdfs:domain raeber:HandwrittenPoem;
+	rdfs:range raeber:Page;
 	rdfs:subPropertyOf infocar:isTextOnPage.
 
-kuno-raeber:isInNotebook
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isInNotebook
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is in notebook"@en, "ist in Notizbuch"@de;
 	rdfs:comment """Relating a poem note by Kuno Raeber to a notebook it is in."""@en;
-	rdfs:domain kuno-raeber:PoemNote;
-	rdfs:range kuno-raeber:PoemNotebook;
+	rdfs:domain raeber:PoemNote;
+	rdfs:range raeber:PoemNotebook;
 	rdfs:subPropertyOf infocar:isInManuscript.
 
-kuno-raeber:isOnPostcard
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isOnPostcard
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is on postcard"@en, "ist auf Postkarte"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a postcard it is on."""@en;
-	rdfs:domain kuno-raeber:PostcardPoem;
-	rdfs:range kuno-raeber:PoemPostcard;
+	rdfs:domain raeber:PostcardPoem;
+	rdfs:range raeber:PoemPostcard;
 	rdfs:subPropertyOf infocar:isInManuscript.
 
-kuno-raeber:isInPolyAuthorPublicationConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isInPolyAuthorPublicationConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is in poly-author publication convolute"@en, "ist in Mehrautorenpublikationen-Konvolut"@de;
 	rdfs:comment """Relating a publication poem by Kuno Raeber to a poly-author publication it is in."""@en;
-	rdfs:domain kuno-raeber:PublicationPoem;
-	rdfs:range kuno-raeber:PolyAuthorPublicationConvolute.
+	rdfs:domain raeber:PublicationPoem;
+	rdfs:range raeber:PolyAuthorPublicationConvolute.
 
-kuno-raeber:isPartOfManuscriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfManuscriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of manuscript convolute"@en, "ist Teil eines Manuskriptenkonvoluts"@de;
 	rdfs:comment """Relating a manuscript by Kuno Raeber to the convolute it is part of."""@en;
-	rdfs:domain kuno-raeber:Manuscript;
-	rdfs:range kuno-raeber:ManuscriptConvolute;
+	rdfs:domain raeber:Manuscript;
+	rdfs:range raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute.
 
-kuno-raeber:isPartOfPostcardConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfPostcardConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of postcard convolute"@en, "ist Teil von Postkartekonvolut"@de;
 	rdfs:comment """Relating a poem postcard by Kuno Raeber to the convolute it is part of."""@en;
-	rdfs:domain kuno-raeber:PoemPostcard;
-	rdfs:range kuno-raeber:PoemPostcardConvolute;
+	rdfs:domain raeber:PoemPostcard;
+	rdfs:range raeber:PoemPostcardConvolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute.
 		
-kuno-raeber:isPartOfTypescriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfTypescriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of typescript convolute"@en, "ist Teil eines Typoskriptenkonvoluts"@de;
 	rdfs:comment """Relating a typescript by Kuno Raeber to the convolute it is part of."""@en;
-	rdfs:domain kuno-raeber:Typescript;
-	rdfs:range kuno-raeber:TypescriptConvolute;
+	rdfs:domain raeber:Typescript;
+	rdfs:range raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute.
 
-kuno-raeber:containsEarlierStagesOfManuscriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:containsEarlierStagesOfManuscriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "contains earlier stages of manuscript convolute"@en, "enthält Vorstufen von Manuskriptenkonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing manuscripts with later stages of poems by Kuno Raeber of the former convolute."""@en;
-	rdfs:domain kuno-raeber:PoemNotebook;
-	rdfs:range kuno-raeber:ManuscriptConvolute;
+	rdfs:domain raeber:PoemNotebook;
+	rdfs:range raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:containsEarlierStagesOf.
 
-kuno-raeber:containsEarlierStagesOfTypescriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:containsEarlierStagesOfTypescriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "contains earlier stages of typescript convolute"@en, "enthält Vorstufen von Typoskriptenonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing typescripts with later stages of poems by Kuno Raeber of the former convolute."""@en;
-	rdfs:domain kuno-raeber:Convolute;
-	rdfs:range kuno-raeber:TypescriptConvolute;
+	rdfs:domain raeber:Convolute;
+	rdfs:range raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:containsEarlierStagesOf.
 
-kuno-raeber:containsLaterStagesOfNotebook
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:containsLaterStagesOfNotebook
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "contains later stages of notebook"@en, "enthält spätere Stufen von Notizbuch"@de;
 	rdfs:comment """Relating a convolute to a notebook containing earlier stages of poems by Kuno Raeber of the former convolute."""@en;
-	rdfs:domain kuno-raeber:Convolute;
-	rdfs:range kuno-raeber:PoemNotebook;
+	rdfs:domain raeber:Convolute;
+	rdfs:range raeber:PoemNotebook;
 	rdfs:subPropertyOf infocar:containsLaterStagesOf.
 
-kuno-raeber:containsLaterStagesOfManuscriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:containsLaterStagesOfManuscriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "contains later stages of manuscript convolute"@en, "enthält spätere Stufen von Manuskriptenkonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing manuscripts with earlier stages of poems by Kuno Raeber of the former convolute."""@en;
-	rdfs:domain kuno-raeber:Convolute;
-	rdfs:range kuno-raeber:ManuscriptConvolute;
+	rdfs:domain raeber:Convolute;
+	rdfs:range raeber:ManuscriptConvolute;
 	rdfs:subPropertyOf infocar:containsLaterStagesOf.
 
-kuno-raeber:containsLaterStagesOfTypescriptConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:containsLaterStagesOfTypescriptConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "contains later stages of typescript convolute"@en, "enthält spätere Stufen von Typoskriptenonvolut"@de;
 	rdfs:comment """Relating a convolute to another one containing typescripts with earlier stages of poems by Kuno Raeber of the former convolute."""@en;
-	rdfs:domain kuno-raeber:PrintedPoemBookPublication;
-	rdfs:range kuno-raeber:TypescriptConvolute;
+	rdfs:domain raeber:PrintedPoemBookPublication;
+	rdfs:range raeber:TypescriptConvolute;
 	rdfs:subPropertyOf infocar:containsLaterStagesOf.
 
-kuno-raeber:isInDiary
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isInDiary
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "entry is in diary"@en, "Eintrag ist in Tagebuch"@de;
 	rdfs:comment """Relating a diary entry by Kuno Raeber to the diary it is in."""@en;
-	rdfs:domain kuno-raeber:DiaryEntry;
-	rdfs:range kuno-raeber:Diary;
+	rdfs:domain raeber:DiaryEntry;
+	rdfs:range raeber:Diary;
 	rdfs:subPropertyOf infocar:isEntryInDiary.
 
-kuno-raeber:isInDiaryConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isInDiaryConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is in diary convolute"@en, "ist in Tagebuch-Konvolut"@de;
 	rdfs:comment """Relating a diary entry by Kuno Raeber to a diary convolute it is in."""@en;
-	rdfs:domain kuno-raeber:DiaryEntry;
-	rdfs:range kuno-raeber:DiaryConvolute.
+	rdfs:domain raeber:DiaryEntry;
+	rdfs:range raeber:DiaryConvolute.
 
-kuno-raeber:isPartOfConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of convolute"@en, "ist Teil eines Konvoluts"@de;
 	rdfs:comment """Relating an element of a Kuno Raeber convolute to the convolute."""@en;
-	rdfs:domain kuno-raeber:ConvoluteElement;
-	rdfs:range kuno-raeber:Convolute;
+	rdfs:domain raeber:ConvoluteElement;
+	rdfs:range raeber:Convolute;
 	rdfs:subPropertyOf infocar:isPartOfConvolute.
 
-kuno-raeber:isPartOfLetterConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfLetterConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of letter convolute"@en, "ist Teil eines Briefe-Konvolut"@de;
 	rdfs:comment """Relating a letter by Kuno Raeber to a convolute it is in."""@en;
-	rdfs:domain kuno-raeber:Letter;
-	rdfs:range kuno-raeber:LetterConvolute;
+	rdfs:domain raeber:Letter;
+	rdfs:range raeber:LetterConvolute;
 	rdfs:subPropertyOf physical:isPartOf.
 
-kuno-raeber:hasSameEditionAsIn
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasSameEditionAsIn
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as in"@en, "hat gleiche Edition als in "@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a convolute containing a poem with the same edition."""@en;
-	rdfs:domain kuno-raeber:Poem;
-	rdfs:range kuno-raeber:Convolute.
+	rdfs:domain raeber:Poem;
+	rdfs:range raeber:Convolute.
 
-kuno-raeber:hasReferencePoem
+raeber:hasReferencePoem
 	 a owl:ObjectProperty;
 	rdfs:label "has reference poem"@en, "hat Bezugsgedicht"@de;
 	rdfs:comment "Relating a poem to another one as its reference."@en;
-	rdfs:domain kuno-raeber:Poem;
-	rdfs:range kuno-raeber:Poem;
+	rdfs:domain raeber:Poem;
+	rdfs:range raeber:Poem;
 	rdfs:subPropertyOf text:hasReferenceText.
 
-kuno-raeber:hasReferenceTitleLiteral #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasReferenceTitleLiteral #°
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "has reference title"@en, "hat Bezugstitel"@de;
 	rdfs:comment """Relating a poem to a title of a reference poem."""@en;
-	rdfs:domain kuno-raeber:Poem;
+	rdfs:domain raeber:Poem;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitleLiteral.
 
-kuno-raeber:hasContentPartInPolyAuthorPublicationConvolute
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasContentPartInPolyAuthorPublicationConvolute
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "has part in poly-author publication convolute"@en, "ist Teilweise in einem Mehrautorenpublikationen-Konvolut"@de;
 	rdfs:comment "Relating a poly-author publication to a convolute it has part of its content in."@en;
-	rdfs:domain kuno-raeber:PolyAuthorPublication;
-	rdfs:range kuno-raeber:PolyAuthorPublicationConvolute.
+	rdfs:domain raeber:PolyAuthorPublication;
+	rdfs:range raeber:PolyAuthorPublicationConvolute.
 
-kuno-raeber:isFinalVersion
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isFinalVersion
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is final version"@en, "ist Endfassung"@de;
 	rdfs:comment """Relating a text by Kuno Raeber to being a last version or not."""@en;
-	rdfs:domain kuno-raeber:Text;
+	rdfs:domain raeber:Text;
 	rdfs:range xsd:boolean.
 
-kuno-raeber:isInSwissGerman
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isInSwissGerman
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is in Swiss German"@en, "ist auf Schweizerdeutsch"@de;
 	rdfs:comment """Relating a text by Kuno Raeber to being expressed in Swiss German or not."""@en;
-	rdfs:domain kuno-raeber:Text;
+	rdfs:domain raeber:Text;
 	rdfs:range xsd:boolean.
 
-kuno-raeber:isPartOfCycle
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:isPartOfCycle
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
 	rdfs:comment """Relating a text by Kuno Raeber to being part of a cycle or not."""@en;
-	rdfs:domain kuno-raeber:Text;
+	rdfs:domain raeber:Text;
 	rdfs:range xsd:boolean.
 
-kuno-raeber:hasStrophe
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/kuno-raeber#>;
+raeber:hasStrophe
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/raeber#>;
 	a owl:ObjectProperty;
 	rdfs:label "has strophe"@en, "hat Strophe"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to having a strophe or not."""@en;
-	rdfs:domain kuno-raeber:Poem;
+	rdfs:domain raeber:Poem;
 	rdfs:range xsd:boolean.

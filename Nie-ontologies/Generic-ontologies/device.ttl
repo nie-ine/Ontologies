@@ -13,7 +13,7 @@
 @prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 
-# @base <http://www.e-editiones.ch/ontology/device>.
+@base <http://www.e-editiones.ch/ontology/device>.
 @prefix device: <http://www.e-editiones.ch/ontology/device#>.
 
 <http://www.e-editiones.ch/ontology/device>

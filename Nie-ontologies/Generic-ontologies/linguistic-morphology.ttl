@@ -15,7 +15,7 @@
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
 
-# @base <http://www.e-editiones.ch/ontology/linguistic-morphology>.
+@base <http://www.e-editiones.ch/ontology/linguistic-morphology>.
 @prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
 <http://www.e-editiones.ch/ontology/linguistic-morphology>

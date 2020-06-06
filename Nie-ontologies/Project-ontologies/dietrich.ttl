@@ -9,7 +9,7 @@
 @prefix scholarly-editing: <http://www.e-editiones.ch/ontology/scholarly-editing#>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 
-# @base <http://www.e-editiones.ch/ontology/dietrich>.
+@base <http://www.e-editiones.ch/ontology/dietrich>.
 @prefix dietrich: <http://www.e-editiones.ch/ontology/dietrich#>.
 
 <http://www.e-editiones.ch/ontology/dietrich>

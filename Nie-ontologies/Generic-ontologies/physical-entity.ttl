@@ -15,7 +15,7 @@
 @prefix humgeo: <http://www.e-editiones.ch/ontology/human-geography#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/physical-entity>.
+@base <http://www.e-editiones.ch/ontology/physical-entity>.
 @prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
 
 <http://www.e-editiones.ch/ontology/physical-entity>

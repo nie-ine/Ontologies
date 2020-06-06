@@ -5,7 +5,7 @@
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 @prefix language: <http://www.e-editiones.ch/ontology/language#>.
 
-# @base <http://www.e-editiones.ch/ontology/languages>.
+@base <http://www.e-editiones.ch/ontology/languages>.
 @prefix languages: <http://www.e-editiones.ch/ontology/languages#>.
 
 <http://www.e-editiones.ch/ontology/languages>

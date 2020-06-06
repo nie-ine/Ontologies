@@ -5,7 +5,7 @@
 @prefix human: <http://www.e-editiones.ch/ontology/human#>.
 @prefix philo: <http://www.e-editiones.ch/ontology/philosophy#>.
 
-# @base <http://www.e-editiones.ch/ontology/philosophies>.
+@base <http://www.e-editiones.ch/ontology/philosophies>.
 @prefix philos: <http://www.e-editiones.ch/ontology/philosophies#>.
 
 <http://www.e-editiones.ch/ontology/philosophies>

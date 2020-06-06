@@ -11,7 +11,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 
-# @base <http://www.e-editiones.ch/ontology/meyer>.
+@base <http://www.e-editiones.ch/ontology/meyer>.
 @prefix meyer: <http://www.e-editiones.ch/ontology/meyer#>.
 
 <http://www.e-editiones.ch/ontology/meyer>

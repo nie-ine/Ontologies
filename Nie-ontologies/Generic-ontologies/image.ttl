@@ -9,7 +9,7 @@
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 
-# @base <http://www.e-editiones.ch/ontology/image>.
+@base <http://www.e-editiones.ch/ontology/image>.
 @prefix image: <http://www.e-editiones.ch/ontology/image#>.
 
 <http://www.e-editiones.ch/ontology/image>

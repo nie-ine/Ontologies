@@ -12,7 +12,7 @@
 @prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/event>.
+@base <http://www.e-editiones.ch/ontology/event>.
 @prefix event: <http://www.e-editiones.ch/ontology/event#>.
 
 <http://www.e-editiones.ch/ontology/event>

@@ -12,7 +12,7 @@
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
 
-# @base <http://www.e-editiones.ch/ontology/teaching>.
+@base <http://www.e-editiones.ch/ontology/teaching>.
 @prefix teach: <http://www.e-editiones.ch/ontology/teaching#>.
 
 <http://www.e-editiones.ch/ontology/teaching>

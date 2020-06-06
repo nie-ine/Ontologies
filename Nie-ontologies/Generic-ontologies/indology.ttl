@@ -6,7 +6,7 @@
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
-# @base <http://www.e-editiones.ch/ontology/indology>.
+@base <http://www.e-editiones.ch/ontology/indology>.
 @prefix indo: <http://www.e-editiones.ch/ontology/indology#>.
 
 <http://www.e-editiones.ch/ontology/indology>

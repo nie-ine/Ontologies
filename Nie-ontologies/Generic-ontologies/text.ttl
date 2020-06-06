@@ -20,7 +20,7 @@
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 
-# @base <http://www.e-editiones.ch/ontology/text>.
+@base <http://www.e-editiones.ch/ontology/text>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
 <http://www.e-editiones.ch/ontology/text>

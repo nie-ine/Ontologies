@@ -17,7 +17,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
-# @base <http://www.e-editiones.ch/ontology/delille>.
+@base <http://www.e-editiones.ch/ontology/delille>.
 @prefix delille: <http://www.e-editiones.ch/ontology/delille#>.
 
 <http://www.e-editiones.ch/ontology/delille>

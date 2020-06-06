@@ -12,7 +12,7 @@
 @prefix org: <http://www.e-editiones.ch/ontology/organization#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/human-geography>.
+@base <http://www.e-editiones.ch/ontology/human-geography>.
 @prefix humgeo: <http://www.e-editiones.ch/ontology/human-geography#>.
 
 <http://www.e-editiones.ch/ontology/human-geography>

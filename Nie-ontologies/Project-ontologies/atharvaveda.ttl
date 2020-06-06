@@ -10,7 +10,7 @@
 @prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 @prefix indo: <http://www.e-editiones.ch/ontology/indology#>.
 
-# @base <http://www.e-editiones.ch/ontology/atharvaveda>.
+@base <http://www.e-editiones.ch/ontology/atharvaveda>.
 @prefix athar: <http://www.e-editiones.ch/ontology/atharvaveda#>.
 
 <http://www.e-editiones.ch/ontology/atharvaveda>

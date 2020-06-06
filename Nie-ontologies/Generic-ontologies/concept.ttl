@@ -15,7 +15,7 @@
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 
-# @base <http://www.e-editiones.ch/ontology/concept>.
+@base <http://www.e-editiones.ch/ontology/concept>.
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 
 <http://www.e-editiones.ch/ontology/concept>

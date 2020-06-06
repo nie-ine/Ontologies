@@ -11,7 +11,7 @@
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 
 
-# @base <http://www.e-editiones.ch/ontology/literature>.
+@base <http://www.e-editiones.ch/ontology/literature>.
 @prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
 <http://www.e-editiones.ch/ontology/literature>

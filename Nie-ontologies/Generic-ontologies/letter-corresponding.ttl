@@ -11,7 +11,7 @@
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 
 
-# @base <http://www.e-editiones.ch/ontology/letter-corresponding>.
+@base <http://www.e-editiones.ch/ontology/letter-corresponding>.
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 
 <http://www.e-editiones.ch/ontology/letter-corresponding>

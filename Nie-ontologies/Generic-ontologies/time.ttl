@@ -8,7 +8,7 @@
 # @prefix tzont: <http://www.w3.org/2006/timezone#>.
 @prefix event: <http://www.e-editiones.ch/ontology/event#>.
 
-# @base <http://www.e-editiones.ch/ontology/time>.
+@base <http://www.e-editiones.ch/ontology/time>.
 @prefix time: <http://www.e-editiones.ch/ontology/time#>.
 
 <http://www.e-editiones.ch/ontology/time>

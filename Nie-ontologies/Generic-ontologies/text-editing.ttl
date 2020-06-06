@@ -19,7 +19,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.e-editiones.ch/ontology/text-editing>.
+@base <http://www.e-editiones.ch/ontology/text-editing>.
 @prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
 
 <http://www.e-editiones.ch/ontology/text-editing>

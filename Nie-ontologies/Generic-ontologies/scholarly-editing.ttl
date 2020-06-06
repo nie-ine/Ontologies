@@ -21,7 +21,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.e-editiones.ch/ontology/scholarly-editing>.
+@base <http://www.e-editiones.ch/ontology/scholarly-editing>.
 @prefix scholarly-editing: <http://www.e-editiones.ch/ontology/scholarly-editing#>.
 
 <http://www.e-editiones.ch/ontology/scholarly-editing>

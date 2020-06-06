@@ -15,7 +15,7 @@
 @prefix device: <http://www.e-editiones.ch/ontology/device#>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.e-editiones.ch/ontology/language>.
+@base <http://www.e-editiones.ch/ontology/language>.
 @prefix language: <http://www.e-editiones.ch/ontology/language#>.
 
 <http://www.e-editiones.ch/ontology/language>

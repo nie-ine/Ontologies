@@ -9,7 +9,7 @@
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
 
-# @base <http://www.e-editiones.ch/ontology/mathematics>.
+@base <http://www.e-editiones.ch/ontology/mathematics>.
 @prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 
 <http://www.e-editiones.ch/ontology/mathematics>

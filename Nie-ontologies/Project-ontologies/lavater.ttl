@@ -10,7 +10,7 @@
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 
-# @base <http://www.e-editiones.ch/ontology/lavater>.
+@base <http://www.e-editiones.ch/ontology/lavater>.
 @prefix lavater: <http://www.e-editiones.ch/ontology/lavater#>.
 
 <http://www.e-editiones.ch/ontology/lavater>

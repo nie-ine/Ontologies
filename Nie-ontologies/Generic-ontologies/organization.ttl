@@ -12,7 +12,7 @@
 @prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/organization>.
+@base <http://www.e-editiones.ch/ontology/organization>.
 @prefix org: <http://www.e-editiones.ch/ontology/organization#>.
 
 <http://www.e-editiones.ch/ontology/organization>

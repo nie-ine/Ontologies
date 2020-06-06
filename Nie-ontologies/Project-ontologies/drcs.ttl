@@ -14,7 +14,7 @@
 @prefix cathorg: <http://www.e-editiones.ch/ontology/catholic-organization#>.
 @prefix cathord: <http://www.e-editiones.ch/ontology/catholic-orders#>.
 
-# @base <http://www.e-editiones.ch/ontology/drcs>.
+@base <http://www.e-editiones.ch/ontology/drcs>.
 @prefix drcs: <http://www.e-editiones.ch/ontology/drcs#>.
 
 <http://www.e-editiones.ch/ontology/drcs>

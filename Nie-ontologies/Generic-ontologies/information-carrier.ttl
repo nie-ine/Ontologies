@@ -20,7 +20,7 @@
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.e-editiones.ch/ontology/information-carrier>.
+@base <http://www.e-editiones.ch/ontology/information-carrier>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 
 <http://www.e-editiones.ch/ontology/information-carrier>

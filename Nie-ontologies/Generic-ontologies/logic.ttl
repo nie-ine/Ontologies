@@ -14,7 +14,7 @@
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
-# @base <http://www.e-editiones.ch/ontology/logic>.
+@base <http://www.e-editiones.ch/ontology/logic>.
 @prefix logic: <http://www.e-editiones.ch/ontology/logic#>.
 
 <http://www.e-editiones.ch/ontology/logic>

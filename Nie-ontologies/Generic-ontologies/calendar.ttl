@@ -10,6 +10,7 @@
 @prefix event: <http://www.e-editiones.ch/ontology/event#>.
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 
+@base <http://www.e-editiones.ch/ontology/calendar>
 @prefix calendar: <http://www.e-editiones.ch/ontology/calendar#>.
 
 <http://www.e-editiones.ch/ontology/calendar>

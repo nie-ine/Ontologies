@@ -22,7 +22,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix letter-corresponding: <http://www.e-editiones.ch/ontology/letter-corresponding#>.
 
-# @base <http://www.e-editiones.ch/ontology/raeber>.
+@base <http://www.e-editiones.ch/ontology/raeber>.
 @prefix raeber: <http://www.e-editiones.ch/ontology/raeber#>.
 
 <http://www.e-editiones.ch/ontology/raeber>

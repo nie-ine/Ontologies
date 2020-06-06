@@ -13,7 +13,7 @@
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 @prefix logic: <http://www.e-editiones.ch/ontology/logic#>.
 
-# @base <http://www.e-editiones.ch/ontology/scholasticism>.
+@base <http://www.e-editiones.ch/ontology/scholasticism>.
 @prefix schola: <http://www.e-editiones.ch/ontology/scholasticism#>.
 
 <http://www.e-editiones.ch/ontology/scholasticism>

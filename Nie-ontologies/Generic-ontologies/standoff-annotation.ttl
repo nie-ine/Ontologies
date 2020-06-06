@@ -17,14 +17,14 @@
 @prefix math: <http://www.e-editiones.ch/ontology/mathematics#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 @prefix document: <http://www.e-editiones.ch/ontology/document#>.
-@prefix dt: <http://www.e-editiones.ch/ontology/datatypes#>.
+@prefix tcs: <http://www.e-editiones.ch/ontology/terminology-code-systems#>.
 @prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
 @prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 
-# @base <http://www.e-editiones.ch/ontology/standoff-annotation>.
+@base <http://www.e-editiones.ch/ontology/standoff-annotation>.
 @prefix sa: <http://www.e-editiones.ch/ontology/standoff-annotation#>.
 
 <http://www.e-editiones.ch/ontology/standoff-annotation>
@@ -634,10 +634,10 @@ sa:hasCharacterColorValue
 	rdfs:label "stand-off tag has character color"@en, "Stand-off-Tag hat Zeichenfarbe"@de;
 	rdfs:comment """Relating a stand-off tag to the color of the text literal it tags."""@en;
 	rdfs:domain sa:CharacterColorTag;
-	rdfs:range dt:hexadecimalColor;
+	rdfs:range tcs:hexadecimalColor;
 	rdfs:subPropertyOf concept:hasLiteral.
 
-# sa:hasHexadecimalColorCodeValue rdfs:range dt:hexadecimalColor.
+# sa:hasHexadecimalColorCodeValue rdfs:range tcs:hexadecimalColor.
 
 sa:hasNameLiteral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/standoff-annotation#>;
@@ -704,8 +704,8 @@ sa:hasPerson
 			a sa:WordTag, sa:BoldTag, sa:FamilyNameTag, sa:PersonTag; # Instance of multiple classes.
 			sa:hasStartCharacterOrdinalNumeral “13”^^xsd:nonNegativeInteger;
 			sa:hasEndCharacterOrdinalNumeral “21”^^xsd:nonNegativeInteger;
-			dt:hasCSSLiteral "font-weight: bold;”^^dt:css;
-			sa:hasPerson <https://d-nb.info/gnd/118587943>; # ‘external’ resource of Gemeinsame Normdatei (GND)
+			tcs:hasCSSLiteral "font-weight: bold;”^^tcs:css;
+			sa:hasPerson <https://d-nb.info/gnd/118587943>; # Resource of Gemeinsame Normdatei (GND)
 			sa:hasFamilyName "Nietzsche". # The name can be reified as in CIDOC."""@en.
 
 sa:hasPlace
@@ -728,7 +728,7 @@ sa:hasWeather
 			a sa:CharacterColorTag, sa:WeatherTag;
 			sa:hasStartCharacterOrdinalNumeral “1”^^xsd:nonNegativeInteger;
 			sa:hasEndCharacterOrdinalNumeral “44”^^xsd:nonNegativeInteger;
-			sa:hasColorCodeValue "0066b3"^^dt:hexadecimalColor;
+			sa:hasColorCodeValue "0066b3"^^tcs:hexadecimalColor;
 			sa:hasCSSLiteral "color: #0066b3;"^^sa:css;
 			sa:hasWeather data:blueSky1.
 		data:blueSky1 a weather:BlueSky."""@en.

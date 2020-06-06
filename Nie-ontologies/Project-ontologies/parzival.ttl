@@ -15,7 +15,7 @@
 @prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
 @prefix literature: <http://www.e-editiones.ch/ontology/literature#>.
 
-# @base <http://www.e-editiones.ch/ontology/parzival>.
+@base <http://www.e-editiones.ch/ontology/parzival>.
 @prefix parzival: <http://www.e-editiones.ch/ontology/parzival#>.
 
 <http://www.e-editiones.ch/ontology/parzival>

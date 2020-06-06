@@ -20,7 +20,7 @@
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 @prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
-# @base <http://www.e-editiones.ch/ontology/note-structure>.
+@base <http://www.e-editiones.ch/ontology/note-structure>.
 @prefix note-structure: <http://www.e-editiones.ch/ontology/note-structure#>.
 
 <http://www.e-editiones.ch/ontology/note-structure>

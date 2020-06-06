@@ -7,7 +7,7 @@
 @prefix org: <http://www.e-editiones.ch/ontology/organization#>.
 
 
-# @base <http://www.e-editiones.ch/ontology/catholic-organization>.
+@base <http://www.e-editiones.ch/ontology/catholic-organization>.
 @prefix cathorg: <http://www.e-editiones.ch/ontology/catholic-organization#>.
 
 <http://www.e-editiones.ch/ontology/catholic-organization>

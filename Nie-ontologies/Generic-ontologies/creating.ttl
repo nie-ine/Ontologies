@@ -18,7 +18,7 @@
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/creating>.
+@base <http://www.e-editiones.ch/ontology/creating>.
 @prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
 
 <http://www.e-editiones.ch/ontology/creating>

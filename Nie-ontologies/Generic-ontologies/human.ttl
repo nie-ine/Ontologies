@@ -17,7 +17,7 @@
 @prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
 @prefix text: <http://www.e-editiones.ch/ontology/text#>.
 
-# @base <http://www.e-editiones.ch/ontology/human>.
+@base <http://www.e-editiones.ch/ontology/human>.
 @prefix human: <http://www.e-editiones.ch/ontology/human#>.
 
 <http://www.e-editiones.ch/ontology/human>

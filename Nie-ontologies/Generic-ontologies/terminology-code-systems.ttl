@@ -16,7 +16,7 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	skos:note """Other datatypes are declared in a respective domain ontology, e.g. calendar:julianDate, languages:iso639-2, and text:characterSize."""@en;
-	skos:note """A terminology and code system can be versioned, hence mentioned with the code instance, cf. example in property declaration.."""@en.
+°	skos:note """A terminology and code system can be versioned, hence mentioned with the code instance, cf. example in property declaration.."""@en.
 
 #
 # TERMINOLOGY AND CODE SYSTEMS
@@ -45,6 +45,8 @@ tcs:gndSystem
 	concept:codingSystemHasDataType tcs:gnd;
 	rdfs:seeAlso <https://www.dnb.de/EN/Standardisierung/GND/gnd_node.html>.
 
+tcs:
+
 tcs:oaiSystem
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, concept:CodingSystem;
@@ -62,12 +64,6 @@ tcs:hexadecimalColor #° OR color:hexadecimal
 	a rdfs:Class, rdfs:Datatype;
 	rdfs:label "hexadecimal color datatype"@en;
 	rdfs:comment """Datatype to type a literal representing a hexadecimal color code."""@en.
-
-tcs:css
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
-	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "CSS-datatype"@en;
-	rdfs:comment """Datatype to type a literal expressed in the Cascading Style Sheets-language (CSS)."""@en.
 
 tcs:gnd
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
@@ -95,29 +91,21 @@ tcs:hasHexadecimalColorCodeValue
 	rdfs:range tcs:hexadecimalColor;
 	rdfs:subPropertyOf concept:hasCodeValue.
 
-tcs:hasCSSLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has CSS literal"@en, "hat CSS-Literale"@de;
-	rdfs:comment "Relating a resource to a CSS literal."@en;
-	skos:note """example:characterColorTag1 tcs:hasCSSLiteral "color: #000000;"^^tcs:css; sa:hasColorName "black"@en."""@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range tcs:css;
-	rdfs:subPropertyOf concept:hasLiteral.
-
-tcs:hasGNDNumber
+tcs:hasGNDNumber #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:ObjectProperty;
 	rdfs:label "has GND-number"@en, "hat GND-Identifikator"@de;
 	rdfs:comment "Relating a resource to its GND-identifier."@en;
 	skos:note """example:personX tcs:hasGNDNumber [concept:codeHasSystem tcs:gndSystem; concept:codeHasValue "118679325"^^tcs:gnd]."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code.
+	rdfs:range concept:Code;
+	rdfs:subPropertyOf concept:hasCode.
 
-tcs:hasOAIIdentifier
+tcs:hasOAIIdentifier #°
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:ObjectProperty;
 	rdfs:label "has OAI-identifier"@en, "hat OAI-Identifikator"@de;
 	rdfs:comment "Relating a resource to its OAI-identifier."@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code.
+	rdfs:range concept:Code;
+	rdfs:subPropertyOf concept:hasCode.

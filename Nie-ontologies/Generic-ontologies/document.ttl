@@ -294,6 +294,17 @@ document:HypertextStructure
 	rdfs:subClassOf document:HypertextElement, document:Structure.
 
 #
+# DATATYPE INSTANCES
+#
+
+document:css
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
+	a rdfs:Class, rdfs:Datatype;
+	rdfs:label "CSS-datatype"@en;
+	rdfs:comment """Datatype to type a literal expressed in the Cascading Style Sheets-language (CSS)."""@en;
+	skos:note """Example: "color: #000000;"^^document:css"""@en.
+
+#
 # PROPERTIES
 #
 
@@ -564,3 +575,12 @@ document:isOnWebpage
 	rdfs:domain document:HypertextDocument;
 	rdfs:range infocar:Webpage;
 	rdfs:subPropertyOf infocar:isOnCarrier.
+
+document:hasCSSLiteral
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/document#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has CSS literal"@en, "hat CSS-Literale"@de;
+	rdfs:comment "Relating a resource to a CSS literal."@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range document:css;
+	rdfs:subPropertyOf concept:hasLiteral.

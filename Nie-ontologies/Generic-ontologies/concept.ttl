@@ -163,7 +163,7 @@ concept:ThoughtMethod
 
 concept:isPartOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/concept#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:label "is part of conceptual entity"@en, "ist Teil einer symbolischen Entität"@de;
 	rdfs:comment "Relating a conceptual entity to another one it is part of."@en;
 	rdfs:domain concept:ConceptualEntity;

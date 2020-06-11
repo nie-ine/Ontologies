@@ -48,10 +48,10 @@ creating:PersonCreator
 	rdfs:comment """Creator as role of a person."""@en;
 	rdfs:subClassOf human:PersonRole, creating:AgentCreator.
 
-creating:Author
+creating:PersonAuthor
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "author"@en, "Autor"@de, "auteur"@fr, "autore"@it;
+	rdfs:label "person author"@en, "Person-Autor"@de; #, "auteur"@fr, "autore"@it;
 	rdfs:comment """Role of a person being responsible for a creation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
@@ -62,12 +62,13 @@ creating:Creating
 	rdfs:comment """Creating as a person-action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 
-creating:Creation
+creating:PersonCreation
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "person-creation"@en, "Person-Kreation"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
-	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing.
+	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom creating:Creating].
 
 creating:AnonymousCreation
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
@@ -206,8 +207,17 @@ creating:creationHasDate
 	rdfs:label "creation has date"@en, "Kreation hat Datum"@de;
 	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
 	rdfs:domain creating:Creation;
-	rdfs:range xsd:date. #°
-#	owl:propertyChainAxiom (event:isOutputOf time:hasEndDate).
+	rdfs:range xsd:date;
+	owl:propertyChainAxiom (event:isOutputOf time:hasEndDate).
+
+creating:creationHasDateTime
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
+	a owl:DatatypeProperty;
+	rdfs:label "creation has date time"@en, "Kreation hat Datum-Zeit"@de;
+	rdfs:comment """Relating a creation by a person to the date time it was created on."""@en;
+	rdfs:domain creating:Creation;
+	rdfs:range xsd:dateTime;
+	owl:propertyChainAxiom (event:isOutputOf time:hasEndDateTime).
 
 creating:hasModificationDate # modification
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;

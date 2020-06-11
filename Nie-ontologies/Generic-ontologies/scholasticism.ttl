@@ -190,7 +190,7 @@ schola:hasRole
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
-	rdfs:comment """Relating a scholastic to a role he has."""@en;
+	rdfs:comment """Relating a scholastic to a role s/he has."""@en;
 	rdfs:domain schola:Scholastic;
 	rdfs:range schola:Role;
 	rdfs:subPropertyOf human:personHasRole.

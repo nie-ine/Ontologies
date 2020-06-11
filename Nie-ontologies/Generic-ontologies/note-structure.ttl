@@ -171,7 +171,7 @@ note-structure:footnoteHasOrdinalNumeral
 	rdfs:domain note-structure:Footnote;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (note-structure:footnoteHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (note-structure:footnoteHasOrdinalNumber math:numberHasNumeral).
 
 note-structure:endnoteHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
@@ -199,7 +199,7 @@ note-structure:endnoteHasOrdinalLiteral
 	rdfs:domain note-structure:Endnote;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf math:hasOrdinalLiteral;
-	owl:propertyChainAxiom (note-structure:endnoteHasIdentifier concept:hasLiteral). #°
+	owl:propertyChainAxiom (note-structure:endnoteHasIdentifier concept:hasLiteral).
 
 note-structure:endnoteHasOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;
@@ -218,7 +218,7 @@ note-structure:endnoteHasOrdinalNumeral
 	rdfs:domain note-structure:Endnote;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (note-structure:endnoteHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (note-structure:endnoteHasOrdinalNumber math:numberHasNumeral).
 
 note-structure:isNumberOfEndnote
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/note-structure#>;

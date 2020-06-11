@@ -219,7 +219,7 @@ prosodic-structure:isVerseOfHalfStrophe
 prosodic-structure:verseHasIdentifier
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de, "verset a un identifiant"@fr, "versetto ha un identificatore"@it;
+	rdfs:label "verse has identifier"@en, "Vers hat Identifikator"@de, "verset a identifiant"@fr, "versetto ha identificatore"@it;
 	rdfs:comment """Relating a verse to its identifier."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range prosodic-structure:VerseIdentifier;
@@ -242,7 +242,7 @@ prosodic-structure:verseHasOrdinalNumeral
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (prosodic-structure:verseHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (prosodic-structure:verseHasOrdinalNumber math:numberHasNumeral).
 
 prosodic-structure:isHalfOfVerse
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -306,7 +306,7 @@ prosodic-structure:stropheHasOrdinalNumeral
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (prosodic-structure:stropheHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (prosodic-structure:stropheHasOrdinalNumber math:numberHasNumeral).
 
 prosodic-structure:isHalfOfStrophe
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/prosodic-structure#>;
@@ -370,4 +370,4 @@ prosodic-structure:verseSectionHasOrdinalNumeral
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (prosodic-structure:verseSectionHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (prosodic-structure:verseSectionHasOrdinalNumber math:numberHasNumeral).

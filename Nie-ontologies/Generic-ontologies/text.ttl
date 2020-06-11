@@ -369,14 +369,15 @@ text:hasContentNature
 	rdfs:domain text:Text;
 	rdfs:range text:ContentNature.
 
-text:hasLineNumber
+text:hasLineOrdinalNumber
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has line number"@en, "hat Liniennummer"@de, "a un numéro de ligne"@fr, "ha un numero di riga"@it;
-	rdfs:comment """Relating a text to the number of a line of the text expression."""@en;
+	a owl:ObjectProperty;
+	rdfs:label "has text line ordinal number"@en, "hat Textzeile-Ordinalzahl"@de, "a nombre ordinal de ligne de texte"@fr, "ha numero ordinale della riga di testo"@it;
+	rdfs:comment """Relating a text to the number of a line of the text."""@en;
+	skos:note """Line as a text structure is linked to its ordnial number with text-structure:lineHasOrdinalNumber."""@en;
 	rdfs:domain text:Text;
-	rdfs:range rdfs:Literal;	
-	rdfs:subPropertyOf text:hasText.
+	rdfs:range text-structure:LineOrdinalNumber;
+	rdfs:subPropertyOf math:hasNumber.
 
 text:hasVersionIndicator
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text#>;

@@ -197,6 +197,20 @@ text-structure:Line
 	rdfs:comment """Text structured as a line, filling a two-dimensional space, with an orientation."""@en;
 	rdfs:subClassOf text-structure:ReadabilityStructure.
 
+text-structure:LineIdentifier
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a rdfs:Class;
+	rdfs:label "text line identifier"@en, "Textzeile-Identifikator"@de, "identifiant de ligne de texte"@fr, "identificatore della riga di testo"@it;
+	rdfs:comment """Identifier of a text line."""@en;
+	rdfs:subClassOf text-structure:Identifier.
+
+text-structure:LineOrdinalNumber
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a rdfs:Class;
+	rdfs:label "text line ordinal number"@en, "Textzeile-Ordinalzahl"@de, "nombre ordinal de ligne de texte"@fr, "numero ordinale della riga di testo"@it;
+	rdfs:comment """Ordinal number of a text line."""@en;
+	rdfs:subClassOf text-structure:LineIdentifier, math:OrdinalNumber.
+
 text-structure:Column
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
@@ -396,7 +410,7 @@ text-structure:sectionHasOrdinalNumeral
 	rdfs:domain text-structure:Section;
 	rdfs:range xsd:nonNegativeInteger;
 	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (text-structure:sectionHasOrdinalNumber math:hasNumeral).
+	owl:propertyChainAxiom (text-structure:sectionHasOrdinalNumber math:numberHasNumeral).
 
 text-structure:isWordBeforeSpace
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
@@ -457,13 +471,33 @@ text-structure:isPunctuationOfSentence
 	rdfs:range text-structure:Sentence;
 	rdfs:subPropertyOf concept:isPartOf.
 
-text-structure:lineHasNumber
+text-structure:lineHasIdentifier
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a owl:ObjectProperty;
+	rdfs:label "text line has identifier"@en, "Textzeile hat Identifikator"@de, "ligne de texte a identifiant"@fr, "riga di testo ha identificatore"@it;
+	rdfs:comment """Relating a text line to its identifier."""@en;
+	rdfs:domain text-structure:Line;
+	rdfs:range text-structure:LineIdentifier;
+	rdfs:subPropertyOf text-structure:hasIdentifier.
+
+text-structure:lineHasOrdinalNumber
+	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
+	a owl:ObjectProperty;
+	rdfs:label "text line has ordinal number"@en, "Textzeile hat Ordinalzahl"@de, "ligne de texte a nombre ordinal"@fr, "riga di testo ha numero ordinale"@it;
+	rdfs:comment """Relating a text line to its ordinal number."""@en;
+	rdfs:domain text-structure:Line;
+	rdfs:range text-structure:LineOrdinalNumber;
+	rdfs:subPropertyOf text-structure:lineHasIdentifier, math:hasOrdinalNumber.
+
+text-structure:lineHasOrdinalNumeral
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "textline has number"@en, "Textzeile hat Nummer"@de, "la ligne de texte a un numéro"@fr, "la riga di testo ha un numero"@it;
-	rdfs:comment """Relating a line to a number it has."""@en;
+	rdfs:label "text line has ordinal numeral"@en, "Textzeile hat Ordinalnumerale"@de, "ligne de texte a numéral ordinal"@fr, "riga di testo ha numerale ordinale"@it;
+	rdfs:comment """Relating a text line to its ordinal numeral."""@en;
 	rdfs:domain text-structure:Line;
-	rdfs:range xsd:nonNegativeInteger.
+	rdfs:range xsd:nonNegativeInteger;
+	rdfs:subPropertyOf math:hasOrdinalNumeral;
+	owl:propertyChainAxiom (text-structure:lineHasOrdinalNumber math:numberHasNumeral).
 
 text-structure:isLineOfColumn
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-structure#>;

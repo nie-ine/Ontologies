@@ -180,7 +180,7 @@ time:timeRelatedTo
 
 time:beginsBefore
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking an earlier beginning to a later beginning event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -234,7 +234,7 @@ time:calculatingSameBeginning #	to be varied with accuracy setting, e.g. year, m
 
 time:beginsDuring
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty;
 	rdfs:comment """Specifying an event during which another event begins."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -242,7 +242,7 @@ time:beginsDuring
 
 time:beginsAfter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking a later beginning to an earlier beginning event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -260,7 +260,7 @@ time:calculatingBeginsAfter
 
 time:endsBefore
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking an earlier ending to a later ending event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -294,7 +294,7 @@ time:calculatingSameEnd
 
 time:endsDuring
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty;
 	rdfs:comment """Specifying an event during which another event ends."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
 	rdfs:domain event:Event;
@@ -302,7 +302,7 @@ time:endsDuring
 
 time:endsAfter
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking a later ending to an earlier ending event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -320,7 +320,7 @@ time:calculatingEndsAfter
 
 time:before
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking an earlier to a later event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -337,7 +337,7 @@ time:calculatingBefore
 
 time:after
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking a later to an earlier event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -389,7 +389,7 @@ time:calculatingSameTime
 
 time:during
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Specifying an event during which another event happens."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -406,7 +406,7 @@ time:calculatingDuring
 
 time:includes
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Specifying an event happening during another event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -441,7 +441,7 @@ time:calculatingSameDuration
 
 time:takesLongerThan
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking a longer to a shorter event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -458,7 +458,7 @@ time:calculatingTakesLongerThan
 
 time:takesLessLongThan
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:TransitiveProperty;
 	rdfs:comment """Linking a shorter to a longer event."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -573,7 +573,7 @@ time:hasMedianAge
 
 time:endsSameAsBeginningOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty;
 	rdfs:comment """Linking an ending event to another event beginning at the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;
@@ -583,7 +583,7 @@ time:endsSameAsBeginningOf
 
 time:beginsSameAsEndOf
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/time#>;
-	a owl:ObjectProperty, owl:TransitiveProperty;
+	a owl:ObjectProperty;
 	rdfs:comment """Linking a beginning event to another event ending at the same moment."""@en;
 	skos:note """Further formalized in an N3 rule by calculation in http://www.e-editiones.ch/ontology/eventTime_rules.n3, enabling reasoning with date/time values."""@en;
 	rdfs:subPropertyOf time:timeRelatedTo;

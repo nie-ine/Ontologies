@@ -32,6 +32,7 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, project coordinator, software developer, Basel University, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date;
 	skos:note """Representation of text as object instead of literal data element, enabling relating it to other things"""@en.
 
 #

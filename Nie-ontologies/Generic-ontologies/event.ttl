@@ -22,7 +22,8 @@
 	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;
 	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change and/or act, in a certain way."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES
@@ -115,7 +116,7 @@ event:Creating
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "creating"@en, "Kreierung"@de;
-	rdfs:comment """Changing matter and or energy."""@en; # Bringing into existence
+	rdfs:comment """Changing matter and, or energy."""@en; # Bringing into existence
 	rdfs:subClassOf event:Action.
 
 #

@@ -19,7 +19,8 @@
 	dct:title "calendar-ontology"@en;
 	dct:description """Formal description of calendar, subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES

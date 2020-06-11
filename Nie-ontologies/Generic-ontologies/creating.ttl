@@ -28,7 +28,8 @@
 	dct:description """Formal description of creating by humans, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
-	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES
@@ -62,10 +63,10 @@ creating:Creating
 	rdfs:comment """Creating as a person-action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 
-creating:PersonCreation
+creating:Creation
 	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creation"@en, "Person-Kreation"@de;
+	rdfs:label "creation"@en, "Person-Kreation"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
 		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom creating:Creating].

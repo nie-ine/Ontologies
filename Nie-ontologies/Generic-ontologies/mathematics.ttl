@@ -19,7 +19,8 @@
 	dct:description """Formal description of general concepts in mathematics."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:publisher "University of Basel, Switzerland"@en;
-	rdfs:seeAlso <http://eulersharp.sourceforge.net/2003/03swap/xsd-rules#>.
+	rdfs:seeAlso <http://eulersharp.sourceforge.net/2003/03swap/xsd-rules#>;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES

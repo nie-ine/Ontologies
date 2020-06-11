@@ -15,7 +15,6 @@
 @prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
 @prefix lingmor: <http://www.e-editiones.ch/ontology/linguistic-morphology#>.
 
-
 @base <http://www.e-editiones.ch/ontology/linguistics>.
 @prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
 
@@ -28,7 +27,8 @@
 	dct:contributor
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en,
 		"Magdalena Plamada, PhD, Zürich University, Switzerland"@en;
-	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en.
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES

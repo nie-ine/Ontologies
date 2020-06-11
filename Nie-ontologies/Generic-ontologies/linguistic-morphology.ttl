@@ -26,6 +26,7 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date;
 	rdfs:seeAlso <https://files.ifi.uzh.ch/cl/siclemat/lehre/hs09/ecl1/script/html/script.html>.
 
 #

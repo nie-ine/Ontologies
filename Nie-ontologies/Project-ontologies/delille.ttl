@@ -27,7 +27,8 @@
 	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
-	dct:publisher "University of Basel, Switzerland"@en.
+	dct:publisher "University of Basel, Switzerland"@en;
+	owl:versionInfo "2020-06-11"^^xsd:date.
 
 #
 # CLASSES

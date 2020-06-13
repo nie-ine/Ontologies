@@ -1,28 +1,29 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
-@prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
-@prefix org: <http://www.e-editiones.ch/ontology/organization#>.
-@prefix language: <http://www.e-editiones.ch/ontology/language#>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
-@prefix document: <http://www.e-editiones.ch/ontology/document#>.
-@prefix text: <http://www.e-editiones.ch/ontology/text#>.
-@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
-@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
-@prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
-@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
+@prefix creating: <http://e-editiones.ch/ontology/creating#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix language: <http://e-editiones.ch/ontology/language#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix document: <http://e-editiones.ch/ontology/document#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
+@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
+@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 
-@base <http://www.e-editiones.ch/ontology/text-editing>.
-@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
+@base <http://e-editiones.ch/ontology/text-editing>.
+@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 
-<http://www.e-editiones.ch/ontology/text-editing>
+<http://e-editiones.ch/ontology/text-editing>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about text editing"@en;
@@ -38,49 +39,49 @@
 #
 
 textedit:AgentEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text editor"@en, "Text-Editor"@de, "éditeur de texte"@fr, "editor di testo"@it;
 	rdfs:comment """Role of a human agent—person or organization—changing a text."""@en;
 	rdfs:subClassOf creating:AgentCreator.
 
 textedit:PersonEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "person-text editor"@en, "Person-Text-Editor"@de, "personne - éditeur de texte"@fr, "persona - editor di testo"@it;
 	rdfs:comment """Role of a person changing a text."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 textedit:OrganizationEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "organization-text editor"@en, "Organisation-Text-Editor"@de, "organisation-éditeur de texte"@fr, "organizzazione-editor di testo"@it;
 	rdfs:comment """Role of an organization changing a text."""@en;
 	rdfs:subClassOf org:Creator.
 
 textedit:Edition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de, "édition de texte"@fr, "edizione testuale"@it;
 	rdfs:comment """Changed text as a result of editing."""@en;
 	rdfs:subClassOf text:Text. # creating:CreationVersion
 
 textedit:Revisor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text revisor"@en, "Text-Revisor"@de, "réviseur de texte"@fr, "revisore del testo"@it;
 	rdfs:comment """Role of a person revising a text."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Revision
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text revision"@en, "Textprüfung"@de, "révision de texte"@fr, "revisione del testo"@it;
 	rdfs:comment """Edited text as a result of revising."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Recension
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "recension"@en, "Rezension"@de, "révision"@fr, "recensione"@it;
 	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
@@ -88,49 +89,49 @@ textedit:Recension
 	rdfs:subClassOf textedit:Revision.
 
 textedit:Annotator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "annotator"@en, "Annotator"@de, "annotator"@la, "annotateur"@fr, "annotatore"@it;
 	rdfs:comment """Role of a person adding notes *annotations* to a text, creating an annotated edition."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Glossator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "glossator"@en, "Glossator"@de, "glossator"@la, "glossateur"@fr, "glossatore"@it;
 	rdfs:comment """Role of a person adding glosses to a text."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Abbreviator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la, "abréviateur"@fr, "abbreviator"@it;
 	rdfs:comment """Editor shortening a text."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
 textedit:Abbreviation # derivative, depending on extent?
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de, "abréviation"@fr, "abbreviazione"@it;
 	rdfs:comment """Shortened edition."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Paraphrase # derivative? # scientific?
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase"@en, "Paraphrase"@de, "paraphrase"@fr, "parafrasi"@it;
 	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:LiteralExposition # derivative? # scientific?
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de, "exposition littérale"@fr, "esposizione letterale"@it;
 	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Transliteration
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "transliteration"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
 	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
@@ -138,7 +139,7 @@ textedit:Transliteration
 	rdfs:subClassOf text:WrittenText, textedit:Edition.
 
 textedit:DerivedTextExpression
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "derived text expression"@en, "abgeleitete Textexpression"@de, "expression de texte dérivée"@fr, "espressione di testo derivata"@it;
 	rdfs:comment """Text expression derived from another text expression with content changed beyond a version."""@en;
@@ -149,7 +150,7 @@ textedit:DerivedTextExpression
 #
 
 textedit:hasEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "edition has editor"@en, "Edition hat Editor"@de, "l'édition a un éditeur"@fr, "edizione ha editor"@it;
 	rdfs:comment """Relating an edition to a human agent—person or organization—that created it."""@en;
@@ -157,7 +158,7 @@ textedit:hasEditor
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom textedit:AgentEditor]].
 
 textedit:hasEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "text has edition"@en, "Text hat Edition"@de, "le texte a une édition"@fr, "il testo ha edizione"@it;
 	rdfs:comment "Relating a text to an edition it has."@en;
@@ -165,7 +166,7 @@ textedit:hasEdition
 	rdfs:range textedit:Edition.
 
 textedit:hasSameEditionAs
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de, "a la même édition que"@fr, "ha la stessa edizione di"@it;
 	rdfs:comment """Relating two texts with a same edition."""@en;
@@ -173,7 +174,7 @@ textedit:hasSameEditionAs
 	rdfs:range text:Text.
 
 textedit:hasRevisor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "text revision has revisor"@en, "Textprüfung hat Revisor"@de, "la révision du texte a un réviseur"@fr, "la revisione del testo ha un revisore"@it;
 	rdfs:comment """Relating a text revision to a person who created it."""@en;
@@ -181,7 +182,7 @@ textedit:hasRevisor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
 
 textedit:hasRecensor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has recensor"@en, "hat Rezensor"@de, "a recenseur"@fr, "ha recensore"@it;
 	rdfs:comment """Relating a recension to a person who created it."""@en;
@@ -189,7 +190,7 @@ textedit:hasRecensor
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Recensor]].
 
 textedit:hasTransliteration
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has transliteration"@en, "hat Transliteration"@de, "a une translittération"@fr, "ha traslitterazione"@it;
 	rdfs:comment """Relating a text to a transliteration thereof."""@en;
@@ -197,7 +198,7 @@ textedit:hasTransliteration
 	rdfs:range textedit:Transliteration.
 
 textedit:hasDerivedTextExpression
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has derived text expression"@en, "hat abgeleitete Textexpression"@de, "a une expression de texte dérivée"@fr, "ha derivato espressione di testo"@it;
 	rdfs:comment "Relating a text expression to another one derived from it."@en;
@@ -205,7 +206,7 @@ textedit:hasDerivedTextExpression
 	rdfs:range textedit:DerivedTextExpression.
 
 textedit:hasAbbreviator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/text-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de, "a un abréviateur"@fr, "ha abbreviatore"@it;
 	rdfs:comment """Relating an abbreviation to a person who created it."""@en;

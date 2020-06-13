@@ -5,13 +5,13 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
+@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
 
-@base <http://www.e-editiones.ch/ontology/agent>.
-@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
+@base <http://e-editiones.ch/ontology/agent>.
+@prefix agent: <http://e-editiones.ch/ontology/agent#>.
 
-<http://www.e-editiones.ch/ontology/agent>
+<http://e-editiones.ch/ontology/agent>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about agent"@en;
@@ -25,21 +25,21 @@
 #
 
 agent:Agent
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "agent"@en, "Agent"@de;
 	rdfs:comment """Something performing in an action."""@en;
 	rdfs:subClassOf foaf:Agent, physical:Entity.
 
 agent:Group
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "group of agents"@en;
 	rdfs:comment """Group of agents."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Group.
 
 agent:Organization
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "organization"@en;
 	rdfs:comment """Organized group of agents."""@en;
@@ -47,7 +47,7 @@ agent:Organization
 	skos:note """Not 'rdfs:subClassOf foaf:Organization' because the latter involves persons."""@en.
 
 agent:Role
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "agent's role"@en;
 	rdfs:comment """Specific function of an agent."""@en;
@@ -55,21 +55,21 @@ agent:Role
 	rdfs:subClassOf rdfs:Resource.
 
 agent:GroupRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "group role"@en;
 	rdfs:comment """Role of a group of agents."""@en;
 	rdfs:subClassOf agent:Role.
 
 agent:OrganizationRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "organization role"@en;
 	rdfs:comment """Role of an Organization of agents."""@en;
 	rdfs:subClassOf agent:GroupRole.
 
 agent:Creator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "creator"@en, "Erschaffer"@de;
 	rdfs:comment """Role of an agent creating something."""@en;
@@ -77,7 +77,7 @@ agent:Creator
 	rdfs:subClassOf agent:Role.
 
 agent:User
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "user"@en, "BenutzerIn"@de;
 	rdfs:comment """Role of an agent taking something into service or applying for a purpose."""@en;
@@ -85,7 +85,7 @@ agent:User
 	rdfs:subClassOf agent:Role.
 
 agent:UserCredential
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
 	rdfs:label "user credential"@en, "Benutzeranmeldeinformationen"@de;
 	rdfs:comment """Convincible information as input to get user access, e.g. to a digital multiuser computer system."""@en;
@@ -96,7 +96,7 @@ agent:UserCredential
 #
 
 agent:actsIn
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "acts in"@en, "agiert in"@de;
 	rdfs:comment """Relating an agent to an action the agent is acting in."""@en;
@@ -104,7 +104,7 @@ agent:actsIn
 	rdfs:range event:Action.
 
 agent:hasRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
 	rdfs:comment """Relating an agent to a role it,s/he has."""@en;
@@ -112,7 +112,7 @@ agent:hasRole
 	rdfs:range agent:Role.
 
 agent:isMemberOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "is member of"@en, "ist Mitglied"@de;
 	rdfs:comment """Relating an agent to a group the agent is a member of."""@en;
@@ -120,7 +120,7 @@ agent:isMemberOf
 	rdfs:range agent:Group.
 
 agent:hasCreator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
 	rdfs:comment """Relating something to an agent that created it."""@en;
@@ -128,7 +128,7 @@ agent:hasCreator
 	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom agent:Creator]].
 
 agent:hasUser
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/agent#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "has user"@en, "hat Benutzer"@de;
 	rdfs:comment """Relating something to an agent using it."""@en;

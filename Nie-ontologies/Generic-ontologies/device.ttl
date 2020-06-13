@@ -1,22 +1,23 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
-@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
-@prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
-@prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix agent: <http://e-editiones.ch/ontology/agent#>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
+@prefix creating: <http://e-editiones.ch/ontology/creating#>.
+@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
 
-@base <http://www.e-editiones.ch/ontology/device>.
-@prefix device: <http://www.e-editiones.ch/ontology/device#>.
+@base <http://e-editiones.ch/ontology/device>.
+@prefix device: <http://e-editiones.ch/ontology/device#>.
 
-<http://www.e-editiones.ch/ontology/device>
+<http://e-editiones.ch/ontology/device>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about device"@en;
@@ -30,63 +31,63 @@
 #
 
 device:Device
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "device"@en, "Gerät"@de;
 	rdfs:comment """Physical creation serving a particular purpose."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 device:Machine
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "machine"@en, "Maschine"@de;
 	rdfs:comment """Device having more than one part, each with a function, and transmitting a force or directing its application to perform a task."""@en;
 	rdfs:subClassOf device:Device, agent:Agent.
 
 device:MechanicalMachine
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "mechanical machine"@en, "mechanische Maschine"@de;
 	rdfs:comment """Machine using kinetic energy to perform a task."""@en;
 	rdfs:subClassOf device:Machine.
 
 device:ElectricMachine
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "electric machine"@en, "elektrische Maschine"@de;
 	rdfs:comment """Machine using electric potential energy to convert it via electrical current to kinetic energy to perform a task."""@en;
 	rdfs:subClassOf device:Machine.
 
 device:ElectronicMachine
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "electronic machine"@en, "elektronische Maschine"@de;
 	rdfs:comment """Electric machine manipulating the motion of electrons in an electrical current in ways that add meaningful information to the current, to perform a task."""@en;
 	rdfs:subClassOf device:ElectricMachine.
 
 device:Computer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "computer"@en, "Rechner"@de;
 	rdfs:comment """Machine using programmed instructions to perform arithmetic and logic operations automatically, to perform a task."""@en;
 	rdfs:subClassOf device:Machine.
 
 device:ElectronicComputer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "electronic computer"@en, "elektronische Rechner"@de;
 	rdfs:comment """Computer also being an electronic machine."""@en;
 	rdfs:subClassOf device:Computer, device:ElectronicMachine.
 
 device:DigitalComputer #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "digital computer"@en, "digitale Rechner"@de;
 	rdfs:comment """Computer ...."""@en; #°
 	rdfs:subClassOf device:Computer.
 
 device:DigitalElectronicComputer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/device#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "digital electronic computer"@en, "digitale elektronische Rechner"@de;
 	rdfs:comment """Electronic computer using digital software and data to perform a task."""@en;

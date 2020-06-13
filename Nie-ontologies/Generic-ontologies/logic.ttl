@@ -1,23 +1,24 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
-@prefix text: <http://www.e-editiones.ch/ontology/text#>.
-@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
-@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix agent: <http://e-editiones.ch/ontology/agent#>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
+@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
+@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 
-@base <http://www.e-editiones.ch/ontology/logic>.
-@prefix logic: <http://www.e-editiones.ch/ontology/logic#>.
+@base <http://e-editiones.ch/ontology/logic>.
+@prefix logic: <http://e-editiones.ch/ontology/logic#>.
 
-<http://www.e-editiones.ch/ontology/logic>
+<http://e-editiones.ch/ontology/logic>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about logic"@en;
@@ -31,28 +32,28 @@
 #
 
 logic:Premise
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "premise"@en, "Prämisse"@de;
 	rdfs:comment """Statement ... ."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Conclusion
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "conclusion"@en, "Konklusion"@de;
 	rdfs:comment """Statement ... ."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Argument
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Premise(s) presenting a reason for accepting a conclusion."""@en;
 	rdfs:subClassOf text-structure:Paragraph.
 
 logic:Syllogism
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "syllogism"@en, "Syllogismus"@de;
 	rdfs:comment """."""@en;
@@ -63,7 +64,7 @@ logic:Syllogism
 #
 
 logic:isPremiseOfArgument
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a owl:ObjectProperty;
 	rdfs:label "is premise of argument"@en, "ist Prämisse eines Argumentes"@de;
 	rdfs:comment """Relating a premise to an argument it is part of."""@en;
@@ -72,7 +73,7 @@ logic:isPremiseOfArgument
 	rdfs:subPropertyOf text-structure:isSentenceOfParagraph.
 
 logic:isConclusionOfArgument
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/logic#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a owl:ObjectProperty;
 	rdfs:label "is conclusion of argument"@en, "ist Konklusion eines Argumentes"@de;
 	rdfs:comment """Relating a conclusion to an argument it is part of."""@en;

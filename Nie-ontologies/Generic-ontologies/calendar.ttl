@@ -6,14 +6,14 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix time: <http://www.e-editiones.ch/ontology/time#>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix time: <http://e-editiones.ch/ontology/time#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
 
-@base <http://www.e-editiones.ch/ontology/calendar>.
-@prefix calendar: <http://www.e-editiones.ch/ontology/calendar#>.
+@base <http://e-editiones.ch/ontology/calendar>.
+@prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
 
-<http://www.e-editiones.ch/ontology/calendar>
+<http://e-editiones.ch/ontology/calendar>
 	dct:issued "2019-12-28T13:45:00+01:00"^^xsd:dateTime;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "calendar-ontology"@en;
@@ -27,14 +27,14 @@
 #
 
 calendar:Calendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Class;
 	rdfs:label "calendar"@en, "Kalender"@de, "calendrier"@fr, "calendario"@it;
 	rdfs:comment """System of reckoning time in which the beginning, length, and divisions of a year are defined, sometimes along with multiyear cycles."""@en;
 	rdfs:subClassOf concept:Information.
 
 calendar:julianCalendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Class, calendar:Calendar; # OWL Full: class as instance
 	rdfs:label "Julian calendar"@en, "julianischer Kalender"@de, "calendrier julien"@fr, "calendario juliano"@it;
 	rdfs:comment """Calendar introduced in 46 BC in Rome by Julius Caesar. It is based on a solar year of 365 days. There are 12 months of 30 or 31 days, except for February, which has 28 days with the exception of every leap year when it has 29 days. Every fourth year and centenary year is a leap year of 366 days. The beginning of a year is not fixed on January 1. It was replaced by the Gregorian calendar in 1582 AD."""@en;
@@ -42,21 +42,21 @@ calendar:julianCalendar
 	skos:note """A year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is."""@en.
 
 calendar:prolepticJulianCalendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Class, calendar:Calendar;
 	rdfs:label "proleptic Julian calendar"@en, "proleptischer julianischer Kalender"@de, "calendrier julien proleptique"@fr, "calendario juliano proleptico"@it;
 	rdfs:comment """Produced by extending the Julian calendar backward to dates preceding its use in stable form from 4 AD on."""@en;
 	skos:note """There is no proleptic Julian year 0. Year 1 BC is followed by year 1 AD."""@en.
 
 calendar:gregorianCalendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Class, calendar:Calendar;
 	rdfs:label "Gregorian calendar"@en, "gregorianischer Kalender"@de, "calendrier grégorien"@fr, "calendario gregoriano"@it;
 	rdfs:comment """Calendar introduced on 15 October 1582 AD by Pope Gregory XIII, and a correction of the Julian calendar. It is based on a solar year of 365 days. Every fourth year is a leap year of 366 days except for centenary years not evenly divisible by 400."""@en;
 	skos:note """Has 365.2425 days/year or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
 
 calendar:prolepticGregorianCalendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Class, calendar:Calendar;
 	rdfs:label "proleptic Gregorian calendar"@en, "proleptischer gregorianischer Kalender"@de, "calendrier grégorien proleptique"@fr, "calendario gregoriano proleptico"@it;
 	rdfs:comment """Produced by extending the Gregorian calendar backward to dates preceding its introduction on 15 October 1582."""@en;
@@ -67,19 +67,19 @@ calendar:prolepticGregorianCalendar
 #
 
 calendar:julianDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Datatype;
 	rdfs:label "Julian date datatype"@en;
 	rdfs:comment """Datatype to type a date in the Julian calendar."""@en.
 
 calendar:prolepticJulianDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Datatype;
 	rdfs:label "proleptic Julian date datatype"@en;
 	rdfs:comment """Datatype to type a date in the proleptic Julian calendar."""@en.
 
 calendar:julianDayNumber
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Datatype;
 	rdfs:label "Julian Day Number datatype"@en;
 	rdfs:comment """Datatype to type a Julian Day Number integer."""@en;
@@ -90,7 +90,7 @@ calendar:julianDayNumber
 #
 
 calendar:hasMessage
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has message"@en;
 	rdfs:comment """Relating something to a message at detecting an inconsistency of a calendar related time expression about that something."""@en;
@@ -98,7 +98,7 @@ calendar:hasMessage
 	rdfs:range rdfs:Literal.
 
 calendar:hasCalendar
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "has calendar"@en;
 	rdfs:comment """Relating an event to a calendar."""@en;
@@ -106,7 +106,7 @@ calendar:hasCalendar
 	rdfs:range calendar:Calendar.
 
 calendar:dateLiteralToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "date literal to date"@en;
 	rdfs:comment """Relating a calendar date as a literal list to the list with a calendar-dependent date typed literal."""@en;
@@ -115,7 +115,7 @@ calendar:dateLiteralToDate
 	rdfs:range rdf:List.
 
 calendar:yearLiteralToPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "year literal to period"@en;
 	rdfs:comment """Relating a calendar year literal to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the year."""@en;
@@ -124,7 +124,7 @@ calendar:yearLiteralToPeriod
 	rdfs:range rdf:List.
 
 calendar:yearMonthLiteralToPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "year month literal to period"@en;
 	rdfs:comment """Relating a calendar year-month literal list to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the month."""@en;
@@ -133,7 +133,7 @@ calendar:yearMonthLiteralToPeriod
 	rdfs:range rdf:List.
 
 calendar:yearLiteralToDecadePeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "year literal to decade period"@en;
 	rdfs:comment """Relating a list with a decade start year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the decade."""@en;
@@ -142,7 +142,7 @@ calendar:yearLiteralToDecadePeriod
 	rdfs:range rdf:List.
 
 calendar:startYearLiteralToCenturyPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "start year literal to century period"@en;
 	rdfs:comment """Relating a list with a century start year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the century."""@en;
@@ -152,7 +152,7 @@ calendar:startYearLiteralToCenturyPeriod
 	rdfs:range rdf:List.
 
 calendar:endYearLiteralToCenturyPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:ObjectProperty;
 	rdfs:label "end year literal to century period"@en;
 	rdfs:comment """Relating a list with a century end year literal and its calendar to the list with the calendar-dependent start and end date typed literal, and start and end Julian Day Number of the century."""@en;
@@ -162,7 +162,7 @@ calendar:endYearLiteralToCenturyPeriod
 	rdfs:range rdf:List.
 
 calendar:hasGregorianDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Gregorian date"@en;
 	rdfs:comment """Relating something to its Gregorian date."""@en;
@@ -170,7 +170,7 @@ calendar:hasGregorianDate
 	rdfs:range xsd:date.
 
 calendar:hasGregorianStartDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Gregorian start date"@en;
 	rdfs:comment """Relating an event to its Gregorian start date."""@en;
@@ -178,7 +178,7 @@ calendar:hasGregorianStartDate
 	rdfs:range xsd:date.
 
 calendar:hasGregorianEndDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Gregorian end date"@en;
 	rdfs:comment """Relating an event to its Gregorian end date."""@en;
@@ -186,7 +186,7 @@ calendar:hasGregorianEndDate
 	rdfs:range xsd:date.
 
 calendar:gregorianListToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Gregorian list to date"@en;
 	rdfs:comment """Relating a Gregorian date as a list of literals to its date typed literal."""@en;
@@ -195,7 +195,7 @@ calendar:gregorianListToDate
 	rdfs:range xsd:date.
 
 calendar:gregorianListToJDN
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Gregorian list to Julian Day Number"@en;
 	rdfs:comment """Relating a Gregorian date as a list of literals to its Julian Day Number."""@en;
@@ -204,7 +204,7 @@ calendar:gregorianListToJDN
 	rdfs:range calendar:julianDayNumber.
 
 calendar:checkGregorianLeapYear
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "check Gregorian leap year"@en;
 	rdfs:comment """Relating a Gregorian date as a list of literals to the message about the year being leap or not."""@en;
@@ -213,7 +213,7 @@ calendar:checkGregorianLeapYear
 	rdfs:range rdfs:Literal.
 
 calendar:hasJulianDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian date"@en;
 	rdfs:comment """Relating something to its Julian date."""@en;
@@ -221,7 +221,7 @@ calendar:hasJulianDate
 	rdfs:range calendar:julianDate.
 
 calendar:hasJulianStartDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian start date"@en;
 	rdfs:comment """Relating something to its Julian start date."""@en;
@@ -229,7 +229,7 @@ calendar:hasJulianStartDate
 	rdfs:range calendar:julianDate.
 
 calendar:hasJulianEndDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian end date"@en;
 	rdfs:comment """Relating something to its Julian end date."""@en;
@@ -237,7 +237,7 @@ calendar:hasJulianEndDate
 	rdfs:range calendar:julianDate.
 
 calendar:julianListToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Julian list to date"@en;
 	rdfs:comment """Relating a Julian date as a list of literals to its date typed literal."""@en;
@@ -246,7 +246,7 @@ calendar:julianListToDate
 	rdfs:range calendar:julianDate.
 
 calendar:julianListToJDN
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Julian list to Julian Day Number"@en;
 	rdfs:comment """Relating a Julian date as a list of literals to its Julian Day Number."""@en;
@@ -255,7 +255,7 @@ calendar:julianListToJDN
 	rdfs:range calendar:julianDayNumber.
 
 calendar:julianSetListToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Julian set list to date"@en;
 	rdfs:comment """Relating a Julian date literal list with set month and day to its date typed literal."""@en;
@@ -264,7 +264,7 @@ calendar:julianSetListToDate
 	rdfs:range calendar:julianDate.
 
 calendar:hasProlepticJulianDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian date"@en;
 	rdfs:comment """Relating something to its proleptic Julian date."""@en;
@@ -272,7 +272,7 @@ calendar:hasProlepticJulianDate
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:hasProlepticJulianStartDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian start date"@en;
 	rdfs:comment """Relating something to its proleptic Julian start date."""@en;
@@ -280,7 +280,7 @@ calendar:hasProlepticJulianStartDate
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:hasProlepticJulianEndDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has proleptic Julian end date"@en;
 	rdfs:comment """Relating something to its proleptic Julian end date."""@en;
@@ -288,7 +288,7 @@ calendar:hasProlepticJulianEndDate
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:prolepticJulianListToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "proleptic Julian list to date"@en;
 	rdfs:comment """Relating a proleptic Julian date as a list of literals to its date typed literal."""@en;
@@ -297,7 +297,7 @@ calendar:prolepticJulianListToDate
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:prolepticJulianListToJDN
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "proleptic Julian list to Julian Day Number"@en;
 	rdfs:comment """Relating a proleptic Julian date as a list of literals to its Julian Day Number."""@en;
@@ -306,7 +306,7 @@ calendar:prolepticJulianListToJDN
 	rdfs:range calendar:julianDayNumber.
 
 calendar:prolepticJulianSetListToDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "proleptic Julian set list to date"@en;
 	rdfs:comment """Relating a proleptic Julian date literal list with set month and day to its date typed literal."""@en;
@@ -315,7 +315,7 @@ calendar:prolepticJulianSetListToDate
 	rdfs:range calendar:prolepticJulianDate.
 
 calendar:hasJulianDayNumber
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian Day Number"@en;
 	rdfs:comment """Relating something to its Julian Day Number."""@en;
@@ -325,7 +325,7 @@ calendar:hasJulianDayNumber
 	rdfs:range calendar:julianDayNumber.
 
 calendar:hasStartJulianDayNumber
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has start Julian Day Number"@en;
 	rdfs:comment """Relating something to its start Julian Day Number."""@en;
@@ -334,7 +334,7 @@ calendar:hasStartJulianDayNumber
 	rdfs:range calendar:julianDayNumber. # ; rdfs:subPropertyOf calendar:hasJulianDayNumber.
 
 calendar:hasEndJulianDayNumber
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/calendar#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has end Julian Day Number"@en;
 	rdfs:comment """Relating an event to its end Julian Day Number."""@en;

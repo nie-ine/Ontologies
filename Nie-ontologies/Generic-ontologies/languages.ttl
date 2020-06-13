@@ -2,13 +2,13 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
-@prefix language: <http://www.e-editiones.ch/ontology/language#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix language: <http://e-editiones.ch/ontology/language#>.
 
-@base <http://www.e-editiones.ch/ontology/languages>.
-@prefix languages: <http://www.e-editiones.ch/ontology/languages#>.
+@base <http://e-editiones.ch/ontology/languages>.
+@prefix languages: <http://e-editiones.ch/ontology/languages#>.
 
-<http://www.e-editiones.ch/ontology/languages>
+<http://e-editiones.ch/ontology/languages>
 	a owl:Ontology;
 	dct:title "An ontology about languages"@en;
 	dct:description """Formal description of human natural languages, referring to the ISO 639 standards."""@en;
@@ -21,14 +21,14 @@
 #
 
 languages:iso639System
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "ISO 639"@en;
 	rdfs:comment """International standard for codes for the representation of names of languages."""@en;
 	rdfs:seeAlso <https://www.iso.org/iso-639-language-codes.html>.
 
 languages:iso639-1System
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "ISO 639-1"@en;
 	rdfs:comment """ISO 639 part 1: alpha-2 (two-letter) codes."""@en;
@@ -38,14 +38,14 @@ languages:iso639-1System
 	rdfs:seeAlso <http://www.infoterm.info/standardization/iso_639_1_2002.php>.
 
 languages:iso639-1
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Datatype;
 	rdfs:label "ISO 639-1 datatype"@en;
 	rdfs:comment """Datatype to type an ISO 639-1 alpha-2 code."""@en;
 	rdfs:subClassOf xsd:string.
 
 languages:iso639-2System # B and T codes for 20 languages, T codes favoured
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "ISO 639-2"@en;
 	rdfs:comment """ISO 639 part 2: alpha-3 (three-letter) codes."""@en;
@@ -55,14 +55,14 @@ languages:iso639-2System # B and T codes for 20 languages, T codes favoured
 	rdfs:seeAlso <http://www.loc.gov/standards/iso639-2/>.
 
 languages:iso639-2
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Datatype;
 	rdfs:label "ISO 639-2 datatype"@en;
 	rdfs:comment """Datatype to type an ISO 639-2 alpha-3 code."""@en;
 	rdfs:subClassOf xsd:string.
 
 languages:iso639-3System
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "ISO 639-3"@en;
 	rdfs:comment """ISO 639 part 3: alpha-3 (three-letter) codes for comprehensive coverage of languages."""@en;
@@ -72,7 +72,7 @@ languages:iso639-3System
 	rdfs:seeAlso <http://www-01.sil.org/iso639-3/>.
 
 languages:iso639-3
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Datatype;
 	rdfs:label "ISO 639-3 datatype"@en;
 	rdfs:comment """Datatype to type an ISO 639-3 alpha-3 code."""@en;
@@ -83,14 +83,14 @@ languages:iso639-3
 #
 
 languages:BaselGerman
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
 	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
 	rdfs:subClassOf language:SwissGerman.
 
 languages:Dutch
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Dutch"@en, "Niederländisch"@de, "Néerlandais"@fr, "olandese"@it, "Nederlands"@nl;
 	rdfs:comment """The language developed and spoken in The Netherlands as the official language, and in the Flemish part of Belgium as one of the 3 official languages, and spoken in other parts of the world: in Suriname, Aruba, Curaçao, and Sint Maarten as official language; France, Germany, Indonesia, United States, Canada and Australia. It is also an official language of the European Union."""@en;
@@ -99,7 +99,7 @@ languages:Dutch
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "dut"^^languages:iso639-2].
 
 languages:English
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "English"@en, "Englisch"@de, "Anglais"@fr, "inglese"@it;
 	rdfs:comment """The language developed and spoken in the United Kingdom, also an official language in 66 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
@@ -108,7 +108,7 @@ languages:English
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "eng"^^languages:iso639-2].
 
 languages:French
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "French"@en, "Französisch"@de, "Français"@fr, "francese"@it;
 	rdfs:comment """The language developed and spoken in France, also an official language in 29 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
@@ -117,7 +117,7 @@ languages:French
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "fre"^^languages:iso639-2, "fra"^^languages:iso639-2].
 
 languages:German
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "German"@en, "Deutsch"@de, "Allemand"@fr, "tedesco"@it;
 	rdfs:comment """The language developed and spoken in Germany and Austria, also an official language in 5 other countries, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
@@ -126,7 +126,7 @@ languages:German
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "ger"^^languages:iso639-2, "deu"^^languages:iso639-2].
 
 languages:Hungarian
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Hungarian"@en, "Ungarisch"@de, "Hongrois"@fr, "ungherese"@it;
 	rdfs:comment """The language developed and spoken in Hungary, and parts of several neighbouring countries, and an official language of the European Union."""@en;
@@ -135,7 +135,7 @@ languages:Hungarian
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "hun"^^languages:iso639-2].
 
 languages:Italian
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Italian"@en, "Italienisch"@de, "Italien"@fr, "italiana"@it;
 	rdfs:comment """The language developed and spoken in Italy, also an official language in 2 other countries and a state, and spoken in other parts of the world. It is also an official language of the European Union."""@en;
@@ -144,7 +144,7 @@ languages:Italian
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "ita"^^languages:iso639-2].
 
 languages:Latin
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Latin"@en, "Latein"@de, "Latin"@fr, "latino"@it;
 	rdfs:comment """The language developed and spoken originally in Latium (the area around Rome), subsequently in Italy as the dominant language, and in the western Roman Empire. Classical language belonging to the Italic branch of the Indo-European languages. The largest organisation retaining Latin in official and quasi-official contexts is the Catholic Church."""@en;
@@ -153,7 +153,7 @@ languages:Latin
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "lat"^^languages:iso639-2].
 
 languages:Polish
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Polish"@en, "Polnisch"@de, "polonais"@fr, "Polacco"@it, "Polski"@pl;
 	rdfs:comment """The language developed and spoken in Poland. It is also an official language of the European Union."""@en; #°
@@ -162,7 +162,7 @@ languages:Polish
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "pol"^^languages:iso639-2].
 
 languages:Portuguese
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Portuguese"@en, "Portugiesisch"@de, "Portugais"@fr, "portoghese"@it;
 	rdfs:comment """The language developed and spoken in Portugal. It is also an official language of the European Union."""@en; #°
@@ -171,7 +171,7 @@ languages:Portuguese
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "por"^^languages:iso639-2].
 
 languages:Russian
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Russian"@en, "Russisch"@de, "Russe"@fr, "russo"@it;
 	rdfs:comment """The language developed and spoken in Russia."""@en; #°
@@ -181,7 +181,7 @@ languages:Russian
 
 
 languages:Sanskrit
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Sanskrit"@en, "Sanskrit"@de, "sanskrit"@fr, "sanscrito"@it;
 	rdfs:comment """."""@en;
@@ -190,7 +190,7 @@ languages:Sanskrit
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "san"^^languages:iso639-2].
 
 languages:Spanish
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Spanish"@en, "Spanisch"@de, "Espagnol"@fr, "spagnola"@it;
 	rdfs:comment """The language developed and spoken in Spain."""@en; #°
@@ -199,7 +199,7 @@ languages:Spanish
 	language:hasCode [concept:codeHasSystem languages:iso639-2System; concept:codeHasValue "san"^^languages:iso639-2].
 
 languages:SwissGerman
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/languages#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
 	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;

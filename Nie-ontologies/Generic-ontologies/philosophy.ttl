@@ -1,13 +1,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
 
-@base <http://www.e-editiones.ch/ontology/philosophy>.
-@prefix philo: <http://www.e-editiones.ch/ontology/philosophy#>.
+@base <http://e-editiones.ch/ontology/philosophy>.
+@prefix philo: <http://e-editiones.ch/ontology/philosophy#>.
 
-<http://www.e-editiones.ch/ontology/philosophy>
+<http://e-editiones.ch/ontology/philosophy>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about philosophy"@en;
@@ -24,14 +25,14 @@
 #
 
 philo:Philosophy
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophy#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophy#>;
 	a rdfs:Class;
 	rdfs:label "philosophy"@en, "Philosophie"@de;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf concept:ThoughtBody.
 
 philo:Metaphysics
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/philosophy#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophy#>;
 	a rdfs:Class;
 	rdfs:label "metaphysics"@en, "Metaphysik"@de;
 	rdfs:comment """Philosophy of the nature of reality, including the relationship between mind and matter, between substance and attribute, and between potentiality and actuality."""@en;

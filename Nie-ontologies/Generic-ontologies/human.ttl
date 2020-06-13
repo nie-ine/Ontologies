@@ -8,19 +8,19 @@
 @prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
-@prefix time: <http://www.e-editiones.ch/ontology/time#>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix agent: <http://www.e-editiones.ch/ontology/agent#>.
-@prefix humgeo: <http://www.e-editiones.ch/ontology/human-geography#>.
-@prefix org: <http://www.e-editiones.ch/ontology/organization#>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
-@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix time: <http://e-editiones.ch/ontology/time#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix agent: <http://e-editiones.ch/ontology/agent#>.
+@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
 
-@base <http://www.e-editiones.ch/ontology/human>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
+@base <http://e-editiones.ch/ontology/human>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
 
-<http://www.e-editiones.ch/ontology/human>
+<http://e-editiones.ch/ontology/human>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about human"@en;
@@ -35,15 +35,15 @@
 #
 
 human:Agent
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-#	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+#	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "human agent"@en, "menschliche Agent"@de;
 	rdfs:comment """Agent being one or more humans"""@en, """Agent einer oder mehrerer Menschen betreffend."""@de;
 	rdfs:subClassOf agent:Agent, cidoc:E39_Actor.
 
 human:Human
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human"@en, "Mensch"@de, "homme"@fr, "huomo"@it;
 	rdfs:comment """Member of the subspecies Homo sapiens sapiens."""@en;
@@ -54,7 +54,7 @@ human:Human
 		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
 
 human:Person
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """A real born living human."""@en;
@@ -62,7 +62,7 @@ human:Person
 	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person. # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
 
 human:UnidentifiedPerson
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "unidentified person"@en, "unidentifiziert Person"@de, "personne non identifiée"@fr, "persona non identificata"@it;
 	rdfs:comment """Person who's identity is unknown."""@en;
@@ -70,7 +70,7 @@ human:UnidentifiedPerson
 	rdfs:subClassOf human:Person.
 
 human:PersonLike
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@de;
 	rdfs:comment """Person like resource having non-human features."""@en;
@@ -78,28 +78,28 @@ human:PersonLike
 	rdfs:subClassOf rdfs:Resource.
 
 human:Group
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "group of humans"@en, "Menschengruppe"@de;
 	rdfs:comment """Group of humans."""@en;
 	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group. # rdfs:subClassOf cidoc:E39_Actor
 
 human:Action
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human action"@en, "menschliche Aktion"@de;
 	rdfs:comment """Action involving a human agent."""@en;
 	rdfs:subClassOf event:Action.
 
 human:Procedure
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human procedure"@en, "menschliches Verfahren"@de;
 	rdfs:comment """Procedure with a human agent."""@en;
 	rdfs:subClassOf event:Procedure.
 
 human:BiologicalSex
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
 	rdfs:comment """Biological trait of a human based on reproductive functions."""@en;
@@ -107,14 +107,14 @@ human:BiologicalSex
 	owl:disjointUnionOf (human:Female human:Male human:Intersexual).
 
 human:Female
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human female"@en, "menschlich weiblich"@de;
 	rdfs:comment """Being of a human female sex."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Male
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human male"@en, "menschlich männlich"@de;
 	rdfs:comment """Being of a human male sex."""@en;
@@ -122,7 +122,7 @@ human:Male
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Intersexual
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human intersexual"@en, "menschlich intersexual"@de;
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
@@ -132,35 +132,35 @@ human:Intersexual
 # deathplace
 
 human:Ability
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human ability"@en, "menschliche Fähigkeit"@de;
 	rdfs:comment """Possibility of a person to do something."""@en;
 	rdfs:subClassOf rdfs:Resource. # seqnum
 
 human:AgentRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human agent role"@en, "Rolle eines menschlichen Agenten"@de;
 	rdfs:comment """Role a human agent has as a person or group."""@en;
 	rdfs:subClassOf agent:Role.
 
 human:PersonRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person role"@en, "Rolle einer Person"@de;
 	rdfs:comment """Role a person has as a social entity."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:GroupRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human group role"@en, "Rolle einer menschlichen Gruppe"@de;
 	rdfs:comment """Role a group of persons has."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonLife
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person's life"@en, "Leben einer Person"@de;
 	rdfs:comment """Life of a human from birth until death."""@en;
@@ -169,99 +169,99 @@ human:PersonLife
 	rdfs:subClassOf human:Action, event:Existence.
 
 human:Use
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "use"@en, "Verwendungszweck"@de;
 	rdfs:comment """Purpose for or way in which something is used."""@en;
 	rdfs:subClassOf rdfs:Resource. # seqnum
 
 human:AgentUser
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-#	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+#	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "agent user"@en;
 	rdfs:comment """Role of a human agent, person or group, taking something into service or applying for a purpose."""@en;
 	rdfs:subClassOf human:AgentRole, agent:User.
 
 human:AgentGiver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent giver"@en, "Agent-Geber"@de;
 	rdfs:comment """Role of a human agent, person or group, transferring the possession of something to another agent."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentOwner
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent owner"@en, "Agent-Besitzer"@de;
 	rdfs:comment """Role of a human agent, a person or a group, having a property."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonOwner
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person owner"@en, "Person-BesitzerIn"@de;
 	rdfs:comment """Role of a person having a property."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentOwner.
 
 human:Property
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "property"@en, "Besitz"@de;
 	rdfs:comment """Something physical or non-physical belonging to someone."""@en;
 	rdfs:subClassOf rdfs:Resource. # seqnum
 
 human:AgentSponsor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent sponsor"@en, "Agent-Sponsor"@de;
 	rdfs:comment """Role of a human agent, a person or a group, giving material or financial support for an action."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonSponsor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person sponsor"@en, "Person-SponsorIn"@de;
 	rdfs:comment """Role of a person as a sponsor."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentSponsor.
 
 human:AgentPreserver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent preserver"@en, "Agent-Erhalter"@de;
 	rdfs:comment """Role of a human agent, a person or a group, maintaining something material."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentSender
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent sender"@en, "Agent-Sender"@de;
 	rdfs:comment """Role of a human agent, a person or a group, sending something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonSender
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person sender"@en, "Person-Sender"@de;
 	rdfs:comment """Role of a person sending something physical."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentSender.
 
 human:AgentReceiver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "agent receiver"@en, "Agent-Empfänger"@de;
 	rdfs:comment """Role of a human agent, a person or a group, receiving something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonReceiver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person receiver"@en, "Person-Empfänger"@de;
 	rdfs:comment """Role of a person receiving something physical."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentReceiver.
 
 human:CulturalAction
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "cultural action"@en, "kulturelle Aktion"@de;
 	rdfs:comment """Action having a cultural purpose."""@en; #*
@@ -270,42 +270,42 @@ human:CulturalAction
 #* curator: keeper of a cultural heritage institution
 
 human:Occupation
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "occupation"@en, "Beruf"@de; #* Tätigkeit -> SM
 	rdfs:comment """Action serving as a person's regular source of livelihood."""@en;
 	rdfs:subClassOf human:Action.
 
 human:OccupationalRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "occupational role"@en, "Berufsrolle"@de; #* Tätigkeitsrolle
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Floruit
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person's floruit"@en, "Floruit einer Person"@de;
 	rdfs:comment """Period during which a person was most active or flourishing."""@en;
 	rdfs:subClassOf human:Action. # part of a life
 
 human:Vulgarizer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "vulgarizer"@en, "Vulgarisator"@de, "vulgarisateur"@fr;
 	rdfs:comment """Role of a person making something, e.g. scientific text, less subtle, complex, or refined."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Performer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "performer"@en, "PerformerIn"@de;
 	rdfs:comment """Role of a person entertaining an audience."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Artist
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "artist"@en, "KünstlerIn"@de, "artiste"@fr;
 	rdfs:comment """Role of a person creating art."""@en;
@@ -320,28 +320,28 @@ human:Artist
 # Kabuki
 
 human:PerformingArtist
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "performing artist"@en, "Kunst-PerformerIn"@de, "artiste de la performance"@fr;
 	rdfs:comment """Artist in a performing art."""@en;
 	rdfs:subClassOf human:Artist.
 
 human:Actor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "actor"@en, "DarstellerIn"@de, "acteur ou actrice"@fr;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Musician
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "musician"@en, "MusikerIn"@de, "musicien ou musicienne"@fr;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Singer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "singer"@en, "SängerIn"@de, "chanteur ou chanteuse"@fr;
 	rdfs:comment """."""@en;
@@ -350,7 +350,7 @@ human:Singer
 # 0peraSinger
 
 human:Dancer
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "dancer"@en, "DanserIn"@de, "danseur ou danseuse"@fr;
 	rdfs:comment """."""@en;
@@ -361,37 +361,37 @@ human:Dancer
 # Science
 
 human:Scientist
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "scientist"@en, "WissenschaftlerIn"@de, "scientifique"@fr;
 	rdfs:comment """Role of a person practicing science."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Mathematician
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "mathematician"@en, "Mathematiker"@de;
 	rdfs:comment """Role of a person educated in mathematics."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 human:Museum
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "museum"@en, "Museum"@de;
 	rdfs:comment """Use of a building specially equipped for preserving and exhibiting objects of historical, scientific, artistic, or cultural interest by an organization also called museum."""@en;
 	rdfs:subClassOf human:Use.
 
 human:Monument
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "monument"@en, "Monument"@de;
 	rdfs:comment """Use of a physical thing to commemorate something notable, e.g. a person or event."""@en;
 	rdfs:subClassOf human:Use.
 
 human:Salon
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-#	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+#	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "salon"@en, "literarischer Salon"@de;
 	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
 	skos:note """Exists from the seventeenth century AD until today."""@en;
@@ -402,9 +402,9 @@ human:Salon
 #
 
 human:actsIn
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "acts in"@en, "agiert in"@de;
 	rdfs:comment """Relating a human agent - a person or a group - to an action the agent acts in."""@en;
 	rdfs:domain human:Agent;
@@ -412,7 +412,7 @@ human:actsIn
 	rdfs:subPropertyOf agent:actsIn.
 
 human:agentHasRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "agent has role"@en, "Agent hat Rolle"@de;
 	rdfs:comment """Relating a human agent - a person or a group - to a role the agent has."""@en;
@@ -421,7 +421,7 @@ human:agentHasRole
 	rdfs:subPropertyOf agent:hasRole.
 
 human:hasBirthdate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has birthdate"@en, "hat Geburtsdatum"@de;
 	rdfs:comment """Relating a person to the birthdate of that person."""@en;
@@ -431,7 +431,7 @@ human:hasBirthdate
 	# rdfs:subPropertyOf
 
 human:hasEarliestBirthdate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has earliest birthdate"@en, "hat frühestes Geburtsdatum"@de;
 	rdfs:comment """Relating a person to an N3-rule-calculated earliest possible birthdate, based on the death date and a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
@@ -440,7 +440,7 @@ human:hasEarliestBirthdate
 	# rdfs:subPropertyOf
 
 human:hasBirthday
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has birthday"@en, "hat Geburtstag"@de;
 	rdfs:comment """Relating a person to the birthday of that person, as an event."""@en;
@@ -448,7 +448,7 @@ human:hasBirthday
 	rdfs:range event:Event.
 
 human:hasBirthYearPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has birth year period"@en, "hat Geburtsjahrperiode"@de;
 	rdfs:comment """Relating a person to the person's birth year period."""@en;
@@ -458,7 +458,7 @@ human:hasBirthYearPeriod
 #	rdfs:subPropertyOf time:hasYearPeriod.
 
 human:hasBirthYearMonthPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has birth year-month period"@en, "hat Geburtsjahr-monatperiode"@de;
 	rdfs:comment """Relating a person to the person's birth year-month period."""@en;
@@ -467,7 +467,7 @@ human:hasBirthYearMonthPeriod
 	rdfs:range event:Event.
 
 human:hasBirthplace
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has birthplace"@en, "hat Geburtsort"@de;
 	rdfs:comment """Relating a person to the birthplace of that person."""@en;
@@ -476,7 +476,7 @@ human:hasBirthplace
 	rdfs:range physical:EarthPlace.
 
 human:hasDeathDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has death date"@en, "hat Todesdatum"@de;
 	rdfs:comment """Relating a person to the death date of that person."""@en;
@@ -486,7 +486,7 @@ human:hasDeathDate
 	# rdfs:subPropertyOf
 
 human:hasLatestDeathDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has latest death date"@en, "hat spätestes Todesdatum"@de;
 	rdfs:comment """Relating a person to an N3-rule-calculated latest death date, based on the birthdate and a set maximum lifespan of a person, in absence of the death date of that person."""@en;
@@ -495,7 +495,7 @@ human:hasLatestDeathDate
 	# rdfs:subPropertyOf
 
 human:hasDeathDay
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has death day"@en, "hat Totestag"@de;
 	rdfs:comment """Relating a person to the death day of that person, as an event."""@en;
@@ -503,7 +503,7 @@ human:hasDeathDay
 	rdfs:range event:Event.
 
 human:hasDeathYearPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has death year period"@en, "hat Todesjahrperiode"@de;
 	rdfs:comment """Relating a person to the person's death year period."""@en;
@@ -513,7 +513,7 @@ human:hasDeathYearPeriod
 #	rdfs:subPropertyOf time:hasYearPeriod.
 
 human:hasDeathYearMonthPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has death year-month period"@en, "hat Todesjahr-monatperiode"@de;
 	rdfs:comment """Relating a person to the person's death year-month period."""@en;
@@ -522,7 +522,7 @@ human:hasDeathYearMonthPeriod
 	rdfs:range event:Event.
 
 human:hasDeathDecadePeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has death decade period"@en, "hat Todesjahrzehntperiode"@de;
 	rdfs:comment """Relating a person to the person's death decade period."""@en;
@@ -531,7 +531,7 @@ human:hasDeathDecadePeriod
 	rdfs:range event:Event.
 
 human:hasDeathCenturyPeriod
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has death century period"@en, "hat Todesjahrhundertperiode"@de;
 	rdfs:comment """Relating a person to the person's death century period."""@en;
@@ -540,7 +540,7 @@ human:hasDeathCenturyPeriod
 	rdfs:range event:Event.
 
 human:hasDeathplace
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has deathplace"@en, "hat Todesort"@de;
 	rdfs:comment """Relating a person to the deathplace of that person."""@en;
@@ -549,7 +549,7 @@ human:hasDeathplace
 	rdfs:range physical:EarthPlace.
 
 human:hasMaxLifeSpan
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has maximum life span"@en, "hat maximale Lebensdauer"@de;
 	rdfs:comment """Relating a person to a maximum life span the person has."""@en;
@@ -558,7 +558,7 @@ human:hasMaxLifeSpan
 	owl:propertyChainAxiom (human:hasLife time:hasMaxDuration).
 
 human:hasBiologicalSex
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has biological sex"@en, "hat biologisches Geschlecht"@de;
 	rdfs:comment """Relating a human to a biological sex of that human."""@en;
@@ -566,7 +566,7 @@ human:hasBiologicalSex
 	rdfs:range human:BiologicalSex.
 
 human:hasLife # living
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "person has life"@en, "Person hat Leben"@de;
 	rdfs:comment """Relating a person to the person's life."""@en;
@@ -575,7 +575,7 @@ human:hasLife # living
 	rdfs:subPropertyOf event:hasExistence, human:actsIn.
 
 human:hasNameLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has name literal"@en, "hat Nameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a name of that person."""@en;
@@ -584,7 +584,7 @@ human:hasNameLiteral
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 human:hasFamilyNameLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has family name literal"@en, "hat Nachnameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a family name of that person."""@en;
@@ -594,7 +594,7 @@ human:hasFamilyNameLiteral
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 human:hasGivenNameLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has given name literal"@en, "hat Vornameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a given name of that person."""@en;
@@ -606,7 +606,7 @@ human:hasGivenNameLiteral
 # name parts, e.g. middle name, compound given name
 
 human:hasPreferredNameLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de;
 	rdfs:comment """Relating a person to the literal of a preferred name of that person."""@en;
@@ -615,7 +615,7 @@ human:hasPreferredNameLiteral
 	rdfs:subPropertyOf human:hasNameLiteral, text:hasPreferredNameLiteral.
 
 human:hasAliasLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de;
 	rdfs:comment """Relating a person to the literal of an alias of that person."""@en;
@@ -624,7 +624,7 @@ human:hasAliasLiteral
 	rdfs:subPropertyOf human:hasNameLiteral, text:hasAliasLiteral.
 
 human:hasTitleLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has title literal"@en, "hat Titelliterale"@de;
 	rdfs:comment """Relating a person to the literal of a title of that person."""@en;
@@ -633,7 +633,7 @@ human:hasTitleLiteral
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 human:hasDescriptionLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de;
 	rdfs:comment """Relating a person to the literal of a description of that person."""@en;
@@ -642,7 +642,7 @@ human:hasDescriptionLiteral
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 human:hasBiographyLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has biography literal"@en, "hat Biografieliterale"@de;
 	rdfs:comment """Relating a person to the literal of a biography of the person."""@en;
@@ -653,7 +653,7 @@ human:hasBiographyLiteral
 # hagiography
 
 human:personHasRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "person has role"@en, "Person hat Rolle"@de;
 	rdfs:comment """Relating a person to a role the person has."""@en;
@@ -662,7 +662,7 @@ human:personHasRole
 	rdfs:subPropertyOf human:agentHasRole.
 
 human:hasOccupationalRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has occupational role"@en, "hat Tätigkeitsrolle"@de;
 	rdfs:comment """Relating a person to a current occupational role the person has."""@en;
@@ -671,7 +671,7 @@ human:hasOccupationalRole
 	rdfs:subPropertyOf human:personHasRole.
 
 human:adheringToThought
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "adhering to body of thought"@en, "ist Anhänger von Gedankengut"@de;
 	rdfs:comment """Relating a person to a body of thought the person adheres to."""@en;
@@ -680,7 +680,7 @@ human:adheringToThought
 #	rdfs:subPropertyOf
 
 human:hasFloruit
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has floruit"@en, "hat Floruit"@de;
 	rdfs:comment """Relating a person to a floruit the person has."""@en;
@@ -689,7 +689,7 @@ human:hasFloruit
 	rdfs:subPropertyOf human:actsIn.
 
 human:isMemberOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "is member of"@en, "ist Mitglied"@de;
 	rdfs:comment """Relating a person to a group the person is a member of."""@en;
@@ -698,7 +698,7 @@ human:isMemberOf
 	rdfs:subPropertyOf agent:isMemberOf.
 
 human:groupHasRole
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "group has role"@en, "Gruppe hat Rolle"@de;
 	rdfs:comment """Relating a group to a role it has."""@en;
@@ -707,7 +707,7 @@ human:groupHasRole
 	rdfs:subPropertyOf human:agentHasRole.
 
 human:groupIsMemberOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "group is member of"@en, "Gruppe ist Mitglied"@de;
 	rdfs:comment """Relating a group to another group it is member of."""@en;
@@ -716,7 +716,7 @@ human:groupIsMemberOf
 	rdfs:subPropertyOf agent:isMemberOf.
 
 human:hasUse
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has use"@en, "hat Verwendungszweck"@de;
 	rdfs:comment """Relating something to a use thereof."""@en; # NOT limited to a physical thing
@@ -724,7 +724,7 @@ human:hasUse
 	rdfs:range human:Use.
 
 human:hasUser
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has user"@en, "hat Benutzerin"@de;
 	rdfs:comment """Relating something to an agent - a person or a group - using it."""@en;
@@ -733,7 +733,7 @@ human:hasUser
 	rdfs:subPropertyOf agent:hasUser.
 
 human:hasOwner
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has owner"@en, "hat EignerIn"@de;
 	rdfs:comment """Relating something to a human agent - a person or a group - owning it."""@en;
@@ -741,7 +741,7 @@ human:hasOwner
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentOwner]].
 
 human:hasSponsor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has sponsor"@en, "hat Sponsor"@de;
 	rdfs:comment """Relating something to a human agent - a person or a group - sponsoring it."""@en;
@@ -749,7 +749,7 @@ human:hasSponsor
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSponsor]].
 
 human:hasPreserver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/human#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
 	rdfs:label "has preserver"@en, "hat Erhalter"@de;
 	rdfs:comment """Relating a material resoruce to a human agent - a person or a group - preserving it."""@en;

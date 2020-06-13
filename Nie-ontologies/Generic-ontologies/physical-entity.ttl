@@ -9,16 +9,16 @@
 @prefix sopropti: <http://sweetontology.net/propTime/>.
 @prefix sopropsdis: <http://sweetontology.net/propSpaceDistance/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix phygeo: <http://www.e-editiones.ch/ontology/physical-geography#>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
-@prefix humgeo: <http://www.e-editiones.ch/ontology/human-geography#>.
-@prefix text: <http://www.e-editiones.ch/ontology/text#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix phygeo: <http://e-editiones.ch/ontology/physical-geography#>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
+@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
 
-@base <http://www.e-editiones.ch/ontology/physical-entity>.
-@prefix physical: <http://www.e-editiones.ch/ontology/physical-entity#>.
+@base <http://e-editiones.ch/ontology/physical-entity>.
+@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
 
-<http://www.e-editiones.ch/ontology/physical-entity>
+<http://e-editiones.ch/ontology/physical-entity>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title """Physical Entity"""@en;
@@ -32,7 +32,7 @@
 #
 
 physical:Entity
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "physical entity"@en, "physische Entität"@de;
 	rdfs:comment """."""@en; #°
@@ -40,7 +40,7 @@ physical:Entity
 	# seqnum
 
 physical:ExistingState
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "existing state"@en, "Existenzzustand"@de;
 	rdfs:comment """State of a physical entity existing, partially existing, or having existed."""@en;
@@ -49,35 +49,35 @@ physical:ExistingState
 	owl:oneOf (physical:Existing physical:Gone).
 
 physical:Existing
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "existing"@en, "existierend"@de;
 	rdfs:comment """State of a physical entity existing."""@en;
 	rdfs:subClassOf physical:ExistingState.
 
 physical:Gone
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "gone"@en, "weg"@de;
 	rdfs:comment """State of a physical entity not existing anymore."""@en;
 	rdfs:subClassOf physical:ExistingState.
 
 physical:Space
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "space"@en, "Raum"@de;
 	rdfs:comment """Physical entity."""@en; #°
 	rdfs:subClassOf physical:Entity, geo:SpatialThing, soreps:Space.
 
 physical:Time
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "time"@en, "Zeit"@de;
 	rdfs:comment """Physical entity."""@en; #°
 	rdfs:subClassOf physical:Entity, sopropti:Time. # quantity
 
 physical:Place
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "place"@en, "Platz"@de;
 	rdfs:comment """Specific space with a position reference, e.g. in a positioning reference system, e.g. the geodetic system of the Earth."""@en;
@@ -88,35 +88,35 @@ physical:Place
 # phygeo:hasAltitude
 
 physical:Point
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "point"@en, "Punkt"@de;
 	rdfs:comment """Entity without dimension."""@en;
 	rdfs:subClassOf physical:Entity, geo:Point.
 
 physical:Size
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "size"@en, "Grösse"@de;
 	rdfs:comment """Spatial extent having 1 to 3 dimensions."""@en;
 	rdfs:subClassOf sopropsdis:Size, rdfs:Resource. # seqnum
 
 physical:Length
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "length"@en, "Länge"@de;
 	rdfs:comment """Spatial quantity representing 1 dimension."""@en;
 	rdfs:subClassOf sopropsdis:Length, rdfs:Resource. # seqnum.
 
 physical:Distance
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "distance"@en, "Abstand"@de;
 	rdfs:comment """Length of the space between two points."""@en;
 	rdfs:subClassOf physical:Length, sopropsdis:Distance.
 
 physical:Matter 
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "matter"@en, "Materie"@de;
 	rdfs:comment """Physical entity having mass and volume."""@en;
@@ -124,7 +124,7 @@ physical:Matter
 	rdfs:subClassOf physical:Space, dct:PhysicalResource.
 
 physical:Compound
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "compound"@en, "Mischung"@de;
 	rdfs:comment """Physical entity composed of more than 1 type of substance."""@en;
@@ -132,7 +132,7 @@ physical:Compound
 	rdfs:subClassOf physical:Matter.
 
 physical:Product
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
 	rdfs:label "product"@en, "Produkt"@de;
 	rdfs:comment """Matter as result of producing in broadest sense, e.g. honey produced by bees."""@en;
@@ -143,7 +143,7 @@ physical:Product
 #
 
 physical:isPartOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty; #, owl:TransitiveProperty;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a space to another one it is part of."@en;
@@ -151,7 +151,7 @@ physical:isPartOf
 	rdfs:range physical:Space.
 
 physical:hasSize
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has size"@en, "hat Grösse"@de;
 	rdfs:comment "Relating a space to its size."@en;
@@ -159,7 +159,7 @@ physical:hasSize
 	rdfs:range physical:Size.
 
 physical:hasLength
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has length"@en, "hat Länge"@de;
 	rdfs:comment "Relating a space to its length."@en;
@@ -167,7 +167,7 @@ physical:hasLength
 	rdfs:range physical:Length.
 
 physical:hasSizeDescription #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has size description"@en, "hat Grössebeschreibung"@de;
 	rdfs:comment "Relating a space to a size description it has."@en;
@@ -175,7 +175,7 @@ physical:hasSizeDescription #°
 	rdfs:range rdfs:Literal.
 
 physical:hasLocation
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has location"@en, "hat Ort"@de;
 	rdfs:comment """Relating something to its location."""@en;
@@ -184,7 +184,7 @@ physical:hasLocation
 	rdfs:subPropertyOf geo:location.
 
 physical:hasExistingState
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has existing state"@en, "hat Existenzzustand"@de;
 	rdfs:comment """Relating something to its existing state."""@en;
@@ -192,7 +192,7 @@ physical:hasExistingState
 	rdfs:range physical:ExistingState.
 
 physical:placeHasNameLiteral
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:DatatypeProperty;
 	rdfs:label "place has name literal"@en, "Platz hat Nameliterale"@de;
 	rdfs:comment """Relating a place to its name literal."""@en;
@@ -201,7 +201,7 @@ physical:placeHasNameLiteral
 	rdfs:subPropertyOf text:hasNameLiteral.
 
 physical:hasSender
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has sender"@en, "hat Absender"@de;
 	rdfs:comment """Relating something material to a human agent - a person or a group - that sent it."""@en;
@@ -209,7 +209,7 @@ physical:hasSender
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentSender]].
 
 physical:hasReceiver
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has receiver"@en, "hat Empfänger"@de;
 	rdfs:comment """Relating something material to a human agent - a person or a group - that received it."""@en;
@@ -217,7 +217,7 @@ physical:hasReceiver
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentReceiver]].
 
 physical:hasSendingDate #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has sending date"@en, "hat Absendedatum"@de;
 	rdfs:comment """Relating something material to a date it was sent on."""@en;
@@ -225,7 +225,7 @@ physical:hasSendingDate #°
 	rdfs:range xsd:date.
 
 physical:hasReceivingDate #°
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has receiving date"@en, "hat Empfangsdatum"@de;
 	rdfs:comment """Relating something material to a date it was received on."""@en;
@@ -233,7 +233,7 @@ physical:hasReceivingDate #°
 	rdfs:range xsd:date.
 
 physical:hasSendingLocation
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has sending location"@en, "hat Absendeort"@de;
 	rdfs:comment """Relating something material to a location it was sent from."""@en;
@@ -242,7 +242,7 @@ physical:hasSendingLocation
 	rdfs:subPropertyOf physical:hasLocation.
 
 physical:hasReceivingLocation
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/physical-entity#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has receiving location"@en, "hat Empfangort"@de;
 	rdfs:comment """Relating something material to a location it was sent to."""@en;

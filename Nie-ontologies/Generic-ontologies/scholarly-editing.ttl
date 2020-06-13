@@ -6,25 +6,25 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://www.e-editiones.ch/ontology/event#>.
-@prefix human: <http://www.e-editiones.ch/ontology/human#>.
-@prefix creating: <http://www.e-editiones.ch/ontology/creating#>.
-@prefix org: <http://www.e-editiones.ch/ontology/organization#>.
-@prefix language: <http://www.e-editiones.ch/ontology/language#>.
-@prefix concept: <http://www.e-editiones.ch/ontology/concept#>.
-@prefix document: <http://www.e-editiones.ch/ontology/document#>.
-@prefix text: <http://www.e-editiones.ch/ontology/text#>.
-@prefix text-expression: <http://www.e-editiones.ch/ontology/text-expression#>.
-@prefix text-structure: <http://www.e-editiones.ch/ontology/text-structure#>.
-@prefix textedit: <http://www.e-editiones.ch/ontology/text-editing#>.
-@prefix infocar: <http://www.e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://www.e-editiones.ch/ontology/publishing#>.
-@prefix ling: <http://www.e-editiones.ch/ontology/linguistics#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix human: <http://e-editiones.ch/ontology/human#>.
+@prefix creating: <http://e-editiones.ch/ontology/creating#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix language: <http://e-editiones.ch/ontology/language#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix document: <http://e-editiones.ch/ontology/document#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
+@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
+@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
+@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
+@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 
-@base <http://www.e-editiones.ch/ontology/scholarly-editing>.
-@prefix scholarly-editing: <http://www.e-editiones.ch/ontology/scholarly-editing#>.
+@base <http://e-editiones.ch/ontology/scholarly-editing>.
+@prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
 
-<http://www.e-editiones.ch/ontology/scholarly-editing>
+<http://e-editiones.ch/ontology/scholarly-editing>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about scientific editing"@en;
@@ -40,21 +40,21 @@
 #
 
 scholarly-editing:EditionScientist
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "edition scientist"@en, "EditionswissenschaftlerIn"@de, "scientifique de l'édition"@fr, "scienziato dell'edizione"@it;
 	rdfs:comment """Role of a person practicing edition science."""@en;
 	rdfs:subClassOf human:Scientist.
 
 scholarly-editing:AgentEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly editor"@en, "wissenschaftliche Editor"@de, "éditeur scientifique"@fr, "editore accademico"@it;
 	rdfs:comment """Role of a human agent—person or organization—editing a text expression scientifically."""@en;
 	rdfs:subClassOf textedit:AgentEditor.
 
 scholarly-editing:PersonEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly person-editor"@en, "wissenschaftliche Person-Editor"@de, "éditeur personnel scientifique"@fr, "persona accademica editrice"@it;
 	rdfs:comment """Role of a person editing a text expression scientifically."""@en;
@@ -62,56 +62,56 @@ scholarly-editing:PersonEditor
 	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:PersonEditor, scholarly-editing:EditionScientist.
 
 scholarly-editing:OrganizationEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de, "éditeur-organisation scientifique"@fr, "organizzazione accademica editrice"@it;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
 	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:OrganizationEditor.
 
 scholarly-editing:Edition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition"@en, "wissenschaftliche Edition"@de, "édition scientifique"@fr, "edizione accademica"@it;
 	rdfs:comment """Derived text expression edited for scientific purpose."""@en;
 	rdfs:subClassOf textedit:DerivedTextExpression.
 
 scholarly-editing:Page
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition text page"@en, "wissenschaftliche Editiontextseite"@de, "page de texte d'une édition scientifique"@fr, "pagina di testo in edizione accademica"@it;
 	rdfs:comment """Page of a scholarly edition."""@en;
 	rdfs:subClassOf text-structure:Page.
 
 scholarly-editing:EditorialSymbol
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial symbol"@en, "editorisches Zeichen"@de, "symbole éditorial"@fr, "simbolo editoriale"@it;
 	rdfs:comment """Symbol in a scholarly edition indicating a textual property of the original text."""@en;
 	rdfs:subClassOf concept:SymbolicEntity.
 
 scholarly-editing:PageIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "page indicator"@en, "Seiteindikator"@de, "indicateur de page"@fr, "indicatore di pagina"@it;
 	rdfs:comment """Editorial symbol indicating where a document page starts."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:PageNumberIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "page number indicator"@en, "Seitenummerindikator"@de, "indicateur de numéro de page"@fr, "indicatore del numero di pagina"@it;
 	rdfs:comment """Page indicator as number."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:ColumnIndicator
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "column indicator"@en, "Spalteindikator"@de, "indicateur de colonne"@fr, "indicatore di colonna"@it;
 	rdfs:comment """Editorial symbol indicating a textual property of the original text."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:InverseEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "inverse scholarly edition"@en, "inverse wissenschaftliche Edition"@de, "édition scientifique inversée"@fr, "edizione accademica inversa"@it;
 	rdfs:comment """Scholarly edition studying a reference of a source."""@en;
@@ -119,7 +119,7 @@ scholarly-editing:InverseEdition
 	rdfs:subClassOf scholarly-editing:Edition.
 
 scholarly-editing:DiplomaticTranscription
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de, "transcription diplomatique"@fr, "trascrizione diplomatica"@it;
 #	ling:hasSynonym "Lesehilfe"@de, ""@fr, ""@it;
@@ -130,14 +130,14 @@ scholarly-editing:DiplomaticTranscription
 # textedit:DiplomaticInterpretativeTranscription
 
 scholarly-editing:CriticalEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical editor"@en, "kritische Editor"@de, "éditeur critique"@fr, "editore critico"@it;
 	rdfs:comment """Role of being a scholar editing a text expression in a critical scientific way."""@en;
 	rdfs:subClassOf human:Scientist, creating:PersonCreator.
 
 scholarly-editing:CriticalEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical text edition"@en, "kritische Textedition"@de, "édition critique de texte"@fr, "edizione critica del testo"@it;
 	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, using a critical apparatus, allowing readers to assess the editor's choice."""@en;
@@ -146,14 +146,14 @@ scholarly-editing:CriticalEdition
 # textedit:Variorum rdfs:subClassOf textedit:CriticalEdition
 
 scholarly-editing:GeneticEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "genetic edition"@en, "genetische Edition"@de, "édition génétique"@fr, "edizione genetica"@it;
 	rdfs:comment """Critical edition accounting for the modifications by the author."""@en;
 	rdfs:subClassOf scholarly-editing:CriticalEdition.
 
 scholarly-editing:ConstitutedEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de, "texte constitué d'édition"@fr, "testo costituito di un'edizione"@it;
 #	ling:hasSynonym "Lesetext"@de, ""@fr, ""@it;
@@ -161,42 +161,42 @@ scholarly-editing:ConstitutedEdition
 	rdfs:subClassOf scholarly-editing:Edition.
 
 scholarly-editing:EditorialStructure
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial text structure"@en, "editorische Textstruktur"@de, "structure du texte éditorial"@fr, "struttura del testo editoriale"@it;
 	rdfs:comment """Scientific text structure depending on editorial purpose, e.g. an editing apparatus."""@en;
 	rdfs:subClassOf text-structure:ScientificStructure.
 
 scholarly-editing:SiglumReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "siglum reference"@en, "Siglum-Referenz"@de, "référence de siglum"@fr, "riferimento di sigla"@it;
 	rdfs:comment """Reference to a siglum as expression identifier."""@en;
 	rdfs:subClassOf document:ExpressionReference.
 
 scholarly-editing:Siglum
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "siglum"@en, "Siglum"@de, "siglum"@fr, "sigla"@it;
 	rdfs:comment """One or more symbols as identifier of an expression as original or witness in a scholarly edition."""@en;
 	rdfs:subClassOf document:ExpressionIdentifier.
 
 scholarly-editing:Apparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editing apparatus"@en, "Edierungsapparatus"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
 	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:ApparatusEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editing apparatus entry"@en, "Edierungsapparateintrag"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
 	rdfs:comment """Entry of an editing apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:DoctrinalApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de, "apparat doctrinal"@fr, "apparato dottrinale"@it;
 #	ling:hasSynonym textedit:HistoricalApparatus;
@@ -204,70 +204,70 @@ scholarly-editing:DoctrinalApparatus
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:DoctrinalApparatusEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "doctrinal apparatus entry"@en, "doktrinaler Apparateintrag"@de, "entrée d'apparat doctrine"@fr, "iscrizione del apparato doctrino"@it;
 	rdfs:comment """Entry of a doctrinal apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:ApparatusFontium
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "apparatus fontium"@en, "Apparatus Fontium"@de, "apparatus fontium"@la, "apparat fontium"@fr, "apparato fontium"@it; 
 	rdfs:comment """Editing apparatus containing references to one or more citations."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:ApparatusFontiumEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "apparatus fontium entry"@en, "Apparatus Fontium-Eintrag"@de,"entrée d'apparat "@fr, "iscrizione del apparato "@it;
 	rdfs:comment """Entry of an apparatus fontium."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:CriticalApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical apparatus"@en, "textkritischer Apparat"@de, "apparat critique"@fr, "apparato critico"@it, "apparatus criticus"@la;
 	rdfs:comment """Editing apparatus to a critical text edition providing information of textual versions."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:CriticalApparatusEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "critical apparatus entry"@en, "textkritischer Apparateintrag"@de, "entrée d'apparat critique"@fr, "iscrizione del apparato critico"@it;
 	rdfs:comment """Entry of critical apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:StructureApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "text structure apparatus"@en, "Textstruktur-Apparat"@de, "apparat de structure de texte"@fr, "apparato di struttura del testo"@it;
 	rdfs:comment """Editing apparatus to a critical text edition providing information of text structure."""@en;
 	rdfs:subClassOf scholarly-editing:Apparatus.
 
 scholarly-editing:StructureApparatusEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "structure apparatus entry"@en, "Textstruktur-Apparateintrag"@de,  "entrée d'apparat de structure"@fr, "iscrizione del apparato di struttura "@it;
 	rdfs:comment """Entry of text structure apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:ApparatusEntry.
 
 scholarly-editing:StructureDescription
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "text structure description"@en, "Textstrukturdeskription"@de, "description de la structure de texte"@fr, "descrizione della struttura del testo"@it;
 	rdfs:comment """Description of a text structure in a structure apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure.
 
 scholarly-editing:Reading
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "reading"@en, "Lesung"@de, "lezione"@it, "lectio"@la, "lecture"@fr, "lettura"@it;
 	rdfs:comment """Copy of one or more words or phrases of an original or witness."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text:CopiedText.
 
 scholarly-editing:Witness
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "witness text"@en, "Textzeuge"@de, "texte de témoin"@fr, "testo di testimonianza"@it;
 	rdfs:comment """Copy of a text studied in a critical edition, as comparison or proof of existance of the original by looking for features of originality, possibly enabling the original's reconstruction."""@en;
@@ -275,7 +275,7 @@ scholarly-editing:Witness
 	rdfs:subClassOf text:CopiedText, text-expression:Expression.
 
 scholarly-editing:Lemma
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "lemma"@en, "Lemma"@de, "lemma"@fr, "lemma"@it;
 	rdfs:comment """Editorial structure in an apparatus entry with a copy of one or more words or phrases referring to its edition text, and as appearing in the original or a witness, or created by an editor, and judged by the editor to be authentic, accurate, and/or authoritative [, and possibly compaired with variants referring to other witnesses]"""@en;
@@ -283,28 +283,28 @@ scholarly-editing:Lemma
 	rdfs:subClassOf scholarly-editing:EditorialStructure.
 
 scholarly-editing:WitnessedLemma
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "witnessed lemma"@en, "bezeugtes Lemma"@de, "lemma témoinée"@fr, "lemma testimoniato"@it;
 	rdfs:comment """Lemma with a witness."""@en;
 	rdfs:subClassOf scholarly-editing:Lemma, scholarly-editing:Reading.
 
 scholarly-editing:Conjecture
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "conjecture"@en, "Konjektur"@de, "conjecture"@fr, "congetturare"@it;
 	rdfs:comment """Witness-independent lemma expressly proposed to be of interest but absent in the main text of an edition."""@en;
 	rdfs:subClassOf scholarly-editing:Lemma.
 
 scholarly-editing:Emendation
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "emendation"@en, "Emendation"@de, "émendation"@fr, "emendazione"@it;
 	rdfs:comment """Conjecture accepted by the editor in the main text of an edition."""@en;
 	rdfs:subClassOf scholarly-editing:Conjecture.
 
 scholarly-editing:Variant
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "variant"@en, "Variant"@de, "variante"@fr, "variante"@it;
 	rdfs:comment """Reading in a critical apparatus entry, judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text, and as such varying from what the editor has judged to be the lemma."""@en;
@@ -312,7 +312,7 @@ scholarly-editing:Variant
 	rdfs:subClassOf scholarly-editing:Reading.
 
 scholarly-editing:EditorialComment
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "editorial comment"@en, "editorische Kommentar"@de, "commentaire éditorial"@fr, "commento editoriale"@it; 
 	rdfs:comment """Comment in a scholarly edition."""@en;
@@ -323,7 +323,7 @@ scholarly-editing:EditorialComment
 #
 
 scholarly-editing:hasEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has scholarly edition"@en, "hat wissenschaftliche Textedition"@de, "a une édition scientifique"@fr, "ha edizione accademica"@it;
 	rdfs:comment "Relating a text expression to a scholarly edition thereof."@en;
@@ -332,7 +332,7 @@ scholarly-editing:hasEdition
 	rdfs:subPropertyOf textedit:hasDerivedTextExpression.
 
 scholarly-editing:hasEditionPage
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has scholarly edition page"@en, "hat wissenschaftliche Texteditionseite"@de, "a une page d'édition scientifique"@fr, "ha una pagina di edizione accademica"@it;
 	rdfs:comment "Relating a text expression to a scholarly edition page thereof."@en;
@@ -340,7 +340,7 @@ scholarly-editing:hasEditionPage
 	rdfs:range scholarly-editing:Page.
 
 scholarly-editing:hasEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftliche Editor"@de, "édition scientifique a un éditeur scientifique"@fr, "edizione accademica ha un editore accademico"@it;
 	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
@@ -349,7 +349,7 @@ scholarly-editing:hasEditor
 	# rdfs:subPropertyOf textedit:hasEditor
 
 scholarly-editing:isPageOfEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page of scholarly edition"@en, "ist Seite einer wissenschaftlichen Edition"@de, "est une page d'une édition scientifique"@fr, "è la pagina di un'edizione accademica"@it;
 	rdfs:comment """Relating a page to its scholarly edition."""@en;
@@ -358,7 +358,7 @@ scholarly-editing:isPageOfEdition
 	rdfs:subPropertyOf text-structure:isPageOfExpression.
 
 scholarly-editing:isEditorialSymbolOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is editorial symbol of"@en, "ist editorisches Zeichen von"@de, "est le symbole éditorial de"@fr, "è il simbolo editoriale di"@it;
 	rdfs:comment """Relating an editorial symbol to its scholarly edition page."""@en;
@@ -367,7 +367,7 @@ scholarly-editing:isEditorialSymbolOf
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isPageIndicatorOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page indicator of"@en, "ist Seiteindikator von"@de, "est l'indicateur de page de"@fr, "è l'indicatore di pagina di"@it;
 	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
@@ -376,7 +376,7 @@ scholarly-editing:isPageIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:isPageNumberIndicatorOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is page number indicator of"@en, "ist Seitenummerindikator von"@de, "est l'indicateur du numéro de page de"@fr, "è l'indicatore del numero di pagina di"@it;
 	rdfs:comment """Relating a page indicator to its scholarly edition page."""@en;
@@ -385,7 +385,7 @@ scholarly-editing:isPageNumberIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:isColumnIndicatorOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is column indicator of"@en, "ist Spalteindikator von"@de, "est l'indicateur de colonne de"@fr, "è l'indicatore di colonna di"@it;
 	rdfs:comment """Relating a column indicator to its scholarly edition page."""@en;
@@ -394,7 +394,7 @@ scholarly-editing:isColumnIndicatorOf
 	rdfs:subPropertyOf scholarly-editing:isEditorialSymbolOf.
 
 scholarly-editing:hasDiplomaticTranscription
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de, "a une transcription diplomatique"@fr, "ha trascrizione diplomatica"@it;
 	rdfs:comment "Relating a text to a diplomatic transcription thereof."@en;
@@ -403,7 +403,7 @@ scholarly-editing:hasDiplomaticTranscription
 	rdfs:subPropertyOf scholarly-editing:hasEdition.
 
 scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Umschrift des Textes auf Seite"@de, "est la transcription diplomatique du texte sur la page"@fr, "è la trascrizione diplomatica del testo sulla pagina"@it;
 	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
@@ -411,7 +411,7 @@ scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
 	rdfs:range infocar:Page.
 
 scholarly-editing:hasCriticalEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has critical text edition"@en, "hat kritische Textedition"@de, "a une édition critique de texte "@fr, "ha un'edizione critica di testo"@it;
 	rdfs:comment "Relating a text expression to a critical edition thereof."@en;
@@ -420,7 +420,7 @@ scholarly-editing:hasCriticalEdition
 	rdfs:subPropertyOf scholarly-editing:hasEdition.
 
 scholarly-editing:hasCriticalEditor
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has critical editor"@en, "hat kritische Editor"@de, "a un éditeur critique"@fr, "ha un editor critico"@it;
 	rdfs:comment "Relating a critical edition to a critical editor who created it."@en;
@@ -429,7 +429,7 @@ scholarly-editing:hasCriticalEditor
 	rdfs:subPropertyOf scholarly-editing:hasEditor.
 
 scholarly-editing:hasSiglumReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has siglum reference"@en, "hat Siglum-Referenz"@de, "a une référence au siglum"@fr, "ha un riferimento a sigla"@it;
 	rdfs:comment """Relating an editiorial text structure to its siglum reference."""@en;
@@ -438,7 +438,7 @@ scholarly-editing:hasSiglumReference
 	rdfs:subPropertyOf document:hasExpressionReference.
 
 scholarly-editing:hasSiglum
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has siglum"@en, "hat Siglum"@de, "a un siglum"@fr, "ha sigla"@it;
 	rdfs:comment """Relating a siglum reference to its siglum."""@en;
@@ -447,7 +447,7 @@ scholarly-editing:hasSiglum
 	rdfs:subPropertyOf document:expressionReferenceHasIdentifier.
 
 scholarly-editing:isSiglumOfEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "îs siglum of scholarly edition"@en, "ist Siglum einer wissenschaftliche Edition"@de, "est us siglum de l'édition scientifique"@fr, "è un siglum dell'edizione accademica"@it;
 	rdfs:comment """Relating a siglum to its scholarly edition."""@en;
@@ -456,7 +456,7 @@ scholarly-editing:isSiglumOfEdition
 	rdfs:subPropertyOf document:isStructureOfDocument.
 
 scholarly-editing:isApparatusOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus of"@en, "ist Apparat von"@de, "est l'appart de"@fr, "è l'apparato di"@it;
 	rdfs:comment """Relating an editing apparatus to its scholarly edition."""@en;
@@ -465,7 +465,7 @@ scholarly-editing:isApparatusOf
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 scholarly-editing:isEntryOfApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of apparatus"@en, "ist Eintrag eines Apparates"@de, "est l'entrée de l'apparat"@fr, "è l'ingresso dell'apparato"@it;
 	rdfs:comment """Relating an entry to its editing apparatus."""@en;
@@ -474,7 +474,7 @@ scholarly-editing:isEntryOfApparatus
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:hasApparatusEnteringDate
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has apparatus entering date"@en, "hat Apparatuseintragsdatum"@de, "a une date d'entrée d'apparat"@fr, "ha data di entrata dell'apparato"@it;
 	rdfs:comment """Relating an entry to its date of entering in an apparatus."""@en;
@@ -483,7 +483,7 @@ scholarly-editing:hasApparatusEnteringDate
 	rdfs:subPropertyOf creating:creationHasDate.
 
 scholarly-editing:isDoctrinalApparatusOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is doctrinal apparatus of"@en, "ist doktrinaler Apparat von"@de, "est l'apparat doctrinal de"@fr, "è l'apparato dottrinale di"@it;
 	rdfs:comment """Relating a doctrinal apparatus to its scholarly edition."""@en;
@@ -492,7 +492,7 @@ scholarly-editing:isDoctrinalApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfDoctrinalApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of doctrinal apparatus"@en, "ist Eintrag eines doktrinalen Apparates"@de, "est l'entrée de l'appareil doctrinal"@fr, "è l'ingresso dell'apparato dottrinale"@it;
 	rdfs:comment """Relating an entry to its doctrinal apparatus."""@en;
@@ -501,7 +501,7 @@ scholarly-editing:isEntryOfDoctrinalApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isApparatusFontiumOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is apparatus fontium of"@en, "ist Apparatus Fontium von"@de, "est l'apparat fontium de"@fr, "è apparato fontium di"@it;
 	rdfs:comment """Relating an apparatus fontium to its scholarly edition."""@en;
@@ -510,7 +510,7 @@ scholarly-editing:isApparatusFontiumOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfApparatusFontium
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of apparatus fontium"@en, "ist Eintrag eines Apparatus Fontium"@de, "est l'entrée de l'apparat fontium"@fr, "è l'ingresso dell'apparato fontium"@it;
 	rdfs:comment """Relating an entry to its apparatus fontium."""@en;
@@ -519,7 +519,7 @@ scholarly-editing:isEntryOfApparatusFontium
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isCriticalApparatusOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is critical apparatus of"@en, "ist textkritischer Apparat von"@de, "est un apparat critique de"@fr, "è un apparato critico di"@it;
 	rdfs:comment """Relating a critical apparatus to its edition."""@en;
@@ -528,7 +528,7 @@ scholarly-editing:isCriticalApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfCriticalApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of critical apparatus"@en, "ist Eintrag eines textkritischen Apparates"@de, "est l'entrée d'un apparat critique"@fr, "è l'ingresso dell'apparato critico"@it;
 	rdfs:comment """Relating an entry to its critical apparatus."""@en;
@@ -537,7 +537,7 @@ scholarly-editing:isEntryOfCriticalApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isStructureApparatusOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is structure apparatus of"@en, "ist Strukturapparat von"@de, "est un apparat de structure de"@fr, "è l'apparato strutturale di"@it;
 	rdfs:comment """Relating a structure apparatus to its scholarly edition."""@en;
@@ -546,7 +546,7 @@ scholarly-editing:isStructureApparatusOf
 	rdfs:subPropertyOf scholarly-editing:isApparatusOf.
 
 scholarly-editing:isEntryOfStructureApparatus
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is entry of text structure apparatus"@en, "ist Eintrag eines Textstruktur-Apparates"@de, "est l'entrée d'un apparat de structure de texte"@fr, "è l'ingresso dell'apparato di struttura del testo"@it;
 	rdfs:comment """Relating an entry to its text structure apparatus."""@en;
@@ -555,7 +555,7 @@ scholarly-editing:isEntryOfStructureApparatus
 	rdfs:subPropertyOf scholarly-editing:isEntryOfApparatus.
 
 scholarly-editing:isStructureDescriptionOfEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is structure description of apparatus entry"@en, "ist Strukturbeschreibung eines Apparateintrages"@de, "est la description de structure de l'entrée de l'apparat"@fr, "è la descrizione della struttura dell'entrata dell'apparato"@it;
 	rdfs:comment """Relating a text structure description to a text structure apparatus entry."""@en;
@@ -564,7 +564,7 @@ scholarly-editing:isStructureDescriptionOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isReadingOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is reading of"@en, "ist Textinterpretation von"@de, "est une lecture de"@fr, "è una lettura di"@it;
 	rdfs:comment """Relating a reading to its witness."""@en;
@@ -572,7 +572,7 @@ scholarly-editing:isReadingOf
 	rdfs:range scholarly-editing:Witness.
 
 scholarly-editing:witnessHasSiglum
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "witness text has siglum"@en, "Textzeuge hat Siglum"@de, "le texte du témoin a un siglum"@fr, "il testo del testimone ha siglum"@it;
 	rdfs:comment """Relating a witness text expression to its siglum."""@en;
@@ -581,7 +581,7 @@ scholarly-editing:witnessHasSiglum
 	rdfs:subPropertyOf document:expressionHasIdentifier.
 
 scholarly-editing:isWitnessOf
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is witness of"@en, "ist Textzeuge von"@de, "est témoin de"@fr, "è testimone di"@it;
 	rdfs:comment """Relating a witness text expression to its original."""@en;
@@ -589,7 +589,7 @@ scholarly-editing:isWitnessOf
 	rdfs:range text-expression:Expression.
 
 scholarly-editing:isLemmaOfCriticalEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is lemma of critical apparatus entry"@en, "ist Lemma eines textkritischen Apparateintrages"@de, "est le lemme de l'entrée d'apparat critique"@fr, "è il lemma dell'entrata nell'apparato critico"@it;
 	rdfs:comment """Relating a lemma to its critical apparatus entry."""@en;
@@ -598,7 +598,7 @@ scholarly-editing:isLemmaOfCriticalEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:isLemmaOfDoctrinalEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is lemma of doctrinal apparatus entry"@en, "ist Lemma eines doktrinalen Apparateintrages"@de, "est le lemme de l'entrée d'apparat doctrinal"@fr, "è il lemma dell'entrata nell'apparato dottrinale"@it;
 	rdfs:comment """Relating a lemma to its doctrinal apparatus entry."""@en;
@@ -607,7 +607,7 @@ scholarly-editing:isLemmaOfDoctrinalEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:lemmaHasReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has reference"@en, "Lemma hat Referenz"@de, "lemme a une référence"@fr, "lemma ha riferimenti"@it;
 	rdfs:comment """Relating a lemma to its reference."""@en;
@@ -616,7 +616,7 @@ scholarly-editing:lemmaHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:lemmaHasVariant
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has variant"@en, "Lemma hat Variant"@de, "lemme a une variante"@fr, "lemma ha una variante"@it;
 	rdfs:comment """Relating a lemma to a variant it has."""@en;
@@ -624,7 +624,7 @@ scholarly-editing:lemmaHasVariant
 	rdfs:range scholarly-editing:Variant.
 
 scholarly-editing:lemmaHasComment
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "lemma has comment"@en, "Lemma hat Kommentar"@de, "lemme a un commentaire"@fr, "lemma ha un commento"@it;
 	rdfs:comment """Relating a lemma to a comment it has."""@en;
@@ -632,7 +632,7 @@ scholarly-editing:lemmaHasComment
 	rdfs:range scholarly-editing:EditorialComment.
 
 scholarly-editing:isVariantOfEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is variant of apparatus entry"@en, "ist Variant eines Apparateintrages"@de, "est une variante de l'entrée d'apparat"@fr, "è la variante di entrata dell'apparato"@it;
 	rdfs:comment """Relating a variant to its critical apparatus entry."""@en;
@@ -641,7 +641,7 @@ scholarly-editing:isVariantOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:variantHasReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "variant has text reference"@en, "Variant hat Textreferenz"@de, "variante a une référence de texte"@fr, "variante ha riferimento al testo"@it;
 	rdfs:comment """Relating a variant to its text reference."""@en;
@@ -650,7 +650,7 @@ scholarly-editing:variantHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:variantHasComment
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "variant has comment"@en, "Variant hat Kommentar"@de, "variante a un commentaire"@fr, "variante ha un commento"@it;
 	rdfs:comment """Relating a variant to an editorial comment."""@en;
@@ -658,7 +658,7 @@ scholarly-editing:variantHasComment
 	rdfs:range scholarly-editing:EditorialComment.
 
 scholarly-editing:isCommentOn
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment on"@en, "ist Kommentar zu"@de, "est un commentaire de"@fr, "est un commento di"@it;
 	rdfs:comment """Relating an editorial comment to a text expression it is a comment on."""@en;
@@ -666,7 +666,7 @@ scholarly-editing:isCommentOn
 	rdfs:range text-expression:Expression.
 
 scholarly-editing:isCommentOfEdition
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment of scholarly edition"@en, "ist Kommentar der wissenschaftlichen Edition"@de, "est un commentaire d'une édition scientifique"@fr, "è un commento dell'edizione accademica"@it;
 	rdfs:comment """Relating an editorial comment to its scholarly edition."""@en;
@@ -675,7 +675,7 @@ scholarly-editing:isCommentOfEdition
 	rdfs:subPropertyOf text-structure:isPartOfTextExpression.
 
 scholarly-editing:isCommentOfEntry
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is comment of entry"@en, "ist Kommentar eines Eintrages"@de, "est un commentaire de l'éntrée"@fr, "è un commento di entrata"@it;
 	rdfs:comment """Relating an editorial comment to its apparatus entry."""@en;
@@ -684,7 +684,7 @@ scholarly-editing:isCommentOfEntry
 	rdfs:subPropertyOf concept:isPartOf.
 
 scholarly-editing:commentHasReference
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "comment has text reference"@en, "Kommentar hat Textreferenz"@de, "commentaire a une référence de texte"@fr, "commento ha un riferimento testuale"@it;
 	rdfs:comment """Relating an editorial comment to its text reference."""@en;
@@ -693,7 +693,7 @@ scholarly-editing:commentHasReference
 	rdfs:subPropertyOf document:hasTextReference.
 
 scholarly-editing:commentHasContent
-	rdfs:isDefinedBy <http://www.e-editiones.ch/ontology/scholarly-editing#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "editorial comment has content"@en, "editorischer Kommentar hat Inhalt"@de, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;
 	rdfs:comment """Relating an editorial comment to its content."""@en;

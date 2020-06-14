@@ -86,9 +86,9 @@ Following external ontologies are used:
 [Dublin Core Terms](http://purl.org/dc/terms/)  
 [FOAF](http://xmlns.com/foaf/0.1/)  
 [FRBROO](http://iflastandards.info/ns/fr/frbr/frbroo/)  
-[SWEET Space](http://sweetontology.net/reprSpace/)  
-[SWEET Time](http://sweetontology.net/propTime/)  
-[SWEET Space Distance](http://sweetontology.net/propSpaceDistance/)  
+[SWEET Space](http://sweetontology.net/reprSpace)  
+[SWEET Time](http://sweetontology.net/propTime)  
+[SWEET Space Distance](http://sweetontology.net/propSpaceDistance)  
 
 <div align="center">
 

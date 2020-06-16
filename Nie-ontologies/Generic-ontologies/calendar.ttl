@@ -89,11 +89,12 @@ calendar:julianDayNumber
 # PROPERTIES
 #
 
-calendar:hasMessage
+calendar:hasMessageLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has message"@en;
-	rdfs:comment """Relating something to a message at detecting an inconsistency of a calendar related time expression about that something."""@en;
+	rdfs:label "has message literal"@en;
+	rdfs:comment """Relating something to a message literal about a calendar related time expression about that something."""@en;
+	skos:note """Used in an N3-rule; e.g. checking on leap year: "Has leap year."; e.g. checking consistency of e.g. month number, in case > 12: "There are only 12 months in the Gregorian, Julian or proleptic Julian calendar." """@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal.
 

@@ -146,7 +146,3 @@ meyer:CriticalEdition
 	rdfs:label "Conrad Ferdinand Meyer critical edition"@en, "Conrad Ferdinand Meyers kritische Edition"@de;
 	rdfs:comment """Critically edited letter or draft authored by Conrad Ferdinand Meyer or another person, or of a copy thereof."""@en;
 	rdfs:subClassOf scholarly-editing:CriticalEdition, publish:Expression.
-
-#
-# PROPERTIES
-#

@@ -576,9 +576,9 @@ sa:CoordinateSetTag
 	rdfs:comment """Stand-off tag annotating a coordinate set literal."""@en;
 	rdfs:subClassOf sa:Tag.
 
-# sa:LinebreakTag # needed?
+# sa:LinebreakTag
 
-# sa:PageBreakTag # needed?
+# sa:PageBreakTag
 
 #
 # PROPERTIES

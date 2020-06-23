@@ -211,7 +211,7 @@ drcs:StegmuellerCode
 	rdfs:subClassOf concept:Code.
 
 #
-# CODE SYSTEM AND DATATYPE INSTANCE
+# INSTANCES
 #
 
 drcs:stegmuellerSystem

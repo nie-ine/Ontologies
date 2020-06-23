@@ -33,9 +33,13 @@ calendar:Calendar
 	rdfs:comment """System of reckoning time in which the beginning, length, and divisions of a year are defined, sometimes along with multiyear cycles."""@en;
 	rdfs:subClassOf concept:Information.
 
+#
+# INSTANCES
+#
+
 calendar:julianCalendar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
-	a rdfs:Class, calendar:Calendar; # OWL Full: class as instance
+	a calendar:Calendar;
 	rdfs:label "Julian calendar"@en, "julianischer Kalender"@de, "calendrier julien"@fr, "calendario juliano"@it;
 	rdfs:comment """Calendar introduced in 46 BC in Rome by Julius Caesar. It is based on a solar year of 365 days. There are 12 months of 30 or 31 days, except for February, which has 28 days with the exception of every leap year when it has 29 days. Every fourth year and centenary year is a leap year of 366 days. The beginning of a year is not fixed on January 1. It was replaced by the Gregorian calendar in 1582 AD."""@en;
 	skos:note """Has 365.25 days/year."""@en;
@@ -43,28 +47,24 @@ calendar:julianCalendar
 
 calendar:prolepticJulianCalendar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
-	a rdfs:Class, calendar:Calendar;
+	a calendar:Calendar;
 	rdfs:label "proleptic Julian calendar"@en, "proleptischer julianischer Kalender"@de, "calendrier julien proleptique"@fr, "calendario juliano proleptico"@it;
 	rdfs:comment """Produced by extending the Julian calendar backward to dates preceding its use in stable form from 4 AD on."""@en;
 	skos:note """There is no proleptic Julian year 0. Year 1 BC is followed by year 1 AD."""@en.
 
 calendar:gregorianCalendar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
-	a rdfs:Class, calendar:Calendar;
+	a calendar:Calendar;
 	rdfs:label "Gregorian calendar"@en, "gregorianischer Kalender"@de, "calendrier grégorien"@fr, "calendario gregoriano"@it;
 	rdfs:comment """Calendar introduced on 15 October 1582 AD by Pope Gregory XIII, and a correction of the Julian calendar. It is based on a solar year of 365 days. Every fourth year is a leap year of 366 days except for centenary years not evenly divisible by 400."""@en;
 	skos:note """Has 365.2425 days/year or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
 
 calendar:prolepticGregorianCalendar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
-	a rdfs:Class, calendar:Calendar;
+	a calendar:Calendar;
 	rdfs:label "proleptic Gregorian calendar"@en, "proleptischer gregorianischer Kalender"@de, "calendrier grégorien proleptique"@fr, "calendario gregoriano proleptico"@it;
 	rdfs:comment """Produced by extending the Gregorian calendar backward to dates preceding its introduction on 15 October 1582."""@en;
 	skos:note """There is no proleptic Gregorian year 0. Year 1 BC is followed by year 1 AD."""@en.
-
-#
-# INSTANCES
-#
 
 calendar:julianDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;

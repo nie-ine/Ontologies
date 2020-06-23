@@ -150,14 +150,14 @@ languages:SwissGerman
 
 languages:iso639System
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
-	a rdfs:Class, concept:CodingSystem;
+	a concept:CodingSystem;
 	rdfs:label "ISO 639"@en;
 	rdfs:comment """International standard for codes for the representation of names of languages."""@en;
 	rdfs:seeAlso <https://www.iso.org/iso-639-language-codes.html>.
 
 languages:iso639-1System
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
-	a rdfs:Class, concept:CodingSystem;
+	a concept:CodingSystem;
 	rdfs:label "ISO 639-1"@en;
 	rdfs:comment """ISO 639 part 1: alpha-2 (two-letter) codes."""@en;
 	rdfs:subClassOf languages:iso639System;
@@ -174,7 +174,7 @@ languages:iso639-1
 
 languages:iso639-2System # B and T codes for 20 languages, T codes favoured
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
-	a rdfs:Class, concept:CodingSystem;
+	a concept:CodingSystem;
 	rdfs:label "ISO 639-2"@en;
 	rdfs:comment """ISO 639 part 2: alpha-3 (three-letter) codes."""@en;
 	rdfs:subClassOf languages:iso639System;
@@ -191,7 +191,7 @@ languages:iso639-2
 
 languages:iso639-3System
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
-	a rdfs:Class, concept:CodingSystem;
+	a concept:CodingSystem;
 	rdfs:label "ISO 639-3"@en;
 	rdfs:comment """ISO 639 part 3: alpha-3 (three-letter) codes for comprehensive coverage of languages."""@en;
 	rdfs:subClassOf languages:iso639System;

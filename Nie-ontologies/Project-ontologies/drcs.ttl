@@ -216,13 +216,13 @@ drcs:StegmuellerCode
 
 drcs:stegmuellerSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
-	a rdfs:Class, concept:CodingSystem;
+	a concept:CodingSystem;
 	rdfs:label "Stegmüller-system"@en;
 	rdfs:comment """The Stegmüller-system for coding a commentary on Petrus Lombardus' Sentences."""@en.
 
 drcs:stegmuellerDatatype
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
-	a rdfs:Class, rdfs:Datatype;
+	a rdfs:Datatype;
 	rdfs:label "Stegmüller-datatype"@en;
 	rdfs:comment """Datatype to type a Stegmüller's code."""@en.
 

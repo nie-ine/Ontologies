@@ -14,6 +14,7 @@
 @prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
 
 <http://e-editiones.ch/ontology/calendar>
+	a owl:Ontology;
 	dct:issued "2019-12-28T13:45:00+01:00"^^xsd:dateTime;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "calendar-ontology"@en;

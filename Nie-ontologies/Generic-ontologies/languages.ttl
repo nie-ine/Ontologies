@@ -141,7 +141,7 @@ languages:SwissGerman
 	a rdfs:Class;
 	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
 	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
-	rdfs:subClassOf language:GeneralHumanNaturalLanguage, [
+	rdfs:subClassOf language:Dialect, [
 		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].
 
 #

@@ -238,7 +238,7 @@ drcs:hasStegmuellerPersonDescriptionLiteral
  	rdfs:comment """Relating a person to a Stegmüller's description literal thereof."""@en;
  	rdfs:domain drcs:Person;
 	rdfs:range rdfs:Literal;
- 	rdfs:subPropertyOf human:hasDescriptionLiteral.
+ 	rdfs:subPropertyOf human:personHasDescriptionLiteral.
 
 drcs:hasStegmuellerCommentaryDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;

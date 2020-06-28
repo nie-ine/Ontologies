@@ -632,10 +632,10 @@ human:hasTitleLiteral
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
-human:hasDescriptionLiteral
+human:personHasDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de;
+	rdfs:label "person has description literal"@en, "Person hat Beschreibungliterale"@de;
 	rdfs:comment """Relating a person to the literal of a description of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range rdfs:Literal;

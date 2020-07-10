@@ -1,3 +1,6 @@
+Dear visitor, we are in the process of transferring information from this repository to the e-editiones.ch website, to bring together all the SWT parts (and more) together.
+There will also be funtional parts (microservices) for SPARQL1.1 and N3-rule-machine reasoning on the RDF-graphs of a few edition projects.
+
 # OWL-ontologies
 In the [NIE-INE](http://www.nie-ine.ch)-project we develop an infrastructure to enable scholarly edition projects in the Humanities to express their data in an enriched format, adhering to the FAIR-principles, and ensuring long-term storage of the data.  
 The project runs at the Swiss Universities of Basel, Bern, Zürich, and Geneva until end of 2020.

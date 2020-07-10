@@ -64,7 +64,6 @@ event:Output
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Postcondition to change in a process."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# owl:propertyChainAxiom (event:isOutputOf time:hasOutputDateTime)
 	# seqnum
 
 event:Action
@@ -182,6 +181,16 @@ event:isOutputOf
 	rdfs:domain event:Output;
 	rdfs:range event:Process.
 
+# owl:propertyChainAxiom (event:isOutputOf time:hasOutputDateTime)
+
+event:isOutputOfAction
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
+	a owl:ObjectProperty;
+	rdfs:label "is output of action"@en, "ist Output einer Aktion"@de;
+	rdfs:comment """Relating an output to its action."""@en;
+	rdfs:domain event:Output;
+	rdfs:range event:Action.
+
 event:involvesRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
@@ -197,7 +206,7 @@ event:outputInvolvesRole
 	rdfs:comment """Relating an output of an action to a role it involves."""@en;
 	rdfs:domain event:Output;
 	rdfs:range agent:Role;
-	owl:propertyChainAxiom (event:isOutputOf event:involvesRole).
+	owl:propertyChainAxiom (event:isOutputOfAction event:involvesRole).
 
 event:hasStage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;

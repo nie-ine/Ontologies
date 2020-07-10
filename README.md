@@ -1,4 +1,4 @@
-Dear visitor, we are in the process of transferring information from this repository to the [e-editiones.ch website](e-editiones.ch), to bring together all the SWT parts (and more).
+Dear visitor, we are in the process of transferring information from this repository to the [e-editiones.ch website](http://e-editiones.ch), to bring together all the SWT parts (and more).
 There will be the authoritative publication of our ontologies, and also the functional parts (microservices) for SPARQL1.1 (Jena-Fuseki-TDB2) and N3-rule-machine reasoning (EYE) on the RDF-graphs of a few edition projects.
 
 # OWL-ontologies

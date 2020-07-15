@@ -127,7 +127,7 @@ concept:Work
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
 	rdfs:label "conceptual work"@en, "konzeptuelles Werk"@de;
-	rdfs:comment """propositional entity as recognizable intellectual product, conform FRBROO."""@en;
+	rdfs:comment """propositional entity as recognizable intellectual product, based on FRBRoo."""@en;
 	rdfs:subClassOf concept:PropositionalEntity, frbroo:F1_Work.
 	# text:hasTitleLiteral
 

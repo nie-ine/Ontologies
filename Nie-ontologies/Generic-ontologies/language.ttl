@@ -68,7 +68,7 @@ language:HumanNaturalLanguageExpression
 	a rdfs:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
-	skos:note """Different from the FRBROO based document:Expression."""@en;
+	skos:note """Different from the FRBRoo based document:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object.
 
 language:Dialect

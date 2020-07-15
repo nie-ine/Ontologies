@@ -45,7 +45,7 @@ publish:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication expression"@en, "Publikation-Expression"@de, "expression de publication"@fr, "espressione di pubblicazione"@it;
-	rdfs:comment """Document expression as abstracted from a publication carrier, conform FRBROO."""@en;
+	rdfs:comment """Document expression as abstracted from a publication carrier, based on FRBRoo."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression.
 
 publish:TextExpression

@@ -217,3 +217,12 @@ delille:hasExternalResource
 	rdfs:comment """Relating a Delille-project resource to an external, i.e. non-Delille-project resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Resource.
+
+delille:hasPunctuatedCitedVerseNumberSequenceLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has punctuated cited verse number sequence literal"@en, "hat interpunktierte citierter Versnummersequenzliterale"@de;
+	rdfs:comment """Relating a text expression, citing one or more verses of a poem authored by Jacques Delille, to its punctuated cited verse number sequence literal."""@en;
+	skos:note """Used in the conclusion of an N3-rule invoking in the premise a backward N3-rule to replace in a sequence of non-negative integers inner consecutive NNIs with a hyphen and separate non-consecutive NNIs with a comma."""@en;
+	rdfs:domain delille:CitingExpression;
+	rdfs:range rdfs:Literal.

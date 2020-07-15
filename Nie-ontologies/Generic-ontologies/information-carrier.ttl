@@ -41,7 +41,7 @@ infocar:Carrier
 	a rdfs:Class;
  	rdfs:label "information carrier"@en,"Informationsträger"@de, "support d'information"@fr;
  	rdfs:comment """Carrier of information created by a person."""@en;
-	skos:note """Includes both F4_Manifestation_Singleton and F5_Item as declared in FRBROO."""@en;
+	skos:note """Includes both F4_Manifestation_Singleton and F5_Item as declared in FRBRoo."""@en;
 	rdfs:subClassOf creating:PhysicalCreation, cidoc:E84_Information_Carrier.
 
 infocar:Fragment

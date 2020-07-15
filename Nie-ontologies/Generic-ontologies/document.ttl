@@ -198,7 +198,7 @@ document:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "document expression"@en, "Dokument-Expression"@de;
-	rdfs:comment """Document realisation of a work, conform FRBROO, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
+	rdfs:comment """Document realisation of a work, based on FRBRoo, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F2_Expression.
 
 document:IndividualExpression

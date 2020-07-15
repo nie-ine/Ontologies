@@ -66,6 +66,14 @@ textedit:Edition
 	rdfs:comment """Changed text as a result of editing."""@en;
 	rdfs:subClassOf text:Text. # creating:CreationVersion
 
+textedit:EditorialDirector
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
+	a rdfs:Class;
+	rdfs:label "editorial director"@en, "Redaktionsdirektor"@de, "directeur éditorial"@fr, "direttore editoriale"@it;
+	rdfs:comment """Role of a person supervising editors, overseeing one or more editions to be published (e.g. book, magazine, website), ensuring they bear an overarching organization's vision, share certain qualities and assure them."""@en;
+	rdfs:seeAlso <https://work.chron.com/editorial-director-21903.html#:~:text=In%20the%20case%20of%20a,and%20authors%20editors%20have%20chosen>;
+	rdfs:subClassOf human:PersonRole.
+
 textedit:Revisor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
@@ -153,9 +161,17 @@ textedit:hasEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
 	rdfs:label "edition has editor"@en, "Edition hat Editor"@de, "l'édition a un éditeur"@fr, "edizione ha editor"@it;
-	rdfs:comment """Relating an edition to a human agent—person or organization—that created it."""@en;
+	rdfs:comment """Relating an edition to the human agent—person or organization—that created it."""@en;
 	rdfs:domain textedit:Edition;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom textedit:AgentEditor]].
+
+textedit:hasEditorialDirector
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
+	a owl:ObjectProperty;
+	rdfs:label "edition has editorial director"@en, "Edition hat Redaktionsdirektor"@de, "l'édition a directeur éditorial"@fr, "edizione ha direttore editoriale"@it;
+	rdfs:comment """Relating an edition to its editorial director."""@en;
+	rdfs:domain textedit:Edition;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:EditorialDirector]].
 
 textedit:hasEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;

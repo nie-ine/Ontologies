@@ -162,7 +162,7 @@ languages:iso639-1System
 	rdfs:comment """ISO 639 part 1: alpha-2 (two-letter) codes."""@en;
 	rdfs:subClassOf languages:iso639System;
 	dct:hasVersion "ISO 639-1:2002";
-	concept:codingSystemHasDataType languages:iso639-1;
+	concept:codingSystemHasDatatype languages:iso639-1;
 	rdfs:seeAlso <http://www.infoterm.info/standardization/iso_639_1_2002.php>.
 
 languages:iso639-1
@@ -179,7 +179,7 @@ languages:iso639-2System # B and T codes for 20 languages, T codes favoured
 	rdfs:comment """ISO 639 part 2: alpha-3 (three-letter) codes."""@en;
 	rdfs:subClassOf languages:iso639System;
 	dct:hasVersion "ISO 639-2:1998";
-	concept:codingSystemHasDataType languages:iso639-2;
+	concept:codingSystemHasDatatype languages:iso639-2;
 	rdfs:seeAlso <http://www.loc.gov/standards/iso639-2/>.
 
 languages:iso639-2
@@ -196,7 +196,7 @@ languages:iso639-3System
 	rdfs:comment """ISO 639 part 3: alpha-3 (three-letter) codes for comprehensive coverage of languages."""@en;
 	rdfs:subClassOf languages:iso639System;
 	dct:hasVersion "ISO 639-3:2007";
-	concept:codingSystemHasDataType languages:iso639-3;
+	concept:codingSystemHasDatatype languages:iso639-3;
 	rdfs:seeAlso <http://www-01.sil.org/iso639-3/>.
 
 languages:iso639-3

@@ -262,11 +262,11 @@ concept:hasCodeValue
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasIdentifierLiteral.
 
-concept:codingSystemHasDataType
+concept:codingSystemHasDatatype
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "coding system has data type"@en, "Kodierungssystem hat Datentyp"@de;
-	rdfs:comment "Relating a code to the coding system it belongs to."@en;
+	rdfs:label "coding system has datatype"@en, "Kodierungssystem hat Datentyp"@de;
+	rdfs:comment "Relating a coding system to its datatype."@en;
 	rdfs:domain concept:CodingSystem;
 	rdfs:range rdfs:Datatype.
 

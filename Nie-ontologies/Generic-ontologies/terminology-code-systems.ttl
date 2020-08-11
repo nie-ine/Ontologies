@@ -39,7 +39,7 @@ tcs:hexadecimalColorCodingSystem
 	a rdfs:Class, tcs:ColorCodingSystem;
 	rdfs:label "hexadecimal color coding system"@en;
 	rdfs:comment """Color coding system to represent a color with a hex triplet or six-digit, three-byte hexadecimal number. The bytes represent the red, green and blue components of the color. Used in HTML, CSS, SVG, and other computing applications."""@en;
-	concept:codingSystemHasDataType tcs:hexadecimalColor;
+	concept:codingSystemHasDatatype tcs:hexadecimalColor;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/Web_colors>.
 
 tcs:gndSystem
@@ -47,7 +47,7 @@ tcs:gndSystem
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "GND-system"@en;
 	rdfs:comment """The Integrated Authority File (in German Gemeinsame Normdatei, GND) is an authority file for persons, corporate bodies, conferences and events, geographic information, topics and works."""@en;
-	concept:codingSystemHasDataType tcs:gnd;
+	concept:codingSystemHasDatatype tcs:gnd;
 	rdfs:seeAlso <https://www.dnb.de/EN/Standardisierung/GND/gnd_node.html>.
 
 tcs:oaiSystem
@@ -55,7 +55,7 @@ tcs:oaiSystem
 	a rdfs:Class, concept:CodingSystem;
 	rdfs:label "OAI-system"@en;
 	rdfs:comment """The Open Archives Initiative."""@en;
-	concept:codingSystemHasDataType tcs:oai;
+	concept:codingSystemHasDatatype tcs:oai;
 	rdfs:seeAlso <https://www.openarchives.org/>.
 
 tcs:hexadecimalColor #° OR color:hexadecimal

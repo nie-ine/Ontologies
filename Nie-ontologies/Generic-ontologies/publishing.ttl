@@ -152,7 +152,7 @@ publish:PartitionedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "partitioned publication"@en, "partitionierte Publikation"@de, "publication partitionnée"@fr, "pubblicazione partizionata"@it;
-	rdfs:comment """Publication comprising the volumes of a partitioned work, e.g. a dictionary."""@en;
+	rdfs:comment """Publication comprising the volumes of a partitioned work, e.g. carrying a dictionary."""@en;
 	rdfs:subClassOf publish:Publication, infocar:PartitionedWork.
 
 publish:PrintedPublication

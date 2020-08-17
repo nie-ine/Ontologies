@@ -128,8 +128,12 @@ human:Intersexual
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
-# birthplace
-# deathplace
+human:PersonIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "person identifier"@en, "Personenidentifikator"@de;
+	rdfs:comment """Identifier of a person."""@en;
+	rdfs:subClassOf concept:Identifier.
 
 human:Ability
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -425,10 +429,10 @@ human:hasBirthdate
 	a owl:DatatypeProperty;
 	rdfs:label "has birthdate"@en, "hat Geburtsdatum"@de;
 	rdfs:comment """Relating a person to the birthdate of that person."""@en;
-	skos:note """It is possible to find different birthdates in different historical sources; an overall certainty period can be calculated."""@en;
+	skos:note """It is possible to find different birthdates in different historical sources, in which case a probability can be attributed to each date; an overall certainty period can be calculated, comprising all dates."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date.
-	# rdfs:subPropertyOf
+#	rdfs:subPropertyOf
 
 human:hasEarliestBirthdate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -437,7 +441,7 @@ human:hasEarliestBirthdate
 	rdfs:comment """Relating a person to an N3-rule-calculated earliest possible birthdate, based on the death date and a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date.
-	# rdfs:subPropertyOf
+#	rdfs:subPropertyOf
 
 human:hasBirthday
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -471,7 +475,7 @@ human:hasBirthplace
 	a owl:ObjectProperty;
 	rdfs:label "has birthplace"@en, "hat Geburtsort"@de;
 	rdfs:comment """Relating a person to the birthplace of that person."""@en;
-	skos:note """It is possible to find different birthplace in different historical sources."""@en;
+	skos:note """It is possible to find different birthplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
 	rdfs:range physical:EarthPlace.
 
@@ -480,7 +484,7 @@ human:hasDeathDate
 	a owl:DatatypeProperty;
 	rdfs:label "has death date"@en, "hat Todesdatum"@de;
 	rdfs:comment """Relating a person to the death date of that person."""@en;
-	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
+	skos:note """It is possible to find different death dates in different historical sources, in which case a probability can be attributed to each date; an overall certainty period can be calculated, comprising all dates."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date.
 	# rdfs:subPropertyOf
@@ -544,7 +548,7 @@ human:hasDeathplace
 	a owl:ObjectProperty;
 	rdfs:label "has deathplace"@en, "hat Todesort"@de;
 	rdfs:comment """Relating a person to the deathplace of that person."""@en;
-	skos:note """It is possible to find different deathplaces in different historical sources."""@en;
+	skos:note """It is possible to find different deathplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
 	rdfs:range physical:EarthPlace.
 
@@ -652,6 +656,34 @@ human:hasBiographyLiteral
 
 # hagiography
 
+human:personHasIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "person has identifier"@en, "Person hat Identifikator"@de;
+	rdfs:comment "Relating a person to her/his identifier."@en;
+	rdfs:domain human:Person;
+	rdfs:range human:PersonIdentifier;
+	rdfs:subPropertyOf concept:hasIdentifier.
+
+human:personIdentifierHasLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person identifier has literal"@en, "Personenidentifikator hat Literale"@de;
+	rdfs:comment "Relating a person identifier to its literal."@en;
+	rdfs:domain human:PersonIdentifier;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:identifierHasLiteral.
+
+human:personHasIdentifierLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person has identifier literal"@en, "Person hat Identifikatorliterale"@de;
+	rdfs:comment "Relating a person to her/his identifier literal."@en;
+	rdfs:domain human:Person;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasIdentifierLiteral;
+	owl:propertyChainAxiom (human:personHasIdentifier human:personIdentifierHasLiteral).
+
 human:personHasRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
@@ -669,6 +701,14 @@ human:hasOccupationalRole
 	rdfs:domain human:Person;
 	rdfs:range human:OccupationalRole;
 	rdfs:subPropertyOf human:personHasRole.
+
+human:hasPlaceOfWork
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a owl:ObjectProperty;
+	rdfs:label "has place of work"@en, "hat Wirkungsort"@de;
+	rdfs:comment """Relating a person to the place where she/he works."""@en;
+	rdfs:domain human:Person;
+	rdfs:range physical:EarthPlace.
 
 human:adheringToThought
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;

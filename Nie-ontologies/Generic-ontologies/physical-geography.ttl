@@ -6,6 +6,8 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
 
 @base <http://e-editiones.ch/ontology/physical-geography>.
 @prefix phygeo: <http://e-editiones.ch/ontology/physical-geography#>.
@@ -31,6 +33,8 @@ phygeo:EarthPlace
 	rdfs:label "place on Earth"@en, "Platz auf Erde"@de;
 	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
 	rdfs:subClassOf physical:Place.
+
+# cidoc:E48_Place_Name
 
 #
 # PROPERTIES
@@ -66,3 +70,21 @@ phygeo:hasElevation #°
 	rdfs:subPropertyOf geo:alt.
 
 # SPO cidoc:P87_is_identified_by
+
+phygeo:earthPlaceHasNameLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
+	a owl:DatatypeProperty;
+	rdfs:label "earth place has name literal"@en;
+	rdfs:comment """Relating a place on Earth to its name literal."""@en;
+	rdfs:domain phygeo:EarthPlace;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf physical:placeHasNameLiteral.
+
+phygeo:earthPlaceHasIdentifierLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
+	a owl:DatatypeProperty;
+	rdfs:label "earth place has identifier literal"@en;
+	rdfs:comment """Relating a place on Earth to its identifier literal."""@en;
+	rdfs:domain phygeo:EarthPlace;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasIdentifierLiteral.

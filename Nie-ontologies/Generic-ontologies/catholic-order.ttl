@@ -7,10 +7,10 @@
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix cathorg: <http://e-editiones.ch/ontology/catholic-organization#>.
 
-@base <http://e-editiones.ch/ontology/catholic-orders>.
-@prefix cathord: <http://e-editiones.ch/ontology/catholic-orders#>.
+@base <http://e-editiones.ch/ontology/catholic-order>.
+@prefix cathord: <http://e-editiones.ch/ontology/catholic-order#>.
 
-<http://e-editiones.ch/ontology/catholic-orders>
+<http://e-editiones.ch/ontology/catholic-order>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about catholic orders"@en;
@@ -27,87 +27,101 @@
 #
 
 cathord:Person
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "catholic order person"@en, "Person eines katholischen Ordens"@de; # "personne d'un ordre catholique"@fr, "persona cattolica"@it;
-	rdfs:comment """Catholic person belonging to an order."""@en;
-	rdfs:subClassOf cathorg:Person.
+	rdfs:comment """Person belonging to a catholic order, having the role of friar."""@en;
+	rdfs:subClassOf cathorg:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom cathord:Friar].
 
 cathord:Order
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
-	rdfs:comment """Catholic organization whose member is by acceptance rule male and celibatarian, founded by... ."""@en; #°
+	rdfs:comment """Catholic organization whose member is by acceptance rule male and celibatarian, and professed into the organization by taking its vows."""@en;
 	rdfs:subClassOf cathorg:Organization.
 
+cathord:Friar
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
+	a rdfs:Class;
+	rdfs:label "friar"@en, "Ordensbruder"@de;
+	rdfs:comment """Role of a catholic order person."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+cathord:Abbot
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
+	a rdfs:Class;
+	rdfs:label "abbot"@en, "Abt"@de;
+	rdfs:comment """Role of a friar as the head of a monastery."""@en;
+	rdfs:subClassOf cathorg:Friar.
+
 cathord:AugustinianFriars
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Sancti Augustini"@la, "Order of Augustinian Friars"@en;
 	rdfs:comment """."""@en; #*
 	rdfs:subClassOf cathord:Order.
 
 cathord:Benedictines
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Sancti Benedicti"@la, "Order of Benedictines"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:Carmelites
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Beatissimae Mariae Virginis de Monte Carmelo"@la, "Order of Carmelites"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:Carthusians
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Cartusiensis"@la, "Order of Carthusians"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:Cistercians
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Cisterciensis"@la, "Order of Cistercians"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:Franciscans
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Minorum"@la, "Order of Franciscans"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:ConventualFranciscans
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Minorum Conventualium"@la, "Order of Conventual Franciscans"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Franciscans.
 
 cathord:ObservantFranciscans
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Minorum Observantiae"@la, "Order of ObservantFrant Franciscans"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Franciscans.
 
 cathord:Dominicans
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Ordo Fratrum Praedicatorum"@la, "Order of Dominicans"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 cathord:Jesuits
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "Societas Iesu"@la, "Order of Jesuits"@en;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """."""@en; #°
 	rdfs:subClassOf cathord:Order.
 
 #
@@ -115,10 +129,10 @@ cathord:Jesuits
 #
 
 cathord:isMemberOf
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-orders#>;
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a owl:ObjectProperty;
 	rdfs:label "is member of catholic order"@en, "ist Mitglied einem katholischen Orden"@de;
-	rdfs:comment """Relating a catholic person to a catholic order the person is a member of."""@en;
+	rdfs:comment """Relating a person to a catholic order the person is a member of."""@en;
 	rdfs:domain cathord:Person;
 	rdfs:range cathord:Order;
 	rdfs:subPropertyOf cathorg:isMemberOf.

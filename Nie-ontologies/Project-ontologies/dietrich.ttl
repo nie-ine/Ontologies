@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
+@prefix cathord: <http://e-editiones.ch/ontology/catholic-order#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
@@ -39,3 +40,55 @@ dietrich:DiaryVolume
 	rdfs:label "diary volume by father Joseph Dietrich"@en, "Tagebuch-Band des Paters Joseph Dietrich"@de;
 	rdfs:comment """Diary volume written and authored by father Joseph Dietrich."""@en;
 	rdfs:subClassOf infocar:Manuscript, infocar:Diary, infocar:Volume.
+
+#
+# PROPERTIES
+#
+
+dietrich:hasExternalResource
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:ObjectProperty;
+	rdfs:label "has external resource"@en, "hat externe Ressource"@de;
+	rdfs:comment """Relating a Dietrich-project resource to an external, i.e. non-Dietrich-project resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Resource.
+
+dietrich:personHasEinsiedlerProfessIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person has Einsiedler profess identifier"@en, "Person hat Einsiedler-Eintrittidentifikator"@de;
+	rdfs:comment """Relating a catholic order person to an identifier for being professed into the order of the monastery of Einsiedeln."""@en;
+	rdfs:domain cathord:Person;
+	rdfs:range rdfs:Literal.
+
+dietrich:personHasStGallerProfessIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person has St. Galler profess identifier"@en, "Person hat St. Galler-Eintrittidentifikator"@de;
+	rdfs:comment """Relating a catholic order person to an identifier for being professed into the order of the monastery of St. Gallen."""@en;
+	rdfs:domain cathord:Person;
+	rdfs:range rdfs:Literal.
+
+dietrich:personHasPfaeferserProfessIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person has Pfäferser profess identifier"@en, "Person hat St. Pfäferser-Eintrittidentifikator"@de;
+	rdfs:comment """Relating a catholic order person to an identifier for being professed into the order of the monastery of Pfäfers."""@en;
+	rdfs:domain cathord:Person;
+	rdfs:range rdfs:Literal.
+
+dietrich:personHasNonEinsiedler-StGaller-PfaeferserProfessIdentifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:DatatypeProperty;
+	rdfs:label "person has non-Einsiedler-StGaller-Pfaeferser profess identifier"@en, "Person hat non-Einsiedler-StGaller-Pfaeferser-Eintrittidentifikator"@de;
+	rdfs:comment """Relating a catholic order person to an identifier for being professed into the order of the monastery other than the one of Einsiedeln, St. Gallen, and Pfäfers."""@en;
+	rdfs:domain cathord:Person;
+	rdfs:range rdfs:Literal.
+
+dietrich:personHasEinsiedlerAbbot
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/dietrich#>;
+	a owl:ObjectProperty;
+	rdfs:label "person has Einsiedler abbot"@en, "Person hat Einsiedler-Abt"@de;
+	rdfs:comment """Relating a catholic order person to the person being the abbot of the monastery of Einsiedeln."""@en;
+	rdfs:domain cathord:Person;
+	rdfs:range cathord:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom cathord:Abbot].

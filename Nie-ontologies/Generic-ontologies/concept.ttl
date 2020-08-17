@@ -203,7 +203,6 @@ concept:hasIdentifier
 	a owl:ObjectProperty;
 	rdfs:label "has identifier"@en, "hat Identifikator"@de;
 	rdfs:comment "Relating a resource to its identifier."@en;
-	skos:note """A sub-property can be inverse functional, e.g. more than one ISO-code identifying the same natural language, or functional, e.g. a person identified by the social security number."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range concept:Identifier;
 	rdfs:subPropertyOf concept:hasSymbolicEntity.

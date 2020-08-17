@@ -136,7 +136,7 @@ text:TranscribedText
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
 	rdfs:label "transcribed text"@en, "transkribierter Text"@de, "texte transcrit"@fr, "testo trascritto"@it;
-	rdfs:comment """Text copied by character by any writing method; text abstracted from its carrier."""@en;
+	rdfs:comment """Text copied by character by any writing method, and abstracted from its carrier."""@en;
 	rdfs:subClassOf text:CopiedText.
 
 text:Scribe

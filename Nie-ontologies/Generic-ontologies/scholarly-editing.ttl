@@ -68,12 +68,19 @@ scholarly-editing:OrganizationEditor
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
 	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:OrganizationEditor.
 
+scholarly-editing:EditedText
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
+	a rdfs:Class;
+	rdfs:label "scholarly edited text"@en, "wissenschaftlich edierter Text"@de, "texte édité de manière scientifique"@fr, "testo accademicamente modificato"@it;
+	rdfs:comment """Text edited in a scholarly way."""@en;
+	rdfs:subClassOf textedit:Edition, creating:CreationDerivative.
+
 scholarly-editing:Edition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition"@en, "wissenschaftliche Edition"@de, "édition scientifique"@fr, "edizione accademica"@it;
-	rdfs:comment """Derived text expression edited for scientific purpose."""@en;
-	rdfs:subClassOf textedit:DerivedTextExpression.
+	rdfs:comment """Derived text expression as scholarly edited text."""@en;
+	rdfs:subClassOf textedit:DerivedTextExpression, scholarly-editing:EditedText.
 
 scholarly-editing:Page
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;

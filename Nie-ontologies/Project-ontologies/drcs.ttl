@@ -13,7 +13,7 @@
 @prefix philo: <http://e-editiones.ch/ontology/philosophy#>.
 @prefix philos: <http://e-editiones.ch/ontology/philosophies#>.
 @prefix cathorg: <http://e-editiones.ch/ontology/catholic-organization#>.
-@prefix cathord: <http://e-editiones.ch/ontology/catholic-orders#>.
+@prefix cathord: <http://e-editiones.ch/ontology/catholic-order#>.
 
 @base <http://e-editiones.ch/ontology/drcs>.
 @prefix drcs: <http://e-editiones.ch/ontology/drcs#>.

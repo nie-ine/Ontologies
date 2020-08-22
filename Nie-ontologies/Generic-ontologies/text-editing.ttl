@@ -59,7 +59,7 @@ textedit:OrganizationEditor
 	rdfs:comment """Role of an organization changing a text."""@en;
 	rdfs:subClassOf org:Creator.
 
-textedit:Edition
+textedit:Edition # = edited text
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text edition"@en, "Text-Edition"@de, "édition de texte"@fr, "edizione testuale"@it;
@@ -85,7 +85,7 @@ textedit:Revision
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "text revision"@en, "Textprüfung"@de, "révision de texte"@fr, "revisione del testo"@it;
-	rdfs:comment """Edited text as a result of revising."""@en;
+	rdfs:comment """Text edition as a result of revising."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Recension
@@ -121,28 +121,28 @@ textedit:Abbreviation # derivative, depending on extent?
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation"@en, "Kurzfassung"@de, "abréviation"@fr, "abbreviazione"@it;
-	rdfs:comment """Shortened edition."""@en;
+	rdfs:comment """Text edition as a result of shortening the text."""@en;
 	rdfs:subClassOf textedit:Edition.
 
-textedit:Paraphrase # derivative? # scientific?
+textedit:Paraphrase # derivative, scientific?
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase"@en, "Paraphrase"@de, "paraphrase"@fr, "parafrasi"@it;
-	rdfs:comment """Edition restating a text clarifying its meaning."""@en;
+	rdfs:comment """Text edition restating a text clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
-textedit:LiteralExposition # derivative? # scientific?
+textedit:LiteralExposition # derivative, scientific?
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition"@en, "wörtliche Auslegung"@de, "exposition littérale"@fr, "esposizione letterale"@it;
-	rdfs:comment """Edition providing background information on word level to a text in clarifying its meaning."""@en;
+	rdfs:comment """Text edition providing background information on word level to a text in clarifying its meaning."""@en;
 	rdfs:subClassOf textedit:Edition.
 
 textedit:Transliteration
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
 	rdfs:label "transliteration"@en, "Transliteration"@de, "translittération"@fr, "traslitterazione"@it;
-	rdfs:comment """Written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
+	rdfs:comment """Text edition as written text transferred in another alphabet using the closest corresponding symbols, e.g. letters."""@en;
 	skos:note """Primarily representing the symbols, not the sounds."""@en;
 	rdfs:subClassOf text:WrittenText, textedit:Edition.
 

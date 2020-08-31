@@ -56,7 +56,6 @@ event:Input
 	rdfs:label "input"@en, "Input"@de;
 	rdfs:comment """Precondition to change in a process."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# seqnum
 
 event:Output
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
@@ -64,7 +63,6 @@ event:Output
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Postcondition to change in a process."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# seqnum
 
 event:Action
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
@@ -84,9 +82,8 @@ event:State
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "state"@en, "Zustand"@de;
-	rdfs:comment """Mode of being."""@en;
+	rdfs:comment """Mode of being of something."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# seqnum
 
 event:Stage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
@@ -94,7 +91,6 @@ event:Stage
 	rdfs:label "stage"@en, "Stufe"@de;
 	rdfs:comment """Extent of a process."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# seqnum
 
 event:Staging
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
@@ -109,13 +105,12 @@ event:Intent
 	rdfs:label "intent"@en, "Absicht"@de;
 	rdfs:comment """Purpose of an action."""@en;
 	rdfs:subClassOf rdfs:Resource.
-	# seqnum
 
 event:Creating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
 	rdfs:label "creating"@en, "Kreierung"@de;
-	rdfs:comment """Changing matter and, or energy."""@en; # Bringing into existence
+	rdfs:comment """Changing matter and/or energy, bringing a new appearance thereof into existence."""@en;
 	rdfs:subClassOf event:Action.
 
 #
@@ -173,15 +168,13 @@ event:isInputOf
 	rdfs:domain event:Input;
 	rdfs:range event:Process.
 
-event:isOutputOf
+event:isOutputOf #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
-	rdfs:label "is output of"@en, "ist Output von"@de;
-	rdfs:comment """Relating an output to a process."""@en;
+	rdfs:label "is output of process"@en, "ist Output eines Prozesses"@de;
+	rdfs:comment """Relating an output to its process."""@en;
 	rdfs:domain event:Output;
 	rdfs:range event:Process.
-
-# owl:propertyChainAxiom (event:isOutputOf time:hasOutputDateTime)
 
 event:isOutputOfAction
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;

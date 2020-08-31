@@ -88,6 +88,23 @@ time:hasDate
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:date.
 
+time:hasInputDateTime
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has input date-time"@en;
+	rdfs:comment """Relating a process to its input date-time."""@en;
+	rdfs:domain event:Process;
+	rdfs:range xsd:dateTime.
+
+time:inputHasDateTime
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
+	a owl:DatatypeProperty;
+	rdfs:label "input has date-time"@en;
+	rdfs:comment """Relating an input of a process to its date-time."""@en;
+	rdfs:domain event:Input;
+	rdfs:range xsd:dateTime;
+	owl:propertyChainAxiom (event:isInputOf time:hasInputDateTime).
+
 time:hasOutputDateTime
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
 	a owl:DatatypeProperty;
@@ -95,6 +112,15 @@ time:hasOutputDateTime
 	rdfs:comment """Relating a process to its output date-time."""@en;
 	rdfs:domain event:Process;
 	rdfs:range xsd:dateTime.
+
+time:outputHasDateTime
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
+	a owl:DatatypeProperty;
+	rdfs:label "output has date-time"@en;
+	rdfs:comment """Relating an output of a process to its date-time."""@en;
+	rdfs:domain event:Output;
+	rdfs:range xsd:dateTime;
+	owl:propertyChainAxiom (event:isOutputOf time:hasOutputDateTime).
 
 time:hasYearLiteral #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;

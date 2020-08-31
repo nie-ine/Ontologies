@@ -82,21 +82,21 @@ publish:PublishingState
 	rdfs:label "publishing state"@en, "Publikationszustand"@de, "état de publication"@fr, "stato editoriale"@it;
 	rdfs:comment """State of a document expression having been published or not."""@en;
 	rdfs:subClassOf document:State;
-	owl:oneOf (publish:Unpublished publish:Published).
+	owl:oneOf (publish:unpublished publish:published).
 
-publish:Unpublished
+publish:unpublished
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class, publish:PublishingState;
 	rdfs:label "unpublished"@en, "unpubliziert"@de, "non publié"@fr, "inedita"@it;
 	rdfs:comment """State of a document expression not having been published."""@en.
 
-publish:Published
+publish:published
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class, publish:PublishingState;
 	rdfs:label "published"@en, "publiziert"@de, "publié"@fr, "publicada"@it;
 	rdfs:comment """State of a document expression having been published."""@en.
 
-publish:NotPublishedWithAuthor
+publish:notPublishedWithAuthor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class, document:State;
 	rdfs:label "document not published with author"@en, "Dokument nicht mit Autor publiziert"@de, "document non publié avec l'auteur"@fr, "documento non pubblicato con l'autore"@it;

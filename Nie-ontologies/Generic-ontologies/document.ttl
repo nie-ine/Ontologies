@@ -41,7 +41,14 @@ document:Document
 	a rdfs:Class;
 	rdfs:label "document"@en, "Dokument"@de;
 	rdfs:comment """Identifiable, immaterial, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram, abstracted from its information carrier."""@en;
-	rdfs:subClassOf concept:Information. # , cidoc:E31_Document: proposition about reality: narrower
+	rdfs:subClassOf concept:Information, cidoc:E31_Document.
+
+document:State
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a rdfs:Class;
+	rdfs:label "document state"@en, "Zustand eines Dokumentes"@de;
+	rdfs:comment """State of a document."""@en;
+	rdfs:subClassOf event:State.
 
 document:Set
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -71,7 +78,7 @@ document:Layout
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf document:Element.
 
-document:Space
+document:Space #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "document space"@en, "Leerraum eines Dokumentes"@de;
@@ -184,7 +191,7 @@ document:Marginal
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "marginal"@en, "Marginale"@de;
-	rdfs:comment """Information besides a text in the margin of a carrier, e.g. text, doodles, illuminations."""@en;
+	rdfs:comment """Information besides a text in the margin of a carrier, e.g. a text, doodle, or illumination."""@en;
 	rdfs:subClassOf document:ContentStructure.
 
 document:Table #° tableHasTitleLiteral, tableHasField, tableHasRow, tableHasColumn
@@ -308,6 +315,14 @@ document:css
 #
 # PROPERTIES
 #
+
+document:hasState
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:ObjectProperty;
+	rdfs:label "document has state"@en, "Dokument hat Zustand"@de;
+	rdfs:comment """Relating a document to its state."""@en;
+	rdfs:domain document:Document;
+	rdfs:range document:State.
 
 document:isElementOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;

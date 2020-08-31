@@ -37,7 +37,7 @@ cathord:Order
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
-	rdfs:comment """Catholic organization whose member is by acceptance rule male and celibatarian, and professed into the organization by taking its vows."""@en;
+	rdfs:comment """Catholic organization whose member is by acceptance rule celibatarian, and professed into the organization by taking its vows."""@en;
 	rdfs:subClassOf cathorg:Organization.
 
 cathord:Friar

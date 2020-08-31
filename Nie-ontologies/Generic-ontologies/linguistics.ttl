@@ -155,3 +155,11 @@ ling:hasLemma
 	rdfs:comment """Relating a lexeme to a lemma."""@en;
 	rdfs:domain ling:Lexeme;
 	rdfs:range ling:Lemma.
+
+ling:isLemmaOfDictionary
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
+	a owl:ObjectProperty;
+	rdfs:label "is lemma of dictionary"@en, "ist Lemma eines Wörterbuches"@de;
+	rdfs:comment """Relating a lemma to its dictionary."""@en;
+	rdfs:domain ling:Lemma;
+	rdfs:range text-expression:Dictionary.

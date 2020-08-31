@@ -59,17 +59,18 @@ human:Person
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """A real born living human."""@en;
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property."""@en;
-	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person. # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
+	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person;
+	skos:note """frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person. cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor."""@en.
 
 human:UnidentifiedPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "unidentified person"@en, "unidentifiziert Person"@de, "personne non identifiée"@fr, "persona non identificata"@it;
 	rdfs:comment """Person who's identity is unknown."""@en;
-	skos:note """One can state about a book that the person who wrote it as author is unidentified. The person exists or has existed, thus the resource can be represented by an IRI for *a* person (not necessarily a blank node (anonymous resource)), but the information to identify the person is missing. This knowledge of absence of certain information is made explicit. In other words, there is a distinction between the IRI identifying *a* person, and the information, provided by properties, e.g. birth date, family name, christian name, permitting to sufficiently describe thé person to be identified."""@en;
+	skos:note """One can state about a book that the person who wrote it as author is unidentified. The person exists or has existed, thus the resource can be represented by an IRI for *a* person (not necessarily a blank node (anonymous resource)), but the information to identify the person is missing. This knowledge of absence of certain information is made explicit. In other words, there is a distinction between the IRI identifying *a* person, and the information, provided by properties, e.g. birth date, family name, christian name, permitting to sufficiently describe thé person to be identified. E.g. initials only are insufficient to identify a person."""@en;
 	rdfs:subClassOf human:Person.
 
-human:PersonLike
+human:PersonLikeEntity
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@de;

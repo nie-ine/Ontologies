@@ -45,7 +45,7 @@ publish:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication expression"@en, "Publikation-Expression"@de, "expression de publication"@fr, "espressione di pubblicazione"@it;
-	rdfs:comment """Document expression as abstracted from a publication carrier, based on FRBRoo."""@en;
+	rdfs:comment """Document expression abstracted from a publication carrier, based on FRBRoo."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression.
 
 publish:TextExpression
@@ -144,7 +144,7 @@ publish:Publication
 	rdfs:label "publication"@en, "Publikation"@de, "publication"@fr, "pubblicazione"@it;
 	rdfs:comment """An expression published on a carrier."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
-		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing]. # OR :isOutputOfPublishing
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing].
 
 publish:PartitionedPublishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
@@ -227,7 +227,7 @@ publish:SerialVolume
 publish:SerialVolumeExistence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-rdfs:label "serial volume publishing existence"@en, "Publizierungexistenz eines Reihe-Ausgabevolumens"@de; #, ""@fr, ""@it;
+	rdfs:label "serial volume publishing existence"@en, "Publizierungexistenz eines Reihe-Ausgabevolumens"@de; #, ""@fr, ""@it;
 	rdfs:comment """The publishing from the first to the last issue of a serial volume."""@en;
 	rdfs:subClassOf event:Existence, publish:Publishing.
 
@@ -288,7 +288,7 @@ publish:Republication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "republication"@en, "Herausgabe"@de, "republication"@fr, "ripubblicazione"@it;
-	rdfs:comment """Publication of a previously published document expression."""@en; # only difference being the time fo publishing
+	rdfs:comment """Publication of a previously published document expression."""@en;
 	rdfs:subClassOf publish:Publication.
 
 #

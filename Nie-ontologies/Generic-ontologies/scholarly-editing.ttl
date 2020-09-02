@@ -706,4 +706,4 @@ scholarly-editing:commentHasContent
 	rdfs:comment """Relating an editorial comment to its content."""@en;
 	rdfs:domain scholarly-editing:EditorialComment;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf language:hasContent.
+	rdfs:subPropertyOf language:hasContentLiteral.

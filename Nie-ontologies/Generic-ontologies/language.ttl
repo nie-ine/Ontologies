@@ -37,7 +37,7 @@ language:Language
 	a rdfs:Class;
 	rdfs:label "language"@en, "Sprache"@de;
 	rdfs:comment """Dynamic set of sensory carriers, e.g. a sign, symbol, word, including sound and gesture, to express meaning, and used along rules or grammar model, e.g. syntax for serialization."""@en;
-	rdfs:subClassOf dct:LinguisticSystem, rdfs:Resource.
+	rdfs:subClassOf dct:LinguisticSystem.
 
 language:HumanLanguage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
@@ -59,7 +59,7 @@ language:HumanNaturalLanguage
 language:GeneralHumanNaturalLanguage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "general human natural language"@en, "algemeine menschliche naturliche Sprache"@de;
+	rdfs:label "general human natural language"@en, "allgemeine menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
 	rdfs:subClassOf language:HumanNaturalLanguage.
 

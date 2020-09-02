@@ -702,8 +702,8 @@ scholarly-editing:commentHasReference
 scholarly-editing:commentHasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "editorial comment has content"@en, "editorischer Kommentar hat Inhalt"@de, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;
-	rdfs:comment """Relating an editorial comment to its content."""@en;
+	rdfs:label "editorial comment has content literal"@en, "editorischer Kommentar hat Inhaltliterale"@de; #, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;
+	rdfs:comment """Relating an editorial comment to its content literal."""@en;
 	rdfs:domain scholarly-editing:EditorialComment;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf language:hasContentLiteral.

@@ -36,8 +36,7 @@ physical:Entity
 	a rdfs:Class;
 	rdfs:label "physical entity"@en, "physische Entität"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf event:Output. #rdfs:Resource. #° to link to cidoc
-	# seqnum
+	rdfs:subClassOf event:Output. #° to link to cidoc
 
 physical:ExistingState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
@@ -45,22 +44,20 @@ physical:ExistingState
 	rdfs:label "existing state"@en, "Existenzzustand"@de;
 	rdfs:comment """State of a physical entity existing, partially existing, or having existed."""@en;
 	rdfs:subClassOf event:State;
-	skos:note """To be stated with a time indicator."""@en;
-	owl:oneOf (physical:Existing physical:Gone).
+	skos:note """To be stated together with a time indicator; can be inferred with an N3-rule if the existence and a time reference are known."""@en;
+	owl:oneOf (physical:existing physical:gone).
 
-physical:Existing
+physical:existing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
-	a rdfs:Class;
+	a rdfs:Class, physical:ExistingState;
 	rdfs:label "existing"@en, "existierend"@de;
-	rdfs:comment """State of a physical entity existing."""@en;
-	rdfs:subClassOf physical:ExistingState.
+	rdfs:comment """State of a physical entity existing."""@en.
 
-physical:Gone
+physical:gone
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
-	a rdfs:Class;
+	a rdfs:Class, physical:ExistingState;
 	rdfs:label "gone"@en, "weg"@de;
-	rdfs:comment """State of a physical entity not existing anymore."""@en;
-	rdfs:subClassOf physical:ExistingState.
+	rdfs:comment """State of a physical entity not existing anymore."""@en.
 
 physical:Space
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
@@ -174,7 +171,7 @@ physical:hasSizeDescription #°
 	rdfs:domain physical:Space;
 	rdfs:range rdfs:Literal.
 
-physical:hasLocation
+physical:hasLocation #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
 	rdfs:label "has location"@en, "hat Ort"@de;

@@ -129,12 +129,11 @@ scholarly-editing:DiplomaticTranscription
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de, "transcription diplomatique"@fr, "trascrizione diplomatica"@it;
-#	ling:hasSynonym "Lesehilfe"@de, ""@fr, ""@it;
 	rdfs:comment """Transcription of a text with editorial symbols indicating visual textual properties to describe the textual state."""@en;
 	skos:note """Mostly done for autographs or juridical text; without interpretation.""";
 	rdfs:subClassOf scholarly-editing:Edition.
 
-# textedit:DiplomaticInterpretativeTranscription
+# scholarly-editing:DiplomaticInterpretativeTranscription
 
 scholarly-editing:CriticalEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -150,7 +149,7 @@ scholarly-editing:CriticalEdition
 	rdfs:comment """Edition to which a critical editor added evidence and interpretation of a text creation and historical transmission, using a critical apparatus, allowing readers to assess the editor's choice."""@en;
 	rdfs:subClassOf scholarly-editing:Edition.
 
-# textedit:Variorum rdfs:subClassOf textedit:CriticalEdition
+# scholarly-editing:Variorum rdfs:subClassOf scholarly-editing:CriticalEdition
 
 scholarly-editing:GeneticEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -163,7 +162,6 @@ scholarly-editing:ConstitutedEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de, "texte constitué d'édition"@fr, "testo costituito di un'edizione"@it;
-#	ling:hasSynonym "Lesetext"@de, ""@fr, ""@it;
 	rdfs:comment """Plain text expression as endresult of critical editing of another text expression."""@en;
 	rdfs:subClassOf scholarly-editing:Edition.
 
@@ -206,7 +204,6 @@ scholarly-editing:DoctrinalApparatus
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de, "apparat doctrinal"@fr, "apparato dottrinale"@it;
-#	ling:hasSynonym textedit:HistoricalApparatus;
 	rdfs:comment """Editing apparatus commmenting on the content of a scholarly edition in a historical and doctrinal context."""@en; # info about theory
 	rdfs:subClassOf scholarly-editing:Apparatus.
 

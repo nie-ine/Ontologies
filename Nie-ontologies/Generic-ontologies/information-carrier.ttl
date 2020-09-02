@@ -462,6 +462,13 @@ infocar:Website
 	rdfs:comment """Set of interconnected webpages, under a single domain name, usually including a homepage, generally located on the same server, and prepared and maintained as information by a person, group, or organization."""@en;
 	rdfs:subClassOf infocar:ElectronicCarrier, infocar:Set.
 
+infocar:Hyperlink
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "hyperlink"@en,"Hyperlink"@de;
+	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
+	rdfs:subClassOf rdfs:Resource. # software
+
 infocar:Wiki
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
@@ -469,6 +476,13 @@ infocar:Wiki
 	rdfs:comment """Knowledge base website on which users collaboratively modify and structure content directly from a web browser; it is ran by wiki software."""@en;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/Wiki>;
 	rdfs:subClassOf infocar:Website.
+
+infocar:WikiPage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
+	a rdfs:Class;
+	rdfs:label "Wiki page"@en, "Wiki-Seite"@de;
+	rdfs:comment """Webpage of a Wiki."""@en;
+	rdfs:subClassOf infocar:Webpage.
 
 infocar:DokuWiki
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
@@ -478,12 +492,12 @@ infocar:DokuWiki
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/DokuWiki>;
 	rdfs:subClassOf infocar:Wiki.
 
-infocar:Hyperlink
+infocar:DokuWikiPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
-	rdfs:label "hyperlink"@en,"Hyperlink"@de;
-	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
-	rdfs:subClassOf rdfs:Resource. # software
+	rdfs:label "DokuWiki page"@en, "DokuWiki-Seite"@de;
+	rdfs:comment """Wiki page of a DokuWiki."""@en;
+	rdfs:subClassOf infocar:WikiPage.
 
 #
 # PROPERTIES

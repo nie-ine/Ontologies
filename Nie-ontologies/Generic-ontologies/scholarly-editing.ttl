@@ -699,7 +699,7 @@ scholarly-editing:commentHasReference
 	rdfs:range document:TextStructureReference;
 	rdfs:subPropertyOf document:hasTextReference.
 
-scholarly-editing:commentHasContent
+scholarly-editing:commentHasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "editorial comment has content"@en, "editorischer Kommentar hat Inhalt"@de, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;

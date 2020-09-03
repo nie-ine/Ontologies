@@ -83,7 +83,7 @@ lingmor:FeminineGrammaticalGender
 	rdfs:label "feminine grammatical gender"@en, "grammatisches Femininum"@de;
 	rdfs:comment """Grammatical gender being feminine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
-	owl:sameAs gold:FeminineGender;
+	owl:equivalentClass gold:FeminineGender;
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:MasculineGrammaticalGender
@@ -92,7 +92,7 @@ lingmor:MasculineGrammaticalGender
 	rdfs:label "masculine grammatical gender"@en, "grammatisches Maskulinum"@de;
 	rdfs:comment """Grammatical gender being masculine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
-	owl:sameAs gold:MasculineGender;
+	owl:equivalentClass gold:MasculineGender;
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:NeuterGrammaticalGender
@@ -101,7 +101,7 @@ lingmor:NeuterGrammaticalGender
 	rdfs:label "neuter grammatical gender"@en, "grammatisches Neutrum"@de;
 	rdfs:comment """Grammatical gender being neuter."""@en;
 	skos:note """E.g. in Indoeuropean languages."""@en;
-	owl:sameAs gold:NeuterGender;
+	owl:equivalentClass gold:NeuterGender;
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:ComparisonDegree
@@ -137,7 +137,7 @@ lingmor:VerbalVoice
 	a rdfs:Class;
 	rdfs:label "verbal voice"@en, "Diathese"@de;
 	rdfs:comment """Property of verb forms that specifies the roles of the dependent entities."""@en;
-	owl:sameAs gold:VoiceProperty;
+	owl:equivalentClass gold:VoiceProperty;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:ActiveVoice
@@ -145,7 +145,7 @@ lingmor:ActiveVoice
 	a rdfs:Class;
 	rdfs:label "active voice"@en, "aktiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the agent."""@en;
-	owl:sameAs gold:ActiveVoice;
+	owl:equivalentClass gold:ActiveVoice;
 	rdfs:subClassOf lingmor:VerbalVoice.
 	
 lingmor:PassiveVoice
@@ -153,7 +153,7 @@ lingmor:PassiveVoice
 	a rdfs:Class;
 	rdfs:label "passive voice"@en, "passiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the patient."""@en;
-#	owl:sameAs gold:PassiveVoice;
+	owl:equivalentClass gold:PassiveVoice;
 	rdfs:subClassOf lingmor:VerbalVoice.
 	
 lingmor:MedialVoice
@@ -231,7 +231,7 @@ lingmor:Tense
 	a rdfs:Class;
 	rdfs:label "tense"@en, "Tempus"@de;
 	rdfs:comment """..."""@en;
-#	owl:sameAs gold:TenseProperty;
+	owl:equivalentClass gold:TenseProperty;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:Aorist
@@ -246,7 +246,7 @@ lingmor:Future
 	a rdfs:Class;
 	rdfs:label "future"@en, "Futur"@de;
 	rdfs:comment """..."""@en;
-#	owl:sameAs gold:FutureTense;
+	owl:equivalentClass gold:FutureTense;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Imperfect
@@ -261,7 +261,7 @@ lingmor:Perfect
 	a rdfs:Class;
 	rdfs:label "perfect"@en, "Perfekt"@de;
 	rdfs:comment """..."""@en;
-#	owl:sameAs gold:PerfectTense;
+	owl:equivalentClass gold:PerfectTense;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Pluperfect
@@ -269,7 +269,7 @@ lingmor:Pluperfect
 	a rdfs:Class;
 	rdfs:label "pluperfect"@en, "Plusquamperfekt"@de;
 	rdfs:comment """..."""@en;
-#	owl:sameAs gold:PastInPastTense;
+	owl:equivalentClass gold:PastInPastTense;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Present
@@ -277,7 +277,7 @@ lingmor:Present
 	a rdfs:Class;
 	rdfs:label "present"@en, "Präsens"@de;
 	rdfs:comment """..."""@en;
-#	owl:sameAs gold:PresentTense;
+	owl:equivalentClass gold:PresentTense;
 	rdfs:subClassOf lingmor:Tense.
 
 lingmor:Person
@@ -285,7 +285,7 @@ lingmor:Person
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de;
 	rdfs:comment """Property indicating the relation between an entity in an utterance and the speaker."""@en;
-#	owl:sameAs gold:PersonProperty;
+	owl:equivalentClass gold:PersonProperty;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:FirstPerson
@@ -293,7 +293,7 @@ lingmor:FirstPerson
 	a rdfs:Class;
 	rdfs:label "1st person"@en, "1. Person"@de;
 	rdfs:comment """Mentioned entitiy overlaps with speaker."""@en;
-#	owl:sameAs gold:FirstPerson;
+	owl:equivalentClass gold:FirstPerson;
 	rdfs:subClassOf lingmor:Person.
 	
 lingmor:SecondPerson
@@ -301,7 +301,7 @@ lingmor:SecondPerson
 	a rdfs:Class;
 	rdfs:label "2nd person"@en, "2. Person"@de;
 	rdfs:comment """Mentioned entity overlaps with listener."""@en;
-#	owl:sameAs gold:SecondPerson;
+	owl:equivalentClass gold:SecondPerson;
 	rdfs:subClassOf lingmor:Person.
 	
 lingmor:ThirdPerson
@@ -309,7 +309,7 @@ lingmor:ThirdPerson
 	a rdfs:Class;
 	rdfs:label "3rd person"@en, "3. Person"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
-#	owl:sameAs gold:ThirdPerson;
+	owl:equivalentClass gold:ThirdPerson;
 	rdfs:subClassOf lingmor:Person.
 
 lingmor:Case
@@ -317,15 +317,15 @@ lingmor:Case
 	a rdfs:Class;
 	rdfs:label "grammatical case"@en, "Kasus"@de;
 	rdfs:comment """Grammatical declension of a noun, pronoun, adjective, participle, article, or numeral, expressing its grammatical function, hence its semantic relation to other words in a sentence, clause or phrase."""@en;
-#	owl:sameAs gold:CaseProperty;
+	owl:equivalentClass gold:CaseProperty;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
 lingmor:NominativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "nominative case"@en, "Nominative"@de;
-	rdfs:comment """Grammatical case indicating the agent in an accusative language."""@en; #° subject
-#	owl:sameAs gold:NominativeCase;
+	rdfs:comment """Grammatical case indicating the agent in an accusative language."""@en;
+	owl:equivalentClass gold:NominativeCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:VocativeCase
@@ -333,7 +333,7 @@ lingmor:VocativeCase
 	a rdfs:Class;
 	rdfs:label "vocative case"@en, "Vokativ"@de;
 	rdfs:comment """Grammatical case of a noun or pronoun used to address a person in grammatical sense."""@en;
-#	owl:sameAs gold:VocativeCase;
+	owl:equivalentClass gold:VocativeCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:AccusativeCase
@@ -341,7 +341,7 @@ lingmor:AccusativeCase
 	a rdfs:Class;
 	rdfs:label "accusative case"@en, "Akkusativ"@de;
 	rdfs:comment """Grammatical case indicating the object in an accusative language."""@en;
-#	owl:sameAs gold:AccusativeCase;
+	owl:equivalentClass gold:AccusativeCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:DativeCase
@@ -349,15 +349,15 @@ lingmor:DativeCase
 	a rdfs:Class;
 	rdfs:label "dative case"@en, "Dativ"@de;
 	rdfs:comment """Grammatical case indicating an indirect object."""@en;
-#	owl:sameAs gold:DativeCase;
+	owl:equivalentClass gold:DativeCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:GenitiveCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "genitive case"@en, "Genitiv"@de;
-	rdfs:comment """Grammatical case indicating possession and similar relations."""@en; #°
-#	owl:sameAs gold:GenitiveCase;
+	rdfs:comment """Grammatical case indicating possession and similar relations."""@en;
+	owl:equivalentClass gold:GenitiveCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:AblativeCase
@@ -365,7 +365,7 @@ lingmor:AblativeCase
 	a rdfs:Class;
 	rdfs:label "ablative case"@en, "Ablativ"@de;
 	rdfs:comment """Grammatical case specifying a separation."""@en;
-#	owl:sameAs gold:AblativeCase;
+	owl:equivalentClass gold:AblativeCase;
 	rdfs:subClassOf lingmor:Case.
 
 lingmor:InstrumentalCase
@@ -373,24 +373,24 @@ lingmor:InstrumentalCase
 	a rdfs:Class;
 	rdfs:label "instrumental case"@en, "Instrumental"@de;
 	rdfs:comment """Grammatical case indicating an instrument or a tool for an action."""@en;
-#	owl:sameAs gold:InstrumentalCase;
+	owl:equivalentClass gold:InstrumentalCase;
 	rdfs:subClassOf lingmor:Case.
 	
 lingmor:LocativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "locative case"@en, "Lokativ"@de;
-	rdfs:comment """Grammatical case indicating a position."""@en; #° location
-#	owl:sameAs gold:LocativeCase;
+	rdfs:comment """Grammatical case indicating a location."""@en;
+	owl:equivalentClass gold:LocativeCase;
 	rdfs:subClassOf lingmor:Case.
 
-lingmor:GermanCase # exemplary
+lingmor:GermanCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "German case"@en, "deutscher Kasus"@de;
 	rdfs:comment """German case form of a word."""@en;
 	rdfs:subClassOf lingmor:Case.
-#	owl:oneOf (lingmor:nominative lingmor:accusative lingmor:dativ lingmor:genitive). # instances
+#	owl:oneOf (lingmor:nominative lingmor:accusative lingmor:dativ lingmor:genitive). # instances # OR owl:disjointUnionOf
 
 lingmor:Number
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
@@ -398,15 +398,15 @@ lingmor:Number
 	rdfs:label "number"@en, "Numerus"@de;
 	rdfs:comment """Grammatical declension of a word expressing a number of a word."""@en; #°
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
-#	owl:sameAs gold:NumberProperty;
-#	owl:oneOf (lingmor:singular lingmor:plural). # instances
+	owl:equivalentClass gold:NumberProperty;
+#	owl:oneOf (lingmor:singular lingmor:plural). # instances # OR owl:disjointUnionOf
 
 lingmor:Singular
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "singular"@en, "Singular"@de;
 	rdfs:comment """Number of a word indicating a singularity."""@en;
-#	owl:sameAs gold:SingularNumber;
+	owl:equivalentClass gold:SingularNumber;
 	rdfs:subClassOf lingmor:Number.
 
 lingmor:Dual
@@ -414,7 +414,7 @@ lingmor:Dual
 	a rdfs:Class;
 	rdfs:label "dual"@en, "Dual"@de;
 	rdfs:comment """Number of a word indicating a duality."""@en;
-#	owl:sameAs gold:DualNumber;
+	owl:equivalentClass gold:DualNumber;
 	rdfs:subClassOf lingmor:Number.
 	
 lingmor:Plural
@@ -422,7 +422,7 @@ lingmor:Plural
 	a rdfs:Class;
 	rdfs:label "plural"@en, "Plural"@de;
 	rdfs:comment """Number of a word indicating a plurality."""@en;
-#	owl:sameAs gold:PluralNumber;
+	owl:equivalentClass gold:PluralNumber;
 	rdfs:subClassOf lingmor:Number.
 
 lingmor:SemanticGender
@@ -431,7 +431,31 @@ lingmor:SemanticGender
 	rdfs:label "semantic gender"@en, "semantisches Genus"@de;
 	rdfs:comment """Semantic gender of a lexeme."""@en;
 	rdfs:subClassOf ling:Concept.
-#	owl:oneOf (lingmor:MasculineSemanticGender lingmor:FeminineSemanticGender lingmor:NeuterSemanticGender).
+	owl:unionOf (lingmor:FeminineSemanticGender lingmor:MasculineSemanticGender lingmor:NeuterSemanticGender).
+
+lingmor:FeminineSemanticGender
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
+	a rdfs:Class;
+	rdfs:label "feminine semantic gender"@en, "semantisches Femininum"@de;
+	rdfs:comment """Semantic gender being feminine."""@en;
+	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
+	rdfs:subClassOf lingmor:SemanticGender.
+
+lingmor:MasculineSemanticGender
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
+	a rdfs:Class;
+	rdfs:label "masculine semantic gender"@en, "semantisches Maskulinum"@de;
+	rdfs:comment """Semantic gender being masculine."""@en;
+	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
+	rdfs:subClassOf lingmor:SemanticGender.
+
+lingmor:NeuterSemanticGender
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
+	a rdfs:Class;
+	rdfs:label "neuter semantic gender"@en, "semantisches Neutrum"@de;
+	rdfs:comment """Semantic gender being neuter."""@en;
+	skos:note """E.g. in Indoeuropean languages."""@en;
+	rdfs:subClassOf lingmor:SemanticGender.
 
 lingmor:PartOfSpeech
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
@@ -445,7 +469,7 @@ lingmor:Noun # EAGLES: Noun;
 	a rdfs:Class;
 	rdfs:label "noun"@en;
 	rdfs:comment """Part of speech representing a class or instance."""@en;
-#	owl:sameAs gold:Noun;
+	owl:equivalentClass gold:Noun;
 	skos:note """In German there is no grouping concept for 'Substantiv' and 'Pronomen'."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
@@ -482,7 +506,7 @@ lingmor:Adjective # EAGLES: Adjective
 lingmor:Pronoun # EAGLES: Pronoun/Determiner
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class; 
-	rdfs:label "pronoun"@en, "Pronomen"@de; # determiner, Begleiter
+	rdfs:label "pronoun"@en, "Pronomen"@de;
 	rdfs:comment """Part of speech quantifying or replacing an object."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 

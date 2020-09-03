@@ -15,7 +15,6 @@
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 
-
 @base <http://e-editiones.ch/ontology/linguistic-morphology>.
 @prefix lingmor: <http://e-editiones.ch/ontology/linguistic-morphology#>.
 
@@ -73,19 +72,10 @@ lingmor:Suffix # derivational e.g. '-ship' in 'friendship', inflectional suffix 
 lingmor:GrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "grammatical gender"@en, "grammatisches Genus"@de; #° Geschlecht
-	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en; #°
+	rdfs:label "grammatical gender"@en, "grammatisches Genus"@de;
+	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en;
 	rdfs:subClassOf ling:Concept. # lingmor:MorphologicalCategory
-#	owl:oneOf (lingmor:MasculineGrammaticalGender lingmor:FeminineGrammaticalGender lingmor:NeuterGrammaticalGender).
-
-lingmor:MasculineGrammaticalGender
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
-	a rdfs:Class;
-	rdfs:label "masculine grammatical gender"@en, "grammatisches Maskulinum"@de;
-	rdfs:comment """Grammatical gender being masculine."""@en;
-	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
-	owl:sameAs gold:MasculineGender;
-	rdfs:subClassOf lingmor:GrammaticalGender.
+	owl:unionOf (lingmor:FeminineGrammaticalGenderunionOf lingmor:MasculineGrammaticalGender lingmor:NeuterGrammaticalGender).
 	
 lingmor:FeminineGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
@@ -94,6 +84,15 @@ lingmor:FeminineGrammaticalGender
 	rdfs:comment """Grammatical gender being feminine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
 	owl:sameAs gold:FeminineGender;
+	rdfs:subClassOf lingmor:GrammaticalGender.
+
+lingmor:MasculineGrammaticalGender
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
+	a rdfs:Class;
+	rdfs:label "masculine grammatical gender"@en, "grammatisches Maskulinum"@de;
+	rdfs:comment """Grammatical gender being masculine."""@en;
+	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
+	owl:sameAs gold:MasculineGender;
 	rdfs:subClassOf lingmor:GrammaticalGender.
 
 lingmor:NeuterGrammaticalGender

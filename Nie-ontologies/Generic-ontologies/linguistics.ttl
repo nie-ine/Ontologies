@@ -14,6 +14,7 @@
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
+@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix lingmor: <http://e-editiones.ch/ontology/linguistic-morphology#>.
 
 @base <http://e-editiones.ch/ontology/linguistics>.

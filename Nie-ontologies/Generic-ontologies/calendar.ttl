@@ -43,7 +43,7 @@ calendar:julianCalendar
 	a calendar:Calendar;
 	rdfs:label "Julian calendar"@en, "julianischer Kalender"@de, "calendrier julien"@fr, "calendario juliano"@it;
 	rdfs:comment """Calendar introduced in 46 BC in Rome by Julius Caesar. It is based on a solar year of 365 days. There are 12 months of 30 or 31 days, except for February, which has 28 days with the exception of every leap year when it has 29 days. Every fourth year and centenary year is a leap year of 366 days. The beginning of a year is not fixed on January 1. It was replaced by the Gregorian calendar in 1582 AD."""@en;
-	skos:note """Has 365.25 days/year."""@en;
+	skos:note """Has 365.25 days/year. This number is used in temoral reasoning."""@en;
 	skos:note """A year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, but these centurial years are leap years if they are exactly divisible by 400. For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is."""@en.
 
 calendar:prolepticJulianCalendar
@@ -58,7 +58,7 @@ calendar:gregorianCalendar
 	a calendar:Calendar;
 	rdfs:label "Gregorian calendar"@en, "gregorianischer Kalender"@de, "calendrier grégorien"@fr, "calendario gregoriano"@it;
 	rdfs:comment """Calendar introduced on 15 October 1582 AD by Pope Gregory XIII, and a correction of the Julian calendar. It is based on a solar year of 365 days. Every fourth year is a leap year of 366 days except for centenary years not evenly divisible by 400."""@en;
-	skos:note """Has 365.2425 days/year or 365 days, 5 hours, 49 minutes and 12 seconds."""@en.
+	skos:note """Has 365.2425 days or 365 days, 5 hours, 49 minutes and 12 seconds per year. This number is used in temoral reasoning."""@en.
 
 calendar:prolepticGregorianCalendar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
@@ -84,6 +84,7 @@ calendar:julianDayNumber
 	a rdfs:Datatype;
 	rdfs:label "Julian Day Number datatype"@en;
 	rdfs:comment """Datatype to type a Julian Day Number integer."""@en;
+	rdfs:comment """The Julian Day Number (JDN) is the integer assigned to a whole solar day in the Julian day count starting from noon Universal time, with Julian Day Number 0 assigned to the day starting at noon on Monday, January 1, 4713 BC, proleptic Julian calendar (November 24, 4714 BC, in the proleptic Gregorian calendar), a date at which three multi-year cycles started (Indiction, Solar, and Lunar cycles) and which precedes any date in recorded human history."""@en;
 	rdfs:subClassOf xsd:integer.
 
 #
@@ -321,7 +322,6 @@ calendar:hasJulianDayNumber
 	a owl:DatatypeProperty;
 	rdfs:label "has Julian Day Number"@en;
 	rdfs:comment """Relating something to its Julian Day Number."""@en;
-	rdfs:comment """The Julian Day Number (JDN) is the integer assigned to a whole solar day in the Julian day count starting from noon Universal time, with Julian Day Number 0 assigned to the day starting at noon on Monday, January 1, 4713 BC, proleptic Julian calendar (November 24, 4714 BC, in the proleptic Gregorian calendar), a date at which three multi-year cycles started (Indiction, Solar, and Lunar cycles) and which precedes any date in recorded human history."""@en;
 	skos:note """Used in an N3-rule to convert a calendar date literal list to a Julian Day Number."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range calendar:julianDayNumber.
@@ -333,7 +333,8 @@ calendar:hasStartJulianDayNumber
 	rdfs:comment """Relating something to its start Julian Day Number."""@en;
 	skos:note """Used in an N3-rule to convert a calendar start date literal list of a year or year-month period to a start Julian Day Number integer."""@en;
 	rdfs:domain event:Event;
-	rdfs:range calendar:julianDayNumber. # ; rdfs:subPropertyOf calendar:hasJulianDayNumber.
+	rdfs:range calendar:julianDayNumber;
+	rdfs:subPropertyOf calendar:hasJulianDayNumber.
 
 calendar:hasEndJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
@@ -342,4 +343,5 @@ calendar:hasEndJulianDayNumber
 	rdfs:comment """Relating an event to its end Julian Day Number."""@en;
 	skos:note """Used in an N3-rule to convert a calendar end date literal list of a year or year-month period to an end Julian Day Number integer."""@en;
 	rdfs:domain event:Event;
-	rdfs:range calendar:julianDayNumber. # ; rdfs:subPropertyOf calendar:hasJulianDayNumber.
+	rdfs:range calendar:julianDayNumber;
+	rdfs:subPropertyOf calendar:hasJulianDayNumber.

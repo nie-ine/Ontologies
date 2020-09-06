@@ -62,7 +62,7 @@ document:Element
 	a rdfs:Class;
 	rdfs:label "document element"@en, "Dokumentelement"@de;
 	rdfs:comment """Information as part of a document."""@en;
-	rdfs:subClassOf concept:Information.
+	rdfs:subClassOf concept:Information. #° document:Document
 
 document:Structure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -277,8 +277,8 @@ document:Code
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "code document"@en,"Kode-Dokument"@de;
-	rdfs:comment """Document as code, e.g. in any programming language."""@en;
-	rdfs:subClassOf document:Document.
+	rdfs:comment """Information as code, e.g. in any programming language."""@en;
+	rdfs:subClassOf concept:Information.
 
 document:HypertextDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -301,6 +301,20 @@ document:HypertextStructure
 	rdfs:comment """Structural element of a hypertext document."""@en;
 	rdfs:subClassOf document:HypertextElement, document:Structure.
 
+document:HypertextPage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a rdfs:Class;
+	rdfs:label "hypertext document page"@en, "Hypertext-Dokumentseite"@de;
+	rdfs:comment """Page of a hypertext document."""@en;
+	rdfs:subClassOf document:Page, document:HypertextStructure.
+
+document:HypertextStartPage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a rdfs:Class;
+	rdfs:label "hypertext document start page"@en, "Hypertext-Dokumentstartseite"@de;
+	rdfs:comment """Start page of a hypertext document."""@en;
+	rdfs:subClassOf document:HypertextPage.
+
 #
 # DATATYPE INSTANCES
 #
@@ -315,6 +329,15 @@ document:css
 #
 # PROPERTIES
 #
+
+document:hasContentLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:ObjectProperty;
+	rdfs:label "document has content literal"@en, "Dokument hat Inhaltliterale"@de;
+	rdfs:comment """Relating a document to its content literal."""@en;
+	skos:note """Includes a code literal of a programming language, e.g. HTML."""@en;
+	rdfs:domain document:Document;
+	rdfs:range rdfs:Literal.
 
 document:hasState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;

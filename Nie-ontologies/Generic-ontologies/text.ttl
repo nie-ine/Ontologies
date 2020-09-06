@@ -156,23 +156,30 @@ text:PhotocopiedText
 text:AgentCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "agent citer"@en, "Agent-Zitierer"@de, "agent citeur"@fr, "agente citante"@it;
+	rdfs:label "agent citer"@en, "Agent-Zitierer"@de, "citeur/se comme agent"@fr; # , "... come agente"@it;
 	rdfs:comment """Role of a human agent, person or group, citing a text."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 text:PersonCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "person citer"@en, "Person-ZitiererIn"@de, "personne citeuse"@fr, "persona citante"@it;
+	rdfs:label "person citer"@en, "Person-ZitiererIn"@de, "citeur/se comme personne"@fr; # , "... come persona"@it;
 	rdfs:comment """Citer as role of a person."""@en;
 	rdfs:subClassOf text:AgentCiter, human:PersonRole.
+
+text:GroupCiter
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
+	a rdfs:Class;
+	rdfs:label "group citer"@en, "Gruppe-ZitiererIn"@de, "citeur/se comme groupe"@fr; # , "... come gruppo"@it;
+	rdfs:comment """Citer as role of a group."""@en;
+	rdfs:subClassOf text:AgentCiter, human:GroupRole.
 
 text:OrganizationCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "organization citer"@en, "Organisation-Zitiererin"@de, ""@fr, ""@it;
+	rdfs:label "organization citer"@en, "Organisation-Zitiererin"@de; # , ""@fr, ""@it;
 	rdfs:comment """Citer as role of an organization."""@en;
-	rdfs:subClassOf text:AgentCiter, org:Role.
+	rdfs:subClassOf text:GroupCiter, org:Role.
 
 text:CitationReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;

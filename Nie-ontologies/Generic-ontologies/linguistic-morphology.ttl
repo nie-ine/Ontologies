@@ -74,7 +74,7 @@ lingmor:GrammaticalGender
 	a rdfs:Class;
 	rdfs:label "grammatical gender"@en, "grammatisches Genus"@de;
 	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en;
-	rdfs:subClassOf ling:Concept. # lingmor:MorphologicalCategory
+	rdfs:subClassOf ling:Concept; # lingmor:MorphologicalCategory
 	owl:unionOf (lingmor:FeminineGrammaticalGenderunionOf lingmor:MasculineGrammaticalGender lingmor:NeuterGrammaticalGender).
 	
 lingmor:FeminineGrammaticalGender
@@ -397,8 +397,8 @@ lingmor:Number
 	a rdfs:Class;
 	rdfs:label "number"@en, "Numerus"@de;
 	rdfs:comment """Grammatical declension of a word expressing a number of a word."""@en; #°
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
-	owl:equivalentClass gold:NumberProperty;
+	rdfs:subClassOf ling:Concept; #° lingmor:MorphologicalConcept
+	owl:equivalentClass gold:NumberProperty.
 #	owl:oneOf (lingmor:singular lingmor:plural). # instances # OR owl:disjointUnionOf
 
 lingmor:Singular
@@ -430,7 +430,7 @@ lingmor:SemanticGender
 	a rdfs:Class;
 	rdfs:label "semantic gender"@en, "semantisches Genus"@de;
 	rdfs:comment """Semantic gender of a lexeme."""@en;
-	rdfs:subClassOf ling:Concept.
+	rdfs:subClassOf ling:Concept;
 	owl:unionOf (lingmor:FeminineSemanticGender lingmor:MasculineSemanticGender lingmor:NeuterSemanticGender).
 
 lingmor:FeminineSemanticGender

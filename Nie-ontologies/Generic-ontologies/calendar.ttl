@@ -19,7 +19,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "calendar-ontology"@en;
 	dct:description """Formal description of calendar, subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -345,3 +345,12 @@ calendar:hasEndJulianDayNumber
 	rdfs:domain event:Event;
 	rdfs:range calendar:julianDayNumber;
 	rdfs:subPropertyOf calendar:hasJulianDayNumber.
+
+calendar:julianDayNumeralToGregorianDate
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
+	a owl:DatatypeProperty;
+	rdfs:label "Julian Day Numeral to date literal list"@en;
+	rdfs:comment """Relating a Julian Day Numeral to its Gregorian date typed literal."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the eponimous backward N3-rule to convert a Julian Day Numeral to its Gregorian date typed literal."""@en;
+	rdfs:domain xsd:nonNegativeInteger;
+	rdfs:range xsd:date.

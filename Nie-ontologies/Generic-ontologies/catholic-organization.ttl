@@ -7,7 +7,6 @@
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
 
-
 @base <http://e-editiones.ch/ontology/catholic-organization>.
 @prefix cathorg: <http://e-editiones.ch/ontology/catholic-organization#>.
 

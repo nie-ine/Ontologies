@@ -25,7 +25,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about language"@en;
 	dct:description """Formal description of linguistics, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en,
 		"Magdalena Plamada, PhD, Zürich University, Switzerland"@en;

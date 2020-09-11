@@ -20,7 +20,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title """Human Geography"""@en;
 	dct:description """Formal description of human geography, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 

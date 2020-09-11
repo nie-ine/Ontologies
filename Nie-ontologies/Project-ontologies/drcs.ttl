@@ -23,11 +23,11 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology for the Digital Repertory of Commentaries on Peter Lombard’s Sentences"@en;
 	dct:description """Formal description of specific concepts in the scientific study of Commentaries on Peter Lombard's Sentences, as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Institut D'histoire De La Réformation, University of Geneva, Switzerland"@en,
 		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en,
-		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+		"Dr. Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date;
 	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>.

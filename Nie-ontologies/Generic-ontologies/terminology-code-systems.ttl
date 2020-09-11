@@ -14,7 +14,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about terminology and code systems"@en;
 	dct:description """Formal description of terminology and code systems and their datatypes, as link between system data and OWL-ontologies and RDF-data."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date;
 	skos:note """Other datatypes are declared in a respective domain ontology, e.g. calendar:julianDate, languages:iso639-2, and text:characterSize."""@en.

@@ -19,7 +19,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Atharvaveda"@en;
 	dct:description """Formal description of specific concepts in the scientific study of the Atharvaveda."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Magdalena Plamada, PhD, Zürich University, Switzerland"@en,
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;

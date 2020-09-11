@@ -24,7 +24,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title """An ontology about Wolfram von Eschenbach's 'Parzival' """@en;
 	dct:description """Formal description of specific concepts in the critical and digital edition of Wolfram von Eschenbach's 'Parzival."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
 		"Reinhard Priber, tool coordinator and software developer, University of Zürich, Switzerland"@en;

@@ -13,7 +13,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about philosophy"@en;
 	dct:description """Formal description of philosophy, general subclasses, related classes, properties, and instances."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
 		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;

@@ -29,7 +29,7 @@
 	dct:description """Formal description of text structure, subclasses, related classes, and properties."""@en;
 	skos:note """Text and text editing are described in other ontologies"""@en;
 	skos:note """Prosodic structure and note structure are described in other ontologies"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;

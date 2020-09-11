@@ -19,7 +19,7 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about father Joseph Dietrich's monastery diary"@en;
 	dct:description """Formal description of specific concepts in the scientific study "Das Kloster-Tagebuch des Einsiedler Paters Joseph Dietrich, 1670-1704"."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor "Reinhard Priber, tool coordinator and software developer, University of Bern, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.

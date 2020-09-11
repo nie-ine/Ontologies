@@ -32,12 +32,12 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about standoff-annotation"@en;
 	dct:description """Formal description of standoff-annotation in broadest sense, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en,
-		"Roberta Padlina, project coordinator, software developer, Basel University, Switzerland"@en,
+		"Roberta Padlina, project coordinator, software developer, University of Basel, Switzerland"@en,
 		"Olga Serbaeva Saraogi, tool coordinator and software developer, University of Zürich, Switzerland"@en,
-		"Dominique Steinbach, project coordinator, software developer, Basel University, Switzerland"@en;
+		"Dominique Steinbach, project coordinator, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date;
 	rdfs:seeAlso <https://tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SASO>.

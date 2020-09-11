@@ -29,8 +29,8 @@
 	dct:title "An ontology about text"@en;
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
 	skos:note """Text structure, text editing, and text roles are described in respective ontologies"""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, project coordinator, software developer, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date;
 	skos:note """Representation of text as object instead of literal data element, enabling relating it to other things"""@en.
@@ -437,11 +437,19 @@ text:isReferredToIn
 	rdfs:range text-expression:Expression.
 #	owl:propertyChainAxiom (text:hasReference text:referenceIsPartOf).
 
+text:isCitedBy
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "is cited by"@en, "ist zitiert von"@de, "est cité par"@fr, "è citato da"@it;
+	rdfs:comment """Relating a text to a human agent - person or group - citing it."""@en;
+	rdfs:domain text:Text;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
+
 text:hasCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
 	rdfs:label "has citer"@en, "hat ZitiererIn"@de, "a un citeur"@fr, "ha un citatore"@it;
-	rdfs:comment """Relating a text to a human agent - person or group - citing it."""@en;
+	rdfs:comment """Relating a text to a human agent - person or group - citing in it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
 

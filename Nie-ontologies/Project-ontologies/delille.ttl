@@ -25,8 +25,10 @@
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about Jacques Delille's poetry citation"@en;
 	dct:description """Formal description of specific concepts in the scientific edition about citations of the poem 'L'Homme des champs' of Jacques Delille, 22 June 1738 – 1 May 1813."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor
+		"Dr. Roberta Padlina, tool coordinator and software developer, University of Basel, Switzerland"@en,
+		"Prof. Dr. Hugues Marchal, Departement of Languages and Literatures, Faculty of Philosophy and History, University of Basel"@en;
 	dct:publisher "University of Basel, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -226,3 +228,148 @@ delille:hasPunctuatedCitedVerseNumberSequenceLiteral
 	skos:note """Used in the conclusion of an N3-rule invoking in the premise a backward N3-rule to replace in a sequence of non-negative integers inner consecutive NNIs with a hyphen and separate non-consecutive NNIs with a comma."""@en;
 	rdfs:domain delille:CitingExpression;
 	rdfs:range rdfs:Literal.
+
+delille:verseHasNumberOfCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of citations"@en, "Vers hat Anzahl von Zitaten"@de;
+	rdfs:comment """Relating a verse of 'L'Homme Des Champs' to the number of expressions wherein cited."""@en;
+	skos:note """Used in an N3-rule to count for a verse the number of citations."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasHighestNumberOfCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has highest number of citations"@en, "Vers hat höchste Anzahl von Zitaten"@de;
+	rdfs:comment """Relating a verse of 'L'Homme Des Champs' to the highest number of citations of all verses."""@en;
+	skos:note """Used in an N3-rule to count for a verse the highest number of citations."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasLowestNumberOfCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has lowest number of citations"@en, "Vers hat geringste Anzahl von Zitaten"@de;
+	rdfs:comment """Relating a verse of 'L'Homme Des Champs' to the lowest number of citations of all verses."""@en;
+	skos:note """Used in an N3-rule to count for a verse the lowest number of citations."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasNumberOfCiters
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of citers"@en, "Vers hat Anzahl der ZitiererInnen"@de;
+	rdfs:comment """Relating a verse of 'L'Homme Des Champs' to the number of citers it has."""@en;
+	skos:note """Used in an N3-rule to count for a verse the number of citers."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:hasCitingAgeNumeral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has citing age numeral"@en, "hat Zitierungsalternumerale"@de;
+	rdfs:comment """Relating a person who cited a verse of 'L'Homme Des Champs' to the person's age at citing."""@en;
+	skos:note """Used in an N3-rule to calculate for a person the age at citing."""@en;
+	rdfs:domain [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:PersonCiter]];
+	rdfs:range xsd:positiveInteger.
+
+delille:hasCitingAgeRangeLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has citing age range literal"@en, "hat Zitierungsaltersbereichliterale"@de;
+	rdfs:comment """Relating a person who cited a verse of 'L'Homme Des Champs' to the person's age range at citing."""@en;
+	skos:note """Used in an N3-rule to calculate for a person the age range at citing."""@en;
+	rdfs:domain [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:PersonCiter]];
+	rdfs:range rdfs:Literal.
+
+delille:verseHasNumberOfCiterAgeRangeLiterals
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label " verse has number of citer age range literals"@en, "Vers hat Anzahl der ZitiererInsaltersbereichliterale"@de;
+	rdfs:comment """Relating a verse of 'L'Homme Des Champs' to the number of ranges of the ages of the persons who cited that verse."""@en;
+	skos:note """Used in an N3-rule to count for a verse the number of ranges of the ages of the persons who cited that verse."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:hasClassSpecificCitedVerse
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:ObjectProperty;
+	rdfs:label "has class-specific cited verse"@en;
+	rdfs:comment """Relating a text expression to a verse of 'L'Homme des champs' it cites class-specifically, i.e. not cited in instances of another citing expression class."""@en;
+	skos:note """The verse can also be cited in another expression instance of the same class."""@en;
+	skos:note """Used in the conclusion of an N3-rule to retrieve an expression citing a verse specific for the expression class, with the cited verse."""@en;
+	rdfs:domain delille:CitingExpression;
+	rdfs:range prosodic-structure:RhymingVerse.
+
+delille:hasPunctuatedClassSpecificCitedVerseNumberSequenceLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has punctuated class-specific cited verse number sequence literal"@en, "hat interpunktierte klassenspezifische citierter Versnummersequenzliterale"@de;
+	rdfs:comment """Relating a text expression, citing class-specifically one or more verses of a poem authored by Jacques Delille, to its punctuated cited verse number sequence literal."""@en;
+	skos:note """Used in the conclusion of an N3-rule invoking in the premise a backward N3-rule to replace in a sequence of non-negative integers inner consecutive NNIs with a hyphen and separate non-consecutive NNIs with a comma."""@en;
+	rdfs:domain delille:CitingExpression;
+	rdfs:range rdfs:Literal.
+
+delille:hasUniqueCitedVerse
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:ObjectProperty;
+	rdfs:label "has unique cited verse"@en;
+	rdfs:comment """Relating a text expression to a verse of 'L'Homme des champs' it uniquely cites."""@en;
+	skos:note """Used in the conclusion of an N3-rule to retrieve an expression uniquely citing a verse, with the cited verse."""@en;
+	rdfs:domain delille:CitingExpression;
+	rdfs:range prosodic-structure:RhymingVerse.
+
+delille:hasPunctuatedUniquelyCitedVerseNumberSequenceLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has punctuated unique cited verse number sequence literal"@en, "hat interpunktierte einmalige citierter Versnummersequenzliterale"@de;
+	rdfs:comment """Relating a text expression, citing uniquely one or more verses of a poem authored by Jacques Delille, to its punctuated cited verse number sequence literal."""@en;
+	skos:note """Used in the conclusion of an N3-rule invoking in the premise a backward N3-rule to replace in a sequence of non-negative integers inner consecutive NNIs with a hyphen and separate non-consecutive NNIs with a comma."""@en;
+	rdfs:domain delille:CitingExpression;
+	rdfs:range rdfs:Literal.
+
+delille:verseHasNumberOfEarlyAnthologyOrManualAndDictionaryCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of early anthology or manual and dictionary citations"@en, "Vers hat frühe Anthologie- oder Lehrbuch- und Wörterbuch-Zitate"@de;
+	rdfs:comment """Relating a verse of 'L'homme des champs' to the number of early anthologies or manuals, and dictionaries citing the verse."""@en;
+	skos:note """Early means before the middle time point of the whole publication period of all expressions citing the verse."""@en;
+	rdfs:domain [
+		rdfs:subClassOf
+			prosodic-structure:RhymingVerse, [
+			a owl:Restriction; owl:onProperty text:isCitedIn; owl:someValuesFrom [owl:unionOf (delille:AnthologyOrManual delille:Dictionary)]]];
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasNumberOfLateNonAnthologyOrManualAndDictionaryCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of late non-anthology or -manual and -dictionary citations"@en, "Vers hat späte Non-Anthologie- oder -Lehrbuch- und -Wörterbuch-Zitate"@de;
+	rdfs:comment """Relating a verse of 'L'homme des champs' to the number of late text expressions, not being an anthology or manual, or dictionary, citing the verse."""@en;
+	rdfs:domain [
+		rdfs:subClassOf
+			prosodic-structure:RhymingVerse, [
+			a owl:Restriction; owl:onProperty text:isCitedIn; owl:someValuesFrom [owl:unionOf (delille:LiteraryExpression delille:LiteraryScientificExpression delille:ScientificOrVulgarizedExpression delille:Catalogue delille:Article)]]];
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasNumberOfLateAnthologyOrManualAndDictionaryCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of late anthology or manual and dictionary citations"@en, "Vers hat späte Anthologie- oder Lehrbuch- und Wörterbuch-Zitate"@de;
+	rdfs:comment """Relating a verse of 'L'homme des champs' to the number of late anthologies or manuals, and dictionaries citing the verse."""@en;
+	rdfs:domain [
+		rdfs:subClassOf
+			prosodic-structure:RhymingVerse, [
+			a owl:Restriction; owl:onProperty text:isCitedIn; owl:someValuesFrom [owl:unionOf (delille:AnthologyOrManual delille:Dictionary)]]];
+	rdfs:range xsd:nonNegativeInteger.
+
+delille:verseHasNumberOfEarlyNonAnthologyOrManualAndDictionaryCitations
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
+	a owl:DatatypeProperty;
+	rdfs:label "verse has number of early non-anthology or -manual and -dictionary citations"@en, "Vers hat frühe Non-Anthologie- oder -Lehrbuch- oder -Wörterbuch-Zitate"@de;
+	rdfs:comment """Relating a verse of 'L'homme des champs' to the number of early text expressions, not being an anthology or manual, or dictionary, citing the verse."""@en;
+	rdfs:domain [
+		rdfs:subClassOf
+			prosodic-structure:RhymingVerse, [
+			a owl:Restriction; owl:onProperty text:isCitedIn; owl:someValuesFrom [owl:unionOf (delille:LiteraryExpression delille:LiteraryScientificExpression delille:ScientificOrVulgarizedExpression delille:Catalogue delille:Article)]]];
+	rdfs:range xsd:nonNegativeInteger.

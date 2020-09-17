@@ -49,7 +49,7 @@ agent:Organization
 agent:Role
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "agent's role"@en, "Rolle des Akteurs"@de;
+	rdfs:label "agent's role"@en, "Rolle eines Akteurs"@de;
 	rdfs:comment """Specific function of an agent."""@en;
 	owl:disjointWith agent:Agent;
 	rdfs:subClassOf rdfs:Resource.
@@ -57,14 +57,14 @@ agent:Role
 agent:GroupRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "group role"@en, "Rolle der Gruppe"@de;
+	rdfs:label "group role"@en, "Rolle einer Gruppe"@de;
 	rdfs:comment """Role of a group of agents."""@en;
 	rdfs:subClassOf agent:Role.
 
 agent:OrganizationRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "organization role"@en, "Rolle der Organisation"@de;
+	rdfs:label "organization role"@en, "Rolle einer Organisation"@de;
 	rdfs:comment """Role of an Organization of agents."""@en;
 	rdfs:subClassOf agent:GroupRole.
 

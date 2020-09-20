@@ -453,6 +453,14 @@ text:hasCiter
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
 
+text:hasPossibleCiter
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
+	a owl:ObjectProperty;
+	rdfs:label "has possible citer"@en, "hat möglicher Zitierer"@de, "a un citeur possible"@fr, "ha un citatore possibile"@it;
+	rdfs:comment """Relating a text to a possible human agent - person or group - citing in it."""@en;
+	rdfs:domain text:Text;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
+
 text:hasCitation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;

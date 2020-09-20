@@ -16,6 +16,7 @@
 @prefix math: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
+@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 
 @base <http://e-editiones.ch/ontology/publishing>.
@@ -59,7 +60,7 @@ publish:Article
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication article"@en, "Publikationsartikel"@de, "article de publication"@fr, "articolo pubblicazione"@it;
-	rdfs:comment """Article as unit in a publication."""@en;
+	rdfs:comment """Article as unit in a publication expression."""@en;
 	rdfs:subClassOf text-expression:Article, publish:TextExpression.
 
 publish:NewsArticle
@@ -74,6 +75,13 @@ publish:ReviewArticle
 	a rdfs:Class;
 	rdfs:label "review article"@en, "Rezensionsartikel"@de, "article de revue"@fr, "articolo di revisione"@it;
 	rdfs:comment """Publication article containing a review of something."""@en;
+	rdfs:subClassOf publish:Article.
+
+publish:ScientificArticle
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
+	a rdfs:Class;
+	rdfs:label "scientific article"@en, "wissenschaftliches Artikel"@de, "article scientifique"@fr, "articolo scientifico"@it;
+	rdfs:comment """Publication article with scientific content."""@en;
 	rdfs:subClassOf publish:Article.
 
 publish:PublishingState
@@ -102,6 +110,14 @@ publish:notPublishedWithAuthor
 	rdfs:label "document not published with author"@en, "Dokument nicht mit Autor publiziert"@de, "document non publié avec l'auteur"@fr, "documento non pubblicato con l'autore"@it;
 	rdfs:comment """State of a document expression not having been published with the author."""@en;
 	skos:note """Not a publishing state, but a mere document expression state; whether or not a document expression is actually published, a publication with the author is not known."""@en.
+
+publish:Bibliography
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
+	a rdfs:Class;
+	rdfs:label "bibliography"@en, "Bibliographie"@de, "bibliographie"@fr, "bibliografia"@it;
+	rdfs:comment """List of bibliographic references to articles or books referenced in a scholarly article or book , usually appearing at the end of the publication expression."""@en;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx>;
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 publish:Redactor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
@@ -461,34 +477,6 @@ publish:hasRedactor
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
 	rdfs:domain publish:Expression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
-
-publish:hasReference
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
-	a owl:ObjectProperty;
-	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de, "a une référence bibliographique"@fr, "ha riferimenti bibliografici"@it;
-	rdfs:comment """Relating a publication expression to a bibliographic reference thereof."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range publish:Reference;
-	rdfs:subPropertyOf concept:hasSymbolicEntity.
-
-publish:referenceHasLiteral
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
-	a owl:DatatypeProperty;
-	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de, "référence bibliographique a un littéral"@fr, "riferimento bibliografico ha un letterale"@it;
-	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
-	rdfs:domain publish:Reference;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
-
-publish:hasReferenceLiteral
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
-	a owl:DatatypeProperty;
-	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
-	rdfs:comment """Relating a publication expression to the literal of a bibliographic reference of the publication expression."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf concept:hasLiteral;
-	owl:propertyChainAxiom (math:hasReference math:referenceHasLiteral).
 
 publish:hasDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;

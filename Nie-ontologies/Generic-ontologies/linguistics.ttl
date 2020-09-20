@@ -55,7 +55,7 @@ ling:Lemma
 	a rdfs:Class;
 	rdfs:label "lemma"@en, "Lemma"@de;
 	rdfs:comment """Dictionary entry of a lexeme."""@en;
-	rdfs:seeAlso <http://www.alphabit.net/ATL3Leunitadianalisi.pdf>, <http://www.dcuci.univr.it/documenti/OccorrenzaIns/matdid/matdid121824.pdf>;
+	rdfs:seeAlso <http://www.dcuci.univr.it/documenti/OccorrenzaIns/matdid/matdid121824.pdf>;
 	rdfs:subClassOf ling:Concept, concept:SymbolicEntity.
 
 ling:Symbol

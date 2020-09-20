@@ -20,13 +20,6 @@
 # CLASSES
 #
 
-languages:BaselGerman
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
-	a rdfs:Class;
-	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
-	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
-	rdfs:subClassOf language:SwissGerman.
-
 languages:Dutch
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
@@ -143,6 +136,13 @@ languages:SwissGerman
 	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
 	rdfs:subClassOf language:Dialect, [
 		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].
+
+languages:BaselGerman
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
+	a rdfs:Class;
+	rdfs:label "Basel German"@en, "Baseldeutsch"@de;
+	rdfs:comment """Dialect of the city of Basel and its surroundings, Switzerland."""@en;
+	rdfs:subClassOf language:SwissGerman.
 
 #
 # INSTANCES

@@ -125,8 +125,8 @@ document:ContentStructureReference
 document:TextStructureReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "text reference"@en, "Textreferenz"@de;
-	rdfs:comment """Reference to text, e.g. a footnote reference."""@en;
+	rdfs:label "text structure reference"@en, "Textstrukturreferenz"@de;
+	rdfs:comment """Document content structure reference to a text structure, e.g. a footnote reference."""@en;
 	rdfs:subClassOf document:ContentStructureReference.
 
 document:FootnoteReference
@@ -194,7 +194,7 @@ document:Marginal
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. a text, doodle, or illumination."""@en;
 	rdfs:subClassOf document:ContentStructure.
 
-document:Table #° tableHasTitleLiteral, tableHasField, tableHasRow, tableHasColumn
+document:Table
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "table"@en, "Tabelle"@de;
@@ -226,8 +226,8 @@ document:Draft
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "document draft"@en, "Dokumententwurf"@de;
-	rdfs:comment """Developmental document expression, subject to future modification."""@en;
-	rdfs:subClassOf document:Expression, creating:UnfinishedCreation. # Creation in a state of not having all envisioned features
+	rdfs:comment """Developmental document expression, subject to future modification, not having all envisioned features."""@en;
+	rdfs:subClassOf document:Expression, creating:UnfinishedCreation.
 
 document:PolyAuthorExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -242,6 +242,23 @@ document:ExpressionIdentifier
 	rdfs:label "document expression identifier"@en, "Dokument-Expressionsidentifikator"@de;
 	rdfs:comment """Identifier of a document expression."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
+
+document:BibliographicReference
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a rdfs:Class;
+	rdfs:label "bibliographic reference"@en, "bibliographische Referenz"@de, "référence bibliographique"@fr, "riferimenti bibliografici"@it;
+	rdfs:comment """All information, structured along certain composition rules, to identify a resource in any format (print, audiovisual, digital, etc.), published or unpublished. Used for example to refer from a part in a text expression to a part in another text expression. """@en;
+	skos:note """There is not 1 canonical way to write a bibliographic reference"""@en;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx>;
+	rdfs:subClassOf text-structure:ContentStructure.
+
+document:CitationBibliographicReference
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a rdfs:Class;
+	rdfs:label "citation bibliographic reference"@en, "bibliographische Referenz eines Zitats"@de; # , "référence bibliographique"@fr, "riferimenti bibliografici"@it;
+	rdfs:comment """All information, structured along certain composition rules, to identify a text expression part as citation of a part of another text expression, the latter being published or not. """@en;
+	skos:note """There is not 1 canonical way to write a citation bibliographic reference"""@en;
+	rdfs:subClassOf text-structure:ContentStructure.
 
 #° document:Witness
 
@@ -383,7 +400,7 @@ document:contentStructureHasIdentifier
 	rdfs:range document:ContentStructureIdentifier;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
-document:hasReference
+document:contentStructureHasReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
 	rdfs:label "document content structure has reference"@en, "Dokumentinhaltstruktur hat Referenz"@de;
@@ -391,102 +408,102 @@ document:hasReference
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:ContentStructureReference.
 
-document:hasTextReference
+document:contentStructureHasTextReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has text reference"@en, "hat Textreferenz"@de;
+	rdfs:label "document content structure has text reference"@en, "Dokumentinhaltstruktur hat Textreferenz"@de;
 	rdfs:comment """Relating a document content structure to a text reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:TextStructureReference;
-	rdfs:subPropertyOf document:hasReference.
+	rdfs:subPropertyOf document:contentStructureHasReference.
 
-document:hasFootnoteReference
+document:contentStructureHasFootnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has footnote reference"@en, "hat Fussnotereferenz"@de;
+	rdfs:label "document content structure has footnote reference"@en, "Dokumentinhaltstruktur hat Fussnotereferenz"@de;
 	rdfs:comment """Relating a document content structure to a footnote reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:FootnoteReference;
-	rdfs:subPropertyOf document:hasTextReference.
+	rdfs:subPropertyOf document:contentStructureHasTextReference.
 
-document:hasEndnote
+document:contentStructureHasEndnote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has endnote"@en, "hat Endnote"@de;
+	rdfs:label "document content structure has endnote"@en, "Dokumentinhaltstruktur hat Endnote"@de;
 	rdfs:comment """Relating a document content structure to an endnote it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:Endnote;
-	owl:propertyChainAxiom (document:hasEndnoteReference document:hasEndnoteIdentifier note-structure:isIdentifierOfEndnote).
+	owl:propertyChainAxiom (document:contentStructureHasEndnoteReference document:endnoteReferenceHasIdentifier note-structure:isIdentifierOfEndnote).
 
-document:hasEndnoteReference
+document:contentStructureHasEndnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has endnote reference"@en, "hat Endnotereferenz"@de;
+	rdfs:label "document content structure has endnote reference"@en, "Dokumentinhaltstruktur hat Endnotereferenz"@de;
 	rdfs:comment """Relating a document content structure to an endnote reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:EndnoteReference;
-	rdfs:subPropertyOf document:hasTextReference.
+	rdfs:subPropertyOf document:contentStructureHasTextReference.
 
-document:hasExpressionReference
+document:contentStructureHasExpressionReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has expression reference"@en, "hat Expression-Referenz"@de;
+	rdfs:label "document content structure has expression reference"@en, "Dokumentinhaltstruktur hat Expression-Referenz"@de;
 	rdfs:comment """Relating a document content structure to an expression reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:ExpressionReference.
 
-document:hasContentStructureIdentifier
+document:contentStructureReferenceHasContentStructureIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has document content structure identifier"@en, "hat Dokumentinhaltstrukturidentifikator"@de;
-	rdfs:comment """Relating a document content structure reference to the identifier of another document content structure."""@en;
+	rdfs:label "document content structure reference has document content structure identifier"@en, "Dokumentinhaltstrukturreferenz hat Dokumentinhaltstrukturidentifikator"@de;
+	rdfs:comment """Relating the reference of a document content structure to another document content structure, to the identifier of the latter."""@en;
 	rdfs:domain document:ContentStructureReference;
 	rdfs:range document:ContentStructureIdentifier.
 
-document:hasTextStructureIdentifier
+document:textStructureReferenceHasTextStructureIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has text identifier"@en, "hat Textidentifikator"@de;
-	rdfs:comment """Relating a text reference to its text identifier."""@en;
+	rdfs:label "text structure reference has text structure identifier"@en, "Textstrukturreferenz hat Textstrukturidentifikator"@de;
+	rdfs:comment """Relating a text structure reference of a document content structure to the identifier of the text structure. E.g. a document content structure has a footnote reference linked to the identifier of the footnote."""@en;
 	rdfs:domain document:TextStructureReference;
 	rdfs:range text-structure:Identifier;
-	rdfs:subPropertyOf document:hasContentStructureIdentifier.
+	rdfs:subPropertyOf document:contentStructureReferenceHasContentStructureIdentifier.
 
-document:hasFootnoteIdentifier
+document:footnoteReferenceHasFootnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has footnote identifier"@en, "hat Fussnoteidentifikator"@de;
-	rdfs:comment """Relating a footnote reference to its footnote identifier."""@en;
+	rdfs:label "footnote reference has footnote identifier"@en, "Fussnotereferenz hat Fussnoteidentifikator"@de;
+	rdfs:comment """Relating a footnote reference of a document content structure to the identifier of the footnote."""@en;
 	rdfs:domain document:FootnoteReference;
 	rdfs:range note-structure:FootnoteIdentifier;
-	rdfs:subPropertyOf document:hasTextStructureIdentifier.
+	rdfs:subPropertyOf document:textStructureReferenceHasTextStructureIdentifier.
 
-document:hasFootnoteNumber
+document:footnoteReferenceHasFootnoteNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has footnote number"@en, "hat Fussnotenummer"@de;
-	rdfs:comment """Relating a footnote reference to its footnote number."""@en;
+	rdfs:label "footnote reference has footnote number"@en, "Fussnotereferenz hat Fussnotenummer"@de;
+	rdfs:comment """Relating a footnote reference of a document content structure to the number of the footnote."""@en;
 	rdfs:domain document:FootnoteReference;
 	rdfs:range note-structure:FootnoteNumber;
-	rdfs:subPropertyOf document:hasFootnoteIdentifier.
+	rdfs:subPropertyOf document:footnoteReferenceHasFootnoteIdentifier.
 
-document:hasEndnoteIdentifier
+document:endnoteReferenceHasEndnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has endnote identifier"@en, "hat Endnoteidentifikator"@de;
-	rdfs:comment """Relating an endnote reference to its endnote identifier."""@en;
+	rdfs:label "endnote reference has endnote identifier"@en, "Endnotereferenz hat Endnoteidentifikator"@de;
+	rdfs:comment """Relating an endnote reference of a document content structure to the identifier of the endnote."""@en;
 	rdfs:domain document:EndnoteReference;
 	rdfs:range note-structure:EndnoteIdentifier;
-	rdfs:subPropertyOf document:hasTextStructureIdentifier.
+	rdfs:subPropertyOf document:textStructureReferenceHasTextStructureIdentifier.
 
-document:hasEndnoteNumber
+document:endnoteReferenceHasEndnoteNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "has endnote number"@en, "hat Endnotenummer"@de;
-	rdfs:comment """Relating an endnote reference to its endnote number."""@en;
+	rdfs:label "endnote reference has endnote number"@en, "Endnotereferenz hat Endnotenummer"@de;
+	rdfs:comment """Relating an endnote reference of a document content structure to the number of the endnote."""@en;
 	rdfs:domain document:EndnoteReference;
 	rdfs:range note-structure:EndnoteNumber;
-	rdfs:subPropertyOf document:hasEndnoteIdentifier.
+	rdfs:subPropertyOf document:endnoteReferenceHasEndnoteIdentifier.
 
 document:isColumnOfPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -597,29 +614,58 @@ document:expressionReferenceHasIdentifier
 	rdfs:range document:ExpressionIdentifier;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
-document:isElementOfHypertextDocument
+document:hasBibliographicReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is element of hypertext document"@en, "ist Element eines Hypertext-Dokumentes"@de;
-	rdfs:comment """Relating a hypertext document element to a hypertext document it is part of."""@en;
-	rdfs:domain document:HypertextElement;
-	rdfs:range document:HypertextDocument;
-	rdfs:subPropertyOf concept:isPartOf.
+	rdfs:label "has bibliographic reference"@en, "hat bibliographische Referenz"@de, "a une référence bibliographique"@fr, "ha riferimenti bibliografici"@it;
+	rdfs:comment """Relating a document expression to a bibliographic reference it has."""@en;
+	rdfs:domain document:Expression;
+	rdfs:range document:BibliographicReference;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
 
-document:isOnWebpage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a owl:ObjectProperty;
-	rdfs:label "is hypertext document on webpage"@en, "ist Hypertext-Dokument auf Webseite"@de;
-	rdfs:comment """Relating a hypertext document to the webpage it is on."""@en;
-	rdfs:domain document:HypertextDocument;
-	rdfs:range infocar:Webpage;
-	rdfs:subPropertyOf infocar:isOnCarrier.
-
-document:hasCSSLiteral
+document:bibliographicReferenceHasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has CSS literal"@en, "hat CSS-Literale"@de;
-	rdfs:comment "Relating a resource to a CSS literal."@en;
-	rdfs:domain rdfs:Resource;
-	rdfs:range document:css;
+	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de, "référence bibliographique a un littéral"@fr, "riferimento bibliografico ha un letterale"@it;
+	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
+	rdfs:domain document:BibliographicReference;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
+
+document:hasBibliographicReferenceLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
+	rdfs:comment """Relating a document expression to the literal of a bibliographic reference it has."""@en;
+	rdfs:domain document:Expression;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:hasLiteral;
+	owl:propertyChainAxiom (document:hasBibliographicReference document:bibliographicReferenceHasLiteral).
+
+document:hasCitationBibliographicReference
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:ObjectProperty;
+	rdfs:label "has citation bibliographic reference"@en, "hat bibliographische Referenz eines Zitats"@de; # , "a une référence bibliographique"@fr, "ha riferimenti bibliografici"@it;
+	rdfs:comment """Relating a text expression to a bibliographic reference of a citation thereof."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range document:CitationBibliographicReference;
+	rdfs:subPropertyOf concept:hasSymbolicEntity.
+
+document:citationBibliographicReferenceHasLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:DatatypeProperty;
+	rdfs:label "citation bibliographic reference has literal"@en, "bibliographische Referenz eines Zitats hat Literal"@de; #, "référence bibliographique a un littéral"@fr, "riferimento bibliografico ha un letterale"@it;
+	rdfs:comment """Relating a citation bibliographic reference to its literal."""@en;
+	rdfs:domain document:CitationBibliographicReference;
+	rdfs:range rdfs:Literal;
+	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
+
+document:hasCitationBibliographicReferenceLiteral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has citation bibliographic reference literal"@en, "hat bibliographische Referenzliterale eines Zitats"@de; # , "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
+	rdfs:comment """Relating a text expression to the literal of a bibliographic reference of a citation thereof."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasLiteral.
+

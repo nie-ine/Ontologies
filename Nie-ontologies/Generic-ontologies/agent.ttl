@@ -34,14 +34,14 @@ agent:Agent
 agent:Group
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "group of agents"@en; #°
+	rdfs:label "group of agents"@en;
 	rdfs:comment """Group of agents."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Group.
 
 agent:Organization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "organization"@en; #°
+	rdfs:label "organization"@en;
 	rdfs:comment """Organized group of agents."""@en;
 	rdfs:subClassOf agent:Group;
 	skos:note """Not 'rdfs:subClassOf foaf:Organization' because the latter involves persons."""@en.
@@ -49,7 +49,7 @@ agent:Organization
 agent:Role
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "agent's role"@en; #°
+	rdfs:label "agent's role"@en;
 	rdfs:comment """Specific function of an agent."""@en;
 	owl:disjointWith agent:Agent;
 	rdfs:subClassOf rdfs:Resource.
@@ -57,7 +57,7 @@ agent:Role
 agent:GroupRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "group role"@en; #°
+	rdfs:label "group role"@en;
 	rdfs:comment """Role of a group of agents."""@en;
 	rdfs:subClassOf agent:Role.
 

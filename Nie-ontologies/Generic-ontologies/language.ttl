@@ -68,7 +68,7 @@ language:HumanNaturalLanguageExpression
 	a rdfs:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
-	skos:note """Different from the FRBRoo based document:Expression."""@en;
+	skos:note """Expression differs from the FRBRoo based document:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object.
 
 language:Dialect
@@ -121,6 +121,14 @@ language:MachineTranslation
 	rdfs:label "machine translation"@en, "Maschinenübersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
 	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
 	rdfs:subClassOf language:Translation.
+
+language:PartialTranslation
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
+	a rdfs:Class;
+	rdfs:label "partial translation"@en, "Teilübersetzung"@de, "traduction partielle"@fr, "traduzione parziale"@it;
+	rdfs:comment """Translation not being a complete transfer from a human natural language expression in another natural language."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:Code
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
@@ -236,6 +244,14 @@ language:hasTranslation
 	rdfs:comment """Relating a human natural language expression to another one in another natural language into which it is translated."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range language:Translation.
+
+language:hasPartialTranslation
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
+	a owl:ObjectProperty;
+	rdfs:label "has partial translation"@en, "hat Teilübersetzung"@de;
+	rdfs:comment """Relating a human natural language expression to another one in another natural language into which it is partially translated."""@en;
+	rdfs:domain language:HumanNaturalLanguageExpression;
+	rdfs:range language:PartialTranslation.
 
 language:isTranslatedInto
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;

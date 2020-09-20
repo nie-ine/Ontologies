@@ -16,6 +16,7 @@
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix note-structure: <http://e-editiones.ch/ontology/note-structure#>.
+@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
 @prefix publish: <http://e-editiones.ch/ontology/publishing#>.
 

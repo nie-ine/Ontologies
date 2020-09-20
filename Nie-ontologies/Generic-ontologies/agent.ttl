@@ -27,21 +27,21 @@
 agent:Agent
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "agent"@en, "Agent"@de;
+	rdfs:label "agent"@en, "Akteur"@de;
 	rdfs:comment """Something performing in an action."""@en;
 	rdfs:subClassOf foaf:Agent, physical:Entity.
 
 agent:Group
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "group of agents"@en;
+	rdfs:label "group of agents"@en, "Gruppe von Akteuren"@de;
 	rdfs:comment """Group of agents."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Group.
 
 agent:Organization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "organization"@en;
+	rdfs:label "organization"@en, "Organisation"@de;
 	rdfs:comment """Organized group of agents."""@en;
 	rdfs:subClassOf agent:Group;
 	skos:note """Not 'rdfs:subClassOf foaf:Organization' because the latter involves persons."""@en.
@@ -49,7 +49,7 @@ agent:Organization
 agent:Role
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "agent's role"@en;
+	rdfs:label "agent's role"@en, "Rolle eines Akteurs"@de;
 	rdfs:comment """Specific function of an agent."""@en;
 	owl:disjointWith agent:Agent;
 	rdfs:subClassOf rdfs:Resource.
@@ -57,14 +57,14 @@ agent:Role
 agent:GroupRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "group role"@en;
+	rdfs:label "group role"@en, "Rolle einer Gruppe"@de;
 	rdfs:comment """Role of a group of agents."""@en;
 	rdfs:subClassOf agent:Role.
 
 agent:OrganizationRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "organization role"@en; #°
+	rdfs:label "organization role"@en, "Rolle einer Organisation"@de;
 	rdfs:comment """Role of an Organization of agents."""@en;
 	rdfs:subClassOf agent:GroupRole.
 
@@ -79,7 +79,7 @@ agent:Creator
 agent:User
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "user"@en, "BenutzerIn"@de;
+	rdfs:label "user"@en, "Benutzer"@de;
 	rdfs:comment """Role of an agent taking something into service or applying for a purpose."""@en;
 	skos:note """Does not need to be a person."""@en;
 	rdfs:subClassOf agent:Role.
@@ -122,7 +122,7 @@ agent:isMemberOf
 agent:hasCreator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
-	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
+	rdfs:label "has creator"@en, "hat Erschaffer"@de;
 	rdfs:comment """Relating something to an agent that created it."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range [rdfs:subClassOf agent:Agent, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom agent:Creator]].

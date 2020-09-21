@@ -38,35 +38,35 @@
 creating:AgentCreator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "agent creator"@en, "Agent-ErschafferIn"@de;
+	rdfs:label "agent creator"@en, "Erschaffungsakteur"@de;
 	rdfs:comment """Role of a human agent, i.e. person or group, creating something."""@en;
 	rdfs:subClassOf human:AgentRole, agent:Creator.
 
 creating:PersonCreator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person creator"@en, "Person-ErschafferIn"@de;
+	rdfs:label "person creator"@en, "Erschaffungsperson"@de;
 	rdfs:comment """Creator as role of a person."""@en;
 	rdfs:subClassOf human:PersonRole, creating:AgentCreator.
 
 creating:PersonAuthor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person author"@en, "Person-Autor"@de; #, "auteur"@fr, "autore"@it;
+	rdfs:label "person author"@en, "Autorperson"@de; #, "auteur"@fr, "autore"@it;
 	rdfs:comment """Role of a person being responsible for a creation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 creating:Creating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creating"@en, "Person-Kreierung"@de;
+	rdfs:label "person-creating"@en, "Personenaktion"@de;
 	rdfs:comment """Creating as a person-action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 
 creating:Creation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creation"@en, "Person-Kreation"@de;
+	rdfs:label "creation"@en, "Personenerstellung"@de;
 	rdfs:comment """Something created by one or more persons."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
 		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom creating:Creating].
@@ -74,21 +74,21 @@ creating:Creation
 creating:AnonymousCreation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "anonymous creation"@en, "anonyme Kreation"@de;
+	rdfs:label "anonymous creation"@en, "anonyme Erstellung"@de;
 	rdfs:comment """Something created by one or more unidentified persons."""@en;
 	rdfs:subClassOf creating:Creation.
 
 creating:CreationGroup
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creation group"@en, "Person-Kreationsgruppe"@de;
+	rdfs:label "person-creation group"@en, "Persononenerstellungsgruppe"@de;
 	rdfs:comment """Group of person-creations."""@en;
 	rdfs:subClassOf rdfs:Resource.
 
 creating:CreationSet
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creation set"@en, "Person-Kreationsreihe"@de;
+	rdfs:label "person-creation set"@en, "Personenerstellungsreihe"@de;
 	rdfs:comment """Group of person-creations belonging together."""@en;
 	rdfs:subClassOf creating:CreationGroup.
 
@@ -102,7 +102,7 @@ creating:Collection
 creating:PhysicalCreation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "physical person creation"@en, "physische Person-Kreation"@de;
+	rdfs:label "physical person creation"@en, "physische Personenerstellung"@de;
 	rdfs:comment """Person creation as a physical resource."""@en;
 	rdfs:subClassOf creating:Creation, physical:Matter, cidoc:E24_Physical_Man-Made_Thing. # rdfs:subClassOf cidoc:E72_Legal_Object
 
@@ -116,7 +116,7 @@ creating:Copy
 creating:CreationVersion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creation version"@en, "Version einer Kreation"@de;
+	rdfs:label "creation version"@en, "Version einer Erstellung"@de;
 	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
 	skos:note """A version is created by the same person or group of persons who created another version."""@en;
 	rdfs:subClassOf creating:Creation.
@@ -124,7 +124,7 @@ creating:CreationVersion
 creating:UnfinishedCreation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "unfinished creation"@en, "unfertige Kreation"@de;
+	rdfs:label "unfinished creation"@en, "unfertige Erstellung"@de;
 	rdfs:comment """Creation in a state of not having all envisioned features."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
@@ -152,7 +152,7 @@ creating:IntendedFinalVersion
 creating:CreationDerivative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creation derivative"@en, "Derivat einer Kreation"@de;
+	rdfs:label "creation derivative"@en, "Derivat einer Erstellung"@de;
 	rdfs:comment """Derivative of a person's creation, e.g. a translation."""@en;
 	rdfs:subClassOf creating:Creation. #;
 #	owl:disjointWith creating:CreationVersion.
@@ -178,7 +178,7 @@ creating:Relic
 creating:hasCreator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
-	rdfs:label "has creator"@en, "hat ErschafferIn"@de;
+	rdfs:label "has creator"@en, "hat Erschaffer"@de;
 	rdfs:comment """Relating a creation to a human agent - a person or a group - that created it."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom creating:AgentCreator]];
@@ -196,7 +196,7 @@ creating:hasAuthor
 creating:hasCreating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
-	rdfs:label "has creating"@en, "hat Kreierung"@de;
+	rdfs:label "has creating"@en, "hat Erstellung"@de;
 	rdfs:comment """Relating a creation by a person to the creating thereof."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range creating:Creating;
@@ -205,7 +205,7 @@ creating:hasCreating
 creating:creationHasDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
-	rdfs:label "creation has date"@en, "Kreation hat Datum"@de;
+	rdfs:label "creation has date"@en, "Erstellung hat Datum"@de;
 	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range xsd:date;
@@ -214,7 +214,7 @@ creating:creationHasDate
 creating:creationHasDateTime
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
-	rdfs:label "creation has date time"@en, "Kreation hat Datum-Zeit"@de;
+	rdfs:label "creation has date time"@en, "Erstellung hat Datum und Zeit"@de;
 	rdfs:comment """Relating a creation by a person to the date time it was created on."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range xsd:dateTime;
@@ -232,7 +232,7 @@ creating:hasModificationDate # modification
 creating:isCreationOfSet #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
-	rdfs:label "is creation of set"@en, "ist Kreation einer Reihe"@de;
+	rdfs:label "is creation of set"@en, "ist Erstellung einer Reihe"@de;
 	rdfs:comment """Relating a creation to a set it is part of."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range creating:CreationSet.

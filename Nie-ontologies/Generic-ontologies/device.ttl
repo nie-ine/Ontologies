@@ -75,20 +75,20 @@ device:Computer
 device:ElectronicComputer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
-	rdfs:label "electronic computer"@en, "elektronische Rechner"@de;
+	rdfs:label "electronic computer"@en, "elektronischer Rechner"@de;
 	rdfs:comment """Computer also being an electronic machine."""@en;
 	rdfs:subClassOf device:Computer, device:ElectronicMachine.
 
 device:DigitalComputer #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
-	rdfs:label "digital computer"@en, "digitale Rechner"@de;
+	rdfs:label "digital computer"@en, "digitaler Rechner"@de;
 	rdfs:comment """Computer ...."""@en; #°
 	rdfs:subClassOf device:Computer.
 
 device:DigitalElectronicComputer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
-	rdfs:label "digital electronic computer"@en, "digitale elektronische Rechner"@de;
+	rdfs:label "digital electronic computer"@en, "digitaler elektronischer Rechner"@de;
 	rdfs:comment """Electronic computer using digital software and data to perform a task."""@en;
 	rdfs:subClassOf device:DigitalComputer, device:ElectronicComputer, infocar:ElectronicCarrier.

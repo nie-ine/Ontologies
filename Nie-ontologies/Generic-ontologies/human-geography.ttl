@@ -157,7 +157,7 @@ humgeo:hasPostalAddress
 humgeo:hasReceiverPostalAddress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
-	rdfs:label "has receiver postal address"@en, "hat Empfänger-Postanschrift"@de;
+	rdfs:label "has receiver postal address"@en, "hat Empfängerpostanschrift"@de;
 	rdfs:comment """Relating something being sent to the postal address of the receiver."""@en;
 	rdfs:domain physical:Matter;
 	rdfs:range humgeo:PostalAddress.
@@ -165,7 +165,7 @@ humgeo:hasReceiverPostalAddress
 humgeo:hasReturnPostalAddress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
-	rdfs:label "has return postal address"@en, "hat Rücksendung-Postanschrift"@de;
+	rdfs:label "has return postal address"@en, "hat Absenderpostanschrift"@de;
 	rdfs:comment """Relating something being sent to the postal address for return."""@en;
 	rdfs:domain physical:Matter;
 	rdfs:range humgeo:PostalAddress.
@@ -173,7 +173,7 @@ humgeo:hasReturnPostalAddress
 humgeo:addressHasAddresseeNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has addressee name literal"@en, "Postanschrift hat AdressatIns Nameliterale"@de;
+	rdfs:label "postal address has addressee name literal"@en, "Postanschrift hat Nameliteral des Adressats"@de;
 	rdfs:comment """Relating a postal address to an addressee name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -182,7 +182,7 @@ humgeo:addressHasAddresseeNameLiteral
 humgeo:addressHasStreetNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has street name literal"@en, "Postanschrift hat Strassennameliterale"@de;
+	rdfs:label "postal address has street name literal"@en, "Postanschrift hat Strassennameliteral"@de;
 	rdfs:comment """Relating a postal address to the name literal of the street."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -191,7 +191,7 @@ humgeo:addressHasStreetNameLiteral
 humgeo:addressHasHouseNumberNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has house number numeral"@en, "Postanschrift hat Hausnummernumerale"@de;
+	rdfs:label "postal address has house number numeral"@en, "Postanschrift hat Hausnummernumeral"@de;
 	rdfs:comment """Relating a postal address to the nummer numeral of the house."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range xsd:positiveInteger;
@@ -210,7 +210,7 @@ humgeo:addressHasPostcodeValue
 humgeo:addressHasTownNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has town name literal"@en, "Postanschrift hat Ortsnameliterale"@de;
+	rdfs:label "postal address has town name literal"@en, "Postanschrift hat Ortsnameliteral"@de;
 	rdfs:comment """Relating a postal address to its town name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -219,7 +219,7 @@ humgeo:addressHasTownNameLiteral
 humgeo:addressHasCountryNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has country name literal"@en, "Postanschrift hat Ländernameliterale"@de;
+	rdfs:label "postal address has country name literal"@en, "Postanschrift hat Ländernameliteral"@de;
 	rdfs:comment """Relating a postal address to its country name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;

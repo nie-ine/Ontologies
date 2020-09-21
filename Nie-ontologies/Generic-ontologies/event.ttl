@@ -95,7 +95,7 @@ event:Stage
 event:Staging
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
-	rdfs:label "staging"@en, "Staging"@de;
+	rdfs:label "staging"@en, "Umsetzung"@de;#de: unsicher
 	rdfs:comment """Determining the extent of a process."""@en;
 	rdfs:subClassOf event:Action.
 
@@ -109,7 +109,7 @@ event:Intent
 event:Creating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
-	rdfs:label "creating"@en, "Kreierung"@de;
+	rdfs:label "creating"@en, "Erstellung"@de;
 	rdfs:comment """Changing matter and/or energy, bringing a new appearance thereof into existence."""@en;
 	rdfs:subClassOf event:Action.
 
@@ -129,7 +129,7 @@ event:hasNameLiteral
 event:isSubEventOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
-	rdfs:label "is sub-event of"@en, "ist Subereignis von"@de;
+	rdfs:label "is sub-event of"@en, "ist Unterereignis von"@de;
 	rdfs:comment "Relating an event to another one it is part of."@en;
 	rdfs:domain event:Event;
 	rdfs:range event:Event;	
@@ -212,7 +212,7 @@ event:hasStage
 event:isSubProcedureOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
-	rdfs:label "is sub-procedure of"@en, "ist Subverfahren von"@de;
+	rdfs:label "is sub-procedure of"@en, "ist Unterverfahren von"@de;
 	rdfs:comment """Relating a procedure to another one it is part of."""@en;
 	rdfs:domain event:Procedure;
 	rdfs:range event:Procedure;
@@ -221,7 +221,7 @@ event:isSubProcedureOf
 event:hasGenesisDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has genesis description literal"@en, "hat Genesis-Beschreibungliterale"@de;
+	rdfs:label "has genesis description literal"@en, "hat Genesis-Beschreibungliteral"@de;
 	rdfs:comment """Relating something to a description literal of the genesis thereof."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;

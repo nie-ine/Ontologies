@@ -219,21 +219,21 @@ human:Property
 human:AgentSponsor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent sponsor"@en, "Sponsorenakteur"@de;
+	rdfs:label "agent sponsor"@en, "spendender Akteur"@de;
 	rdfs:comment """Role of a human agent, a person or a group, giving material or financial support for an action."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonSponsor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "person sponsor"@en, "Sponsorenperson"@de;
+	rdfs:label "person sponsor"@en, "spendende Person"@de;
 	rdfs:comment """Role of a person as a sponsor."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentSponsor.
 
 human:AgentPreserver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent preserver"@en, "Bewahrungsakteur"@de;
+	rdfs:label "agent preserver"@en, "bewahrender Akteur"@de;
 	rdfs:comment """Role of a human agent, a person or a group, maintaining something material."""@en;
 	rdfs:subClassOf human:AgentRole.
 

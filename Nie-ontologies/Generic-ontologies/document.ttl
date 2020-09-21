@@ -54,7 +54,7 @@ document:State
 document:Set
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document set"@en, "Dokumentenreihe"@de;
+	rdfs:label "document set"@en, "Dokumentreihe"@de;
 	rdfs:comment """Set of documents."""@en;
 	rdfs:subClassOf concept:Set.
 
@@ -75,28 +75,28 @@ document:Structure
 document:Layout
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "layout"@en, "Aufmachung"@de;
+	rdfs:label "layout"@en, "Layout"@de;
 	rdfs:comment """Way in which the content of a page is set out."""@en;
 	rdfs:subClassOf document:Element.
 
 document:Space #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document space"@en, "Leerraum eines Dokumentes"@de;
+	rdfs:label "document space"@en, "Leerraum in einem Dokument"@de;
 	rdfs:comment """Empty space between document content structures, e.g. lines, columns, paragraphs, sections, strophes, images."""@en;
 	rdfs:subClassOf document:Structure.
 
 document:VerticalSpace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "vertical document space"@en, "vertikaler Leerraum eines Dokumentes"@de;
+	rdfs:label "vertical document space"@en, "vertikaler Leerraum in einem Dokument"@de;
 	rdfs:comment """Document space with vertical orientation, e.g. between columns."""@en;
 	rdfs:subClassOf document:Space.
 
 document:HorizontalSpace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "horizontal document space"@en, "horizontaler Leerraum eines Dokumentes"@de;
+	rdfs:label "horizontal document space"@en, "horizontaler Leerraum in einem Dokument"@de;
 	rdfs:comment """Document space with horizontal orientation, e.g. between lines."""@en;
 	rdfs:subClassOf document:Space.
 
@@ -133,21 +133,21 @@ document:TextStructureReference
 document:FootnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "footnote reference"@en, "Fussnotereferenz"@de;
+	rdfs:label "footnote reference"@en, "Fussnotenreferenz"@de;
 	rdfs:comment """Reference of a document content structure to a footnote via the footnote identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 document:EndnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "endnote reference"@en, "Endnotereferenz"@de;
+	rdfs:label "endnote reference"@en, "Endnotenreferenz"@de;
 	rdfs:comment """Reference of a document content structure to an endnote via the endnote identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
 document:ExpressionReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression reference"@en, "Dokument-Expression-Referenz"@de;
+	rdfs:label "document expression reference"@en, "Dokumentausdruckreferenz"@de;
 	rdfs:comment """Document structure referring from a document content structure to a document expression identifier, e.g. a siglum."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
@@ -205,21 +205,21 @@ document:Table
 document:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression"@en, "Dokument-Expression"@de;
+	rdfs:label "document expression"@en, "Dokumentausdruck"@de;
 	rdfs:comment """Document realisation of a work, based on FRBRoo, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F2_Expression.
 
 document:IndividualExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "individual document expression"@en, "individuelle Dokument-Expression"@de;
+	rdfs:label "individual document expression"@en, "individueller Dokumentausdruck"@de;
 	rdfs:comment """Document realisation of an individual work."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression.
 
 document:ExpressionPart
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression part"@en, "Dokument-Expressionsteil"@de;
+	rdfs:label "document expression part"@en, "Dokumentausdruckteil"@de;
 	rdfs:comment """Part of an individual document expression, considered as incomplete."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment.
 
@@ -233,14 +233,14 @@ document:Draft
 document:PolyAuthorExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "poly-author document expression"@en, "Mehrautorentextdokument-Expression"@de;
+	rdfs:label "poly-author document expression"@en, "Mehrautorentextdokumentausdruck"@de;
 	rdfs:comment """Document expression by different authors."""@en;
 	rdfs:subClassOf document:Expression.
 
 document:ExpressionIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression identifier"@en, "Dokument-Expressionsidentifikator"@de;
+	rdfs:label "document expression identifier"@en, "Dokumentausdruckidentifikator"@de;
 	rdfs:comment """Identifier of a document expression."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
@@ -273,7 +273,7 @@ document:CompleteWorks
 document:Cycle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "expression cycle"@en, "Expression-Zyklus"@de;
+	rdfs:label "expression cycle"@en, "Ausdruckzyklus"@de;
 	rdfs:comment """Set of individual document expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 	rdfs:subClassOf document:Set.
 
@@ -287,49 +287,49 @@ document:Catalogue
 document:Encoder
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "encoder"@en, "KodiererIn"@de, "codeur"@fr, "codificatore"@it;
+	rdfs:label "encoder"@en, "Codierer"@de, "codeur"@fr, "codificatore"@it;
 	rdfs:comment """Role of a person converting a document into code, e.g. from text to XML."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 document:Code
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "code document"@en,"Kode-Dokument"@de;
+	rdfs:label "code document"@en,"Codedokument"@de;
 	rdfs:comment """Information as code, e.g. in any programming language."""@en;
 	rdfs:subClassOf concept:Information.
 
 document:HypertextDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "hypertext document"@en,"Hypertext-Dokument"@de;
+	rdfs:label "hypertext document"@en,"Hypertextdokument"@de;
 	rdfs:comment """Document written in Hypertext Markup Language (HTML)."""@en;
 	rdfs:subClassOf document:Code.
 
 document:HypertextElement
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "hypertext document element"@en, "Hypertext-Dokumentelement"@de;
+	rdfs:label "hypertext document element"@en, "Hypertextdokumentelement"@de;
 	rdfs:comment """Information as part of a hypertext document."""@en;
 	rdfs:subClassOf document:Element.
 
 document:HypertextStructure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "hypertext document structure"@en, "Hypertext-Dokumentstruktur"@de;
+	rdfs:label "hypertext document structure"@en, "Hypertextdokumentstruktur"@de;
 	rdfs:comment """Structural element of a hypertext document."""@en;
 	rdfs:subClassOf document:HypertextElement, document:Structure.
 
 document:HypertextPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "hypertext document page"@en, "Hypertext-Dokumentseite"@de;
+	rdfs:label "hypertext document page"@en, "Hypertextdokumentseite"@de;
 	rdfs:comment """Page of a hypertext document."""@en;
 	rdfs:subClassOf document:Page, document:HypertextStructure.
 
 document:HypertextStartPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "hypertext document start page"@en, "Hypertext-Dokumentstartseite"@de;
+	rdfs:label "hypertext document start page"@en, "Hypertextdokumentstartseite"@de;
 	rdfs:comment """Start page of a hypertext document."""@en;
 	rdfs:subClassOf document:HypertextPage.
 
@@ -340,7 +340,7 @@ document:HypertextStartPage
 document:css
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "CSS-datatype"@en;
+	rdfs:label "CSS-datatype"@en, "CSS-Datentyp"@de;
 	rdfs:comment """Datatype to type a literal expressed in the Cascading Style Sheets-language (CSS)."""@en;
 	skos:note """Example: "color: #000000;"^^document:css"""@en.
 
@@ -351,7 +351,7 @@ document:css
 document:hasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "document has content literal"@en, "Dokument hat Inhaltliterale"@de;
+	rdfs:label "document has content literal"@en, "Dokument hat Inhaltliteral"@de;
 	rdfs:comment """Relating a document to its content literal."""@en;
 	skos:note """Includes a code literal of a programming language, e.g. HTML."""@en;
 	rdfs:domain document:Document;
@@ -368,7 +368,7 @@ document:hasState
 document:isElementOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is element of document"@en, "ist Element eines Dokumentes"@de;
+	rdfs:label "is element of document"@en, "ist Element eines Dokuments"@de;
 	rdfs:comment """Relating a document element to a document it is part of."""@en;
 	rdfs:domain document:Element;
 	rdfs:range document:Document;
@@ -377,7 +377,7 @@ document:isElementOfDocument
 document:isStructureOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is structure of document"@en, "ist Struktur eines Dokumentes"@de;
+	rdfs:label "is structure of document"@en, "ist Struktur eines Dokuments"@de;
 	rdfs:comment """Relating a document structure to a document it is part of."""@en;
 	rdfs:domain document:Structure;
 	rdfs:range document:Document;
@@ -386,7 +386,7 @@ document:isStructureOfDocument
 document:isSpaceOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is space of document"@en, "ist Leerraum eines Dokumentes"@de;
+	rdfs:label "is space of document"@en, "ist Leerraum in einem Dokument"@de;
 	rdfs:comment """Relating a space to the document it is part of."""@en;
 	rdfs:domain document:Space;
 	rdfs:range document:Document;
@@ -421,7 +421,7 @@ document:contentStructureHasTextReference
 document:contentStructureHasFootnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "document content structure has footnote reference"@en, "Dokumentinhaltstruktur hat Fussnotereferenz"@de;
+	rdfs:label "document content structure has footnote reference"@en, "Dokumentinhaltstruktur hat Fussnotenreferenz"@de;
 	rdfs:comment """Relating a document content structure to a footnote reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:FootnoteReference;
@@ -439,7 +439,7 @@ document:contentStructureHasEndnote
 document:contentStructureHasEndnoteReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "document content structure has endnote reference"@en, "Dokumentinhaltstruktur hat Endnotereferenz"@de;
+	rdfs:label "document content structure has endnote reference"@en, "Dokumentinhaltstruktur hat Endnotenreferenz"@de;
 	rdfs:comment """Relating a document content structure to an endnote reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:EndnoteReference;
@@ -448,7 +448,7 @@ document:contentStructureHasEndnoteReference
 document:contentStructureHasExpressionReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "document content structure has expression reference"@en, "Dokumentinhaltstruktur hat Expression-Referenz"@de;
+	rdfs:label "document content structure has expression reference"@en, "Dokumentinhaltstruktur hat Ausdruckreferenz"@de;
 	rdfs:comment """Relating a document content structure to an expression reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:ExpressionReference.
@@ -473,7 +473,7 @@ document:textStructureReferenceHasTextStructureIdentifier
 document:footnoteReferenceHasFootnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "footnote reference has footnote identifier"@en, "Fussnotereferenz hat Fussnoteidentifikator"@de;
+	rdfs:label "footnote reference has footnote identifier"@en, "Fussnotenreferenz hat Fussnotenidentifikator"@de;
 	rdfs:comment """Relating a footnote reference of a document content structure to the identifier of the footnote."""@en;
 	rdfs:domain document:FootnoteReference;
 	rdfs:range note-structure:FootnoteIdentifier;
@@ -482,7 +482,7 @@ document:footnoteReferenceHasFootnoteIdentifier
 document:footnoteReferenceHasFootnoteNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "footnote reference has footnote number"@en, "Fussnotereferenz hat Fussnotenummer"@de;
+	rdfs:label "footnote reference has footnote number"@en, "Fussnotenreferenz hat Fussnotennummer"@de;
 	rdfs:comment """Relating a footnote reference of a document content structure to the number of the footnote."""@en;
 	rdfs:domain document:FootnoteReference;
 	rdfs:range note-structure:FootnoteNumber;
@@ -491,7 +491,7 @@ document:footnoteReferenceHasFootnoteNumber
 document:endnoteReferenceHasEndnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "endnote reference has endnote identifier"@en, "Endnotereferenz hat Endnoteidentifikator"@de;
+	rdfs:label "endnote reference has endnote identifier"@en, "Endnotenreferenz hat Endnotenidentifikator"@de;
 	rdfs:comment """Relating an endnote reference of a document content structure to the identifier of the endnote."""@en;
 	rdfs:domain document:EndnoteReference;
 	rdfs:range note-structure:EndnoteIdentifier;
@@ -500,7 +500,7 @@ document:endnoteReferenceHasEndnoteIdentifier
 document:endnoteReferenceHasEndnoteNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "endnote reference has endnote number"@en, "Endnotereferenz hat Endnotenummer"@de;
+	rdfs:label "endnote reference has endnote number"@en, "Endnotenreferenz hat Endnotennummer"@de;
 	rdfs:comment """Relating an endnote reference of a document content structure to the number of the endnote."""@en;
 	rdfs:domain document:EndnoteReference;
 	rdfs:range note-structure:EndnoteNumber;
@@ -518,7 +518,7 @@ document:isColumnOfPage
 document:isPageOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is page of document expression"@en, "ist Seite einer Dokumentexpression"@de;
+	rdfs:label "is page of document expression"@en, "ist Seite eines Dokumentausdrucks"@de;
 	rdfs:comment """Relating a document page to a document expression it is part of."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:Expression;
@@ -545,7 +545,7 @@ document:pageHasOrdinalNumber
 document:pageHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "page has ordinal numeral"@en, "Seite hat Ordinalnumerale"@de;
+	rdfs:label "page has ordinal numeral"@en, "Seite hat Ordinalnumeral"@de;
 	rdfs:comment """Relating a page to its ordinal numeral."""@en;
 	rdfs:domain document:Page;
 	rdfs:range xsd:nonNegativeInteger;
@@ -564,7 +564,7 @@ document:isTableOfColumn
 document:expressionHasIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "expression has identifier"@en, "Expression hat Identifikator"@de;
+	rdfs:label "expression has identifier"@en, "Ausdruck hat Identifikator"@de;
 	rdfs:comment """Relating a document expression to its identifier."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range document:ExpressionIdentifier;
@@ -573,7 +573,7 @@ document:expressionHasIdentifier
 document:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has title literal"@en, "Expression hat Titelliterale"@de;
+	rdfs:label "expression has title literal"@en, "Ausdruck hat Titelliteral"@de;
 	rdfs:comment """Relating an expression to its title literal."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
@@ -582,7 +582,7 @@ document:expressionHasTitleLiteral
 document:expressionHasSubtitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has subtitle literal"@en, "Expression hat Untertitelliterale"@de;
+	rdfs:label "expression has subtitle literal"@en, "Ausdruck hat Untertitelliteral"@de;
 	rdfs:comment """Relating an expression to a subtitle literal it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
@@ -591,7 +591,7 @@ document:expressionHasSubtitleLiteral
 document:isExpressionOfCycle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is expression of cycle"@en, "ist Expression eines Zyklus"@de;
+	rdfs:label "is expression of cycle"@en, "ist Ausdruck eines Zyklus"@de;
 	rdfs:comment """Relating an individual expression to a cycle it is part of."""@en;
 	rdfs:domain document:IndividualExpression;
 	rdfs:range document:Cycle;
@@ -600,7 +600,7 @@ document:isExpressionOfCycle
 document:isPartOfIndividualExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is part of individual expression"@en, "ist Teil einer individuellen Expression"@de;
+	rdfs:label "is part of individual expression"@en, "ist Teil eines individuellen Ausdrucks"@de;
 	rdfs:comment """Relating an expression part to an individual expression it is part of."""@en;
 	rdfs:domain document:ExpressionPart;
 	rdfs:range document:IndividualExpression;
@@ -609,7 +609,7 @@ document:isPartOfIndividualExpression
 document:expressionReferenceHasIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "expression reference has identifier"@en, "Expression-Referenz hat Identifikator"@de;
+	rdfs:label "expression reference has identifier"@en, "Ausdruckreferenz hat Identifikator"@de;
 	rdfs:comment """Relating a document expression reference to its identifier."""@en;
 	rdfs:domain document:ExpressionReference;
 	rdfs:range document:ExpressionIdentifier;
@@ -627,7 +627,7 @@ document:hasBibliographicReference
 document:bibliographicReferenceHasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literale"@de, "référence bibliographique a un littéral"@fr, "riferimento bibliografico ha un letterale"@it;
+	rdfs:label "bibliographic reference has literal"@en, "bibliographische Referenz hat Literal"@de, "référence bibliographique a un littéral"@fr, "riferimento bibliografico ha un letterale"@it;
 	rdfs:comment """Relating a bibliographic reference to its literal."""@en;
 	rdfs:domain document:BibliographicReference;
 	rdfs:range rdfs:Literal;
@@ -636,7 +636,7 @@ document:bibliographicReferenceHasLiteral
 document:hasBibliographicReferenceLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has bibliographic reference literal"@en, "hat bibliographische Referenzliterale"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
+	rdfs:label "has bibliographic reference literal"@en, "hat bibliographisches Referenzliteral"@de, "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
 	rdfs:comment """Relating a document expression to the literal of a bibliographic reference it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
@@ -664,7 +664,7 @@ document:citationBibliographicReferenceHasLiteral
 document:hasCitationBibliographicReferenceLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has citation bibliographic reference literal"@en, "hat bibliographische Referenzliterale eines Zitats"@de; # , "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
+	rdfs:label "has citation bibliographic reference literal"@en, "hat bibliographisches Referenzliteral eines Zitats"@de; # , "a un littéral de référence bibliographique"@fr, "ha riferimenti bibliografici letterali"@it;
 	rdfs:comment """Relating a text expression to the literal of a bibliographic reference of a citation thereof."""@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range rdfs:Literal;

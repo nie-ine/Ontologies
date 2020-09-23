@@ -1,16 +1,9 @@
+Dear visitor, we are in the process of transferring information from this repository to the [e-editiones.ch website](http://e-editiones.ch), to bring all the SWT parts (and more) together.  
+There will be the authoritative publication of our ontologies, and rules for machine reasoning.  
+The development of domain ontologies and rules for machine reasoning will remain in this GitHub project.
 <!---
-Dear visitor, we are in the process of transferring information from this repository to the [e-editiones.ch website](http://e-editiones.ch), to bring together all the SWT parts (and more).
-There will be the authoritative publication of our ontologies, and also the functional parts (microservices) for SPARQL1.1 (Jena-Fuseki-TDB2) and N3-rule-machine reasoning (EYE) on the RDF-graphs of a few edition projects.
---->
+and also the functional parts (microservices) for SPARQL1.1 (Jena-Fuseki-TDB2) and N3-rule-machine reasoning (EYE) on the RDF-graphs of a few edition projects.
 
-# OWL-ontologies
-In the [NIE-INE](http://www.nie-ine.ch)-project we develop an infrastructure to enable scholarly edition projects in the Humanities to express their data in an enriched format, adhering to the FAIR-principles, and ensuring long-term storage of the data.  
-The project runs at the Swiss Universities of Basel, Bern, Zürich, and Geneva until end of 2020.
-
-The essence of the infrastructure is that data, stored in e.g. an SQL relational database or an XML database, are converted to a different i.e. machine-interpretable format by using the [W3C's Semantic Web technology standards](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology) (introduced on the wiki) and making the semantics of the data explicit.  
-To enable data expression in this new format, a series of ontologies are created, based on those standards.  
-These semantic models adhere to the [model theory of W3C RDF, RDFS](https://www.w3.org/TR/rdf-mt/), and [OWL Full](https://www.w3.org/TR/owl-semantics/), and are declared in [Turtle syntax](https://www.w3.org/TR/turtle/). They are directly accessable in the [NIE-ontologies](https://github.com/nie-ine/Ontologies/tree/master/Nie-ontologies) folder.  
-Whenever possible [ontologies developed by others (external)](https://github.com/nie-ine/Ontologies/wiki/1.-Introduction-to-Semantic-Web-technology#other-ontologies-used-in-humanities-and-publishing) are used to base on. Local copies of such ontologies, when not available in Turtle or RDF-XML, are in the [Other-ontologies](https://github.com/nie-ine/Ontologies/tree/master/Other-ontologies) folder.  
 NIE-ontologies are highly interdependent and represent a networked collection of namespaces, rather than a strongly hierarchical pyramidal structure. They differ quite in size, granularity and specificity. A basic approach is to create a namespace that can be extended easily. Rarely ontological elements will be deprecated.  
 All the used ontologies are referenced in a prefix header in the Turtle files.  
 A series of [basic modeling patterns](https://github.com/nie-ine/Ontologies/wiki/2.-Basic-modeling-patterns) are also published on the wiki.
@@ -230,4 +223,4 @@ Figure 25 shows a graphical representation of the classes and properties from th
 
 ##### Figure 25: Graphic representing the classes and properties from the 'WGS84 Geo Positioning' ontology
 </div>
-
+--->

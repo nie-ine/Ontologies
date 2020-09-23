@@ -1,6 +1,6 @@
 Dear visitor, we are in the process of transferring information from this repository to the [e-editiones.ch website](http://e-editiones.ch), to bring all the SWT parts (and more) together.  
 There will be the authoritative publication of our ontologies, and rules for machine reasoning.  
-The development of domain ontologies and rules for machine reasoning will remain in this GitHub project.
+The development of these ontologies and rules will remain in this GitHub project.
 <!---
 and also the functional parts (microservices) for SPARQL1.1 (Jena-Fuseki-TDB2) and N3-rule-machine reasoning (EYE) on the RDF-graphs of a few edition projects.
 

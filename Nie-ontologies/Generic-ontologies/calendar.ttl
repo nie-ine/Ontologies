@@ -260,7 +260,7 @@ calendar:julianListToJDN
 calendar:julianSetListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Julian set list to date"@en, "julianische Reihenliste zu Datum"@de;#
+	rdfs:label "set Julian date list to date"@en, "gesetzte julianische Datumliste zu Datum"@de;
 	rdfs:comment """Relating a Julian date literal list with set month and day to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'yearLiteralToPeriod' and 'yearMonthLiteralToPeriod' N3-rules for the Julian calendar to invoke its backward 'julianSetListToDate' N3-rule converting a Julian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;

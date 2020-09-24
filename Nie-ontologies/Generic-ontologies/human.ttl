@@ -184,28 +184,28 @@ human:AgentUser
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 #	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
-	rdfs:label "agent user"@en, "benutzender Akteur"@de;
+	rdfs:label "agent role of user"@en, "Akteurrolle eines Benutzers"@de;
 	rdfs:comment """Role of a human agent, person or group, taking something into service or applying for a purpose."""@en;
 	rdfs:subClassOf human:AgentRole, agent:User.
 
 human:AgentGiver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent giver"@en, "gebender Akteur"@de;
+	rdfs:label "agent role of giver"@en, "Akteurrolle eines Gebenden"@de;
 	rdfs:comment """Role of a human agent, person or group, transferring the possession of something to another agent."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentOwner
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent owner"@en, "besitzender Akteur"@de;
+	rdfs:label "agent role of owner"@en, "Akteurrolle eines Besitzers"@de;
 	rdfs:comment """Role of a human agent, a person or a group, having a property."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonOwner
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "person owner"@en, "besitzende Person"@de;
+	rdfs:label "person role of owner"@en, "Personenrolle eines Besitzers"@de;
 	rdfs:comment """Role of a person having a property."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentOwner.
 
@@ -219,49 +219,49 @@ human:Property
 human:AgentSponsor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent sponsor"@en, "spendender Akteur"@de;
+	rdfs:label "agent role of sponsor"@en, "Akteurrolle eines Spenders"@de;
 	rdfs:comment """Role of a human agent, a person or a group, giving material or financial support for an action."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonSponsor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "person sponsor"@en, "spendende Person"@de;
+	rdfs:label "person role of sponsor"@en, "Personenrolle eines Spenders"@de;
 	rdfs:comment """Role of a person as a sponsor."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentSponsor.
 
 human:AgentPreserver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent preserver"@en, "bewahrender Akteur"@de;
+	rdfs:label "agent role of preserver"@en, "Akteurrolle eines Bewahrers"@de;
 	rdfs:comment """Role of a human agent, a person or a group, maintaining something material."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentSender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent sender"@en, "sendender Akteur"@de;
+	rdfs:label "agent role of sender"@en, "Akteurrolle eines Senders"@de;
 	rdfs:comment """Role of a human agent, a person or a group, sending something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonSender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "person sender"@en, "sendende Person"@de;
+	rdfs:label "person role of sender"@en, "Personenrolle eines Senders"@de;
 	rdfs:comment """Role of a person sending something physical."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentSender.
 
 human:AgentReceiver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "agent receiver"@en, "empfangender Akteur"@de;
+	rdfs:label "agent role of receiver"@en, "Akteurrolle eines Empfängers"@de;
 	rdfs:comment """Role of a human agent, a person or a group, receiving something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:PersonReceiver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "person receiver"@en, "empfangende Person"@de;
+	rdfs:label "person role of receiver"@en, "Personenrolle eines Empfängers"@de;
 	rdfs:comment """Role of a person receiving something physical."""@en;
 	rdfs:subClassOf human:PersonRole, human:AgentReceiver.
 
@@ -697,7 +697,7 @@ human:personHasRole
 human:hasOccupationalRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a owl:ObjectProperty;
-	rdfs:label "has occupational role"@en, "hat Tätigkeitsrolle"@de;
+	rdfs:label "has occupational role"@en, "hat Berufsrolle"@de;
 	rdfs:comment """Relating a person to a current occupational role the person has."""@en;
 	rdfs:domain human:Person;
 	rdfs:range human:OccupationalRole;

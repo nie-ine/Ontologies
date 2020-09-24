@@ -82,7 +82,7 @@ calendar:prolepticJulianDate
 calendar:julianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a rdfs:Datatype;
-	rdfs:label "Julian Day Number datatype"@en, "Datentyp julianische Tagesnummer"@de;#Unterschied Julianische Tagesnummer und Julianisches Datum?
+	rdfs:label "Julian Day Number datatype"@en, "Datentyp julianische Tagesnummer"@de;
 	rdfs:comment """Datatype to type a Julian Day Number integer."""@en;
 	rdfs:comment """The Julian Day Number (JDN) is the integer assigned to a whole solar day in the Julian day count starting from noon Universal time, with Julian Day Number 0 assigned to the day starting at noon on Monday, January 1, 4713 BC, proleptic Julian calendar (November 24, 4714 BC, in the proleptic Gregorian calendar), a date at which three multi-year cycles started (Indiction, Solar, and Lunar cycles) and which precedes any date in recorded human history."""@en;
 	rdfs:subClassOf xsd:integer.
@@ -94,7 +94,7 @@ calendar:julianDayNumber
 calendar:hasMessageLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has message literal"@en, "hat Nachrichtliteral"@de;#message =? Nachricht
+	rdfs:label "has message literal"@en, "hat Nachrichtliteral"@de;
 	rdfs:comment """Relating something to a message literal about a calendar related time expression about that something."""@en;
 	skos:note """Used in an N3-rule; e.g. checking on leap year: "Has leap year."; e.g. checking consistency of e.g. month number, in case > 12: "There are only 12 months in the Gregorian, Julian or proleptic Julian calendar." """@en;
 	rdfs:domain rdfs:Resource;
@@ -251,7 +251,7 @@ calendar:julianListToDate
 calendar:julianListToJDN
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Julian list to Julian Day Number"@en, "julianische Liste zu julianische Tagesnummer"@de;#Julian list / julianische Liste ev. zu unspezifisch?
+	rdfs:label "Julian list to Julian Day Number"@en, "julianische Liste zu julianische Tagesnummer"@de;
 	rdfs:comment """Relating a Julian date as a list of literals to its Julian Day Number."""@en;
 	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules to invoke its backward 'julianListToJDN' N3-rule converting a Julian date literal list to its Julian Day Number."""@en;
 	rdfs:domain rdf:List;
@@ -260,7 +260,7 @@ calendar:julianListToJDN
 calendar:julianSetListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Julian set list to date"@en, "julianische Mengenliste zu Datum"@de;
+	rdfs:label "Julian set list to date"@en, "julianische Reihenliste zu Datum"@de;#
 	rdfs:comment """Relating a Julian date literal list with set month and day to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'yearLiteralToPeriod' and 'yearMonthLiteralToPeriod' N3-rules for the Julian calendar to invoke its backward 'julianSetListToDate' N3-rule converting a Julian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;
@@ -329,7 +329,7 @@ calendar:hasJulianDayNumber
 calendar:hasStartJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has start Julian Day Number"@en, "hat Start-julianische Tagesnummer"@de;#?
+	rdfs:label "has start Julian Day Number"@en, "hat Start-julianische Tagesnummer"@de;
 	rdfs:comment """Relating something to its start Julian Day Number."""@en;
 	skos:note """Used in an N3-rule to convert a calendar start date literal list of a year or year-month period to a start Julian Day Number integer."""@en;
 	rdfs:domain event:Event;
@@ -339,7 +339,7 @@ calendar:hasStartJulianDayNumber
 calendar:hasEndJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has end Julian Day Number"@en, "hat End-julianische Tagesnummer"@de;#?
+	rdfs:label "has end Julian Day Number"@en, "hat End-julianische Tagesnummer"@de;
 	rdfs:comment """Relating an event to its end Julian Day Number."""@en;
 	skos:note """Used in an N3-rule to convert a calendar end date literal list of a year or year-month period to an end Julian Day Number integer."""@en;
 	rdfs:domain event:Event;
@@ -349,7 +349,7 @@ calendar:hasEndJulianDayNumber
 calendar:julianDayNumeralToGregorianDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Julian Day Numeral to date literal list"@en, "julianischer Tag-Numeral zu Datumliteralliste"@de;#Label stimmt nicht unbedingt Bezeichnung des Properties überein
+	rdfs:label "Julian Day Numeral to Gregorian date"@en, "julianischer Tag-Numeral zu gregorianischem Datum"@de;
 	rdfs:comment """Relating a Julian Day Numeral to its Gregorian date typed literal."""@en;
 	skos:note """Used in the premise of an N3-rule to invoke the eponimous backward N3-rule to convert a Julian Day Numeral to its Gregorian date typed literal."""@en;
 	rdfs:domain xsd:nonNegativeInteger;

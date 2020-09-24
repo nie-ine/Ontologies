@@ -45,7 +45,7 @@ creating:AgentCreator
 creating:PersonCreator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creator role of person"@en, "Erstellerrolle eines Akteur"@de;
+	rdfs:label "creator role of person"@en, "Erstellerrolle eines Akteurs"@de;
 	rdfs:comment """Role of a person creating something."""@en;
 	rdfs:subClassOf human:PersonRole, creating:AgentCreator.
 
@@ -53,13 +53,13 @@ creating:PersonAuthor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "author role of person"@en, "Autorrolle einer Person"@de; #, "auteur"@fr, "autore"@it;
-	rdfs:comment """Role of a person being responsible for a creation."""@en;#comment ok like this?
+	rdfs:comment """Role of a person being responsible for a creation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 creating:Creating 
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creating"@en, "Erstellen"@de; #why not just creating (similar to the next (creation))
+	rdfs:label "creating"@en, "Erstellung"@de; #why not just creating (similar to the next (creation))
 	rdfs:comment """Creating as a person-action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 
@@ -81,8 +81,8 @@ creating:AnonymousCreation
 creating:CreationGroup
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "person-creation group"@en;#, ""@de; Why not just creation group? - 
-	rdfs:comment """Group of person-creations."""@en;#Group of persons who create something? 
+	rdfs:label "creation group"@en;, "Gruppe von Erstellungen"@de; 
+	rdfs:comment """Group of creations."""@en;
 	rdfs:subClassOf rdfs:Resource.
 
 creating:CreationSet

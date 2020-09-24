@@ -65,7 +65,14 @@ concept:Nonfiction
 concept:Commonplace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "commonplace"@en, "Weltwissen"@de, "lieu commun"@fr;#de: Allgemeines? comment and label may be not fully the same.
+	rdfs:label "commonplace"@en, "Gemeinplatz"@de;# "lieu commun"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:WorldKnowledge
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "world knowledge"@en, "Weltwissen"@de;# "lieu commun"@fr;
 	rdfs:comment """Conceptual entity generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 

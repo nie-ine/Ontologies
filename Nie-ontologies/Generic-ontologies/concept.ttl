@@ -65,7 +65,14 @@ concept:Nonfiction
 concept:Commonplace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "commonplace"@en, "Gemeinplatz"@de, "lieu commun"@fr;
+	rdfs:label "commonplace"@en, "Gemeinplatz"@de;# "lieu commun"@fr;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf concept:ConceptualEntity.
+
+concept:WorldKnowledge
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "world knowledge"@en, "Weltwissen"@de;# "lieu commun"@fr;
 	rdfs:comment """Conceptual entity generally known, not needing any further explanation, e.g. "Romeo and Julia"."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
@@ -95,7 +102,7 @@ concept:Identifier
 concept:Code
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "code"@en, "Kode"@de;
+	rdfs:label "code"@en, "Code"@de;
 	rdfs:comment """Identifier belonging to a specific coding system, formed by any kind of symbols, e.g. alphanumeric."""@en;
 	rdfs:subClassOf concept:Identifier, skos:Concept;
 	owl:disjointWith document:Code.
@@ -103,7 +110,7 @@ concept:Code
 concept:CodingSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "code system"@en, "Kodierungssystem"@de;
+	rdfs:label "code system"@en, "Codierungssystem"@de;
 	rdfs:comment """System providing a code for something along certain criteria, e.g. the ISO 639 for natural languages."""@en;
 	rdfs:subClassOf skos:ConceptScheme.
 
@@ -183,7 +190,7 @@ concept:hasSymbolicEntity
 concept:symbolicEntityHasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "symbolic entity has literal"@en, "symbolische Entität hat Literale"@de;
+	rdfs:label "symbolic entity has literal"@en, "symbolische Entität hat Literal"@de;
 	rdfs:comment """Relating a symbolic entity to a literal that expresses it."""@en;
 	rdfs:domain concept:SymbolicEntity;
 	rdfs:range rdfs:Literal.
@@ -191,7 +198,7 @@ concept:symbolicEntityHasLiteral
 concept:hasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has literal"@en, "hat Literale"@de;
+	rdfs:label "has literal"@en, "hat Literal"@de;
 	rdfs:comment """Relating something to the literal of a symbolic entity that the literal expresses."""@en;
 	skos:note """A reification of a literal, i.e. a symbolic entity, can always be interposed, see property chain axiom."""@en;
 	rdfs:domain rdfs:Resource;
@@ -210,7 +217,7 @@ concept:hasIdentifier
 concept:identifierHasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "identifier has literal"@en, "Identifikator hat Literale"@de;
+	rdfs:label "identifier has literal"@en, "Identifikator hat Literal"@de;
 	rdfs:comment "Relating an identifier to its literal."@en;
 	rdfs:domain concept:Identifier;
 	rdfs:range rdfs:Literal;
@@ -219,7 +226,7 @@ concept:identifierHasLiteral
 concept:hasIdentifierLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has identifier literal"@en, "hat Identifikatorliterale"@de;
+	rdfs:label "has identifier literal"@en, "hat Identifikatorliteral"@de;
 	rdfs:comment "Relating a resource to its identifier literal."@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -229,7 +236,7 @@ concept:hasIdentifierLiteral
 concept:hasCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "has code"@en, "hat Kode"@de;
+	rdfs:label "has code"@en, "hat Code"@de;
 	rdfs:comment "Relating a resource to its code."@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range concept:Code;
@@ -238,7 +245,7 @@ concept:hasCode
 concept:codeHasSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "code has system"@en, "Kode hat System"@de;
+	rdfs:label "code has system"@en, "Code hat System"@de;
 	rdfs:comment "Relating a code to the coding system it belongs to."@en;
 	rdfs:domain concept:Code;
 	rdfs:range concept:CodingSystem.
@@ -246,7 +253,7 @@ concept:codeHasSystem
 concept:codeHasValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "code has value"@en, "Kode hat Wert"@de;
+	rdfs:label "code has value"@en, "Code hat Wert"@de;
 	rdfs:comment "Relating a code to its literal value."@en;
 	rdfs:domain concept:Code;
 	rdfs:range rdfs:Literal;
@@ -255,7 +262,7 @@ concept:codeHasValue
 concept:hasCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has code value"@en, "hat Kodewert"@de;
+	rdfs:label "has code value"@en, "hat Codewert"@de;
 	rdfs:comment "Relating a resource to its code value."@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -264,7 +271,7 @@ concept:hasCodeValue
 concept:codingSystemHasDatatype
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "coding system has datatype"@en, "Kodierungssystem hat Datentyp"@de;
+	rdfs:label "coding system has datatype"@en, "Codierungssystem hat Datentyp"@de;
 	rdfs:comment "Relating a coding system to its datatype."@en;
 	rdfs:domain concept:CodingSystem;
 	rdfs:range rdfs:Datatype.
@@ -274,7 +281,7 @@ concept:codingSystemHasDatatype
 concept:isExpressedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "is expressed in"@en, "ist ausgedruckt in"@de;
+	rdfs:label "is expressed in"@en, "ist ausgedrückt in"@de;
 	rdfs:comment "Relating an individual work to an individual expression thereof."@en;
 	rdfs:domain concept:IndividualWork;
 	rdfs:range document:IndividualExpression;
@@ -291,7 +298,7 @@ concept:informationHasSubject
 concept:informationHasSubjectDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "information has subject description literal"@en, "Information hat Themabeschreibungliterale"@de;
+	rdfs:label "information has subject description literal"@en, "Information hat Themabeschreibungliteral"@de;
 	rdfs:comment """Relating information to a description literal of its subject."""@en;
 	rdfs:domain concept:Information;
 	rdfs:range rdfs:Literal;
@@ -300,7 +307,7 @@ concept:informationHasSubjectDescriptionLiteral
 concept:hasEncoder
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "information has encoder"@en, "Information hat Encoder"@de;
+	rdfs:label "information has encoder"@en, "Information hat Codierer"@de;
 	rdfs:comment "Relating information to a person who encoded it."@en;
 	rdfs:domain concept:Information;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]].

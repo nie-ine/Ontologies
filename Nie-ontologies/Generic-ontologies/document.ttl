@@ -233,7 +233,7 @@ document:Draft
 document:PolyAuthorExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "poly-author document expression"@en, "Mehrautorentextdokumentausdruck"@de;
+	rdfs:label "poly-author document expression"@en, "Mehrautorendokumentausdruck"@de;
 	rdfs:comment """Document expression by different authors."""@en;
 	rdfs:subClassOf document:Expression.
 

@@ -107,7 +107,7 @@ agent:hasRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
-	rdfs:comment """Relating an agent to a role it,s/he has."""@en;
+	rdfs:comment """Relating an agent to a role the agent has."""@en;
 	rdfs:domain agent:Agent;
 	rdfs:range agent:Role.
 

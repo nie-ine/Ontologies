@@ -220,7 +220,7 @@ creating:creationHasDateTime
 	rdfs:range xsd:dateTime;
 	owl:propertyChainAxiom (event:isOutputOf time:hasEndDateTime).
 
-creating:hasModificationDate # modification
+creating:hasModificationDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;

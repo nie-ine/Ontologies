@@ -37,7 +37,6 @@
 human:Agent
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-#	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "human agent"@en, "menschlicher Akteur"@de;
 	rdfs:comment """Agent being one or more humans"""@en;
 	rdfs:subClassOf agent:Agent, cidoc:E39_Actor.
@@ -59,15 +58,14 @@ human:Person
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """A real born living human."""@en;
 	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property."""@en;
-	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person;
-	skos:note """frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person. cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor."""@en.
+	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person.
 
 human:UnidentifiedPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "unidentified person"@en, "unidentifizierte Person"@de, "personne non identifiée"@fr, "persona non identificata"@it;
 	rdfs:comment """Person who's identity is unknown."""@en;
-	skos:note """One can state about a book that the person who wrote it as author is unidentified. The person exists or has existed, thus the resource can be represented by an IRI for *a* person (not necessarily a blank node (anonymous resource)), but the information to identify the person is missing. This knowledge of absence of certain information is made explicit. In other words, there is a distinction between the IRI identifying *a* person, and the information, provided by properties, e.g. birth date, family name, christian name, permitting to sufficiently describe thé person to be identified. E.g. initials only are insufficient to identify a person."""@en;
+	skos:note """One can state about a book that the person who wrote it as author is unidentified. The person exists or has existed, thus the resource can be represented by an IRI for *a* person (not necessarily a blank node (anonymous resource)), but the information to identify the person is missing. This knowledge of absence of certain information is made explicit. In other words, there is a distinction between the IRI identifying *a* person, and the information, provided by properties, e.g. birth date, family name, christian name, permitting to sufficiently describe thé person to be identified. E.g. a birth date or initials only are insufficient to identify a person."""@en;
 	rdfs:subClassOf human:Person.
 
 human:PersonLikeEntity
@@ -176,29 +174,28 @@ human:PersonLife
 human:Use
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "use"@en, "Verwendungszweck"@de;
-	rdfs:comment """Purpose for or way in which something is used."""@en;
-	rdfs:subClassOf rdfs:Resource. # seqnum
+	rdfs:label "human use"@en, "menschlicher Verwendungszweck"@de;
+	rdfs:comment """Purpose for or way in which something is used by a human."""@en;
+	rdfs:subClassOf rdfs:Resource.
 
 human:AgentUser
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-#	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
-	rdfs:label "user role of agent"@en, "Benutzerrolle eines Akteurs"@de;
+	rdfs:label "user role of human agent"@en, "Benutzerrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, person or group, taking something into service or applying for a purpose."""@en;
 	rdfs:subClassOf human:AgentRole, agent:User.
 
 human:AgentGiver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "giver role of agent"@en, "Gebenderrolle eines Akteurs"@de;
+	rdfs:label "giver role of human agent"@en, "Gebenderrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, person or group, transferring the possession of something to another agent."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentOwner
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "owner role of agent"@en, "Besitzerrolle eines Akteurs"@de;
+	rdfs:label "owner role of human agent"@en, "Besitzerrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, a person or a group, having a property."""@en;
 	rdfs:subClassOf human:AgentRole.
 
@@ -219,7 +216,7 @@ human:Property
 human:AgentSponsor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "sponsor role of agent"@en, "Spenderrolle eines Akteurs"@de;
+	rdfs:label "sponsor role of human agent"@en, "Spenderrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, a person or a group, giving material or financial support for an action."""@en;
 	rdfs:subClassOf human:AgentRole.
 
@@ -233,14 +230,14 @@ human:PersonSponsor
 human:AgentPreserver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "preserver role of agent"@en, "Bewahrerrolle eines Akteurs"@de;
+	rdfs:label "preserver role of human agent"@en, "Bewahrerrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, a person or a group, maintaining something material."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 human:AgentSender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "sender role of agent"@en, "Senderrolle eines Akteurs"@de;
+	rdfs:label "sender role of human agent"@en, "Senderrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, a person or a group, sending something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
@@ -254,7 +251,7 @@ human:PersonSender
 human:AgentReceiver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "receiver role of agent"@en, "Empfängerrolle eines Akteurs"@de;
+	rdfs:label "receiver role of human agent"@en, "Empfängerrolle eines menschlichen Akteurs"@de;
 	rdfs:comment """Role of a human agent, a person or a group, receiving something physical."""@en;
 	rdfs:subClassOf human:AgentRole.
 
@@ -277,7 +274,7 @@ human:CulturalAction
 human:Occupation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "occupation"@en, "Beruf"@de; #* Tätigkeit -> SM
+	rdfs:label "occupation"@en, "Beruf"@de; #* Tätigkeit
 	rdfs:comment """Action serving as a person's regular source of livelihood."""@en;
 	rdfs:subClassOf human:Action.
 
@@ -352,7 +349,7 @@ human:Singer
 	rdfs:comment """."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
-# 0peraSinger
+# OperaSinger
 
 human:Dancer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -398,7 +395,7 @@ human:Salon
 	a rdfs:Class;
 #	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	rdfs:label "salon"@en, "literarischer Salon"@de;
-	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en; #* Zusammentreffen
+	rdfs:comment """Sociocultural gathering under the roof of an inspiring host."""@en;
 	skos:note """Exists from the seventeenth century AD until today."""@en;
 	rdfs:subClassOf human:CulturalAction.
 
@@ -433,7 +430,6 @@ human:hasBirthdate
 	skos:note """It is possible to find different birthdates in different historical sources, in which case a probability can be attributed to each date; an overall certainty period can be calculated, comprising all dates."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date.
-#	rdfs:subPropertyOf
 
 human:hasEarliestBirthdate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -442,7 +438,6 @@ human:hasEarliestBirthdate
 	rdfs:comment """Relating a person to an N3-rule-calculated earliest possible birthdate, based on the death date and a set maximum lifespan of a person, in absence of the birthdate of that person."""@en;
 	rdfs:domain human:Person;
 	rdfs:range xsd:date.
-#	rdfs:subPropertyOf
 
 human:hasBirthday
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -718,7 +713,6 @@ human:adheringToThought
 	rdfs:comment """Relating a person to a body of thought the person adheres to."""@en;
 	rdfs:domain human:Person;
 	rdfs:range concept:ThoughtBody.
-#	rdfs:subPropertyOf
 
 human:hasFloruit
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;

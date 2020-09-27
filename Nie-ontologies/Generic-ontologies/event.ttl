@@ -163,12 +163,12 @@ event:hasState
 event:isInputOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
-	rdfs:label "is input of"@en, "ist Input von"@de;
-	rdfs:comment """Relating an input to a process."""@en;
+	rdfs:label "is input of process"@en, "ist Input eines Prozesses"@de;
+	rdfs:comment """Relating an input to its process."""@en;
 	rdfs:domain event:Input;
 	rdfs:range event:Process.
 
-event:isOutputOf #°
+event:isOutputOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
 	rdfs:label "is output of process"@en, "ist Output eines Prozesses"@de;
@@ -184,10 +184,10 @@ event:isOutputOfAction
 	rdfs:domain event:Output;
 	rdfs:range event:Action.
 
-event:involvesRole
+event:actionInvolvesRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
-	rdfs:label "involves role"@en, "involviert Rolle"@de;
+	rdfs:label "action involves role"@en, "Aktion involviert Rolle"@de;
 	rdfs:comment """Relating an action to a role it involves."""@en;
 	rdfs:domain event:Action;
 	rdfs:range agent:Role.

@@ -260,7 +260,7 @@ calendar:julianListToJDN
 calendar:julianSetListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "set Julian date list to date"@en, "gesetzte julianische Datumliste zu Datum"@de;
+	rdfs:label "Julian set date list to date"@en, "gesetzte julianische Datumliste zu Datum"@de;
 	rdfs:comment """Relating a Julian date literal list with set month and day to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'yearLiteralToPeriod' and 'yearMonthLiteralToPeriod' N3-rules for the Julian calendar to invoke its backward 'julianSetListToDate' N3-rule converting a Julian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;
@@ -311,7 +311,7 @@ calendar:prolepticJulianListToJDN
 calendar:prolepticJulianSetListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "proleptic Julian set list to date"@en;
+	rdfs:label "proleptic Julian set date list to date"@en, "gesetzte proleptisch julianische Datumliste zu Datum"@de;
 	rdfs:comment """Relating a proleptic Julian date literal list with set month and day, to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'yearLiteralToPeriod' and 'yearMonthLiteralToPeriod' N3-rules for the proleptic Julian calendar to invoke its backward 'prolepticJulianSetListToDate' N3-rule converting a proleptic Julian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;
@@ -351,6 +351,6 @@ calendar:julianDayNumeralToGregorianDate
 	a owl:DatatypeProperty;
 	rdfs:label "Julian Day Numeral to Gregorian date"@en, "julianischer Tag-Numeral zu gregorianischem Datum"@de;
 	rdfs:comment """Relating a Julian Day Numeral to its Gregorian date typed literal."""@en;
-	skos:note """Used in the premise of an N3-rule to invoke the eponymous backward N3-rule to convert a Julian Day Numeral to its Gregorian date typed literal."""@en;
+	skos:note """Used in the premise of an N3-rule to invoke the eponymous backward N3-rule to convert a Julian Day Numeral, i.e. not typed with calendar:julianDayNumber, to its Gregorian date typed literal."""@en;
 	rdfs:domain xsd:nonNegativeInteger;
 	rdfs:range xsd:date.

@@ -173,7 +173,7 @@ humgeo:hasReturnPostalAddress
 humgeo:addressHasAddresseeNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has addressee name literal"@en, "Postanschrift hat Nameliteral des Adressats"@de;
+	rdfs:label "postal address has addressee name literal"@en, "Postanschrift hat Namenliteral des Adressats"@de;
 	rdfs:comment """Relating a postal address to an addressee name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -182,7 +182,7 @@ humgeo:addressHasAddresseeNameLiteral
 humgeo:addressHasStreetNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has street name literal"@en, "Postanschrift hat Strassennameliteral"@de;
+	rdfs:label "postal address has street name literal"@en, "Postanschrift hat Strassennamenliteral"@de;
 	rdfs:comment """Relating a postal address to the name literal of the street."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -210,7 +210,7 @@ humgeo:addressHasPostcodeValue
 humgeo:addressHasTownNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has town name literal"@en, "Postanschrift hat Ortsnameliteral"@de;
+	rdfs:label "postal address has town name literal"@en, "Postanschrift hat Ortsnamenliteral"@de;
 	rdfs:comment """Relating a postal address to its town name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;
@@ -219,7 +219,7 @@ humgeo:addressHasTownNameLiteral
 humgeo:addressHasCountryNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
-	rdfs:label "postal address has country name literal"@en, "Postanschrift hat Ländernameliteral"@de;
+	rdfs:label "postal address has country name literal"@en, "Postanschrift hat Ländernamenliteral"@de;
 	rdfs:comment """Relating a postal address to its country name literal."""@en;
 	rdfs:domain humgeo:PostalAddress;
 	rdfs:range rdfs:Literal;

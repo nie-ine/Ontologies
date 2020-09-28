@@ -197,12 +197,12 @@ calendar:gregorianListToDate
 	rdfs:domain rdf:List;
 	rdfs:range xsd:date.
 
-calendar:gregorianListToJDN
+calendar:gregorianListToJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Gregorian list to Julian Day Number"@en, "gregorianische Liste zu julianische Tagesnummer"@de;
 	rdfs:comment """Relating a Gregorian date as a list of literals to its Julian Day Number."""@en;
-	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules for the Gregorian calendar to invoke its backward 'gregorianListToJDN' N3-rule converting a Gregorian date literal list to its Julian Day Number."""@en;
+	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules for the Gregorian calendar to invoke its backward 'gregorianListToJulianDayNumber' N3-rule converting a Gregorian date literal list to its Julian Day Number."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range calendar:julianDayNumber.
 
@@ -248,12 +248,12 @@ calendar:julianListToDate
 	rdfs:domain rdf:List;
 	rdfs:range calendar:julianDate.
 
-calendar:julianListToJDN
+calendar:julianListToJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "Julian list to Julian Day Number"@en, "julianische Liste zu julianische Tagesnummer"@de;
 	rdfs:comment """Relating a Julian date as a list of literals to its Julian Day Number."""@en;
-	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules to invoke its backward 'julianListToJDN' N3-rule converting a Julian date literal list to its Julian Day Number."""@en;
+	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules to invoke its backward 'julianListToJulianDayNumber' N3-rule converting a Julian date literal list to its Julian Day Number."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range calendar:julianDayNumber.
 
@@ -299,12 +299,12 @@ calendar:prolepticJulianListToDate
 	rdfs:domain rdf:List;
 	rdfs:range calendar:prolepticJulianDate.
 
-calendar:prolepticJulianListToJDN
+calendar:prolepticJulianListToJulianDayNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
 	rdfs:label "proleptic Julian list to Julian Day Number"@en, "proleptisch julianische Liste zu julianischer Tagesnummer"@de;
 	rdfs:comment """Relating a proleptic Julian date as a list of literals to its Julian Day Number."""@en;
-	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules to invoke its backward 'prolepticJulianListToJDN' N3-rule converting a proleptic Julian date literal list to its Julian Day Number."""@en;
+	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules to invoke its backward 'prolepticJulianListToJulianDayNumber' N3-rule converting a proleptic Julian date literal list to its Julian Day Number."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range calendar:julianDayNumber.
 

@@ -51,7 +51,7 @@ lingmor:Morpheme
 lingmor:Root
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "root morpheme"@en, "Wortwurzel"@de;
+	rdfs:label "root morpheme"@en, "Wurzelmorphem"@de;
 	rdfs:comment """Individual or free morpheme with own semantics."""@en;
 	rdfs:subClassOf lingmor:Morpheme.
 
@@ -72,7 +72,7 @@ lingmor:Suffix # derivational e.g. '-ship' in 'friendship', inflectional suffix 
 lingmor:GrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "grammatical gender"@en, "grammatisches Genus"@de;
+	rdfs:label "grammatical gender"@en, "grammatikalisches Geschlecht"@de;
 	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en;
 	rdfs:subClassOf ling:Concept; # lingmor:MorphologicalCategory
 	owl:unionOf (lingmor:FeminineGrammaticalGenderunionOf lingmor:MasculineGrammaticalGender lingmor:NeuterGrammaticalGender).
@@ -80,7 +80,7 @@ lingmor:GrammaticalGender
 lingmor:FeminineGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "feminine grammatical gender"@en, "grammatisches Femininum"@de;
+	rdfs:label "feminine grammatical gender"@en, "grammatikalisches Femininum"@de;
 	rdfs:comment """Grammatical gender being feminine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
 	owl:equivalentClass gold:FeminineGender;
@@ -89,7 +89,7 @@ lingmor:FeminineGrammaticalGender
 lingmor:MasculineGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "masculine grammatical gender"@en, "grammatisches Maskulinum"@de;
+	rdfs:label "masculine grammatical gender"@en, "grammatikalisches Maskulinum"@de;
 	rdfs:comment """Grammatical gender being masculine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
 	owl:equivalentClass gold:MasculineGender;
@@ -98,7 +98,7 @@ lingmor:MasculineGrammaticalGender
 lingmor:NeuterGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "neuter grammatical gender"@en, "grammatisches Neutrum"@de;
+	rdfs:label "neuter grammatical gender"@en, "grammatikalisches Neutrum"@de;
 	rdfs:comment """Grammatical gender being neuter."""@en;
 	skos:note """E.g. in Indoeuropean languages."""@en;
 	owl:equivalentClass gold:NeuterGender;
@@ -107,7 +107,7 @@ lingmor:NeuterGrammaticalGender
 lingmor:ComparisonDegree
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "comparison degree"@en, "Komparationsstufe"@de;
+	rdfs:label "comparison degree"@en, "Steigerungsstufe"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
 	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
 
@@ -201,28 +201,28 @@ lingmor:IndicativeMood
 lingmor:InjuncitveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "injunctive mood"@en, "Injunktiv"@de;
+	rdfs:label "injunctive mood"@en, "Injunktiv"@de;#tbd: injuctive = ? 
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
 lingmor:OptativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "optative mood"@en, "Optativ"@de;
+	rdfs:label "optative mood"@en, "optimistisch"@de;
 	rdfs:comment """Verbal mood indicating wishes."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:PrecativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "precative mood"@en, "Präkativ"@de;
+	rdfs:label "precative mood"@en, "Präkativ"@de;#tbd: precative = ? 
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:SubjunctiveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;
+	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;#tbd: subjunctive = ? 
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
@@ -323,7 +323,7 @@ lingmor:Case
 lingmor:NominativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "nominative case"@en, "Nominative"@de;
+	rdfs:label "nominative case"@en, "Nominativ"@de;
 	rdfs:comment """Grammatical case indicating the agent in an accusative language."""@en;
 	owl:equivalentClass gold:NominativeCase;
 	rdfs:subClassOf lingmor:Case.
@@ -428,7 +428,7 @@ lingmor:Plural
 lingmor:SemanticGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "semantic gender"@en, "semantisches Genus"@de;
+	rdfs:label "semantic gender"@en, "semantisches Geschlecht"@de;
 	rdfs:comment """Semantic gender of a lexeme."""@en;
 	rdfs:subClassOf ling:Concept;
 	owl:unionOf (lingmor:FeminineSemanticGender lingmor:MasculineSemanticGender lingmor:NeuterSemanticGender).
@@ -467,7 +467,7 @@ lingmor:PartOfSpeech
 lingmor:Noun # EAGLES: Noun;
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "noun"@en;
+	rdfs:label "noun"@en, "Nomen"@de;
 	rdfs:comment """Part of speech representing a class or instance."""@en;
 	owl:equivalentClass gold:Noun;
 	skos:note """In German there is no grouping concept for 'Substantiv' and 'Pronomen'."""@en;
@@ -625,14 +625,14 @@ lingmor:CoordinatingConjunction #  EAGLES: Conjunction: Coordinating
 lingmor:SubordinatingConjunction #  EAGLES: Conjunction: Subordinating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "subordinating conjunction"@en, "unterordnende Konjunktion, Subjunktion"@de;
+	rdfs:label "subordinating conjunction"@en, "unterordnende Konjunktion"@de;
 	rdfs:comment """Part of speech that orders one syntactic entity under another."""@en;
 	rdfs:subClassOf lingmor:Conjunction.
 
 lingmor:Numeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "numeral"@en, "Numerale"@de;
+	rdfs:label "numeral"@en, "Numeral"@de;
 	rdfs:comment """Part of speech designating a number."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
@@ -656,7 +656,7 @@ lingmor:Interjection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Interjection
-	rdfs:label "interjection"@en, "Interjektion"@de;
+	rdfs:label "interjection"@en, "Ausdruckspartikel"@de;
 	rdfs:comment """Part of speech designating a spontaneous feeling or reaction."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
@@ -688,7 +688,7 @@ lingmor:Residual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Residual
-	rdfs:label "residual"@en, "Residual"@de;
+	rdfs:label "residual"@en, "Restgruppe"@de;
 	rdfs:comment """Part of speech outside of the traditionally accepted range."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 
@@ -722,7 +722,7 @@ lingmor:hasPartOfSpeech
 lingmor:hasGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
-	rdfs:label "has grammatical gender"@en, "hat grammatisches Genus"@de;
+	rdfs:label "has grammatical gender"@en, "hat grammatikalisches Geschlecht"@de;
 	rdfs:comment """Relating a syntactic word form to its grammatical gender."""@en;
 	rdfs:domain lingmor:SyntacticWordForm;
 	rdfs:range lingmor:GrammaticalGender.
@@ -730,7 +730,7 @@ lingmor:hasGrammaticalGender
 lingmor:hasNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
-	rdfs:label "syntactic word form has number"@en, "syntactische Wortform hat Numerus"@de;
+	rdfs:label "syntactic word form has number"@en, "syntaktische Wortform hat Numerus"@de;
 	rdfs:comment """Relating a syntactic word to its number."""@en;
 	rdfs:domain lingmor:SyntacticWordForm;
 	rdfs:range lingmor:Number.
@@ -778,7 +778,7 @@ lingmor:hasVerbalVoice
 lingmor:hasVerbalMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
-	rdfs:label "has verbal mode"@en, "hat Modus"@de;
+	rdfs:label "has verbal mood"@en, "hat Modus"@de;#tbd: mood or mode? German translation in case of mood quite difficult.
 	rdfs:comment """Relating a verbform to mood."""@en;
 	rdfs:domain lingmor:SyntacticWordForm;
 	rdfs:range lingmor:VerbalMood.
@@ -786,7 +786,7 @@ lingmor:hasVerbalMood
 lingmor:hasTagLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has tag literal"@en, "hat Tagliterale"@de;
+	rdfs:label "has tag literal"@en, "hat Tagliteral"@de;
 	rdfs:comment """Relating a part of speech to a tag literal."""@en;
 	rdfs:domain lingmor:PartOfSpeech;
 	rdfs:range rdfs:Literal;

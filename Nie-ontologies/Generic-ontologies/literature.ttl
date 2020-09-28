@@ -53,21 +53,21 @@ literature:Nonfiction
 literature:Narrative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary narrative"@en, "literarische Narration"@de, "récit littéraire"@fr, "narrativa letteraria"@it; # synonym: prose - Prosa, different from the structural prose text:Prose
+	rdfs:label "literary narrative"@en, "literarische Erzählung"@de, "récit littéraire"@fr, "narrativa letteraria"@it; # synonym: prose - Prosa, different from the structural prose text:Prose
 	rdfs:comment """Storytelling literature."""@en;
 	rdfs:subClassOf literature:Literature.
 
 literature:EpicNarrative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "epic narrative"@en, "epische Narration"@de, "récit épique"@fr, "narrativa epica"@it;
+	rdfs:label "epic narrative"@en, "epische Erzählung"@de, "récit épique"@fr, "narrativa epica"@it;
 	rdfs:comment """Narrative about heroism."""@en;
 	rdfs:subClassOf literature:Narrative.
 
 literature:Poetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "poetry"@en, "Poetik"@de, "poésie"@fr, "poesia"@it;
+	rdfs:label "poetry"@en, "Dichtung"@de, "poésie"@fr, "poesia"@it;
 	rdfs:comment """Literature expressing imagination in text structure through prosody, besides content."""@en;
 	rdfs:subClassOf literature:Literature;
 	owl:unionOf (literature:LyricPoetry literature:NarrativePoetry literature:EpicPoetry literature:DramaticPoetry literature:DescriptivePoetry literature:ScientificPoetry literature:PoesieFugitive).
@@ -75,42 +75,42 @@ literature:Poetry
 literature:LyricPoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "lyric poetry"@en, "lyrische Poetik"@de, " poésie lyrique"@fr, "poesia lirica"@it;
+	rdfs:label "lyric poetry"@en, "lyrische Dichtung"@de, " poésie lyrique"@fr, "poesia lirica"@it;
 	rdfs:comment """Poetry expressing emotion."""@en;
 	rdfs:subClassOf literature:Poetry.
 
 literature:NarrativePoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "narrative poetry"@en, "narrative Poetik"@de, "poésie narrative"@fr, "poesia narrativa"@it;
+	rdfs:label "narrative poetry"@en, "erzählerische Dichtung"@de, "poésie narrative"@fr, "poesia narrativa"@it;
 	rdfs:comment """Poetry expressed in a narrative."""@en;
 	rdfs:subClassOf literature:Poetry, literature:Narrative.
 
 literature:EpicPoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "epic poetry"@en, "epische Poetik"@de, "poésie épique"@fr, "poesia epica"@it;
+	rdfs:label "epic poetry"@en, "epische Dichtung"@de, "poésie épique"@fr, "poesia epica"@it;
 	rdfs:comment """Poetry expressed in an epic narrative."""@en;
 	rdfs:subClassOf literature:NarrativePoetry, literature:EpicNarrative.
 
 literature:DramaticPoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "dramatic poetry"@en, "dramatische Poetik"@de, "poésie dramatique"@fr, "poesia drammatica"@it;
+	rdfs:label "dramatic poetry"@en, "dramaturgische Dichtung"@de, "poésie dramatique"@fr, "poesia drammatica"@it;
 	rdfs:comment """Poetry expressed in drama."""@en;
 	rdfs:subClassOf literature:Poetry, literature:Drama.
 
 literature:DescriptivePoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "descriptive poetry"@en, "deskriptive Poetik"@de, "poésie descriptive"@fr, "poesia descrittiva"@it;
+	rdfs:label "descriptive poetry"@en, "deskriptive Dichtung"@de, "poésie descriptive"@fr, "poesia descrittiva"@it;
 	rdfs:comment """Poetry expressed in a didactic or demonstrative description."""@en;
 	rdfs:subClassOf literature:Poetry, literature:Nonfiction, literature:DescriptiveLiterature.
 
 literature:ScientificPoetry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "scientific poetry"@en, "wissenschaftliche Poetik"@de, "poésie scientifique"@fr, "poesia scientifica"@it;
+	rdfs:label "scientific poetry"@en, "wissenschaftliche Dichtung"@de, "poésie scientifique"@fr, "poesia scientifica"@it;
 	rdfs:comment """Poetry expressed in a scientific description."""@en;
 	rdfs:subClassOf literature:DescriptivePoetry.
 
@@ -124,7 +124,7 @@ literature:PoesieFugitive
 literature:Drama
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "drama"@en, "Dramatik"@de, "drame"@fr, "dramma"@it;
+	rdfs:label "drama"@en, "Drama"@de, "drame"@fr, "dramma"@it;
 	rdfs:comment """Literature for oral performance."""@en; #* spoken OR sung # dialogical sequence
 	rdfs:subClassOf literature:Literature.
 
@@ -138,14 +138,14 @@ literature:DescriptiveLiterature
 literature:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary expression"@en, "literarische Expression"@de, "expression littéraire"@fr, "espressione letteraria"@it;
+	rdfs:label "literary expression"@en, "literarischer Ausdruck"@de, "expression littéraire"@fr, "espressione letteraria"@it;
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
 	rdfs:subClassOf text-expression:Expression.
 
 literature:FictionExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary fiction expression"@en, "literarische Fiktion-Expression"@de, "expression de fiction littéraire"@fr, "espressione finzione letteraria"@it;
+	rdfs:label "literary fiction expression"@en, "literarischer Fiktionausdruck"@de, "expression de fiction littéraire"@fr, "espressione finzione letteraria"@it;
 	rdfs:comment """Literary expression having the fiction genre."""@en;
 	rdfs:subClassOf literature:Expression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Fiction].
@@ -153,7 +153,7 @@ literature:FictionExpression
 literature:NonfictionExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary nonfiction expression"@en, "sachliche literarische Expression"@de, "expression littéraire non fictionnelle"@fr, "espressione letteraria di saggistica"@it;
+	rdfs:label "literary nonfiction expression"@en, "sachlicher literarischer Ausdruck"@de, "expression littéraire non fictionnelle"@fr, "espressione letteraria di saggistica"@it;
 	rdfs:comment """Literary expression having the nonfiction genre."""@en;
 	rdfs:subClassOf literature:Expression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
@@ -190,7 +190,7 @@ literature:VerseSong
 literature:VerseSongCollection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "verse song collection"@en, "Versgesangsammlung"@de, "collection de chansons en vers"@fr, "raccolta di canzoni versi"@it;
+	rdfs:label "verse song collection"@en, "Versliedsammlung"@de, "collection de chansons en vers"@fr, "raccolta di canzoni versi"@it;
 	rdfs:comment """Collection of verse songs."""@en;
 	rdfs:subClassOf literature:Expression, creating:Collection.
 
@@ -204,7 +204,7 @@ literature:Hymn
 literature:HymnCollection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "hymn collection"@en, "Hymnesammlung"@de, "collection d'hymnes"@fr, "collezione di inni"@it;
+	rdfs:label "hymn collection"@en, "Hymnensammlung"@de, "collection d'hymnes"@fr, "collezione di inni"@it;
 	rdfs:comment """Collection of hymns."""@en;
 	rdfs:subClassOf literature:Expression, creating:Collection.
 
@@ -243,7 +243,7 @@ literature:Novel
 literature:NonfictionNovel
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "nonfiction novel"@en, "sachliche Roman"@de, "roman de non-fiction"@fr, "romanzo di saggistica"@it;
+	rdfs:label "nonfiction novel"@en, "sachlicher Roman"@de, "roman de non-fiction"@fr, "romanzo di saggistica"@it;
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
 	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
 	rdfs:subClassOf literature:NonfictionExpression, text-expression:SentenceExpression, [
@@ -268,7 +268,7 @@ literature:Novelist
 literature:Playwright
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "playwright"@en, "DramatikerIn"@de, "dramaturge"@fr, "drammaturgo"@it;
+	rdfs:label "playwright"@en, "Dramaturg"@de, "dramaturge"@fr, "drammaturgo"@it;
 	rdfs:comment """Author of a play."""@en;
 	rdfs:subClassOf text-expression:Author.
 
@@ -330,7 +330,7 @@ literature:Epilogue
 literature:Argument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "argument"@en, "Argument"@de, "argument"@fr, "argomento"@it;
+	rdfs:label "argument"@en, "Argument"@de, "argument"@fr, "argomento"@it;#argument = Argument? Argument in German is a reason why you are against or for something in a discussion.
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-expression:Introduction. # text-expression:Summary.
@@ -352,7 +352,7 @@ literature:hasGenre
 literature:hasPoetryGenre
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "has poetry"@en, "hat Poetik"@de, "a de la poésie"@fr, "ha poesia"@it;
+	rdfs:label "has poetry"@en, "hat Dichtung"@de, "a de la poésie"@fr, "ha poesia"@it;
 	rdfs:comment """Relating a poem to its genre of poetry."""@en;
 	rdfs:domain literature:Poem;
 	rdfs:range literature:Poetry;
@@ -361,7 +361,7 @@ literature:hasPoetryGenre
 literature:anthologyHasExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "has expression"@en, "hat Expression"@de, "a une expression"@fr, "ha espressione"@it;
+	rdfs:label "has expression"@en, "hat Ausdruck"@de, "a une expression"@fr, "ha espressione"@it;
 	rdfs:comment """Relating an anthology to a literary expression it has."""@en;
 	rdfs:domain literature:Anthology;
 	rdfs:range literature:Expression.
@@ -369,7 +369,7 @@ literature:anthologyHasExpression
 literature:isVerseSongOfCollection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse song of collection"@en, "ist Versgesang einer Sammlung"@de, "est le verset de la collection"@fr, "è il verso della raccolta"@it;
+	rdfs:label "is verse song of collection"@en, "ist Verslied einer Sammlung"@de, "est le verset de la collection"@fr, "è il verso della raccolta"@it;
 	rdfs:comment """Relating a verse song to the collection it is part of."""@en;
 	rdfs:domain literature:VerseSong;
 	rdfs:range literature:VerseSongCollection;
@@ -396,7 +396,7 @@ literature:hasPoet
 literature:hasNovelist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "has novelist"@en, "hat RomanautorIn"@de, "a un romancier"@fr, "ha romanziere"@it;
+	rdfs:label "has novelist"@en, "hat Romanautor"@de, "a un romancier"@fr, "ha romanziere"@it;
 	rdfs:comment """Relating a novel to a person who authored it."""@en;
 	rdfs:domain literature:Novel;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom literature:Novelist]];
@@ -405,7 +405,7 @@ literature:hasNovelist
 literature:isArgumentOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "is argument of"@en, "ist Argument von"@de, "est l'argument de"@fr, "è argomento di"@it;
+	rdfs:label "is argument of"@en, "ist Argument von"@de, "est l'argument de"@fr, "è argomento di"@it;#argument = Argument? Argument in German is a reason why you are against or for something in a discussion.
 	rdfs:comment """Relating an argument to a literary expression it is part of."""@en;
 	rdfs:domain literature:Argument;
 	rdfs:range literature:Expression;

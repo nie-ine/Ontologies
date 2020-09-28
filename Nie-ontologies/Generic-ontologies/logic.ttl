@@ -41,7 +41,7 @@ logic:Premise
 logic:Conclusion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
-	rdfs:label "conclusion"@en, "Konklusion"@de;
+	rdfs:label "conclusion"@en, "Schlussfolgerung"@de;
 	rdfs:comment """Statement ... ."""@en;
 	rdfs:subClassOf ling:Statement.
 
@@ -66,7 +66,7 @@ logic:Syllogism
 logic:isPremiseOfArgument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a owl:ObjectProperty;
-	rdfs:label "is premise of argument"@en, "ist Prämisse eines Argumentes"@de;
+	rdfs:label "is premise of argument"@en, "ist Prämisse eines Arguments"@de;
 	rdfs:comment """Relating a premise to an argument it is part of."""@en;
 	rdfs:domain logic:Premise;
 	rdfs:range logic:Argument;
@@ -75,7 +75,7 @@ logic:isPremiseOfArgument
 logic:isConclusionOfArgument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a owl:ObjectProperty;
-	rdfs:label "is conclusion of argument"@en, "ist Konklusion eines Argumentes"@de;
+	rdfs:label "is conclusion of argument"@en, "ist Schlussfolgerung eines Arguments"@de;
 	rdfs:comment """Relating a conclusion to an argument it is part of."""@en;
 	rdfs:domain logic:Conclusion;
 	rdfs:range logic:Argument;

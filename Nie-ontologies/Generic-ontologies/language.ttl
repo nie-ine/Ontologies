@@ -50,7 +50,7 @@ language:HumanLanguage
 language:HumanNaturalLanguage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
+	rdfs:label "human natural language"@en, "menschliche natürliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
 	rdfs:subClassOf language:HumanLanguage.
@@ -59,14 +59,14 @@ language:HumanNaturalLanguage
 language:GeneralHumanNaturalLanguage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "general human natural language"@en, "allgemeine menschliche naturliche Sprache"@de;
+	rdfs:label "general human natural language"@en, "allgemeine menschliche natürliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans and used as official language in one or more countries."""@en; #°
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
 language:HumanNaturalLanguageExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
+	rdfs:label "human natural language expression"@en, "menschliche natürliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
 	skos:note """Expression differs from the FRBRoo based document:Expression."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object.
@@ -81,21 +81,21 @@ language:Dialect
 language:AgentTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "agent translator"@en, "Agent-Übersetzer"@de;
+	rdfs:label "translator role of agent"@en, "Übersetzerrolle eines Akteurs"@de;
 	rdfs:comment """Role of an agent, person or machine, transferring a human natural language expression in another natural language."""@en;
 	rdfs:subClassOf agent:Creator.
 
 language:PersonTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
+	rdfs:label "translator role of person"@en, "Übersetzerrolle einer Person"@de;
 	rdfs:comment """Translator as role of a person."""@en;
 	rdfs:subClassOf language:AgentTranslator, creating:PersonCreator.
 
 language:MachineTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "machine-translator"@en, "Maschine-Übersetzer"@de;
+	rdfs:label "translator role of machine"@en, "Übersetzerrolle einer Maschine"@de;
 	rdfs:comment """Translator as role of a machine."""@en;
 	rdfs:subClassOf language:AgentTranslator.
 
@@ -111,14 +111,14 @@ language:Translation
 language:PersonTranslation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
+	rdfs:label "person translation"@en, "Übersetzung einer Person"@de;
 	rdfs:comment """Translation done by a person."""@en;
 	rdfs:subClassOf language:Translation, creating:CreationDerivative.
 
 language:MachineTranslation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "machine translation"@en, "Maschinenübersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
+	rdfs:label "machine translation"@en, "maschinelle Übersetzung"@de, "traduction automatique"@fr, "traduzione automatica"@it;
 	rdfs:comment """Translation done by a digital electronic computer using translation software."""@en;
 	rdfs:subClassOf language:Translation.
 
@@ -133,7 +133,7 @@ language:PartialTranslation
 language:Code
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "language code"@en, "Sprache-Kode"@de, "code de langue"@fr, "codice della lingua"@it;
+	rdfs:label "language code"@en, "Sprachecode"@de, "code de langue"@fr, "codice della lingua"@it;
 	rdfs:comment """Code in a coding system, attributed to a human natural language, e.g. ISO 639."""@en;
 	rdfs:seeAlso <http://e-editiones.ch/ontology/languages#>;
 	rdfs:subClassOf concept:Code.
@@ -145,7 +145,7 @@ language:Code
 language:hasCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:InverseFunctionalProperty;
-	rdfs:label "language has code"@en, "Sprache hat Kode"@de;
+	rdfs:label "language has code"@en, "Sprache hat Code"@de;
 	rdfs:comment """Relating a language to a system code representing that language."""@en;
 	rdfs:domain language:HumanNaturalLanguage;
 	rdfs:range language:Code;
@@ -154,7 +154,7 @@ language:hasCode
 language:hasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has content literal"@en, "hat Inhaltliterale"@de;
+	rdfs:label "has content literal"@en, "hat Inhaltliteral"@de;
 	rdfs:comment """Relating a human natural language expression to its content."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range rdfs:Literal;
@@ -171,7 +171,7 @@ language:isDialectOf
 language:expressedInNaturalLanguage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "expressed in natural language"@en, "geäußert in naturlichen Sprache"@de;
+	rdfs:label "expressed in natural language"@en, "geäußert in natürlicher Sprache"@de;
 	rdfs:comment """Relating a human expression to a natural language wherein it is expressed."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range language:HumanNaturalLanguage;
@@ -196,7 +196,7 @@ language:hasTranslator
 language:hasPersonTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
+	rdfs:label "has person translator"@en, "hat menschlichen Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
@@ -205,7 +205,7 @@ language:hasPersonTranslator
 language:hasMachineTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "has machine-translator"@en, "hat Machine-Übersetzer"@de;
+	rdfs:label "has machine translator"@en, "hat maschinellen Übersetzer"@de;
 	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:MachineTranslator]];
@@ -222,7 +222,7 @@ language:translationHasTranslator
 language:translationHasPersonTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "translation has person-translator"@en, "Übersetzung hat Person-Übersetzer"@de;
+	rdfs:label "translation has person translator"@en, "Übersetzung hat menschlichen Übersetzer"@de;
 	rdfs:comment """Relating a translation to a person who created it."""@en;
 	rdfs:domain language:PersonTranslation;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom language:PersonTranslator]];
@@ -231,7 +231,7 @@ language:translationHasPersonTranslator
 language:translationHasMachineTranslator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "translation has machine-translator"@en, "Übersetzung hat Machine-Übersetzer"@de;
+	rdfs:label "translation has machine translator"@en, "Übersetzung hat maschinellen Übersetzer"@de;
 	rdfs:comment """Relating a translation to a machine that created it."""@en;
 	rdfs:domain language:MachineTranslation;
 	rdfs:range [rdfs:subClassOf device:DigitalElectronicComputer, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom language:MachineTranslator]];

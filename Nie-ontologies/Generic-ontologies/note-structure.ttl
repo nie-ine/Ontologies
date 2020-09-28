@@ -42,14 +42,14 @@
 note-structure:Note
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "note structure"@en, "Notiz-Struktur"@de, "structure de note"@fr, "struttura de nota"@it;
+	rdfs:label "note structure"@en, "Notizstruktur"@de, "structure de note"@fr, "struttura de nota"@it;
 	rdfs:comment """Text with note structure, not necessarily having sentences or being syntactically correct; e.g. a first registration of thought, or a remark added to another text."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 note-structure:MarginalNote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "marginal note"@en, "Marginale Notiz"@de, "note marginale"@fr, "nota marginale"@it;
+	rdfs:label "marginal note"@en, "Marginaliennotiz"@de, "note marginale"@fr, "nota marginale"@it;
 	rdfs:comment """Note written besides a text in the margin of a carrier."""@en;
 	rdfs:subClassOf note-structure:Note, text:WrittenText, document:Marginal.
 
@@ -70,7 +70,7 @@ note-structure:Gloss
 note-structure:MarginalGloss
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "marginal gloss"@en, "marginale Glosse"@de, "glose marginale"@fr, "glossare marginale"@it;
+	rdfs:label "marginal gloss"@en, "Marginalienglosse"@de, "glose marginale"@fr, "glossare marginale"@it;
 	rdfs:comment """Gloss as a marginal note."""@en;
 	rdfs:subClassOf note-structure:Gloss, note-structure:MarginalNote.
 
@@ -84,7 +84,7 @@ note-structure:InterlinearGloss
 note-structure:Footnote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "footnote structure"@en, "Fussnotestruktur"@de, "structure de note de bas de page"@fr, "struttura di nota a piè di pagina"@it;
+	rdfs:label "footnote structure"@en, "Fussnotenstruktur"@de, "structure de note de bas de page"@fr, "struttura di nota a piè di pagina"@it;
 	rdfs:comment """Ordinal number of a footnote."""@en;
 	rdfs:comment """Note on information on a page at the end of that page, seperate from the main content."""@en;
 	rdfs:subClassOf note-structure:Note.
@@ -92,35 +92,35 @@ note-structure:Footnote
 note-structure:FootnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "footnote identifier"@en, "Fussnoteidentifikator"@de, "identifiant de note de bas de page"@fr, "identificatore di nota a piè di pagina"@it;
+	rdfs:label "footnote identifier"@en, "Fussnotenidentifikator"@de, "identifiant de note de bas de page"@fr, "identificatore di nota a piè di pagina"@it;
 	rdfs:comment """Identifier of a footnote."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 note-structure:FootnoteOrdinalNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "footnote ordinal number"@en, "Fussnoteordinalzahl"@de, "numéro ordinal de note de bas de page"@fr, "numero ordinale di nota a piè di pagina"@it;
+	rdfs:label "footnote ordinal number"@en, "Fussnotenordinalzahl"@de, "numéro ordinal de note de bas de page"@fr, "numero ordinale di nota a piè di pagina"@it;
 	rdfs:comment """Ordinal number of a footnote."""@en;
 	rdfs:subClassOf note-structure:FootnoteIdentifier, math:OrdinalNumber.
 
 note-structure:Endnote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "endnote structure"@en, "Endnotestruktur"@de, "structure de note de fin"@fr, "struttura di nota finale"@it;
+	rdfs:label "endnote structure"@en, "Endnotenstruktur"@de, "structure de note de fin"@fr, "struttura di nota finale"@it;
 	rdfs:comment """Note on information on a page at the end of the document, seperate from the main content."""@en;
 	rdfs:subClassOf note-structure:Note.
 
 note-structure:EndnoteIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "endnote identifier"@en, "Endnoteidentifikator"@de, "identifiant de note de fin"@fr, "identificatore di nota finale"@it;
+	rdfs:label "endnote identifier"@en, "Endnotenidentifikator"@de, "identifiant de note de fin"@fr, "identificatore di nota finale"@it;
 	rdfs:comment """Identifier of an endnote."""@en;
 	rdfs:subClassOf text-structure:Identifier.
 
 note-structure:EndnoteOrdinalNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a rdfs:Class;
-	rdfs:label "endnote ordinal number"@en, "Endnoteordinalzahl"@de, "numéro ordinal de note de fin"@fr, "numero ordinale di nota finale"@it;
+	rdfs:label "endnote ordinal number"@en, "Endnotenordinalzahl"@de, "numéro ordinal de note de fin"@fr, "numero ordinale di nota finale"@it;
 	rdfs:comment """Ordinal number of an endnote."""@en;
 	rdfs:subClassOf note-structure:EndnoteIdentifier, math:OrdinalNumber.
 
@@ -131,7 +131,7 @@ note-structure:EndnoteOrdinalNumber
 note-structure:isNoteOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is note structure of expression"@en, "ist Notiz-Struktur einer Expression"@de, "est une structure de note d'une expression"@fr, "è una struttura di note di un'espressione"@it;
+	rdfs:label "is note structure of expression"@en, "ist Notizstruktur eines Ausdrucks"@de, "est une structure de note d'une expression"@fr, "è una struttura di note di un'espressione"@it;
 	rdfs:comment """Relating a note structure to a text expression it is part of."""@en;
 	rdfs:domain note-structure:Note;
 	rdfs:range text-expression:Expression;
@@ -140,7 +140,7 @@ note-structure:isNoteOfExpression
 note-structure:isGlossOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is gloss of expression"@en, "ist Glosse einer Expression"@de, "est glose d'une expression"@fr, "è un glossare di un'espressione"@it;
+	rdfs:label "is gloss of expression"@en, "ist Glosse eines Ausdrucks"@de, "est glose d'une expression"@fr, "è un glossare di un'espressione"@it;
 	rdfs:comment """Relating a gloss to a text expression it is part of."""@en;
 	rdfs:domain note-structure:Gloss;
 	rdfs:range text-expression:Expression;
@@ -167,7 +167,7 @@ note-structure:footnoteHasOrdinalNumber
 note-structure:footnoteHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "footnote has ordinal numeral"@en, "Fussnote hat Ordinalnumerale"@de, "note de bas de page a un numéro ordinal"@fr, "nota a piè di pagina ha numero ordinale"@it;
+	rdfs:label "footnote has ordinal numeral"@en, "Fussnote hat Ordinalnumeral"@de, "note de bas de page a un numéro ordinal"@fr, "nota a piè di pagina ha numero ordinale"@it;
 	rdfs:comment """Relating a footnote to its ordinal numeral."""@en;
 	rdfs:domain note-structure:Footnote;
 	rdfs:range xsd:nonNegativeInteger;
@@ -195,7 +195,7 @@ note-structure:isIdentifierOfEndnote
 note-structure:endnoteHasOrdinalLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "endnote has ordinal literal"@en, "Endnote hat Ordinalliterale"@de, "la note de fin a un littéral ordinal"@fr, "endnote ha letterale ordinale"@it;
+	rdfs:label "endnote has ordinal literal"@en, "Endnote hat Ordinalliteral"@de, "la note de fin a un littéral ordinal"@fr, "endnote ha letterale ordinale"@it;
 	rdfs:comment """Relating an endnote to its ordinal literal."""@en;
 	rdfs:domain note-structure:Endnote;
 	rdfs:range rdfs:Literal;
@@ -214,7 +214,7 @@ note-structure:endnoteHasOrdinalNumber
 note-structure:endnoteHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "endnote has ordinal numeral"@en, "Endnote hat Ordinalnumerale"@de, "note de fin a un numéral ordinal"@fr, "endnote ha un numerale ordinale"@it;
+	rdfs:label "endnote has ordinal numeral"@en, "Endnote hat Ordinalnumeral"@de, "note de fin a un numéral ordinal"@fr, "endnote ha un numerale ordinale"@it;
 	rdfs:comment """Relating an endnote to its ordinal numeral."""@en;
 	rdfs:domain note-structure:Endnote;
 	rdfs:range xsd:nonNegativeInteger;

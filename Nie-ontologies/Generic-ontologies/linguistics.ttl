@@ -61,7 +61,7 @@ ling:Lemma
 ling:Symbol
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a rdfs:Class;
-	rdfs:label "language symbol"@en, "Sprache-Symbol"@de;
+	rdfs:label "language symbol"@en, "Sprachsymbol"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf text:WrittenText.
 
@@ -115,7 +115,7 @@ ling:Promise
 ling:Evaluation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a rdfs:Class;
-	rdfs:label "evaluation"@en, "Evaluation"@de;
+	rdfs:label "evaluation"@en, "Auswertung"@de;
 	rdfs:comment """Examination with judgement of any kind, as output of evaluating."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
@@ -126,7 +126,7 @@ ling:Evaluation
 ling:hasSynonymLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has synonym literal"@en, "hat Synonymliterale"@de;
+	rdfs:label "has synonym literal"@en, "hat Synonymliteral"@de;
 	rdfs:comment """Relating a resource to the literal of a synonym of the name of the resource."""@en;
 	rdfs:domain rdfs:Resource; #°
 	rdfs:range rdfs:Literal;
@@ -135,7 +135,7 @@ ling:hasSynonymLiteral
 ling:hasCommentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has linguistic comment literal"@en, "hat linguistischer Kommentarliterale"@de;
+	rdfs:label "has linguistic comment literal"@en, "hat linguistisches Kommentarliteral"@de;
 	rdfs:comment """Relating a human natural language expression to the literal of a linguistic comment as a textual statement about the expression."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range rdfs:Literal;

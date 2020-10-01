@@ -76,7 +76,7 @@ physical:Time
 physical:Place
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a rdfs:Class;
-	rdfs:label "place"@en, "Platz"@de;
+	rdfs:label "place"@en, "Ort"@de;
 	rdfs:comment """Specific space with a position reference, e.g. in a positioning reference system, e.g. the geodetic system of the Earth."""@en;
 	rdfs:subClassOf physical:Space, cidoc:E53_Place.
 
@@ -166,7 +166,7 @@ physical:hasLength
 physical:hasSizeDescription #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
-	rdfs:label "has size description"@en, "hat Grössebeschreibung"@de;
+	rdfs:label "has size description"@en, "hat Grössenbeschreibung"@de;
 	rdfs:comment "Relating a space to a size description it has."@en;
 	rdfs:domain physical:Space;
 	rdfs:range rdfs:Literal.
@@ -174,7 +174,7 @@ physical:hasSizeDescription #°
 physical:hasLocation #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
-	rdfs:label "has location"@en, "hat Ort"@de;
+	rdfs:label "has location"@en, "hat Standort"@de;
 	rdfs:comment """Relating something to its location."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range physical:Place;
@@ -191,7 +191,7 @@ physical:hasExistingState
 physical:placeHasNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:DatatypeProperty;
-	rdfs:label "place has name literal"@en, "Platz hat Nameliterale"@de;
+	rdfs:label "place has name literal"@en, "Ort hat Namenliteral"@de;
 	rdfs:comment """Relating a place to its name literal."""@en;
 	rdfs:domain physical:Place;
 	rdfs:range rdfs:Literal; #° physical:PlaceName
@@ -241,7 +241,7 @@ physical:hasSendingLocation
 physical:hasReceivingLocation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-entity#>;
 	a owl:ObjectProperty;
-	rdfs:label "has receiving location"@en, "hat Empfangort"@de;
+	rdfs:label "has receiving location"@en, "hat Empfangsort"@de;
 	rdfs:comment """Relating something material to a location it was sent to."""@en;
 	rdfs:domain physical:Matter;
 	rdfs:range physical:Place;

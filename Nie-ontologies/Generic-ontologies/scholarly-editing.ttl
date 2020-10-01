@@ -42,21 +42,21 @@
 scholarly-editing:EditionScientist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "edition scientist"@en, "EditionswissenschaftlerIn"@de, "scientifique de l'édition"@fr, "scienziato dell'edizione"@it;
+	rdfs:label "edition scientist"@en, "Editionswissenschaftler"@de, "scientifique de l'édition"@fr, "scienziato dell'edizione"@it;
 	rdfs:comment """Role of a person practicing edition science."""@en;
 	rdfs:subClassOf human:Scientist.
 
 scholarly-editing:AgentEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "scholarly editor"@en, "wissenschaftliche Editor"@de, "éditeur scientifique"@fr, "editore accademico"@it;
+	rdfs:label "scholarly editor"@en, "wissenschaftlicher Editor"@de, "éditeur scientifique"@fr, "editore accademico"@it;
 	rdfs:comment """Role of a human agent—person or organization—editing a text expression scientifically."""@en;
 	rdfs:subClassOf textedit:AgentEditor.
 
 scholarly-editing:PersonEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "scholarly person-editor"@en, "wissenschaftliche Person-Editor"@de, "éditeur personnel scientifique"@fr, "persona accademica editrice"@it;
+	rdfs:label "scholarly editor role of person"@en, "wissenschaftliche Editorrolle einer Person"@de, "éditeur personnel scientifique"@fr, "persona accademica editrice"@it;
 	rdfs:comment """Role of a person editing a text expression scientifically."""@en;
 	skos:note """Different from an editor of scientific literature, who is not necessarily a scientist."""@en;
 	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:PersonEditor, scholarly-editing:EditionScientist.
@@ -64,7 +64,7 @@ scholarly-editing:PersonEditor
 scholarly-editing:OrganizationEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "scholarly organization-editor"@en, "wissenschaftliche Organisation-Editor"@de, "éditeur-organisation scientifique"@fr, "organizzazione accademica editrice"@it;
+	rdfs:label "scholarly editor role of organization"@en, "wissenschaftliche Editorrolle einer Organisation"@de, "éditeur-organisation scientifique"@fr, "organizzazione accademica editrice"@it;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
 	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:OrganizationEditor.
 
@@ -85,7 +85,7 @@ scholarly-editing:Edition
 scholarly-editing:Page
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "scholarly edition text page"@en, "wissenschaftliche Editiontextseite"@de, "page de texte d'une édition scientifique"@fr, "pagina di testo in edizione accademica"@it;
+	rdfs:label "scholarly edition text page"@en, "wissenschaftliche Editionstextseite"@de, "page de texte d'une édition scientifique"@fr, "pagina di testo in edizione accademica"@it;
 	rdfs:comment """Page of a scholarly edition."""@en;
 	rdfs:subClassOf text-structure:Page.
 
@@ -99,21 +99,21 @@ scholarly-editing:EditorialSymbol
 scholarly-editing:PageIndicator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "page indicator"@en, "Seiteindikator"@de, "indicateur de page"@fr, "indicatore di pagina"@it;
+	rdfs:label "page indicator"@en, "Seitenindikator"@de, "indicateur de page"@fr, "indicatore di pagina"@it;
 	rdfs:comment """Editorial symbol indicating where a document page starts."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:PageNumberIndicator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "page number indicator"@en, "Seitenummerindikator"@de, "indicateur de numéro de page"@fr, "indicatore del numero di pagina"@it;
+	rdfs:label "page number indicator"@en, "Seitennummerindikator"@de, "indicateur de numéro de page"@fr, "indicatore del numero di pagina"@it;
 	rdfs:comment """Page indicator as number."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
 scholarly-editing:ColumnIndicator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "column indicator"@en, "Spalteindikator"@de, "indicateur de colonne"@fr, "indicatore di colonna"@it;
+	rdfs:label "column indicator"@en, "Spaltenindikator"@de, "indicateur de colonne"@fr, "indicatore di colonna"@it;
 	rdfs:comment """Editorial symbol indicating a textual property of the original text."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialSymbol.
 
@@ -128,7 +128,7 @@ scholarly-editing:InverseEdition
 scholarly-editing:DiplomaticTranscription
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de, "transcription diplomatique"@fr, "trascrizione diplomatica"@it;
+	rdfs:label "diplomatic transcription"@en, "diplomatische Transkription"@de, "transcription diplomatique"@fr, "trascrizione diplomatica"@it;
 	rdfs:comment """Transcription of a text with editorial symbols indicating visual textual properties to describe the textual state."""@en;
 	skos:note """Mostly done for autographs or juridical text; without interpretation.""";
 	rdfs:subClassOf scholarly-editing:Edition.
@@ -138,7 +138,7 @@ scholarly-editing:DiplomaticTranscription
 scholarly-editing:CriticalEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "critical editor"@en, "kritische Editor"@de, "éditeur critique"@fr, "editore critico"@it;
+	rdfs:label "critical editor"@en, "kritischer Editor"@de, "éditeur critique"@fr, "editore critico"@it;
 	rdfs:comment """Role of being a scholar editing a text expression in a critical scientific way."""@en;
 	rdfs:subClassOf human:Scientist, creating:PersonCreator.
 
@@ -161,7 +161,7 @@ scholarly-editing:GeneticEdition
 scholarly-editing:ConstitutedEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "constituted text edition"@en, "konstituierter Text Edition"@de, "texte constitué d'édition"@fr, "testo costituito di un'edizione"@it;
+	rdfs:label "constituted text edition"@en, "konstituierte Textedition"@de, "texte constitué d'édition"@fr, "testo costituito di un'edizione"@it;
 	rdfs:comment """Plain text expression as endresult of critical editing of another text expression."""@en;
 	rdfs:subClassOf scholarly-editing:Edition.
 
@@ -175,7 +175,7 @@ scholarly-editing:EditorialStructure
 scholarly-editing:SiglumReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "siglum reference"@en, "Siglum-Referenz"@de, "référence de siglum"@fr, "riferimento di sigla"@it;
+	rdfs:label "siglum reference"@en, "Siglumreferenz"@de, "référence de siglum"@fr, "riferimento di sigla"@it;
 	rdfs:comment """Reference to a siglum as expression identifier."""@en;
 	rdfs:subClassOf document:ExpressionReference.
 
@@ -189,14 +189,14 @@ scholarly-editing:Siglum
 scholarly-editing:Apparatus
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus"@en, "Edierungsapparatus"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
+	rdfs:label "editing apparatus"@en, "textkritischer Apparat"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
 	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:ApparatusEntry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus entry"@en, "Edierungsapparateintrag"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
+	rdfs:label "editing apparatus entry"@en, "Eintrag im textkritischen Apparat"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
 	rdfs:comment """Entry of an editing apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 

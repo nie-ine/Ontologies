@@ -55,7 +55,7 @@ letter-corresponding:Compiling
 letter-corresponding:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter expression"@en, "Briefausdruck"@de, "expression de lettre"@fr, "espressione letterale"@it;
+	rdfs:label "letter expression"@en, "Briefexpression"@de, "expression de lettre"@fr, "espressione letterale"@it;
 	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
@@ -83,7 +83,7 @@ letter-corresponding:Envelope
 letter-corresponding:EnclosureExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter enclosure text expression"@en, "Briefbeilagen-Textausdruck"@de, "expression de texte d'une pièce jointe d'une lettre"@fr, "espressione di testo allegato lettera"@it;
+	rdfs:label "letter enclosure text expression"@en, "Briefbeilagen-Textexpression"@de, "expression de texte d'une pièce jointe d'une lettre"@fr, "espressione di testo allegato lettera"@it;
 	rdfs:comment """Text expression of a letter enclosure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
@@ -135,7 +135,7 @@ letter-corresponding:isInLetter
 letter-corresponding:isStructureOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur eines Ausdrucks"@de, "est la structure de lettre d'une expression"@fr, "è la struttura delle lettere di un'espressione"@it;
+	rdfs:label "is letter structure of expression"@en, "ist Briefstruktur einer Expression"@de, "est la structure de lettre d'une expression"@fr, "è la struttura delle lettere di un'espressione"@it;
 	rdfs:comment """Relating a letter structure to a text expression it is part of."""@en;
 	rdfs:domain letter-corresponding:Structure;
 	rdfs:range letter-corresponding:Expression;
@@ -185,7 +185,7 @@ letter-corresponding:isPageOfLetter
 letter-corresponding:isTextInEnclosure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is text expression in letter enclosure"@en, "ist Textausdruck in Briefbeilage"@de, "est une expression textuelle dans une pièce-jointe à une lettre"@fr, "è un'espressione di testo in un allegato di lettera"@it;
+	rdfs:label "is text expression in letter enclosure"@en, "ist Textexpression in Briefbeilage"@de, "est une expression textuelle dans une pièce-jointe à une lettre"@fr, "è un'espressione di testo in un allegato di lettera"@it;
 	rdfs:comment """Relating a text expression to a letter information enclosure it is in."""@en;
 	rdfs:domain letter-corresponding:EnclosureExpression;
 	rdfs:range letter-corresponding:InformationEnclosure;

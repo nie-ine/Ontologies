@@ -138,14 +138,14 @@ literature:DescriptiveLiterature
 literature:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary expression"@en, "literarischer Ausdruck"@de, "expression littéraire"@fr, "espressione letteraria"@it;
+	rdfs:label "literary expression"@en, "literarische Expression"@de, "expression littéraire"@fr, "espressione letteraria"@it;
 	rdfs:comment """Text expression as literature."""@en, """Textexpression als Literatur."""@de;
 	rdfs:subClassOf text-expression:Expression.
 
 literature:FictionExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary fiction expression"@en, "literarischer Fiktionausdruck"@de, "expression de fiction littéraire"@fr, "espressione finzione letteraria"@it;
+	rdfs:label "literary fiction expression"@en, "literarische fiktionelle Expression"@de, "expression de fiction littéraire"@fr, "espressione finzione letteraria"@it;
 	rdfs:comment """Literary expression having the fiction genre."""@en;
 	rdfs:subClassOf literature:Expression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Fiction].
@@ -153,7 +153,7 @@ literature:FictionExpression
 literature:NonfictionExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "literary nonfiction expression"@en, "sachlicher literarischer Ausdruck"@de, "expression littéraire non fictionnelle"@fr, "espressione letteraria di saggistica"@it;
+	rdfs:label "literary nonfiction expression"@en, "sachliche literarische Expression"@de, "expression littéraire non fictionnelle"@fr, "espressione letteraria di saggistica"@it;
 	rdfs:comment """Literary expression having the nonfiction genre."""@en;
 	rdfs:subClassOf literature:Expression, [
 		a owl:Restriction; owl:onProperty literature:hasGenre; owl:someValuesFrom literature:Nonfiction].
@@ -361,7 +361,7 @@ literature:hasPoetryGenre
 literature:anthologyHasExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "has expression"@en, "hat Ausdruck"@de, "a une expression"@fr, "ha espressione"@it;
+	rdfs:label "has expression"@en, "hat Expression"@de, "a une expression"@fr, "ha espressione"@it;
 	rdfs:comment """Relating an anthology to a literary expression it has."""@en;
 	rdfs:domain literature:Anthology;
 	rdfs:range literature:Expression.
@@ -396,6 +396,7 @@ literature:hasPoet
 literature:hasNovelist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
+
 	rdfs:label "has novelist"@en, "hat Romanautor"@de, "a un romancier"@fr, "ha romanziere"@it;
 	rdfs:comment """Relating a novel to a person who authored it."""@en;
 	rdfs:domain literature:Novel;

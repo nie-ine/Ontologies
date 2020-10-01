@@ -131,7 +131,7 @@ note-structure:EndnoteOrdinalNumber
 note-structure:isNoteOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is note structure of expression"@en, "ist Notizstruktur eines Ausdrucks"@de, "est une structure de note d'une expression"@fr, "è una struttura di note di un'espressione"@it;
+	rdfs:label "is note structure of expression"@en, "ist Notizstruktur einer Expression"@de, "est une structure de note d'une expression"@fr, "è una struttura di note di un'espressione"@it;
 	rdfs:comment """Relating a note structure to a text expression it is part of."""@en;
 	rdfs:domain note-structure:Note;
 	rdfs:range text-expression:Expression;
@@ -140,7 +140,7 @@ note-structure:isNoteOfExpression
 note-structure:isGlossOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
 	a owl:ObjectProperty;
-	rdfs:label "is gloss of expression"@en, "ist Glosse eines Ausdrucks"@de, "est glose d'une expression"@fr, "è un glossare di un'espressione"@it;
+	rdfs:label "is gloss of expression"@en, "ist Glosse einer Expression"@de, "est glose d'une expression"@fr, "è un glossare di un'espressione"@it;
 	rdfs:comment """Relating a gloss to a text expression it is part of."""@en;
 	rdfs:domain note-structure:Gloss;
 	rdfs:range text-expression:Expression;

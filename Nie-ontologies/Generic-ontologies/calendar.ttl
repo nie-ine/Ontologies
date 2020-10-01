@@ -191,7 +191,7 @@ calendar:hasGregorianEndDate
 calendar:gregorianListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Gregorian list to date"@en, "gregorianische Liste zu Datum"@de;#Gregorian list / Gregorianische Liste ev. zu unspezifisch?
+	rdfs:label "Gregorian list to date"@en, "gregorianische Liste zu Datum"@de;
 	rdfs:comment """Relating a Gregorian date as a list of literals to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'dateLiteralToDate', 'yearLiteralToPeriod', and 'yearMonthLiteralToPeriod' N3-rules for the Gregorian calendar to invoke its backward 'gregorianListToDate' N3-rule converting a Gregorian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;
@@ -242,7 +242,7 @@ calendar:hasJulianEndDate
 calendar:julianListToDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/calendar#>;
 	a owl:DatatypeProperty;
-	rdfs:label "Julian list to date"@en, "julianische Liste zu Datum"@de;#Julian list / Julianische Liste ev. zu unspezifisch?
+	rdfs:label "Julian list to date"@en, "julianische Liste zu Datum"@de;
 	rdfs:comment """Relating a Julian date as a list of literals to its date typed literal."""@en;
 	skos:note """Used in the premise of the backward 'dateLiteralToDate' N3-rules for the Julian calendar to invoke its backward 'julianListToDate' N3-rule converting a Julian date literal list to its date typed literal."""@en;
 	rdfs:domain rdf:List;

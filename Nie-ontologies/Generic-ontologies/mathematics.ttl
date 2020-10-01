@@ -66,7 +66,7 @@ math:OrdinalNumber
 math:Set
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
-	rdfs:label "mathematical set"@en, "mathematische Sammlung"@de;
+	rdfs:label "mathematical set"@en, "mathematische Reihe"@de;
 	rdfs:comment """Set of mathematical objects."""@en;
 	rdfs:subClassOf concept:Set, math:MathematicalObject.
 
@@ -86,7 +86,7 @@ math:hasNumber
 math:numberHasNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "number has numeral"@en, "Nummer hat Numerale"@de;
+	rdfs:label "number has numeral"@en, "Nummer hat Numeral"@de;
 	rdfs:comment """Relating a number to its representing numeral."""@en;
 	rdfs:domain math:Number;
  	rdfs:range xsd:decimal;
@@ -95,7 +95,7 @@ math:numberHasNumeral
 math:hasNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has numeral"@en, "hat Numerale"@de;
+	rdfs:label "has numeral"@en, "hat Numeral"@de;
 	rdfs:comment """Relating something to a numeral."""@en;
 	skos:note """A reification of a numeral, i.e. a number, can always be interposed, see property chain axiom."""@en;
 	rdfs:domain rdfs:Resource;
@@ -124,7 +124,7 @@ math:hasOrdinalNumber
 math:hasOrdinalLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has ordinal literal"@en, "hat Ordinalliterale"@de;
+	rdfs:label "has ordinal literal"@en, "hat Ordinalliteral"@de;
 	rdfs:comment """Relating something to the literal denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -134,7 +134,7 @@ math:hasOrdinalLiteral
 math:hasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has ordinal numeral"@en, "hat Ordinalnumerale"@de;
+	rdfs:label "has ordinal numeral"@en, "hat Ordinalnumeral"@de;
 	rdfs:comment """Relating something to the numeral denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:nonNegativeInteger;

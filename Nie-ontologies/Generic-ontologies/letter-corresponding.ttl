@@ -41,7 +41,7 @@ letter-corresponding:Corresponding
 letter-corresponding:Exchanging
  	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
- 	rdfs:label "exchanging"@en,"Auswechselen"@de, "échanger"@fr, "scambiare"@it;
+ 	rdfs:label "exchanging"@en,"Austausch"@de, "échanger"@fr, "scambiare"@it;
  	rdfs:comment """Sending-receiving cycle in corresponding."""@en;
 	rdfs:subClassOf human:Procedure.
 
@@ -55,7 +55,7 @@ letter-corresponding:Compiling
 letter-corresponding:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter expression"@en, "Brief-Expression"@de, "expression de lettre"@fr, "espressione letterale"@it;
+	rdfs:label "letter expression"@en, "Briefexpression"@de, "expression de lettre"@fr, "espressione letterale"@it;
 	rdfs:comment """Text expression with a letter content and possibly structure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
@@ -83,7 +83,7 @@ letter-corresponding:Envelope
 letter-corresponding:EnclosureExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a rdfs:Class;
-	rdfs:label "letter enclosure text expression"@en, "Briefbeilage-Textexpression"@de, "expression de texte d'une pièce jointe d'une lettre"@fr, "espressione di testo allegato lettera"@it;
+	rdfs:label "letter enclosure text expression"@en, "Briefbeilagen-Textexpression"@de, "expression de texte d'une pièce jointe d'une lettre"@fr, "espressione di testo allegato lettera"@it;
 	rdfs:comment """Text expression of a letter enclosure."""@en;
 	rdfs:subClassOf text-expression:IndividualExpression.
 
@@ -108,7 +108,7 @@ letter-corresponding:InformationEnclosure
 letter-corresponding:isExchangingOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is exchanging of"@en, "ist Auswechselen von"@de, "est un échange de"@fr, "è uno scambio di"@it;
+	rdfs:label "is exchanging of"@en, "ist Austausch von"@de, "est un échange de"@fr, "è uno scambio di"@it;
 	rdfs:comment """Relating an exchanging to its corresponding it is a suprocedure of."""@en;
 	rdfs:domain letter-corresponding:Exchanging;
 	rdfs:range letter-corresponding:Corresponding;
@@ -117,7 +117,7 @@ letter-corresponding:isExchangingOf
 letter-corresponding:isCompilingOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/letter-corresponding#>;
 	a owl:ObjectProperty;
-	rdfs:label "is compiling of"@en, "ist Zusammenstellen von"@de, "est la compilation de"@fr, "è la compilazione di"@it;
+	rdfs:label "is compiling of"@en, "ist Zusammenstellung von"@de, "est la compilation de"@fr, "è la compilazione di"@it;
 	rdfs:comment """Relating a compiling to its exchanging it is a suprocedure of."""@en;
 	rdfs:domain letter-corresponding:Compiling;
 	rdfs:range letter-corresponding:Exchanging;

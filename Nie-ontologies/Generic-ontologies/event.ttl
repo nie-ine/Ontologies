@@ -46,7 +46,7 @@ event:Existence
 event:Process
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
-	rdfs:label "process"@en, "Verfahren"@de;
+	rdfs:label "process"@en, "Prozess"@de;
 	rdfs:comment """Event implying change, with an input and an output, in one or more steps."""@en;
 	rdfs:subClassOf event:Event.
 
@@ -95,7 +95,7 @@ event:Stage
 event:Staging
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
-	rdfs:label "staging"@en, "Umsetzung"@de;#de: unsicher
+	rdfs:label "staging"@en, "Etappierung"@de;
 	rdfs:comment """Determining the extent of a process."""@en;
 	rdfs:subClassOf event:Action.
 
@@ -109,7 +109,7 @@ event:Intent
 event:Creating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a rdfs:Class;
-	rdfs:label "creating"@en, "Erstellung"@de;
+	rdfs:label "creating"@en, "Erstellen"@de;
 	rdfs:comment """Changing matter and/or energy, bringing a new appearance thereof into existence."""@en;
 	rdfs:subClassOf event:Action.
 

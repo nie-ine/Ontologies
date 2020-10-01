@@ -50,7 +50,7 @@ image:Expression
 image:Original
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "original image expression"@en,"originale Bildexpression"@de;
+	rdfs:label "original image expression"@en,"originaler Bildexpression"@de;
 	rdfs:comment """Image expression having its claim of originality supported by its features and history."""@en;
 	rdfs:subClassOf image:Expression.
 
@@ -99,7 +99,7 @@ image:PhotographExpression
 image:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:DatatypeProperty;
-	rdfs:label "image expression has title literal", "Bildexpression hat Titelliterale"@de;
+	rdfs:label "image expression has title literal", "Bildexpression hat Titelliteral"@de;
 	rdfs:comment """Relating an image expression to its title literal."""@en;
 	rdfs:domain image:Expression;
 	rdfs:range rdfs:Literal;
@@ -135,7 +135,7 @@ image:isPhotographOf
 image:isPartOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
-	rdfs:label "image is part of", "Bild ist teil von"@de;
+	rdfs:label "image is part of", "Bild ist Teil von"@de;
 	rdfs:comment """Relating an image to a document it is part of."""@en;
 	rdfs:domain image:Abstract;
 	rdfs:range document:Document.
@@ -156,7 +156,7 @@ image:hasPhotographIn
 image:hasPhotographSourceDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has photograph source description literal"@en, "hat Fotoquelle-Beschreibungliterale"@de;
+	rdfs:label "has photograph source description literal"@en, "hat Fotoquellen-Beschreibungliteral"@de;
 	rdfs:comment """Relating something to a description literal of a source of a photograph of that something."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;

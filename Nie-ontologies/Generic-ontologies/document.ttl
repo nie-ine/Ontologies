@@ -191,7 +191,7 @@ document:TitlePage
 document:Marginal
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "marginal"@en, "Marginale"@de;
+	rdfs:label "marginal"@en, "Marginalie"@de;
 	rdfs:comment """Information besides a text in the margin of a carrier, e.g. a text, doodle, or illumination."""@en;
 	rdfs:subClassOf document:ContentStructure.
 

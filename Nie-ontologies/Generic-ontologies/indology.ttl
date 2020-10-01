@@ -87,7 +87,7 @@ indo:Padapatha
 indo:hasIndologicCommentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/indology#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has Indological comment literal"@en, "hat indologischer Kommentarliterale"@de;
+	rdfs:label "has Indological comment literal"@en, "hat indologisches Kommentarliteral"@de;
 	rdfs:comment """Relating something to the literal of an Indological comment as a textual statement about that something."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;

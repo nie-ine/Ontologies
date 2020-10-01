@@ -34,7 +34,7 @@ indo:Literature
 indo:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/indology#>;
 	a rdfs:Class;
-	rdfs:label "Indian literary expression"@en, "indischer literarischer Ausdruck"@de;
+	rdfs:label "Indian literary expression"@en, "indische literarische Expression"@de;
 	rdfs:comment """Literary expression created in Indian culture."""@en, """Literarische Expression in indischer Kultur kreiert."""@de;
 	rdfs:subClassOf literature:Expression.
 

@@ -43,14 +43,14 @@ image:Abstract
 image:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "image expression"@en,"Bildausdruck"@de;
+	rdfs:label "image expression"@en,"Bildexpression"@de;
 	rdfs:comment """Image as a document expression."""@en;
 	rdfs:subClassOf document:Expression, image:Abstract.
 
 image:Original
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "original image expression"@en,"originaler Bildausdruck"@de;
+	rdfs:label "original image expression"@en,"originaler Bildexpression"@de;
 	rdfs:comment """Image expression having its claim of originality supported by its features and history."""@en;
 	rdfs:subClassOf image:Expression.
 
@@ -64,7 +64,7 @@ image:EngravingCarrier
 image:EngravingExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "engraving expression"@en,"Gravurausdruck"@de;
+	rdfs:label "engraving expression"@en,"Gravurexpression"@de;
 	rdfs:comment """engraving  as an image expression."""@en;
 	rdfs:subClassOf image:Expression.
 
@@ -85,7 +85,7 @@ image:PhotographAbstract
 image:PhotographExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "photograph expression"@en,"Fotoausdruck"@de;
+	rdfs:label "photograph expression"@en,"Fotoexpression"@de;
 	rdfs:comment """Photograph as a document expression."""@en;
 	rdfs:subClassOf image:Expression.
 
@@ -99,7 +99,7 @@ image:PhotographExpression
 image:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:DatatypeProperty;
-	rdfs:label "image expression has title literal", "Bildausdruck hat Titelliteral"@de;
+	rdfs:label "image expression has title literal", "Bildexpression hat Titelliteral"@de;
 	rdfs:comment """Relating an image expression to its title literal."""@en;
 	rdfs:domain image:Expression;
 	rdfs:range rdfs:Literal;

@@ -131,14 +131,14 @@ prosodic-structure:VerseSectionOrdinalNumber
 prosodic-structure:StrictVerse
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "strict verse"@en, "strikte Vers"@de, "verset strict"@fr, "versetto rigoroso"@it; #°
+	rdfs:label "strict verse"@en, "strikter Vers"@de, "verset strict"@fr, "versetto rigoroso"@it; #°
 	rdfs:comment """Verse with a recurring metrical entity."""@en;
 	rdfs:subClassOf prosodic-structure:Verse.
 
 prosodic-structure:Meter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "meter"@en, ""@de, "mètre"@fr, "metro"@it;
+	rdfs:label "meter"@en, "Metrik"@de, "mètre"@fr, "metro"@it;
 	rdfs:comment """Rhythmic structure of a verse, based on patterns of particular syllables, and often alternating in a particular order"""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
@@ -147,7 +147,7 @@ prosodic-structure:Meter
 prosodic-structure:FreeVerse
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a rdfs:Class;
-	rdfs:label "free verse"@en, "freie Vers"@de, "verset libre"@fr, "versetto libero"@it;
+	rdfs:label "free verse"@en, "freier Vers"@de, "verset libre"@fr, "versetto libero"@it;
 	rdfs:comment """Verse without a recurring metrical entity."""@en;
 	rdfs:subClassOf prosodic-structure:Structure.
 
@@ -238,7 +238,7 @@ prosodic-structure:verseHasOrdinalNumber
 prosodic-structure:verseHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse has ordinal numeral"@en, "Vers hat Ordinalnumerale"@de, "verset a un numéral ordinal"@fr, "versetto ha un numerale ordinale"@it;
+	rdfs:label "verse has ordinal numeral"@en, "Vers hat Ordinalnumeral"@de, "verset a un numéral ordinal"@fr, "versetto ha un numerale ordinale"@it;
 	rdfs:comment """Relating a verse to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:Verse;
 	rdfs:range xsd:nonNegativeInteger;
@@ -302,7 +302,7 @@ prosodic-structure:stropheHasOrdinalNumber
 prosodic-structure:stropheHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "strophe has ordinal numeral"@en, "Strophe hat Ordinalnumerale"@de, "strophe a un numéral ordinal"@fr, "strofa ha un numerale ordinale"@it;
+	rdfs:label "strophe has ordinal numeral"@en, "Strophe hat Ordinalnumeral"@de, "strophe a un numéral ordinal"@fr, "strofa ha un numerale ordinale"@it;
 	rdfs:comment """Relating a strophe to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:Strophe;
 	rdfs:range xsd:nonNegativeInteger;
@@ -339,7 +339,7 @@ prosodic-structure:isVerseSectionOfVerseNovel
 prosodic-structure:verseSectionHasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse section has title literal"@en, "Versabschnitt hat Titelliterale"@de, "section de verset a littéral du titre"@fr, "sezione del versetto ha letterale del titolo"@it;
+	rdfs:label "verse section has title literal"@en, "Versabschnitt hat Titelliteral"@de, "section de verset a littéral du titre"@fr, "sezione del versetto ha letterale del titolo"@it;
 	rdfs:comment """Relating a verse section to its title literal."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range rdfs:Literal;
@@ -366,7 +366,7 @@ prosodic-structure:verseSectionHasOrdinalNumber
 prosodic-structure:verseSectionHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/prosodic-structure#>;
 	a owl:DatatypeProperty;
-	rdfs:label "verse section has ordinal numeral"@en, "Versabschnitt hat Ordinalnumerale"@de, "section de verset a un numéral ordinal"@fr, "sezione del versetto ha un numerale ordinale"@it;
+	rdfs:label "verse section has ordinal numeral"@en, "Versabschnitt hat Ordinalnumeral"@de, "section de verset a un numéral ordinal"@fr, "sezione del versetto ha un numerale ordinale"@it;
 	rdfs:comment """Relating a verse section to its ordinal numeral."""@en;
 	rdfs:domain prosodic-structure:VerseSection;
 	rdfs:range xsd:nonNegativeInteger;

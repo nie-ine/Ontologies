@@ -33,7 +33,7 @@ org:Organization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "person organization"@en, "Personensorganisation"@de; #*
+	rdfs:label "person organization"@en, "Personenorganisation"@de; #*
 	rdfs:comment """Organized group of persons."""@en;
 	skos:note """An organization can be a legal person."""@en;
 	rdfs:subClassOf human:Group, agent:Organization, foaf:Organization, frbroo:F11_Corporate_Body; # rdfs:subClassOf cidoc:E74_Group
@@ -43,14 +43,14 @@ org:Role
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "organization's role"@en;
+	rdfs:label "organization's role"@en, "Rolle einer Organisation"@de;
 	rdfs:comment """Role of a person organization."""@en;
 	rdfs:subClassOf human:GroupRole.
 
 org:Creator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
-	rdfs:label "organization creator"@en, "Organisation-Erschafferin"@de;
+	rdfs:label "creator role of organization"@en, "Erstellerrolle einer Organisation"@de;
 	rdfs:comment """Publisher as role of an organization."""@en;
 	rdfs:subClassOf creating:AgentCreator, org:Role.
 
@@ -89,7 +89,7 @@ org:Politician
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "politician role"@en, "Politiker-Rolle"@de;
+	rdfs:label "politician role"@en, "Rolle eines Politikers"@de;
 	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
 	rdfs:subClassOf human:OccupationalRole.
 
@@ -112,7 +112,7 @@ org:CulturalHeritageInstitution
 org:Preserver
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
-	rdfs:label "organization preserver"@en, "Organisation-Erhalter"@de;
+	rdfs:label "preserver role of organization"@en, "Erhalterrolle einer Organisation"@de;
 	rdfs:comment """Role of a person organization as preserver."""@en;
 	rdfs:subClassOf human:AgentPreserver, org:Role.
 
@@ -130,6 +130,13 @@ org:Library
 	rdfs:comment """Organization having a role of preserving and making accessible information carriers to a defined community for reference or borrowing. An information carrier can be a book, periodical, newspaper, manuscript, film, map, print, also in microform, CD, cassette, videotape, DVD, Blu-ray Disc, e-book, audiobook, database, and other document format."""@en;
 	rdfs:subClassOf org:CulturalHeritageInstitution.
 
+org:Archive
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
+	a rdfs:Class;
+	rdfs:label "archive"@en, "Archiv"@de, "archive"@fr, "archivio"@it;
+	rdfs:comment """Organization having a role of systematic collection, preservation, care and making accessible files, records and documents on different information carriers. There are state archives which document the activities of the administration of the state, or there are archives that collect documents on specific topics - f.e. Social Archive or Women's Archive."""@en;
+	rdfs:subClassOf org:CulturalHeritageInstitution.
+
 org:MasonicLodge
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
@@ -145,7 +152,7 @@ org:MasonicLodge
 org:hasNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:DatatypeProperty;
-	rdfs:label "person organization has name literal"@en, "Personensorganisation hat Nameliterale"@de;
+	rdfs:label "person organization has name literal"@en, "Personenorganisation hat Namenliteral"@de;
 	rdfs:comment """Relating a person organization to the literal of a name of that organization."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range rdfs:Literal;
@@ -155,7 +162,7 @@ org:actsIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "person organization acts in"@en, "Personensorganisation agiert in"@de;
+	rdfs:label "person organization acts in"@en, "Personenorganisation agiert in"@de;
 	rdfs:comment """Relating a person organization to an action it acts in."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range human:Action;
@@ -165,7 +172,7 @@ org:hasRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "person organization has role"@en, "Personensorganisation hat Rolle"@de;
+	rdfs:label "person organization has role"@en, "Personenorganisation hat Rolle"@de;
 	rdfs:comment """Relating a person organization to a role it has."""@en;
 	rdfs:domain org:Organization;
 	rdfs:range org:Role;
@@ -175,7 +182,7 @@ org:isMemberOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "is member of person organization"@en, "ist Mitglied einer Personensorganisation"@de;
+	rdfs:label "is member of person organization"@en, "ist Mitglied einer Personenorganisation"@de;
 	rdfs:comment """Relating a person to an organization the person is a member of."""@en;
 	rdfs:domain human:Person;
 	rdfs:range org:Organization;
@@ -187,7 +194,7 @@ org:isMemberOfReligiousOrganization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "is member of religious organization"@en, "ist Mitglied einer religiösen Organization"@de;
+	rdfs:label "is member of religious organization"@en, "ist Mitglied einer religiösen Organisation"@de;
 	rdfs:comment """Relating a person to a religious organization the person is a member of."""@en;
 	rdfs:domain org:ReligiousPerson;
 	rdfs:range org:ReligiousOrganization;
@@ -207,7 +214,7 @@ org:isMemberOfCompany
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a owl:ObjectProperty;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "is member of company"@en, "ist Mitglied einer Firme"@de;
+	rdfs:label "is member of company"@en, "ist Mitglied einer Firma"@de;
 	rdfs:comment """Relating a person to a company the person is a member of."""@en;
 	rdfs:domain human:Person;
 	rdfs:range org:Company;

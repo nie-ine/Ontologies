@@ -201,28 +201,28 @@ lingmor:IndicativeMood
 lingmor:InjuncitveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "injunctive mood"@en, "Injunktiv"@de;#tbd: injuctive = ? 
+	rdfs:label "injunctive mood"@en, "Injunktiv"@de; 
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
 lingmor:OptativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "optative mood"@en, "optimistisch"@de;
+	rdfs:label "optative mood"@en, "Opativ"@de;
 	rdfs:comment """Verbal mood indicating wishes."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:PrecativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "precative mood"@en, "Präkativ"@de;#tbd: precative = ? 
+	rdfs:label "precative mood"@en, "Präkativ"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 	
 lingmor:SubjunctiveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
-	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;#tbd: subjunctive = ? 
+	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
 	rdfs:subClassOf lingmor:VerbalMood.
 
@@ -656,7 +656,7 @@ lingmor:Interjection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Interjection
-	rdfs:label "interjection"@en, "Ausdruckspartikel"@de;
+	rdfs:label "interjection"@en, "Interjektion"@de;
 	rdfs:comment """Part of speech designating a spontaneous feeling or reaction."""@en;
 	rdfs:subClassOf lingmor:PartOfSpeech.
 	
@@ -778,7 +778,7 @@ lingmor:hasVerbalVoice
 lingmor:hasVerbalMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
-	rdfs:label "has verbal mood"@en, "hat Modus"@de;#tbd: mood or mode? German translation in case of mood quite difficult.
+	rdfs:label "has verbal mood"@en, "hat Modus"@de;
 	rdfs:comment """Relating a verbform to mood."""@en;
 	rdfs:domain lingmor:SyntacticWordForm;
 	rdfs:range lingmor:VerbalMood.

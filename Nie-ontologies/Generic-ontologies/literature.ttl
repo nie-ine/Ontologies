@@ -183,14 +183,14 @@ literature:VersePoem
 literature:VerseSong
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "verse song"@en, "Verslied"@de, "chanson en vers"@fr, "canzone del verso"@it;
+	rdfs:label "verse song"@en, "Versgesang"@de, "chanson en vers"@fr, "canzone del verso"@it;
 	rdfs:comment """Verse poem as lyrics of a song."""@en, """Versgedicht als Liedtext."""@de;
 	rdfs:subClassOf literature:VersePoem.
 
 literature:VerseSongCollection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "verse song collection"@en, "Versliedsammlung"@de, "collection de chansons en vers"@fr, "raccolta di canzoni versi"@it;
+	rdfs:label "verse song collection"@en, "Versgesangsammlung"@de, "collection de chansons en vers"@fr, "raccolta di canzoni versi"@it;
 	rdfs:comment """Collection of verse songs."""@en;
 	rdfs:subClassOf literature:Expression, creating:Collection.
 
@@ -243,7 +243,7 @@ literature:Novel
 literature:NonfictionNovel
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "nonfiction novel"@en, "sachlicher Roman"@de, "roman de non-fiction"@fr, "romanzo di saggistica"@it;
+	rdfs:label "nonfiction novel"@en, "Sachbuchroman"@de, "roman de non-fiction"@fr, "romanzo di saggistica"@it;
 	rdfs:comment """Narrative nonfiction expression in prose."""@en;
 	rdfs:seeAlso <https://www.britannica.com/art/Nonfiction-novel>;
 	rdfs:subClassOf literature:NonfictionExpression, text-expression:SentenceExpression, [
@@ -330,7 +330,7 @@ literature:Epilogue
 literature:Argument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "argument"@en, "Argument"@de, "argument"@fr, "argomento"@it;#argument = Argument? Argument in German is a reason why you are against or for something in a discussion.
+	rdfs:label "argument"@en, "Argument"@de, "argument"@fr, "argomento"@it;
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-expression:Introduction. # text-expression:Summary.
@@ -369,7 +369,7 @@ literature:anthologyHasExpression
 literature:isVerseSongOfCollection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "is verse song of collection"@en, "ist Verslied einer Sammlung"@de, "est le verset de la collection"@fr, "è il verso della raccolta"@it;
+	rdfs:label "is verse song of collection"@en, "ist Versgesang einer Sammlung"@de, "est le verset de la collection"@fr, "è il verso della raccolta"@it;
 	rdfs:comment """Relating a verse song to the collection it is part of."""@en;
 	rdfs:domain literature:VerseSong;
 	rdfs:range literature:VerseSongCollection;

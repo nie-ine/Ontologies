@@ -155,7 +155,7 @@ concept:Information
 concept:Procedure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "procedure"@en, "Vorgehen"@de;
+	rdfs:label "procedure"@en, "Verfahren"@de;
 	rdfs:comment """Plan to perform an action in one or more steps, in a certain manner to obtain a certain output under certain circumstances."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E29_Design_or_Procedure.
 

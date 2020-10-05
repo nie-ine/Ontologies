@@ -51,7 +51,7 @@ org:Creator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
 	rdfs:label "creator role of organization"@en, "Erstellerrolle einer Organisation"@de;
-	rdfs:comment """Publisher as role of an organization."""@en;
+	rdfs:comment """Creator as role of an organization."""@en;
 	rdfs:subClassOf creating:AgentCreator, org:Role.
 
 org:Administration
@@ -89,7 +89,7 @@ org:Politician
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/organization#>;
-	rdfs:label "politician role"@en, "Rolle eines Politikers"@de;
+	rdfs:label "politician role of person"@en, "Politikerrolle einer Person"@de;
 	rdfs:comment """Occupational role of being professionally involved in politics, especially as a holder of an elected office."""@en;
 	rdfs:subClassOf human:OccupationalRole.
 

@@ -41,35 +41,35 @@
 textedit:AgentEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "text editor"@en, "Text-Editor"@de, "éditeur de texte"@fr, "editor di testo"@it;
+	rdfs:label "text editor"@en, "Texteditor"@de, "éditeur de texte"@fr, "editor di testo"@it;
 	rdfs:comment """Role of a human agent—person or organization—changing a text."""@en;
 	rdfs:subClassOf creating:AgentCreator.
 
 textedit:PersonEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "person-text editor"@en, "Person-Text-Editor"@de, "personne - éditeur de texte"@fr, "persona - editor di testo"@it;
+	rdfs:label "text editor role of person"@en, "Texteditorrolle einer Person"@de, "personne - éditeur de texte"@fr, "persona - editor di testo"@it;
 	rdfs:comment """Role of a person changing a text."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 textedit:OrganizationEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "organization-text editor"@en, "Organisation-Text-Editor"@de, "organisation-éditeur de texte"@fr, "organizzazione-editor di testo"@it;
+	rdfs:label "text editor role of organization"@en, "Texteditorrolle einer Organisation"@de, "organisation-éditeur de texte"@fr, "organizzazione-editor di testo"@it;
 	rdfs:comment """Role of an organization changing a text."""@en;
 	rdfs:subClassOf org:Creator.
 
 textedit:Edition # = edited text
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "text edition"@en, "Text-Edition"@de, "édition de texte"@fr, "edizione testuale"@it;
+	rdfs:label "text edition"@en, "Textedition"@de, "édition de texte"@fr, "edizione testuale"@it;
 	rdfs:comment """Changed text as a result of editing."""@en;
 	rdfs:subClassOf text:Text. # creating:CreationVersion
 
 textedit:EditorialDirector
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "editorial director"@en, "Redaktionsdirektor"@de, "directeur éditorial"@fr, "direttore editoriale"@it;
+	rdfs:label "editorial director"@en, "Redaktionsleiter"@de, "directeur éditorial"@fr, "direttore editoriale"@it;
 	rdfs:comment """Role of a person supervising editors, overseeing one or more editions to be published (e.g. book, magazine, website), ensuring they bear an overarching organization's vision, share certain qualities and assure them."""@en;
 	rdfs:seeAlso <https://work.chron.com/editorial-director-21903.html#:~:text=In%20the%20case%20of%20a,and%20authors%20editors%20have%20chosen>;
 	rdfs:subClassOf human:PersonRole.
@@ -77,7 +77,7 @@ textedit:EditorialDirector
 textedit:Revisor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "text revisor"@en, "Text-Revisor"@de, "réviseur de texte"@fr, "revisore del testo"@it;
+	rdfs:label "text revisor"@en, "Textüberprüfer"@de, "réviseur de texte"@fr, "revisore del testo"@it;
 	rdfs:comment """Role of a person revising a text."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
@@ -91,7 +91,7 @@ textedit:Revision
 textedit:Recension
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "recension"@en, "Rezension"@de, "révision"@fr, "recensione"@it;
+	rdfs:label "recension"@en, "Revision"@de, "révision"@fr, "recensione"@it;
 	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
 	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_r.aspx>;
 	rdfs:subClassOf textedit:Revision.
@@ -113,7 +113,7 @@ textedit:Glossator
 textedit:Abbreviator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a rdfs:Class;
-	rdfs:label "abbreviator"@en, "KurzfasserIn"@de, "abbreviator"@la, "abréviateur"@fr, "abbreviator"@it;
+	rdfs:label "abbreviator"@en, "Kurzfasser"@de, "abbreviator"@la, "abréviateur"@fr, "abbreviator"@it;
 	rdfs:comment """Editor shortening a text."""@en;
 	rdfs:subClassOf textedit:PersonEditor.
 
@@ -168,7 +168,7 @@ textedit:hasEditor
 textedit:hasEditorialDirector
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "edition has editorial director"@en, "Edition hat Redaktionsdirektor"@de, "l'édition a directeur éditorial"@fr, "edizione ha direttore editoriale"@it;
+	rdfs:label "edition has editorial director"@en, "Edition hat Redaktionsleiter"@de, "l'édition a directeur éditorial"@fr, "edizione ha direttore editoriale"@it;
 	rdfs:comment """Relating an edition to its editorial director."""@en;
 	rdfs:domain textedit:Edition;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:EditorialDirector]].
@@ -184,7 +184,7 @@ textedit:hasEdition
 textedit:hasSameEditionAs
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has same edition as"@en, "hat gleiche Edition als"@de, "a la même édition que"@fr, "ha la stessa edizione di"@it;
+	rdfs:label "has same edition as"@en, "hat dieselbe Edition als"@de, "a la même édition que"@fr, "ha la stessa edizione di"@it;
 	rdfs:comment """Relating two texts with a same edition."""@en;
 	rdfs:domain text:Text;
 	rdfs:range text:Text.
@@ -192,7 +192,7 @@ textedit:hasSameEditionAs
 textedit:hasRevisor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "text revision has revisor"@en, "Textprüfung hat Revisor"@de, "la révision du texte a un réviseur"@fr, "la revisione del testo ha un revisore"@it;
+	rdfs:label "text revision has revisor"@en, "Textprüfung hat Überprüfer"@de, "la révision du texte a un réviseur"@fr, "la revisione del testo ha un revisore"@it;
 	rdfs:comment """Relating a text revision to a person who created it."""@en;
 	rdfs:domain textedit:Revision;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
@@ -224,7 +224,7 @@ textedit:hasDerivedTextExpression
 textedit:hasAbbreviator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de, "a un abréviateur"@fr, "ha abbreviatore"@it;
+	rdfs:label "has abbreviator"@en, "hat Kurzfasser"@de, "a un abréviateur"@fr, "ha abbreviatore"@it;
 	rdfs:comment """Relating an abbreviation to a person who created it."""@en;
 	rdfs:domain textedit:Abbreviation;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Abbreviator]].

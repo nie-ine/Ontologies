@@ -83,7 +83,7 @@ tcs:oai
 tcs:hasHexadecimalColorCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has hexadecimal color code value"@en, "hat hexadezimaler Farbcodewert"@de;
+	rdfs:label "has hexadecimal color code value"@en, "hat hexadezimalen Farbcodewert"@de;
 	rdfs:comment "Relating a resource to a hexadecimal color code value."@en;
 	skos:note """example:page1 tcs:hasHexadecimalColorCodeValue "000000"^^tcs:hexadecimalColor."""@en;
 	rdfs:domain rdfs:Resource;

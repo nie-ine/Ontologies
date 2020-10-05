@@ -176,6 +176,8 @@ event:isOutputOf
 	rdfs:domain event:Output;
 	rdfs:range event:Process.
 
+
+
 event:isOutputOfAction
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;
@@ -197,9 +199,10 @@ event:outputInvolvesRole
 	a owl:ObjectProperty;
 	rdfs:label "output involves role"@en, "Output involviert Rolle"@de;
 	rdfs:comment """Relating an output of an action to a role it involves."""@en;
+	skos:example """The output 'edition' of the procedure 'editing' involves the 'editor' role of one or more agents."""@en;
 	rdfs:domain event:Output;
 	rdfs:range agent:Role;
-	owl:propertyChainAxiom (event:isOutputOfAction event:involvesRole).
+	owl:propertyChainAxiom (event:isOutputOfAction event:actionInvolvesRole).
 
 event:hasStage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;

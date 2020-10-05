@@ -323,7 +323,7 @@ publish:isReviewOf
 publish:hasPublishingState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has publishing state"@en, "hat Publikationszustand"@de, "a un état de publication"@fr, "ha uno stato editoriale"@it;
+	rdfs:label "has publishing state"@en, "hat Publizierungszustand"@de, "a un état de publication"@fr, "ha uno stato editoriale"@it;
 	rdfs:comment """Relating an expression to a publishing state it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:PublishingState;
@@ -332,7 +332,7 @@ publish:hasPublishingState
 publish:hasPublishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has publishing"@en, "hat Herausgeber"@de, "ha editoria"@it; #""@fr; ?  
+	rdfs:label "has publishing"@en, "hat Publizieren"@de, "ha editoria"@it; #""@fr; ?  
 	rdfs:comment """Relating an expression to its publishing."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:Publishing;
@@ -608,7 +608,7 @@ publish:isSerialIssueOfVolume
 publish:serialVolumeHasExistence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "serial volume has publishing existence"@en, "Serienband hat Publikationsexistenz"@de, "volume série a existence de publier"@fr, "volume seriale ha esistenza del Pubblicare"@it;
+	rdfs:label "serial volume has publishing existence"@en, "Serienband hat Publizierungsexistenz"@de, "volume série a existence de publier"@fr, "volume seriale ha esistenza del Pubblicare"@it;
 	rdfs:comment """Relating a serial volume to its publishing existence."""@en;
 	rdfs:domain publish:SerialVolume;
 	rdfs:range publish:SerialVolumeExistence;

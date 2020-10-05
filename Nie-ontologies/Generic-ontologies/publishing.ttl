@@ -358,7 +358,7 @@ publish:hasElectronicPublication
 publish:hasWebPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has web publication"@en, "hat Web-Publikation"@de, "a une publication web"@fr, "ha una pubblicazione web"@it;
+	rdfs:label "has web publication"@en, "hat Webpublikation"@de, "a une publication web"@fr, "ha una pubblicazione web"@it;
 	rdfs:comment """Relating an expression to a web publication it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range publish:WebPublication;

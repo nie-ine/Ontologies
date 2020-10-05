@@ -189,14 +189,14 @@ scholarly-editing:Siglum
 scholarly-editing:Apparatus
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus"@en, "textkritischer Apparat"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
+	rdfs:label "editing apparatus"@en, "editorischer Apparat"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
 	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:ApparatusEntry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus entry"@en, "Eintrag im textkritischen Apparat"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
+	rdfs:label "editing apparatus entry"@en, "Eintrag in editorischem Apparat"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
 	rdfs:comment """Entry of an editing apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
@@ -310,7 +310,7 @@ scholarly-editing:Emendation
 scholarly-editing:Variant
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "variant"@en, "Variant"@de, "variante"@fr, "variante"@it;
+	rdfs:label "variant"@en, "Variante"@de, "variante"@fr, "variante"@it;
 	rdfs:comment """Reading in a critical apparatus entry, judged by an editor to be unsatisfactory for linguistic and/or stylistic reasons, but of interest for establishing the text, and as such varying from what the editor has judged to be the lemma."""@en;
 	skos:note """Absence in a witness of respective part is commented."""@en;
 	rdfs:subClassOf scholarly-editing:Reading.
@@ -318,7 +318,7 @@ scholarly-editing:Variant
 scholarly-editing:EditorialComment
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editorial comment"@en, "editorische Kommentar"@de, "commentaire éditorial"@fr, "commento editoriale"@it; 
+	rdfs:label "editorial comment"@en, "editorischer Kommentar"@de, "commentaire éditorial"@fr, "commento editoriale"@it; 
 	rdfs:comment """Comment in a scholarly edition."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure.
 
@@ -346,7 +346,7 @@ scholarly-editing:hasEditionPage
 scholarly-editing:hasEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftliche Editor"@de, "édition scientifique a un éditeur scientifique"@fr, "edizione accademica ha un editore accademico"@it;
+	rdfs:label "scholarly edition has scholarly editor"@en, "wissenschaftliche Edition hat wissenschaftlichen Editor"@de, "édition scientifique a un éditeur scientifique"@fr, "edizione accademica ha un editore accademico"@it;
 	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
 	rdfs:domain scholarly-editing:Edition;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom scholarly-editing:AgentEditor]].
@@ -391,7 +391,7 @@ scholarly-editing:isPageNumberIndicatorOf
 scholarly-editing:isColumnIndicatorOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is column indicator of"@en, "ist Spalteindikator von"@de, "est l'indicateur de colonne de"@fr, "è l'indicatore di colonna di"@it;
+	rdfs:label "is column indicator of"@en, "ist Spaltenindikator von"@de, "est l'indicateur de colonne de"@fr, "è l'indicatore di colonna di"@it;
 	rdfs:comment """Relating a column indicator to its scholarly edition page."""@en;
 	rdfs:domain scholarly-editing:ColumnIndicator;
 	rdfs:range scholarly-editing:Page;
@@ -400,7 +400,7 @@ scholarly-editing:isColumnIndicatorOf
 scholarly-editing:hasDiplomaticTranscription
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Umschrift"@de, "a une transcription diplomatique"@fr, "ha trascrizione diplomatica"@it;
+	rdfs:label "has diplomatic transcription"@en, "hat diplomatische Transkription"@de, "a une transcription diplomatique"@fr, "ha trascrizione diplomatica"@it;
 	rdfs:comment "Relating a text to a diplomatic transcription thereof."@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range scholarly-editing:DiplomaticTranscription;
@@ -409,7 +409,7 @@ scholarly-editing:hasDiplomaticTranscription
 scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Umschrift des Textes auf Seite"@de, "est la transcription diplomatique du texte sur la page"@fr, "è la trascrizione diplomatica del testo sulla pagina"@it;
+	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Transkription eines Textes auf Seite"@de, "est la transcription diplomatique du texte sur la page"@fr, "è la trascrizione diplomatica del testo sulla pagina"@it;
 	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
 	rdfs:domain scholarly-editing:DiplomaticTranscription;
 	rdfs:range infocar:Page.
@@ -426,7 +426,7 @@ scholarly-editing:hasCriticalEdition
 scholarly-editing:hasCriticalEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has critical editor"@en, "hat kritische Editor"@de, "a un éditeur critique"@fr, "ha un editor critico"@it;
+	rdfs:label "has critical editor"@en, "hat kritischen Editor"@de, "a un éditeur critique"@fr, "ha un editor critico"@it;
 	rdfs:comment "Relating a critical edition to a critical editor who created it."@en;
 	rdfs:domain scholarly-editing:CriticalEdition;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom scholarly-editing:CriticalEditor]];
@@ -453,7 +453,7 @@ scholarly-editing:hasSiglum
 scholarly-editing:isSiglumOfEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "îs siglum of scholarly edition"@en, "ist Siglum einer wissenschaftliche Edition"@de, "est us siglum de l'édition scientifique"@fr, "è un siglum dell'edizione accademica"@it;
+	rdfs:label "îs siglum of scholarly edition"@en, "ist Siglum einer wissenschaftlichen Edition"@de, "est us siglum de l'édition scientifique"@fr, "è un siglum dell'edizione accademica"@it;
 	rdfs:comment """Relating a siglum to its scholarly edition."""@en;
 	rdfs:domain scholarly-editing:Siglum;
 	rdfs:range scholarly-editing:Edition;
@@ -480,7 +480,7 @@ scholarly-editing:isEntryOfApparatus
 scholarly-editing:hasApparatusEnteringDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "has apparatus entering date"@en, "hat Apparatuseintragsdatum"@de, "a une date d'entrée d'apparat"@fr, "ha data di entrata dell'apparato"@it;
+	rdfs:label "has apparatus entering date"@en, "hat Apparateintragsdatum"@de, "a une date d'entrée d'apparat"@fr, "ha data di entrata dell'apparato"@it;
 	rdfs:comment """Relating an entry to its date of entering in an apparatus."""@en;
 	rdfs:domain scholarly-editing:ApparatusEntry;
 	rdfs:range xsd:date; #°
@@ -622,7 +622,7 @@ scholarly-editing:lemmaHasReference
 scholarly-editing:lemmaHasVariant
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "lemma has variant"@en, "Lemma hat Variant"@de, "lemme a une variante"@fr, "lemma ha una variante"@it;
+	rdfs:label "lemma has variant"@en, "Lemma hat Variante"@de, "lemme a une variante"@fr, "lemma ha una variante"@it;
 	rdfs:comment """Relating a lemma to a variant it has."""@en;
 	rdfs:domain scholarly-editing:Lemma;
 	rdfs:range scholarly-editing:Variant.
@@ -638,7 +638,7 @@ scholarly-editing:lemmaHasComment
 scholarly-editing:isVariantOfEntry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is variant of apparatus entry"@en, "ist Variant eines Apparateintrages"@de, "est une variante de l'entrée d'apparat"@fr, "è la variante di entrata dell'apparato"@it;
+	rdfs:label "is variant of apparatus entry"@en, "ist Variante eines Apparateintrages"@de, "est une variante de l'entrée d'apparat"@fr, "è la variante di entrata dell'apparato"@it;
 	rdfs:comment """Relating a variant to its critical apparatus entry."""@en;
 	rdfs:domain scholarly-editing:Variant;
 	rdfs:range scholarly-editing:CriticalApparatusEntry;
@@ -647,7 +647,7 @@ scholarly-editing:isVariantOfEntry
 scholarly-editing:variantHasReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "variant has text reference"@en, "Variant hat Textreferenz"@de, "variante a une référence de texte"@fr, "variante ha riferimento al testo"@it;
+	rdfs:label "variant has text reference"@en, "Variante hat Textreferenz"@de, "variante a une référence de texte"@fr, "variante ha riferimento al testo"@it;
 	rdfs:comment """Relating a variant to its text reference."""@en;
 	rdfs:domain scholarly-editing:Variant;
 	rdfs:range document:TextStructureReference;
@@ -656,7 +656,7 @@ scholarly-editing:variantHasReference
 scholarly-editing:variantHasComment
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "variant has comment"@en, "Variant hat Kommentar"@de, "variante a un commentaire"@fr, "variante ha un commento"@it;
+	rdfs:label "variant has comment"@en, "Variante hat Kommentar"@de, "variante a un commentaire"@fr, "variante ha un commento"@it;
 	rdfs:comment """Relating a variant to an editorial comment."""@en;
 	rdfs:domain scholarly-editing:Variant;
 	rdfs:range scholarly-editing:EditorialComment.
@@ -672,7 +672,7 @@ scholarly-editing:isCommentOn
 scholarly-editing:isCommentOfEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is comment of scholarly edition"@en, "ist Kommentar der wissenschaftlichen Edition"@de, "est un commentaire d'une édition scientifique"@fr, "è un commento dell'edizione accademica"@it;
+	rdfs:label "is comment of scholarly edition"@en, "ist Kommentar einer wissenschaftlichen Edition"@de, "est un commentaire d'une édition scientifique"@fr, "è un commento dell'edizione accademica"@it;
 	rdfs:comment """Relating an editorial comment to its scholarly edition."""@en;
 	rdfs:domain scholarly-editing:EditorialComment;
 	rdfs:range scholarly-editing:Edition;
@@ -699,7 +699,7 @@ scholarly-editing:commentHasReference
 scholarly-editing:commentHasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a owl:DatatypeProperty;
-	rdfs:label "editorial comment has content literal"@en, "editorischer Kommentar hat Inhaltliterale"@de; #, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;
+	rdfs:label "editorial comment has content literal"@en, "editorischer Kommentar hat Inhaltliteral"@de; #, "le commentaire éditorial a le contenu"@fr, "il commento editoriale ha contenuto"@it;
 	rdfs:comment """Relating an editorial comment to its content literal."""@en;
 	rdfs:domain scholarly-editing:EditorialComment;
 	rdfs:range rdfs:Literal;

@@ -29,7 +29,7 @@ philos:Albertism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
-	rdfs:label "Albertism"@en;
+	rdfs:label "Albertism"@en, "Albertismus"@de;
 	rdfs:comment """Philosophy and theology based on the ideas of Albertus Magnus (before 1200 - 1280-11-15)."""@en;
 	rdfs:subClassOf philo:Philosophy. # :Theology
 
@@ -37,7 +37,7 @@ philos:Humanism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
-	rdfs:label "Humanism"@en;
+	rdfs:label "Humanism"@en, "Humanismus"@de;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf philo:Philosophy.
 
@@ -45,7 +45,7 @@ philos:Nominalism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
-	rdfs:label "Nominalism"@en;
+	rdfs:label "Nominalism"@en, "Nominalismus"@de;
 	rdfs:comment """Philosophy stating that only individual things exist, denying the existence of universals and abstract objects."""@en;
 	rdfs:subClassOf philo:Metaphysics.
 
@@ -53,7 +53,7 @@ philos:Scotism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
-	rdfs:label "Scotism"@en;
+	rdfs:label "Scotism"@en, "Skotismus"@de;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf philo:Philosophy.
 
@@ -61,7 +61,7 @@ philos:Thomism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
-	rdfs:label "Thomism"@en;
+	rdfs:label "Thomism"@en, "Thomismus"@de;
 	rdfs:comment """Philosophy based on the work of Thomas Aquinas (1225 - 1274-O3-O7)."""@en;
 	rdfs:subClassOf philo:Philosophy. # :Theology
 

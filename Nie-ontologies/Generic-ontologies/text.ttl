@@ -49,7 +49,7 @@ text:Text
 text:ContentNature
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "text content nature"@en, "textinhaltliche Art"@de, "Nature du contenu du texte"@fr , "Natura del contenuto del testo"@it;
+	rdfs:label "text content nature"@en, "textinhaltliche Natur"@de, "Nature du contenu du texte"@fr , "Natura del contenuto del testo"@it;
 	rdfs:comment """Nature of the content of a text."""@en;
 	rdfs:subClassOf text:Text.
 
@@ -78,7 +78,7 @@ text:Developing
 text:SurfaceText
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "surface text"@en, "Flächetext"@de, "texte surfacique"@fr, "testo superficiale"@it;
+	rdfs:label "surface text"@en, "Oberflächentext"@de, "texte surfacique"@fr, "testo superficiale"@it;
 	rdfs:comment """Text applied to any surface in any way, abstracted from its carrier."""@en;
 	skos:note """Groups written and printed text."""@en;
 	rdfs:subClassOf text:Text.
@@ -128,7 +128,7 @@ text:CopiedText
 text:Transcriber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "text transcriber"@en, "TexttranskribiererIn"@de, "scribe de texte"@fr, "scriba di testo"@it;
+	rdfs:label "text transcriber"@en, "Texttranskribierer"@de, "scribe de texte"@fr, "scriba di testo"@it;
 	rdfs:comment """Role of a person copying a text by writing, creating a transcribed text in a transcript."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
@@ -142,7 +142,7 @@ text:TranscribedText
 text:Scribe
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "scribe"@en, "TextKopist"@de, "scribe"@fr, "scriba"@it, "scribes"@la;
+	rdfs:label "scribe"@en, "Textkopist"@de, "scribe"@fr, "scriba"@it, "scribes"@la;
 	rdfs:comment """Role of a person copying a text by handwriting, creating a transcribed text in a manual transcript."""@en;
 	rdfs:subClassOf text:Transcriber.
 
@@ -156,28 +156,28 @@ text:PhotocopiedText
 text:AgentCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "agent citer"@en, "Agent-Zitierer"@de, "citeur/se comme agent"@fr; # , "... come agente"@it;
+	rdfs:label "citer role of agent"@en, "Zitiererrolle eines Akteurs"@de, "citeur/se comme agent"@fr; # , "... come agente"@it;
 	rdfs:comment """Role of a human agent, person or group, citing a text."""@en;
 	rdfs:subClassOf human:AgentRole.
 
 text:PersonCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "person citer"@en, "Person-ZitiererIn"@de, "citeur/se comme personne"@fr; # , "... come persona"@it;
+	rdfs:label "citer role of person"@en, "Zitiererrolle einer Person"@de, "citeur/se comme personne"@fr; # , "... come persona"@it;
 	rdfs:comment """Citer as role of a person."""@en;
 	rdfs:subClassOf text:AgentCiter, human:PersonRole.
 
 text:GroupCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "group citer"@en, "Gruppe-ZitiererIn"@de, "citeur/se comme groupe"@fr; # , "... come gruppo"@it;
+	rdfs:label "citer role of group"@en, "Zitiererrolle einer Gruppe"@de, "citeur/se comme groupe"@fr; # , "... come gruppo"@it;
 	rdfs:comment """Citer as role of a group."""@en;
 	rdfs:subClassOf text:AgentCiter, human:GroupRole.
 
 text:OrganizationCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "organization citer"@en, "Organisation-Zitiererin"@de; # , ""@fr, ""@it;
+	rdfs:label "citer role of organization"@en, "Zitiererrolle einer Organisation"@de; # , ""@fr, ""@it;
 	rdfs:comment """Citer as role of an organization."""@en;
 	rdfs:subClassOf text:GroupCiter, org:Role.
 
@@ -199,7 +199,7 @@ text:Citation
 text:CitationSourceReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "citation source reference"@en, "Zitatquellereferenz"@de, "référence de la source de citation"@fr, "riferimento alla fonte di citazione"@it;
+	rdfs:label "citation source reference"@en, "Zitatquellenreferenz"@de, "référence de la source de citation"@fr, "riferimento alla fonte di citazione"@it;
 	rdfs:comment """Reference of a citation to the source text via the text identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 
@@ -220,21 +220,21 @@ text:CitationNumber
 text:Normalization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "text normalization"@en, "Textnormalisation"@de, "normalisation du texte"@fr, "normalizzazione del testo"@it;
+	rdfs:label "text normalization"@en, "Textnormalisierung"@de, "normalisation du texte"@fr, "normalizzazione del testo"@it;
 	rdfs:comment """Derivative of a text of which it is a normalization along a certain procedure."""@en;
 	rdfs:subClassOf text:Text, creating:CreationDerivative.
 
 text:Compiler
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "compiler"@en, "Kompilator"@de, "compilator"@la, "compilateur"@fr, "compilatore"@it;
+	rdfs:label "compiler"@en, "Kompilierer"@de, "compilator"@la, "compilateur"@fr, "compilatore"@it;
 	rdfs:comment """Role of a person assembling texts to a new whole."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
 text:CompiledText
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "compiled text"@en, "zusammengestellte Text"@de, "texte compilé"@fr, "testo compilato"@it;
+	rdfs:label "compiled text"@en, "kompilierter Text"@de, "texte compilé"@fr, "testo compilato"@it;
 	rdfs:comment """Text assembled from previously separate texts."""@en;
 	rdfs:subClassOf text:Text.
 
@@ -252,7 +252,7 @@ text:Translation
 text:characterSize
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Datatype;
-	rdfs:label "character size datatype"@en;
+	rdfs:label "character size datatype"@en, "Zeichengrössendatentyp"@de;
 	rdfs:comment """Datatype to type a character literal's size."""@en;
 	skos:note """E.g. “10”^^sa:characterSize. Used in combination with other other character features."""@en;
 	rdfs:subClassOf xsd:positiveInteger.
@@ -264,7 +264,7 @@ text:characterSize
 text:hasTextLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has text literal"@en, "hat Textliterale"@de, "a littéral du text"@fr, "ha letterale del testo"@it;
+	rdfs:label "has text literal"@en, "hat Textliteral"@de, "a littéral du text"@fr, "ha letterale del testo"@it;
 	rdfs:comment """Relating a resource to a text literal."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -273,7 +273,7 @@ text:hasTextLiteral
 text:hasNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has name literal"@en, "hat Nameliterale"@de, "a littéral du nom"@fr, "ha letterale del nome"@it;
+	rdfs:label "has name literal"@en, "hat Namenliteral"@de, "a littéral du nom"@fr, "ha letterale del nome"@it;
 	rdfs:comment """Relating a resource to a name literal as a textual appelation of the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -282,7 +282,7 @@ text:hasNameLiteral
 text:hasPreferredNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has preferred name literal"@en, "hat bevorzugter Nameliterale"@de, "a littéral du nom préféré"@fr, "ha letterale del nome preferito"@it;
+	rdfs:label "has preferred name literal"@en, "hat bevorzugtes Namenliteral"@de, "a littéral du nom préféré"@fr, "ha letterale del nome preferito"@it;
 	rdfs:comment """Relating a resource to a preferred name literal."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -291,7 +291,7 @@ text:hasPreferredNameLiteral
 text:hasAliasLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has alias literal"@en, "hat Aliasliterale"@de, "a littéral du nom d'emprunt"@fr, "ha letterale del falso nome"@it;
+	rdfs:label "has alias literal"@en, "hat Aliasliteral"@de, "a littéral du nom d'emprunt"@fr, "ha letterale del falso nome"@it;
 	rdfs:comment """Relating a resource to the literal of an alias as an alternative name of the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -300,7 +300,7 @@ text:hasAliasLiteral
 text:hasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has title literal"@en, "hat Titelliterale"@de, "a littéral du titre"@fr, "ha letterale del titolo"@it;
+	rdfs:label "has title literal"@en, "hat Titelliteral"@de, "a littéral du titre"@fr, "ha letterale del titolo"@it;
 	rdfs:comment """Relating a resource to the literal of a title as a textual appelation of the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -309,7 +309,7 @@ text:hasTitleLiteral
 text:hasSubtitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has subtitle literal"@en, "hat Untertitelliterale"@de, "a littéral du sous-titre"@fr, "ha letterale del sottotitolo"@it;
+	rdfs:label "has subtitle literal"@en, "hat Untertitelliteral"@de, "a littéral du sous-titre"@fr, "ha letterale del sottotitolo"@it;
 	rdfs:comment """Relating a resource to the literal of a subtitle as additional, usually explanatory to the title."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -318,7 +318,7 @@ text:hasSubtitleLiteral
 text:hasCommentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has comment literal"@en, "hat Kommentarliterale"@de, "a littéral du commentaire"@fr, "ha letterale del commento"@it;
+	rdfs:label "has comment literal"@en, "hat Kommentarliteral"@de, "a littéral du commentaire"@fr, "ha letterale del commento"@it;
 	rdfs:comment """Relating a resource to the literal of a comment as a textual statement about the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -327,7 +327,7 @@ text:hasCommentLiteral
 text:hasDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has description literal"@en, "hat Beschreibungliterale"@de, "a littéral d'une description"@fr, "ha letterale della descrizione"@it;
+	rdfs:label "has description literal"@en, "hat Beschreibungliteral"@de, "a littéral d'une description"@fr, "ha letterale della descrizione"@it;
 	rdfs:comment """Relating a resource to the literal of a description as a textual statement about features of the resource."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -345,7 +345,7 @@ text:hasDefinitionLiteral
 text:hasDetailDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has detail description literal"@en, "hat Detail-Beschreibungliterale"@de, "a littéral d'une description détaillée"@fr, "ha letterale della descrizione dettagliata"@it;
+	rdfs:label "has detail description literal"@en, "hat Detailbeschreibungliteral"@de, "a littéral d'une description détaillée"@fr, "ha letterale della descrizione dettagliata"@it;
 	rdfs:comment """Relating a resource to the literal of a description of its detail. E.g. in the case of a text a detail can be a passage variant or an emendation"""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -354,7 +354,7 @@ text:hasDetailDescriptionLiteral
 text:hasSpecialDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has special description literal"@en, "hat Besonderes-Beschreibungliterale"@de, "a littéral d'une description spéciale"@fr, "ha letterale della descrizione speciale"@it;
+	rdfs:label "has special description literal"@en, "hat Spezialbeschreibungliteral"@de, "a littéral d'une description spéciale"@fr, "ha letterale della descrizione speciale"@it;
 	rdfs:comment """Relating a resource to the literal of a description of (a) certain feature(s)."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
@@ -363,7 +363,7 @@ text:hasSpecialDescriptionLiteral
 text:isTextOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "is text of document"@en, "ist Text eines Dokumentes"@de, "est le texte du document"@fr, "è il testo del documento"@it;
+	rdfs:label "is text of document"@en, "ist Text eines Dokuments"@de, "est le texte du document"@fr, "è il testo del documento"@it;
 	rdfs:comment "Relating a text to the document it is part of."@en;
 	rdfs:domain text:Text;
 	rdfs:range document:Document;
@@ -372,7 +372,7 @@ text:isTextOfDocument
 text:hasContentNature
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has content nature"@en, "hat textinhaltliche Art"@de, "a une nature de contenu"@fr, "ha natura contenuta"@it;
+	rdfs:label "has content nature"@en, "hat textinhaltliche Natur"@de, "a une nature de contenu"@fr, "ha natura contenuta"@it;
 	rdfs:comment """Relating a text to a content nature it has."""@en;
 	rdfs:domain text:Text;
 	rdfs:range text:ContentNature.
@@ -380,7 +380,7 @@ text:hasContentNature
 text:hasLineOrdinalNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has text line ordinal number"@en, "hat Textzeile-Ordinalzahl"@de, "a nombre ordinal de ligne de texte"@fr, "ha numero ordinale della riga di testo"@it;
+	rdfs:label "has text line ordinal number"@en, "hat Textzeilenordinalzahl"@de, "a nombre ordinal de ligne de texte"@fr, "ha numero ordinale della riga di testo"@it;
 	rdfs:comment """Relating a text to the number of a line of the text."""@en;
 	skos:note """Line as a text structure is linked to its ordnial number with text-structure:lineHasOrdinalNumber."""@en;
 	rdfs:domain text:Text;
@@ -390,7 +390,7 @@ text:hasLineOrdinalNumber
 text:hasVersionIndicator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has version indicator"@en, "hat Version-Indikator"@de, "a un indicateur de version"@fr, "ha un indicatore di versione"@it;
+	rdfs:label "has version indicator"@en, "hat Versionindikator"@de, "a un indicateur de version"@fr, "ha un indicatore di versione"@it;
 	rdfs:comment """Relating a text to a textual element that indicates its version."""@en;
 	rdfs:domain text:Text;
 	rdfs:range rdfs:Literal;
@@ -415,7 +415,7 @@ text:hasNumberOfPages
 text:hasReferenceText
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has reference text"@en, "hat Bezugstext"@de, "a un texte de référence"@fr, "ha un testo di riferimento"@it;
+	rdfs:label "has reference text"@en, "hat Referenztext"@de, "a un texte de référence"@fr, "ha un testo di riferimento"@it;
 	rdfs:comment "Relating a text to another one as its reference."@en;
 	rdfs:domain text:Text;
 	rdfs:range text:Text.
@@ -423,7 +423,7 @@ text:hasReferenceText
 text:hasTranscriber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has transcriber"@en, "hat TranskribiererIn"@de, "a transcripteur"@fr, "ha trascrittore"@it;
+	rdfs:label "has transcriber"@en, "hat Transkribierer"@de, "a transcripteur"@fr, "ha trascrittore"@it;
 	rdfs:comment """Relating a text to a person who transcribed it; text abstracted from its carrier."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Transcriber]].
@@ -448,7 +448,7 @@ text:isCitedBy
 text:hasCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has citer"@en, "hat ZitiererIn"@de, "a un citeur"@fr, "ha un citatore"@it;
+	rdfs:label "has citer"@en, "hat Zitierer"@de, "a un citeur"@fr, "ha un citatore"@it;
 	rdfs:comment """Relating a text to a human agent - person or group - citing in it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
@@ -456,7 +456,7 @@ text:hasCiter
 text:hasPossibleCiter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has possible citer"@en, "hat möglicher Zitierer"@de, "a un citeur possible"@fr, "ha un citatore possibile"@it;
+	rdfs:label "has possible citer"@en, "hat möglichen Zitierer"@de, "a un citeur possible"@fr, "ha un citatore possibile"@it;
 	rdfs:comment """Relating a text to a possible human agent - person or group - citing in it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom text:AgentCiter]].
@@ -500,7 +500,7 @@ text:isCitedIn
 text:isAlludedToIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "is alluded to in"@en, "ist angespielt auf in"@de;
+	rdfs:label "is alluded to in"@en, "wird angedeutet in"@de;
 	rdfs:comment "Relating a text to an expression wherein it is alluded to."@en;
 	rdfs:domain text-structure:Structure;
 	rdfs:range text-expression:Expression;
@@ -530,7 +530,7 @@ text:isPlagiarisedIn
 text:hasEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has editor"@en, "Text hat EditorIn"@de, "le texte a un éditeur"@fr, "il testo ha un editor"@it;
+	rdfs:label "text has editor"@en, "Text hat Editor"@de, "le texte a un éditeur"@fr, "il testo ha un editor"@it;
 	rdfs:comment """Relating a text to a person who edited it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Editor]].
@@ -546,7 +546,7 @@ text:hasHandwriter
 text:citationHasSourceReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "citation has source reference"@en, "Zitat hat Quellereferenz"@de, "la citation a une référence de source"@fr, "citazione ha riferimento alla fonte"@it;
+	rdfs:label "citation has source reference"@en, "Zitat hat Quellenreferenz"@de, "la citation a une référence de source"@fr, "citazione ha riferimento alla fonte"@it;
 	rdfs:comment """Relating a citation to its source reference."""@en;
 	rdfs:domain text:Citation;
 	rdfs:range text:CitationSourceReference;
@@ -591,7 +591,7 @@ text:citationIsPartOf
 text:hasRevisor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has revisor"@en, "Text hat Revisor"@de, "le texte a un réviseur"@fr, "il testo ha un revisore"@it;
+	rdfs:label "text has revisor"@en, "Text hat Überprüfer"@de, "le texte a un réviseur"@fr, "il testo ha un revisore"@it;
 	rdfs:comment """Relating a text to a person who revised it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Revisor]].
@@ -599,7 +599,7 @@ text:hasRevisor
 text:hasAnnotator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has annotator"@en, "Text hat AnnotatorIn"@de, "le texte a un annotateur"@fr, "il testo ha un annotatore"@it;
+	rdfs:label "text has annotator"@en, "Text hat Annotator"@de, "le texte a un annotateur"@fr, "il testo ha un annotatore"@it;
 	rdfs:comment """Relating a text to a person who annotated it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Annotator]].
@@ -615,7 +615,7 @@ text:hasGlossator
 text:hasAbbreviator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "has abbreviator"@en, "hat Abkurzer"@de, "a un abréviateur"@fr, "ha abbreviatore"@it;
+	rdfs:label "has abbreviator"@en, "hat Kurzfasser"@de, "a un abréviateur"@fr, "ha abbreviatore"@it;
 	rdfs:comment """Relating a text to a person who abbreviated it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom textedit:Abbreviator]].
@@ -623,7 +623,7 @@ text:hasAbbreviator
 text:isNormalizationOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "is Normalization of text"@en, "ist Normalisation eines Textes"@de, "est la normalisation du texte"@fr, "è la normalizzazione del testo"@it;
+	rdfs:label "is Normalization of text"@en, "ist Normalisierung eines Textes"@de, "est la normalisation du texte"@fr, "è la normalizzazione del testo"@it;
 	rdfs:comment """Relating a normalized text derivative to its source text."""@en;
 	rdfs:domain text:Normalization;
 	rdfs:range text:Text.
@@ -631,7 +631,7 @@ text:isNormalizationOf
 text:hasCompiler
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;
-	rdfs:label "text has compiler"@en, "Text hat KompilatorIn"@de, "le texte a un compilateur"@fr, "il testo ha un compilatore"@it;
+	rdfs:label "text has compiler"@en, "Text hat Kompilierer"@de, "le texte a un compilateur"@fr, "il testo ha un compilatore"@it;
 	rdfs:comment """Relating a text to a person who compiled it."""@en;
 	rdfs:domain text:Text;
 	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom text:Compiler]].

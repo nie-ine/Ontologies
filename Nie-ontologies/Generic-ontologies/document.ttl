@@ -147,7 +147,7 @@ document:EndnoteReference
 document:ExpressionReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression reference"@en, "Dokumentausdruckreferenz"@de;
+	rdfs:label "document expression reference"@en, "Dokumentexpressionsreferenz"@de;
 	rdfs:comment """Document structure referring from a document content structure to a document expression identifier, e.g. a siglum."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
@@ -205,21 +205,21 @@ document:Table
 document:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression"@en, "Dokumentausdruck"@de;
+	rdfs:label "document expression"@en, "Dokumentexpression"@de;
 	rdfs:comment """Document realisation of a work, based on FRBRoo, e.g. a text, story, poem, play, musical, song, joke, choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of them, having an objectively recognisable structure."""@en;
 	rdfs:subClassOf document:Document, frbroo:F2_Expression.
 
 document:IndividualExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "individual document expression"@en, "individueller Dokumentausdruck"@de;
+	rdfs:label "individual document expression"@en, "individuelle Dokumentexpression"@de;
 	rdfs:comment """Document realisation of an individual work."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F22_Self-Contained_Expression.
 
 document:ExpressionPart
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression part"@en, "Dokumentausdruckteil"@de;
+	rdfs:label "document expression part"@en, "Dokumentexpressionsteil"@de;
 	rdfs:comment """Part of an individual document expression, considered as incomplete."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F23_Expression_Fragment.
 
@@ -233,14 +233,14 @@ document:Draft
 document:PolyAuthorExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "poly-author document expression"@en, "Mehrautorendokumentausdruck"@de;
+	rdfs:label "poly-author document expression"@en, "Mehrautorendokumentexpression"@de;
 	rdfs:comment """Document expression by different authors."""@en;
 	rdfs:subClassOf document:Expression.
 
 document:ExpressionIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "document expression identifier"@en, "Dokumentausdruckidentifikator"@de;
+	rdfs:label "document expression identifier"@en, "Dokumentexpressionsidentifikator"@de;
 	rdfs:comment """Identifier of a document expression."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
@@ -273,7 +273,7 @@ document:CompleteWorks
 document:Cycle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "expression cycle"@en, "Ausdruckzyklus"@de;
+	rdfs:label "expression cycle"@en, "Expressionszyklus"@de;
 	rdfs:comment """Set of individual document expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 	rdfs:subClassOf document:Set.
 
@@ -448,7 +448,7 @@ document:contentStructureHasEndnoteReference
 document:contentStructureHasExpressionReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "document content structure has expression reference"@en, "Dokumentinhaltstruktur hat Ausdruckreferenz"@de;
+	rdfs:label "document content structure has expression reference"@en, "Dokumentinhaltstruktur hat Expressionsreferenz"@de;
 	rdfs:comment """Relating a document content structure to an expression reference it has."""@en;
 	rdfs:domain document:ContentStructure;
 	rdfs:range document:ExpressionReference.
@@ -518,7 +518,7 @@ document:isColumnOfPage
 document:isPageOfExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is page of document expression"@en, "ist Seite eines Dokumentausdrucks"@de;
+	rdfs:label "is page of document expression"@en, "ist Seite einer Dokumentexpression"@de;
 	rdfs:comment """Relating a document page to a document expression it is part of."""@en;
 	rdfs:domain document:Page;
 	rdfs:range document:Expression;
@@ -564,7 +564,7 @@ document:isTableOfColumn
 document:expressionHasIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "expression has identifier"@en, "Ausdruck hat Identifikator"@de;
+	rdfs:label "expression has identifier"@en, "Expression hat Identifikator"@de;
 	rdfs:comment """Relating a document expression to its identifier."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range document:ExpressionIdentifier;
@@ -573,7 +573,7 @@ document:expressionHasIdentifier
 document:expressionHasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has title literal"@en, "Ausdruck hat Titelliteral"@de;
+	rdfs:label "expression has title literal"@en, "Expression hat Titelliteral"@de;
 	rdfs:comment """Relating an expression to its title literal."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
@@ -582,7 +582,7 @@ document:expressionHasTitleLiteral
 document:expressionHasSubtitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:DatatypeProperty;
-	rdfs:label "expression has subtitle literal"@en, "Ausdruck hat Untertitelliteral"@de;
+	rdfs:label "expression has subtitle literal"@en, "Expression hat Untertitelliteral"@de;
 	rdfs:comment """Relating an expression to a subtitle literal it has."""@en;
 	rdfs:domain document:Expression;
 	rdfs:range rdfs:Literal;
@@ -591,7 +591,7 @@ document:expressionHasSubtitleLiteral
 document:isExpressionOfCycle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is expression of cycle"@en, "ist Ausdruck eines Zyklus"@de;
+	rdfs:label "is expression of cycle"@en, "ist Expression eines Zyklus"@de;
 	rdfs:comment """Relating an individual expression to a cycle it is part of."""@en;
 	rdfs:domain document:IndividualExpression;
 	rdfs:range document:Cycle;
@@ -600,7 +600,7 @@ document:isExpressionOfCycle
 document:isPartOfIndividualExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "is part of individual expression"@en, "ist Teil eines individuellen Ausdrucks"@de;
+	rdfs:label "is part of individual expression"@en, "ist Teil einer individuellen Expression"@de;
 	rdfs:comment """Relating an expression part to an individual expression it is part of."""@en;
 	rdfs:domain document:ExpressionPart;
 	rdfs:range document:IndividualExpression;
@@ -609,7 +609,7 @@ document:isPartOfIndividualExpression
 document:expressionReferenceHasIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a owl:ObjectProperty;
-	rdfs:label "expression reference has identifier"@en, "Ausdruckreferenz hat Identifikator"@de;
+	rdfs:label "expression reference has identifier"@en, "Expressionsreferenz hat Identifikator"@de;
 	rdfs:comment """Relating a document expression reference to its identifier."""@en;
 	rdfs:domain document:ExpressionReference;
 	rdfs:range document:ExpressionIdentifier;

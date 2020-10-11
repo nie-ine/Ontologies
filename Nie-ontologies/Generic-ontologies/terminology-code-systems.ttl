@@ -26,7 +26,7 @@
 tcs:ColorCodingSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class;
-	rdfs:label "color coding system"@en;
+	rdfs:label "color coding system"@en, "Farbcodesystem"@de;
 	rdfs:comment """System to code colors."""@en;
 	rdfs:subClassOf concept:CodingSystem.
 
@@ -37,7 +37,7 @@ tcs:ColorCodingSystem
 tcs:hexadecimalColorCodingSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, tcs:ColorCodingSystem;
-	rdfs:label "hexadecimal color coding system"@en;
+	rdfs:label "hexadecimal color coding system"@en, "hexadezimales Farbcodesystem"@de;
 	rdfs:comment """Color coding system to represent a color with a hex triplet or six-digit, three-byte hexadecimal number. The bytes represent the red, green and blue components of the color. Used in HTML, CSS, SVG, and other computing applications."""@en;
 	concept:codingSystemHasDatatype tcs:hexadecimalColor;
 	rdfs:seeAlso <https://en.wikipedia.org/wiki/Web_colors>.
@@ -45,7 +45,7 @@ tcs:hexadecimalColorCodingSystem
 tcs:gndSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, concept:CodingSystem;
-	rdfs:label "GND-system"@en;
+	rdfs:label "GND-system"@en, "GND-System"@de;
 	rdfs:comment """The Integrated Authority File (in German Gemeinsame Normdatei, GND) is an authority file for persons, corporate bodies, conferences and events, geographic information, topics and works."""@en;
 	concept:codingSystemHasDatatype tcs:gnd;
 	rdfs:seeAlso <https://www.dnb.de/EN/Standardisierung/GND/gnd_node.html>.
@@ -53,7 +53,7 @@ tcs:gndSystem
 tcs:oaiSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, concept:CodingSystem;
-	rdfs:label "OAI-system"@en;
+	rdfs:label "OAI-system"@en, "OAI-System"@de;
 	rdfs:comment """The Open Archives Initiative."""@en;
 	concept:codingSystemHasDatatype tcs:oai;
 	rdfs:seeAlso <https://www.openarchives.org/>.
@@ -61,19 +61,19 @@ tcs:oaiSystem
 tcs:hexadecimalColor #° OR color:hexadecimal
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "hexadecimal color datatype"@en;
+	rdfs:label "hexadecimal color datatype"@en, "hexadezimaler Farbdatentyp"@de;
 	rdfs:comment """Datatype to type a literal representing a hexadecimal color code."""@en.
 
 tcs:gnd
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "GND-datatype"@en;
+	rdfs:label "GND-datatype"@en, "GND-Datentyp"@de;
 	rdfs:comment """Datatype to type a GND-number numeral."""@en.
 
 tcs:oai
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "OAI-datatype"@en;
+	rdfs:label "OAI-datatype"@en, "OAI-Datentyp"@de;
 	rdfs:comment """Datatype to type an OAI-identifier literal."""@en.
 
 #
@@ -83,7 +83,7 @@ tcs:oai
 tcs:hasHexadecimalColorCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has hexadecimal color code value"@en, "hat hexadezimaler Farbekodewert"@de;
+	rdfs:label "has hexadecimal color code value"@en, "hat hexadezimalen Farbcodewert"@de;
 	rdfs:comment "Relating a resource to a hexadecimal color code value."@en;
 	skos:note """example:page1 tcs:hasHexadecimalColorCodeValue "000000"^^tcs:hexadecimalColor."""@en;
 	rdfs:domain rdfs:Resource;

@@ -182,7 +182,7 @@ sa:AcuteAccentTag
 sa:LinePlaceTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "line place stand-off tag"@en, "Linieplatz-Stand-off-Tag"@de;
+	rdfs:label "line place stand-off tag"@en, "Linienort-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's attached line."""@en;
 	rdfs:subClassOf sa:Tag.
 
@@ -218,14 +218,14 @@ sa:LeftLineTag
 sa:RightLineTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "right line stand-off tag"@en, "rechtse Linie-Stand-off-Tag"@de;
+	rdfs:label "right line stand-off tag"@en, "rechte Linie-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's right line."""@en;
 	rdfs:subClassOf sa:LinePlaceTag.
 
 sa:LineOrientationTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "line orientation stand-off tag"@en, "Linieorientierung-Stand-off-Tag"@de;
+	rdfs:label "line orientation stand-off tag"@en, "Linienorientierung-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's line's orientation."""@en;
 	rdfs:subClassOf sa:Tag.
 
@@ -253,7 +253,7 @@ sa:VerticalLineTag
 sa:LineNumberTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "line number stand-off tag"@en, "Linieanzahl-Stand-off-Tag"@de;
+	rdfs:label "line number stand-off tag"@en, "Linienanzahl-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text literal's attached line number."""@en;
 	rdfs:subClassOf sa:Tag.
 
@@ -323,7 +323,7 @@ sa:TitleTag
 sa:HeadingTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "header stand-off tag"@en, "Kopfzeile-Stand-off-Tag"@de;
+	rdfs:label "heading stand-off tag"@en, "Überschrift-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text header literal."""@en;
 	rdfs:subClassOf sa:TextStructureTag.
 
@@ -337,7 +337,7 @@ sa:SectionTag
 sa:ParagraphTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "paragraph stand-off tag"@en, "Paragraf-Stand-off-Tag"@de;
+	rdfs:label "paragraph stand-off tag"@en, "Paragraph-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text paragraph literal."""@en;
 	rdfs:subClassOf sa:TextStructureTag.
 
@@ -383,21 +383,21 @@ sa:UnorderedListTag
 sa:ListElementTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "list element stand-off tag"@en, "Liste-Element-Stand-off-Tag"@de;
+	rdfs:label "list element stand-off tag"@en, "Listenelement-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a text list element literal."""@en;
 	rdfs:subClassOf sa:TextStructureTag.
 
 sa:OrderedListElementTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "ordered list element stand-off tag"@en, "geordnete Liste-Element-Stand-off-Tag"@de;
+	rdfs:label "ordered list element stand-off tag"@en, "geordnetes Listenelement-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating an ordered text list element literal."""@en;
 	rdfs:subClassOf sa:ListElementTag.
 
 sa:UnorderedListElementTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "unordered list element stand-off tag"@en, "ungeordnete Liste-Element-Stand-off-Tag"@de;
+	rdfs:label "unordered list element stand-off tag"@en, "ungeordnetes Listenelement-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating an unordered text list element literal."""@en;
 	rdfs:subClassOf sa:ListElementTag.
 
@@ -411,28 +411,28 @@ sa:CitationTag
 sa:NameTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "name stand-off tag"@en, "Name-Stand-off-Tag"@de;
+	rdfs:label "name stand-off tag"@en, "Namen-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a name literal."""@en;
 	rdfs:subClassOf sa:Tag.
 
 sa:PersonNameTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "person name stand-off tag"@en, "Personenname-Stand-off-Tag"@de;
+	rdfs:label "person name stand-off tag"@en, "Personennamen-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a person name literal."""@en;
 	rdfs:subClassOf sa:NameTag.
 
 sa:FamilyNameTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "family name stand-off tag"@en, "Nachname-Stand-off-Tag"@de;
+	rdfs:label "family name stand-off tag"@en, "Nachnamen-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a family name literal."""@en;
 	rdfs:subClassOf sa:PersonNameTag.
 
 sa:GivenNameTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "given name stand-off tag"@en, "Vorname-Stand-off-Tag"@de;
+	rdfs:label "given name stand-off tag"@en, "Vornamen-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a given name literal."""@en;
 	rdfs:subClassOf sa:PersonNameTag.
 
@@ -572,7 +572,7 @@ sa:WeatherTag
 sa:CoordinateSetTag
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a rdfs:Class;
-	rdfs:label "coordinate set stand-off tag"@en, "Beschreibung-Stand-off-Tag"@de;
+	rdfs:label "coordinate set stand-off tag"@en, "Koordinatenreihen-Stand-off-Tag"@de;
 	rdfs:comment """Stand-off tag annotating a coordinate set literal."""@en;
 	rdfs:subClassOf sa:Tag.
 
@@ -595,7 +595,7 @@ sa:textHasStandoffAnnotation
 sa:hasStartCharacterOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a owl:DatatypeProperty;
-	rdfs:label "stand-off tag has start character ordinal numeral"@en, "Stand-off-Tag hat Startzeichenordinalnumerale"@de;
+	rdfs:label "stand-off tag has start character ordinal numeral"@en, "Stand-off-Tag hat Startzeichenordinalnumeral"@de;
 	rdfs:comment """Relating a stand-off annotation tag to the start character ordinal numeral of the text literal it tags."""@en;
 	rdfs:domain sa:Tag;
 	rdfs:range xsd:nonNegativeInteger;
@@ -604,7 +604,7 @@ sa:hasStartCharacterOrdinalNumeral
 sa:hasEndCharacterOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a owl:DatatypeProperty;
-	rdfs:label "stand-off tag has end character ordinal numeral"@en, "Stand-off-Tag hat Endzeichenordinalnumerale"@de;
+	rdfs:label "stand-off tag has end character ordinal numeral"@en, "Stand-off-Tag hat Endzeichenordinalnumeral"@de;
 	rdfs:comment """Relating a stand-off annotation tag to the end character ordinal numeral of the text literal it tags."""@en;
 	rdfs:domain sa:Tag;
 	rdfs:range xsd:nonNegativeInteger;
@@ -643,7 +643,7 @@ sa:hasCharacterColorValue
 sa:hasNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a owl:DatatypeProperty;
-	rdfs:label "stand-off tag has name literal"@en, "Stand-off-Tag hat Nameliterale"@de;
+	rdfs:label "stand-off tag has name literal"@en, "Stand-off-Tag hat Namenliteral"@de;
 	rdfs:comment """Relating a stand-off tag to a name literal."""@en;
 	rdfs:domain sa:NameTag;
 	rdfs:range rdfs:Literal;
@@ -652,7 +652,7 @@ sa:hasNameLiteral
 sa:hasColorCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a owl:DatatypeProperty;
-	rdfs:label "stand-off tag has color code value"@en, "Stand-off-Tag hat Farbekodewert"@de;
+	rdfs:label "stand-off tag has color code value"@en, "Stand-off-Tag hat Farbcodewert"@de;
 	rdfs:comment """Relating a stand-off tag to the code of the color of the text literal it tags."""@en;
 	rdfs:domain sa:NameTag;
 	rdfs:range rdfs:Literal.
@@ -712,7 +712,7 @@ sa:hasPerson
 sa:hasPlace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/standoff-annotation#>;
 	a owl:ObjectProperty;
-	rdfs:label "place stand-off tag has person"@en, "Person-Stand-off-Tag hat Person"@de;
+	rdfs:label "place stand-off tag has person"@en, "Ort-Stand-off-Tag hat Person"@de;
 	rdfs:comment """Relating a place stand-off tag to a place described by the text literal it refers to."""@en;
 	rdfs:domain sa:PlaceTag;
 	rdfs:range physical:Place.

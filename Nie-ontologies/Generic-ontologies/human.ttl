@@ -281,7 +281,7 @@ human:Occupation
 human:OccupationalRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "occupational role"@en, "Berufsrolle"@de; #* Tätigkeitsrolle
+	rdfs:label "occupational role"@en, "Berufsrolle"@de;
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:subClassOf human:PersonRole.
 

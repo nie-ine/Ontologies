@@ -105,7 +105,7 @@ language:Translation
 	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
 	rdfs:comment """Human natural language expression transferred from another natural language."""@en;
 	skos:note """Can follow the original to a degree, hence differ from another translation; e.g. a free translation gives a general meaning."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx#translation>;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:PersonTranslation
@@ -126,8 +126,8 @@ language:PartialTranslation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "partial translation"@en, "Teilübersetzung"@de, "traduction partielle"@fr, "traduzione parziale"@it;
-	rdfs:comment """Translation not being a complete transfer from a human natural language expression in another natural language."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:comment """Translation being an incomplete transfer from a human natural language expression in another natural language."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx#translation>;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:Code

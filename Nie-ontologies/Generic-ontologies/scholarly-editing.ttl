@@ -275,7 +275,7 @@ scholarly-editing:Witness
 	a rdfs:Class;
 	rdfs:label "witness text"@en, "Textzeuge"@de, "texte de témoin"@fr, "testo di testimonianza"@it;
 	rdfs:comment """Copy of a text studied in a critical edition, as comparison or proof of existance of the original by looking for features of originality, possibly enabling the original's reconstruction."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_w.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_w.aspx#witness>;
 	rdfs:subClassOf text:CopiedText, text-expression:Expression.
 
 scholarly-editing:Lemma

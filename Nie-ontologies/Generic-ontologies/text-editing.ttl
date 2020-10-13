@@ -93,7 +93,7 @@ textedit:Recension
 	a rdfs:Class;
 	rdfs:label "recension"@en, "Rezension"@de, "révision"@fr, "recensione"@it;
 	rdfs:comment """Critical revision of a text, e.g. a literary classic, i.e. based on a critical examination of earlier texts and authoritative sources, usually undertaken only after a consensus has developed among leading scholars concerning the weight of evidence."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_r.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_r.aspx#recension>;
 	rdfs:subClassOf textedit:Revision.
 
 textedit:Annotator

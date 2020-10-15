@@ -43,14 +43,14 @@ cathord:Order
 cathord:Friar
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
-	rdfs:label "friar role"@en, "Ordensbruder"@de;
+	rdfs:label "friar role"@en, "Ordensbruderrolle"@de;
 	rdfs:comment """Role of a catholic order person."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 cathord:Abbot
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;
 	a rdfs:Class;
-	rdfs:label "abbot role"@en, "Abt"@de;
+	rdfs:label "abbot role"@en, "Abtrolle"@de;
 	rdfs:comment """Role of a friar as the head of a monastery."""@en;
 	rdfs:subClassOf cathord:Friar.
 

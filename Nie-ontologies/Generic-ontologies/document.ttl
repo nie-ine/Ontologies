@@ -185,7 +185,7 @@ document:TitlePage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "title page"@en, "Titelblatt"@de;
-	rdfs:comment """Document page contianing a title."""@en;
+	rdfs:comment """Document page containing a title."""@en;
 	rdfs:subClassOf document:Page.
 
 document:Marginal
@@ -259,7 +259,7 @@ document:CitationBibliographicReference
 	rdfs:label "citation bibliographic reference"@en, "bibliographische Referenz eines Zitats"@de; # , "référence bibliographique"@fr, "riferimenti bibliografici"@it;
 	rdfs:comment """All information, structured along certain composition rules, to identify a text expression part as citation of a part of another text expression, the latter being published or not. """@en;
 	skos:note """There is not 1 canonical way to write a citation bibliographic reference"""@en;
-	rdfs:subClassOf text-structure:ContentStructure.
+	rdfs:subClassOf document:BibliographicReference.
 
 #° document:Witness
 
@@ -287,7 +287,7 @@ document:Catalogue
 document:Encoder
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "encoder"@en, "Codierer"@de, "codeur"@fr, "codificatore"@it;
+	rdfs:label "encoder role"@en, "Codiererrolle"@de, "rôle de codeur"@fr, "ruolo di codificatore"@it;
 	rdfs:comment """Role of a person converting a document into code, e.g. from text to XML."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 

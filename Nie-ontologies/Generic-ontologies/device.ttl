@@ -79,11 +79,11 @@ device:ElectronicComputer
 	rdfs:comment """Computer also being an electronic machine."""@en;
 	rdfs:subClassOf device:Computer, device:ElectronicMachine.
 
-device:DigitalComputer #°
+device:DigitalComputer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "digital computer"@en, "digitaler Rechner"@de;
-	rdfs:comment """Computer ...."""@en; #°
+	rdfs:comment """Computer using digital software and data to perform a task."""@en;
 	rdfs:subClassOf device:Computer.
 
 device:DigitalElectronicComputer

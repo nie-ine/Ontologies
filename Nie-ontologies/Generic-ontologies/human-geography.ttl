@@ -61,7 +61,7 @@ humgeo:SovereignState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "sovereign state"@en, "Souveränstaat"@de;
-	rdfs:comment """Political organization of a nation with an own government."""@en;
+	rdfs:comment """Political organization of a sovereign state with an own government."""@en;
 	rdfs:subClassOf humgeo:State.
 
 
@@ -69,7 +69,7 @@ humgeo:FederalState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "federal state"@en, "Bundesstaat"@de;
-	rdfs:comment """Political organization of a nation with an own government."""@en;
+	rdfs:comment """Political organization of a federal state with an own government."""@en;
 	rdfs:subClassOf humgeo:State.
 
 humgeo:Government

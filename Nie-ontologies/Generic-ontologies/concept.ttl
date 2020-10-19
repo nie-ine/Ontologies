@@ -26,6 +26,7 @@
 	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and archive computer scientist, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -162,7 +163,7 @@ concept:Procedure
 concept:ThoughtMethod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "thought method"@en, "Methode des Denkens"@de;
+	rdfs:label "thought method"@en, "Denkmethode"@de;
 	rdfs:comment """Way of analysing facts to form a judgment."""@en;
 	rdfs:subClassOf concept:Information.
 
@@ -173,7 +174,7 @@ concept:ThoughtMethod
 concept:isPartOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:TransitiveProperty;
-	rdfs:label "is part of conceptual entity"@en, "ist Teil einer symbolischen Entität"@de;
+	rdfs:label "is part of conceptual entity"@en, "ist Teil einer konzeptuellen Entität"@de;
 	rdfs:comment "Relating a conceptual entity to another one it is part of."@en;
 	rdfs:domain concept:ConceptualEntity;
 	rdfs:range concept:ConceptualEntity;

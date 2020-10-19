@@ -71,7 +71,7 @@ agent:OrganizationRole
 agent:Creator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "creator"@en, "Ersteller"@de;
+	rdfs:label "creator role"@en, "Erstellerrolle"@de;
 	rdfs:comment """Role of an agent creating something."""@en;
 	skos:note """Does not need to be a person."""@en;
 	rdfs:subClassOf agent:Role.
@@ -79,7 +79,7 @@ agent:Creator
 agent:User
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/agent#>;
 	a rdfs:Class;
-	rdfs:label "user"@en, "Benutzer"@de;
+	rdfs:label "user role"@en, "Benutzerrolle"@de;
 	rdfs:comment """Role of an agent taking something into service or applying for a purpose."""@en;
 	skos:note """Does not need to be a person."""@en;
 	rdfs:subClassOf agent:Role.

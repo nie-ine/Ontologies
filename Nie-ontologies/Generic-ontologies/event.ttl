@@ -98,7 +98,7 @@ event:Staging
 	a rdfs:Class;
 	rdfs:label "staging"@en, "Etappierung"@de;
 	rdfs:comment """Determining the extent of a process."""@en;
-	rdfs:subClassOf event:Process.
+	rdfs:subClassOf event:Action.
 
 event:Intent
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;

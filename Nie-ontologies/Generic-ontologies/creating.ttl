@@ -60,7 +60,7 @@ creating:PersonAuthor
 creating:Creating 
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creating"@en, "erstellen"@de; 
+	rdfs:label "creating"@en, "Erstellen"@de; 
 	rdfs:comment """Creating as a person-action."""@en;
 	rdfs:subClassOf human:Action, event:Creating.
 

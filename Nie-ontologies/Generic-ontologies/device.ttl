@@ -84,7 +84,7 @@ device:DigitalComputer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/device#>;
 	a rdfs:Class;
 	rdfs:label "digital computer"@en, "digitaler Rechner"@de;
-	rdfs:comment """Computer using digital software and data to perform a task."""@en;
+	rdfs:comment """Computer using programmed digital instructions."""@en;
 	rdfs:subClassOf device:Computer.
 
 device:DigitalElectronicComputer

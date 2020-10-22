@@ -288,7 +288,7 @@ document:Catalogue
 document:Encoder
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
-	rdfs:label "encoder role"@en, "Codiererrolle"@de, "rôle de codeur"@fr, "ruolo di codificatore"@it;
+	rdfs:label "encoder"@en, "Codierer"@de, "codeur"@fr, "codificatore"@it;
 	rdfs:comment """Role of a person converting a document into code, e.g. from text to XML."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 

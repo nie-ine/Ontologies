@@ -260,7 +260,7 @@ document:CitationBibliographicReference
 	rdfs:label "citation bibliographic reference"@en, "bibliographische Referenz eines Zitats"@de; # , "référence bibliographique"@fr, "riferimenti bibliografici"@it;
 	rdfs:comment """All information, structured along certain composition rules, to identify a text expression part as citation of a part of another text expression, the latter being published or not. """@en;
 	skos:note """There is not 1 canonical way to write a citation bibliographic reference"""@en;
-	rdfs:subClassOf document:BibliographicReference.
+	rdfs:subClassOf text-structure:ContentStructure.
 
 #° document:Witness
 

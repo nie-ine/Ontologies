@@ -76,7 +76,8 @@ humgeo:Government
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "government"@en, "Regierung"@de;
-	rdfs:comment """Exercises authority over a particular territory."""@en.
+	rdfs:comment """Group of politicians which exercise authority over a particular territory."""@en.
+	rdfs:subClassOf org:PoliticalOrganization.
 
 humgeo:Monarchy #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
@@ -88,7 +89,7 @@ humgeo:Monarchy #°
 humgeo:Monarch
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "monarch role"@en, "Monarchrolle"@de, "rôle de monarque"@fr;
+	rdfs:label "monarch"@en, "Monarch"@de, "monarque"@fr;
 	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
 	rdfs:subClassOf human:PersonRole.
 
@@ -96,15 +97,15 @@ humgeo:Monarch
 humgeo:King
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "king role"@en, "Königrolle"@de, "rôle de roi"@fr;
-	rdfs:comment """Role of a man being the absolute ruler in a monarchy."""@en;
+	rdfs:label "king"@en, "König"@de, "roi"@fr;
+	rdfs:comment """Role of a man being the absolute ruler in a monarchy or husband of a woman being the absolute ruler in a monarchy."""@en;
 	rdfs:subClassOf human:Monarch.
 
 humgeo:Queen
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "queen role"@en, "Königinrolle"@de, "rôle de reine"@fr;
-	rdfs:comment """Role of a woman being the absolute ruler in a monarchy."""@en;
+	rdfs:label "queen"@en, "Königin"@de, "reine"@fr;
+	rdfs:comment """Role of a woman being the absolute ruler in a monarchy or wife of a man being the absolute ruler in a monarchy."""@en;
 	rdfs:subClassOf human:Monarch.
 
 humgeo:Empire
@@ -117,15 +118,15 @@ humgeo:Empire
 humgeo:Emperor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "emperor role"@en, "Kaiserrolle"@de, "rôle d'empereur"@fr;
-	rdfs:comment """Role of a man being a sovereign head of an empire."""@en;
+	rdfs:label "emperor"@en, "Kaiser"@de, "empereur"@fr;
+	rdfs:comment """Role of a man being a sovereign head of an empire or husband of a woman being a sovereign head of an empire."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 humgeo:Empress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "empress role"@en, "Kaiserinrolle"@de, "rôle d'impératrice"@fr;
-	rdfs:comment """Role of a woman being a sovereign head of an empire."""@en;
+	rdfs:label "empress"@en, "Kaiserin"@de, "impératrice"@fr;
+	rdfs:comment """Role of a woman being a sovereign head of an empire or wife of a man being a sovereign head of an empire."""@en;
 	rdfs:subClassOf human:PersonRole.
 
 humgeo:Town

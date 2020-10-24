@@ -84,27 +84,27 @@ tcs:hasHexadecimalColorCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has hexadecimal color code value"@en, "hat hexadezimalen Farbcodewert"@de;
-	rdfs:comment "Relating a resource to a hexadecimal color code value."@en;
+	rdfs:comment "Relating something to a hexadecimal color code value."@en;
 	skos:note """example:page1 tcs:hasHexadecimalColorCodeValue "000000"^^tcs:hexadecimalColor."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range tcs:hexadecimalColor;
-	rdfs:subPropertyOf concept:hasCodeValue.
+	rdfs:subPropertyOf concept:hasIdentifierCodeValue.
 
 tcs:hasGNDNumber #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:ObjectProperty;
 	rdfs:label "has GND-number"@en, "hat GND-Identifikator"@de;
-	rdfs:comment "Relating a resource to its GND-identifier."@en;
-	skos:note """example:personX tcs:hasGNDNumber [concept:codeHasSystem tcs:gndSystem; concept:codeHasValue "118679325"^^tcs:gnd]."""@en;
+	rdfs:comment "Relating something to its GND-identifier."@en;
+	skos:note """example:personX tcs:hasGNDNumber [concept:identifierCodeHasSystem tcs:gndSystem; concept:identifierCodeHasValue "118679325"^^tcs:gnd]."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code;
-	rdfs:subPropertyOf concept:hasCode.
+	rdfs:range concept:IdentifierCode;
+	rdfs:subPropertyOf concept:hasIdentifierCode.
 
 tcs:hasOAIIdentifier #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/terminology-code-systems#>;
 	a owl:ObjectProperty;
 	rdfs:label "has OAI-identifier"@en, "hat OAI-Identifikator"@de;
-	rdfs:comment "Relating a resource to its OAI-identifier."@en;
+	rdfs:comment "Relating something to its OAI-identifier."@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code;
-	rdfs:subPropertyOf concept:hasCode.
+	rdfs:range concept:IdentifierCode;
+	rdfs:subPropertyOf concept:hasIdentifierCode.

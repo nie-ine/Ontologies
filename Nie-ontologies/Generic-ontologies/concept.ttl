@@ -99,13 +99,13 @@ concept:Identifier
 	rdfs:comment """Unique and permanent reference to a resource within a given context, and conforming to a formal identification system."""@en;
 	rdfs:subClassOf concept:SymbolicEntity, cidoc:E42_Identifier. # rdfs:subClassOf cidoc:E41_Appellation
 
-concept:Code
+concept:IdentifierCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a rdfs:Class;
-	rdfs:label "code"@en, "Code"@de;
+	rdfs:label "identifier code"@en, "Identifikatorcode"@de;
 	rdfs:comment """Identifier belonging to a specific coding system, formed by any kind of symbols, e.g. alphanumeric."""@en;
 	rdfs:subClassOf concept:Identifier, skos:Concept;
-	owl:disjointWith document:Code.
+	owl:disjointWith concept:Code.
 
 concept:CodingSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
@@ -164,6 +164,20 @@ concept:ThoughtMethod
 	a rdfs:Class;
 	rdfs:label "thought method"@en, "Methode des Denkens"@de;
 	rdfs:comment """Way of analysing facts to form a judgment."""@en;
+	rdfs:subClassOf concept:Information.
+
+concept:Encoder
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "encoder"@en, "Codierer"@de, "codeur"@fr, "codificatore"@it;
+	rdfs:comment """Role of a person converting information into code, e.g. from text to XML."""@en;
+	rdfs:subClassOf creating:PersonCreator.
+
+concept:Code
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
+	a rdfs:Class;
+	rdfs:label "code"@en,"Code"@de;
+	rdfs:comment """Information as code, e.g. in any programming language."""@en;
 	rdfs:subClassOf concept:Information.
 
 #
@@ -233,37 +247,37 @@ concept:hasIdentifierLiteral
 	rdfs:subPropertyOf concept:hasLiteral;
 	owl:propertyChainAxiom (concept:hasIdentifier concept:identifierHasLiteral).
 
-concept:hasCode
+concept:hasIdentifierCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "has code"@en, "hat Code"@de;
-	rdfs:comment "Relating a resource to its code."@en;
+	rdfs:label "has identifier code"@en, "hat Identifikatorcode"@de;
+	rdfs:comment "Relating something to its identifier code."@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range concept:Code;
+	rdfs:range concept:IdentifierCode;
 	rdfs:subPropertyOf concept:hasIdentifier, skos:exactMatch.
 
-concept:codeHasSystem
+concept:identifierCodeHasSystem
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:ObjectProperty;
-	rdfs:label "code has system"@en, "Code hat System"@de;
-	rdfs:comment "Relating a code to the coding system it belongs to."@en;
-	rdfs:domain concept:Code;
+	rdfs:label "identifier code has system"@en, "Identifikatorcode hat System"@de;
+	rdfs:comment "Relating an identifier code to the coding system it belongs to."@en;
+	rdfs:domain concept:IdentifierCode;
 	rdfs:range concept:CodingSystem.
 
-concept:codeHasValue
+concept:identifierCodeHasValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "code has value"@en, "Code hat Wert"@de;
-	rdfs:comment "Relating a code to its literal value."@en;
-	rdfs:domain concept:Code;
+	rdfs:label "identifier code has value"@en, "Identifikatorcode hat Wert"@de;
+	rdfs:comment "Relating an identifier code to its literal value."@en;
+	rdfs:domain concept:IdentifierCode;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:identifierHasLiteral.
 
-concept:hasCodeValue
+concept:hasIdentifierCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;
 	a owl:DatatypeProperty;
-	rdfs:label "has code value"@en, "hat Codewert"@de;
-	rdfs:comment "Relating a resource to its code value."@en;
+	rdfs:label "has identifier code value"@en, "hat Identifikatorcodewert"@de;
+	rdfs:comment "Relating something to its identifier code value."@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasIdentifierLiteral.
@@ -310,7 +324,7 @@ concept:hasEncoder
 	rdfs:label "information has encoder"@en, "Information hat Codierer"@de;
 	rdfs:comment "Relating information to a person who encoded it."@en;
 	rdfs:domain concept:Information;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom infocar:Encoder]].
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom concept:Encoder]].
 
 concept:hasDedicatedTo #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;

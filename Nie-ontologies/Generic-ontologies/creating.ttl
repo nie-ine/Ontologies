@@ -81,7 +81,7 @@ creating:AnonymousCreation
 creating:CreationGroup
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creation group"@en, "Gruppe von Erstellungen"@de; 
+	rdfs:label "creation group"@en, "Gruppe von Erstellungen"@de;
 	rdfs:comment """Group of creations."""@en;
 	rdfs:subClassOf rdfs:Resource.
 
@@ -89,7 +89,7 @@ creating:CreationSet
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation set"@en, "Reihe von Erstellungen"@de;
-	rdfs:comment """Group of persons who create something belonging together"""@en;
+	rdfs:comment """Group of creations belonging together"""@en;
 	rdfs:subClassOf creating:CreationGroup.
 
 creating:Collection

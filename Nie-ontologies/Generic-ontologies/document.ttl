@@ -1,24 +1,18 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
-@prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix math: <http://e-editiones.ch/ontology/mathematics#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix note-structure: <http://e-editiones.ch/ontology/note-structure#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
 
 @base <http://e-editiones.ch/ontology/document>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
@@ -41,7 +35,7 @@ document:Document
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "document"@en, "Dokument"@de;
-	rdfs:comment """Identifiable, immaterial, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram, abstracted from its information carrier."""@en;
+	rdfs:comment """Identifiable, immaterial, i.e. abstracted from its information carrier, contained information, e.g. a text, a graphic, an image, an audiogram, a videogram."""@en;
 	rdfs:subClassOf concept:Information, cidoc:E31_Document.
 
 document:State
@@ -283,66 +277,6 @@ document:Catalogue
 	rdfs:label "catalogue"@en, "Katalog"@de, "catalogue"@fr;
 	rdfs:comment """List of descriptions of things, mostly ordered, e.g. alphabetically; e.g. library's book catalogue, exhibition's works of art catalogue, mail-order company's items for sale catalogue."""@en;
 	rdfs:subClassOf document:IndividualExpression.
-
-document:Encoder
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "encoder"@en, "Codierer"@de, "codeur"@fr, "codificatore"@it;
-	rdfs:comment """Role of a person converting a document into code, e.g. from text to XML."""@en;
-	rdfs:subClassOf creating:PersonCreator.
-
-document:Code
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "code document"@en,"Codedokument"@de;
-	rdfs:comment """Information as code, e.g. in any programming language."""@en;
-	rdfs:subClassOf concept:Information.
-
-document:HypertextDocument
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "hypertext document"@en,"Hypertextdokument"@de;
-	rdfs:comment """Document written in Hypertext Markup Language (HTML)."""@en;
-	rdfs:subClassOf document:Code.
-
-document:HypertextElement
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "hypertext document element"@en, "Hypertextdokumentelement"@de;
-	rdfs:comment """Information as part of a hypertext document."""@en;
-	rdfs:subClassOf document:Element.
-
-document:HypertextStructure
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "hypertext document structure"@en, "Hypertextdokumentstruktur"@de;
-	rdfs:comment """Structural element of a hypertext document."""@en;
-	rdfs:subClassOf document:HypertextElement, document:Structure.
-
-document:HypertextPage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "hypertext document page"@en, "Hypertextdokumentseite"@de;
-	rdfs:comment """Page of a hypertext document."""@en;
-	rdfs:subClassOf document:Page, document:HypertextStructure.
-
-document:HypertextStartPage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class;
-	rdfs:label "hypertext document start page"@en, "Hypertextdokumentstartseite"@de;
-	rdfs:comment """Start page of a hypertext document."""@en;
-	rdfs:subClassOf document:HypertextPage.
-
-#
-# DATATYPE INSTANCES
-#
-
-document:css
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
-	a rdfs:Class, rdfs:Datatype;
-	rdfs:label "CSS-datatype"@en, "CSS-Datentyp"@de;
-	rdfs:comment """Datatype to type a literal expressed in the Cascading Style Sheets-language (CSS)."""@en;
-	skos:note """Example: "color: #000000;"^^document:css"""@en.
 
 #
 # PROPERTIES

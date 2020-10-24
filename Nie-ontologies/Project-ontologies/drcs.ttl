@@ -208,8 +208,8 @@ drcs:StegmuellerCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "Stegmueller code"@en, "Stegmueller-Kode"@de;
-	rdfs:comment """Identifier belonging to the Stegmüller-system."""@en;
-	rdfs:subClassOf concept:Code.
+	rdfs:comment """Identifier code belonging to the Stegmüller-system."""@en;
+	rdfs:subClassOf concept:IdentifierCode.
 
 #
 # INSTANCES
@@ -254,10 +254,10 @@ drcs:hasStegmuellerCode
 	a owl:FunctionalProperty;
 	rdfs:label "has Stegmüller's code"@en;
 	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to its Stegmüller's code."""@en;
-	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCode [concept:codeHasSystem drcs:stegmuellerSystem; concept:codeHasValue "x"^^drcs:stegmuellerDatatype]"""@en;
+	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCode [concept:identifierCodeHasSystem drcs:stegmuellerSystem; concept:identifierCodeHasValue "x"^^drcs:stegmuellerDatatype]"""@en;
  	rdfs:domain drcs:Commentary;
 	rdfs:range drcs:StegmuellerCode;
-	rdfs:subPropertyOf concept:hasCode.
+	rdfs:subPropertyOf concept:hasIdentifierCode.
 
 drcs:hasStegmuellerCodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
@@ -267,4 +267,4 @@ drcs:hasStegmuellerCodeValue
 	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCodeValue "x"^^drcs:stegmuellerDatatype]"""@en;
  	rdfs:domain drcs:Commentary;
 	rdfs:range drcs:stegmuellerDatatype;
-	rdfs:subPropertyOf concept:hasCodeValue.
+	rdfs:subPropertyOf concept:hasIdentifierCodeValue.

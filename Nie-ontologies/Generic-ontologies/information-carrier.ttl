@@ -29,6 +29,9 @@
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor
+		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
+		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -432,73 +435,6 @@ infocar:ConvoluteElement
 	rdfs:comment """Element of an information carrier convolute."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
-infocar:ElectronicCarrier #° data or information storage device
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "electronic information carrier"@en,"elektronischer Informationsträger"@de;
-	rdfs:comment """Electronic machine carrying electronic information."""@en;
-	rdfs:subClassOf device:ElectronicMachine, infocar:Carrier.
-
-# infocar:Scan
-
-infocar:ElectronicBook
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "electronic book"@en,"elektronisches Buch"@de;
-	rdfs:comment """Electronic information carrier with a text structure as in a book."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier.
-
-infocar:Webpage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "webpage"@en, "Webseite"@de;
-	rdfs:comment """Electronic carrier page on the World Wide Web."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier.
-
-infocar:Website
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "website"@en, "Website"@de;
-	rdfs:comment """Set of interconnected webpages, under a single domain name, usually including a homepage, generally located on the same server, and prepared and maintained as information by a person, group, or organization."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier, infocar:Set.
-
-infocar:Hyperlink
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "hyperlink"@en,"Hyperlink"@de;
-	rdfs:comment """Link from a hypertext document structure to another location, activated by clicking on a highlighted word or image."""@en;
-	rdfs:subClassOf rdfs:Resource. # software
-
-infocar:Wiki
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "wiki"@en, "Wiki"@de;
-	rdfs:comment """Knowledge base website on which users collaboratively modify and structure content directly from a web browser; it is ran by wiki software."""@en;
-	rdfs:seeAlso <https://en.wikipedia.org/wiki/Wiki>;
-	rdfs:subClassOf infocar:Website.
-
-infocar:WikiPage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "Wiki page"@en, "Wiki-Seite"@de;
-	rdfs:comment """Webpage of a Wiki."""@en;
-	rdfs:subClassOf infocar:Webpage.
-
-infocar:DokuWiki
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "DokuWiki"@en, "DokuWiki"@de;
-	rdfs:comment """Wiki ran by DokuWiki software."""@en;
-	rdfs:seeAlso <https://en.wikipedia.org/wiki/DokuWiki>;
-	rdfs:subClassOf infocar:Wiki.
-
-infocar:DokuWikiPage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a rdfs:Class;
-	rdfs:label "DokuWiki page"@en, "DokuWiki-Seite"@de;
-	rdfs:comment """Wiki page of a DokuWiki."""@en;
-	rdfs:subClassOf infocar:WikiPage.
-
 #
 # PROPERTIES
 #
@@ -582,15 +518,6 @@ infocar:isOnCarrier
 	rdfs:comment "Relating information to a carrier it is on."@en;
 	rdfs:domain concept:Information;
 	rdfs:range infocar:Carrier.
-
-infocar:isOnElectronicCarrier
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:ObjectProperty;
-	rdfs:label "is on electronic carrier"@en, "ist auf elektronischem Träger"@de;
-	rdfs:comment "Relating information to an electronic carrier it is on."@en;
-	rdfs:domain concept:Information;
-	rdfs:range infocar:ElectronicCarrier;
-	rdfs:subPropertyOf infocar:isOnCarrier.
 
 infocar:isFragmentOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
@@ -1112,54 +1039,3 @@ infocar:isPartOfConvolute
 	rdfs:domain infocar:ConvoluteElement;
 	rdfs:range infocar:Convolute;
 	rdfs:subPropertyOf physical:isPartOf.
-
-infocar:webpageHasNameLiteral
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:DatatypeProperty;
-	rdfs:label "webpage has name literal"@en, "Webseite hat Namenliteral"@de;
-	rdfs:comment """Relating a webpage to its name literal."""@en;
-	rdfs:domain infocar:Webpage;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasNameLiteral.
-
-infocar:webpageHasURL
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:DatatypeProperty;
-	rdfs:label "webpage has URL"@en, "Webseite hat URL"@de;
-	rdfs:comment """Relating a webpage to its URL."""@en;
-	rdfs:domain infocar:Webpage;
-	rdfs:range xsd:anyURI.
-
-infocar:isWebpageOfSite
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:ObjectProperty;
-	rdfs:label "is page of website"@en, "ist Seite einer Website"@de;
-	rdfs:comment """Relating a page to its website."""@en;
-	rdfs:domain infocar:Webpage;
-	rdfs:range infocar:WebSite;
-	rdfs:subPropertyOf physical:isPartOf.
-
-infocar:hasHyperlink
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:ObjectProperty;
-	rdfs:label "has hyperlink"@en, "hat Hyperlink"@de;
-	rdfs:comment """Relating a document structure to a hyperlink it has on an electronic carrier."""@en;
-	rdfs:domain document:HypertextStructure;
-	rdfs:range infocar:Hyperlink.
-
-infocar:hyperlinkHasNameLiteral
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:DatatypeProperty;
-	rdfs:label "hyperlink has name literal"@en, "Hyperlink hat Namenliteral"@de;
-	rdfs:comment """Relating a hyperlink to a name literal it has."""@en;
-	rdfs:domain infocar:Hyperlink;
-	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasNameLiteral.
-
-infocar:hyperlinkHasURL
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
-	a owl:DatatypeProperty;
-	rdfs:label "hyperlink has URL"@en, "Hyperlink hat URL"@de;
-	rdfs:comment """Relating a hyperlink to a URL it has."""@en;
-	rdfs:domain infocar:Hyperlink;
-	rdfs:range xsd:anyURI.

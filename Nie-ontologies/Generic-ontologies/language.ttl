@@ -105,7 +105,7 @@ language:Translation
 	rdfs:label "translation"@en, "Übersetzung"@de, "traduction"@fr, "traduzione"@it;
 	rdfs:comment """Human natural language expression transferred from another natural language."""@en;
 	skos:note """Can follow the original to a degree, hence differ from another translation; e.g. a free translation gives a general meaning."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx#translation>;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
 language:PersonTranslation
@@ -126,30 +126,30 @@ language:PartialTranslation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
 	rdfs:label "partial translation"@en, "Teilübersetzung"@de, "traduction partielle"@fr, "traduzione parziale"@it;
-	rdfs:comment """Translation not being a complete transfer from a human natural language expression in another natural language."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx>;
+	rdfs:comment """Translation being an incomplete transfer from a human natural language expression in another natural language."""@en;
+	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_t.aspx#translation>;
 	rdfs:subClassOf language:HumanNaturalLanguageExpression.
 
-language:Code
+language:IdentifierCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "language code"@en, "Sprachecode"@de, "code de langue"@fr, "codice della lingua"@it;
-	rdfs:comment """Code in a coding system, attributed to a human natural language, e.g. ISO 639."""@en;
+	rdfs:label "language identifier code"@en, "Spracheidentifikatorcode"@de, "code d'indentification de langue"@fr, "codice del identificazione della lingua"@it;
+	rdfs:comment """Identifier code in a coding system, attributed to a human natural language, e.g. ISO 639."""@en;
 	rdfs:seeAlso <http://e-editiones.ch/ontology/languages#>;
-	rdfs:subClassOf concept:Code.
+	rdfs:subClassOf concept:IdentifierCode.
 
 #
 # PROPERTIES
 #
 
-language:hasCode
+language:hasIdentifierCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:InverseFunctionalProperty;
-	rdfs:label "language has code"@en, "Sprache hat Code"@de;
-	rdfs:comment """Relating a language to a system code representing that language."""@en;
+	rdfs:label "language has identifier code"@en, "Sprache hat Identifikatorcode"@de;
+	rdfs:comment """Relating a language to an identifier code representing that language."""@en;
 	rdfs:domain language:HumanNaturalLanguage;
-	rdfs:range language:Code;
-	rdfs:subPropertyOf concept:hasCode.
+	rdfs:range language:IdentifierCode;
+	rdfs:subPropertyOf concept:hasIdentifierCode.
 
 language:hasContentLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;

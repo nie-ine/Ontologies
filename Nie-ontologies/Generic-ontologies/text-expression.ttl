@@ -86,7 +86,7 @@ text-expression:Introduction
 	a rdfs:Class;
 	rdfs:label "text expression introduction"@en, "Textexpressionseinleitung"@de, "introduction d'expression de texte"@fr, "introduzione al espressione di testo"@it;
 	rdfs:comment """Beginning section of a text expression, usually written by the (main) author, stating e.g. the subject, purpose and limits of its main section; usually remaining unchanged."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_i.aspx#introduction>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
 
 text-expression:Body
@@ -94,7 +94,7 @@ text-expression:Body
 	a rdfs:Class;
 	rdfs:label "text expression body"@en, "Textexpressionshauptteil"@de, "corps d'expression de texte"@fr, "corpo del espressione di testo"@it;
 	rdfs:comment """Main section of a text expression, e.g. including footnotes and illustrations but excluding the front matter and back matter."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx#body>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
 
 text-expression:Conclusion
@@ -230,7 +230,7 @@ text-expression:Dictionary
 	a rdfs:Class;
 	rdfs:label "dictionary"@en, "Wörterbuch"@de, "dictionnaire"@fr, "dizionario"@it;
 	rdfs:comment """List of brief explanatory entries for terms of a human natural language, belonging to a certain domain, providing their meaning, mostly ordered, e.g. alphabetically."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_d.aspx#dictionary>;
 	rdfs:subClassOf text-expression:IndividualExpression. # text-expression:ReferenceExpression
 
 text-expression:DictionaryEntry

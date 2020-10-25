@@ -1,0 +1,106 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix cidoc-inf: <http://www.ics.forth.gr/isl/CRMinf/>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+
+@base <http://e-editiones.ch/ontology/belief-value>.
+@prefix belief-value: <http://e-editiones.ch/ontology/belief-value#>.
+
+<http://e-editiones.ch/ontology/belief-value>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about belief value"@en;
+	dct:description """Formal description of belief value, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-10-18"^^xsd:date.
+
+#
+# CLASSES
+#
+
+belief-value:BeliefValue
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class;
+	rdfs:label "belief value"@en, "Glaubenswert"@de;
+	rdfs:comment """Value of a belief in a proposition by a certain agent in a certain time."""@en;
+	rdfs:subClassOf cidoc-inf:I2_Belief;
+	owl:oneOf (belief-value:certain belief-value:veryLikely belief-value:likely belief-value:lessLikely belief-value:neutral belief-value:lessUnlikely belief-value:unlikely belief-value:veryUnlikely belief-value:impossible).
+
+#
+# INSTANCES
+#
+
+belief-value:certain
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "certain"@en, "sicher"@de;
+	rdfs:comment """Belief value representing being 'true'."""@en.
+
+belief-value:veryLikely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "very likely"@en, "sehr warscheinlich"@de;
+	rdfs:comment """Belief value representing a high probability of being true."""@en.
+
+belief-value:likely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "likely"@en, "warscheinlich"@de;
+	rdfs:comment """Belief value representing a moderate probability of being true."""@en.
+
+belief-value:lessLikely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "less likely"@en, "wenig warscheinlich"@de;
+	rdfs:comment """Belief value representing a low probability of being true."""@en.
+
+belief-value:neutral
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "neutral"@en, "neutral"@de;
+	rdfs:comment """Belief value representing being neither true nor false."""@en.
+
+belief-value:lessUnlikely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "less unlikely"@en, "wenig unwarscheinlich"@de;
+	rdfs:comment """Belief value representing a low probability of being false."""@en.
+
+belief-value:unlikely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "unlikely"@en, "unwarscheinlich"@de;
+	rdfs:comment """Belief value representing a moderate probability of being false."""@en.
+
+belief-value:veryUnlikely
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class, belief-value:BeliefValue;
+	rdfs:label "very unlikely"@en, "sehr unwarscheinlich"@de;
+	rdfs:comment """Belief value representing a high probability of being false."""@en.
+
+belief-value:impossible
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a rdfs:Class;
+	rdfs:label "impossible"@en, "unmöglich"@de;
+	rdfs:comment """Belief value representing being 'false'."""@en.
+
+#
+# PROPERTIES
+#
+
+belief-value:hasBeliefValue
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/belief-value#>;
+	a owl:ObjectProperty;
+	rdfs:label "has belief value"@en, "hat Glaubenswert"@de;
+	rdfs:comment """Relating a proposition to its belief value."""@en;
+	skos:note """The proposition can be reified or—exclusive—expressed as a formula."""@en;
+	rdfs:domain [rdfs:subClassOf concept:PropositionalEntity, [owl:disjointUnionOf (rdf:Statement log:Formula)]];
+	rdfs:range belief-value:BeliefValue.

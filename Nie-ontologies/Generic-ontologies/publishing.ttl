@@ -116,7 +116,7 @@ publish:Bibliography
 	a rdfs:Class;
 	rdfs:label "bibliography"@en, "Bibliographie"@de, "bibliographie"@fr, "bibliografia"@it;
 	rdfs:comment """List of bibliographic references to articles or books referenced in a scholarly article or book , usually appearing at the end of the publication expression."""@en;
-	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx#bibliography>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 publish:Redactor
@@ -230,7 +230,7 @@ publish:SerialIssue
 	a rdfs:Class;
 	rdfs:label "serial issue"@en, "Serienausgabe"@de, "publication sérielle"@fr, "pubblicazione seriale"@it;
 	rdfs:comment """Successive publication with same title, usually numbered and/or dated, at a regular or irregular interval, without predetermined conclusion."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_s.aspx#serial>;
 	rdfs:subClassOf publish:Publication.
 
 publish:SerialVolume
@@ -247,37 +247,37 @@ publish:SerialVolumeExistence
 	rdfs:comment """The publishing from the first to the last issue of a serial volume."""@en;
 	rdfs:subClassOf event:Existence, publish:Publishing.
 
-publish:Newspaper
+publish:NewspaperIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "newspaper"@en, "Zeitung"@de, "journal"@fr, "giornale"@it;
-	rdfs:comment """Serial publication, mostly daily, with most recent event descriptions as core content."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
+	rdfs:label "newspaper issue"@en, "Zeitung-Ausgabe"@de; #, "journal"@fr, "giornale"@it;
+	rdfs:comment """Serial publication issued mostly daily, with most recent event descriptions as core content."""@en;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_n.aspx#newspaper>;
 	rdfs:subClassOf publish:SerialIssue.
 
-publish:Periodical
+publish:PeriodicalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "periodical publication"@en, "Zeitschrift"@de, "périodique"@fr, "periodico"@it;
+	rdfs:label "periodical publication issue"@en, "Zeitschrift-Ausgabe"@de, "publication périodique"@fr, "pubblicazione periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_p.aspx#periodical>;
 	rdfs:subClassOf publish:SerialIssue. # infocar:Book
 
-publish:Magazine
+publish:MagazineIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "magazine"@en, "Magazin"@de, "magazine"@fr,"rivista"@it;
-	rdfs:comment """Periodical publication with individual pagination."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
-	rdfs:subClassOf infocar:Book, publish:Periodical.
+	rdfs:label "magazine issue"@en, "Magazin-Ausgabe"@de, "publication d'un magazine"@fr; #,"rivista"@it;
+	rdfs:comment """Periodical publication issued with individual pagination."""@en;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_m.aspx#magazine>;
+	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
 
-publish:Journal
+publish:JournalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "journal"@en, "Journal"@de, "revue"@fr, "giornale"@it;
-	rdfs:comment """Periodical publication with continuous pagination throughout its volume."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_S.aspx>;
-	rdfs:subClassOf infocar:Book, publish:Periodical.
+	rdfs:label "journal issue"@en, "Journal-Ausgabe"@de, "publication d'une revue"@fr; #, "giornale"@it;
+	rdfs:comment """Periodical publication issued with continuous pagination throughout its volume."""@en;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_jk.aspx#journal>;
+	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
 
 publish:NachlassPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
@@ -451,6 +451,15 @@ publish:isPublishedIn
 	rdfs:domain publish:Expression;
 	rdfs:range publish:Publication;
 	rdfs:subPropertyOf infocar:isOnCarrier.
+
+publish:isFirstPublishedIn
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "is first published in"@en, "ist zuerst publiziert in"@de, "est republié premièrement dans"@fr, "è ripubblicato in"@it;
+	rdfs:comment """Relating a publication expression to a first publication thereof."""@en;
+	rdfs:domain publish:Expression;
+	rdfs:range publish:FirstPublication;
+	rdfs:subPropertyOf publish:isPublishedIn.
 
 publish:isRepublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;

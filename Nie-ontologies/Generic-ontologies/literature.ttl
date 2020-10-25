@@ -290,7 +290,7 @@ literature:Preface
 	a rdfs:Class;
 	rdfs:label "preface"@en, "Vorwort"@de, "avant-propos"@fr, "prefazione"@it;
 	rdfs:comment """Text expression preceding a literary expression, usually written by the (main) author, stating the origin of the literary expression, its scope, purpose, plan, and intended audience, and including any afterthoughts and acknowledgments of assistance; possibly rewritten to alert the reader to changes in the literary expression."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_p.aspx#preface>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart. # front matter
 
 literature:Motto
@@ -313,18 +313,16 @@ literature:Prologue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "prologue"@en, "Prolog"@de, "prologue"@fr, "prologo"@it;
-#	ling:hasSynonym "Vorwort"@de;
 	rdfs:comment """Introduction of a literary expression providing context and background, e.g. an earlier story that ties into the main one."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_p.aspx#prologue>;
 	rdfs:subClassOf text-expression:Introduction.
 
 literature:Epilogue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
 	rdfs:label "epilogue"@en, "Epilog"@de, "épilogue"@fr, "epilogo"@it;
-#	ling:hasSynonym "Nachwort"@de;
 	rdfs:comment """Conclusion of a literary expression or part of it."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
+	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_e.aspx#epilogue>;
 	rdfs:subClassOf text-expression:Conclusion.
 
 literature:Argument
@@ -332,7 +330,6 @@ literature:Argument
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Kapitelzusammenfassung"@de, "argument"@fr, "argomento"@it;
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
-	rdfs:seeAlso <https://www.abc-clio.com/ODLIS/odlis_f.aspx>;
 	rdfs:subClassOf text-expression:Introduction. # text-expression:Summary.
 
 #

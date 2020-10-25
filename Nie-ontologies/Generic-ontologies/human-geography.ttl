@@ -76,7 +76,7 @@ humgeo:Government
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "government"@en, "Regierung"@de;
-	rdfs:comment """One or more persons in a politician role exercising authority over a particular territory."""@en.
+	rdfs:comment """One or more persons in a politician role exercising authority over a particular territory."""@en;
 	rdfs:subClassOf org:PoliticalOrganization.
 
 humgeo:Monarchy #°

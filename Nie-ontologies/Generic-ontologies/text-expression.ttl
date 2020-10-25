@@ -100,7 +100,7 @@ text-expression:Body
 text-expression:Conclusion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-expression#>;
 	a rdfs:Class;
-	rdfs:label "text expression conclusion"@en, "Textexpressionszusammenfassung"@de, "conclusion d'expression de texte"@fr, "conclusione del espressione di testo"@it;
+	rdfs:label "text expression conclusion"@en, "Textexpressionsfazit"@de, "conclusion d'expression de texte"@fr, "conclusione del espressione di testo"@it;
 	rdfs:comment """Concluding section of a text expression."""@en;
 	rdfs:subClassOf text-structure:CompositionalContentStructure, text-expression:ExpressionPart.
 

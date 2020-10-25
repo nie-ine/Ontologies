@@ -23,7 +23,8 @@
 	dct:title "An ontology about document"@en;
 	dct:description """Formal description of document, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
-	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
+			"Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -179,7 +180,7 @@ document:TitlePage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
 	a rdfs:Class;
 	rdfs:label "title page"@en, "Titelblatt"@de;
-	rdfs:comment """Document page contianing a title."""@en;
+	rdfs:comment """Document page containing a title."""@en;
 	rdfs:subClassOf document:Page.
 
 document:Marginal

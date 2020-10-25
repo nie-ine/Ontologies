@@ -328,7 +328,7 @@ literature:Epilogue
 literature:Argument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a rdfs:Class;
-	rdfs:label "argument"@en, "Argument"@de, "argument"@fr, "argomento"@it;
+	rdfs:label "argument"@en, "Kapitelzusammenfassung"@de, "argument"@fr, "argomento"@it;
 	rdfs:comment """Summary of a literary expression or part of it, often a poem, often at the beginning of a section, to orient a reader."""@en;
 	rdfs:subClassOf text-expression:Introduction. # text-expression:Summary.
 
@@ -403,7 +403,7 @@ literature:hasNovelist
 literature:isArgumentOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/literature#>;
 	a owl:ObjectProperty;
-	rdfs:label "is argument of"@en, "ist Argument von"@de, "est l'argument de"@fr, "è argomento di"@it;#argument = Argument? Argument in German is a reason why you are against or for something in a discussion.
+	rdfs:label "is argument of"@en, "ist Kapitelzusammenfassung von"@de, "est l'argument de"@fr, "è argomento di"@it;#argument = Argument? Argument in German is a reason why you are against or for something in a discussion.
 	rdfs:comment """Relating an argument to a literary expression it is part of."""@en;
 	rdfs:domain literature:Argument;
 	rdfs:range literature:Expression;

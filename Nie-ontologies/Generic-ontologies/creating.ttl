@@ -27,7 +27,8 @@
 	dct:title "An ontology about human creating"@en;
 	dct:description """Formal description of creating by humans, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
-	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
+			"Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -52,7 +53,7 @@ creating:PersonCreator
 creating:PersonAuthor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "author role of person"@en, "Autorrolle einer Person"@de; #, "auteur"@fr, "autore"@it;
+	rdfs:label "author role of person"@en, "Autorenrolle einer Person"@de; #, "auteur"@fr, "autore"@it;
 	rdfs:comment """Role of a person being responsible for a creation."""@en;
 	rdfs:subClassOf human:PersonRole.
 
@@ -81,43 +82,43 @@ creating:AnonymousCreation
 creating:CreationGroup
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
-	rdfs:label "creation group"@en, "Gruppe von Erstellungen"@de;
-	rdfs:comment """Group of creations."""@en;
+	rdfs:label "creation group"@en, "Gruppe von Erstellungen"@de; 
+	rdfs:comment """Group of person creations."""@en;
 	rdfs:subClassOf rdfs:Resource.
 
 creating:CreationSet
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation set"@en, "Reihe von Erstellungen"@de;
-	rdfs:comment """Group of creations belonging together"""@en;
+	rdfs:comment """Group of person creations belonging together."""@en;
 	rdfs:subClassOf creating:CreationGroup.
 
 creating:Collection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "collection"@en, "Sammlung"@de;
-	rdfs:comment """Things brought together as a creation."""@en;
+	rdfs:comment """Things brought together as a person creation."""@en;
 	rdfs:subClassOf creating:Creation.
 
 creating:PhysicalCreation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "physical creation"@en, "physische Erstellung"@de;
-	rdfs:comment """creation as a physical resource."""@en;
+	rdfs:comment """Person creation as a physical resource."""@en;
 	rdfs:subClassOf creating:Creation, physical:Matter, cidoc:E24_Physical_Man-Made_Thing. # rdfs:subClassOf cidoc:E72_Legal_Object
 
 creating:Copy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "copy"@en, "Kopie"@de;
-	rdfs:comment """Reproduction of a creation."""@en;
+	rdfs:comment """Reproduction of a person creation."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 creating:CreationVersion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation version"@en, "Version einer Erstellung"@de;
-	rdfs:comment """Creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
+	rdfs:comment """Person creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
 	skos:note """A version is created by the same person or group of persons who created another version."""@en;
 	rdfs:subClassOf creating:Creation.
 
@@ -125,35 +126,35 @@ creating:UnfinishedCreation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "unfinished creation"@en, "unfertige Erstellung"@de;
-	rdfs:comment """Creation in a state of not having all envisioned features."""@en;
+	rdfs:comment """Person creation in a state of not having all envisioned features."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:FirstVersion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "first version"@en, "Erstversion"@de;
-	rdfs:comment """Creation as first version."""@en;
+	rdfs:comment """Person creation as first version."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:FinalVersion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "final version"@en, "Endversion"@de;
-	rdfs:comment """Person's creation as last version."""@en;
+	rdfs:comment """Person creation as last version."""@en;
 	rdfs:subClassOf creating:CreationVersion.
 
 creating:IntendedFinalVersion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "intended final version"@en, "beabsichtigte Endversion"@de;
-	rdfs:comment """Person's creation as intended last version, e.g. of a development."""@en;
+	rdfs:comment """Person creation as intended last version, e.g. of a development."""@en;
 	rdfs:subClassOf creating:FinalVersion.
 
 creating:CreationDerivative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "creation derivative"@en, "Derivat einer Erstellung"@de;
-	rdfs:comment """Derivative of a person's creation, e.g. a translation."""@en;
+	rdfs:comment """Derivative of a person creation, e.g. a translation."""@en;
 	rdfs:subClassOf creating:Creation. #;
 #	owl:disjointWith creating:CreationVersion.
 
@@ -161,7 +162,7 @@ creating:Building
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a rdfs:Class;
 	rdfs:label "building"@en, "Gebäude"@de;
-	rdfs:comment """."""@en; #*
+	rdfs:comment """A physical construction, e.g. house or factory, created by one ore more persons."""@en;
 	rdfs:subClassOf creating:PhysicalCreation.
 
 creating:Relic
@@ -197,7 +198,7 @@ creating:hasCreating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "has creating"@en, "hat Erstellung"@de;
-	rdfs:comment """Relating a creation by a person to the creating thereof."""@en;
+	rdfs:comment """Relating a person creation to the creating thereof."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range creating:Creating;
 	rdfs:subPropertyOf event:isOutputOf.
@@ -206,7 +207,7 @@ creating:creationHasDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
 	rdfs:label "creation has date"@en, "Erstellung hat Datum"@de;
-	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
+	rdfs:comment """Relating a person creation to a date it was created on."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range xsd:date;
 	owl:propertyChainAxiom (event:isOutputOf time:hasEndDate).
@@ -215,7 +216,7 @@ creating:creationHasDateTime
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
 	rdfs:label "creation has date time"@en, "Erstellung hat Datum und Zeit"@de;
-	rdfs:comment """Relating a creation by a person to the date time it was created on."""@en;
+	rdfs:comment """Relating a person creation to the date time it was created on."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range xsd:dateTime;
 	owl:propertyChainAxiom (event:isOutputOf time:hasEndDateTime).
@@ -224,7 +225,7 @@ creating:hasModificationDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
-	rdfs:comment """Relating a human creation to its modification date."""@en;
+	rdfs:comment """Relating a person creation to its modification date."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range xsd:date.
 #	owl:propertyChainAxiom (event:isOutputOf event:hasEndDate)
@@ -233,6 +234,6 @@ creating:isCreationOfSet #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;
 	a owl:ObjectProperty;
 	rdfs:label "is creation of set"@en, "ist Erstellung einer Reihe"@de;
-	rdfs:comment """Relating a creation to a set it is part of."""@en;
+	rdfs:comment """Relating a person creation to a set it is part of."""@en;
 	rdfs:domain creating:Creation;
 	rdfs:range creating:CreationSet.

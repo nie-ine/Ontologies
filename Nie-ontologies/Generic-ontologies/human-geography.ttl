@@ -21,6 +21,7 @@
 	dct:title """Human Geography"""@en;
 	dct:description """Formal description of human geography, general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -46,7 +47,36 @@ humgeo:State
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "state"@en, "Staat"@de;
+	rdfs:comment """Political organization with an own government."""@en;
+	rdfs:subClassOf org:PoliticalOrganization.
+
+humgeo:NationState
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "nation state"@en, "Nationalstaat"@de;
 	rdfs:comment """Political organization of a nation with an own government."""@en;
+	rdfs:subClassOf humgeo:State.
+
+humgeo:SovereignState
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "sovereign state"@en, "Souveränstaat"@de;
+	rdfs:comment """Political organization of a sovereign state with an own government."""@en;
+	rdfs:subClassOf humgeo:State.
+
+
+humgeo:FederalState
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "federal state"@en, "Bundesstaat"@de;
+	rdfs:comment """Political organization of a federal state with an own government."""@en;
+	rdfs:subClassOf humgeo:State.
+
+humgeo:Government
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "government"@en, "Regierung"@de;
+	rdfs:comment """One or more persons in a politician role exercising authority over a particular territory."""@en.
 	rdfs:subClassOf org:PoliticalOrganization.
 
 humgeo:Monarchy #°
@@ -63,7 +93,20 @@ humgeo:Monarch
 	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
 	rdfs:subClassOf human:PersonRole.
 
-# king, queen
+
+humgeo:King
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "king"@en, "König"@de, "roi"@fr;
+	rdfs:comment """Role of a man being the absolute ruler in a monarchy or husband of a woman being the absolute ruler in a monarchy."""@en;
+	rdfs:subClassOf human:Monarch.
+
+humgeo:Queen
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "queen"@en, "Königin"@de, "reine"@fr;
+	rdfs:comment """Role of a woman being the absolute ruler in a monarchy or wife of a man being the absolute ruler in a monarchy."""@en;
+	rdfs:subClassOf human:Monarch.
 
 humgeo:Empire
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
@@ -72,15 +115,19 @@ humgeo:Empire
 	rdfs:comment """Group of nations with an overarching government."""@en;
 	rdfs:subClassOf org:PoliticalOrganization.
 
-# humgeo:Emperor, humgeo:Empress
+humgeo:Emperor
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "emperor"@en, "Kaiser"@de, "empereur"@fr;
+	rdfs:comment """Role of a man being a sovereign head of an empire or husband of a woman being a sovereign head of an empire."""@en;
+	rdfs:subClassOf human:PersonRole.
 
-# humgeo:NationState: nation-state
-
-# humgeo:SovereignState
-
-# humgeo:FederatedState
-
-# humgeo:Government: exercises authority over a particular territory
+humgeo:Empress
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
+	a rdfs:Class;
+	rdfs:label "empress"@en, "Kaiserin"@de, "impératrice"@fr;
+	rdfs:comment """Role of a woman being a sovereign head of an empire or wife of a man being a sovereign head of an empire."""@en;
+	rdfs:subClassOf human:PersonRole.
 
 humgeo:Town
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
@@ -120,7 +167,7 @@ humgeo:Street
 humgeo:StreetPlace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
-	rdfs:label "street place"@en, "Strassenplatz"@de;
+	rdfs:label "street place"@en, "Strassenort"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf physical:EarthPlace.
 

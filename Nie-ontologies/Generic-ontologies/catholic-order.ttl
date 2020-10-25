@@ -18,7 +18,8 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en,
-		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
+		"Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en, 
+		"Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -52,7 +53,7 @@ cathord:Abbot
 	a rdfs:Class;
 	rdfs:label "abbot"@en, "Abt"@de;
 	rdfs:comment """Role of a friar as the head of a monastery."""@en;
-	rdfs:subClassOf cathorg:Friar.
+	rdfs:subClassOf cathord:Friar.
 
 cathord:AugustinianFriars
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-order#>;

@@ -36,7 +36,7 @@
 archive-record:ArchiveRecord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
-	rdfs:label "archive record"@en, "Archivalie"@de;
+	rdfs:label "archive record"@en, "Archivdatensatz"@de;
 	rdfs:comment """A record as an entry in an Archive Information System. This record can be f.e. one or more fonds, one or more dossiers, one or more documents, one or more parts of a document,..."""@en;
 	rdfs:subClassOf rico:Record, rico:Instantiation, creating:Creation, document:Document.
 
@@ -58,8 +58,8 @@ archive-record:Volume
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
 	rdfs:label "volume"@en, "Band"@de;
-	rdfs:comment """Volume as type of the carrier resp. the archival material type."""@en;
-	rdfs:subClassOf archive-record:Carrier, infocar:Volume.
+	rdfs:comment """Volume as type of the carrier resp. the archival material type. It is also a special book: One book of a serie of books. One serie is a set of books which are mostly created for the same purpose by the same provenance."""@en;
+	rdfs:subClassOf archive-record:Carrier, infocar:Volume, archive-record:book.
 
 archive-record:Book
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -92,7 +92,7 @@ archive-record:CarrierReference
 archive-record:hasCarrier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
-	rdfs:label "archive record has carrier"@en, "Archivalie hat Träger";
+	rdfs:label "archive record has carrier"@en, "Archivdatensatz hat Träger";
 	rdfs:comment """Relating a archive record to its physical or electronical carrier."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Carrier;
@@ -101,7 +101,7 @@ archive-record:hasCarrier
 archive-record:hasCarrierReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
-	rdfs:label "archive record has carrier reference"@en, "Archivalie hat Trägerreferenz";
+	rdfs:label "archive record has carrier reference"@en, "Archivdatensatz hat Trägerreferenz";
 	rdfs:comment """Relating a archive record to its reference in its physical or electronical carrier, f.e. archive record has carrier reference page in a volume."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:CarrierReference.
@@ -109,7 +109,7 @@ archive-record:hasCarrierReference
 archive-record:isheldbyArchive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
-	rdfs:label "archive record is held by archive"@en, "Archivalie wird geführt von Archiv";
+	rdfs:label "archive record is held by archive"@en, "Archivdatensatz wird geführt von Archiv";
 	rdfs:comment """Relating a archive record to its archive in which it is stored, recorded. The archive is responsible for the publishing of the archive record."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range org:Archive.
@@ -117,7 +117,7 @@ archive-record:isheldbyArchive
 archive-record:hasProvenance
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
-	rdfs:label "archive record has provenance"@en, "Archivalie hat Provenienz";
+	rdfs:label "archive record has provenance"@en, "Archivdatensatz hat Provenienz";
 	rdfs:comment """Relating a archive record to the agent, which originally created the archive record for its own purposes."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Provenance;

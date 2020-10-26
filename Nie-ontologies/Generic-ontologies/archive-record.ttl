@@ -95,7 +95,6 @@ archive-record:hasCarrier
 	rdfs:range archive-record:Carrier;
 	rdfs:subPropertyOf rico:hasCarrierType.
 
-
 archive-record:hasCarrierReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
@@ -103,7 +102,6 @@ archive-record:hasCarrierReference
 	rdfs:comment """Relating a archive record to its reference in its physical or electronical carrier, f.e. archive record has carrier reference page in a volume."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:CarrierReference.
-
 
 archive-record:isheldbyArchive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;

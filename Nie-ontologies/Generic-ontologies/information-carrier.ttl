@@ -31,7 +31,8 @@
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:contributor
 		"Roberta Padlina, project coordinator and software developer, University of Basel, Switzerland"@en,
-		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en;
+		"Reto Baumgartner, tool coordinator and software developer, University of Zürich, Switzerland"@en,
+		"Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -188,7 +189,7 @@ infocar:ArchiveElement
 infocar:WritingUtensil
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
-	rdfs:label "writing utensil"@en, "Schreibutensilien"@de;
+	rdfs:label "writing utensil"@en, "Schreibutensilie"@de;
 	rdfs:comment """Device to write with."""@en;
 	rdfs:subClassOf device:Device.
 

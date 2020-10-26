@@ -6,6 +6,13 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix creating: <http://e-editiones.ch/ontology/creating#>.
+@prefix concept: <http://e-editiones.ch/ontology/concept#>.
+@prefix text: <http://e-editiones.ch/ontology/text#>.
+@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
+@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
+@prefix document: <http://e-editiones.ch/ontology/document#>.
 
 @base <http://e-editiones.ch/ontology/archive-record>.
 @prefix archive-record: <http://e-editiones.ch/ontology/archive-record#>.
@@ -29,7 +36,7 @@ archive-record:ArchiveRecord
 	a rdfs:Class;
 	rdfs:label "archive record"@en, "Archivalie"@de;
 	rdfs:comment """A record as an entry in an Archive Information System. This record can be f.e. one or more fonds, one or more dossiers, one or more documents, one or more parts of a document,..."""@en;
-	rdfs:subClassOf rico:Record, rico:Instantiation.
+	rdfs:subClassOf rico:Record, rico:Instantiation, creating:Creation, document:Document.
 
 archive-record:Carrier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -59,6 +66,13 @@ archive-record:PaperFile
 	rdfs:comment """Paper file as type of the carrier resp. the archival material type."""@en;
 	rdfs:subClassOf archive-record:Carrier.
 
+archive-record:CarrierReference
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "carrier reference"@en, "Trägerreferenz"@de;
+	rdfs:comment """A reference in a carrier. This could be, f.e., a page in a volume."""@en;
+	rdfs:subClassOf document:Structure, concept:Identifier.
+
 
 #
 # PROPERTIES
@@ -72,4 +86,13 @@ archive-record:hasCarrier
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Carrier;
 	rdfs:subPropertyOf rico:hasCarrierType.
+
+
+archive-record:hasCarrierReference
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a owl:ObjectProperty;
+	rdfs:label "archive record has carrier reference"@en, "Archivalie hat Trägerreferenz";
+	rdfs:comment """Relating a archive record to its reference in its physical or electronical carrier, f.e. archive record has carrier reference page in a volume."""@en;
+	rdfs:domain archive-record:ArchiveRecord;
+	rdfs:range archive-record:CarrierReference.
 

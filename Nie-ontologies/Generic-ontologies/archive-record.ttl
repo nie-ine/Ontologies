@@ -14,6 +14,7 @@
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/archive-record>.
 @prefix archive-record: <http://e-editiones.ch/ontology/archive-record#>.
@@ -44,7 +45,7 @@ archive-record:Carrier
 	a rdfs:Class;
 	rdfs:label "carrier"@en, "Träger"@de;
 	rdfs:comment """The physical or electronical carrier of the archive record, the archival material type. This can be, f. e., a book, a paper file, a collection of them or an electronic carrier as file or folder on the archive server,..."""@en;
-	rdfs:subClassOf rico:CarrierType.
+	rdfs:subClassOf rico:CarrierType, infocar:Carrier.
 
 archive-record:Provenance
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -58,14 +59,14 @@ archive-record:Volume
 	a rdfs:Class;
 	rdfs:label "volume"@en, "Band"@de;
 	rdfs:comment """Volume as type of the carrier resp. the archival material type."""@en;
-	rdfs:subClassOf archive-record:Carrier.
+	rdfs:subClassOf archive-record:Carrier, infocar:Volume.
 
 archive-record:Book
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
 	rdfs:label "book"@en, "Buch"@de;
 	rdfs:comment """Book as type of the carrier resp. the archival material type."""@en;
-	rdfs:subClassOf archive-record:Carrier.
+	rdfs:subClassOf archive-record:Carrier, infocar:Book.
 
 archive-record:PaperFile
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -122,5 +123,6 @@ archive-record:hasProvenance
 	rdfs:range archive-record:Provenance;
 	rdfs:subPropertyOf rico:isProvenanceOf.
 
-#isRepresentedByArchiveRecord (domain: owl:Thing, blank node ???, range: ArchiveRecord)
+#isRepresentedByArchiveRecord (domain: rdfs:Resource, range: ArchiveRecord)
+#hasLiteral...
 

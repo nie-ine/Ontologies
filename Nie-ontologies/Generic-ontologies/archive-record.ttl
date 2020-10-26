@@ -81,6 +81,8 @@ archive-record:CarrierReference
 	rdfs:comment """A reference in a carrier. This could be, f.e., a page in a volume."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
+#Signatur/Identifier
+#Webpage
 
 #
 # PROPERTIES
@@ -119,4 +121,6 @@ archive-record:hasProvenance
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Provenance;
 	rdfs:subPropertyOf rico:isProvenanceOf.
+
+#isRepresentedByArchiveRecord (domain: owl:Thing, blank node ???, range: ArchiveRecord)
 

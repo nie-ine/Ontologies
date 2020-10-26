@@ -13,6 +13,7 @@
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
 
 @base <http://e-editiones.ch/ontology/archive-record>.
 @prefix archive-record: <http://e-editiones.ch/ontology/archive-record#>.
@@ -95,4 +96,13 @@ archive-record:hasCarrierReference
 	rdfs:comment """Relating a archive record to its reference in its physical or electronical carrier, f.e. archive record has carrier reference page in a volume."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:CarrierReference.
+
+
+archive-record:isheldbyArchive
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a owl:ObjectProperty;
+	rdfs:label "archive record is held by archive"@en, "Archivalie wird geführt von Archiv";
+	rdfs:comment """Relating a archive record to its archive in which it is stored, recorded. The archive is responsible for the publishing of the archive record."""@en;
+	rdfs:domain archive-record:ArchiveRecord;
+	rdfs:range org:Archive.
 

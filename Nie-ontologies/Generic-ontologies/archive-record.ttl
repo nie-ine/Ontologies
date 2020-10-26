@@ -27,6 +27,49 @@
 archive-record:ArchiveRecord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
-	rdfs:label "archive record"@en, "Archivdaten"@de;
+	rdfs:label "archive record"@en, "Archivalie"@de;
 	rdfs:comment """A record as an entry in an Archive Information System. This record can be f.e. one or more fonds, one or more dossiers, one or more documents, one or more parts of a document,..."""@en;
-	rdfs:subClassOf rico:Record.
+	rdfs:subClassOf rico:Record, rico:Instantiation.
+
+archive-record:Carrier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "carrier"@en, "Träger"@de;
+	rdfs:comment """The physical or electronical carrier of the archive record, the archival material type. This can be, f. e., a book, a paper file, a collection of them or an electronic carrier as file or folder on the archive server,..."""@en;
+	rdfs:subClassOf rico:CarrierType.
+
+archive-record:Volume
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "volume"@en, "Band"@de;
+	rdfs:comment """Volume as type of the carrier resp. the archival material type."""@en;
+	rdfs:subClassOf archive-record:Carrier.
+
+archive-record:Book
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "book"@en, "Buch"@de;
+	rdfs:comment """Book as type of the carrier resp. the archival material type."""@en;
+	rdfs:subClassOf archive-record:Carrier.
+
+archive-record:PaperFile
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "paper file"@en, "Papierdossier"@de;
+	rdfs:comment """Paper file as type of the carrier resp. the archival material type."""@en;
+	rdfs:subClassOf archive-record:Carrier.
+
+
+#
+# PROPERTIES
+#
+
+archive-record:hasCarrier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a owl:ObjectProperty;
+	rdfs:label "archive record has carrier"@en, "Archivalie hat Träger";
+	rdfs:comment """Relating a archive record to its physical or electronical carrier."""@en;
+	rdfs:domain archive-record:ArchiveRecord;
+	rdfs:range archive-record:Carrier;
+	rdfs:subPropertyOf rico:hasCarrierType.
+

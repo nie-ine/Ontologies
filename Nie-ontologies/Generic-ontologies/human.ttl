@@ -109,14 +109,14 @@ human:Female
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human female"@en, "menschlich weiblich"@de;
-	rdfs:comment """Being of a human female sex."""@en;
+	rdfs:comment """Human being of a female sex."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Male
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human male"@en, "menschlich männlich"@de;
-	rdfs:comment """Being of a human male sex."""@en;
+	rdfs:comment """Human being of a male sex."""@en;
 	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
@@ -124,7 +124,7 @@ human:Intersexual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human intersexual"@en, "menschlich intersexuell"@de;
-	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
+	rdfs:comment """Human being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:PersonIdentifier
@@ -325,28 +325,28 @@ human:PerformingArtist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "performing artist"@en, "Kunstperformer"@de, "artiste de la performance"@fr;
-	rdfs:comment """Artist in a performing art."""@en;
+	rdfs:comment """Role of an artist in a performing art."""@en;
 	rdfs:subClassOf human:Artist.
 
 human:Actor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "actor"@en, "Darsteller"@de, "acteur ou actrice"@fr;
-	rdfs:comment """."""@en;
+	rdfs:comment """Role of an actor."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Musician
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "musician"@en, "Musiker"@de, "musicien ou musicienne"@fr;
-	rdfs:comment """."""@en;
+	rdfs:comment """Role of a musician."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Singer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "singer"@en, "Sänger"@de, "chanteur ou chanteuse"@fr;
-	rdfs:comment """."""@en;
+	rdfs:comment """Role of a singer."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 # OperaSinger
@@ -355,7 +355,7 @@ human:Dancer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "dancer"@en, "Tänzer"@de, "danseur ou danseuse"@fr;
-	rdfs:comment """."""@en;
+	rdfs:comment """ Role of a dancer."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 # BalletDancer

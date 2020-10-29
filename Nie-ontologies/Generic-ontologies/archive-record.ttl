@@ -136,7 +136,7 @@ archive-record:hasWebpage
 	rdfs:label "archive record has webpage"@en, "Archivdatensatz hat Webseite";
 	rdfs:comment """Relating a archive record to the webpage of the catalogue entry in an archive information system."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
-	rdfs:range archive-record:Webpage;
+	rdfs:range archive-record:CatalogueEntryWebpage;
 	rdfs:subPropertyOf publishing:hasWebPublication.
 
 #isRepresentedByArchiveRecord (domain: rdfs:Resource, range: ArchiveRecord)

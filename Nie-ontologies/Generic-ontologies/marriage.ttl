@@ -5,16 +5,19 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-
+@prefix event: <http://e-editiones.ch/ontology/agent#>.
+@prefix event: <http://e-editiones.ch/ontology/calendar#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix event: <http://e-editiones.ch/ontology/human#>.
 
 @base <http://e-editiones.ch/ontology/marriage>.
-@prefix archive-record: <http://e-editiones.ch/ontology/marriage#>.
+@prefix marriage: <http://e-editiones.ch/ontology/marriage#>.
 
 <http://e-editiones.ch/ontology/archive-record>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
 	dct:title "An ontology about marriage"@en;
-	dct:description """Formal description of an marriage, general subclasses, related classes and properties."""@en;
+	dct:description """Formal description of a marriage, general subclasses, related classes and properties."""@en;
 	dct:creator "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:contributor "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
@@ -23,3 +26,42 @@
 #
 # CLASSES
 #
+marriage:Marriage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "marriage"@en, "Ehe"@de;
+	rdfs:comment """Legally approved cohabitation of two people."""@en;
+	rdfs:subClassOf human:Action.
+
+marriage:Wedding
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "wedding"@en, "Heirat"@de;
+	rdfs:comment """Event in which two people get married."""@en;
+	rdfs:subClassOf event:Procedure.
+
+marriage:Bride
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "bride"@en, "Braut"@de;
+	rdfs:comment """Role of a woman marrying at a wedding."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+marriage:Bridegroom
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "bridegroom"@en, "Bräutigam"@de;
+	rdfs:comment """Role of a man marrying at a wedding."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+#
+# PROPERTIES
+#
+
+marriage:hasWeddingdate
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has weddingdate"@en, "hat Heiratsdatum"@de;
+	rdfs:comment """Relating a wedding to the date of that wedding."""@en;
+	rdfs:domain marriage:Wedding;
+	rdfs:range calendar:hasJulianDate, calendar:hasGregorianDate.#??? human: hasBirthday: range xsd date

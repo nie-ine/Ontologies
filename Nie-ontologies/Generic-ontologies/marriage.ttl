@@ -9,6 +9,8 @@
 @prefix event: <http://e-editiones.ch/ontology/calendar#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix event: <http://e-editiones.ch/ontology/human#>.
+@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
 
 @base <http://e-editiones.ch/ontology/marriage>.
 @prefix marriage: <http://e-editiones.ch/ontology/marriage#>.
@@ -54,6 +56,14 @@ marriage:Bridegroom
 	rdfs:comment """Role of a man marrying at a wedding."""@en;
 	rdfs:subClassOf human:PersonRole.
 
+marriage:Parish
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "parish"@en, "Kirchgemeinde"@de;
+	rdfs:comment """Location with a church in the centre where a wedding takes place and at the same time the religios organization that carries out the wedding."""@en;
+	rdfs:subClassOf humgeo:Village, org:ReligiousOrganization.
+
+
 #
 # PROPERTIES
 #
@@ -65,3 +75,11 @@ marriage:hasWeddingdate
 	rdfs:comment """Relating a wedding to the date of that wedding."""@en;
 	rdfs:domain marriage:Wedding;
 	rdfs:range calendar:hasJulianDate, calendar:hasGregorianDate.#??? human: hasBirthday: range xsd date
+
+marriage:weddingCarriedOutInParish
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a owl:DatatypeProperty;
+	rdfs:label "wedding is carried out in parish"@en, "Heirat wird durchgeführt in Kirchgemeinde"@de;
+	rdfs:comment """Relating a wedding to the parish it is carried out."""@en;
+	rdfs:domain marriage:Wedding;
+	rdfs:range marriage:Parish.

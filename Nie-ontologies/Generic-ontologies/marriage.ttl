@@ -87,5 +87,7 @@ marriage:weddingCarriedOutInParish
 
 #Bride has forename, surname, origin
 #Bridegroom has forename, surname, origin
-#hat Zusatzinformation (zu bride, zu Wedding, zu bridegroom...)
+#hat Zusatzinformation (zu bride, zu Wedding, zu bridegroom...) for example:
+#getauft 22. Juni 1684; Eltern: Konrad Fisler sel. und Magdalena Fehr sel.; Weber; Witwer der Barbara Baur von Berg am Irchel (gestorben 10. Aug. 1746, getraut 8. Dez. 1716)
+#Text: Psalm 37:3-6. Sie starb 1751.
 #Literal?

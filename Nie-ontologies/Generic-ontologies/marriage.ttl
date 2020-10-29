@@ -1,0 +1,25 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+
+
+@base <http://e-editiones.ch/ontology/marriage>.
+@prefix archive-record: <http://e-editiones.ch/ontology/marriage#>.
+
+<http://e-editiones.ch/ontology/archive-record>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about marriage"@en;
+	dct:description """Formal description of an marriage, general subclasses, related classes and properties."""@en;
+	dct:creator "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-10-29"^^xsd:date.
+
+#
+# CLASSES
+#

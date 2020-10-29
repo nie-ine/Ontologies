@@ -47,14 +47,14 @@ marriage:Bride
 	a rdfs:Class;
 	rdfs:label "bride"@en, "Braut"@de;
 	rdfs:comment """Role of a woman marrying at a wedding."""@en;
-	rdfs:subClassOf human:PersonRole.
+	rdfs:subClassOf human:PersonRole, human:female.#?
 
 marriage:Bridegroom
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
 	a rdfs:Class;
 	rdfs:label "bridegroom"@en, "Bräutigam"@de;
 	rdfs:comment """Role of a man marrying at a wedding."""@en;
-	rdfs:subClassOf human:PersonRole.
+	rdfs:subClassOf human:PersonRole, human:male.#?
 
 marriage:Parish
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
@@ -63,6 +63,7 @@ marriage:Parish
 	rdfs:comment """Location with a church in the centre where a wedding takes place and at the same time the religios organization that carries out the wedding."""@en;
 	rdfs:subClassOf humgeo:Village, org:ReligiousOrganization.
 
+#Zusatzinformationen...
 
 #
 # PROPERTIES
@@ -83,3 +84,8 @@ marriage:weddingCarriedOutInParish
 	rdfs:comment """Relating a wedding to the parish it is carried out."""@en;
 	rdfs:domain marriage:Wedding;
 	rdfs:range marriage:Parish.
+
+#Bride has forename, surname, origin
+#Bridegroom has forename, surname, origin
+#hat Zusatzinformation (zu bride, zu Wedding, zu bridegroom...)
+#Literal?

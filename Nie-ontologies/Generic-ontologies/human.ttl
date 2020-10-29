@@ -109,23 +109,23 @@ human:BiologicalSex
 human:Female
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human female"@en, "menschlich weiblich"@de;
-	rdfs:comment """Human being of a female sex."""@en;
+	rdfs:label "human female"@en, "weiblicher Mensch"@de;
+	rdfs:comment """Human having the female biological sex."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Male
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human male"@en, "menschlich männlich"@de;
-	rdfs:comment """Human being of a male sex."""@en;
+	rdfs:label "human male"@en, "männlicher Mensch"@de;
+	rdfs:comment """Human having the male biological sex."""@en;
 	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Intersexual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human intersexual"@en, "menschlich intersexuell"@de;
-	rdfs:comment """Human being of a sex that is neither male nor female, with biological characteristics of both."""@en;
+	rdfs:label "human intersexual"@en, "intersexueller Mensch"@de;
+	rdfs:comment """Human having the intersexual biological sex."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:PersonIdentifier

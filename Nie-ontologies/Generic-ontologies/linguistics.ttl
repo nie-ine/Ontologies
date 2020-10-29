@@ -79,14 +79,14 @@ ling:Statement
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "statement"@en, "Aussage"@de;
-	rdfs:comment """Sentence... ."""@en;
+	rdfs:comment """Sentence which is true or false."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Command
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "command"@en, "Befehl"@de;
-	rdfs:comment """Sentence... ."""@en;
+	rdfs:comment """Sentence giving an order that must be followed."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Question
@@ -109,7 +109,7 @@ ling:Promise
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistics#>;
 	a rdfs:Class;
 	rdfs:label "promise"@en, "Versprechen"@de;
-	rdfs:comment """Sentence... ."""@en;
+	rdfs:comment """Sentence stating bindingly that something is being done or will happen."""@en;
 	rdfs:subClassOf text-structure:Sentence.
 
 ling:Evaluation

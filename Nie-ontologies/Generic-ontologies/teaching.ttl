@@ -22,6 +22,7 @@
 	dct:title "An ontology about teaching:"@en;
 	dct:description """Formal description of teaching:, general subclasses such as action, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -32,7 +33,6 @@
 teach:Teaching
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teaching"@en, "Unterricht"@de;
 	rdfs:comment """Person's action of communicating information in order to help another person to acquire knowledge, competence or value."""@en;
 	rdfs:subClassOf human:Procedure.
@@ -40,7 +40,6 @@ teach:Teaching
 teach:Teacher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teacher"@en, "Lehrperson"@de;
 	rdfs:comment """Role of a person who teaches."""@en;
 	rdfs:subClassOf human:PersonRole.
@@ -48,7 +47,6 @@ teach:Teacher
 teach:Lecture
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecture"@en, "Vorlesung"@de;
 	rdfs:comment """Teaching by oral presentation about a particular subject."""@en;
 	rdfs:subClassOf teach:Teaching.
@@ -56,7 +54,6 @@ teach:Lecture
 teach:Lecturer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a rdfs:Class;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecturer"@en, "Dozent"@de;
 	rdfs:comment """Role of a person who lectures."""@en;
 	rdfs:subClassOf teach:Teacher.
@@ -82,7 +79,6 @@ teach:Manual
 teach:teachingBy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "teaching by"@en, "Unterricht von"@de;
 	rdfs:comment """Relating a teaching to a person having the teacher role."""@en;
 	rdfs:domain teach:Teaching;
@@ -92,7 +88,6 @@ teach:teachingBy
 teach:lectureBy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	a owl:ObjectProperty;
-	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/teaching#>;
 	rdfs:label "lecture by"@en, "Vorlesung von"@de;
 	rdfs:comment """Relating a lecture to a person having the lecturer role."""@en;
 	rdfs:domain teach:Lecture;

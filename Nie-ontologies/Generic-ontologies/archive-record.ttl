@@ -14,6 +14,7 @@
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
 @prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/archive-record>.
@@ -36,8 +37,8 @@
 archive-record:ArchiveRecord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
-	rdfs:label "archive record"@en, "Archivdatensatz"@de;
-	rdfs:comment """A record as an entry in an Archive Information System. This record can be f.e. one or more fonds, one or more dossiers, one or more documents, one or more parts of a document,..."""@en;
+	rdfs:label "archive record"@en, "Archiveinheit"@de;
+	rdfs:comment """A record as an entry in an Archive Information System with catalogue data and its primary data on a information carrier belonging to it. This record can be of any level of detail, from an entire archive to a single document or only a part of it."""@en;
 	rdfs:subClassOf rico:Record, rico:Instantiation, creating:Creation, document:Document.
 
 archive-record:Carrier
@@ -59,7 +60,7 @@ archive-record:Volume
 	a rdfs:Class;
 	rdfs:label "volume"@en, "Band"@de;
 	rdfs:comment """Volume as type of the carrier resp. the archival material type. It is also a special book: One book of a serie of books. One serie is a set of books which are mostly created for the same purpose by the same provenance."""@en;
-	rdfs:subClassOf archive-record:Carrier, infocar:Volume, archive-record:book.
+	rdfs:subClassOf archive-record:Carrier, infocar:Volume, archive-record:Book.
 
 archive-record:Book
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -79,11 +80,17 @@ archive-record:CarrierReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
 	rdfs:label "carrier reference"@en, "Trägerreferenz"@de;
-	rdfs:comment """A reference in a carrier. This could be, f.e., a page in a volume."""@en;
+	rdfs:comment """A reference to a part of a carrier. This could be, f.e., a page reference to a volume."""@en;
 	rdfs:subClassOf document:Structure, concept:Identifier.
 
 #Signatur/Identifier
-#Webpage
+
+archive-record:CatalogueEntryWebpage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a rdfs:Class;
+	rdfs:label "catalogue entry webpage"@en, "Katalogeintrag-Webseite"@de;
+	rdfs:comment """Webpage of the catalogue entry in an archive information system."""@en;
+	rdfs:subClassOf publishing:WebpagePublication.
 
 #
 # PROPERTIES
@@ -110,7 +117,7 @@ archive-record:isheldbyArchive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record is held by archive"@en, "Archivdatensatz wird geführt von Archiv";
-	rdfs:comment """Relating a archive record to its archive in which it is stored, recorded. The archive is responsible for the publishing of the archive record."""@en;
+	rdfs:comment """Relating a archive record to its archive in which it is stored, recorded. The archive is responsible for the publishing and managing of an archive record."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range org:Archive.
 
@@ -122,6 +129,15 @@ archive-record:hasProvenance
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Provenance;
 	rdfs:subPropertyOf rico:isProvenanceOf.
+
+archive-record:hasWebpage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
+	a owl:ObjectProperty;
+	rdfs:label "archive record has webpage"@en, "Archivdatensatz hat Webseite";
+	rdfs:comment """Relating a archive record to the webpage of the catalogue entry in an archive information system."""@en;
+	rdfs:domain archive-record:ArchiveRecord;
+	rdfs:range archive-record:Webpage;
+	rdfs:subPropertyOf publishing:hasWebPublication.
 
 #isRepresentedByArchiveRecord (domain: rdfs:Resource, range: ArchiveRecord)
 #hasLiteral...

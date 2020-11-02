@@ -98,35 +98,115 @@ human:Procedure
 	rdfs:comment """Procedure with a human agent."""@en;
 	rdfs:subClassOf event:Procedure.
 
+
 human:BiologicalSex
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
 	rdfs:comment """Biological trait of a human based on reproductive functions."""@en;
-	rdfs:subClassOf rdfs:Resource; # seqnum
-	owl:disjointUnionOf (human:Female human:Male human:Intersexual).
+	rdfs:subClassOf rdfs:Resource;
+	owl:disjointUnionOf (human:female human:male human:intersexual).
+
+human:female
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class, human:BiologicalSex;
+	rdfs:label "human female sex"@en, "menschliches weibliches Geschlecht"@de;
+	rdfs:comment """Human biological sex being female."""@en.
+
+human:male
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class, human:BiologicalSex;
+	rdfs:label "human male sex"@en, "menschliches männliches Geschlecht"@de;
+	rdfs:comment """Human biological sex being male."""@en.
+
+human:intersexual
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class, human:BiologicalSex;
+	rdfs:label "human intersexual sex"@en, "menschliches intersexuelles Geschlecht"@de;
+	rdfs:comment """Human biological sex being neither male nor female, with biological characteristics of both."""@en.
 
 human:Female
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human female"@en, "weiblicher Mensch"@de;
+	rdfs:label "human female"@en, "weibliche Mensch"@de;
 	rdfs:comment """Human having the female biological sex."""@en;
-	rdfs:subClassOf human:BiologicalSex.
+	rdfs:subClassOf human:Human, [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:hasValue human:female].
 
 human:Male
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human male"@en, "männlicher Mensch"@de;
+	rdfs:label "human male"@en, "männliche Mensch"@de;
 	rdfs:comment """Human having the male biological sex."""@en;
-	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
-	rdfs:subClassOf human:BiologicalSex.
+	skos:note """In adulthood producing spermatozoa to fertilize female ova."""@en;
+	rdfs:subClassOf human:Human, [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:hasValue human:male].
 
 human:Intersexual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
-	rdfs:label "human intersexual"@en, "intersexueller Mensch"@de;
+	rdfs:label "human intersexual"@en, "intersexuelle Mensch"@de;
 	rdfs:comment """Human having the intersexual biological sex."""@en;
-	rdfs:subClassOf human:BiologicalSex.
+	rdfs:subClassOf human:Human, [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:hasValue human:intersexual].
+
+human:BiologicalAdult
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "biologically adult human"@en;
+	rdfs:comment """Person having attained reproductive ability or evidencing secondary sex characteristics."""@en;
+	rdfs:subClassOf human:Person.
+
+human:LegalAdult
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "legally adult human"@en;
+	rdfs:comment """Person having reached the adult age as stated by law."""@en;
+	skos:Note """Further restriction to be given along specific law."""@en;
+	rdfs:subClassOf human:Person.
+
+human:Woman
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "woman"@en;
+	rdfs:comment """Biologically adult human female."""@en;
+	rdfs:subClassOf human:BiologicalAdult, human:Female.
+
+human:Man
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "man"@en;
+	rdfs:comment """Biologically adult human male."""@en;
+	rdfs:subClassOf human:BiologicalAdult, human:Male.
+
+human:AdultIntersexual
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "biologically adult human intersexual"@en, "biologisch erwachsene intersexuelle Mensch"@de;
+	rdfs:comment """Biologically adult human intersexual."""@en;
+	rdfs:subClassOf human:BiologicalAdult, human:Intersexual.
+
+human:Women
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "women"@en;
+	rdfs:comment """Group of which a member is a woman."""@en;
+	rdfs:subClassOf human:Group; #, [a owl:Restriction; owl:onProperty human:hasMember; owl:allValuesFrom human:Woman].
+	owl:disjointWith human:Men.
+
+human:Men
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "men"@en;
+	rdfs:comment """Group of which a member is a man."""@en;
+	rdfs:subClassOf human:Group. #, [a owl:Restriction; owl:onProperty human:hasMember; owl:allValuesFrom human:Man].
+
+human:AdultIntersexuals
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
+	a rdfs:Class;
+	rdfs:label "biologically adult human intersexual"@en, "biologisch erwachsene intersexuelle Mensch"@de;
+	rdfs:comment """Group of which a member is a biologically adult human intersexual."""@en;
+	rdfs:subClassOf human:Group. #, [a owl:Restriction; owl:onProperty human:hasMember; owl:allValuesFrom human:AdultIntersexual].
 
 human:PersonIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -326,28 +406,28 @@ human:PerformingArtist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "performing artist"@en, "Kunstperformer"@de, "artiste de la performance"@fr;
-	rdfs:comment """Role of an artist in a performing art."""@en;
+	rdfs:comment """Role of a person creating art through performing."""@en;
 	rdfs:subClassOf human:Artist.
 
 human:Actor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "actor"@en, "Darsteller"@de, "acteur ou actrice"@fr;
-	rdfs:comment """Role of an actor."""@en;
+	rdfs:comment """Role of a person creating art through acting."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Musician
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "musician"@en, "Musiker"@de, "musicien ou musicienne"@fr;
-	rdfs:comment """Role of a musician."""@en;
+	rdfs:comment """Role of a person creating art through making music."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 human:Singer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "singer"@en, "Sänger"@de, "chanteur ou chanteuse"@fr;
-	rdfs:comment """Role of a singer."""@en;
+	rdfs:comment """Role of a person creating art through singing."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 # OperaSinger
@@ -356,7 +436,7 @@ human:Dancer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "dancer"@en, "Tänzer"@de, "danseur ou danseuse"@fr;
-	rdfs:comment """ Role of a dancer."""@en;
+	rdfs:comment """ RRole of a person creating art through dancing."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 # BalletDancer

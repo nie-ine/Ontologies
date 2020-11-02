@@ -47,14 +47,14 @@ marriage:Bride
 	a rdfs:Class;
 	rdfs:label "bride"@en, "Braut"@de;
 	rdfs:comment """Role of a woman marrying at a wedding."""@en;
-	rdfs:subClassOf human:PersonRole, human:female.#?
+	rdfs:subClassOf human:PersonRole.
 
 marriage:Bridegroom
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
 	a rdfs:Class;
 	rdfs:label "bridegroom"@en, "Bräutigam"@de;
 	rdfs:comment """Role of a man marrying at a wedding."""@en;
-	rdfs:subClassOf human:PersonRole, human:male.#?
+	rdfs:subClassOf human:PersonRole.
 
 marriage:Parish
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;

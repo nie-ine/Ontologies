@@ -436,7 +436,7 @@ human:Dancer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;
 	rdfs:label "dancer"@en, "Tänzer"@de, "danseur ou danseuse"@fr;
-	rdfs:comment """ RRole of a person creating art through dancing."""@en;
+	rdfs:comment """Role of a person creating art through dancing."""@en;
 	rdfs:subClassOf human:PerformingArtist.
 
 # BalletDancer

@@ -189,14 +189,14 @@ scholarly-editing:Siglum
 scholarly-editing:Apparatus
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus"@en, "editorischer Apparat"@de, "apparatus editionis"@la, "apparat éditionel"@fr, "apparato edizione"@it; 
+	rdfs:label "editing apparatus"@en, "editorischer Apparat"@de, "apparatus editionis"@la, "apparat de l'édition"@fr, "apparato dell'edizione"@it; 
 	rdfs:comment """Editorial compositional structure in a scholarly edition to analyse text along certain criteria."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 
 scholarly-editing:ApparatusEntry
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "editing apparatus entry"@en, "Eintrag in editorischem Apparat"@de, "entrée d'apparat éditionel"@fr, "iscrizione del apparato"@it;
+	rdfs:label "editing apparatus entry"@en, "Eintrag in editorischem Apparat"@de, "entrée d'apparat de l'édition"@fr, "iscrizione del apparato dell'edizione"@it;
 	rdfs:comment """Entry of an editing apparatus."""@en;
 	rdfs:subClassOf scholarly-editing:EditorialStructure, text-structure:CompositionalContentStructure.
 

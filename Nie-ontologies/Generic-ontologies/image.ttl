@@ -19,6 +19,7 @@
 	dct:title "An ontology about image"@en;
 	dct:description """Formal description of image as a visual resource in the broadest sense, its general subclasses, related classes, and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -50,7 +51,7 @@ image:Expression
 image:Original
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
-	rdfs:label "original image expression"@en,"originaler Bildexpression"@de;
+	rdfs:label "original image expression"@en,"originale Bildexpression"@de;
 	rdfs:comment """Image expression having its claim of originality supported by its features and history."""@en;
 	rdfs:subClassOf image:Expression.
 

@@ -115,7 +115,7 @@ languages:Sanskrit
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Sanskrit"@en, "Sanskrit"@de, "sanskrit"@fr, "sanscrito"@it;
-	rdfs:comment """."""@en;
+	rdfs:comment """The language developed and spoken in Ancient India."""@en;
 	rdfs:subClassOf language:GeneralHumanNaturalLanguage;
 	language:hasIdentifierCode [concept:identifierCodeHasSystem languages:iso639-1System; concept:identifierCodeHasValue "sa"^^languages:iso639-1];
 	language:hasIdentifierCode [concept:identifierCodeHasSystem languages:iso639-2System; concept:identifierCodeHasValue "san"^^languages:iso639-2].
@@ -133,7 +133,7 @@ languages:SwissGerman
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/languages#>;
 	a rdfs:Class;
 	rdfs:label "Swiss German"@en, "Schweizerdeutsch"@de;
-	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
+	rdfs:comment """Any of the Alemannic dialects spoken in the German-speaking part of Switzerland, in parts of the Principality of Liechtenstein and in some Alpine communities in Northern Italy bordering Switzerland."""@en;
 	rdfs:subClassOf language:Dialect, [
 		a owl:Restriction; owl:onProperty language:isDialectOf; owl:someValuesFrom languages:German].
 

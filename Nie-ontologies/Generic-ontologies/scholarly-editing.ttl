@@ -203,7 +203,7 @@ scholarly-editing:ApparatusEntry
 scholarly-editing:DoctrinalApparatus
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
-	rdfs:label "doctrinal apparatus"@en, "doktrinal Apparat"@de, "apparat doctrinal"@fr, "apparato dottrinale"@it;
+	rdfs:label "doctrinal apparatus"@en, "doktrinaler Apparat"@de, "apparat doctrinal"@fr, "apparato dottrinale"@it;
 	rdfs:comment """Editing apparatus commmenting on the content of a scholarly edition in a historical and doctrinal context."""@en; # info about theory
 	rdfs:subClassOf scholarly-editing:Apparatus.
 

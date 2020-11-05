@@ -15,6 +15,7 @@
 	dct:title "An ontology about logic"@en;
 	dct:description """Formal description of logic, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -26,14 +27,14 @@ logic:Premise
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "premise"@en, "Prämisse"@de;
-	rdfs:comment """Statement ... ."""@en;
+	rdfs:comment """Statement of a presupposition, which leads to a conclusion."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Conclusion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "conclusion"@en, "Schlussfolgerung"@de;
-	rdfs:comment """Statement ... ."""@en;
+	rdfs:comment """Statement of a result, which is drawn from premises and arguments."""@en;
 	rdfs:subClassOf ling:Statement.
 
 logic:Argument
@@ -47,7 +48,7 @@ logic:Syllogism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "syllogism"@en, "Syllogismus"@de;
-	rdfs:comment """."""@en;
+	rdfs:comment """Conclusion from the general to the particular."""@en;
 	rdfs:subClassOf logic:Argument.
 
 #

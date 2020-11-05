@@ -25,6 +25,7 @@
 	dct:title "An ontology about language"@en;
 	dct:description """Formal description of language, general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
 	owl:versionInfo "2020-06-11"^^xsd:date.
 
@@ -74,7 +75,7 @@ language:HumanNaturalLanguageExpression
 language:Dialect
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a rdfs:Class;
-	rdfs:label "dialect"@en, "Mundart"@de;
+	rdfs:label "dialect"@en, "Dialekt"@de;
 	rdfs:comment """Regional variant of a standard human natural language."""@en;
 	rdfs:subClassOf language:HumanNaturalLanguage.
 
@@ -180,7 +181,7 @@ language:expressedInNaturalLanguage
 language:expressedInDialect
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/language#>;
 	a owl:ObjectProperty;
-	rdfs:label "expressed in dialect"@en, "geäußert in Mundart"@de;
+	rdfs:label "expressed in dialect"@en, "geäußert in Dialekt"@de;
 	rdfs:comment """Relating a human expression to a dialect it is expressed in."""@en;
 	rdfs:domain language:HumanNaturalLanguageExpression;
 	rdfs:range language:Dialect.

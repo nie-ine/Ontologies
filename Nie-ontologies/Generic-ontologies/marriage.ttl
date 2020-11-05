@@ -1,0 +1,93 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+@prefix event: <http://e-editiones.ch/ontology/agent#>.
+@prefix event: <http://e-editiones.ch/ontology/calendar#>.
+@prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix event: <http://e-editiones.ch/ontology/human#>.
+@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix org: <http://e-editiones.ch/ontology/organization#>.
+
+@base <http://e-editiones.ch/ontology/marriage>.
+@prefix marriage: <http://e-editiones.ch/ontology/marriage#>.
+
+<http://e-editiones.ch/ontology/archive-record>
+	a owl:Ontology;
+	dct:license <http://creativecommons.org/licenses/by/3.0/>;
+	dct:title "An ontology about marriage"@en;
+	dct:description """Formal description of a marriage, general subclasses, related classes and properties."""@en;
+	dct:creator "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
+	dct:contributor "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
+	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
+	owl:versionInfo "2020-10-29"^^xsd:date.
+
+#
+# CLASSES
+#
+marriage:Marriage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "marriage"@en, "Ehe"@de;
+	rdfs:comment """Legally approved cohabitation of two people."""@en;
+	rdfs:subClassOf human:Action.
+
+marriage:Wedding
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "wedding"@en, "Heirat"@de;
+	rdfs:comment """Event in which two people get married."""@en;
+	rdfs:subClassOf event:Procedure.
+
+marriage:Bride
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "bride"@en, "Braut"@de;
+	rdfs:comment """Role of a woman marrying at a wedding."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+marriage:Bridegroom
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "bridegroom"@en, "Bräutigam"@de;
+	rdfs:comment """Role of a man marrying at a wedding."""@en;
+	rdfs:subClassOf human:PersonRole.
+
+marriage:Parish
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "parish"@en, "Kirchgemeinde"@de;
+	rdfs:comment """Location with a church in the centre where a wedding takes place and at the same time the religios organization that carries out the wedding."""@en;
+	rdfs:subClassOf humgeo:Village, org:ReligiousOrganization.
+
+#Zusatzinformationen...
+
+#
+# PROPERTIES
+#
+
+marriage:hasWeddingdate
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a owl:DatatypeProperty;
+	rdfs:label "has weddingdate"@en, "hat Heiratsdatum"@de;
+	rdfs:comment """Relating a wedding to the date of that wedding."""@en;
+	rdfs:domain marriage:Wedding;
+	rdfs:range calendar:hasJulianDate, calendar:hasGregorianDate.#??? human: hasBirthday: range xsd date
+
+marriage:weddingCarriedOutInParish
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a owl:DatatypeProperty;
+	rdfs:label "wedding is carried out in parish"@en, "Heirat wird durchgeführt in Kirchgemeinde"@de;
+	rdfs:comment """Relating a wedding to the parish it is carried out."""@en;
+	rdfs:domain marriage:Wedding;
+	rdfs:range marriage:Parish.
+
+#Bride has forename, surname, origin
+#Bridegroom has forename, surname, origin
+#hat Zusatzinformation (zu bride, zu Wedding, zu bridegroom...) for example:
+#getauft 22. Juni 1684; Eltern: Konrad Fisler sel. und Magdalena Fehr sel.; Weber; Witwer der Barbara Baur von Berg am Irchel (gestorben 10. Aug. 1746, getraut 8. Dez. 1716)
+#Text: Psalm 37:3-6. Sie starb 1751.
+#Literal?

@@ -98,7 +98,6 @@ human:Procedure
 	rdfs:comment """Procedure with a human agent."""@en;
 	rdfs:subClassOf event:Procedure.
 
-
 human:BiologicalSex
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
 	a rdfs:Class;

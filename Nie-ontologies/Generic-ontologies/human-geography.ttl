@@ -64,7 +64,6 @@ humgeo:SovereignState
 	rdfs:comment """Political organization of a sovereign state with an own government."""@en;
 	rdfs:subClassOf humgeo:State.
 
-
 humgeo:FederalState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
@@ -79,7 +78,7 @@ humgeo:Government
 	rdfs:comment """One or more persons in a politician role exercising authority over a particular territory."""@en;
 	rdfs:subClassOf org:PoliticalOrganization.
 
-humgeo:Monarchy #°
+humgeo:Monarchy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "monarchy"@en, "Monarchie"@de;
@@ -92,7 +91,6 @@ humgeo:Monarch
 	rdfs:label "monarch"@en, "Monarch"@de, "monarque"@fr;
 	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
 	rdfs:subClassOf human:PersonRole.
-
 
 humgeo:King
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;

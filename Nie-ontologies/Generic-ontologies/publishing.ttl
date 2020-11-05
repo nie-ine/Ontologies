@@ -259,7 +259,7 @@ publish:NewspaperIssue
 publish:PeriodicalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "periodical publication issue"@en, "Zeitschrift-Ausgabe"@de, "publication périodique"@fr, "pubblicazione periodico"@it;
+	rdfs:label "periodical publication issue"@en, "Zeitschrift-Ausgabe"@de, "publication périodique"@fr, "pubblicazione  di un periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_p.aspx#periodical>;
 	rdfs:subClassOf publish:SerialIssue. # infocar:Book
@@ -267,7 +267,7 @@ publish:PeriodicalIssue
 publish:MagazineIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "magazine issue"@en, "Magazin-Ausgabe"@de, "publication d'un magazine"@fr; #,"rivista"@it;
+	rdfs:label "magazine issue"@en, "Magazin-Ausgabe"@de, "publication d'un magazine"@fr,"pubblicazione di una rivista"@it;
 	rdfs:comment """Periodical publication issued with individual pagination."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_m.aspx#magazine>;
 	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
@@ -275,7 +275,7 @@ publish:MagazineIssue
 publish:JournalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
-	rdfs:label "journal issue"@en, "Journal-Ausgabe"@de, "publication d'une revue"@fr; #, "giornale"@it;
+	rdfs:label "journal issue"@en, "Journal-Ausgabe"@de, "publication d'une revue"@fr, "pubblicazione di un giornale"@it;
 	rdfs:comment """Periodical publication issued with continuous pagination throughout its volume."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_jk.aspx#journal>;
 	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
@@ -456,7 +456,7 @@ publish:isPublishedIn
 publish:isFirstPublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
-	rdfs:label "is first published in"@en, "ist zuerst publiziert in"@de, "est republié premièrement dans"@fr, "è ripubblicato in"@it;
+	rdfs:label "is first published in"@en, "ist zuerst publiziert in"@de, "est publié pour la première fois dans"@fr, "è pubblicato per la prima volta in"@it;
 	rdfs:comment """Relating a publication expression to a first publication thereof."""@en;
 	rdfs:domain publish:Expression;
 	rdfs:range publish:FirstPublication;

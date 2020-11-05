@@ -82,7 +82,7 @@ human:Group
 	a rdfs:Class;
 	rdfs:label "group of humans"@en, "Menschengruppe"@de;
 	rdfs:comment """Group of humans."""@en;
-	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group. # rdfs:subClassOf cidoc:E39_Actor
+	rdfs:subClassOf human:Agent, agent:Group, cidoc:E74_Group.
 
 human:Action
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;

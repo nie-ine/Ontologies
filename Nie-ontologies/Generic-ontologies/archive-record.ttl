@@ -6,7 +6,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#>.
-@prefix event: <http://e-editiones.ch/ontology/agent#>.
+@prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
@@ -15,7 +15,7 @@
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 @prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/archive-record>.

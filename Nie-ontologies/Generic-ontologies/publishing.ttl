@@ -5,22 +5,22 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix organization: <http://e-editiones.ch/ontology/organization#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix electronic-information: <http://e-editiones.ch/ontology/electronic-information#>.
 
 @base <http://e-editiones.ch/ontology/publishing>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 
 <http://e-editiones.ch/ontology/publishing>
 	a owl:Ontology;
@@ -36,83 +36,83 @@
 # CLASSES
 #
 
-publish:Publishing
+publishing:Publishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publishing"@en, "Publizieren"@de, "publier"@fr, "Pubblicare"@it;
 	rdfs:comment """Procedure of making an expression public."""@en;
 	rdfs:subClassOf human:Procedure, frbroo:F30_Publication_Event.
 
-publish:Expression
+publishing:Expression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication expression"@en, "Publikationsexpression"@de, "expression de publication"@fr, "espressione di pubblicazione"@it;
 	rdfs:comment """Document expression abstracted from a publication carrier, based on FRBRoo."""@en;
 	rdfs:subClassOf document:Expression, frbroo:F24_Publication_Expression.
 
-publish:TextExpression
+publishing:TextExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication text expression"@en, "Publikationstextexpression"@de, "expression de texte de publication"@fr, "espressione del testo della pubblicazione"@it;
 	rdfs:comment """Text as publication expression."""@en;
-	rdfs:subClassOf text-expression:Expression, publish:Expression.
+	rdfs:subClassOf text-expression:Expression, publishing:Expression.
 
-publish:Article
+publishing:Article
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication article"@en, "Publikationsartikel"@de, "article de publication"@fr, "articolo pubblicazione"@it;
 	rdfs:comment """Article as unit in a publication expression."""@en;
-	rdfs:subClassOf text-expression:Article, publish:TextExpression.
+	rdfs:subClassOf text-expression:Article, publishing:TextExpression.
 
-publish:NewsArticle
+publishing:NewsArticle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "news article"@en, "Nachrichtenartikel"@de, "article d'actualité"@fr, "articolo di giornale"@it;
 	rdfs:comment """Publication article containing most recent information about something."""@en;
-	rdfs:subClassOf publish:Article.
+	rdfs:subClassOf publishing:Article.
 
-publish:ReviewArticle
+publishing:ReviewArticle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "review article"@en, "Rezensionsartikel"@de, "article de revue"@fr, "articolo di revisione"@it;
 	rdfs:comment """Publication article containing a review of something."""@en;
-	rdfs:subClassOf publish:Article.
+	rdfs:subClassOf publishing:Article.
 
-publish:ScientificArticle
+publishing:ScientificArticle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "scientific article"@en, "wissenschaftlicher Artikel"@de, "article scientifique"@fr, "articolo scientifico"@it;
 	rdfs:comment """Publication article with scientific content."""@en;
-	rdfs:subClassOf publish:Article.
+	rdfs:subClassOf publishing:Article.
 
-publish:PublishingState
+publishing:PublishingState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publishing state"@en, "Publikationszustand"@de, "état de publication"@fr, "stato editoriale"@it;
 	rdfs:comment """State of a document expression having been published or not."""@en;
 	rdfs:subClassOf document:State;
-	owl:oneOf (publish:unpublished publish:published).
+	owl:oneOf (publishing:unpublished publishing:published).
 
-publish:unpublished
+publishing:unpublished
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
-	a rdfs:Class, publish:PublishingState;
+	a rdfs:Class, publishing:PublishingState;
 	rdfs:label "unpublished"@en, "unveröffentlicht"@de, "non publié"@fr, "inedita"@it;
 	rdfs:comment """State of a document expression not having been published."""@en.
 
-publish:published
+publishing:published
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
-	a rdfs:Class, publish:PublishingState;
+	a rdfs:Class, publishing:PublishingState;
 	rdfs:label "published"@en, "publiziert"@de, "publié"@fr, "publicada"@it;
 	rdfs:comment """State of a document expression having been published."""@en.
 
-publish:notPublishedWithAuthor
+publishing:notPublishedWithAuthor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class, document:State;
 	rdfs:label "document not published with author"@en, "Dokument nicht mit Autor publiziert"@de, "document non publié avec l'auteur"@fr, "documento non pubblicato con l'autore"@it;
 	rdfs:comment """State of a document expression not having been published with the author."""@en;
 	skos:note """Not a publishing state, but a mere document expression state; whether or not a document expression is actually published, a publication with the author is not known."""@en.
 
-publish:Bibliography
+publishing:Bibliography
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "bibliography"@en, "Bibliographie"@de, "bibliographie"@fr, "bibliografia"@it;
@@ -120,322 +120,322 @@ publish:Bibliography
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx#bibliography>;
 	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
-publish:Redactor
+publishing:Redactor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "redactor"@en, "Redakteur"@de, "rédacteur"@fr, "redattore"@it;
 	rdfs:comment """Editor preparing an expression for publication."""@en;
 	rdfs:subClassOf creating:PersonCreator.
 
-publish:AgentPublisher
+publishing:AgentPublisher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publisher role of agent"@en, "Herausgeberrolle eines Akteurs"@de, "agent-éditeur"@fr, "agente-editore"@it;
 	rdfs:comment """Role of an agent, person or group, that is publishing."""@en;
 	rdfs:subClassOf creating:AgentCreator.
 
-publish:PersonPublisher
+publishing:PersonPublisher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publisher role of person"@en, "Herausgeberrolle einer Person"@de, "personne-éditeur"@fr, "persona editore"@it;
 	rdfs:comment """Publisher as role of a person."""@en;
-	rdfs:subClassOf publish:AgentPublisher, human:PersonRole.
+	rdfs:subClassOf publishing:AgentPublisher, human:PersonRole.
 
-publish:OrganizationPublisher
+publishing:OrganizationPublisher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publisher role of organization"@en, "Herausgeberrolle einer Organisation"@de, "organisation-éditeur"@fr, "organizzazione-editore"@it;
 	rdfs:comment """Publisher as role of an organization."""@en;
-	rdfs:subClassOf publish:AgentPublisher, org:Role.
+	rdfs:subClassOf publishing:AgentPublisher, organization:Role.
 
-publish:NewspaperPublisher
+publishing:NewspaperPublisher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "newspaper publisher"@en, "Zeitungsverleger"@de, "éditeur de journaux"@fr, "editore di giornali"@it;
 	rdfs:comment """Publisher of a newspaper."""@en;
-	rdfs:subClassOf publish:AgentPublisher.
+	rdfs:subClassOf publishing:AgentPublisher.
 
-publish:Publication
+publishing:Publication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "publication"@en, "Publikation"@de, "publication"@fr, "pubblicazione"@it;
 	rdfs:comment """An expression published on a carrier."""@en;
-	rdfs:subClassOf infocar:Carrier, frbroo:F5_Item, [
-		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publish:Publishing].
+	rdfs:subClassOf information-carrier:Carrier, frbroo:F5_Item, [
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:someValuesFrom publishing:Publishing].
 
-publish:PartitionedPublishing
+publishing:PartitionedPublishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "partitioned publishing"@en, "partitioniertes Publizieren"@de, "publication en partition"@fr, "pubblicazione in partizione"@it;
 	rdfs:comment """Publishing the volumes of a partitioned work, mostly consecutively."""@en;
-	rdfs:subClassOf publish:Publishing.
+	rdfs:subClassOf publishing:Publishing.
 
-publish:PartitionedPublication
+publishing:PartitionedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "partitioned publication"@en, "partitionierte Publikation"@de, "publication partitionnée"@fr, "pubblicazione partizionata"@it;
 	rdfs:comment """Publication comprising the volumes of a partitioned work, e.g. carrying a dictionary."""@en;
-	rdfs:subClassOf publish:Publication, infocar:PartitionedWork.
+	rdfs:subClassOf publishing:Publication, information-carrier:PartitionedWork.
 
-publish:PrintedPublication
+publishing:PrintedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "printed publication"@en, "gedruckte Publikation"@de, "publication imprimée"@fr, "pubblicazione stampata"@it;
 	rdfs:comment """Publication as print."""@en;
-	rdfs:subClassOf infocar:Print, publish:Publication.
+	rdfs:subClassOf information-carrier:Print, publishing:Publication.
 
-publish:ElectronicPublication
+publishing:ElectronicPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "electronic publication"@en, "elektronische Publikation"@de, "publication électronique"@fr, "pubblicazione elettronica"@it;
 	rdfs:comment """Publication on an electronic carrier."""@en;
-	rdfs:subClassOf infocar:ElectronicCarrier, publish:Publication.
+	rdfs:subClassOf electronic-information:Carrier, publishing:Publication.
 
-publish:WebpagePublication
+publishing:WebpagePublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "webpage publication"@en, "Webseitenpublikation"@de, "publication de page Web"@fr, "pubblicazione della pagina web"@it;
 	rdfs:comment """Publication as webpage."""@en;
-	rdfs:subClassOf publish:ElectronicPublication, infocar:Webpage.
+	rdfs:subClassOf publishing:ElectronicPublication, information-carrier:Webpage.
 
-publish:WebsitePublication
+publishing:WebsitePublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "website publication"@en, "Websitepublikation"@de, "publication du site Web"@fr;
 	rdfs:comment """Publication as website."""@en;
-	rdfs:subClassOf publish:ElectronicPublication, infocar:Website.
+	rdfs:subClassOf publishing:ElectronicPublication, information-carrier:Website.
 
-publish:PolyAuthorPublication
+publishing:PolyAuthorPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "poly-author publication"@en, "Mehrautorenpublikation"@de, "publication de plusieurs auteurs"@fr, "pubblicazione poli-autore"@it;
 	rdfs:comment """Publication of different expressions by different authors."""@en;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
-publish:FirstPublication
+publishing:FirstPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "first publication"@en, "Erstausgabe"@de, "première publication"@fr, "prima pubblicazione"@it;
 	rdfs:comment """Earliest publication of an expression."""@en;
-	rdfs:subClassOf publish:Publication. # creating:FirstVersion
+	rdfs:subClassOf publishing:Publication. # creating:FirstVersion
 
-publish:LastPublication
+publishing:LastPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "last publication"@en, "letzte Ausgabe"@de, "dernière publication"@fr, "ultima pubblicazione"@it;
 	rdfs:comment """Last publication of an expression."""@en;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
-publish:SerialIssue
+publishing:SerialIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial issue"@en, "Serienausgabe"@de, "publication sérielle"@fr, "pubblicazione seriale"@it;
 	rdfs:comment """Successive publication with same title, usually numbered and/or dated, at a regular or irregular interval, without predetermined conclusion."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_s.aspx#serial>;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
-publish:SerialVolume
+publishing:SerialVolume
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial volume"@en, "Serienband"@de, "volume série"@fr, "volume seriale"@it;
 	rdfs:comment """Set of serial issues, e.g. of a coterminous year, or all the issues ever published."""@en;
-	rdfs:subClassOf infocar:Set.
+	rdfs:subClassOf information-carrier:Set.
 
-publish:SerialVolumeExistence
+publishing:SerialVolumeExistence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "serial volume publishing existence"@en, "Publizierungsexistenz eines Serienbandes"@de; #, ""@fr, ""@it;
 	rdfs:comment """The publishing from the first to the last issue of a serial volume."""@en;
-	rdfs:subClassOf event:Existence, publish:Publishing.
+	rdfs:subClassOf event:Existence, publishing:Publishing.
 
-publish:NewspaperIssue
+publishing:NewspaperIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "newspaper issue"@en, "Zeitung-Ausgabe"@de; #, "journal"@fr, "giornale"@it;
 	rdfs:comment """Serial publication issued mostly daily, with most recent event descriptions as core content."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_n.aspx#newspaper>;
-	rdfs:subClassOf publish:SerialIssue.
+	rdfs:subClassOf publishing:SerialIssue.
 
-publish:PeriodicalIssue
+publishing:PeriodicalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "periodical publication issue"@en, "Zeitschrift-Ausgabe"@de, "publication périodique"@fr, "pubblicazione  di un periodico"@it;
 	rdfs:comment """Serial publication issued at a regular interval of less than a year, e.g. daily, weekly, monthly, quarterly, without prior decision as to when the final issue will appear."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_p.aspx#periodical>;
-	rdfs:subClassOf publish:SerialIssue. # infocar:Book
+	rdfs:subClassOf publishing:SerialIssue. # information-carrier:Book
 
-publish:MagazineIssue
+publishing:MagazineIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "magazine issue"@en, "Magazin-Ausgabe"@de, "publication d'un magazine"@fr,"pubblicazione di una rivista"@it;
 	rdfs:comment """Periodical publication issued with individual pagination."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_m.aspx#magazine>;
-	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
+	rdfs:subClassOf information-carrier:Book, publishing:PeriodicalIssue.
 
-publish:JournalIssue
+publishing:JournalIssue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "journal issue"@en, "Journal-Ausgabe"@de, "publication d'une revue"@fr, "pubblicazione di un giornale"@it;
 	rdfs:comment """Periodical publication issued with continuous pagination throughout its volume."""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_jk.aspx#journal>;
-	rdfs:subClassOf infocar:Book, publish:PeriodicalIssue.
+	rdfs:subClassOf information-carrier:Book, publishing:PeriodicalIssue.
 
-publish:NachlassPublication
+publishing:NachlassPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "nachlass publication"@en, "Nachlasspublikation"@de, "publication nachlass"@fr, "pubblicazione in nachlass"@it;
 	rdfs:comment """Publication of a nachlass element."""@en;
-	rdfs:subClassOf publish:Publication, infocar:NachlassElement.
+	rdfs:subClassOf publishing:Publication, information-carrier:NachlassElement.
 
-publish:AuthorizedPublication
+publishing:AuthorizedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "authorized publication"@en, "autorisierte Publikation"@de, "publication autorisée"@fr, "pubblicazione autorizzata"@it;
 	rdfs:comment """Publication with the author's authorization."""@en;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
-publish:UnauthorizedPublication
+publishing:UnauthorizedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "unauthorized publication"@en, "nicht-autorisierte Publikation"@de, "publication non autorisée"@fr, "pubblicazione non autorizzata"@it;
 	rdfs:comment """Publication without the author's authorization."""@en;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
-publish:Republication
+publishing:Republication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a rdfs:Class;
 	rdfs:label "republication"@en, "Neuauflage"@de, "republication"@fr, "ripubblicazione"@it;
 	rdfs:comment """Publication of a previously published document expression."""@en;
-	rdfs:subClassOf publish:Publication.
+	rdfs:subClassOf publishing:Publication.
 
 #
 # PROPERTIES
 #
 
-publish:isReviewOf
+publishing:isReviewOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is review of"@en, "ist Rezension zu"@de, "est une recension de"@fr, "è recensione di"@it;
 	rdfs:comment """Relating a review article to the reviewed."""@en;
-	rdfs:domain publish:ReviewArticle;
+	rdfs:domain publishing:ReviewArticle;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf text-expression:isArticleAbout.
 
-publish:hasPublishingState
+publishing:hasPublishingState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publishing state"@en, "hat Publizierungszustand"@de, "a un état de publication"@fr, "ha uno stato editoriale"@it;
 	rdfs:comment """Relating an expression to a publishing state it has."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:PublishingState;
+	rdfs:range publishing:PublishingState;
 	rdfs:subPropertyOf event:hasState.
 
-publish:hasPublishing
+publishing:hasPublishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publishing"@en, "hat Publizieren"@de, "ha editoria"@it; #""@fr; ?  
 	rdfs:comment """Relating an expression to its publishing."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:Publishing;
+	rdfs:range publishing:Publishing;
 	rdfs:subPropertyOf event:isInputOf.
 
-publish:hasPublication
+publishing:hasPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication"@en, "hat Publikation"@de, "a une publication"@fr, "ha una pubblicazione"@it;
 	rdfs:comment """Relating an expression to a publication it has."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:Publication.
+	rdfs:range publishing:Publication.
 
-publish:hasElectronicPublication
+publishing:hasElectronicPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has electronic publication"@en, "hat elektronische Publikation"@de, "a une publication électronique"@fr, "ha una pubblicazione elettronica"@it;
 	rdfs:comment """Relating an expression to an electronic publication it has."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:ElectronicPublication;
-	rdfs:subPropertyOf infocar:isOnElectronicCarrier, publish:hasPublication.
+	rdfs:range publishing:ElectronicPublication;
+	rdfs:subPropertyOf electronic-information:informationIsOnElectronicCarrier, publishing:hasPublication.
 
-publish:hasWebPublication
+publishing:hasWebPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has web publication"@en, "hat Webpublikation"@de, "a une publication web"@fr, "ha una pubblicazione web"@it;
 	rdfs:comment """Relating an expression to a web publication it has."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:WebPublication;
-	rdfs:subPropertyOf publish:hasElectronicPublication.
+	rdfs:range publishing:WebPublication;
+	rdfs:subPropertyOf publishing:hasElectronicPublication.
 
-publish:hasPublicationNumber
+publishing:hasPublicationNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publication number"@en, "hat Publikationsnummer"@de, "a un numéro de publication"@fr, "ha un numero di pubblicazione"@it;
 	rdfs:comment """Relating a publication expression to its number in a publication."""@en;
-	rdfs:domain publish:Expression;
+	rdfs:domain publishing:Expression;
 	rdfs:range xsd:nonNegativeInteger.
 
-publish:hasFirstPublication
+publishing:hasFirstPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has first publication"@en, "hat erste Auflage"@de, "a une première publication"@fr, "ha una prima pubblicazione"@it;
 	rdfs:comment """Relating an expression to its first publication."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:FirstPublication;
-	rdfs:subPropertyOf publish:hasPublication.
+	rdfs:range publishing:FirstPublication;
+	rdfs:subPropertyOf publishing:hasPublication.
 
-publish:hasLastPublication
+publishing:hasLastPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has last publication"@en, "hat letzte Auflage"@de, "a une dernière publication"@fr, "ha un'ultima pubblicazione"@it;
 	rdfs:comment """Relating an expression to its last publication."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:LastPublication;
-	rdfs:subPropertyOf publish:hasPublication.
+	rdfs:range publishing:LastPublication;
+	rdfs:subPropertyOf publishing:hasPublication.
 
-publish:hasLastAuthorizedPublication
+publishing:hasLastAuthorizedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has last authorized publication"@en, "hat letzte autorisierte Auflage"@de, "a une publication autorisée"@fr, "ha una pubblicazione autorizzata"@it;
 	rdfs:comment """Relating an expression to its last publication with the author's authorization."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range [owl:intersectionOf (publish:AuthorizedPublication publish:LastPublication)];
-	rdfs:subPropertyOf publish:hasPublication.
+	rdfs:range [owl:intersectionOf (publishing:AuthorizedPublication publishing:LastPublication)];
+	rdfs:subPropertyOf publishing:hasPublication.
 
-publish:hasUnauthorizedPublication
+publishing:hasUnauthorizedPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized publication"@en, "hat nicht-autorisierte Publikation"@de, "a une publication non autorisée"@fr, "ha una publicazzione non autorizzata"@it;
 	rdfs:comment """Relating an expression to a publication thereof without the author's authorization."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:UnauthorizedPublication;
-	rdfs:subPropertyOf publish:hasPublication.
+	rdfs:range publishing:UnauthorizedPublication;
+	rdfs:subPropertyOf publishing:hasPublication.
 
-publish:hasUnauthorizedRepublication
+publishing:hasUnauthorizedRepublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has unauthorized republication"@en, "hat nicht-autorisierte Neuauflage"@de, "a une republication non autorisée"@fr, "ha una republicazzine non autorizzata"@it;
 	rdfs:comment """Relating an expression to a republication thereof without the author's authorization."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range [owl:intersectionOf (publish:UnauthorizedPublication publish:Republication)];
-	rdfs:subPropertyOf publish:hasUnauthorizedPublication.
+	rdfs:range [owl:intersectionOf (publishing:UnauthorizedPublication publishing:Republication)];
+	rdfs:subPropertyOf publishing:hasUnauthorizedPublication.
 
-publish:hasPolyAuthorPublication
+publishing:hasPolyAuthorPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has poly-author publication"@en, "hat Publikation mehrerer Autoren"@de, "a une publication de plusieurs auteurs"@fr, "ha una pubblicazione poli-autore"@it;
 	rdfs:comment """Relating an expression to a publication thereof containing also expressions of other authors."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:PolyAuthorPublication;
-	rdfs:subPropertyOf publish:hasPublication.
+	rdfs:range publishing:PolyAuthorPublication;
+	rdfs:subPropertyOf publishing:hasPublication.
 
-publish:hasNachlassPublication
+publishing:hasNachlassPublication
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has nachlass publication"@en, "hat Nachlasspublikation"@de, "a une publication nachlass"@fr, "ha una pubblicazione nachlass"@it;
 	rdfs:comment """Relating an expression to a nachlass publication."""@en;
 	rdfs:domain document:Expression;
-	rdfs:range publish:NachlassPublication.
+	rdfs:range publishing:NachlassPublication.
 
-publish:hasNachlassPublicationDescriptionLiteral
+publishing:hasNachlassPublicationDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has nachlass publication description literal"@en, "hat Nachlasspublikationsbeschreibungsliteral"@de, "a littéral d'une description d'une publication nachlass"@fr, "ha letterale della descrizione di pubblicazione nachlass"@it;
@@ -444,182 +444,182 @@ publish:hasNachlassPublicationDescriptionLiteral
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-publish:isPublishedIn
+publishing:isPublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is published in"@en, "ist publiziert in"@de, "est publié dans"@fr, "è pubblicato in"@it;
 	rdfs:comment """Relating a publication expression to a publication thereof."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range publish:Publication;
-	rdfs:subPropertyOf infocar:isOnCarrier.
+	rdfs:domain publishing:Expression;
+	rdfs:range publishing:Publication;
+	rdfs:subPropertyOf information-carrier:isOnCarrier.
 
-publish:isFirstPublishedIn
+publishing:isFirstPublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is first published in"@en, "ist zuerst publiziert in"@de, "est publié pour la première fois dans"@fr, "è pubblicato per la prima volta in"@it;
 	rdfs:comment """Relating a publication expression to a first publication thereof."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range publish:FirstPublication;
-	rdfs:subPropertyOf publish:isPublishedIn.
+	rdfs:domain publishing:Expression;
+	rdfs:range publishing:FirstPublication;
+	rdfs:subPropertyOf publishing:isPublishedIn.
 
-publish:isRepublishedIn
+publishing:isRepublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is republished in"@en, "ist neu publiziert in"@de, "est republié dans"@fr, "è ripubblicato in"@it;
 	rdfs:comment """Relating a publication expression to a republication thereof."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range publish:Republication;
-	rdfs:subPropertyOf publish:isPublishedIn.
+	rdfs:domain publishing:Expression;
+	rdfs:range publishing:Republication;
+	rdfs:subPropertyOf publishing:isPublishedIn.
 
-publish:isPublishedOnWeb
+publishing:isPublishedOnWeb
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is published on Web"@en, "ist im Web publiziert"@de, "est publiée sur le Web"@fr, "è pubblicata sul Web"@it;
 	rdfs:comment """Relating a publication expression to its publication as Web page."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range publish:WebPublication;
-	rdfs:subPropertyOf publish:isPublishedIn, publish:hasWebPublication. #°
+	rdfs:domain publishing:Expression;
+	rdfs:range publishing:WebPublication;
+	rdfs:subPropertyOf publishing:isPublishedIn, publishing:hasWebPublication. #°
 
-publish:hasRedactor
+publishing:hasRedactor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has redactor"@en, "hat Redakteur"@de, "a un rédacteur"@fr, "ha redattore"@it;
 	rdfs:comment """Relating a publication expression to a redactor thereof."""@en;
-	rdfs:domain publish:Expression;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publish:Redactor]].
+	rdfs:domain publishing:Expression;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom publishing:Redactor]].
 
-publish:hasDescriptionLiteral
+publishing:hasDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "publication has description literal"@en, "Publikation hat Beschreibungsliteral"@de, "publication a littéral d'une description"@fr, "pubblicazione ha letterale della descrizione"@it;
 	rdfs:comment """Relating a publication to a description literal thereof."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-publish:hasDate
+publishing:hasDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "publication has date"@en, "Publikation hat Datum"@de, "publication a une date"@fr, "pubblicazione ha una data"@it;
 	rdfs:comment """Relating a publication to the date it is published on."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range xsd:date;
 	rdfs:subPropertyOf creating:creationHasDate.
 
-publish:hasYearPeriod
+publishing:hasYearPeriod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has year period"@en, "Publikation hat Jahrperiode"@de, "la publication a une période annuelle"@fr, "pubblicazione ha un periodo di anno"@it;
 	rdfs:comment """Relating a publication to the year period it is published in."""@en;
 	skos:note """Through a series of N3-rules a publication year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range event:Event.
 #	rdfs:subPropertyOf creating:creationHasYearPeriod.
 
-publish:hasYearMonthPeriod
+publishing:hasYearMonthPeriod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has year-month period"@en, "Publikation hat Jahr-Monatperiode"@de, "publication a une période année-mois"@fr, "pubblicazione ha un periodo di anno-mese"@it;
 	rdfs:comment """Relating a publication to the year-month period it is published in."""@en;
 	skos:note """Through a series of N3-rules a publication year-month literal is converted to its year-month period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range event:Event.
 
-publish:hasStartYearPeriod
+publishing:hasStartYearPeriod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publishing has start year period"@en, "Publizieren hat Startjahrperiode"@de, "publication a la période d'année de début"@fr, "pubblicazione ha il periodo d'anno d'inizio"@it;
 	rdfs:comment """Relating a publishing to the year period the first volume is published in."""@en;
 	skos:note """Through a series of N3-rules a year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
-	rdfs:domain publish:Publishing;
+	rdfs:domain publishing:Publishing;
 	rdfs:range event:Event.
 
-publish:hasEndYearPeriod
+publishing:hasEndYearPeriod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publishing has end year period"@en, "Publizieren hat Endejahrperiode"@de, "publication a la période d'année de fin"@fr, "pubblicazione ha il periodo d'anno di fino"@it;
 	rdfs:comment """Relating a publishing to the year period the last volume is published in."""@en;
 	skos:note """Through a series of N3-rules a year literal is converted to its year period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
-	rdfs:domain publish:Publishing;
+	rdfs:domain publishing:Publishing;
 	rdfs:range event:Event.
 
-publish:hasEndDecadePeriod
+publishing:hasEndDecadePeriod
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publishing has end decade period"@en, "Publizieren hat Endejahrzehntperiode"@de, "publication a la période de décennie de fin"@fr, "pubblicazione ha il periodo di decennio fino"@it;
 	rdfs:comment """Relating a publishing to the decade period the last volume is published in."""@en;
 	skos:note """Through a series of N3-rules a year literal without the year digit is converted to its decade period with the respective calendar start and end date typed literal, and with the start and end Julian Day Number, to enable interval calculus for temporal reasoning."""@en;
-	rdfs:domain publish:Publishing;
+	rdfs:domain publishing:Publishing;
 	rdfs:range event:Event.
 
-publish:hasPartitionedPublishing
+publishing:hasPartitionedPublishing
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has partitioned publishing"@en, "Publikation hat partitioniertes Publizieren"@de, "publication a 'un publier' partitionné"@fr, "pubblicazione ha editoriale partizionata"@it;
 	rdfs:comment """Relating a partitioned publication to its publishing."""@en;
-	rdfs:domain publish:PartitionedPublication;
-	rdfs:range publish:PartitionedPublishing;
+	rdfs:domain publishing:PartitionedPublication;
+	rdfs:range publishing:PartitionedPublishing;
 	rdfs:subPropertyOf event:isOutputOf.
 
-publish:hasTitleLiteral
+publishing:hasTitleLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "publication has title literal"@en, "Publikation hat Titelliteral"@de, "publication a littéral du titre"@fr, "pubblicazione ha letterale del titolo"@it;
 	rdfs:comment """Relating a publication to its title literal."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasTitleLiteral.
 
-publish:hasNumeral
+publishing:hasNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "publication has numeral"@en, "Publikation hat Numeral"@de, "publication a numéral"@fr, "pubblicazione ha cifra"@it;
 	rdfs:comment """Relating a publication to its numeral."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range xsd:positiveInteger;
-	rdfs:subPropertyOf math:hasNumeral.
+	rdfs:subPropertyOf mathematics:hasNumeral.
 
-publish:hasPublisher
+publishing:hasPublisher
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "has publisher"@en, "hat Herausgeber"@de, "a un éditeur"@fr, "ha un editore"@it;
 	rdfs:comment """Relating a publication to its publisher."""@en;
-	rdfs:domain publish:Publication;
-	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publish:AgentPublisher]];
+	rdfs:domain publishing:Publication;
+	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom publishing:AgentPublisher]];
 	rdfs:subPropertyOf creating:hasCreator.
 
-publish:hasPublisherDescriptionLiteral
+publishing:hasPublisherDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has publisher description literal"@en, "hat Herausgeberbeschreibungsliteral"@de, "a littéral d'une description d'éditeur"@fr, "ha letterale della descrizione dell'editore"@it;
 	rdfs:comment """Relating a publication to its publisher's description literal."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-publish:hasPrinterDescriptionLiteral
+publishing:hasPrinterDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has printer description literal"@en, "hat Druckerbeschreibungsliteral"@de, "a littéral d'une description de l'imprimante"@fr, "ha letterale della descrizione della stampante"@it;
 	rdfs:comment """Relating a publication to its printer's description literal."""@en;
-	rdfs:domain publish:Publication;
+	rdfs:domain publishing:Publication;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
-publish:isSerialIssueOfVolume
+publishing:isSerialIssueOfVolume
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "is serial issue of volume"@en, "ist Serienausgabe eines Bandes"@de, "est publication sérielle du volume"@fr, "è pubblicazione seriale del volume"@it;
 	rdfs:comment """Relating a serial issue to a volume it is part of."""@en;
-	rdfs:domain publish:SerialIssue;
-	rdfs:range publish:SerialVolume;
-	rdfs:subPropertyOf infocar:isCarrierOfSet.
+	rdfs:domain publishing:SerialIssue;
+	rdfs:range publishing:SerialVolume;
+	rdfs:subPropertyOf information-carrier:isCarrierOfSet.
 
-publish:serialVolumeHasExistence
+publishing:serialVolumeHasExistence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
 	rdfs:label "serial volume has publishing existence"@en, "Serienband hat Publizierungsexistenz"@de, "volume série a existence de publier"@fr, "volume seriale ha esistenza del Pubblicare"@it;
 	rdfs:comment """Relating a serial volume to its publishing existence."""@en;
-	rdfs:domain publish:SerialVolume;
-	rdfs:range publish:SerialVolumeExistence;
+	rdfs:domain publishing:SerialVolume;
+	rdfs:range publishing:SerialVolumeExistence;
 	rdfs:subPropertyOf event:hasExistence.

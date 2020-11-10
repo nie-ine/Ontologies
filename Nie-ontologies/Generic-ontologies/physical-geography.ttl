@@ -5,12 +5,12 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 
 @base <http://e-editiones.ch/ontology/physical-geography>.
-@prefix phygeo: <http://e-editiones.ch/ontology/physical-geography#>.
+@prefix physical-geography: <http://e-editiones.ch/ontology/physical-geography#>.
 
 <http://e-editiones.ch/ontology/physical-geography>
 	a owl:Ontology;
@@ -27,12 +27,12 @@
 # CLASSES
 #
 
-phygeo:EarthPlace
+physical-geography:EarthPlace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a rdfs:Class;
 	rdfs:label "place on Earth"@en, "Ort auf Erde"@de;
 	rdfs:comment """Place on earth, positionable using the World Geodetic System (WGS) standard."""@en;
-	rdfs:subClassOf physical:Place.
+	rdfs:subClassOf physical-entity:Place.
 
 # cidoc:E48_Place_Name
 
@@ -40,51 +40,51 @@ phygeo:EarthPlace
 # PROPERTIES
 #
 
-phygeo:hasLatitude
+physical-geography:hasLatitude
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a owl:InverseFunctionalProperty, owl:DatatypeProperty;
 	rdfs:label "has latitude"@en, "hat Breitengrad"@de;
 	rdfs:comment """Relating a place of a point or space on the Earth's surface to its geographic coordinate specifying the north–south position of that point, based on the World Geodetic System (WGS) standard. The coordinate is expressed as the angle between the equatorial plane and the normal, for a sphere from the center, to the surface at that point."""@en;
 	skos:note """Points with the same latitude lie on a circle around the Earth parallel to its equator. There are different latitudes, depending on the abstracted shape of the earth as spherical or ellipsoid, and other aspects. The decimal value can be converted to a sexagesimal using an N3 rule stating: [decimal degrees - (decimal degrees modulus (%) 1)]° [decimal degrees % 1 x 60 - decimal degrees % 1 x 60 % 1]' + [decimal degrees % 1 * 60 % 1 * 60]''"""@en;
-	rdfs:domain phygeo:EarthPlace;
+	rdfs:domain physical-geography:EarthPlace;
 	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf geo:lat.
 
-phygeo:hasLongitude
+physical-geography:hasLongitude
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a owl:InverseFunctionalProperty, owl:DatatypeProperty;
 	rdfs:label "has longitude"@en, "hat Längengrad"@de;
 	rdfs:comment """Relating a place of a point or space on the Earth's surface to its geographic coordinate specifying the east-west position of that point, based on the World Geodetic System (WGS) standard. The coordinate is expressed as the angle in the equatorial plane between a meridian plane containing the surface point and a by convention allocated prime meridian plane at 0 degrees longitude. The IERS Reference Meridian is used here as prime meridian."""@en;
 	skos:note """Points with the same longitude lie on a meridian or semi-circle between the poles. There are different longitudes, depending on the abstracted shape of the earth as spherical or ellipsoid, and other aspects. The decimal value can be converted to a sexagesimal using an N3 rule stating: [decimal degrees - (decimal degrees modulus (%) 1)]° [decimal degrees % 1 x 60 - decimal degrees % 1 x 60 % 1]' + [decimal degrees % 1 * 60 % 1 * 60]''"""@en;
-	rdfs:domain phygeo:EarthPlace;
+	rdfs:domain physical-geography:EarthPlace;
 	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf geo:long.
 
-phygeo:hasElevation #°
+physical-geography:hasElevation #°
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a owl:InverseFunctionalProperty, owl:DatatypeProperty;
 	rdfs:label "has elevation"@en, "hat Höhenmeter"@de;
 	rdfs:comment """Relating a place of a point or space on the Earth's surface to its height above or below a fixed reference point, most commonly a reference geoid, a mathematical model of the Earth's sea level as an equipotential gravitational surface."""@en;
-	rdfs:domain phygeo:EarthPlace;
+	rdfs:domain physical-geography:EarthPlace;
 	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf geo:alt.
 
 # SPO cidoc:P87_is_identified_by
 
-phygeo:earthPlaceHasNameLiteral
+physical-geography:earthPlaceHasNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "earth place has name literal"@en, "Ort auf Erde hat Namenliteral"@de;
 	rdfs:comment """Relating a place on Earth to its name literal."""@en;
-	rdfs:domain phygeo:EarthPlace;
+	rdfs:domain physical-geography:EarthPlace;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf physical:placeHasNameLiteral.
+	rdfs:subPropertyOf physical-entity:placeHasNameLiteral.
 
-phygeo:earthPlaceHasIdentifierLiteral
+physical-geography:earthPlaceHasIdentifierLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/physical-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "earth place has identifier literal"@en, "Ort auf Erde hat Identifikatorliteral"@de;
 	rdfs:comment """Relating a place on Earth to its identifier literal."""@en;
-	rdfs:domain phygeo:EarthPlace;
+	rdfs:domain physical-geography:EarthPlace;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasIdentifierLiteral.

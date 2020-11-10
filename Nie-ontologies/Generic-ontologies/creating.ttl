@@ -9,7 +9,7 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix time: <http://e-editiones.ch/ontology/time#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
@@ -105,7 +105,7 @@ creating:PhysicalCreation
 	a rdfs:Class;
 	rdfs:label "physical creation"@en, "physische Erstellung"@de;
 	rdfs:comment """Person creation as a physical resource."""@en;
-	rdfs:subClassOf creating:Creation, physical:Matter, cidoc:E24_Physical_Man-Made_Thing. # rdfs:subClassOf cidoc:E72_Legal_Object
+	rdfs:subClassOf creating:Creation, physical-entity:Matter, cidoc:E24_Physical_Man-Made_Thing. # rdfs:subClassOf cidoc:E72_Legal_Object
 
 creating:Copy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/creating#>;

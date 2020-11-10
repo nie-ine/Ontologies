@@ -4,10 +4,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
-@prefix philo: <http://e-editiones.ch/ontology/philosophy#>.
+@prefix philosophy: <http://e-editiones.ch/ontology/philosophy#>.
 
 @base <http://e-editiones.ch/ontology/philosophies>.
-@prefix philos: <http://e-editiones.ch/ontology/philosophies#>.
+@prefix philosophies: <http://e-editiones.ch/ontology/philosophies#>.
 
 <http://e-editiones.ch/ontology/philosophies>
 	a owl:Ontology;
@@ -25,55 +25,55 @@
 # INSTANCES
 #
 
-philos:Albertism
+philosophies:Albertism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Albertism"@en, "Albertismus"@de;
 	rdfs:comment """Philosophy and theology based on the ideas of Albertus Magnus (before 1200 - 1280-11-15)."""@en;
-	rdfs:subClassOf philo:Philosophy. # :Theology
+	rdfs:subClassOf philosophy:Philosophy. # :Theology
 
-philos:Humanism
+philosophies:Humanism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Humanism"@en, "Humanismus"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf philo:Philosophy.
+	rdfs:subClassOf philosophy:Philosophy.
 
-philos:Nominalism
+philosophies:Nominalism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Nominalism"@en, "Nominalismus"@de;
 	rdfs:comment """Philosophy stating that only individual things exist, denying the existence of universals and abstract objects."""@en;
-	rdfs:subClassOf philo:Metaphysics.
+	rdfs:subClassOf philosophy:Metaphysics.
 
-philos:Scotism
+philosophies:Scotism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Scotism"@en, "Skotismus"@de;
 	rdfs:comment """."""@en; #°
-	rdfs:subClassOf philo:Philosophy.
+	rdfs:subClassOf philosophy:Philosophy.
 
-philos:Thomism
+philosophies:Thomism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a rdfs:Class;
 	#rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	rdfs:label "Thomism"@en, "Thomismus"@de;
 	rdfs:comment """Philosophy based on the work of Thomas Aquinas (1225 - 1274-O3-O7)."""@en;
-	rdfs:subClassOf philo:Philosophy. # :Theology
+	rdfs:subClassOf philosophy:Philosophy. # :Theology
 
 #
 # PROPERTIES
 #
 
-philos:adheringToThought
+philosophies:adheringToThought
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophies#>;
 	a owl:ObjectProperty;
 	rdfs:label "adhering to philosophy"@en, "ist Anhänger von Philosophie"@de;
 	rdfs:comment """Relating a person to a philosophy the person adheres to."""@en;
 	rdfs:domain human:Person;
-	rdfs:range philo:Philosophy;
+	rdfs:range philosophy:Philosophy;
 	rdfs:subPropertyOf human:adheringToThought.

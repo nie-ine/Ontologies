@@ -8,7 +8,7 @@
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix note-structure: <http://e-editiones.ch/ontology/note-structure#>.
@@ -174,7 +174,7 @@ document:PageOrdinalNumber
 	rdfs:label "document page ordinal number"@en, "Dokumentseiteordinalzahl"@de;
 	rdfs:comment """Ordinal number of a document page."""@en;
 	skos:note """The document page ordinal number is a reification."""@en;
-	rdfs:subClassOf document:PageIdentifier, math:OrdinalNumber.
+	rdfs:subClassOf document:PageIdentifier, mathematics:OrdinalNumber.
 
 document:TitlePage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -484,8 +484,8 @@ document:pageHasOrdinalNumeral
 	rdfs:comment """Relating a page to its ordinal numeral."""@en;
 	rdfs:domain document:Page;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (document:pageHasOrdinalNumber math:hasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral;
+	owl:propertyChainAxiom (document:pageHasOrdinalNumber mathematics:hasNumeral).
 
 document:isTableOfColumn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;

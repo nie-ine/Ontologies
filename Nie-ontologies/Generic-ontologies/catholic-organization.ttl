@@ -5,10 +5,10 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix organization: <http://e-editiones.ch/ontology/organization#>.
 
 @base <http://e-editiones.ch/ontology/catholic-organization>.
-@prefix cathorg: <http://e-editiones.ch/ontology/catholic-organization#>.
+@prefix catholic-organization: <http://e-editiones.ch/ontology/catholic-organization#>.
 
 <http://e-editiones.ch/ontology/catholic-organization>
 	a owl:Ontology;
@@ -26,36 +26,36 @@
 # CLASSES
 #
 
-cathorg:Organization
+catholic-organization:Organization
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-organization#>;
 	a rdfs:Class;
 	rdfs:label "catholic organization"@en, "katholische Organisation"@de;
 	rdfs:comment """Organization representing a catholic belief."""@en;
-	rdfs:subClassOf org:ReligiousOrganization.
+	rdfs:subClassOf organization:ReligiousOrganization.
 
-cathorg:Person
+catholic-organization:Person
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-organization#>;
 	a rdfs:Class;
 	rdfs:label "catholic person"@en, "katholische Person"@de, "personne catholique"@fr, "persona cattolica"@it;
 	rdfs:comment """Person having a catholic belief."""@en;
-	rdfs:subClassOf org:ReligiousPerson.
+	rdfs:subClassOf organization:ReligiousPerson.
 
-cathorg:SecularClergy
+catholic-organization:SecularClergy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-organization#>;
 	a rdfs:Class;
 	rdfs:label "secular clergy"@en, "Weltklerus"@de;
 	rdfs:comment """Catholic organization whose member does not take religious vows and does not live in an institution."""@en;
-	rdfs:subClassOf cathorg:Organization.
+	rdfs:subClassOf catholic-organization:Organization.
 
 #
 # PROPERTIES
 #
 
-cathorg:isMemberOf
+catholic-organization:isMemberOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/catholic-organization#>;
 	a owl:ObjectProperty;
 	rdfs:label "is member of catholic organization"@en, "ist Mitglied einer katholischen Organisation"@de;
 	rdfs:comment """Relating a person to a catholic organization the person is a member of."""@en;
-	rdfs:domain cathorg:Person;
-	rdfs:range cathorg:Organization;
-	rdfs:subPropertyOf org:isMemberOfReligiousOrganization.
+	rdfs:domain catholic-organization:Person;
+	rdfs:range catholic-organization:Organization;
+	rdfs:subPropertyOf organization:isMemberOfReligiousOrganization.

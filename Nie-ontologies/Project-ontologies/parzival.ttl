@@ -4,16 +4,15 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix prosodic-structure: <http://e-editiones.ch/ontology/prosodic-structure#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 @prefix literature: <http://e-editiones.ch/ontology/literature#>.
 
 @base <http://e-editiones.ch/ontology/parzival>.
@@ -76,35 +75,35 @@ parzival:VerseNovelCopy
 	a rdfs:Class;
 	rdfs:label """copy of 'Parzival'"""@en, """Kopie 'Parzivals'"""@de;
 	rdfs:comment """Copy of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf infocar:TextCopy, infocar:Book.
+	rdfs:subClassOf information-carrier:TextCopy, information-carrier:Book.
 
 parzival:ManualVerseNovelTranscript
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """manual transcript of 'Parzival'"""@en, """manuelles Transkript 'Parzivals'"""@de;
 	rdfs:comment """Manual transcript of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf parzival:VerseNovelCopy, infocar:ManualTranscript, infocar:Codex.
+	rdfs:subClassOf parzival:VerseNovelCopy, information-carrier:ManualTranscript, information-carrier:Codex.
 
 parzival:ManualVerseNovelTranscriptFragment
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """manual transcript fragment of 'Parzival'"""@en, """manuelles Transkriptfragment 'Parzivals'"""@de;
 	rdfs:comment """Manual transcript fragment of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf infocar:ManualTranscript, infocar:Fragment.
+	rdfs:subClassOf information-carrier:ManualTranscript, information-carrier:Fragment.
 
 parzival:ManualVerseNovelTranscriptRemnant
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """manual transcript remnant of 'Parzival'"""@en, """manuelles Transkriptüberrest 'Parzivals'"""@de;
 	rdfs:comment """Manual transcript remnant of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf infocar:ManualTranscript, infocar:Remnant.
+	rdfs:subClassOf information-carrier:ManualTranscript, information-carrier:Remnant.
 
 parzival:VerseNovelPrint
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """print of 'Parzival'"""@en, """Druck von 'Parzival'"""@de;
 	rdfs:comment """Print of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf parzival:VerseNovelCopy, infocar:Print, infocar:Book.
+	rdfs:subClassOf parzival:VerseNovelCopy, information-carrier:Print, information-carrier:Book.
 
 parzival:DocumentPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
@@ -132,14 +131,14 @@ parzival:Page
 	a rdfs:Class;
 	rdfs:label "page of 'Parzival'"@en, "Seite 'Parzivals'"@de;
 	rdfs:comment """Page of a manual transcript of 'Parzival'."""@en, """Seite eines Manuellen Transkripts 'Parzivals'."""@de;
-	rdfs:subClassOf infocar:Page.
+	rdfs:subClassOf information-carrier:Page.
 
 parzival:ScholarlyEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
 	a rdfs:Class;
 	rdfs:label """scholarly text edition of 'Parzival'"""@en, """wissenschaftliche Textedition von 'Parzival'"""@de;
 	rdfs:comment """Scholarly text edition of a transcript of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf scholarly-editing:Edition, publish:Expression.
+	rdfs:subClassOf scholarly-editing:Edition, publishing:Expression.
 
 parzival:Verse
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/parzival#>;
@@ -168,7 +167,7 @@ parzival:DreissigerNumber
 	a rdfs:Class;
 	rdfs:label "dreissiger number"@en, "Dreissigernummer"@de;
 	rdfs:comment """Number of a dreissiger."""@en;
-	rdfs:subClassOf text-structure:Identifier, math:NaturalNumber.
+	rdfs:subClassOf text-structure:Identifier, mathematics:NaturalNumber.
 	# hasRepresentation
 
 parzival:VerseSection
@@ -183,7 +182,7 @@ parzival:CriticalEdition
 	a rdfs:Class;
 	rdfs:label """critical text edition of a dreissiger"""@en, """kritische Textedition eines Dreissigers"""@de;
 	rdfs:comment """Critical text edition of a dreissiger depending on one or more transcripts of Wolfram Von Eschenbach's verse novel 'Parzival'."""@en;
-	rdfs:subClassOf scholarly-editing:CriticalEdition, text-expression:ExpressionPart, publish:Expression.
+	rdfs:subClassOf scholarly-editing:CriticalEdition, text-expression:ExpressionPart, publishing:Expression.
 
 #
 # PROPERTIES

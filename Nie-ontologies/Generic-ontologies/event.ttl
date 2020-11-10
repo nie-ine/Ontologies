@@ -8,7 +8,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix schema: <http://schema.org/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 
@@ -35,7 +35,7 @@ event:Event
 	a rdfs:Class;
 	rdfs:label "event"@en, "Ereignis"@de;
 	rdfs:comment """Space-time occurrence."""@en;
-	rdfs:subClassOf physical:Space, physical:Time.
+	rdfs:subClassOf physical-entity:Space, physical-entity:Time.
 
 event:Existence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
@@ -134,7 +134,7 @@ event:isSubEventOf
 	rdfs:comment "Relating an event to another one it is part of."@en;
 	rdfs:domain event:Event;
 	rdfs:range event:Event;	
-	rdfs:subPropertyOf physical:isPartOf, schema:subEvent.
+	rdfs:subPropertyOf physical-entity:isPartOf, schema:subEvent.
 
 event:hasEvent
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;

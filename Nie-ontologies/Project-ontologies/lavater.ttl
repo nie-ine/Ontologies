@@ -5,9 +5,8 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 @prefix letter-corresponding: <http://e-editiones.ch/ontology/letter-corresponding#>.
 
 @base <http://e-editiones.ch/ontology/lavater>.
@@ -39,14 +38,14 @@ lavater:Letter
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter"@en, "Johann Caspar Lavater-Brief"@de, "lettre de Johann Caspar Lavater"@fr, "lettera di Johann Caspar Lavater"@it;
 	rdfs:comment """Letter send by or to Johann Caspar Lavater."""@en;
-	rdfs:subClassOf letter-corresponding:Letter, infocar:ConvoluteElement, infocar:ArchiveElement.
+	rdfs:subClassOf letter-corresponding:Letter, information-carrier:ConvoluteElement, information-carrier:ArchiveElement.
 
 lavater:Page
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/lavater#>;
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter page"@en, "Seite eines Briefes Johann Caspar Lavaters"@de;
 	rdfs:comment """Page of a letter of Johann Caspar Lavater."""@en;
-	rdfs:subClassOf infocar:Page.
+	rdfs:subClassOf information-carrier:Page.
 #	hasRepresentation
 
 lavater:LetterConvolute
@@ -54,7 +53,7 @@ lavater:LetterConvolute
 	a rdfs:Class;
 	rdfs:label "Johann Caspar Lavater letter convolute"@en,"Briefekonvolut Johann Caspar Lavaters"@de;
 	rdfs:comment """Convolute of letters send by and to Johann Caspar Lavater."""@en;
-	rdfs:subClassOf infocar:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf information-carrier:Convolute, information-carrier:ArchiveElement.
 
 lavater:EditedLetter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/lavater#>;

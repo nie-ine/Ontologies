@@ -5,10 +5,9 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 @prefix letter-corresponding: <http://e-editiones.ch/ontology/letter-corresponding#>.
 
 @base <http://e-editiones.ch/ontology/meyer>.
@@ -75,74 +74,74 @@ meyer:Letter
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter"@en, "Conrad Ferdinand Meyer-Brief"@de, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf letter-corresponding:Letter, infocar:ArchiveElement.
+	rdfs:subClassOf letter-corresponding:Letter, information-carrier:ArchiveElement.
 
 meyer:PostcardLetter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer postcard letter"@en, "Conrad Ferdinand Meyer-Postkartebrief"@de, "lettre carte postale de Conrad Ferdinand Meyer"@fr, "lettera cartolina di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Letter written on a postcard send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Postcard, meyer:Letter.
+	rdfs:subClassOf information-carrier:Postcard, meyer:Letter.
 
 meyer:DraftLetter
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer draft letter"@en, "Conrad Ferdinand Meyer-briefentwurf"@de;
 	rdfs:comment """Draft of a letter to be sent by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Draft, infocar:ArchiveElement.
+	rdfs:subClassOf information-carrier:Draft, information-carrier:ArchiveElement.
 
 meyer:Copy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter copy"@en, "Conrad Ferdinand Meyer-Briefkopie"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:TextCopy, infocar:ArchiveElement.
+	rdfs:subClassOf information-carrier:TextCopy, information-carrier:ArchiveElement.
 
 meyer:Transcript
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter transcript"@en, "Conrad Ferdinand Meyer-Brieftranskript"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Transcribed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:ManualTranscript, meyer:Copy.
+	rdfs:subClassOf information-carrier:ManualTranscript, meyer:Copy.
 
 meyer:Print
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter print"@en, "Conrad Ferdinand Meyer-Briefdruck"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Printed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Print, meyer:Copy.
+	rdfs:subClassOf information-carrier:Print, meyer:Copy.
 
 meyer:FirstPrint
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter first print"@en, "Conrad Ferdinand Meyer-Erstebriefdruck"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """First printed copy of a letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:FirstPrint, meyer:Print.
+	rdfs:subClassOf information-carrier:FirstPrint, meyer:Print.
 
 meyer:Photocopy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter photocopy"@en, "Conrad Ferdinand Meyer-Brieffotokopie"@de; #, "lettre de Conrad Ferdinand Meyer"@fr, "lettera di Conrad Ferdinand Meyer"@it;
 	rdfs:comment """Photocopy of a letter send by or to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Photocopy, meyer:Copy.
+	rdfs:subClassOf information-carrier:Photocopy, meyer:Copy.
 
 meyer:Page
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter page"@en, "Seite eines Briefes Conrad Ferdinand Meyers"@de;
 	rdfs:comment """Page of a letter of Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Page.
+	rdfs:subClassOf information-carrier:Page.
 
 meyer:LetterConvolute
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer letter convolute"@en,"Briefekonvolut Conrad Ferdinand Meyers"@de;
 	rdfs:comment """Convolute of letters send by and to Conrad Ferdinand Meyer."""@en;
-	rdfs:subClassOf infocar:Convolute, infocar:ArchiveElement.
+	rdfs:subClassOf information-carrier:Convolute, information-carrier:ArchiveElement.
 
 meyer:CriticalEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/meyer#>;
 	a rdfs:Class;
 	rdfs:label "Conrad Ferdinand Meyer critical edition"@en, "Conrad Ferdinand Meyers kritische Edition"@de;
 	rdfs:comment """Critically edited letter or draft authored by Conrad Ferdinand Meyer or another person, or of a copy thereof."""@en;
-	rdfs:subClassOf scholarly-editing:CriticalEdition, publish:Expression.
+	rdfs:subClassOf scholarly-editing:CriticalEdition, publishing:Expression.

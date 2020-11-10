@@ -5,15 +5,15 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix organization: <http://e-editiones.ch/ontology/organization#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 
 @base <http://e-editiones.ch/ontology/human-geography>.
-@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix human-geography: <http://e-editiones.ch/ontology/human-geography#>.
 
 <http://e-editiones.ch/ontology/human-geography>
 	a owl:Ontology;
@@ -29,147 +29,147 @@
 # CLASSES
 #
 
-humgeo:Nation
+human-geography:Nation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "nation"@en, "Nation"@de;
 	rdfs:comment """Stable political organization with a commonality e.g. ethnicity, language, culture, ."""@en;
-	rdfs:subClassOf org:PoliticalOrganization.
+	rdfs:subClassOf organization:PoliticalOrganization.
 
-humgeo:Country
+human-geography:Country
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "country"@en, "Land"@de;
 	rdfs:comment """Place of a nation."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:State
+human-geography:State
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "state"@en, "Staat"@de;
 	rdfs:comment """Political organization with an own government."""@en;
-	rdfs:subClassOf org:PoliticalOrganization.
+	rdfs:subClassOf organization:PoliticalOrganization.
 
-humgeo:NationState
+human-geography:NationState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "nation state"@en, "Nationalstaat"@de;
 	rdfs:comment """Political organization of a nation with an own government."""@en;
-	rdfs:subClassOf humgeo:State.
+	rdfs:subClassOf human-geography:State.
 
-humgeo:SovereignState
+human-geography:SovereignState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "sovereign state"@en, "Souveränstaat"@de;
 	rdfs:comment """Political organization of a sovereign state with an own government."""@en;
-	rdfs:subClassOf humgeo:State.
+	rdfs:subClassOf human-geography:State.
 
-humgeo:FederalState
+human-geography:FederalState
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "federal state"@en, "Bundesstaat"@de;
 	rdfs:comment """Political organization of a federal state with an own government."""@en;
-	rdfs:subClassOf humgeo:State.
+	rdfs:subClassOf human-geography:State.
 
-humgeo:Government
+human-geography:Government
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "government"@en, "Regierung"@de;
 	rdfs:comment """One or more persons in a politician role exercising authority over a particular territory."""@en;
-	rdfs:subClassOf org:PoliticalOrganization.
+	rdfs:subClassOf organization:PoliticalOrganization.
 
-humgeo:Monarchy
+human-geography:Monarchy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "monarchy"@en, "Monarchie"@de;
 	rdfs:comment """State wherein one person or family governs."""@en;
-	rdfs:subClassOf humgeo:State.
+	rdfs:subClassOf human-geography:State.
 
-humgeo:Monarch
+human-geography:Monarch
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "monarch"@en, "Monarch"@de, "monarque"@fr;
 	rdfs:comment """Role of a person being a sovereign head of state in a monarchy."""@en;
 	rdfs:subClassOf human:PersonRole.
 
-humgeo:King
+human-geography:King
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "king"@en, "König"@de, "roi"@fr;
 	rdfs:comment """Role of a man being the absolute ruler in a monarchy or husband of a woman being the absolute ruler in a monarchy."""@en;
 	rdfs:subClassOf human:Monarch.
 
-humgeo:Queen
+human-geography:Queen
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "queen"@en, "Königin"@de, "reine"@fr;
 	rdfs:comment """Role of a woman being the absolute ruler in a monarchy or wife of a man being the absolute ruler in a monarchy."""@en;
 	rdfs:subClassOf human:Monarch.
 
-humgeo:Empire
+human-geography:Empire
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "empire"@en, "Imperium"@de;
 	rdfs:comment """Group of nations with an overarching government."""@en;
-	rdfs:subClassOf org:PoliticalOrganization.
+	rdfs:subClassOf organization:PoliticalOrganization.
 
-humgeo:Emperor
+human-geography:Emperor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "emperor"@en, "Kaiser"@de, "empereur"@fr;
 	rdfs:comment """Role of a man being a sovereign head of an empire or husband of a woman being a sovereign head of an empire."""@en;
 	rdfs:subClassOf human:PersonRole.
 
-humgeo:Empress
+human-geography:Empress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "empress"@en, "Kaiserin"@de, "impératrice"@fr;
 	rdfs:comment """Role of a woman being a sovereign head of an empire or wife of a man being a sovereign head of an empire."""@en;
 	rdfs:subClassOf human:PersonRole.
 
-humgeo:Town
+human-geography:Town
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "town"@en, "Ortschaft"@de;
 	rdfs:comment """Smallest place with political boundaries and an own government."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:Village
+human-geography:Village
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "village"@en, "Dorf"@de;
 	rdfs:comment """Small place with political boundaries but without an own government."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:City
+human-geography:City
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "city"@en, "Stadt"@de;
 	rdfs:comment """Large town."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:District
+human-geography:District
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "district"@en, "Stadtviertel"@de;
 	rdfs:comment """Part of a city with own administration."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:Street
+human-geography:Street
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "street"@en, "Strasse"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:StreetPlace
+human-geography:StreetPlace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "street place"@en, "Strassenort"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical:EarthPlace.
+	rdfs:subClassOf physical-entity:EarthPlace.
 
-humgeo:PostalAddress #° more general? # comprises cidoc:E45_Address and cidoc:E51_Contact_Point: postal box
+human-geography:PostalAddress #° more general? # comprises cidoc:E45_Address and cidoc:E51_Contact_Point: postal box
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "postal address"@en, "Postanschrift"@de;
@@ -182,90 +182,90 @@ humgeo:PostalAddress #° more general? # comprises cidoc:E45_Address and cidoc:E
 # PROPERTIES
 #
 
-humgeo:hasDomicile
+human-geography:hasDomicile
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
 	rdfs:label "has domicile"@en, "hat Sitz"@de;
 	rdfs:comment """Relating a human agent - person or group - to a place of registered staying and contactability."""@en;
 	rdfs:domain human:Agent;
-	rdfs:range physical:Place;
-	rdfs:subPropertyOf physical:hasLocation.
+	rdfs:range physical-entity:Place;
+	rdfs:subPropertyOf physical-entity:hasLocation.
 
-humgeo:hasPostalAddress
+human-geography:hasPostalAddress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
 	rdfs:label "has postal address"@en, "hat Postanschrift"@de;
 	rdfs:comment """Relating someone or something to her/his/its postal address."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range humgeo:PostalAddress.
+	rdfs:range human-geography:PostalAddress.
 
-humgeo:hasReceiverPostalAddress
+human-geography:hasReceiverPostalAddress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
 	rdfs:label "has receiver postal address"@en, "hat Empfängerpostanschrift"@de;
 	rdfs:comment """Relating something being sent to the postal address of the receiver."""@en;
-	rdfs:domain physical:Matter;
-	rdfs:range humgeo:PostalAddress.
+	rdfs:domain physical-entity:Matter;
+	rdfs:range human-geography:PostalAddress.
 
-humgeo:hasReturnPostalAddress
+human-geography:hasReturnPostalAddress
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:ObjectProperty;
 	rdfs:label "has return postal address"@en, "hat Absenderpostanschrift"@de;
 	rdfs:comment """Relating something being sent to the postal address for return."""@en;
-	rdfs:domain physical:Matter;
-	rdfs:range humgeo:PostalAddress.
+	rdfs:domain physical-entity:Matter;
+	rdfs:range human-geography:PostalAddress.
 
-humgeo:addressHasAddresseeNameLiteral
+human-geography:addressHasAddresseeNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has addressee name literal"@en, "Postanschrift hat Namenliteral des Adressats"@de;
 	rdfs:comment """Relating a postal address to an addressee name literal."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
-humgeo:addressHasStreetNameLiteral
+human-geography:addressHasStreetNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has street name literal"@en, "Postanschrift hat Strassennamenliteral"@de;
 	rdfs:comment """Relating a postal address to the name literal of the street."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
-humgeo:addressHasHouseNumberNumeral
+human-geography:addressHasHouseNumberNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has house number numeral"@en, "Postanschrift hat Hausnummernumeral"@de;
 	rdfs:comment """Relating a postal address to the nummer numeral of the house."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range xsd:positiveInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral.
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral.
 
-humgeo:addressHasPostcodeValue
+human-geography:addressHasPostcodeValue
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has postcode value"@en, "Postanschrift hat Postleitzahlwert"@de;
 #	ling:hasSynonym "has zip code"@en;
 	rdfs:comment """Relating a postal address to its postcode value."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasLiteral.
 
-humgeo:addressHasTownNameLiteral
+human-geography:addressHasTownNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has town name literal"@en, "Postanschrift hat Ortsnamenliteral"@de;
 	rdfs:comment """Relating a postal address to its town name literal."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.
 
-humgeo:addressHasCountryNameLiteral
+human-geography:addressHasCountryNameLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a owl:DatatypeProperty;
 	rdfs:label "postal address has country name literal"@en, "Postanschrift hat Ländernamenliteral"@de;
 	rdfs:comment """Relating a postal address to its country name literal."""@en;
-	rdfs:domain humgeo:PostalAddress;
+	rdfs:domain human-geography:PostalAddress;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.

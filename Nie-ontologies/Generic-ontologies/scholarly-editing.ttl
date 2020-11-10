@@ -9,17 +9,14 @@
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
+@prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/scholarly-editing>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
@@ -51,7 +48,7 @@ scholarly-editing:AgentEditor
 	a rdfs:Class;
 	rdfs:label "scholarly editor"@en, "wissenschaftlicher Editor"@de, "éditeur scientifique"@fr, "editore accademico"@it;
 	rdfs:comment """Role of a human agent—person or organization—editing a text expression scientifically."""@en;
-	rdfs:subClassOf textedit:AgentEditor.
+	rdfs:subClassOf text-editing:AgentEditor.
 
 scholarly-editing:PersonEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -59,28 +56,28 @@ scholarly-editing:PersonEditor
 	rdfs:label "scholarly editor role of person"@en, "wissenschaftliche Editorrolle einer Person"@de, "éditeur personnel scientifique"@fr, "persona accademica editrice"@it;
 	rdfs:comment """Role of a person editing a text expression scientifically."""@en;
 	skos:note """Different from an editor of scientific literature, who is not necessarily a scientist."""@en;
-	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:PersonEditor, scholarly-editing:EditionScientist.
+	rdfs:subClassOf scholarly-editing:AgentEditor, text-editing:PersonEditor, scholarly-editing:EditionScientist.
 
 scholarly-editing:OrganizationEditor
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly editor role of organization"@en, "wissenschaftliche Editorrolle einer Organisation"@de, "éditeur-organisation scientifique"@fr, "organizzazione accademica editrice"@it;
 	rdfs:comment """Role of an organization editing a text expression scientifically."""@en;
-	rdfs:subClassOf scholarly-editing:AgentEditor, textedit:OrganizationEditor.
+	rdfs:subClassOf scholarly-editing:AgentEditor, text-editing:OrganizationEditor.
 
 scholarly-editing:EditedText
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edited text"@en, "wissenschaftlich edierter Text"@de, "texte édité de manière scientifique"@fr, "testo accademicamente modificato"@it;
 	rdfs:comment """Text edited in a scholarly way."""@en;
-	rdfs:subClassOf textedit:Edition, creating:CreationDerivative.
+	rdfs:subClassOf text-editing:Edition, creating:CreationDerivative.
 
 scholarly-editing:Edition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
 	a rdfs:Class;
 	rdfs:label "scholarly edition"@en, "wissenschaftliche Edition"@de, "édition scientifique"@fr, "edizione accademica"@it;
 	rdfs:comment """Derived text expression as scholarly edited text."""@en;
-	rdfs:subClassOf textedit:DerivedTextExpression, scholarly-editing:EditedText.
+	rdfs:subClassOf text-editing:DerivedTextExpression, scholarly-editing:EditedText.
 
 scholarly-editing:Page
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -333,7 +330,7 @@ scholarly-editing:hasEdition
 	rdfs:comment "Relating a text expression to a scholarly edition thereof."@en;
 	rdfs:domain text-expression:Expression;
 	rdfs:range scholarly-editing:Edition;
-	rdfs:subPropertyOf textedit:hasDerivedTextExpression.
+	rdfs:subPropertyOf text-editing:hasDerivedTextExpression.
 
 scholarly-editing:hasEditionPage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -350,7 +347,7 @@ scholarly-editing:hasEditor
 	rdfs:comment "Relating a scholarly edition to a scholarly editor who created it."@en;
 	rdfs:domain scholarly-editing:Edition;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom scholarly-editing:AgentEditor]].
-	# rdfs:subPropertyOf textedit:hasEditor
+	# rdfs:subPropertyOf text-editing:hasEditor
 
 scholarly-editing:isPageOfEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;
@@ -412,7 +409,7 @@ scholarly-editing:isDiplomaticTranscriptionOfTextOnPage
 	rdfs:label "is diplomatic transcription of text on page"@en, "ist diplomatische Transkription eines Textes auf Seite"@de, "est la transcription diplomatique du texte sur la page"@fr, "è la trascrizione diplomatica del testo sulla pagina"@it;
 	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
 	rdfs:domain scholarly-editing:DiplomaticTranscription;
-	rdfs:range infocar:Page.
+	rdfs:range information-carrier:Page.
 
 scholarly-editing:hasCriticalEdition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholarly-editing#>;

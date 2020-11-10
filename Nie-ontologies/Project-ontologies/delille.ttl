@@ -5,16 +5,16 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
-@prefix teach: <http://e-editiones.ch/ontology/teaching#>.
+@prefix teaching: <http://e-editiones.ch/ontology/teaching#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix image: <http://e-editiones.ch/ontology/image#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix prosodic-structure: <http://e-editiones.ch/ontology/prosodic-structure#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
+@prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
+@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 @prefix literature: <http://e-editiones.ch/ontology/literature#>.
 
 @base <http://e-editiones.ch/ontology/delille>.
@@ -41,7 +41,7 @@ delille:VersePoem
 	a rdfs:Class;
 	rdfs:label "Jacques Delille verse poem"@en, "Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf literature:VersePoem, publish:TextExpression.
+	rdfs:subClassOf literature:VersePoem, publishing:TextExpression.
 #	hasAuthor Delille
 
 delille:TranslatedVersePoem
@@ -56,7 +56,7 @@ delille:NonVersePoem
 	a rdfs:Class;
 	rdfs:label "Jacques Delille non-verse poem"@en, "Non-Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Expression other than a verse poem, authored by Jacques Delille."""@en;
-	rdfs:subClassOf publish:TextExpression.
+	rdfs:subClassOf publishing:TextExpression.
 #	hasAuthor Delille
 
 delille:EditedVersePoem
@@ -64,7 +64,7 @@ delille:EditedVersePoem
 	a rdfs:Class;
 	rdfs:label "edited Jacques Delille verse poem"@en, "ediertes Versgedicht Jacques Delilles"@de;
 	rdfs:comment """Verse poem authored by Jacques Delille and edited."""@en;
-	rdfs:subClassOf delille:VersePoem, textedit:Edition.
+	rdfs:subClassOf delille:VersePoem, text-editing:Edition.
 
 delille:Canto
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
@@ -78,7 +78,7 @@ delille:CitingExpression
 	a rdfs:Class;
 	rdfs:label "citing text expression"@en, "zitierende Textexpression"@de; #, ""@fr, ""@it;
 	rdfs:comment """Text expression citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf publish:TextExpression.
+	rdfs:subClassOf publishing:TextExpression.
 
 delille:Dictionary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
@@ -92,7 +92,7 @@ delille:Manual
 	a rdfs:Class;
 	rdfs:label "teaching manual"@en, "Lehrbuch"@de, "manuel scolaire"@fr, "manuale di testo"@it;
 	rdfs:comment """Teaching manual as in the scholarly edition about Jacques Delille's poetry citation."""@en;
-	rdfs:subClassOf teach:Manual.
+	rdfs:subClassOf teaching:Manual.
 
 delille:Anthology
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
@@ -170,7 +170,7 @@ delille:Article
 	a rdfs:Class;
 	rdfs:label "citing article"@en, "zitierender Artikel"@de;
 	rdfs:comment """Publication article citing one or more verses of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf publish:Article, delille:CitingExpression.
+	rdfs:subClassOf publishing:Article, delille:CitingExpression.
 
 delille:NonOriginalEngraving
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
@@ -184,7 +184,7 @@ delille:Argument
 	a rdfs:Class;
 	rdfs:label "argument"@en, "Argument"@de;
 	rdfs:comment """Argument of a commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf literature:Argument, publish:TextExpression.
+	rdfs:subClassOf literature:Argument, publishing:TextExpression.
 
 delille:NonArtist-ManOfLetters-Vulgarizer
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
@@ -199,14 +199,14 @@ delille:ScholarlyEdition
 	a rdfs:Class;
 	rdfs:label "Jacques Delille verse poem scholarly edition"@en, "wissenschaftliche Edition eines Versgedichtes Jacques Delilles"@de;
 	rdfs:comment """Scholarly edition of a verse poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf scholarly-editing:Edition, publish:TextExpression.
+	rdfs:subClassOf scholarly-editing:Edition, publishing:TextExpression.
 
 delille:Commentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de;
 	rdfs:comment """Commentary on a citation of a verse of a poem authored by Jacques Delille."""@en;
-	rdfs:subClassOf text-expression:Commentary, text-expression:ScientificExpression, publish:TextExpression.
+	rdfs:subClassOf text-expression:Commentary, text-expression:ScientificExpression, publishing:TextExpression.
 
 #
 # PROPERTIES

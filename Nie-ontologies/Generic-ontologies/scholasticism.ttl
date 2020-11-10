@@ -10,12 +10,11 @@
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
+@prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix logic: <http://e-editiones.ch/ontology/logic#>.
 
 @base <http://e-editiones.ch/ontology/scholasticism>.
-@prefix schola: <http://e-editiones.ch/ontology/scholasticism#>.
+@prefix scholasticism: <http://e-editiones.ch/ontology/scholasticism#>.
 
 <http://e-editiones.ch/ontology/scholasticism>
 	a owl:Ontology;
@@ -34,14 +33,14 @@
 # CLASSES
 #
 
-schola:Scholasticism
+scholasticism:Scholasticism
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
 	rdfs:subClassOf concept:ThoughtMethod.
 
-schola:Scholastic
+scholasticism:Scholastic
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic"@en, "Scholastiker"@de;
@@ -49,167 +48,167 @@ schola:Scholastic
 	skos:note """There are no female scholastics because women were not allowed to universities in the era of scholasticism."""@en;
 	rdfs:subClassOf human:Person.
 
-schola:Role
+scholasticism:Role
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic role"@en, "Rolle eines Scholastikers"@de;
 	rdfs:comment """Role a scholastic has."""@en;
 	rdfs:subClassOf human:PersonRole.
 
-schola:Reportator
+scholasticism:Reportator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportator"@en, "Reportator"@de, "reportator"@la;
 	rdfs:comment """Role of a scholastic - e.g. a student, secretary or lecturer - recording the content of a lecture."""@en;
-	rdfs:subClassOf schola:Role.
+	rdfs:subClassOf scholasticism:Role.
 
-schola:Commentary
+scholasticism:Commentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic commentary"@en, "scholastischer Kommentar"@de, "commentarius scholasticus"@la;
 	rdfs:comment """Commentary made by a scholastic."""@en;
 	rdfs:subClassOf text-expression:Commentary;
-	owl:unionOf (schola:GlossCommentary schola:VerseCommentary schola:TableCommentary schola:QuaestioCommentary schola:ConclusioCommentary schola:SyllogismusCommentary schola:AbbreviationCommentary schola:ParaphraseCommentary schola:LiteralExpositionCommentary).
+	owl:unionOf (scholasticism:GlossCommentary scholasticism:VerseCommentary scholasticism:TableCommentary scholasticism:QuaestioCommentary scholasticism:ConclusioCommentary scholasticism:SyllogismusCommentary scholasticism:AbbreviationCommentary scholasticism:ParaphraseCommentary scholasticism:LiteralExpositionCommentary).
 
-schola:ProceduralCommentary
+scholasticism:ProceduralCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "procedural scholastic commentary"@en, "prozeduraler scholastischer Kommentar"@de;
 	rdfs:comment """Scholastic commentary as result of a creation procedure."""@en;
-	rdfs:subClassOf schola:Commentary;
-	owl:disjointUnionOf (schola:LecturaCommentary schola:LecturaRevisaCommentary schola:ReportatioCommentary schola:ReportatioApprobataCommentary schola:OrdinatioCommentary).
+	rdfs:subClassOf scholasticism:Commentary;
+	owl:disjointUnionOf (scholasticism:LecturaCommentary scholasticism:LecturaRevisaCommentary scholasticism:ReportatioCommentary scholasticism:ReportatioApprobataCommentary scholasticism:OrdinatioCommentary).
 
-schola:CommentingProcedure
+scholasticism:CommentingProcedure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "scholastic commenting procedure"@en, "scholastisches Kommentierungsverfahren"@de;
 	rdfs:comment """Commenting procedure wherein a scholastic commentary is created."""@en;
 	rdfs:subClassOf human:Procedure.
 
-schola:LecturaCommentary
+scholasticism:LecturaCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "lectura commentary"@en, "Lecturakommentar"@de;
 	rdfs:comment """Scholastic commentary on a text expression, as presented by its author in a lecture."""@en;
-	rdfs:subClassOf schola:ProceduralCommentary.
+	rdfs:subClassOf scholasticism:ProceduralCommentary.
 
-schola:LecturaRevisaCommentary # after Lectura
+scholasticism:LecturaRevisaCommentary # after Lectura
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "lectura revisa commentary"@en, "Lectura Revisakommentar"@de;
 	rdfs:comment """Scholastic commentary on a text expression, as revised by its author after its presentation in a lecture."""@en;
-	rdfs:subClassOf schola:ProceduralCommentary.
+	rdfs:subClassOf scholasticism:ProceduralCommentary.
 
-schola:ReportatioCommentary #* after LecturaRevisa
+scholasticism:ReportatioCommentary #* after LecturaRevisa
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportatio commentary"@en, "Reportatiokommentar"@de, "reportatio"@la;
 	rdfs:comment """Scholastic commentary on a text expression, as reported by an auditor, e.g. a student, in a lecture."""@en;
-	rdfs:subClassOf schola:ProceduralCommentary.
+	rdfs:subClassOf scholasticism:ProceduralCommentary.
 
-schola:ReportatioApprobataCommentary #* after Reportatio
+scholasticism:ReportatioApprobataCommentary #* after Reportatio
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "reportatio approbata commentary"@en, "Reportatio Approbatakommentar"@de, "reportatio approbata"@la;
 	rdfs:comment """Scholastic commentary on a text expression, as recorded by an auditor, e.g. a student, in a lecture, and approved by the lecturer or author."""@en;
-	rdfs:subClassOf schola:ReportatioCommentary.
+	rdfs:subClassOf scholasticism:ReportatioCommentary.
 
-schola:OrdinatioCommentary #* after ReportatioApprobata
+scholasticism:OrdinatioCommentary #* after ReportatioApprobata
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "ordinatio commentary"@en, "Ordinatiokommentar"@de, "ordinatio"@la;
 	rdfs:comment """Scholastic commentary on a text expression as composed for publication."""@en;
-	rdfs:subClassOf schola:ProceduralCommentary.
+	rdfs:subClassOf scholasticism:ProceduralCommentary.
 
-schola:GlossCommentary
+scholasticism:GlossCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "gloss commentary"@en, "Glossekommentar"@de;
 	rdfs:comment """Scholastic commentary containing glosses."""@en;
-	rdfs:subClassOf schola:Commentary. # hasGloss, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasGloss, hasDiscussion
 
-schola:VerseCommentary
+scholasticism:VerseCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "verse commentary"@en, "Verskommentar"@de;
 	rdfs:comment """Scholastic commentary containing verses."""@en;
-	rdfs:subClassOf schola:Commentary. # hasVerse, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasVerse, hasDiscussion
 
-schola:TableCommentary #** only text?
+scholasticism:TableCommentary #** only text?
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "table commentary"@en, "Tabellenkommentar"@de;
 	rdfs:comment """Scholastic commentary containing a table."""@en;
-	rdfs:subClassOf schola:Commentary. # hasTable, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasTable, hasDiscussion
 
-schola:QuaestioCommentary
+scholasticism:QuaestioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "quaestio commentary"@en, "Fragekommentar"@de, "quaestio"@la;
 	rdfs:comment """Scholastic commentary containing questions."""@en; # initiated?
-	rdfs:subClassOf schola:Commentary. # hasQuestion, hasAnswer, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasQuestion, hasAnswer, hasDiscussion
 
-schola:ConclusioCommentary
+scholasticism:ConclusioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "conclusio commentary"@en, "Zusammenfassungskommentar"@de, "conclusio"@la;
 	rdfs:comment """Scholastic commentary containing conclusions."""@en;
-	rdfs:subClassOf schola:Commentary. # hasConclusion, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasConclusion, hasDiscussion
 
-schola:SyllogismusCommentary
+scholasticism:SyllogismusCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "syllogismus commentary"@en, "Syllogismuskommentar"@de, "syllogismus"@la;
 	rdfs:comment """Scholastic commentary containing syllogisms."""@en;
-	rdfs:subClassOf schola:Commentary. # hasSyllogism, hasDiscussion
+	rdfs:subClassOf scholasticism:Commentary. # hasSyllogism, hasDiscussion
 
-schola:AbbreviationCommentary
+scholasticism:AbbreviationCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation commentary"@en, "Kurzfassungskommentar"@de, "abbreviatio"@la;
 	rdfs:comment """Scholastic commentary as abbreviation."""@en;
-	rdfs:subClassOf schola:Commentary, textedit:Abbreviation.
+	rdfs:subClassOf scholasticism:Commentary, text-editing:Abbreviation.
 
-schola:ParaphraseCommentary
+scholasticism:ParaphraseCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase commentary"@en, "Paraphrasekommentar"@de;
 	rdfs:comment """Scholastic commentary as paraphrase."""@en;
-	rdfs:subClassOf schola:Commentary. # has textedit:Paraphrase
+	rdfs:subClassOf scholasticism:Commentary. # has text-editing:Paraphrase
 
-schola:LiteralExpositionCommentary
+scholasticism:LiteralExpositionCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition commentary"@en, "wörtlicher Auslegungs-Kommentar"@de;
 	rdfs:comment """Scholastic commentary as literal exposition."""@en;
-	rdfs:subClassOf schola:Commentary. # has textedit:LiteralExposition
+	rdfs:subClassOf scholasticism:Commentary. # has text-editing:LiteralExposition
 
 #
 # PROPERTIES
 #
 
-schola:hasRole
+scholasticism:hasRole
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
 	rdfs:comment """Relating a scholastic to a role s/he has."""@en;
-	rdfs:domain schola:Scholastic;
-	rdfs:range schola:Role;
+	rdfs:domain scholasticism:Scholastic;
+	rdfs:range scholasticism:Role;
 	rdfs:subPropertyOf human:personHasRole.
 
-schola:commentaryHasProcedure
+scholasticism:commentaryHasProcedure
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "commentary has procedure"@en, "Kommentar hat Verfahren"@de;
 	rdfs:comment """Relating a scholastic commentary to a procedure it is created in."""@en;
-	rdfs:domain schola:Commentary;
-	rdfs:range schola:CommentingProcedure;
+	rdfs:domain scholasticism:Commentary;
+	rdfs:range scholasticism:CommentingProcedure;
 	rdfs:subPropertyOf event:isOutputOf.
 
- schola:commentaryHasReportator
+ scholasticism:commentaryHasReportator
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/scholasticism#>;
 	a owl:ObjectProperty;
 	rdfs:label "commentary has reportator"@en, "Kommentar hat Reportator"@de;
 	rdfs:comment """Relating a reportatio commentary of a lecture to a scholastic who reported it."""@en;
-	rdfs:domain schola:ReportatioCommentary;
-	rdfs:range [rdfs:subClassOf schola:Scholastic, [a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Reportator]].
+	rdfs:domain scholasticism:ReportatioCommentary;
+	rdfs:range [rdfs:subClassOf scholasticism:Scholastic, [a owl:Restriction; owl:onProperty scholasticism:hasRole; owl:someValuesFrom scholasticism:Reportator]].

@@ -8,11 +8,10 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/device>.
 @prefix device: <http://e-editiones.ch/ontology/device#>.
@@ -92,4 +91,4 @@ device:DigitalElectronicComputer
 	a rdfs:Class;
 	rdfs:label "digital electronic computer"@en, "digitaler elektronischer Rechner"@de;
 	rdfs:comment """Electronic computer using digital software and data to perform a task."""@en;
-	rdfs:subClassOf device:DigitalComputer, device:ElectronicComputer, infocar:ElectronicCarrier.
+	rdfs:subClassOf device:DigitalComputer, device:ElectronicComputer, information-carrier:ElectronicCarrier.

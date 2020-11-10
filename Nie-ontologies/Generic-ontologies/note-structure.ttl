@@ -10,15 +10,11 @@
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
-@prefix lingmor: <http://e-editiones.ch/ontology/linguistic-morphology#>.
 
 @base <http://e-editiones.ch/ontology/note-structure>.
 @prefix note-structure: <http://e-editiones.ch/ontology/note-structure#>.
@@ -101,7 +97,7 @@ note-structure:FootnoteOrdinalNumber
 	a rdfs:Class;
 	rdfs:label "footnote ordinal number"@en, "Fussnotenordinalzahl"@de, "numéro ordinal de note de bas de page"@fr, "numero ordinale di nota a piè di pagina"@it;
 	rdfs:comment """Ordinal number of a footnote."""@en;
-	rdfs:subClassOf note-structure:FootnoteIdentifier, math:OrdinalNumber.
+	rdfs:subClassOf note-structure:FootnoteIdentifier, mathematics:OrdinalNumber.
 
 note-structure:Endnote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
@@ -122,7 +118,7 @@ note-structure:EndnoteOrdinalNumber
 	a rdfs:Class;
 	rdfs:label "endnote ordinal number"@en, "Endnotenordinalzahl"@de, "numéro ordinal de note de fin"@fr, "numero ordinale di nota finale"@it;
 	rdfs:comment """Ordinal number of an endnote."""@en;
-	rdfs:subClassOf note-structure:EndnoteIdentifier, math:OrdinalNumber.
+	rdfs:subClassOf note-structure:EndnoteIdentifier, mathematics:OrdinalNumber.
 
 #
 # PROPERTIES
@@ -171,8 +167,8 @@ note-structure:footnoteHasOrdinalNumeral
 	rdfs:comment """Relating a footnote to its ordinal numeral."""@en;
 	rdfs:domain note-structure:Footnote;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (note-structure:footnoteHasOrdinalNumber math:numberHasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral;
+	owl:propertyChainAxiom (note-structure:footnoteHasOrdinalNumber mathematics:numberHasNumeral).
 
 note-structure:endnoteHasIdentifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;
@@ -199,7 +195,7 @@ note-structure:endnoteHasOrdinalLiteral
 	rdfs:comment """Relating an endnote to its ordinal literal."""@en;
 	rdfs:domain note-structure:Endnote;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf math:hasOrdinalLiteral;
+	rdfs:subPropertyOf mathematics:hasOrdinalLiteral;
 	owl:propertyChainAxiom (note-structure:endnoteHasIdentifier concept:hasLiteral).
 
 note-structure:endnoteHasOrdinalNumber
@@ -218,8 +214,8 @@ note-structure:endnoteHasOrdinalNumeral
 	rdfs:comment """Relating an endnote to its ordinal numeral."""@en;
 	rdfs:domain note-structure:Endnote;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (note-structure:endnoteHasOrdinalNumber math:numberHasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral;
+	owl:propertyChainAxiom (note-structure:endnoteHasOrdinalNumber mathematics:numberHasNumeral).
 
 note-structure:isNumberOfEndnote
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/note-structure#>;

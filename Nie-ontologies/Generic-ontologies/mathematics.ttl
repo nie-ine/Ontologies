@@ -5,12 +5,10 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 
 @base <http://e-editiones.ch/ontology/mathematics>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 
 <http://e-editiones.ch/ontology/mathematics>
 	a owl:Ontology;
@@ -26,73 +24,73 @@
 # CLASSES
 #
 
-math:MathematicalObject
+mathematics:MathematicalObject
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical object"@en, "mathematisches Objekt"@de;
 	rdfs:comment """Conceptual entity in mathematics."""@en;
 	rdfs:subClassOf concept:ConceptualEntity.
 
-math:Number
+mathematics:Number
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Zahl"@de;
 	rdfs:comment """Mathematical object used for counting, measuring, ordering, labeling, and coding."""@en;
-	rdfs:subClassOf math:MathematicalObject, concept:SymbolicEntity.
+	rdfs:subClassOf mathematics:MathematicalObject, concept:SymbolicEntity.
 
-math:NaturalNumber
+mathematics:NaturalNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "natural number"@en, "natürliche Zahl"@de;
 	rdfs:comment """Non-negative whole number used for counting and ordering."""@en;
 	skos:note """Conform ISO 80000-2:2009."""@en;
-	rdfs:subClassOf math:Number, [
-		a owl:Restriction; owl:onProperty math:numberHasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
+	rdfs:subClassOf mathematics:Number, [
+		a owl:Restriction; owl:onProperty mathematics:numberHasNumeral; owl:allValuesFrom xsd:nonNegativeInteger].
 
-math:OrdinalSymbol
+mathematics:OrdinalSymbol
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "ordinal symbol"@en, "Ordinalsymbol"@de;
 	rdfs:comment """Symbol used to order, i.e. denoting the position of something in a sequence, e.g. the letters of an alphabet with literals a to z or A to Z."""@en;
 	rdfs:subClassOf concept:Identifier.
 
-math:OrdinalNumber
+mathematics:OrdinalNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "ordinal number"@en, "Ordinalzahl"@de;
 	rdfs:comment """Natural number used to order, i.e. denoting the position of something in a sequence."""@en;
-	rdfs:subClassOf math:NaturalNumber, math:OrdinalSymbol.
+	rdfs:subClassOf mathematics:NaturalNumber, mathematics:OrdinalSymbol.
 
-math:Set
+mathematics:Set
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a rdfs:Class;
 	rdfs:label "mathematical set"@en, "mathematische Reihe"@de;
 	rdfs:comment """Set of mathematical objects."""@en;
-	rdfs:subClassOf concept:Set, math:MathematicalObject.
+	rdfs:subClassOf concept:Set, mathematics:MathematicalObject.
 
 #
 # PROPERTIES
 #
 
-math:hasNumber
+mathematics:hasNumber
  	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has number"@en, "hat Zahl"@de;
 	rdfs:comment """Relating something to a number."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range math:Number;
+	rdfs:range mathematics:Number;
 	rdfs:subPropertyOf concept:hasSymbolicEntity.
 
-math:numberHasNumeral
+mathematics:numberHasNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "number has numeral"@en, "Nummer hat Numeral"@de;
 	rdfs:comment """Relating a number to its representing numeral."""@en;
-	rdfs:domain math:Number;
+	rdfs:domain mathematics:Number;
  	rdfs:range xsd:decimal;
  	rdfs:subPropertyOf concept:symbolicEntityHasLiteral.
 
-math:hasNumeral
+mathematics:hasNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has numeral"@en, "hat Numeral"@de;
@@ -101,27 +99,27 @@ math:hasNumeral
 	rdfs:domain rdfs:Resource;
  	rdfs:range xsd:decimal;
 	rdfs:subPropertyOf concept:hasLiteral;
- 	owl:propertyChainAxiom (math:hasNumber math:numberHasNumeral).
+ 	owl:propertyChainAxiom (mathematics:hasNumber mathematics:numberHasNumeral).
 
-math:hasOrdinalSymbol
+mathematics:hasOrdinalSymbol
  	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has ordinal symbol"@en, "hat Ordinalsymbol"@de;
 	rdfs:comment """Relating something to the symbolic entity denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range math:OrdinalSymbol;
+	rdfs:range mathematics:OrdinalSymbol;
 	rdfs:subPropertyOf concept:hasIdentifier.
 
-math:hasOrdinalNumber
+mathematics:hasOrdinalNumber
  	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:ObjectProperty;
 	rdfs:label "has ordinal number"@en, "hat Ordinalzahl"@de;
 	rdfs:comment """Relating something to the number denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range math:OrdinalNumber;
-	rdfs:subPropertyOf math:hasOrdinalSymbol.
+	rdfs:range mathematics:OrdinalNumber;
+	rdfs:subPropertyOf mathematics:hasOrdinalSymbol.
 
-math:hasOrdinalLiteral
+mathematics:hasOrdinalLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has ordinal literal"@en, "hat Ordinalliteral"@de;
@@ -129,14 +127,14 @@ math:hasOrdinalLiteral
 	rdfs:domain rdfs:Resource;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf concept:hasLiteral;
-	owl:propertyChainAxiom (math:hasOrdinalSymbol concept:symbolicEntityHasLiteral).
+	owl:propertyChainAxiom (mathematics:hasOrdinalSymbol concept:symbolicEntityHasLiteral).
 
-math:hasOrdinalNumeral
+mathematics:hasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/mathematics#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has ordinal numeral"@en, "hat Ordinalnumeral"@de;
 	rdfs:comment """Relating something to the numeral denoting its position in a sequence."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalLiteral;
- 	owl:propertyChainAxiom (math:hasOrdinalNumber math:numberHasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalLiteral;
+ 	owl:propertyChainAxiom (mathematics:hasOrdinalNumber mathematics:numberHasNumeral).

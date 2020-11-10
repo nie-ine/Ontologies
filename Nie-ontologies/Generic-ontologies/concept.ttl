@@ -7,14 +7,12 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
 
 @base <http://e-editiones.ch/ontology/concept>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
@@ -40,7 +38,7 @@ concept:ConceptualEntity
 	rdfs:label "conceptual entity"@en, "konzeptuelle Entität"@de;
 	rdfs:comment """Abstract idea created by a person, as product of cognition."""@en;
 	rdfs:subClassOf creating:Creation, frbroo:F6_Concept. # rdfs:subClassOf cidoc:E28_Conceptual_Object
-#	owl:disjointWith physical:Entity.
+#	owl:disjointWith physical-entity:Entity.
 
 concept:Set
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/concept#>;

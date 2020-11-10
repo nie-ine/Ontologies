@@ -13,10 +13,10 @@
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
+@prefix linguistics: <http://e-editiones.ch/ontology/linguistics#>.
 
 @base <http://e-editiones.ch/ontology/linguistic-morphology>.
-@prefix lingmor: <http://e-editiones.ch/ontology/linguistic-morphology#>.
+@prefix linguistic-morphology: <http://e-editiones.ch/ontology/linguistic-morphology#>.
 
 <http://e-editiones.ch/ontology/linguistic-morphology>
 	a owl:Ontology;
@@ -33,761 +33,761 @@
 # CLASSES
 #
 
-lingmor:SyntacticWordForm
+linguistic-morphology:SyntacticWordForm
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "syntactic word form"@en, "syntaktische Wortform"@de;
 	rdfs:comment """Linguistic concept unifying occurrences of syntactic words with identical literal and grammemes."""@en;
 	skos:note """A sentence can contain 2 times the syntactic word 'sun', unified by 1 syntactic word form 'sun'."""@en;
-	rdfs:subClassOf ling:Concept.
+	rdfs:subClassOf linguistics:Concept.
 
-lingmor:Morpheme
+linguistic-morphology:Morpheme
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "morpheme"@en, "Morphem"@de;
 	rdfs:comment """Linguistic concept as the smallest entity in human natural language with a grammatical function, inflectable, free or bound."""@en;
-	rdfs:subClassOf ling:Concept.
+	rdfs:subClassOf linguistics:Concept.
 
-lingmor:Root
+linguistic-morphology:Root
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "root morpheme"@en, "Wurzelmorphem"@de;
 	rdfs:comment """Individual or free morpheme with own semantics."""@en;
-	rdfs:subClassOf lingmor:Morpheme.
+	rdfs:subClassOf linguistic-morphology:Morpheme.
 
-lingmor:Affix
+linguistic-morphology:Affix
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "affix"@en, "Affix"@de;
 	rdfs:comment """Bound morpheme without own semantics, depending on a root; part of a word, complement of a word stem."""@en;
-	rdfs:subClassOf lingmor:Morpheme.
+	rdfs:subClassOf linguistic-morphology:Morpheme.
 
-lingmor:Suffix # derivational e.g. '-ship' in 'friendship', inflectional suffix -s e.g. '-s' in 'friendships'
+linguistic-morphology:Suffix # derivational e.g. '-ship' in 'friendship', inflectional suffix -s e.g. '-s' in 'friendships'
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "suffix"@en, "Suffix"@de;
 	rdfs:comment """Affix at the end of a word, e.g. 'ship' in 'friendship'."""@en;
-	rdfs:subClassOf lingmor:Affix.
+	rdfs:subClassOf linguistic-morphology:Affix.
 
-lingmor:GrammaticalGender
+linguistic-morphology:GrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "grammatical gender"@en, "grammatikalisches Geschlecht"@de;
 	rdfs:comment """Grammatical declension of a noun indicating a gender, independent from a semantic gender."""@en;
-	rdfs:subClassOf ling:Concept; # lingmor:MorphologicalCategory
-	owl:unionOf (lingmor:FeminineGrammaticalGenderunionOf lingmor:MasculineGrammaticalGender lingmor:NeuterGrammaticalGender).
+	rdfs:subClassOf linguistics:Concept; # linguistic-morphology:MorphologicalCategory
+	owl:unionOf (linguistic-morphology:FeminineGrammaticalGenderunionOf linguistic-morphology:MasculineGrammaticalGender linguistic-morphology:NeuterGrammaticalGender).
 	
-lingmor:FeminineGrammaticalGender
+linguistic-morphology:FeminineGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "feminine grammatical gender"@en, "grammatikalisches Femininum"@de;
 	rdfs:comment """Grammatical gender being feminine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
 	owl:equivalentClass gold:FeminineGender;
-	rdfs:subClassOf lingmor:GrammaticalGender.
+	rdfs:subClassOf linguistic-morphology:GrammaticalGender.
 
-lingmor:MasculineGrammaticalGender
+linguistic-morphology:MasculineGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "masculine grammatical gender"@en, "grammatikalisches Maskulinum"@de;
 	rdfs:comment """Grammatical gender being masculine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
 	owl:equivalentClass gold:MasculineGender;
-	rdfs:subClassOf lingmor:GrammaticalGender.
+	rdfs:subClassOf linguistic-morphology:GrammaticalGender.
 
-lingmor:NeuterGrammaticalGender
+linguistic-morphology:NeuterGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "neuter grammatical gender"@en, "grammatikalisches Neutrum"@de;
 	rdfs:comment """Grammatical gender being neuter."""@en;
 	skos:note """E.g. in Indoeuropean languages."""@en;
 	owl:equivalentClass gold:NeuterGender;
-	rdfs:subClassOf lingmor:GrammaticalGender.
+	rdfs:subClassOf linguistic-morphology:GrammaticalGender.
 
-lingmor:ComparisonDegree
+linguistic-morphology:ComparisonDegree
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "comparison degree"@en, "Steigerungsstufe"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:Positive
+linguistic-morphology:Positive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "positive"@en, "Positiv"@de;
 	rdfs:comment """Base degree of adjective comparison."""@en;
-	rdfs:subClassOf lingmor:ComparisonDegree.
+	rdfs:subClassOf linguistic-morphology:ComparisonDegree.
 	
-lingmor:Comparative
+linguistic-morphology:Comparative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "comparative"@en, "Komparativ"@de;
 	rdfs:comment """Degree of adjective comparison that sets two or more entities into relation."""@en;
-	rdfs:subClassOf lingmor:ComparisonDegree.
+	rdfs:subClassOf linguistic-morphology:ComparisonDegree.
 	
-lingmor:Superlative
+linguistic-morphology:Superlative
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "superlative"@en, "Superlativ"@de;
 	rdfs:comment """Degree of adjective comparison that lies at the end of the scale."""@en;
-	rdfs:subClassOf lingmor:ComparisonDegree.
+	rdfs:subClassOf linguistic-morphology:ComparisonDegree.
 
-lingmor:VerbalVoice
+linguistic-morphology:VerbalVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verbal voice"@en, "Diathese"@de;
 	rdfs:comment """Property of verb forms that specifies the roles of the dependent entities."""@en;
 	owl:equivalentClass gold:VoiceProperty;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:ActiveVoice
+linguistic-morphology:ActiveVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "active voice"@en, "aktiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the agent."""@en;
 	owl:equivalentClass gold:ActiveVoice;
-	rdfs:subClassOf lingmor:VerbalVoice.
+	rdfs:subClassOf linguistic-morphology:VerbalVoice.
 	
-lingmor:PassiveVoice
+linguistic-morphology:PassiveVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "passive voice"@en, "passiv"@de;
 	rdfs:comment """Voice that (prototypically) sets the subject as the patient."""@en;
 	owl:equivalentClass gold:PassiveVoice;
-	rdfs:subClassOf lingmor:VerbalVoice.
+	rdfs:subClassOf linguistic-morphology:VerbalVoice.
 	
-lingmor:MedialVoice
+linguistic-morphology:MedialVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "medial voice"@en, "medial"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf lingmor:VerbalVoice.
+	rdfs:subClassOf linguistic-morphology:VerbalVoice.
 	
-lingmor:StaticVoice
+linguistic-morphology:StaticVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "static voice"@en, "statisch"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf lingmor:VerbalVoice.
+	rdfs:subClassOf linguistic-morphology:VerbalVoice.
 
-lingmor:VerbalMood
+linguistic-morphology:VerbalMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verbal mood"@en, "verbaler Modus"@de;
 	rdfs:comment """Property of verbs indicating real or hypothetic utterances."""@en;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:ConditionalMood
+linguistic-morphology:ConditionalMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "conditional mood"@en, "Konditional"@de;
 	rdfs:comment """Verbal mood expressiong conditions."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 	
-lingmor:ImperativeMood
+linguistic-morphology:ImperativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "imperative mood"@en, "Imperativ"@de;
 	rdfs:comment """Verbal mood expressing orders."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 	
-lingmor:IndicativeMood
+linguistic-morphology:IndicativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indicative mood"@en, "Indikativ"@de;
 	rdfs:comment """Verbal mood for stating facts."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.	
+	rdfs:subClassOf linguistic-morphology:VerbalMood.	
 	
-lingmor:InjuncitveMood
+linguistic-morphology:InjuncitveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "injunctive mood"@en, "Injunktiv"@de; 
 	rdfs:comment """Verbal mood ... ."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 
-lingmor:OptativeMood
+linguistic-morphology:OptativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "optative mood"@en, "Opativ"@de;
 	rdfs:comment """Verbal mood indicating wishes."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 	
-lingmor:PrecativeMood
+linguistic-morphology:PrecativeMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "precative mood"@en, "Präkativ"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 	
-lingmor:SubjunctiveMood
+linguistic-morphology:SubjunctiveMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "subjunctive mood"@en, "Subjunktiv"@de;
 	rdfs:comment """Verbal mood ... ."""@en;
-	rdfs:subClassOf lingmor:VerbalMood.
+	rdfs:subClassOf linguistic-morphology:VerbalMood.
 
-lingmor:Tense
+linguistic-morphology:Tense
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "tense"@en, "Tempus"@de;
 	rdfs:comment """..."""@en;
 	owl:equivalentClass gold:TenseProperty;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:Aorist
+linguistic-morphology:Aorist
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "aorist"@en, "Aorist"@de;
 	rdfs:comment """..."""@en;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Future
+linguistic-morphology:Future
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "future"@en, "Futur"@de;
 	rdfs:comment """..."""@en;
 	owl:equivalentClass gold:FutureTense;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Imperfect
+linguistic-morphology:Imperfect
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "imperfect"@en, "Imperfekt"@de;
 	rdfs:comment """..."""@en;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Perfect
+linguistic-morphology:Perfect
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "perfect"@en, "Perfekt"@de;
 	rdfs:comment """..."""@en;
 	owl:equivalentClass gold:PerfectTense;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Pluperfect
+linguistic-morphology:Pluperfect
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "pluperfect"@en, "Plusquamperfekt"@de;
 	rdfs:comment """..."""@en;
 	owl:equivalentClass gold:PastInPastTense;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Present
+linguistic-morphology:Present
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "present"@en, "Präsens"@de;
 	rdfs:comment """..."""@en;
 	owl:equivalentClass gold:PresentTense;
-	rdfs:subClassOf lingmor:Tense.
+	rdfs:subClassOf linguistic-morphology:Tense.
 
-lingmor:Person
+linguistic-morphology:Person
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "person"@en, "Person"@de;
 	rdfs:comment """Property indicating the relation between an entity in an utterance and the speaker."""@en;
 	owl:equivalentClass gold:PersonProperty;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:FirstPerson
+linguistic-morphology:FirstPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "1st person"@en, "1. Person"@de;
 	rdfs:comment """Mentioned entitiy overlaps with speaker."""@en;
 	owl:equivalentClass gold:FirstPerson;
-	rdfs:subClassOf lingmor:Person.
+	rdfs:subClassOf linguistic-morphology:Person.
 	
-lingmor:SecondPerson
+linguistic-morphology:SecondPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "2nd person"@en, "2. Person"@de;
 	rdfs:comment """Mentioned entity overlaps with listener."""@en;
 	owl:equivalentClass gold:SecondPerson;
-	rdfs:subClassOf lingmor:Person.
+	rdfs:subClassOf linguistic-morphology:Person.
 	
-lingmor:ThirdPerson
+linguistic-morphology:ThirdPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "3rd person"@en, "3. Person"@de;
 	rdfs:comment """Degree of comparison in adjectives or adverbs."""@en;
 	owl:equivalentClass gold:ThirdPerson;
-	rdfs:subClassOf lingmor:Person.
+	rdfs:subClassOf linguistic-morphology:Person.
 
-lingmor:Case
+linguistic-morphology:Case
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "grammatical case"@en, "Kasus"@de;
 	rdfs:comment """Grammatical declension of a noun, pronoun, adjective, participle, article, or numeral, expressing its grammatical function, hence its semantic relation to other words in a sentence, clause or phrase."""@en;
 	owl:equivalentClass gold:CaseProperty;
-	rdfs:subClassOf ling:Concept. #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept. #° linguistic-morphology:MorphologicalConcept
 
-lingmor:NominativeCase
+linguistic-morphology:NominativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "nominative case"@en, "Nominativ"@de;
 	rdfs:comment """Grammatical case indicating the agent in an accusative language."""@en;
 	owl:equivalentClass gold:NominativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:VocativeCase
+linguistic-morphology:VocativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "vocative case"@en, "Vokativ"@de;
 	rdfs:comment """Grammatical case of a noun or pronoun used to address a person in grammatical sense."""@en;
 	owl:equivalentClass gold:VocativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:AccusativeCase
+linguistic-morphology:AccusativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "accusative case"@en, "Akkusativ"@de;
 	rdfs:comment """Grammatical case indicating the object in an accusative language."""@en;
 	owl:equivalentClass gold:AccusativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:DativeCase
+linguistic-morphology:DativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "dative case"@en, "Dativ"@de;
 	rdfs:comment """Grammatical case indicating an indirect object."""@en;
 	owl:equivalentClass gold:DativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:GenitiveCase
+linguistic-morphology:GenitiveCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "genitive case"@en, "Genitiv"@de;
 	rdfs:comment """Grammatical case indicating possession and similar relations."""@en;
 	owl:equivalentClass gold:GenitiveCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:AblativeCase
+linguistic-morphology:AblativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "ablative case"@en, "Ablativ"@de;
 	rdfs:comment """Grammatical case specifying a separation."""@en;
 	owl:equivalentClass gold:AblativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:InstrumentalCase
+linguistic-morphology:InstrumentalCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "instrumental case"@en, "Instrumental"@de;
 	rdfs:comment """Grammatical case indicating an instrument or a tool for an action."""@en;
 	owl:equivalentClass gold:InstrumentalCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 	
-lingmor:LocativeCase
+linguistic-morphology:LocativeCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "locative case"@en, "Lokativ"@de;
 	rdfs:comment """Grammatical case indicating a location."""@en;
 	owl:equivalentClass gold:LocativeCase;
-	rdfs:subClassOf lingmor:Case.
+	rdfs:subClassOf linguistic-morphology:Case.
 
-lingmor:GermanCase
+linguistic-morphology:GermanCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "German case"@en, "deutscher Kasus"@de;
 	rdfs:comment """German case form of a word."""@en;
-	rdfs:subClassOf lingmor:Case.
-#	owl:oneOf (lingmor:nominative lingmor:accusative lingmor:dativ lingmor:genitive). # instances # OR owl:disjointUnionOf
+	rdfs:subClassOf linguistic-morphology:Case.
+#	owl:oneOf (linguistic-morphology:nominative linguistic-morphology:accusative linguistic-morphology:dativ linguistic-morphology:genitive). # instances # OR owl:disjointUnionOf
 
-lingmor:Number
+linguistic-morphology:Number
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "number"@en, "Numerus"@de;
 	rdfs:comment """Grammatical declension of a word expressing a number of a word."""@en; #°
-	rdfs:subClassOf ling:Concept; #° lingmor:MorphologicalConcept
+	rdfs:subClassOf linguistics:Concept; #° linguistic-morphology:MorphologicalConcept
 	owl:equivalentClass gold:NumberProperty.
-#	owl:oneOf (lingmor:singular lingmor:plural). # instances # OR owl:disjointUnionOf
+#	owl:oneOf (linguistic-morphology:singular linguistic-morphology:plural). # instances # OR owl:disjointUnionOf
 
-lingmor:Singular
+linguistic-morphology:Singular
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "singular"@en, "Singular"@de;
 	rdfs:comment """Number of a word indicating a singularity."""@en;
 	owl:equivalentClass gold:SingularNumber;
-	rdfs:subClassOf lingmor:Number.
+	rdfs:subClassOf linguistic-morphology:Number.
 
-lingmor:Dual
+linguistic-morphology:Dual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "dual"@en, "Dual"@de;
 	rdfs:comment """Number of a word indicating a duality."""@en;
 	owl:equivalentClass gold:DualNumber;
-	rdfs:subClassOf lingmor:Number.
+	rdfs:subClassOf linguistic-morphology:Number.
 	
-lingmor:Plural
+linguistic-morphology:Plural
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "plural"@en, "Plural"@de;
 	rdfs:comment """Number of a word indicating a plurality."""@en;
 	owl:equivalentClass gold:PluralNumber;
-	rdfs:subClassOf lingmor:Number.
+	rdfs:subClassOf linguistic-morphology:Number.
 
-lingmor:SemanticGender
+linguistic-morphology:SemanticGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "semantic gender"@en, "semantisches Geschlecht"@de;
 	rdfs:comment """Semantic gender of a lexeme."""@en;
-	rdfs:subClassOf ling:Concept;
-	owl:unionOf (lingmor:FeminineSemanticGender lingmor:MasculineSemanticGender lingmor:NeuterSemanticGender).
+	rdfs:subClassOf linguistics:Concept;
+	owl:unionOf (linguistic-morphology:FeminineSemanticGender linguistic-morphology:MasculineSemanticGender linguistic-morphology:NeuterSemanticGender).
 
-lingmor:FeminineSemanticGender
+linguistic-morphology:FeminineSemanticGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "feminine semantic gender"@en, "semantisches Femininum"@de;
 	rdfs:comment """Semantic gender being feminine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
-	rdfs:subClassOf lingmor:SemanticGender.
+	rdfs:subClassOf linguistic-morphology:SemanticGender.
 
-lingmor:MasculineSemanticGender
+linguistic-morphology:MasculineSemanticGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "masculine semantic gender"@en, "semantisches Maskulinum"@de;
 	rdfs:comment """Semantic gender being masculine."""@en;
 	skos:note """E.g. in Indoeuropean and Semitic languages."""@en;
-	rdfs:subClassOf lingmor:SemanticGender.
+	rdfs:subClassOf linguistic-morphology:SemanticGender.
 
-lingmor:NeuterSemanticGender
+linguistic-morphology:NeuterSemanticGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "neuter semantic gender"@en, "semantisches Neutrum"@de;
 	rdfs:comment """Semantic gender being neuter."""@en;
 	skos:note """E.g. in Indoeuropean languages."""@en;
-	rdfs:subClassOf lingmor:SemanticGender.
+	rdfs:subClassOf linguistic-morphology:SemanticGender.
 
-lingmor:PartOfSpeech
+linguistic-morphology:PartOfSpeech
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "part of speech"@en, "Wortart"@de;
 	rdfs:comment """Word with certain grammatical properties and syntactic role in the structure of a sentence."""@en;
-	rdfs:subClassOf ling:Concept. 
+	rdfs:subClassOf linguistics:Concept. 
 
-lingmor:Noun # EAGLES: Noun;
+linguistic-morphology:Noun # EAGLES: Noun;
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "noun"@en, "Nomen"@de;
 	rdfs:comment """Part of speech representing a class or instance."""@en;
 	owl:equivalentClass gold:Noun;
 	skos:note """In German there is no grouping concept for 'Substantiv' and 'Pronomen'."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:CommonNoun # EAGLES: Noun: Common
+linguistic-morphology:CommonNoun # EAGLES: Noun: Common
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "common noun"@en, "Substantiv"@de;
 	rdfs:comment """Part of speech representing a concept or class."""@en;
 	skos:note """In German written with starting capital."""@en;
-	rdfs:subClassOf lingmor:Noun.
+	rdfs:subClassOf linguistic-morphology:Noun.
 
-lingmor:ProperNoun # EAGLES: Noun: Proper
+linguistic-morphology:ProperNoun # EAGLES: Noun: Proper
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "proper noun"@en, "Eigenname"@de;
 	rdfs:comment """Part of speech representing an instance."""@en;
 	skos:note """Written with starting capital, for naming, e.g. a person, a geographical entity (e.g. a country); in English and German also a calendar entity (e.g. resp. 'Monday', 'Montag')"""@en;
-	rdfs:subClassOf lingmor:Noun.
+	rdfs:subClassOf linguistic-morphology:Noun.
 
-lingmor:Verb # EAGLES: Verb
+linguistic-morphology:Verb # EAGLES: Verb
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "verb"@en, "Verb"@de;
 	rdfs:comment """Part of speech governing a sentences by introducing existence, change, action, and linking a subject and object."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:Adjective # EAGLES: Adjective
+linguistic-morphology:Adjective # EAGLES: Adjective
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adjective"@en, "Adjektiv"@de;
 	rdfs:comment """Part of speech describing an object."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:Pronoun # EAGLES: Pronoun/Determiner
+linguistic-morphology:Pronoun # EAGLES: Pronoun/Determiner
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class; 
 	rdfs:label "pronoun"@en, "Pronomen"@de;
 	rdfs:comment """Part of speech quantifying or replacing an object."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:DemonstrativePronoun
+linguistic-morphology:DemonstrativePronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "demonstrative pronoun"@en, "Demonstrativpronomen"@de;
 	rdfs:comment """Pronoun used to point."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 
-lingmor:IndefinitePronoun
+linguistic-morphology:IndefinitePronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indefinite pronoun"@en, "Indefinitpronomen"@de;
 	rdfs:comment """Pronoun stating an undefined entity."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 
-lingmor:InterrogativePronoun
+linguistic-morphology:InterrogativePronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "interrogative pronoun"@en, "Interrogativpronomen"@de;
 	rdfs:comment """Pronoun introducing a question."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 	
-lingmor:PersonalPronoun
+linguistic-morphology:PersonalPronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "personal pronoun"@en, "Personalpronomen"@de;
 	rdfs:comment """Pronoun referring to a person, and declined by person, gender, number, case and formality."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 
-lingmor:ReciprocalPronoun
+linguistic-morphology:ReciprocalPronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "reciprocal pronoun"@en, "Reziprokpronomen"@de;
 	rdfs:comment """Pronoun pointing to the different members of the group as subject of the sentence, e.g. 'each other'."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 	
-lingmor:ReflexivePronoun
+linguistic-morphology:ReflexivePronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "reflexive pronoun"@en, "Reflexivpronomen"@de;
 	rdfs:comment """Pronoun pointing back to the subject of the sentence, e.g. 'yourself'."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 	
-lingmor:RelativePronoun
+linguistic-morphology:RelativePronoun
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "relative pronoun"@en, "Relativpronomen"@de;
 	rdfs:comment """Pronoun introducing a relative clause."""@en;
-	rdfs:subClassOf lingmor:Pronoun.
+	rdfs:subClassOf linguistic-morphology:Pronoun.
 
-lingmor:Article # EAGLES: Article
+linguistic-morphology:Article # EAGLES: Article
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "article"@en, "Artikel"@de;
 	rdfs:comment """Part of speech specifying grammatical definiteness, i.e. indicating if an object is known or newly introduced."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:DefiniteArticle # EAGLES: Article: Definite
+linguistic-morphology:DefiniteArticle # EAGLES: Article: Definite
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "definite article"@en, "bestimmter Artikel"@de;
 	rdfs:comment """Article indicating that an object is known."""@en;
-	rdfs:subClassOf lingmor:Article.
+	rdfs:subClassOf linguistic-morphology:Article.
 	
-lingmor:IndefiniteArticle # EAGLES: Article: Indefinite
+linguistic-morphology:IndefiniteArticle # EAGLES: Article: Indefinite
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "indefinite article"@en, "unbestimmter Artikel"@de;
 	rdfs:comment """Article indicating that an object is newly introduced."""@en;
-	rdfs:subClassOf lingmor:Article.
+	rdfs:subClassOf linguistic-morphology:Article.
 
-lingmor:Adverb # EAGLES: Adverb 
+linguistic-morphology:Adverb # EAGLES: Adverb 
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adverb"@en, "Adverb"@de;
 	rdfs:comment """Part of speech modifying a verb (e.g. describing an action), adjective, pronoun, clause, preposition, or sentence."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:Adposition # EAGLES: Adposition 
+linguistic-morphology:Adposition # EAGLES: Adposition 
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "adposition"@en, "Adposition"@de;
 	rdfs:comment """Part of speech indicating a relationship to objects."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:Preposition # EAGLES: Adposition: Preposition
+linguistic-morphology:Preposition # EAGLES: Adposition: Preposition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "preposition"@en, "Präposition"@de;
 	rdfs:comment """Part of speech indicating relationship to objects, standing before them."""@en;
-	rdfs:subClassOf lingmor:Adposition.
+	rdfs:subClassOf linguistic-morphology:Adposition.
 	
-lingmor:Postposition # EAGLES: Adposition: Postposition
+linguistic-morphology:Postposition # EAGLES: Adposition: Postposition
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "postposition"@en, "Postposition"@de;
 	rdfs:comment """Part of speech indicating relationship to objects, standing after them."""@en;
-	rdfs:subClassOf lingmor:Adposition.
+	rdfs:subClassOf linguistic-morphology:Adposition.
 
-lingmor:Conjunction #  EAGLES: Conjunction
+linguistic-morphology:Conjunction #  EAGLES: Conjunction
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class; 
 	rdfs:label "conjunction"@en, "Konjunktion"@de;
 	rdfs:comment """Part of speech linking syntactic entities."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:CoordinatingConjunction #  EAGLES: Conjunction: Coordinating
+linguistic-morphology:CoordinatingConjunction #  EAGLES: Conjunction: Coordinating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "coordinating conjunction"@en, "nebenordnende Konjunktion"@de;
 	rdfs:comment """Part of speech that links syntactic entities on the same level."""@en;
-	rdfs:subClassOf lingmor:Conjunction.
+	rdfs:subClassOf linguistic-morphology:Conjunction.
 	
-lingmor:SubordinatingConjunction #  EAGLES: Conjunction: Subordinating
+linguistic-morphology:SubordinatingConjunction #  EAGLES: Conjunction: Subordinating
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "subordinating conjunction"@en, "unterordnende Konjunktion"@de;
 	rdfs:comment """Part of speech that orders one syntactic entity under another."""@en;
-	rdfs:subClassOf lingmor:Conjunction.
+	rdfs:subClassOf linguistic-morphology:Conjunction.
 
-lingmor:Numeral
+linguistic-morphology:Numeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "numeral"@en, "Numeral"@de;
 	rdfs:comment """Part of speech designating a number."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:CardinalNumeral
+linguistic-morphology:CardinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	#  EAGLES: Numeral: Cardinal 
 	rdfs:label "cardinal numeral"@en, "Kardinalzahl"@de;
 	rdfs:comment """Part of speech describing numbers as a measure."""@en;
-	rdfs:subClassOf lingmor:Numeral.
+	rdfs:subClassOf linguistic-morphology:Numeral.
 	
-lingmor:OrdinalNumeral
+linguistic-morphology:OrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	#  EAGLES: Numeral: Ordinal 
 	rdfs:label "ordinal numeral"@en, "Ordinalzahl"@de;
 	rdfs:comment """Part of speech describing numbers as an order."""@en;
-	rdfs:subClassOf lingmor:Numeral.
+	rdfs:subClassOf linguistic-morphology:Numeral.
 	
-lingmor:Interjection
+linguistic-morphology:Interjection
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Interjection
 	rdfs:label "interjection"@en, "Interjektion"@de;
 	rdfs:comment """Part of speech designating a spontaneous feeling or reaction."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:NegativeParticle
+linguistic-morphology:NegativeParticle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "negative particle"@en, "Negationspartikel"@de;
 	rdfs:comment """Part of speech designating non traditionally accepted parts of speech with strong grammatical function."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:ExistentialParticle
+linguistic-morphology:ExistentialParticle
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "existential particle"@en, "..."@de;
 	rdfs:comment """Part of speech designating non traditionally accepted parts of speech with strong grammatical function."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 	
-lingmor:InfinitiveMarker
+linguistic-morphology:InfinitiveMarker
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Unique/unassigned
 	rdfs:label "infinitive marker"@en, "Infinitivpartikel"@de;
 	rdfs:comment """Part of speech designating non traditionally accepted parts of speech with strong grammatical function."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:Residual
+linguistic-morphology:Residual
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	# EAGLES: Residual
 	rdfs:label "residual"@en, "Restgruppe"@de;
 	rdfs:comment """Part of speech outside of the traditionally accepted range."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
-lingmor:Punctuation
+linguistic-morphology:Punctuation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a rdfs:Class;
 	rdfs:label "punctuation"@en, "Interpunktion"@de;
 	rdfs:comment """Part of speech describing the non letter or number based parts of a sentence."""@en;
-	rdfs:subClassOf lingmor:PartOfSpeech.
+	rdfs:subClassOf linguistic-morphology:PartOfSpeech.
 
 #
 # PROPERTIES
 #
 
-lingmor:hasLexeme
+linguistic-morphology:hasLexeme
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has lexeme"@en, "hat Lexem"@de;
 	rdfs:comment """Relating a syntactic word form to its lexeme."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range ling:Lexeme.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistics:Lexeme.
 
-lingmor:hasPartOfSpeech
+linguistic-morphology:hasPartOfSpeech
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has part of speech"@en, "hat Wortart"@de;
 	rdfs:comment """Relating a syntactic word form to its part of speech."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:PartOfSpeech.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:PartOfSpeech.
 
-lingmor:hasGrammaticalGender
+linguistic-morphology:hasGrammaticalGender
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has grammatical gender"@en, "hat grammatikalisches Geschlecht"@de;
 	rdfs:comment """Relating a syntactic word form to its grammatical gender."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:GrammaticalGender.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:GrammaticalGender.
 
-lingmor:hasNumber
+linguistic-morphology:hasNumber
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "syntactic word form has number"@en, "syntaktische Wortform hat Numerus"@de;
 	rdfs:comment """Relating a syntactic word to its number."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:Number.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:Number.
 
-lingmor:hasCase
+linguistic-morphology:hasCase
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has grammatical case"@en, "hat Kasus"@de;
 	rdfs:comment """Relating a syntactic word form to its grammatical case."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:Case.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:Case.
 
-lingmor:hasComparisonDegree
+linguistic-morphology:hasComparisonDegree
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has comparison degree"@en, "hat Komparationsstufe"@de;
 	rdfs:comment """Relating a wordform to a comparison degree."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:ComparisonDegree.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:ComparisonDegree.
 
-lingmor:hasTense
+linguistic-morphology:hasTense
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has tense"@en, "hat Tempus"@de;
 	rdfs:comment """Relating a verbform to tense."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:Tense.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:Tense.
 
-lingmor:hasPerson
+linguistic-morphology:hasPerson
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has person"@en, "hat Person"@de;
 	rdfs:comment """Relating a wordform to a person property."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:Person.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:Person.
 
-lingmor:hasVerbalVoice
+linguistic-morphology:hasVerbalVoice
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has verbal voice"@en, "hat Diathese"@de;
 	rdfs:comment """Relating a verbform to a voice."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:VerbalVoice.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:VerbalVoice.
 
-lingmor:hasVerbalMood
+linguistic-morphology:hasVerbalMood
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:ObjectProperty;
 	rdfs:label "has verbal mood"@en, "hat Modus"@de;
 	rdfs:comment """Relating a verbform to mood."""@en;
-	rdfs:domain lingmor:SyntacticWordForm;
-	rdfs:range lingmor:VerbalMood.
+	rdfs:domain linguistic-morphology:SyntacticWordForm;
+	rdfs:range linguistic-morphology:VerbalMood.
 
-lingmor:hasTagLiteral
+linguistic-morphology:hasTagLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/linguistic-morphology#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has tag literal"@en, "hat Tagliteral"@de;
 	rdfs:comment """Relating a part of speech to a tag literal."""@en;
-	rdfs:domain lingmor:PartOfSpeech;
+	rdfs:domain linguistic-morphology:PartOfSpeech;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasNameLiteral.

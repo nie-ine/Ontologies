@@ -8,12 +8,9 @@
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
-@prefix schola: <http://e-editiones.ch/ontology/scholasticism#>.
-@prefix philo: <http://e-editiones.ch/ontology/philosophy#>.
-@prefix philos: <http://e-editiones.ch/ontology/philosophies#>.
-@prefix cathorg: <http://e-editiones.ch/ontology/catholic-organization#>.
-@prefix cathord: <http://e-editiones.ch/ontology/catholic-order#>.
+@prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
+@prefix scholasticism: <http://e-editiones.ch/ontology/scholasticism#>.
+@prefix catholic-order: <http://e-editiones.ch/ontology/catholic-order#>.
 
 @base <http://e-editiones.ch/ontology/drcs>.
 @prefix drcs: <http://e-editiones.ch/ontology/drcs#>.
@@ -41,126 +38,126 @@ drcs:Person
 	a rdfs:Class;
 	rdfs:label "DRCS person"@en, "DRCS Person"@de, "personne de DRCS"@fr, "persona di DRCS"@it;
 	rdfs:comment """Person as subject in the scientific study of Commentaries on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf cathord:Person.
+	rdfs:subClassOf catholic-order:Person.
 
 drcs:Scholastic
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "DRCS scholastic"@en, "DRCS ScholastikerIn"@de;
 	rdfs:comment """Scholastic as subject in the scientific study of Commentaries on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf drcs:Person, schola:Scholastic.
+	rdfs:subClassOf drcs:Person, scholasticism:Scholastic.
 
 drcs:Commentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "commentary"@en, "Kommentar"@de, "commentarius"@la;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences."""@en;
-	rdfs:subClassOf schola:Commentary.
+	rdfs:subClassOf scholasticism:Commentary.
 
 drcs:LecturaCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "lectura commentary"@en, "Lectura-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as presented by its author in a lecture."""@en;
-	rdfs:subClassOf schola:LecturaCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:LecturaCommentary, drcs:Commentary.
 
 drcs:LecturaRevisaCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "lectura revisa commentary"@en, "Lectura Revisa-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as revised by its author after its presentation in a lecture."""@en;
-	rdfs:subClassOf schola:LecturaRevisaCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:LecturaRevisaCommentary, drcs:Commentary.
 
 drcs:ReportatioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "reportatio commentary"@en, "Reportatio-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as recorded by an auditor, e.g. a student, in a lecture."""@en;
-	rdfs:subClassOf schola:ReportatioCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:ReportatioCommentary, drcs:Commentary.
 
 drcs:ReportatioApprobataCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "reportatio approbata commentary"@en, "Reportatio Approbata-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as recorded by an auditor, e.g. a student, in a lecture, and approved by the lecturer or author."""@en;
-	rdfs:subClassOf schola:ReportatioApprobataCommentary, drcs:ReportatioCommentary.
+	rdfs:subClassOf scholasticism:ReportatioApprobataCommentary, drcs:ReportatioCommentary.
 
 drcs:OrdinatioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "ordinatio commentary"@en, "Ordinatio-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as composed for publication."""@en;
-	rdfs:subClassOf schola:OrdinatioCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:OrdinatioCommentary, drcs:Commentary.
 
 drcs:GlossCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "gloss commentary"@en, "Glosse-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing glosses."""@en;
-	rdfs:subClassOf schola:GlossCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:GlossCommentary, drcs:Commentary.
 
 drcs:VerseCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "verse commentary"@en, "Vers-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing verses."""@en;
-	rdfs:subClassOf schola:VerseCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:VerseCommentary, drcs:Commentary.
 
 drcs:TableCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "table commentary"@en, "Tabelle-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing a table."""@en;
-	rdfs:subClassOf schola:TableCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:TableCommentary, drcs:Commentary.
 
 drcs:QuaestioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "quaestio commentary"@en, "Quaestio-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing questions."""@en;
-	rdfs:subClassOf schola:QuaestioCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:QuaestioCommentary, drcs:Commentary.
 
 drcs:ConclusioCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "conclusio commentary"@en, "Conclusio-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing conclusions."""@en;
-	rdfs:subClassOf schola:ConclusioCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:ConclusioCommentary, drcs:Commentary.
 
 drcs:SyllogismusCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "syllogismus commentary"@en, "Syllogismus-Kommentar"@de, "syllogismus"@la;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, containing syllogisms."""@en;
-	rdfs:subClassOf schola:SyllogismusCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:SyllogismusCommentary, drcs:Commentary.
 
 drcs:AbbreviationCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "abbreviation commentary"@en, "Kurzfassung-Kommentar"@de, "abbreviatio"@la;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as an abbreviation."""@en;
-	rdfs:subClassOf schola:AbbreviationCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:AbbreviationCommentary, drcs:Commentary.
 
 drcs:ParaphraseCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "paraphrase commentary"@en, "Paraphrase-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as a paraphrase."""@en;
-	rdfs:subClassOf schola:ParaphraseCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:ParaphraseCommentary, drcs:Commentary.
 
 drcs:LiteralExpositionCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "literal exposition commentary"@en, "wörtliche Auslegung-Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as a literal exposition."""@en;
-	rdfs:subClassOf schola:LiteralExpositionCommentary, drcs:Commentary.
+	rdfs:subClassOf scholasticism:LiteralExpositionCommentary, drcs:Commentary.
 
 drcs:EditedCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a rdfs:Class;
 	rdfs:label "edited commentary"@en, "edierter Kommentar"@de;
 	rdfs:comment """Commentary on Peter Lombard’s Sentences, as edition."""@en;
-	rdfs:subClassOf drcs:Commentary, textedit:Edition.
+	rdfs:subClassOf drcs:Commentary, text-editing:Edition.
 
 drcs:TranslatedCommentary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;

@@ -10,14 +10,13 @@
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
+@prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix prosodic-structure: <http://e-editiones.ch/ontology/prosodic-structure#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
-@prefix lingmor: <http://e-editiones.ch/ontology/linguistic-morphology#>.
+@prefix linguistics: <http://e-editiones.ch/ontology/linguistics#>.
+@prefix linguistic-morphology: <http://e-editiones.ch/ontology/linguistic-morphology#>.
 
 @base <http://e-editiones.ch/ontology/text-structure>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
@@ -110,7 +109,7 @@ text-structure:SyntacticWord
 	a rdfs:Class;
 	rdfs:label "syntactic word"@en, "syntaktisches Wort"@de, "mot syntaxique"@fr, "parola sintattica"@it;
 	rdfs:comment """Smallest independent syntactic structure composed of symbols that can be replaced in a sentence or verse."""@en;
-	rdfs:subClassOf text-structure:SyntacticStructure, ling:Concept.
+	rdfs:subClassOf text-structure:SyntacticStructure, linguistics:Concept.
 
 text-structure:Sentence
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -160,14 +159,14 @@ text-structure:SectionOrdinalNumber
 	a rdfs:Class;
 	rdfs:label "text section ordinal number"@en, "Textabschnittordinalzahl"@de;
 	rdfs:comment """Ordinal number of a text section."""@en;
-	rdfs:subClassOf text-structure:SectionIdentifier, math:OrdinalNumber.
+	rdfs:subClassOf text-structure:SectionIdentifier, mathematics:OrdinalNumber.
 
 text-structure:OrthographicWord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
 	a rdfs:Class;
 	rdfs:label "orthographic word"@en, "orthographisches Wort"@de, "mot orthographique"@fr, "parola ortografica"@it;
 	rdfs:comment """Smallest independent orthographic entity composed of symbols, surrounded by whitespace in a written text line."""@en;
-	rdfs:subClassOf text:WrittenText, ling:Concept.
+	rdfs:subClassOf text:WrittenText, linguistics:Concept.
 
 text-structure:OrthographoSyntacticWord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -189,7 +188,7 @@ text-structure:Punctuation
 	a rdfs:Class;
 	rdfs:label "punctuation"@en, "Interpunktion"@de, "ponctuation"@fr, "punteggiatura"@it;
 	rdfs:comment """One or more language symbols in written text, different from a letter, to help interpret semantics of a sentence."""@en;
-	rdfs:subClassOf text-structure:ReadabilityStructure, text-structure:SyntacticStructure, ling:Symbol.
+	rdfs:subClassOf text-structure:ReadabilityStructure, text-structure:SyntacticStructure, linguistics:Symbol.
 
 text-structure:Line
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -210,7 +209,7 @@ text-structure:LineOrdinalNumber
 	a rdfs:Class;
 	rdfs:label "text line ordinal number"@en, "Textzeilenordinalzahl"@de, "nombre ordinal de ligne de texte"@fr, "numero ordinale della riga di testo"@it;
 	rdfs:comment """Ordinal number of a text line."""@en;
-	rdfs:subClassOf text-structure:LineIdentifier, math:OrdinalNumber.
+	rdfs:subClassOf text-structure:LineIdentifier, mathematics:OrdinalNumber.
 
 text-structure:Column
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -305,7 +304,7 @@ text-structure:syntacticWordHasForm
 	rdfs:label "syntactic word has form"@en, "syntaktisches Wort hat Form"@de, "mot syntaxique a une forme"@fr, "la parola sintattica ha forma"@it;
 	rdfs:comment """Relating a syntactic word to its form."""@en;
 	rdfs:domain text-structure:SyntacticWord;
-	rdfs:range lingmor:SyntacticWordForm.
+	rdfs:range linguistic-morphology:SyntacticWordForm.
 
 text-structure:isWordBeforePunctuation
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -410,8 +409,8 @@ text-structure:sectionHasOrdinalNumeral
 	rdfs:comment """Relating a text section to its ordinal numeral."""@en;
 	rdfs:domain text-structure:Section;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (text-structure:sectionHasOrdinalNumber math:numberHasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral;
+	owl:propertyChainAxiom (text-structure:sectionHasOrdinalNumber mathematics:numberHasNumeral).
 
 text-structure:isWordBeforeSpace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -488,7 +487,7 @@ text-structure:lineHasOrdinalNumber
 	rdfs:comment """Relating a text line to its ordinal number."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range text-structure:LineOrdinalNumber;
-	rdfs:subPropertyOf text-structure:lineHasIdentifier, math:hasOrdinalNumber.
+	rdfs:subPropertyOf text-structure:lineHasIdentifier, mathematics:hasOrdinalNumber.
 
 text-structure:lineHasOrdinalNumeral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;
@@ -497,8 +496,8 @@ text-structure:lineHasOrdinalNumeral
 	rdfs:comment """Relating a text line to its ordinal numeral."""@en;
 	rdfs:domain text-structure:Line;
 	rdfs:range xsd:nonNegativeInteger;
-	rdfs:subPropertyOf math:hasOrdinalNumeral;
-	owl:propertyChainAxiom (text-structure:lineHasOrdinalNumber math:numberHasNumeral).
+	rdfs:subPropertyOf mathematics:hasOrdinalNumeral;
+	owl:propertyChainAxiom (text-structure:lineHasOrdinalNumber mathematics:numberHasNumeral).
 
 text-structure:isLineOfColumn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-structure#>;

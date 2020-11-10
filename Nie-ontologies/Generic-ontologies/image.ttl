@@ -8,7 +8,7 @@
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
+@prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/image>.
 @prefix image: <http://e-editiones.ch/ontology/image#>.
@@ -32,7 +32,7 @@ image:Carrier
 	a rdfs:Class;
 	rdfs:label "image carrier"@en,"Bildträger"@de;
 	rdfs:comment """Visual representation of something on a carrier."""@en;
-	rdfs:subClassOf infocar:Carrier.
+	rdfs:subClassOf information-carrier:Carrier.
 
 image:Abstract
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
@@ -122,7 +122,7 @@ image:isOnCarrier
 	rdfs:comment """Relating an image to a carrier it is on."""@en;
 	rdfs:domain image:Abstract;
 	rdfs:range image:Carrier;
-	rdfs:subPropertyOf infocar:isOnCarrier.
+	rdfs:subPropertyOf information-carrier:isOnCarrier.
 
 image:isPhotographOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;

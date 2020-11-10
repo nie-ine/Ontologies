@@ -14,7 +14,6 @@
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix device: <http://e-editiones.ch/ontology/device#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
 
 @base <http://e-editiones.ch/ontology/language>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.

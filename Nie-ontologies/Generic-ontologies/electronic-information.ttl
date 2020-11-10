@@ -6,7 +6,7 @@
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix device: <http://e-editiones.ch/ontology/device#>.
 @prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
@@ -202,7 +202,7 @@ electronic-information:isWebpageOfSite
 	rdfs:comment """Relating a page to its website."""@en;
 	rdfs:domain electronic-information:Webpage;
 	rdfs:range electronic-information:WebSite;
-	rdfs:subPropertyOf physical:isPartOf.
+	rdfs:subPropertyOf physical-entity:isPartOf.
 
 electronic-information:hasHyperlink
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/electronic-information#>;

@@ -4,7 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
-@prefix ling: <http://e-editiones.ch/ontology/linguistics#>.
+@prefix linguistics: <http://e-editiones.ch/ontology/linguistics#>.
 
 @base <http://e-editiones.ch/ontology/logic>.
 @prefix logic: <http://e-editiones.ch/ontology/logic#>.
@@ -28,14 +28,14 @@ logic:Premise
 	a rdfs:Class;
 	rdfs:label "premise"@en, "Prämisse"@de;
 	rdfs:comment """Statement of a presupposition, which leads to a conclusion."""@en;
-	rdfs:subClassOf ling:Statement.
+	rdfs:subClassOf linguistics:Statement.
 
 logic:Conclusion
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;
 	a rdfs:Class;
 	rdfs:label "conclusion"@en, "Schlussfolgerung"@de;
 	rdfs:comment """Statement of a result, which is drawn from premises and arguments."""@en;
-	rdfs:subClassOf ling:Statement.
+	rdfs:subClassOf linguistics:Statement.
 
 logic:Argument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/logic#>;

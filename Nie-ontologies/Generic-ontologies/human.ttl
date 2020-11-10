@@ -8,11 +8,10 @@
 @prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix physical: <http://e-editiones.ch/ontology/physical-entity#>.
+@prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix time: <http://e-editiones.ch/ontology/time#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
-@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
@@ -553,7 +552,7 @@ human:hasBirthplace
 	rdfs:comment """Relating a person to the birthplace of that person."""@en;
 	skos:note """It is possible to find different birthplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical:EarthPlace.
+	rdfs:range physical-entity:EarthPlace.
 
 human:hasDeathDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -626,7 +625,7 @@ human:hasDeathplace
 	rdfs:comment """Relating a person to the deathplace of that person."""@en;
 	skos:note """It is possible to find different deathplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical:EarthPlace.
+	rdfs:range physical-entity:EarthPlace.
 
 human:hasMaxLifeSpan
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -784,7 +783,7 @@ human:hasPlaceOfWork
 	rdfs:label "has place of work"@en, "hat Wirkungsort"@de;
 	rdfs:comment """Relating a person to the place where she/he works."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical:EarthPlace.
+	rdfs:range physical-entity:EarthPlace.
 
 human:adheringToThought
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -868,5 +867,5 @@ human:hasPreserver
 	a owl:ObjectProperty;
 	rdfs:label "has preserver"@en, "hat Bewahrer"@de;
 	rdfs:comment """Relating a material resoruce to a human agent - a person or a group - preserving it."""@en;
-	rdfs:domain physical:Matter;
+	rdfs:domain physical-entity:Matter;
 	rdfs:range [rdfs:subClassOf human:Agent, [a owl:Restriction; owl:onProperty human:agentHasRole; owl:someValuesFrom human:AgentPreserver]].

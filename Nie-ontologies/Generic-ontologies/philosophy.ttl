@@ -6,7 +6,7 @@
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 
 @base <http://e-editiones.ch/ontology/philosophy>.
-@prefix philo: <http://e-editiones.ch/ontology/philosophy#>.
+@prefix philosophy: <http://e-editiones.ch/ontology/philosophy#>.
 
 <http://e-editiones.ch/ontology/philosophy>
 	a owl:Ontology;
@@ -24,16 +24,16 @@
 # CLASSES
 #
 
-philo:Philosophy
+philosophy:Philosophy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophy#>;
 	a rdfs:Class;
 	rdfs:label "philosophy"@en, "Philosophie"@de;
 	rdfs:comment """."""@en; #°
 	rdfs:subClassOf concept:ThoughtBody.
 
-philo:Metaphysics
+philosophy:Metaphysics
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/philosophy#>;
 	a rdfs:Class;
 	rdfs:label "metaphysics"@en, "Metaphysik"@de;
 	rdfs:comment """Philosophy of the nature of reality, including the relationship between mind and matter, between substance and attribute, and between potentiality and actuality."""@en;
-	rdfs:subClassOf philo:Philosophy.
+	rdfs:subClassOf philosophy:Philosophy.

@@ -9,17 +9,12 @@
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
 @prefix language: <http://e-editiones.ch/ontology/language#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix math: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
-@prefix textedit: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
-@prefix infocar: <http://e-editiones.ch/ontology/information-carrier#>.
-@prefix publish: <http://e-editiones.ch/ontology/publishing#>.
 
 @base <http://e-editiones.ch/ontology/text-expression>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.

@@ -211,7 +211,7 @@ text-expression:ScientificExpression
 	a rdfs:Class;
 	rdfs:label "scientific expression"@en, "wissenschaftliche Expression"@de, "expression scientifique"@fr, "espressione scientifica"@it;
 	rdfs:comment """Text expression with scientific content."""@en;
-	rdfs:subClassOf text-expression:IndividualExpression.
+	rdfs:subClassOf text-expression:Expression.
 
 text-expression:VulgarizedScientificExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-expression#>;
@@ -394,7 +394,7 @@ text-expression:isCommentaryOn
 	rdfs:label "is commentary on"@en, "ist Kommentar zu"@de, "est un commentaire sur"@fr, "è un commento"@it;
 	rdfs:comment """Relating a commentary to something it comments on."""@en;
 	rdfs:domain text-expression:Commentary;
-	rdfs:range rdfs:Resource. # document:Expression.
+	rdfs:range rdfs:Resource.
 
 text-expression:isArticleAbout
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-expression#>;

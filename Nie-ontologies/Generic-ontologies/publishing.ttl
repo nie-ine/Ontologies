@@ -462,6 +462,14 @@ publishing:isFirstPublishedIn
 	rdfs:range publishing:FirstPublication;
 	rdfs:subPropertyOf publishing:isPublishedIn.
 
+publishing:isRepublishedAs
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
+	a owl:ObjectProperty;
+	rdfs:label "is republished as"@en, "ist neu publiziert als"@de, "est republié comme"@fr, "è ripubblicato come"@it;
+	rdfs:comment """Relating a publication expression to another one as which the former is republished."""@en;
+	rdfs:domain publishing:Expression;
+	rdfs:range publishing:Expression.
+
 publishing:isRepublishedIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;
 	a owl:ObjectProperty;
@@ -469,7 +477,7 @@ publishing:isRepublishedIn
 	rdfs:comment """Relating a publication expression to a republication thereof."""@en;
 	rdfs:domain publishing:Expression;
 	rdfs:range publishing:Republication;
-	rdfs:subPropertyOf publishing:isPublishedIn.
+	owl:propertyChainAxiom (publishing:isRepublishedAs publishing:isPublishedIn).
 
 publishing:isPublishedOnWeb
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/publishing#>;

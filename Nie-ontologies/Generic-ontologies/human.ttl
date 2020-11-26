@@ -12,6 +12,7 @@
 @prefix time: <http://e-editiones.ch/ontology/time#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
+@prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
 @prefix org: <http://e-editiones.ch/ontology/organization#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
@@ -508,7 +509,8 @@ human:hasBirthdate
 	rdfs:comment """Relating a person to the birthdate of that person."""@en;
 	skos:note """It is possible to find different birthdates in different historical sources, in which case a probability can be attributed to each date; an overall certainty period can be calculated, comprising all dates."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:date.
+	rdfs:range xsd:date;
+	owl:propertyChainAxiom (human:hasBirthday calendar:hasGregorianDate).
 
 human:hasEarliestBirthdate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -561,8 +563,8 @@ human:hasDeathDate
 	rdfs:comment """Relating a person to the death date of that person."""@en;
 	skos:note """It is possible to find different death dates in different historical sources, in which case a probability can be attributed to each date; an overall certainty period can be calculated, comprising all dates."""@en;
 	rdfs:domain human:Person;
-	rdfs:range xsd:date.
-	# rdfs:subPropertyOf
+	rdfs:range xsd:date;
+	owl:propertyChainAxiom (human:hasDeathDay calendar:hasGregorianDate).
 
 human:hasLatestDeathDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;

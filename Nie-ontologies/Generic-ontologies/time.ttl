@@ -387,7 +387,7 @@ time:calculatingBefore
 	a owl:ObjectProperty;
 	rdfs:label "calculating before"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens before second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -407,7 +407,7 @@ time:calculatingAfter
 	a owl:ObjectProperty;
 	rdfs:label "calculating after"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens after second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -426,7 +426,7 @@ time:calculatingOverlaps
 	a owl:ObjectProperty;
 	rdfs:label "calculating overlaps"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events overlap each other."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -445,7 +445,7 @@ time:calculatingSameTime
 	a owl:ObjectProperty;
 	rdfs:label "calculating same time"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events happen during same time."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -464,7 +464,7 @@ time:calculatingDuring
 	a owl:ObjectProperty;
 	rdfs:label "calculating during"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event happens during second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -484,7 +484,7 @@ time:calculatingIncludes
 	a owl:ObjectProperty;
 	rdfs:label "calculating includes"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event includes second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -503,7 +503,7 @@ time:calculatingSameDuration
 	a owl:ObjectProperty;
 	rdfs:label "calculating same duration"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and events having same duration."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -522,7 +522,7 @@ time:calculatingTakesLongerThan
 	a owl:ObjectProperty;
 	rdfs:label "calculating takes longer than"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes longer than second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -542,7 +542,7 @@ time:calculatingTakesLessLongThan
 	a owl:ObjectProperty;
 	rdfs:label "calculating takes less long than"@en, ""@de;
 	rdfs:comment """Linking 2 lists with each a beginning and end date time typed literal of an event, and first event takes less long than second."""@en;
-	rdfs:comment """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
+	skos:note """Such a triple invokes in an N3 rule a backward N3 rule checking this time relation for 2 events in premise and returning the triple."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -551,7 +551,7 @@ time:hasSnapshotDateTime
 	a owl:DatatypeProperty; #, owl:FunctionalProperty;
 	rdfs:label "has snapshot date time"@en, ""@de;
 	rdfs:comment """Specifying a snapshot event's date and time."""@en;
-	rdfs:comment """A snapshot is an event with coinciding beginning and end."""@en;
+	skos:note """A snapshot is an event with coinciding beginning and end."""@en;
 	skos:note """Used in N3 rules calculating with date time and duration using Unix Epoch time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:dateTime.
@@ -561,7 +561,7 @@ time:hasSnapshotDate
 	a owl:DatatypeProperty; #, owl:FunctionalProperty;
 	rdfs:label "has snapshot date"@en, ""@de;
 	rdfs:comment """Specifying a snapshot event's date."""@en;
-	rdfs:comment """A snapshot is an event with coinciding beginning and end."""@en;
+	skos:note """A snapshot is an event with coinciding beginning and end."""@en;
 	skos:note """Used in N3 rules calculating with date and duration using Unix Epoch time."""@en;
 	rdfs:domain event:Event;
 	rdfs:range xsd:date.
@@ -571,8 +571,8 @@ time:dateLiteralToPeriod #° + time zone
 	a owl:ObjectProperty;
 	rdfs:label "date literal to period"@en, "Datumliteral zu Periode"@de;
 	rdfs:comment """Linking a list with 3 literals, resp representing number of years, number of months and number of days, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
-	rdfs:comment """Used in an N3 rule triple to invoke a backward N3 rule converting a date described by 3 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a day margin."""@en;
-	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral ?dayLiteral) time:dateLiteralToPeriod (?beginning ?end)."""@en;
+	skos:note """Used in an N3 rule triple to invoke a backward N3 rule converting a date described by 3 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a day margin."""@en;
+	skos:note """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral ?dayLiteral) time:dateLiteralToPeriod (?beginning ?end)."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 	
@@ -581,8 +581,8 @@ time:yearMonthLiteralToPeriod #° + time zone
 	a owl:ObjectProperty;
 	rdfs:label "year month literal to period"@en, "Jahrmonatliteral zu Periode"@de;
 	rdfs:comment """Linking a list with 2 literals, resp representing number of years and number of months, to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a month."""@en;
-	rdfs:comment """Used in an N3 rule triple to invoke a backward N3 rule converting 2 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a month margin."""@en;
-	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral) time:yearMonthLiteralToPeriod (?beginning ?end); at runtime this will generate e.g. subject ("2010" "3") and object (."""@en;
+	skos:note """Used in an N3 rule triple to invoke a backward N3 rule converting 2 literals to a period described by beginning and end date time, in this way explicitly stating the implicit period of a month margin."""@en;
+	skos:note """In N3 rules universally quantified variables are declared to pick up the respective values: (?yearLiteral ?monthLiteral) time:yearMonthLiteralToPeriod (?beginning ?end); at runtime this will generate e.g. subject ("2010" "3") and object (."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -591,8 +591,8 @@ time:yearLiteralToPeriod #° + time zone
 	a owl:ObjectProperty;
 	rdfs:label "year literal to period"@en, "Jahrliteral zu Periode"@de;
 	rdfs:comment """Linking a literal representing number of years to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a year."""@en;
-	rdfs:comment """Used in a triple to invoke a backward N3 rule converting a literal to a period described by beginning and end date time, in this way explicitly stating the implicit period of a year margin."""@en;
-	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: ?yearLiteral time:yearLiteralToPeriod (?beginning ?end)."""@en;
+	skos:note """Used in a triple to invoke a backward N3 rule converting a literal to a period described by beginning and end date time, in this way explicitly stating the implicit period of a year margin."""@en;
+	skos:note """In N3 rules universally quantified variables are declared to pick up the respective values: ?yearLiteral time:yearLiteralToPeriod (?beginning ?end)."""@en;
 	rdfs:domain rdf:List;
 	rdfs:range rdf:List.
 
@@ -601,8 +601,8 @@ time:dateToPeriod
 	a owl:ObjectProperty;
 	rdfs:label "date to period"@en, "Datum zu Periode"@de;
 	rdfs:comment """Linking an xsd:date typed literal to a list with 2 xsd:dateTime typed literals representing a beginning and an end of a day."""@en;
-	rdfs:comment """Used in a triple to invoke a backward N3 rule converting an xsd:date typed literal to a period described by beginning and end date time, in this way explicitly stating the implicit time period margin."""@en;
-	rdfs:comment """In N3 rules universally quantified variables are declared to pick up the respective values: ?date time:dateToPeriod (?beginning ?end)."""@en;
+	skos:note """Used in a triple to invoke a backward N3 rule converting an xsd:date typed literal to a period described by beginning and end date time, in this way explicitly stating the implicit time period margin."""@en;
+	skos:note """In N3 rules universally quantified variables are declared to pick up the respective values: ?date time:dateToPeriod (?beginning ?end)."""@en;
 	rdfs:domain xsd:date;
 	rdfs:range rdf:List.
 

@@ -241,14 +241,14 @@ drcs:hasStegmuellerCommentaryDescriptionLiteral
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
 	a owl:DatatypeProperty;
 	rdfs:label "has Stegmüller's commentary description literal"@en;
-	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to a Stegmüller's description literal thereof."""@en;
+	rdfs:comment """Relating a commentary on Petrus Lombardus' sentences to a Stegmüller's description literal thereof."""@en;
  	rdfs:domain drcs:Commentary;
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasDescriptionLiteral.
 
 drcs:hasStegmuellerCode
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/drcs#>;
-	a owl:FunctionalProperty;
+	a owl:ObjectProperty, owl:FunctionalProperty;
 	rdfs:label "has Stegmüller's code"@en;
 	rdfs:comment """Relating a commentary on Petrus Lombardus' Sentences to its Stegmüller's code."""@en;
 	skos:note """E.g. drcs-pd:commentary-1 drcs:hasStegmuellerCode [concept:identifierCodeHasSystem drcs:stegmuellerSystem; concept:identifierCodeHasValue "x"^^drcs:stegmuellerDatatype]"""@en;

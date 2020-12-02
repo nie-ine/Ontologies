@@ -172,11 +172,11 @@ delille:Article
 	rdfs:comment """Publication article citing one or more verses of a poem authored by Jacques Delille."""@en;
 	rdfs:subClassOf publishing:Article, delille:CitingExpression.
 
-delille:NonOriginalEngraving
+delille:NonOriginalEngravingExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille#>;
 	a rdfs:Class;
 	rdfs:label "non-original engraving expression"@en,"nicht-originale Gravurexpression"@de;
-	rdfs:comment """Image that is not an original engraving, as part of a Delille citing text expression. This image can be a painting, drawing, or engraving different from the original."""@en;
+	rdfs:comment """Image that is not an original engraving, as part of a Delille citing text expression. This image can be a painting, drawing, or engraving not being the original."""@en;
 	rdfs:subClassOf image:Expression.
 
 delille:Argument

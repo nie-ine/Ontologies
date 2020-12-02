@@ -48,7 +48,7 @@ image:Expression
 	rdfs:comment """Image as a document expression."""@en;
 	rdfs:subClassOf document:Expression, image:Abstract.
 
-image:Original
+image:OriginalExpression
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a rdfs:Class;
 	rdfs:label "original image expression"@en,"originale Bildexpression"@de;
@@ -106,10 +106,10 @@ image:expressionHasTitleLiteral
 	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf document:expressionHasTitleLiteral.
 
-image:isImageOf
+image:isImageAbstractOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
-	rdfs:label "is image of", "ist Bild von"@de;
+	rdfs:label "is image abstract of", "ist Bildabstrakt von"@de;
 	rdfs:comment """Relating an image abstract to what it depicts."""@en;
 	rdfs:domain image:Abstract;
 	rdfs:range rdfs:Resource;
@@ -124,20 +124,20 @@ image:isOnCarrier
 	rdfs:range image:Carrier;
 	rdfs:subPropertyOf information-carrier:isOnCarrier.
 
-image:isPhotographOf
+image:isPhotographAbstractOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
-	rdfs:label "is photograph of", "ist Foto von"@de;
+	rdfs:label "is photograph abstract of", "ist Fotoabstrakt von"@de;
 	rdfs:comment """Relating a photograph abstract to what it depicts."""@en;
 	rdfs:domain image:PhotographAbstract;
 	rdfs:range rdfs:Resource;
 	rdfs:subPropertyOf image:isImageOf.
 
-image:isPartOf
+image:abstractIsPartOfDocument
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/image#>;
 	a owl:ObjectProperty;
-	rdfs:label "image is part of", "Bild ist Teil von"@de;
-	rdfs:comment """Relating an image to a document it is part of."""@en;
+	rdfs:label "image abstract is part of document", "Bildabstrakt ist Teil eines Dokumentes"@de;
+	rdfs:comment """Relating an image abstract to a document it is part of."""@en;
 	rdfs:domain image:Abstract;
 	rdfs:range document:Document.
 #	rdfs:subPropertyOf .

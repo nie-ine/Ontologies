@@ -10,8 +10,8 @@
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix human-geography: <http://e-editiones.ch/ontology/human-geography#>.
+@prefix physical-geography: <http://e-editiones.ch/ontology/physical-geography#>.
 @prefix organization: <http://e-editiones.ch/ontology/organization#>.
-
 @base <http://e-editiones.ch/ontology/marriage>.
 @prefix marriage: <http://e-editiones.ch/ontology/marriage#>.
 
@@ -69,6 +69,13 @@ marriage:Parish
 	rdfs:label "parish"@en, "Kirchgemeinde"@de;
 	rdfs:comment """The religios organization that carries out the wedding or which announces the wedding."""@en;
 	rdfs:subClassOf organization:ReligiousOrganization.
+
+marriage:Location
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "location"@en, "Ort"@de;
+	rdfs:comment """The location where the marriage took place."""@en;
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 #Zusatzinformationen...
 

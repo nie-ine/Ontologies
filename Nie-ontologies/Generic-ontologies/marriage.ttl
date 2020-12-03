@@ -92,9 +92,15 @@ marriage:weddingCarriedOutInParish
 	rdfs:domain marriage:Wedding;
 	rdfs:range marriage:Parish.
 
-#Bride has forename, surname, origin
-#Bridegroom has forename, surname, origin
+marriage:entryMadeByParish
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a owl:DatatypeProperty;
+	rdfs:label "entry is made by parish"@en, "Eintrag wurde vorgenommen von Kirchgemeinde"@de;
+	rdfs:comment """Relating an entry to the parish from which it has been made."""@en;
+	rdfs:domain marriage:Entry;
+	rdfs:range marriage:Parish.
+
 #hat Zusatzinformation (zu bride, zu Wedding, zu bridegroom...) for example:
 #getauft 22. Juni 1684; Eltern: Konrad Fisler sel. und Magdalena Fehr sel.; Weber; Witwer der Barbara Baur von Berg am Irchel (gestorben 10. Aug. 1746, getraut 8. Dez. 1716)
 #Text: Psalm 37:3-6. Sie starb 1751.
-#Literal?
+

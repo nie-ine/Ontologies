@@ -42,6 +42,13 @@ marriage:Wedding
 	rdfs:comment """Event in which two people get married."""@en;
 	rdfs:subClassOf event:Procedure.
 
+marriage:Entry
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
+	a rdfs:Class;
+	rdfs:label "entry"@en, "Eintrag"@de;
+	rdfs:comment """An entry as information (e.g. in a church book) stating that a marriage has been made."""@en;
+	rdfs:subClassOf document:Element.
+
 marriage:Bride
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
 	a rdfs:Class;
@@ -60,8 +67,8 @@ marriage:Parish
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
 	a rdfs:Class;
 	rdfs:label "parish"@en, "Kirchgemeinde"@de;
-	rdfs:comment """Location with a church in the centre where a wedding takes place and at the same time the religios organization that carries out the wedding."""@en;
-	rdfs:subClassOf human-geography:Village, organization:ReligiousOrganization.
+	rdfs:comment """The religios organization that carries out the wedding or which announces the wedding."""@en;
+	rdfs:subClassOf organization:ReligiousOrganization.
 
 #Zusatzinformationen...
 

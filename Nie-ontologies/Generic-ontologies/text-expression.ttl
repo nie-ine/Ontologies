@@ -379,6 +379,15 @@ text-expression:isPartOfExpression
 	rdfs:range text-expression:Expression;
 	rdfs:subPropertyOf concept:isPartOf.
 
+text-expression:isPartOfDocumentExpression
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-expression#>;
+	a owl:ObjectProperty;
+	rdfs:label "text expression is part of document expression"@en, "Textexpression ist Teil einer Dokumentexpression"@de, "expression de texte fait partie d'expression de document"@fr, "espressione del testo fa parte dell'espressione del documento"@it;
+	rdfs:comment """Relating a text expression to a document expression it is part of."""@en;
+	rdfs:domain text-expression:Expression;
+	rdfs:range document:Expression;
+	rdfs:subPropertyOf concept:isPartOf.
+
 text-expression:isEntryOfDiary
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text-expression#>;
 	a owl:ObjectProperty;

@@ -75,11 +75,11 @@ marriage:hasWeddingdate
 	rdfs:label "has weddingdate"@en, "hat Heiratsdatum"@de;
 	rdfs:comment """Relating a wedding to the date of that wedding."""@en;
 	rdfs:domain marriage:Wedding;
-	rdfs:range calendar:hasJulianDate, calendar:hasGregorianDate.#??? human: hasBirthday: range xsd date
+	rdfs:range xsd:date. # calendar:hasJulianDate, calendar:hasGregorianDate.#??? human: hasBirthday: range xsd date
 
 marriage:weddingCarriedOutInParish
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/marriage#>;
-	a owl:DatatypeProperty;
+	a owl:ObjectProperty;
 	rdfs:label "wedding is carried out in parish"@en, "Heirat wird durchgeführt in Kirchgemeinde"@de;
 	rdfs:comment """Relating a wedding to the parish it is carried out."""@en;
 	rdfs:domain marriage:Wedding;

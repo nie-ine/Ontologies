@@ -84,7 +84,6 @@ archive-record:CarrierReference
 	rdfs:comment """A reference to a part of a carrier. This could be, f.e., a page reference to a volume."""@en;
 	rdfs:subClassOf document:ContentStructureReference.
 
-
 archive-record:Identifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
@@ -162,7 +161,6 @@ archive-record:represents
 	rdfs:comment """Relating an archive record to what (an event, a thing...) it represents."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range rdfs:Resource;
-	owl:inverseOf archive-record:isRepresentedByArchiveRecord.
+	owl:inverseOf archive-record:isRepresentedBy.
 
-#hasLiteral...
 

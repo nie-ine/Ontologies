@@ -177,8 +177,6 @@ event:isOutputOf
 	rdfs:domain event:Output;
 	rdfs:range event:Process.
 
-
-
 event:isOutputOfAction
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/event#>;
 	a owl:ObjectProperty;

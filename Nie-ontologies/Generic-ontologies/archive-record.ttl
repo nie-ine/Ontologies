@@ -161,7 +161,6 @@ archive-record:represents
 	rdfs:comment """Relating an archive record to what (an event, a thing...) it represents."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range rdfs:Resource;
-	owl:inverseOf archive-record:isRepresentedByArchiveRecord. #°
+	owl:inverseOf archive-record:isRepresentedBy.
 
-#hasLiteral...
 

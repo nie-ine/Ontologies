@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-# @prefix tzont: <http://www.w3.org/2006/timezone#>.
+# @prefix timezone: <http://www.w3.org/2006/timezone#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 
 @base <http://e-editiones.ch/ontology/time>.

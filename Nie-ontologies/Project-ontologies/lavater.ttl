@@ -4,7 +4,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
 @prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 @prefix letter-corresponding: <http://e-editiones.ch/ontology/letter-corresponding#>.

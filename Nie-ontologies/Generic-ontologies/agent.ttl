@@ -4,7 +4,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 

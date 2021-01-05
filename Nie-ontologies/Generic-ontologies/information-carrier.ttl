@@ -3,11 +3,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
-@prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
@@ -17,7 +15,6 @@
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix device: <http://e-editiones.ch/ontology/device#>.
 @prefix image: <http://e-editiones.ch/ontology/image#>.
-@prefix letter-corresponding: <http://e-editiones.ch/ontology/letter-corresponding#>.
 @prefix linguistics: <http://e-editiones.ch/ontology/linguistics#>.
 
 @base <http://e-editiones.ch/ontology/information-carrier>.
@@ -172,7 +169,7 @@ information-carrier:NachlassElement
 	rdfs:comment """Element of a nachlass."""@en;
 	rdfs:subClassOf information-carrier:Carrier.
 
-information-carrier:Archive # Library
+information-carrier:Archive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
 	rdfs:label "archive"@en, "Archiv"@de, "archive"@fr, "archivio"@it;
@@ -183,8 +180,8 @@ information-carrier:ArchiveElement
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;
 	a rdfs:Class;
 	rdfs:label "archive element"@en, "Archivelement"@de;
-	rdfs:comment """Element of an archive, which can be a single information carrier or a group."""@en;
-	rdfs:subClassOf information-carrier:Carrier.
+	rdfs:comment """Element of an archive, which can be a single information carrier or a group."""@en.
+#	rdfs:subClassOf information-carrier:Carrier.
 
 information-carrier:WritingUtensil
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/information-carrier#>;

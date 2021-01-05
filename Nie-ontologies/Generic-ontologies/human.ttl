@@ -13,7 +13,6 @@
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 

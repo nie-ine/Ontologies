@@ -1,4 +1,3 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
@@ -6,11 +5,9 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
-@prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix organization: <http://e-editiones.ch/ontology/organization#>.
-@prefix concept: <http://e-editiones.ch/ontology/concept#>.
 @prefix mathematics: <http://e-editiones.ch/ontology/mathematics#>.
 @prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.

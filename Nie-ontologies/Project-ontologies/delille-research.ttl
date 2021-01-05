@@ -4,19 +4,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
-@prefix language: <http://e-editiones.ch/ontology/language#>.
-@prefix teaching: <http://e-editiones.ch/ontology/teaching#>.
 @prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
-@prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix image: <http://e-editiones.ch/ontology/image#>.
-@prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix prosodic-structure: <http://e-editiones.ch/ontology/prosodic-structure#>.
-@prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
-@prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
-@prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
-@prefix literature: <http://e-editiones.ch/ontology/literature#>.
 @prefix delille: <http://e-editiones.ch/ontology/delille#>.
 @prefix delille-pd: <http://e-editiones.ch/project/data/delille#>.
 

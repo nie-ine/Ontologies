@@ -7,7 +7,6 @@
 @prefix catholic-order: <http://e-editiones.ch/ontology/catholic-order#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.
 @prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
 @base <http://e-editiones.ch/ontology/dietrich>.

@@ -4,7 +4,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
 # @prefix tzont: <http://www.w3.org/2006/timezone#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 
@@ -628,7 +627,7 @@ time:hasAge
 	rdfs:label "has age"@en, "hat Alter"@de;
 	rdfs:comment """Specifying an age in years of something."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range e:Number.
+	rdfs:range xsd:decimal.
 
 time:hasAges
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
@@ -645,7 +644,7 @@ time:calculatingAge
 	rdfs:comment """Specifying a calculated age in years for a list of something and a reference date time."""@en;
 	skos:note """Triggering in an N3 rule a backward N3 rule to calculate an age of something depending on a reference date time."""@en;
 	rdfs:domain rdf:List;
-	rdfs:range e:Number.
+	rdfs:range xsd:decimal.
 
 time:hasMedianAge
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;
@@ -653,7 +652,7 @@ time:hasMedianAge
 	rdfs:label "has median age"@en, "hat Medianalter"@de;
 	rdfs:comment """Linking a class to the median age of its members."""@en;
 	rdfs:domain rdfs:Class;
-	rdfs:range e:Number.
+	rdfs:range xsd:decimal.
 
 time:endsSameAsBeginningOf
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/time#>;

@@ -6,7 +6,6 @@
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix document: <http://e-editiones.ch/ontology/document#>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
 @prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.

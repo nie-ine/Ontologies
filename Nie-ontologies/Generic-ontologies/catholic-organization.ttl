@@ -3,8 +3,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix event: <http://e-editiones.ch/ontology/event#>.
-@prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix organization: <http://e-editiones.ch/ontology/organization#>.
 
 @base <http://e-editiones.ch/ontology/catholic-organization>.

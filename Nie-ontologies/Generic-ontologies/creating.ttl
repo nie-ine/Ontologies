@@ -3,20 +3,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix unicore: <http://purl.uniprot.org/core/>.
-@prefix unitax: <http://purl.uniprot.org/taxonomy/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
-@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix time: <http://e-editiones.ch/ontology/time#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
-@prefix humgeo: <http://e-editiones.ch/ontology/human-geography#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
-@prefix org: <http://e-editiones.ch/ontology/organization#>.
-@prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix text: <http://e-editiones.ch/ontology/text#>.
 
 @base <http://e-editiones.ch/ontology/creating>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.

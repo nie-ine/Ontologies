@@ -10,7 +10,6 @@
 @prefix text: <http://e-editiones.ch/ontology/text#>.
 @prefix image: <http://e-editiones.ch/ontology/image#>.
 @prefix text-expression: <http://e-editiones.ch/ontology/text-expression#>.
-@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix prosodic-structure: <http://e-editiones.ch/ontology/prosodic-structure#>.
 @prefix text-editing: <http://e-editiones.ch/ontology/text-editing#>.
 @prefix scholarly-editing: <http://e-editiones.ch/ontology/scholarly-editing#>.

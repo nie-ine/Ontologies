@@ -7,7 +7,6 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.
-@prefix text: <http://e-editiones.ch/ontology/text#>.
 
 @base <http://e-editiones.ch/ontology/physical-geography>.
 @prefix physical-geography: <http://e-editiones.ch/ontology/physical-geography#>.

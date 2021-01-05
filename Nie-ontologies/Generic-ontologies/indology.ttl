@@ -4,7 +4,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix text: <http://e-editiones.ch/ontology/text#>.
-@prefix text-structure: <http://e-editiones.ch/ontology/text-structure#>.
 @prefix literature: <http://e-editiones.ch/ontology/literature#>.
 
 @base <http://e-editiones.ch/ontology/indology>.

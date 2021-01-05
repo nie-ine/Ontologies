@@ -6,7 +6,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
-@prefix event: <http://e-editiones.ch/ontology/event#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix human: <http://e-editiones.ch/ontology/human#>.
 @prefix creating: <http://e-editiones.ch/ontology/creating#>.

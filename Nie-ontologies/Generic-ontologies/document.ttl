@@ -246,7 +246,7 @@ document:BibliographicReference
 	rdfs:comment """All information, structured along certain composition rules, to identify a resource in any format (print, audiovisual, digital, etc.), published or unpublished. Used for example to refer from a part in a text expression to a part in another text expression. """@en;
 	skos:note """There is not 1 canonical way to write a bibliographic reference"""@en;
 	rdfs:seeAlso <https://products.abc-clio.com/ODLIS/odlis_b.aspx#bibliographicreference>;
-	rdfs:subClassOf text-structure:ContentStructure.
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 document:CitationBibliographicReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/document#>;
@@ -254,7 +254,7 @@ document:CitationBibliographicReference
 	rdfs:label "citation bibliographic reference"@en, "bibliographische Referenz eines Zitats"@de; # , "référence bibliographique"@fr, "riferimenti bibliografici"@it;
 	rdfs:comment """All information, structured along certain composition rules, to identify a text expression part as citation of a part of another text expression, the latter being published or not. """@en;
 	skos:note """There is not 1 canonical way to write a citation bibliographic reference"""@en;
-	rdfs:subClassOf text-structure:ContentStructure.
+	rdfs:subClassOf text-structure:CompositionalContentStructure.
 
 #° document:Witness
 

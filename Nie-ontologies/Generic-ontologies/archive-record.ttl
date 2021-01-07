@@ -73,8 +73,8 @@ archive-record:CarrierReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a rdfs:Class;
 	rdfs:label "archive record carrier reference"@en, "Archiveinheitträgerreferenz"@de;
-	rdfs:comment """A reference to a part of a carrier, e.g. a page reference of a volume."""@en;
-	rdfs:subClassOf document:ContentStructureReference.
+	rdfs:comment """A reference from an archive record to a part of a carrier, e.g. a reference to a page of a volume."""@en;
+	rdfs:subClassOf document:ContentStructureReference. # text-structure:CompositionalContentStructure
 
 archive-record:Identifier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
@@ -88,7 +88,7 @@ archive-record:CatalogueEntryWebpage
 	a rdfs:Class;
 	rdfs:label "catalogue entry webpage"@en, "Katalogeintrag-Webseite"@de;
 	rdfs:comment """Webpage of the catalogue entry in an archive information system."""@en;
-	rdfs:subClassOf publishing:WebpagePublication.
+	rdfs:subClassOf publishing:WebpagePublication. # electronic-information:Webpage
 
 #
 # PROPERTIES
@@ -98,7 +98,7 @@ archive-record:hasCarrier
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has carrier"@en, "Archivdatensatz hat Träger";
-	rdfs:comment """Relating an archive record to its physical or electronical carrier."""@en;
+	rdfs:comment """Relating an archive record to its carrier."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Carrier;
 	rdfs:subPropertyOf rico:hasCarrierType, information-carrier:isOnCarrier.
@@ -107,7 +107,7 @@ archive-record:hasCarrierReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has carrier reference"@en, "Archivdatensatz hat Trägerreferenz";
-	rdfs:comment """Relating a archive record to its reference in its physical or electronical carrier, f.e. archive record has carrier reference page in a volume."""@en;
+	rdfs:comment """Relating an archive record to its reference to a carrier part, f.e. a page in a volume."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:CarrierReference.
 
@@ -115,7 +115,7 @@ archive-record:isheldbyArchive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record is held by archive"@en, "Archivdatensatz wird geführt von Archiv";
-	rdfs:comment """Relating a archive record to its archive in which it is stored and recorded. The archive is responsible for the publishing and managing of an archive record."""@en;
+	rdfs:comment """Relating an archive record to its archive in which it is stored and recorded. The archive is responsible for the publishing and managing of an archive record."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range organization:Archive.
 
@@ -123,7 +123,7 @@ archive-record:hasProvenance
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has provenance"@en, "Archivdatensatz hat Provenienz";
-	rdfs:comment """Relating a archive record to the agent, which originally created the archive record for its own purposes."""@en;
+	rdfs:comment """Relating an archive record to the agent, which originally created the archive record for its own purposes."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:Provenance;
 	rdfs:subPropertyOf rico:hasProvenance.
@@ -132,7 +132,7 @@ archive-record:hasWebpage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has webpage"@en, "Archivdatensatz hat Webseite";
-	rdfs:comment """Relating a archive record to the webpage of the catalogue entry in an archive information system."""@en;
+	rdfs:comment """Relating an archive record to the webpage of the catalogue entry in an archive information system."""@en;
 	rdfs:domain archive-record:ArchiveRecord;
 	rdfs:range archive-record:CatalogueEntryWebpage;
 	rdfs:subPropertyOf publishing:hasWebPublication.
@@ -144,7 +144,7 @@ archive-record:isRepresentedBy
 	rdfs:comment """Relating something in the world (an event, a thing...) to the archive record it is represented by."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range archive-record:ArchiveRecord;
-	owl:inverseOf archive-record:represents. #°
+	owl:inverseOf archive-record:represents.
 
 archive-record:represents
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive-record#>;

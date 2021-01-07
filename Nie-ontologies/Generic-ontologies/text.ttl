@@ -179,7 +179,7 @@ text:OrganizationCiter
 text:CitationReference
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a rdfs:Class;
-	rdfs:label "citation reference"@en, "Zitatreferenz"@de, ""@fr, ""@it;
+	rdfs:label "citation reference"@en, "Zitatreferenz"@de; # , ""@fr, ""@it;
 	rdfs:comment """Reference of a text to a citation thereof via the citation identifier."""@en;
 	rdfs:subClassOf document:TextStructureReference.
 

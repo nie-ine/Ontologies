@@ -16,8 +16,8 @@
 <http://e-editiones.ch/ontology/archive>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
-	dct:title "An ontology about archive record"@en;
-	dct:description """Formal description of an archive record, general subclasses, related classes and properties."""@en;
+	dct:title "An ontology about archive"@en;
+	dct:description """Formal description of an archive, general subclasses, related classes and properties."""@en;
 	dct:creator "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:contributor "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
@@ -27,10 +27,12 @@
 # CLASSES
 #
 
+# archive:Archive  --> the Institution which is responsible for storing and recording archive material
+
 archive:ArchiveRecord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a rdfs:Class;
-	rdfs:label "archive record"@en, "Archiveinheit"@de;
+	rdfs:label "archive record"@en, "Archivdatensatz"@de;
 	rdfs:comment """A record as document and an entry in an Archive Information System or catalogue with catalogue data. This record can be 
 			of any level of detail, from an entire archive to a single document or only a part of it. 
 		Can also be described as an (immaterial) archive unit."""@en;
@@ -94,13 +96,13 @@ archive:Identifier
 			In the context of an archive information system, this is usually the signature."""@en;
 	rdfs:subClassOf rico:Identifier.
 
-archive:CatalogueEntryWebpage
+archive:ArchiveRecordWebpage
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a rdfs:Class;
-	rdfs:label "catalogue entry webpage"@en, "Katalogeintrag-Webseite"@de;
-	rdfs:comment """Webpage of the catalogue entry in an archive information system."""@en;
+	rdfs:label "archive record webpage"@en, "Archivdatensatz Webseite"@de;
+	rdfs:comment """Webpage of the archive record in an archive information system."""@en;
 	rdfs:subClassOf publishing:WebpagePublication. # electronic-information:Webpage
-	#Why catalogueEntry? --> better archive record webpage? can a similar concept be found in rico?
+	#can a similar concept be found in rico?
 #
 # PROPERTIES
 #
@@ -145,13 +147,13 @@ archive:hasWebpage
 	rdfs:label "archive record has webpage"@en, "Archivdatensatz hat Webseite";
 	rdfs:comment """Relating an archive record to the webpage of the catalogue entry in an archive information system."""@en;
 	rdfs:domain archive:ArchiveRecord;
-	rdfs:range archive:CatalogueEntryWebpage;
+	rdfs:range archive:ArchiveRecordWebpage;
 	rdfs:subPropertyOf publishing:hasWebPublication.
 
 archive:isRepresentedBy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a owl:ObjectProperty;
-	rdfs:label "is represented by archive record"@en, "wird durch Archiveinheit dargestellt";
+	rdfs:label "is represented by archive record"@en, "wird durch Archivdatensatz dargestellt";
 	rdfs:comment """Relating something in the world (an event, a thing...) to the archive record or the archive material it is represented by."""@en;
 	rdfs:domain rdfs:Resource;
 	rdfs:range archive:ArchiveRecord, archive:ArchiveMaterial.

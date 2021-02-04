@@ -10,14 +10,14 @@
 @prefix publishing: <http://e-editiones.ch/ontology/publishing#>.
 @prefix information-carrier: <http://e-editiones.ch/ontology/information-carrier#>.
 
-@base <http://e-editiones.ch/ontology/archive>.
-@prefix archive: <http://e-editiones.ch/ontology/archive#>.
+@base <http://e-editiones.ch/ontology/archiving>.
+@prefix archiving: <http://e-editiones.ch/ontology/archiving#>.
 
-<http://e-editiones.ch/ontology/archive>
+<http://e-editiones.ch/ontology/archiving>
 	a owl:Ontology;
 	dct:license <http://creativecommons.org/licenses/by/3.0/>;
-	dct:title "An ontology about archive"@en;
-	dct:description """Formal description of an archive, general subclasses, related classes and properties."""@en;
+	dct:title "An ontology about archiving"@en;
+	dct:description """Formal description of archive, general subclasses, related classes and properties."""@en;
 	dct:creator "Rebekka Plüss, research assistant and software developer, University of Basel, Switzerland"@en;
 	dct:contributor "Hans Cools, MD, knowledge engineer, ontologist, software developer, University of Basel, Switzerland"@en;
 	dct:publisher "Universities of Basel, Bern, and Zürich, Switzerland"@en;
@@ -27,77 +27,77 @@
 # CLASSES
 #
 
-# archive:Archive  --> the Institution which is responsible for storing and recording archive material
+# archiving:Archive  --> the Institution which is responsible for storing and recording archive material
 # subclass of organization:Archive
 
-archive:ArchiveRecord
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:ArchiveRecord
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "archive record"@en, "Archivdatensatz"@de;
 	rdfs:comment """A record as document and an entry in an Archive Information System or catalogue with catalogue data. This record can be 
 			of any level of detail, from an entire archive to a single document or only a part of it. Can also be described as an (immaterial) archive unit."""@en;
 	rdfs:subClassOf rico:RecordResource, document:Document.
 
-archive:ArchiveMaterial
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:ArchiveMaterial
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "archive material"@en, "Archivgut"@de;
 	rdfs:comment """The inscription of information on a physical carrier in any persistent, recoverable form by an Agent as a means of communicating information through time and space."""@en;
 	rdfs:subClassOf rico:Instantiation. #tbd: Harmonization with information-carrier:Carrier and information-carrier:ArchiveElement
 
-archive:Provenance
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:Provenance
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "provenance"@en, "Provenienz"@de;
 	rdfs:comment """Agent, i.e. organization or person, who created the archive material originally for own purpose."""@en;
 	rdfs:subClassOf agent:Agent, rico:Agent.
 
-archive:CarrierType
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:CarrierType
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "carrier type"@en, "Trägertyp"@de;
 	rdfs:comment """Carrier type of an archive record, i.e. the archival material."""@en;
 	skos:example """Paper, pergament or an electronic carrier type,..."""@en;
 	rdfs:subClassOf rico:CarrierType. #tbd: Harmonization with information-carrier:Carrier and information-carrier:ArchiveElement
 
-archive:Book
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:Book
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "carrier type book"@en, "Trägertyp Buch"@de;
 	rdfs:comment """"""@en;
-	rdfs:subClassOf archive:CarrierType, information-carrier:Book. 
+	rdfs:subClassOf archiving:CarrierType, information-carrier:Book. 
 
-archive:Volume
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:Volume
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "volume"@en, "Band"@de;
 	rdfs:comment """Archive carrier book as volume. It is also a special book: One book of a serie of books. One serie is a set of books which are mostly created for the same purpose by the same provenance."""@en;
-	rdfs:subClassOf archive:Book. #information-carrier:Volume?
+	rdfs:subClassOf archiving:Book. #information-carrier:Volume?
 
-archive:PaperFile
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:PaperFile
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "paper file"@en, "Papierdossier"@de;
 	rdfs:comment """Archive carrier paper file."""@en;
-	rdfs:subClassOf archive:CarrierType.
+	rdfs:subClassOf archiving:CarrierType.
 
-archive:Reference #to be looked at again. Carrier is new: archive material
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:Reference #to be looked at again. Carrier is new: archive material
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "reference"@en, "Referenz"@de;
 	rdfs:comment """A reference from an archive record to a part of a archive material, e.g. a reference to a page in a book."""@en;
 	rdfs:subClassOf document:ContentStructureReference. # text-structure:CompositionalContentStructure
 
-archive:Identifier
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:Identifier
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "identifier"@en, "Identifikator"@de;
 	rdfs:comment """Identifier of an archive record, which is at the same time used to find the archive material, which is described by the archive record. 
 			In the context of an archive information system, this is usually the signature."""@en;
 	rdfs:subClassOf rico:Identifier.
 
-archive:ArchiveRecordWebpage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:ArchiveRecordWebpage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a rdfs:Class;
 	rdfs:label "archive record webpage"@en, "Archivdatensatz Webseite"@de;
 	rdfs:comment """Webpage of the archive record in an archive information system."""@en;
@@ -107,62 +107,62 @@ archive:ArchiveRecordWebpage
 # PROPERTIES
 #
 
-archive:archiveRecordRecordsArchiveMaterial
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:archiveRecordRecordsArchiveMaterial
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record records archive material"@en, "Archivdatensatz erfasst Archivgut";
 	rdfs:comment """Relating an archive material to its archive material."""@en;
-	rdfs:domain archive:ArchiveRecord;
-	rdfs:range archive:ArchiveMaterial;
+	rdfs:domain archiving:ArchiveRecord;
+	rdfs:range archiving:ArchiveMaterial;
 	rdfs:subPropertyOf rico:hasInstantiation. 
 
-archive:hasCarrierType
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:hasCarrierType
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive material has carrier type"@en, "Archivgut hat Trägertyp";
 	rdfs:comment """Relating an archive material to its carrier type."""@en;
-	rdfs:domain archive:ArchiveMaterial;
-	rdfs:range archive:CarrierType;
+	rdfs:domain archiving:ArchiveMaterial;
+	rdfs:range archiving:CarrierType;
 	rdfs:subPropertyOf rico:hasCarrierType. #tbd: Harmonize with information-carrier:isOnCarrier.
 
-archive:hasCarrierReference #to be looked at again. Carrier is new: archive material
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:hasCarrierReference #to be looked at again. Carrier is new: archive material
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has carrier reference"@en, "Archivdatensatz hat Trägerreferenz";
 	rdfs:comment """Relating an archive record to its reference to a carrier part, f.e. a page in a volume."""@en;
-	rdfs:domain archive:ArchiveRecord;
-	rdfs:range archive:Reference.
+	rdfs:domain archiving:ArchiveRecord;
+	rdfs:range archiving:Reference.
 
-archive:isheldbyArchive
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:isheldbyArchive
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record is held by archive"@en, "Archivdatensatz wird geführt von Archiv";
 	rdfs:comment """Relating an archive record or archive material to its archive in which it is recorded or stored. The archive is responsible for the publishing and managing of an archive record."""@en;
-	rdfs:domain archive:ArchiveMaterial, archive:ArchiveRecord;
+	rdfs:domain archiving:ArchiveMaterial, archiving:ArchiveRecord;
 	rdfs:range organization:Archive.
 
-archive:hasProvenance
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:hasProvenance
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has provenance"@en, "Archivdatensatz hat Provenienz";
 	rdfs:comment """Relating an archive record or the archive material to the agent, which originally created it for its own purposes."""@en;
-	rdfs:domain archive:ArchiveMaterial, archive:ArchiveRecord;
-	rdfs:range archive:Provenance;
+	rdfs:domain archiving:ArchiveMaterial, archiving:ArchiveRecord;
+	rdfs:range archiving:Provenance;
 	rdfs:subPropertyOf rico:hasProvenance.
 
-archive:hasWebpage
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:hasWebpage
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has webpage"@en, "Archivdatensatz hat Webseite";
 	rdfs:comment """Relating an archive record to the webpage of the catalogue entry in an archive information system."""@en;
-	rdfs:domain archive:ArchiveRecord;
-	rdfs:range archive:ArchiveRecordWebpage;
+	rdfs:domain archiving:ArchiveRecord;
+	rdfs:range archiving:ArchiveRecordWebpage;
 	#rdfs:subPropertyOf publishing:hasWebPublication. ? can a similar concept be found in rico?
 
-archive:isRepresentedBy
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+archiving:isRepresentedBy
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archiving#>;
 	a owl:ObjectProperty;
 	rdfs:label "is represented by archive record"@en, "wird durch Archivdatensatz dargestellt";
 	rdfs:comment """Relating something in the world (an event, a thing...) to the archive record or the archive material it is represented by."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range archive:ArchiveRecord, archive:ArchiveMaterial.
+	rdfs:range archiving:ArchiveRecord, archiving:ArchiveMaterial.

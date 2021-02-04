@@ -35,8 +35,7 @@ archive:ArchiveRecord
 	a rdfs:Class;
 	rdfs:label "archive record"@en, "Archivdatensatz"@de;
 	rdfs:comment """A record as document and an entry in an Archive Information System or catalogue with catalogue data. This record can be 
-			of any level of detail, from an entire archive to a single document or only a part of it. 
-		Can also be described as an (immaterial) archive unit."""@en;
+			of any level of detail, from an entire archive to a single document or only a part of it. Can also be described as an (immaterial) archive unit."""@en;
 	rdfs:subClassOf rico:RecordResource, document:Document.
 
 archive:ArchiveMaterial
@@ -108,6 +107,15 @@ archive:ArchiveRecordWebpage
 # PROPERTIES
 #
 
+archive:archiveRecordRecordsArchiveMaterial
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
+	a owl:ObjectProperty;
+	rdfs:label "archive record records archive material"@en, "Archivdatensatz erfasst Archivgut";
+	rdfs:comment """Relating an archive material to its archive material."""@en;
+	rdfs:domain archive:ArchiveRecord;
+	rdfs:range archive:ArchiveMaterial;
+	rdfs:subPropertyOf rico:hasInstantiation. 
+
 archive:hasCarrierType
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a owl:ObjectProperty;
@@ -150,8 +158,6 @@ archive:hasWebpage
 	rdfs:domain archive:ArchiveRecord;
 	rdfs:range archive:ArchiveRecordWebpage;
 	#rdfs:subPropertyOf publishing:hasWebPublication. ? can a similar concept be found in rico?
-
-
 
 archive:isRepresentedBy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;

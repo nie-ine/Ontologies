@@ -54,7 +54,8 @@ archive:CarrierType
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a rdfs:Class;
 	rdfs:label "carrier type"@en, "Trägertyp"@de;
-	rdfs:comment """Carrier type of an archive record, i.e. the archival material. This can be, f. e. paper, pergament or an electronic carrier type."""@en;
+	rdfs:comment """Carrier type of an archive record, i.e. the archival material."""@en;
+	skos:example """Paper, pergament or an electronic carrier type,..."""@en;
 	rdfs:subClassOf rico:CarrierType. #tbd: Harmonization with information-carrier:Carrier and information-carrier:ArchiveElement
 
 archive:Book
@@ -153,16 +154,4 @@ archive:isRepresentedBy
 	rdfs:label "is represented by archive record"@en, "wird durch Archiveinheit dargestellt";
 	rdfs:comment """Relating something in the world (an event, a thing...) to the archive record or the archive material it is represented by."""@en;
 	rdfs:domain rdfs:Resource;
-	rdfs:range archive:ArchiveRecord, archive:ArchiveMaterial;
-	owl:inverseOf archive:represents.
-
-archive:represents
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
-	a owl:ObjectProperty;
-	rdfs:label "archive record represents"@en, "Archiveinheit stellt dar";
-	rdfs:comment """Relating an archive record to what (an event, a thing...) it represents."""@en;
-	rdfs:domain archive:ArchiveRecord;
-	rdfs:range rdfs:Resource;
-	owl:inverseOf archive:isRepresentedBy.
-
-
+	rdfs:range archive:ArchiveRecord, archive:ArchiveMaterial.

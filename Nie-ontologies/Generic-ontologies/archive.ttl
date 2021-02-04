@@ -28,6 +28,7 @@
 #
 
 # archive:Archive  --> the Institution which is responsible for storing and recording archive material
+# subclass of organization:Archive
 
 archive:ArchiveRecord
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
@@ -81,7 +82,7 @@ archive:PaperFile
 	rdfs:comment """Archive carrier paper file."""@en;
 	rdfs:subClassOf archive:CarrierType.
 
-archive:Reference
+archive:Reference #to be looked at again. Carrier is new: archive material
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a rdfs:Class;
 	rdfs:label "reference"@en, "Referenz"@de;
@@ -116,13 +117,13 @@ archive:hasCarrierType
 	rdfs:range archive:CarrierType;
 	rdfs:subPropertyOf rico:hasCarrierType. #tbd: Harmonize with information-carrier:isOnCarrier.
 
-archive:hasCarrierReference #
+archive:hasCarrierReference #to be looked at again. Carrier is new: archive material
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
 	a owl:ObjectProperty;
 	rdfs:label "archive record has carrier reference"@en, "Archivdatensatz hat Trägerreferenz";
 	rdfs:comment """Relating an archive record to its reference to a carrier part, f.e. a page in a volume."""@en;
 	rdfs:domain archive:ArchiveRecord;
-	rdfs:range archive:CarrierReference.
+	rdfs:range archive:Reference.
 
 archive:isheldbyArchive
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;
@@ -148,7 +149,9 @@ archive:hasWebpage
 	rdfs:comment """Relating an archive record to the webpage of the catalogue entry in an archive information system."""@en;
 	rdfs:domain archive:ArchiveRecord;
 	rdfs:range archive:ArchiveRecordWebpage;
-	rdfs:subPropertyOf publishing:hasWebPublication.
+	#rdfs:subPropertyOf publishing:hasWebPublication. ? can a similar concept be found in rico?
+
+
 
 archive:isRepresentedBy
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/archive#>;

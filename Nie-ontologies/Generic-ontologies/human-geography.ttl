@@ -40,7 +40,7 @@ human-geography:Country
 	a rdfs:Class;
 	rdfs:label "country"@en, "Land"@de;
 	rdfs:comment """Place of a nation."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:State
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
@@ -131,42 +131,42 @@ human-geography:Town
 	a rdfs:Class;
 	rdfs:label "town"@en, "Ortschaft"@de;
 	rdfs:comment """Smallest place with political boundaries and an own government."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:Village
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "village"@en, "Dorf"@de;
 	rdfs:comment """Small place with political boundaries but without an own government."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:City
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "city"@en, "Stadt"@de;
 	rdfs:comment """Large town."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:District
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "district"@en, "Stadtviertel"@de;
 	rdfs:comment """Part of a city with own administration."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:Street
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "street"@en, "Strasse"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:StreetPlace
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;
 	a rdfs:Class;
 	rdfs:label "street place"@en, "Strassenort"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf physical-entity:EarthPlace.
+	rdfs:subClassOf physical-geography:EarthPlace.
 
 human-geography:PostalAddress #° more general? # comprises cidoc:E45_Address and cidoc:E51_Contact_Point: postal box
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human-geography#>;

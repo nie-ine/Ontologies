@@ -553,7 +553,7 @@ human:hasBirthplace
 	rdfs:comment """Relating a person to the birthplace of that person."""@en;
 	skos:note """It is possible to find different birthplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical-entity:EarthPlace.
+	rdfs:range physical-geography:EarthPlace.
 
 human:hasDeathDate
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -626,7 +626,7 @@ human:hasDeathplace
 	rdfs:comment """Relating a person to the deathplace of that person."""@en;
 	skos:note """It is possible to find different deathplaces in different historical sources, in which case a probability can be attributed to each place."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical-entity:EarthPlace.
+	rdfs:range physical-geography:EarthPlace.
 
 human:hasMaxLifeSpan
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;
@@ -784,7 +784,7 @@ human:hasPlaceOfWork
 	rdfs:label "has place of work"@en, "hat Wirkungsort"@de;
 	rdfs:comment """Relating a person to the place where she/he works."""@en;
 	rdfs:domain human:Person;
-	rdfs:range physical-entity:EarthPlace.
+	rdfs:range physical-geography:EarthPlace.
 
 human:adheringToThought
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/human#>;

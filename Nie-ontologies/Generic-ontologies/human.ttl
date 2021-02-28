@@ -11,6 +11,7 @@
 @prefix physical-entity: <http://e-editiones.ch/ontology/physical-entity#>.
 @prefix time: <http://e-editiones.ch/ontology/time#>.
 @prefix event: <http://e-editiones.ch/ontology/event#>.
+@prefix physical-geography: <http://e-editiones.ch/ontology/physical-geography#>.
 @prefix agent: <http://e-editiones.ch/ontology/agent#>.
 @prefix calendar: <http://e-editiones.ch/ontology/calendar#>.
 @prefix concept: <http://e-editiones.ch/ontology/concept#>.

@@ -502,50 +502,6 @@ text:isCitedIn
 	rdfs:subPropertyOf text:isReferredToIn;
 	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
 
-text:isCitedTwiceIn
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "is cited twice in"@en, "ist zweimal zitiert in"@de, "est cité deux fois dans"@fr; #, "è citato in"@it;
-	rdfs:comment """Relating a text to an expression wherein it is cited twice."""@en;
-	skos:note """Experimental."""@en;
-	rdfs:domain text-structure:Structure;
-	rdfs:range text-expression:Expression;
-	rdfs:subPropertyOf text:isReferredToIn;
-	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
-
-text:isCitedThreeTimesIn
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "is cited three times in"@en, "ist dreimal zitiert in"@de, "est cité trois fois dans"@fr; #, "è citato in"@it;
-	rdfs:comment """Relating a text to an expression wherein it is cited three times."""@en;
-	skos:note """Experimental."""@en;
-	rdfs:domain text-structure:Structure;
-	rdfs:range text-expression:Expression;
-	rdfs:subPropertyOf text:isReferredToIn;
-	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
-
-text:isCitedFourTimesIn
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "is cited four times in"@en, "ist viermal zitiert in"@de, "est cité quatre fois dans"@fr; #, "è citato in"@it;
-	rdfs:comment """Relating a text to an expression wherein it is cited four times."""@en;
-	skos:note """Experimental."""@en;
-	rdfs:domain text-structure:Structure;
-	rdfs:range text-expression:Expression;
-	rdfs:subPropertyOf text:isReferredToIn;
-	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
-
-text:isCitedFiveTimesIn
-	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
-	a owl:ObjectProperty;
-	rdfs:label "is cited five times in"@en, "ist funfmal zitiert in"@de, "est cité cinq fois dans"@fr; #, "è citato in"@it;
-	rdfs:comment """Relating a text to an expression wherein it is cited five times."""@en;
-	skos:note """Experimental."""@en;
-	rdfs:domain text-structure:Structure;
-	rdfs:range text-expression:Expression;
-	rdfs:subPropertyOf text:isReferredToIn;
-	owl:propertyChainAxiom (text:hasCitation text:citationIsPartOf).
-
 text:isAlludedToIn
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/text#>;
 	a owl:ObjectProperty;

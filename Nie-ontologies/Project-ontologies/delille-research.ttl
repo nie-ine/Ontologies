@@ -46,6 +46,42 @@ delille-research:hasCitationOf
 	rdfs:range prosodic-structure:RhymingVerse;
 	owl:inverseOf text:isCitedIn.
 
+delille-research:isCitedTwiceIn
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille-research#>;
+	a owl:ObjectProperty;
+	rdfs:label "is cited twice in"@en, "ist zweimal zitiert in"@de, "est cité deux fois dans"@fr; #, "è citato in"@it;
+	rdfs:comment """Relating a verse of 'L'Homme des Champs' to a citing text expression wherein it is cited twice."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range delille:CitingExpression;
+	rdfs:subPropertyOf text:isCitedIn.
+
+delille-research:isCitedThreeTimesIn
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille-research#>;
+	a owl:ObjectProperty;
+	rdfs:label "is cited three times in"@en, "ist dreimal zitiert in"@de, "est cité trois fois dans"@fr; #, "è citato in"@it;
+	rdfs:comment """Relating a verse of 'L'Homme des Champs' to a citing text expression wherein it is cited three times."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range delille:CitingExpression;
+	rdfs:subPropertyOf text:isCitedIn.
+
+delille-research:isCitedFourTimesIn
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille-research#>;
+	a owl:ObjectProperty;
+	rdfs:label "is cited four times in"@en, "ist viermal zitiert in"@de, "est cité quatre fois dans"@fr; #, "è citato in"@it;
+	rdfs:comment """Relating a verse of 'L'Homme des Champs' to a citing text expression wherein it is cited four times."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range delille:CitingExpression;
+	rdfs:subPropertyOf text:isCitedIn.
+
+delille-research:isCitedFiveTimesIn
+	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille-research#>;
+	a owl:ObjectProperty;
+	rdfs:label "is cited five times in"@en, "ist funfmal zitiert in"@de, "est cité cinq fois dans"@fr; #, "è citato in"@it;
+	rdfs:comment """Relating a verse of 'L'Homme des Champs' to a citing text expression wherein it is cited five times."""@en;
+	rdfs:domain prosodic-structure:RhymingVerse;
+	rdfs:range delille:CitingExpression;
+	rdfs:subPropertyOf text:isCitedIn.
+
 delille-research:verseHasNumberOfCitations
 	rdfs:isDefinedBy <http://e-editiones.ch/ontology/delille-research#>;
 	a owl:DatatypeProperty;
